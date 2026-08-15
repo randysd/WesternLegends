@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 300" role="img" aria-label="ITEM">
+<defs><filter id="soft"><feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="3"/><feDisplacementMap in="SourceGraphic" scale="1.5"/></filter></defs>
+<rect width="340" height="300" fill="#f8e9c7" opacity="0"/>
+<g fill="none" stroke="#607949" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity=".25" filter="url(#soft)"><path d="M64 238h210V116H64z"/><path d="M44 124h250l-41-46H87z"/><path d="M91 238v-80h58v80"/><path d="M180 156h52v38h-52z"/><path d="M112 95h104"/><path d="M103 75h129"/><path d="M82 261h171"/></g>
+<g fill="none" stroke="#3b2818" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity=".78"><path d="M64 238h210V116H64z"/><path d="M44 124h250l-41-46H87z"/><path d="M91 238v-80h58v80"/><path d="M180 156h52v38h-52z"/><path d="M112 95h104"/><path d="M103 75h129"/><path d="M82 261h171"/></g>
+</svg>

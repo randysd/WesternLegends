@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 300" role="img" aria-label="PROSPECT">
+<defs><filter id="soft"><feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="3"/><feDisplacementMap in="SourceGraphic" scale="1.5"/></filter></defs>
+<rect width="340" height="300" fill="#f8e9c7" opacity="0"/>
+<g fill="none" stroke="#386f91" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity=".25" filter="url(#soft)"><path d="M88 237c42-39 145-55 208-8 13 9 10 27-6 32-74 25-155 21-220-3-15-6-12-16 18-21z"/><path d="M72 188l145-109 18 22L92 211z"/><path d="M143 75c39-20 93-21 134 4-44 2-87 16-128 42z"/><path d="M101 208c34 13 92 21 149 8"/><path d="M139 229c11-15 50-17 62 0"/></g>
+<g fill="none" stroke="#3b2818" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity=".78"><path d="M88 237c42-39 145-55 208-8 13 9 10 27-6 32-74 25-155 21-220-3-15-6-12-16 18-21z"/><path d="M72 188l145-109 18 22L92 211z"/><path d="M143 75c39-20 93-21 134 4-44 2-87 16-128 42z"/><path d="M101 208c34 13 92 21 149 8"/><path d="M139 229c11-15 50-17 62 0"/></g>
+</svg>

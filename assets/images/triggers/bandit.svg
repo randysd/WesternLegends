@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 300" role="img" aria-label="BANDIT">
+<defs><filter id="soft"><feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="3"/><feDisplacementMap in="SourceGraphic" scale="1.5"/></filter></defs>
+<rect width="340" height="300" fill="#f8e9c7" opacity="0"/>
+<g fill="none" stroke="#a64a32" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity=".25" filter="url(#soft)"><path d="M178 82c-15-11-41-11-55 0l-45 3 38-22c4-34 69-33 73 0l36 22-47-3z"/><path d="M95 166c10-46 111-45 122 0l14 89H80z"/><circle cx="156" cy="121" r="42"/><path d="M116 122c22 14 58 14 80 0"/><path d="M194 164l72-24 18 18-76 42z"/><path d="M63 210c40-55 96-76 165-58"/></g>
+<g fill="none" stroke="#3b2818" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity=".78"><path d="M178 82c-15-11-41-11-55 0l-45 3 38-22c4-34 69-33 73 0l36 22-47-3z"/><path d="M95 166c10-46 111-45 122 0l14 89H80z"/><circle cx="156" cy="121" r="42"/><path d="M116 122c22 14 58 14 80 0"/><path d="M194 164l72-24 18 18-76 42z"/><path d="M63 210c40-55 96-76 165-58"/></g>
+</svg>
