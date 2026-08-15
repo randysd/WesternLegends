@@ -1,0 +1,479 @@
+[
+  {
+    "id": "world_drought",
+    "title": "Drought",
+    "type": "worldEvent",
+    "baseWeight": 5,
+    "requiredModules": [],
+    "tags": [
+      "weather",
+      "wound"
+    ],
+    "screenText": "For the next 5 primary triggers, the first player ending outside town gains 1 wound.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"The wells cough mud and the sun hangs mean in the sky.\"",
+    "audioFile": "audio/world/world_drought.mp3",
+    "effects": [
+      {
+        "type": "duration_primary_triggers",
+        "count": 5
+      },
+      {
+        "type": "outside_town_wound_first"
+      }
+    ]
+  },
+  {
+    "id": "world_gold_rush",
+    "title": "Gold Rush",
+    "type": "worldEvent",
+    "baseWeight": 5,
+    "requiredModules": [],
+    "tags": [
+      "gold",
+      "prospect"
+    ],
+    "screenText": "For the next 5 primary triggers, Prospect actions gain +$10.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Gold fever spreads faster than common sense.\"",
+    "audioFile": "audio/world/world_gold_rush.mp3",
+    "effects": [
+      {
+        "type": "duration_primary_triggers",
+        "count": 5
+      },
+      {
+        "type": "prospect_money_bonus",
+        "amount": 10
+      }
+    ]
+  },
+  {
+    "id": "world_sheriff_crackdown",
+    "title": "Sheriff’s Crackdown",
+    "type": "worldEvent",
+    "baseWeight": 5,
+    "requiredModules": [],
+    "tags": [
+      "sheriff",
+      "wanted"
+    ],
+    "screenText": "For the next 5 primary triggers, whenever a player gains WP, move the Sheriff 3 spaces.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"The law sharpens its teeth.\"",
+    "audioFile": "audio/world/world_sheriff_crackdown.mp3",
+    "effects": [
+      {
+        "type": "duration_primary_triggers",
+        "count": 5
+      },
+      {
+        "type": "wanted_moves_sheriff",
+        "spaces": 3
+      }
+    ]
+  },
+  {
+    "id": "world_bandit_uprising",
+    "title": "Bandit Uprising",
+    "type": "worldEvent",
+    "baseWeight": 5,
+    "requiredModules": [],
+    "tags": [
+      "bandit",
+      "fight"
+    ],
+    "screenText": "For the next 5 primary triggers, Bandits draw +1 Fight Card.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"The hills start spitting out hard men with loaded guns.\"",
+    "audioFile": "audio/world/world_bandit_uprising.mp3",
+    "effects": [
+      {
+        "type": "duration_primary_triggers",
+        "count": 5
+      },
+      {
+        "type": "bandits_extra_fight_card",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": "world_frontier_festival",
+    "title": "Frontier Festival",
+    "type": "worldEvent",
+    "baseWeight": 5,
+    "requiredModules": [],
+    "tags": [
+      "town",
+      "positive"
+    ],
+    "screenText": "For the next 4 primary triggers, the first Town action gains +$10.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Music rolls out of town like lantern light.\"",
+    "audioFile": "audio/world/world_frontier_festival.mp3",
+    "effects": [
+      {
+        "type": "duration_primary_triggers",
+        "count": 4
+      },
+      {
+        "type": "first_town_action_bonus_money",
+        "amount": 10
+      }
+    ]
+  },
+  {
+    "id": "world_bad_weather",
+    "title": "Bad Weather",
+    "type": "worldEvent",
+    "baseWeight": 5,
+    "requiredModules": [],
+    "tags": [
+      "weather",
+      "move"
+    ],
+    "screenText": "For the next 4 primary triggers, Move actions are -1 space.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Rain turns every road into brown soup.\"",
+    "audioFile": "audio/world/world_bad_weather.mp3",
+    "effects": [
+      {
+        "type": "duration_primary_triggers",
+        "count": 4
+      },
+      {
+        "type": "movement_modifier",
+        "amount": -1
+      }
+    ]
+  },
+  {
+    "id": "world_clear_skies",
+    "title": "Clear Skies",
+    "type": "worldEvent",
+    "baseWeight": 5,
+    "requiredModules": [],
+    "tags": [
+      "weather",
+      "move"
+    ],
+    "screenText": "For the next 4 primary triggers, Move actions are +1 space.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"The sky clears, and every trail looks shorter.\"",
+    "audioFile": "audio/world/world_clear_skies.mp3",
+    "effects": [
+      {
+        "type": "duration_primary_triggers",
+        "count": 4
+      },
+      {
+        "type": "movement_modifier",
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "id": "world_high_stakes",
+    "title": "High Stakes Night",
+    "type": "worldEvent",
+    "baseWeight": 5,
+    "requiredModules": [],
+    "tags": [
+      "poker"
+    ],
+    "screenText": "For the next 4 primary triggers, Poker winners gain +$20.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Every fool with coin in his pocket wants a seat.\"",
+    "audioFile": "audio/world/world_high_stakes.mp3",
+    "effects": [
+      {
+        "type": "duration_primary_triggers",
+        "count": 4
+      },
+      {
+        "type": "poker_win_bonus_money",
+        "amount": 20
+      }
+    ]
+  },
+  {
+    "id": "world_cattle_market",
+    "title": "Cattle Market",
+    "type": "worldEvent",
+    "baseWeight": 5,
+    "requiredModules": [],
+    "tags": [
+      "cattle"
+    ],
+    "screenText": "For the next 5 primary triggers, Wrangle/Rustle rewards gain +$10.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Beef prices climb like smoke.\"",
+    "audioFile": "audio/world/world_cattle_market.mp3",
+    "effects": [
+      {
+        "type": "duration_primary_triggers",
+        "count": 5
+      },
+      {
+        "type": "cattle_delivery_bonus_money",
+        "amount": 10
+      }
+    ]
+  },
+  {
+    "id": "world_doctor_shortage",
+    "title": "Doctor Shortage",
+    "type": "worldEvent",
+    "baseWeight": 5,
+    "requiredModules": [],
+    "tags": [
+      "doctor"
+    ],
+    "screenText": "For the next 4 primary triggers, Heal costs +$10.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"The doctor is short on laudanum and patience.\"",
+    "audioFile": "audio/world/world_doctor_shortage.mp3",
+    "effects": [
+      {
+        "type": "duration_primary_triggers",
+        "count": 4
+      },
+      {
+        "type": "heal_cost_modifier",
+        "amount": 10
+      }
+    ]
+  },
+  {
+    "id": "world_free_rail",
+    "title": "Railroad Jubilee",
+    "type": "worldEvent",
+    "baseWeight": 5,
+    "requiredModules": [
+      "ante_up"
+    ],
+    "tags": [
+      "rail",
+      "ante_up"
+    ],
+    "screenText": "For the next 6 primary triggers, Travel by Rail costs $0.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"The locomotive whistles and every station celebrates.\"",
+    "audioFile": "audio/world/world_free_rail.mp3",
+    "effects": [
+      {
+        "type": "duration_primary_triggers",
+        "count": 6
+      },
+      {
+        "type": "rail_cost",
+        "amount": 0
+      }
+    ]
+  },
+  {
+    "id": "world_train_security",
+    "title": "Armed Train Guards",
+    "type": "worldEvent",
+    "baseWeight": 5,
+    "requiredModules": [
+      "ante_up"
+    ],
+    "tags": [
+      "train",
+      "ante_up"
+    ],
+    "screenText": "For the next 5 primary triggers, Train Guards draw +1 Fight Card.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Railroad men hire guns by the dozen.\"",
+    "audioFile": "audio/world/world_train_security.mp3",
+    "effects": [
+      {
+        "type": "duration_primary_triggers",
+        "count": 5
+      },
+      {
+        "type": "train_guard_extra_fight_card",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": "world_mine_collapse",
+    "title": "Unstable Mines",
+    "type": "worldEvent",
+    "baseWeight": 5,
+    "requiredModules": [],
+    "tags": [
+      "mine"
+    ],
+    "screenText": "For the next 5 primary triggers, Prospecting players gain 1 wound on Gravel.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"The earth groans under every pick.\"",
+    "audioFile": "audio/world/world_mine_collapse.mp3",
+    "effects": [
+      {
+        "type": "duration_primary_triggers",
+        "count": 5
+      },
+      {
+        "type": "prospect_gravel_wound"
+      }
+    ]
+  },
+  {
+    "id": "world_trader_boom",
+    "title": "Trader Boom",
+    "type": "worldEvent",
+    "baseWeight": 5,
+    "requiredModules": [],
+    "tags": [
+      "trader"
+    ],
+    "screenText": "For the next 5 primary triggers, Legendary Items cost $10 less.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Dr. Herve’s wagon rolls heavy with wonders.\"",
+    "audioFile": "audio/world/world_trader_boom.mp3",
+    "effects": [
+      {
+        "type": "duration_primary_triggers",
+        "count": 5
+      },
+      {
+        "type": "legendary_item_discount",
+        "amount": 10
+      }
+    ]
+  },
+  {
+    "id": "world_saloons_dry",
+    "title": "Dry Saloons",
+    "type": "worldEvent",
+    "baseWeight": 5,
+    "requiredModules": [],
+    "tags": [
+      "saloon"
+    ],
+    "screenText": "For the next 4 primary triggers, Poker cannot trigger one-off events.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"The whiskey runs dry and the tables go cold.\"",
+    "audioFile": "audio/world/world_saloons_dry.mp3",
+    "effects": [
+      {
+        "type": "duration_primary_triggers",
+        "count": 4
+      },
+      {
+        "type": "suppress_event_tag",
+        "tag": "poker"
+      }
+    ]
+  },
+  {
+    "id": "world_ranch_fire",
+    "title": "Ranch Fire",
+    "type": "worldEvent",
+    "baseWeight": 5,
+    "requiredModules": [],
+    "tags": [
+      "ranch"
+    ],
+    "screenText": "For the next 4 primary triggers, Acquire cattle costs 1 Poker Card.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Smoke rises from the north pasture.\"",
+    "audioFile": "audio/world/world_ranch_fire.mp3",
+    "effects": [
+      {
+        "type": "duration_primary_triggers",
+        "count": 4
+      },
+      {
+        "type": "acquire_cattle_extra_cost",
+        "cost": "discard_1_poker"
+      }
+    ]
+  },
+  {
+    "id": "world_resource_boom",
+    "title": "Useful Scraps",
+    "type": "worldEvent",
+    "baseWeight": 5,
+    "requiredModules": [
+      "foraging"
+    ],
+    "tags": [
+      "foraging"
+    ],
+    "screenText": "For the next 5 primary triggers, Forage draws +1 then discards 1.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"The frontier is littered with things useful to clever hands.\"",
+    "audioFile": "audio/world/world_resource_boom.mp3",
+    "effects": [
+      {
+        "type": "duration_primary_triggers",
+        "count": 5
+      },
+      {
+        "type": "forage_draw_then_discard",
+        "draw": 1,
+        "discard": 1
+      }
+    ]
+  },
+  {
+    "id": "world_predator_migration",
+    "title": "Predator Migration",
+    "type": "worldEvent",
+    "baseWeight": 5,
+    "requiredModules": [
+      "hunting"
+    ],
+    "tags": [
+      "hunting"
+    ],
+    "screenText": "For the next 5 primary triggers, successful Hunts gain +1 LP but also +1 wound.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Hungry eyes shine in the brush.\"",
+    "audioFile": "audio/world/world_predator_migration.mp3",
+    "effects": [
+      {
+        "type": "duration_primary_triggers",
+        "count": 5
+      },
+      {
+        "type": "hunt_success_bonus_lp_and_wound"
+      }
+    ]
+  },
+  {
+    "id": "world_craft_fair",
+    "title": "Craft Fair",
+    "type": "worldEvent",
+    "baseWeight": 5,
+    "requiredModules": [
+      "crafting"
+    ],
+    "tags": [
+      "crafting"
+    ],
+    "screenText": "For the next 5 primary triggers, Craft action grants +$10.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Every useful trinket finds a buyer.\"",
+    "audioFile": "audio/world/world_craft_fair.mp3",
+    "effects": [
+      {
+        "type": "duration_primary_triggers",
+        "count": 5
+      },
+      {
+        "type": "craft_bonus_money",
+        "amount": 10
+      }
+    ]
+  },
+  {
+    "id": "world_legendary_weather",
+    "title": "Red Sunset",
+    "type": "worldEvent",
+    "baseWeight": 5,
+    "requiredModules": [],
+    "tags": [
+      "legendary"
+    ],
+    "screenText": "For the next 3 primary triggers, the first player to gain LP gains +1 LP.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"The sunset burns red, and even ordinary deeds look legendary.\"",
+    "audioFile": "audio/world/world_legendary_weather.mp3",
+    "effects": [
+      {
+        "type": "duration_primary_triggers",
+        "count": 3
+      },
+      {
+        "type": "first_lp_gain_bonus",
+        "amount": 1
+      }
+    ]
+  }
+]

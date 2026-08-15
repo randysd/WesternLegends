@@ -1,0 +1,921 @@
+[
+  {
+    "id": "trig_move_3_plus",
+    "label": "Move 3+ spaces during Move action",
+    "category": "movement",
+    "baseWeight": 12,
+    "requiredModules": [],
+    "tags": [
+      "move",
+      "travel"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/move.png",
+    "themeColor": "brown",
+    "titleParts": [
+      {
+        "text": "Move 3+ during MOVE action",
+        "style": "brown"
+      }
+    ]
+  },
+  {
+    "id": "trig_end_outside_town",
+    "label": "End movement outside town",
+    "category": "movement",
+    "baseWeight": 8,
+    "requiredModules": [],
+    "tags": [
+      "move",
+      "frontier"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/move.png",
+    "themeColor": "brown",
+    "titleParts": [
+      {
+        "text": "End MOVE outside town",
+        "style": "brown"
+      }
+    ]
+  },
+  {
+    "id": "trig_enter_dixon_creek",
+    "label": "Player enters Dixon Creek",
+    "category": "movement",
+    "baseWeight": 6,
+    "requiredModules": [],
+    "tags": [
+      "dixon_creek",
+      "ambush"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/move.png",
+    "themeColor": "brown",
+    "titleParts": [
+      {
+        "text": "Enter Dixon Creek",
+        "style": "brown"
+      }
+    ]
+  },
+  {
+    "id": "trig_enter_mesitos_point",
+    "label": "Player enters Mesito\u2019s Point",
+    "category": "movement",
+    "baseWeight": 5,
+    "requiredModules": [],
+    "tags": [
+      "mesitos_point",
+      "green_ranch",
+      "bandit_a"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/move.png",
+    "themeColor": "brown",
+    "titleParts": [
+      {
+        "text": "Enter Mesito\u2019s Point",
+        "style": "brown"
+      }
+    ]
+  },
+  {
+    "id": "trig_enter_sunny_hills",
+    "label": "Player enters Sunny Hills",
+    "category": "movement",
+    "baseWeight": 5,
+    "requiredModules": [],
+    "tags": [
+      "sunny_hills",
+      "mine",
+      "blue_ranch"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/move.png",
+    "themeColor": "brown",
+    "titleParts": [
+      {
+        "text": "Enter Sunny Hills",
+        "style": "brown"
+      }
+    ]
+  },
+  {
+    "id": "trig_enter_spikes_view",
+    "label": "Player enters Spike\u2019s View",
+    "category": "movement",
+    "baseWeight": 5,
+    "requiredModules": [],
+    "tags": [
+      "spikes_view",
+      "mine",
+      "rail_station"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/move.png",
+    "themeColor": "brown",
+    "titleParts": [
+      {
+        "text": "Enter Spike\u2019s View",
+        "style": "brown"
+      }
+    ]
+  },
+  {
+    "id": "trig_enter_cliff_junction",
+    "label": "Player enters Cliff Junction",
+    "category": "movement",
+    "baseWeight": 5,
+    "requiredModules": [],
+    "tags": [
+      "cliff_junction",
+      "mine",
+      "bandit_c"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/move.png",
+    "themeColor": "brown",
+    "titleParts": [
+      {
+        "text": "Enter Cliff Junction",
+        "style": "brown"
+      }
+    ]
+  },
+  {
+    "id": "trig_bank_heist",
+    "label": "Initiate a Bank Heist",
+    "category": "outlaw",
+    "baseWeight": 11,
+    "requiredModules": [],
+    "tags": [
+      "bank",
+      "heist",
+      "wanted"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/bank.png",
+    "themeColor": "black",
+    "titleParts": [
+      {
+        "text": "Begins Bank Heist",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "id": "trig_gain_wp",
+    "label": "Player gains a Wanted Point",
+    "category": "outlaw",
+    "baseWeight": 11,
+    "requiredModules": [],
+    "tags": [
+      "wanted",
+      "lawless"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/wanted.png",
+    "themeColor": "red",
+    "titleParts": [
+      {
+        "text": "Gains Wanted Point",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "id": "trig_rustle_cattle",
+    "label": "Player rustles cattle",
+    "category": "outlaw",
+    "baseWeight": 9,
+    "requiredModules": [],
+    "tags": [
+      "ranch",
+      "cattle",
+      "wanted"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/ranch.png",
+    "themeColor": "brown",
+    "titleParts": [
+      {
+        "text": "Rustles Cattle",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "id": "trig_rob_player",
+    "label": "Player robs another player",
+    "category": "outlaw",
+    "baseWeight": 8,
+    "requiredModules": [],
+    "tags": [
+      "rob",
+      "player_fight",
+      "wanted"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/fight.png",
+    "themeColor": "red",
+    "titleParts": [
+      {
+        "text": "Robs another player",
+        "style": "red"
+      }
+    ]
+  },
+  {
+    "id": "trig_defeat_bandit",
+    "label": "Player defeats Bandit",
+    "category": "fight",
+    "baseWeight": 13,
+    "requiredModules": [],
+    "tags": [
+      "bandit",
+      "fight",
+      "marshal"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/fight.png",
+    "themeColor": "blue",
+    "titleParts": [
+      {
+        "text": "Defeats Bandit",
+        "style": "blue"
+      }
+    ]
+  },
+  {
+    "id": "trig_start_bandit_fight",
+    "label": "Player initiates fight with Bandit",
+    "category": "fight",
+    "baseWeight": 12,
+    "requiredModules": [],
+    "tags": [
+      "bandit",
+      "fight",
+      "npc"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/fight.png",
+    "themeColor": "blue",
+    "titleParts": [
+      {
+        "text": "Begins fight with Bandit",
+        "style": "blue"
+      }
+    ]
+  },
+  {
+    "id": "trig_start_player_fight",
+    "label": "Player initiates fight with another player",
+    "category": "fight",
+    "baseWeight": 9,
+    "requiredModules": [],
+    "tags": [
+      "duel",
+      "rob",
+      "arrest"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/fight.png",
+    "themeColor": "red",
+    "titleParts": [
+      {
+        "text": "Begins fight with another player",
+        "style": "red"
+      }
+    ]
+  },
+  {
+    "id": "trig_arrest_player",
+    "label": "Player arrests Wanted player",
+    "category": "law",
+    "baseWeight": 8,
+    "requiredModules": [],
+    "tags": [
+      "arrest",
+      "marshal",
+      "wanted"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/sheriff.png",
+    "themeColor": "blue",
+    "titleParts": [
+      {
+        "text": "Arrests Wanted Player",
+        "style": "blue"
+      }
+    ]
+  },
+  {
+    "id": "trig_sheriff_arrests",
+    "label": "Sheriff arrests player",
+    "category": "law",
+    "baseWeight": 6,
+    "requiredModules": [],
+    "tags": [
+      "sheriff",
+      "arrest",
+      "wanted"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/sheriff.png",
+    "themeColor": "blue",
+    "titleParts": [
+      {
+        "text": "Sheriff arrests player",
+        "style": "blue"
+      }
+    ]
+  },
+  {
+    "id": "trig_gain_mp",
+    "label": "Player gains Marshal Points",
+    "category": "law",
+    "baseWeight": 9,
+    "requiredModules": [],
+    "tags": [
+      "marshal",
+      "law"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/sheriff.png",
+    "themeColor": "blue",
+    "titleParts": [
+      {
+        "text": "Gains Marshal Point",
+        "style": "blue"
+      }
+    ]
+  },
+  {
+    "id": "trig_begin_prospect",
+    "label": "Player initiates P Prospect action",
+    "category": "frontier",
+    "baseWeight": 13,
+    "requiredModules": [],
+    "tags": [
+      "mine",
+      "prospect",
+      "gold"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/prospect.png",
+    "themeColor": "gold",
+    "titleParts": [
+      {
+        "text": "Begin Prospect action",
+        "style": "gold"
+      }
+    ]
+  },
+  {
+    "id": "trig_gain_gold_prospect",
+    "label": "Player gains Gold while Prospecting",
+    "category": "frontier",
+    "baseWeight": 12,
+    "requiredModules": [],
+    "tags": [
+      "mine",
+      "gold",
+      "prospect"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/prospect.png",
+    "themeColor": "gold",
+    "titleParts": [
+      {
+        "text": "Gains gold while Prospecting",
+        "style": "gold"
+      }
+    ]
+  },
+  {
+    "id": "trig_deposit_gold",
+    "label": "Player deposits Gold at Bank",
+    "category": "town",
+    "baseWeight": 9,
+    "requiredModules": [],
+    "tags": [
+      "bank",
+      "gold",
+      "lp"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/bank.png",
+    "themeColor": "gold",
+    "titleParts": [
+      {
+        "text": "Deposits Gold",
+        "style": "gold"
+      }
+    ]
+  },
+  {
+    "id": "trig_acquire_cattle",
+    "label": "Player acquires cattle at Ranch",
+    "category": "ranch",
+    "baseWeight": 9,
+    "requiredModules": [],
+    "tags": [
+      "ranch",
+      "cattle"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/ranch.png",
+    "themeColor": "brown",
+    "titleParts": [
+      {
+        "text": "Acquires Cattle at Ranch",
+        "style": "brown"
+      }
+    ]
+  },
+  {
+    "id": "trig_wrangle_cattle",
+    "label": "Player wrangles cattle at Rail Station",
+    "category": "ranch",
+    "baseWeight": 8,
+    "requiredModules": [],
+    "tags": [
+      "rail",
+      "cattle",
+      "marshal"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/train.png",
+    "themeColor": "brown",
+    "titleParts": [
+      {
+        "text": "Wrangles Cattle",
+        "style": "brown"
+      }
+    ]
+  },
+  {
+    "id": "trig_purchase_item",
+    "label": "Player purchases/upgrades Item",
+    "category": "town",
+    "baseWeight": 12,
+    "requiredModules": [],
+    "tags": [
+      "store",
+      "item",
+      "money"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/store.png",
+    "themeColor": "green",
+    "titleParts": [
+      {
+        "text": "Purchase or Upgrade Item",
+        "style": "green"
+      }
+    ]
+  },
+  {
+    "id": "trig_heal_doctor",
+    "label": "Player heals at Doctor\u2019s Office",
+    "category": "town",
+    "baseWeight": 8,
+    "requiredModules": [],
+    "tags": [
+      "doctor",
+      "heal",
+      "wound"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/doctor.png",
+    "themeColor": "green",
+    "titleParts": [
+      {
+        "text": "Heals at Doctor's Office",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "id": "trig_revel_cabaret",
+    "label": "Player revels at Cabaret",
+    "category": "town",
+    "baseWeight": 7,
+    "requiredModules": [],
+    "tags": [
+      "cabaret",
+      "lp",
+      "red_falls"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/cabaret.png",
+    "themeColor": "purple",
+    "titleParts": [
+      {
+        "text": "REVEL at Cabaret",
+        "style": "purple"
+      }
+    ]
+  },
+  {
+    "id": "trig_begin_poker",
+    "label": "Player initiates Poker",
+    "category": "gamble",
+    "baseWeight": 12,
+    "requiredModules": [],
+    "tags": [
+      "saloon",
+      "poker",
+      "gambler"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/saloon.png",
+    "themeColor": "gold",
+    "titleParts": [
+      {
+        "text": "INITIATES A GAME OF",
+        "style": "normal"
+      },
+      {
+        "text": "POKER",
+        "style": "gold"
+      }
+    ]
+  },
+  {
+    "id": "trig_win_poker",
+    "label": "Player wins Poker",
+    "category": "gamble",
+    "baseWeight": 10,
+    "requiredModules": [],
+    "tags": [
+      "saloon",
+      "poker",
+      "gambler"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/saloon.png",
+    "themeColor": "gold",
+    "titleParts": [
+      {
+        "text": "WINS A GAME OF",
+        "style": "normal"
+      },
+      {
+        "text": "POKER",
+        "style": "gold"
+      }
+    ]
+  },
+  {
+    "id": "trig_work_action",
+    "label": "Player takes Work action",
+    "category": "town",
+    "baseWeight": 7,
+    "requiredModules": [],
+    "tags": [
+      "work",
+      "money"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/work.png",
+    "themeColor": "brown",
+    "titleParts": [
+      {
+        "text": "TAKES A",
+        "style": "normal"
+      },
+      {
+        "text": "WORK",
+        "style": "brown"
+      }
+    ]
+  },
+  {
+    "id": "trig_gain_legendary_item",
+    "label": "Player gains Legendary Item",
+    "category": "legendary",
+    "baseWeight": 5,
+    "requiredModules": [],
+    "tags": [
+      "legendary_item",
+      "trader"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/lp.png",
+    "themeColor": "green",
+    "titleParts": [
+      {
+        "text": "GAINS OR BUYS A LEGENDARY",
+        "style": "normal"
+      },
+      {
+        "text": "ITEM",
+        "style": "green"
+      }
+    ]
+  },
+  {
+    "id": "trig_gain_lp_2_plus",
+    "label": "Player gains 2+ LP in single action",
+    "category": "legendary",
+    "baseWeight": 7,
+    "requiredModules": [],
+    "tags": [
+      "lp",
+      "legendary"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/lp.png",
+    "themeColor": "brown",
+    "titleParts": [
+      {
+        "text": "GAINS 2+ LP FROM A SINGLE ACTION",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "id": "trig_travel_rail",
+    "label": "Player travels by Rail",
+    "category": "ante_up",
+    "baseWeight": 7,
+    "requiredModules": [
+      "ante_up"
+    ],
+    "tags": [
+      "railroad",
+      "train",
+      "ante_up"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/train.png",
+    "themeColor": "brown",
+    "titleParts": [
+      {
+        "text": "TRAVELS BY",
+        "style": "normal"
+      },
+      {
+        "text": "RAIL",
+        "style": "brown"
+      }
+    ]
+  },
+  {
+    "id": "trig_use_mountain_pass",
+    "label": "Player uses Mountain Pass",
+    "category": "ante_up",
+    "baseWeight": 5,
+    "requiredModules": [
+      "ante_up"
+    ],
+    "tags": [
+      "mountain_pass",
+      "ante_up"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/move.png",
+    "themeColor": "brown",
+    "titleParts": [
+      {
+        "text": "USES A MOUNTAIN PASS",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "id": "trig_train_heist",
+    "label": "Player begins Train Heist",
+    "category": "ante_up",
+    "baseWeight": 8,
+    "requiredModules": [
+      "ante_up"
+    ],
+    "tags": [
+      "train",
+      "heist",
+      "wanted",
+      "ante_up"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/trainheist.png",
+    "themeColor": "red",
+    "titleParts": [
+      {
+        "text": "BEGINS A TRAIN",
+        "style": "normal"
+      },
+      {
+        "text": "HEIST",
+        "style": "red"
+      }
+    ]
+  },
+  {
+    "id": "trig_frontier_action",
+    "label": "Player resolves Frontier token",
+    "category": "ante_up",
+    "baseWeight": 8,
+    "requiredModules": [
+      "ante_up"
+    ],
+    "tags": [
+      "frontier",
+      "buzzard_gulch",
+      "ante_up"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/work.png",
+    "themeColor": "brown",
+    "titleParts": [
+      {
+        "text": "RESOLVES A FRONTIER TOKEN",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "id": "trig_roll_risk_die",
+    "label": "Player rolls Risk Die",
+    "category": "blood_money",
+    "baseWeight": 8,
+    "requiredModules": [
+      "blood_money"
+    ],
+    "tags": [
+      "risk",
+      "story",
+      "blood_money"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/sp.png",
+    "themeColor": "brown",
+    "titleParts": [
+      {
+        "text": "ROLLS THE RISK DIE",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "id": "trig_recruit_gang_posse",
+    "label": "Player recruits Gang or Posse",
+    "category": "blood_money",
+    "baseWeight": 6,
+    "requiredModules": [
+      "blood_money"
+    ],
+    "tags": [
+      "gang",
+      "posse",
+      "blood_money"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/bandit.png",
+    "themeColor": "brown",
+    "titleParts": [
+      {
+        "text": "RECRUITS A GANG OR POSSE",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "id": "trig_hunt_success",
+    "label": "Player successfully Hunts animal",
+    "category": "hunting",
+    "baseWeight": 8,
+    "requiredModules": [
+      "hunting"
+    ],
+    "tags": [
+      "hunt",
+      "animal",
+      "hunting"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/huntdeer.png",
+    "themeColor": "brown",
+    "titleParts": [
+      {
+        "text": "SUCCESSFULLY HUNTS AN ANIMAL",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "id": "trig_forage_resource",
+    "label": "Player gains Forage resource",
+    "category": "foraging",
+    "baseWeight": 8,
+    "requiredModules": [
+      "foraging"
+    ],
+    "tags": [
+      "forage",
+      "resource",
+      "foraging"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/forage.png",
+    "themeColor": "brown",
+    "titleParts": [
+      {
+        "text": "GAINS A FORAGE RESOURCE",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "id": "trig_craft_item",
+    "label": "Player crafts Item",
+    "category": "crafting",
+    "baseWeight": 7,
+    "requiredModules": [
+      "crafting"
+    ],
+    "tags": [
+      "craft",
+      "resource",
+      "crafting"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/craft.png",
+    "themeColor": "green",
+    "titleParts": [
+      {
+        "text": "CRAFTS AN",
+        "style": "normal"
+      },
+      {
+        "text": "ITEM",
+        "style": "green"
+      }
+    ]
+  },
+  {
+    "id": "trig_deliver_resource_location",
+    "label": "Player delivers Resource to Location",
+    "category": "foraging",
+    "baseWeight": 6,
+    "requiredModules": [
+      "foraging"
+    ],
+    "tags": [
+      "resource",
+      "delivery",
+      "foraging"
+    ],
+    "cooldownAfterSeen": 2,
+    "canRepeat": true,
+    "image": "assets/images/triggers/train.png",
+    "themeColor": "brown",
+    "titleParts": [
+      {
+        "text": "DELIVERS A RESOURCE TO A NAMED LOCATION",
+        "style": "normal"
+      }
+    ]
+  }
+]

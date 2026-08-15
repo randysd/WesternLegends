@@ -1,0 +1,704 @@
+[
+  {
+    "id": "arc_starving_prospector",
+    "title": "The Starving Prospector",
+    "tags": [
+      "prospector",
+      "mine",
+      "saloon",
+      "bandit"
+    ],
+    "startTrigger": "trig_begin_prospect",
+    "baseWeight": 10,
+    "nodes": [
+      {
+        "id": "prospector_intro",
+        "type": "storyTrigger",
+        "trigger": "trig_begin_prospect",
+        "title": "A Man Near Death",
+        "screenText": "End your turn at any Saloon to gain $20.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"A half-starved prospector stumbles from the sagebrush, clutching a leather poke. He offers twenty dollars for a drink and a ride to town.\"",
+        "audioFile": "audio/arcs/prospector_intro.mp3",
+        "requiresWorldTags": [],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "prospector_helped"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "A Man Near Death was resolved."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "prospector_abandoned"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "A Man Near Death was ignored."
+          }
+        ]
+      },
+      {
+        "id": "prospector_debt_repaid",
+        "type": "storyTrigger",
+        "trigger": "trig_purchase_item",
+        "title": "Debt Repaid",
+        "screenText": "After purchasing/upgrading an Item, gain $20.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"The old prospector steps from the corner and lays coins on the counter. I told ya I would repay kindness.\"",
+        "audioFile": "audio/arcs/prospector_debt_repaid.mp3",
+        "requiresWorldTags": [
+          "prospector_helped"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "prospector_repaid"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Debt Repaid was resolved."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "prospector_missed_repay"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Debt Repaid was ignored."
+          }
+        ]
+      },
+      {
+        "id": "prospector_bandit_reveal",
+        "type": "instantEvent",
+        "trigger": "trig_defeat_bandit",
+        "title": "The Man You Left Behind",
+        "screenText": "Place 2 Bandits in the current space. Fight both simultaneously. Choose the result afterward.",
+        "requiresWorldTags": [
+          "prospector_abandoned"
+        ],
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"The outlaw falls and removes his hat. Beneath the grime you recognize the prospector you left in the dust. He whistles, and two more bandits crawl from the rocks.\"",
+        "audioFile": "audio/arcs/prospector_bandit_reveal.mp3",
+        "effects": [
+          {
+            "type": "spawn_bandits_current_space",
+            "count": 2
+          },
+          {
+            "type": "simultaneous_npc_fight",
+            "npc": "bandit",
+            "count": 2
+          }
+        ],
+        "resultButtons": [
+          {
+            "label": "Prospector Captured",
+            "effects": [
+              {
+                "type": "addWorldTag",
+                "tag": "prospector_captured"
+              }
+            ]
+          },
+          {
+            "label": "Prospector Escaped",
+            "effects": [
+              {
+                "type": "addWorldTag",
+                "tag": "prospector_escaped"
+              }
+            ]
+          },
+          {
+            "label": "Player Defeated",
+            "effects": [
+              {
+                "type": "addWorldTag",
+                "tag": "prospector_victorious"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "arc_widow_mccall",
+    "title": "Widow McCall’s Ranch",
+    "tags": [
+      "widow",
+      "ranch",
+      "cattle"
+    ],
+    "startTrigger": "trig_acquire_cattle",
+    "baseWeight": 8,
+    "nodes": [
+      {
+        "id": "widow_fence_down",
+        "type": "storyTrigger",
+        "trigger": "trig_acquire_cattle",
+        "title": "Fence Line Down",
+        "screenText": "End your turn at Green Ranch or Blue Ranch. Gain $20 and 1 Poker Card.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"A widow in black asks for help mending a fence before rustlers find the gap.\"",
+        "audioFile": "audio/arcs/widow_fence_down.mp3",
+        "requiresWorldTags": [],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "widow_helped"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Fence Line Down was resolved."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "widow_ignored"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Fence Line Down was ignored."
+          }
+        ]
+      },
+      {
+        "id": "widow_cattle_drive",
+        "type": "storyTrigger",
+        "trigger": "trig_wrangle_cattle",
+        "title": "A Safe Drive",
+        "screenText": "Wrangle cattle to gain +$20 and add Widow Gratitude.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"The widow’s brand rides among the herd, and every honest mile helps save her land.\"",
+        "audioFile": "audio/arcs/widow_cattle_drive.mp3",
+        "requiresWorldTags": [
+          "widow_helped"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "widow_drive_done"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "A Safe Drive was resolved."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "widow_drive_missed"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "A Safe Drive was ignored."
+          }
+        ]
+      },
+      {
+        "id": "widow_black_veil",
+        "type": "storyTrigger",
+        "trigger": "trig_rustle_cattle",
+        "title": "Black Veil Bandit",
+        "screenText": "After rustling, gain +$30 but gain +1 WP.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"A veiled rider joins the rustlers. Grief has sharpened her into something dangerous.\"",
+        "audioFile": "audio/arcs/widow_black_veil.mp3",
+        "requiresWorldTags": [
+          "widow_ignored"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "widow_outlaw_seen"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Black Veil Bandit was resolved."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "widow_outlaw_vanishes"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Black Veil Bandit was ignored."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "arc_marshal_reeves",
+    "title": "Marshal Gideon Reeves",
+    "tags": [
+      "marshal",
+      "sheriff",
+      "bandit",
+      "law"
+    ],
+    "startTrigger": "trig_gain_mp",
+    "baseWeight": 8,
+    "nodes": [
+      {
+        "id": "reeves_deputy_call",
+        "type": "storyTrigger",
+        "trigger": "trig_gain_mp",
+        "title": "Deputy for a Day",
+        "screenText": "End your turn at Darkrock Sheriff’s Office or Buzzard Gulch Marshal’s Office to gain $20 and 1 MP.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Marshal Reeves needs a steady hand and a steadier conscience.\"",
+        "audioFile": "audio/arcs/reeves_deputy_call.mp3",
+        "requiresWorldTags": [],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "reeves_supported"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Deputy for a Day was resolved."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "reeves_ignored"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Deputy for a Day was ignored."
+          }
+        ]
+      },
+      {
+        "id": "reeves_crackdown",
+        "type": "storyTrigger",
+        "trigger": "trig_defeat_bandit",
+        "title": "Crackdown Warrant",
+        "screenText": "After defeating a Bandit, gain +$20.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Reeves has warrants stacked like firewood and enough rope for every name on them.\"",
+        "audioFile": "audio/arcs/reeves_crackdown.mp3",
+        "requiresWorldTags": [
+          "reeves_supported"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "reeves_warrants_served"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Crackdown Warrant was resolved."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "reeves_warrants_missed"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Crackdown Warrant was ignored."
+          }
+        ]
+      },
+      {
+        "id": "reeves_hunted",
+        "type": "storyTrigger",
+        "trigger": "trig_gain_wp",
+        "title": "Marshal on Your Trail",
+        "screenText": "Move the Sheriff up to 3 spaces. Wanted players in that space discard 1 Poker Card.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Reeves pins your name below the lantern and rides into the dark.\"",
+        "audioFile": "audio/arcs/reeves_hunted.mp3",
+        "requiresWorldTags": [
+          "reeves_ignored"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "reeves_hunted_player"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Marshal on Your Trail was resolved."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "reeves_lost_trail"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Marshal on Your Trail was ignored."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "arc_silas_bell_showman",
+    "title": "Silas Bell’s Traveling Show",
+    "tags": [
+      "showman",
+      "poker",
+      "cabaret",
+      "saloon"
+    ],
+    "startTrigger": "trig_revel_cabaret",
+    "baseWeight": 7,
+    "nodes": [
+      {
+        "id": "showman_arrives",
+        "type": "storyTrigger",
+        "trigger": "trig_revel_cabaret",
+        "title": "The Painted Wagon",
+        "screenText": "End your turn at Red Falls Cabaret to draw 2 Poker Cards.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"A painted wagon rolls into Red Falls, promising wonders, music, and lies in equal measure.\"",
+        "audioFile": "audio/arcs/showman_arrives.mp3",
+        "requiresWorldTags": [],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "showman_supported"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "The Painted Wagon was resolved."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "showman_ignored"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "The Painted Wagon was ignored."
+          }
+        ]
+      },
+      {
+        "id": "showman_grand_show",
+        "type": "storyTrigger",
+        "trigger": "trig_win_poker",
+        "title": "Grand Frontier Show",
+        "screenText": "Winner gains +1 LP and +$20.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Silas Bell calls your hand a miracle and sells tickets before the cards cool.\"",
+        "audioFile": "audio/arcs/showman_grand_show.mp3",
+        "requiresWorldTags": [
+          "showman_supported"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "showman_famous"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Grand Frontier Show was resolved."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "showman_flops"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Grand Frontier Show was ignored."
+          }
+        ]
+      },
+      {
+        "id": "showman_swindle",
+        "type": "storyTrigger",
+        "trigger": "trig_purchase_item",
+        "title": "The Great Swindle",
+        "screenText": "After purchasing, discard $10 or 1 Poker Card.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"The label says genuine. The showman’s smile says otherwise.\"",
+        "audioFile": "audio/arcs/showman_swindle.mp3",
+        "requiresWorldTags": [
+          "showman_ignored"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "showman_swindled"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "The Great Swindle was resolved."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "showman_swindle_failed"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "The Great Swindle was ignored."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "arc_jeremiah_pike",
+    "title": "Jeremiah Pike, Legendary Trapper",
+    "tags": [
+      "trapper",
+      "hunt",
+      "wilderness"
+    ],
+    "requiredModules": [
+      "hunting"
+    ],
+    "startTrigger": "trig_hunt_success",
+    "baseWeight": 8,
+    "nodes": [
+      {
+        "id": "pike_tracks",
+        "type": "storyTrigger",
+        "trigger": "trig_hunt_success",
+        "title": "Old Pike’s Tracks",
+        "screenText": "After a successful Hunt, gain 1 extra animal resource if possible; otherwise gain $10.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Old Jeremiah Pike studies the tracks and grunts like the animal owed him money.\"",
+        "audioFile": "audio/arcs/pike_tracks.mp3",
+        "requiresWorldTags": [],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "pike_helped"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Old Pike’s Tracks was resolved."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "pike_ignored"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Old Pike’s Tracks was ignored."
+          }
+        ]
+      },
+      {
+        "id": "pike_white_bear",
+        "type": "storyTrigger",
+        "trigger": "trig_hunt_success",
+        "title": "The White Bear Trail",
+        "screenText": "Draw two animals and choose one to encounter. If successful, gain +1 LP.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Pike points with a shaking finger. That trail belongs to something too big for ordinary fear.\"",
+        "audioFile": "audio/arcs/pike_white_bear.mp3",
+        "requiresWorldTags": [
+          "pike_helped"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "pike_bear_trail"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "The White Bear Trail was resolved."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "pike_bear_lost"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "The White Bear Trail was ignored."
+          }
+        ]
+      },
+      {
+        "id": "pike_trap_line",
+        "type": "storyTrigger",
+        "trigger": "trig_end_outside_town",
+        "title": "Sprung Trap",
+        "screenText": "Gain 1 wound unless you discard 1 Poker Card.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"A hidden trap snaps shut. Pike does not forgive being ignored.\"",
+        "audioFile": "audio/arcs/pike_trap_line.mp3",
+        "requiresWorldTags": [
+          "pike_ignored"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "pike_revenge"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Sprung Trap was resolved."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "pike_revenge_missed"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Sprung Trap was ignored."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "arc_card_shark",
+    "title": "The Red Falls Card Shark",
+    "tags": [
+      "poker",
+      "saloon",
+      "rival"
+    ],
+    "startTrigger": "trig_begin_poker",
+    "baseWeight": 8,
+    "nodes": [
+      {
+        "id": "cardshark_first_hand",
+        "type": "storyTrigger",
+        "trigger": "trig_begin_poker",
+        "title": "A Stranger at the Table",
+        "screenText": "During this Poker game, the active player draws 1 extra Poker Card, then discards 1.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"A stranger with pale gloves sits down without asking and smiles without warmth.\"",
+        "audioFile": "audio/arcs/cardshark_first_hand.mp3",
+        "requiresWorldTags": [],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "cardshark_met"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "A Stranger at the Table was resolved."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "cardshark_ignored"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "A Stranger at the Table was ignored."
+          }
+        ]
+      },
+      {
+        "id": "cardshark_beaten",
+        "type": "storyTrigger",
+        "trigger": "trig_win_poker",
+        "title": "Beating the Shark",
+        "screenText": "Winner gains +$30 and 1 GP.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"For the first time all night, the stranger’s smile breaks.\"",
+        "audioFile": "audio/arcs/cardshark_beaten.mp3",
+        "requiresWorldTags": [
+          "cardshark_met"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "cardshark_beaten"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Beating the Shark was resolved."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "cardshark_unbeaten"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Beating the Shark was ignored."
+          }
+        ]
+      },
+      {
+        "id": "cardshark_debt",
+        "type": "storyTrigger",
+        "trigger": "trig_start_player_fight",
+        "title": "Debt Collector",
+        "screenText": "The active player may gain $40 before the fight, but if they lose, they gain +1 wound.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"A debt collector steps from the alley, quoting numbers no honest man remembers.\"",
+        "audioFile": "audio/arcs/cardshark_debt.mp3",
+        "requiresWorldTags": [
+          "cardshark_unbeaten"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "cardshark_debt_paid"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Debt Collector was resolved."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "cardshark_debt_grows"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Debt Collector was ignored."
+          }
+        ]
+      }
+    ]
+  }
+]

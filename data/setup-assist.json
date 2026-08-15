@@ -1,0 +1,619 @@
+{
+  "sections": [
+    {
+      "id": "play_area",
+      "title": "Prepare Play Area",
+      "summary": "Place boards, overlays, and stands.",
+      "steps": [
+        {
+          "text": "Remove all components from the box."
+        },
+        {
+          "text": "Place the main game board in the center of the table.",
+          "images": [
+            {
+              "src": "assets/images/boards/main-board.png",
+              "alt": "Main Board",
+              "caption": "Main Board",
+              "fullWidth": true
+            }
+          ]
+        },
+        {
+          "text": "Place the Buzzard Gulch Frontier Board next to the main board.",
+          "requiredModules": [
+            "ante_up_sideboard"
+          ],
+          "images": [
+            {
+              "src": "assets/images/boards/full.png",
+              "alt": "Buzzard Gulch & Gambler Track",
+              "caption": "Buzzard Gulch & Gambler Track",
+              "fullWidth": true
+            }
+          ]
+        },
+        {
+          "text": "Place the Gambler Track above the main board.",
+          "requiredModules": [
+            "ante_up_gambler"
+          ]
+        },
+        {
+          "text": "Place the Legendary Story Board overlay over the core Story Card area.",
+          "requiredModules": [
+            "blood_money_stories"
+          ]
+        },
+        {
+          "text": "Assemble the General Store stand if needed."
+        },
+        {
+          "text": "Assemble the Trading Post stand.",
+          "requiredModules": [
+            "ante_up_sideboard"
+          ]
+        },
+        {
+          "text": "Assemble the Traveling Trader stand.",
+          "requiredModules": [
+            "blood_money_traveling_trader"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stores",
+      "title": "Prepare Stores",
+      "summary": "Set up item markets and trader inventory.",
+      "steps": [
+        {
+          "text": "Remove store randomizer cards for items not being used.",
+          "actionButtons": [
+            {
+              "label": "Auto-Fill Stores",
+              "opens": "storeRandomizer"
+            }
+          ]
+        },
+        {
+          "text": "Set aside the standard setup card as a quick store reference."
+        },
+        {
+          "text": "Shuffle the remaining store randomizer cards facedown."
+        },
+        {
+          "text": "Deal 1 randomizer card to each General Store slot."
+        },
+        {
+          "text": "Deal 1 randomizer card to each Trading Post slot.",
+          "requiredModules": [
+            "ante_up_sideboard"
+          ]
+        },
+        {
+          "text": "Place the first revealed Weapon and first revealed Mount in the General Store."
+        },
+        {
+          "text": "Place the second revealed Weapon and second revealed Mount in the Trading Post.",
+          "requiredModules": [
+            "ante_up_sideboard"
+          ]
+        },
+        {
+          "text": "If using standard setup, make sure each store has at least 1 Weapon and 1 Mount. Replace items randomly if needed.",
+          "requiredModules": [
+            "ante_up_sideboard"
+          ]
+        },
+        {
+          "text": "Place each item deck in the space matching its randomizer card."
+        },
+        {
+          "text": "Shuffle together the Legendary Items from the selected expansions and place the blocker card on the bottom.",
+          "requiredModules": [
+            "blood_money_traveling_trader"
+          ]
+        },
+        {
+          "text": "Place the Legendary Item deck facedown in the top-left Traveling Trader slot.",
+          "requiredModules": [
+            "blood_money_traveling_trader"
+          ]
+        },
+        {
+          "text": "Reveal 3 Legendary Items to the bottom row of the Traveling Trader stand.",
+          "requiredModules": [
+            "blood_money_traveling_trader"
+          ]
+        },
+        {
+          "text": "Place all remaining item decks in the 2 empty Traveling Trader spaces. Keep their randomizer cards nearby.",
+          "requiredModules": [
+            "blood_money_traveling_trader"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "decks",
+      "title": "Prepare Decks",
+      "summary": "Shuffle only the decks used in this game.",
+      "steps": [
+        {
+          "text": "Separate money into $10 and $20 decks.",
+          "images": [
+            {
+              "src": "assets/images/cards/money-10.png",
+              "alt": "$10 Bills",
+              "caption": "$10"
+            },
+            {
+              "src": "assets/images/cards/money-20.png",
+              "alt": "$20 Bills",
+              "caption": "$20"
+            }
+          ]
+        },
+        {
+          "text": "Prepare the Poker deck. If using expansion Poker Cards, swap them for matching base cards by suit and value.",
+          "images": [
+            {
+              "src": "assets/images/cards/poker-back.png",
+              "alt": "Poker Deck",
+              "caption": "Poker Deck"
+            }
+          ]
+        },
+        {
+          "text": "Shuffle the Joker cards into the Poker deck.",
+          "requiredModules": [
+            "fistful_jokers"
+          ]
+        },
+        {
+          "text": "Shuffle and place the core small decks beside the board.",
+          "images": [
+            {
+              "src": "assets/images/cards/fight-back.png",
+              "alt": "Fight deck",
+              "caption": "Fight"
+            },
+            {
+              "src": "assets/images/cards/events-back.png",
+              "alt": "Event deck",
+              "caption": "Events",
+              "requiredModules": [
+                "ante_up_events"
+              ]
+            },
+            {
+              "src": "assets/images/cards/train-back.png",
+              "alt": "Train deck",
+              "caption": "Train",
+              "requiredModules": [
+                "ante_up_train"
+              ]
+            },
+            {
+              "src": "assets/images/cards/injury-back.png",
+              "alt": "Injury deck",
+              "caption": "Injuries",
+              "requiredModules": [
+                "blood_money_injuries"
+              ]
+            },
+            {
+              "src": "assets/images/cards/travelingtrader-back.png",
+              "alt": "Traveling Trader deck",
+              "caption": "Trader",
+              "requiredModules": [
+                "blood_money_traveling_trader"
+              ]
+            },
+            {
+              "src": "assets/images/cards/treasurehunting-back.png",
+              "alt": "Treasure Hunt deck",
+              "caption": "Treasure Hunt",
+              "requiredModules": [
+                "treasure_hunting_rumors"
+              ]
+            },
+            {
+              "src": "assets/images/cards/hunting-back.png",
+              "alt": "Hunting deck",
+              "caption": "Hunting",
+              "requiredModules": [
+                "hunting_animals"
+              ]
+            },
+            {
+              "src": "assets/images/cards/fishing-back.png",
+              "alt": "Fishing deck",
+              "caption": "Fishing",
+              "requiredModules": [
+                "fishing_fish_deck"
+              ]
+            },
+            {
+              "src": "assets/images/cards/foraging-back.png",
+              "alt": "Foraging deck",
+              "caption": "Foraging",
+              "requiredModules": [
+                "foraging_resources"
+              ]
+            },
+            {
+              "src": "assets/images/cards/prospecting-back.png",
+              "alt": "Prospecting deck",
+              "caption": "Prospecting",
+              "requiredModules": [
+                "prospecting_cards"
+              ]
+            }
+          ]
+        },
+        {
+          "text": "Shuffle the Core Story Cards, place the deck on its designated board space, reveal 1 Core Story Card, and place it on the designated spot.",
+          "blockedModules": [
+            "blood_money_stories"
+          ]
+        },
+        {
+          "text": "Shuffle the Legendary Story Cards, place the deck on the Legendary Story Board, then reveal 1 random Legendary Story Card onto the board.",
+          "requiredModules": [
+            "blood_money_stories"
+          ]
+        },
+        {
+          "text": "Add the Unique Event cards to the Event deck.",
+          "requiredModules": [
+            "ante_up_events",
+            "wild_bunch_unique_events"
+          ]
+        },
+        {
+          "text": "Shuffle the Event deck and place it near the board.",
+          "requiredModules": [
+            "ante_up_events"
+          ]
+        },
+        {
+          "text": "Shuffle the Title cards and randomly reveal 1 Title for this game.",
+          "requiredModules": [
+            "wild_bunch_titles"
+          ]
+        },
+        {
+          "text": "Shuffle the Sheriff cards and reveal the top Sheriff card. Replace it whenever the Sheriff loses a fight.",
+          "requiredModules": [
+            "wild_bunch_sheriff"
+          ]
+        },
+        {
+          "text": "Shuffle the Bandit cards and place the deck facedown near the Fight deck.",
+          "requiredModules": [
+            "wild_bunch_bandit_variant"
+          ]
+        },
+        {
+          "text": "Shuffle all Man in Black cards together to form the deck and place it near the board.",
+          "requiredModules": [
+            "wild_bunch_man_in_black"
+          ],
+          "maxPlayers": 2
+        },
+        {
+          "text": "Shuffle the Man in Black cards together, excluding P-01, P-04, P-05, P-08, P-09, P-10, and P-15. Place the deck near the board.",
+          "requiredModules": [
+            "wild_bunch_man_in_black"
+          ],
+          "minPlayers": 3
+        },
+        {
+          "text": "Shuffle the Rumor cards and place the deck near the board.",
+          "requiredModules": [
+            "treasure_hunting_rumors"
+          ]
+        },
+        {
+          "text": "Shuffle the Animal deck and place it beside the game board.",
+          "requiredModules": [
+            "hunting"
+          ]
+        },
+        {
+          "text": "Shuffle the Fish deck and place it beside the game board.",
+          "requiredModules": [
+            "fishing"
+          ]
+        },
+        {
+          "text": "Shuffle the Theatre deck, place it near the board, and reveal 3 Theatre cards faceup.",
+          "requiredModules": [
+            "theatre"
+          ]
+        },
+        {
+          "text": "Shuffle the Prospecting deck with 2 random events.",
+          "requiredModules": [
+            "prospecting_cards"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tokens",
+      "title": "Prepare Tokens",
+      "summary": "Separate, shuffle, and place token supplies.",
+      "steps": [
+        {
+          "text": "Shuffle Cattle tokens facedown and place them at their ranches.",
+          "images": [
+            {
+              "src": "assets/images/tokens/ranch-blue.png",
+              "alt": "Blue cattle token",
+              "caption": "Blue"
+            },
+            {
+              "src": "assets/images/tokens/ranch-green.png",
+              "alt": "Green cattle token",
+              "caption": "Green"
+            },
+            {
+              "src": "assets/images/tokens/ranch-orange.png",
+              "alt": "Orange cattle token",
+              "caption": "Orange",
+              "requiredModules": [
+                "ante_up_sideboard"
+              ]
+            }
+          ]
+        },
+        {
+          "text": "Shuffle Longhorn, Outlaw, High Roller, and Claim Jumper tokens facedown.",
+          "requiredModules": [
+            "ante_up_events"
+          ],
+          "images": [
+            {
+              "src": "assets/images/tokens/longhorn.png",
+              "alt": "Longhorn token",
+              "caption": "Longhorn"
+            },
+            {
+              "src": "assets/images/tokens/outlaw.png",
+              "alt": "Outlaw token",
+              "caption": "Outlaw"
+            },
+            {
+              "src": "assets/images/tokens/highroller.png",
+              "alt": "High Roller token",
+              "caption": "High Roller"
+            },
+            {
+              "src": "assets/images/tokens/gold.png",
+              "alt": "Claim Jumper token",
+              "caption": "Claim Jumper"
+            }
+          ]
+        },
+        {
+          "text": "Shuffle Legendary tokens facedown or place them in a token bag.",
+          "requiredModules": [
+            "base_legendary_tokens"
+          ],
+          "images": [
+            {
+              "src": "assets/images/tokens/legend.png",
+              "alt": "Legendary token",
+              "caption": "Legendary"
+            }
+          ]
+        },
+        {
+          "text": "Separate Deeds by type and place a Deed token on each Deed location.",
+          "requiredModules": [
+            "blood_money_deeds"
+          ],
+          "images": [
+            {
+              "src": "assets/images/setup/tokens/deed-token.png",
+              "alt": "Deed token",
+              "caption": "Deed"
+            }
+          ]
+        },
+        {
+          "text": "Keep Unique Event tokens in a supply near the board.",
+          "requiredModules": [
+            "wild_bunch_unique_events"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "board_setup",
+      "title": "Prepare Board Effects",
+      "summary": "Place markers and resolve setup effects.",
+      "steps": [
+        {
+          "text": "Place the end-game marker on {targetLP} LP."
+        },
+        {
+          "text": "Place Event markers on the 5th space of the Gambler, Marshal, and Wanted tracks, and on every 5th LP space before the end-game marker.",
+          "requiredModules": [
+            "ante_up_events"
+          ]
+        },
+        {
+          "text": "Resolve 1 Event card per 2 players, rounded up. Ignore Sheriff movement because the Sheriff is not placed yet.",
+          "requiredModules": [
+            "ante_up_events"
+          ]
+        },
+        {
+          "text": "Randomly place 1 faceup Frontier token on each Frontier space. Keep unused Frontier tokens nearby.",
+          "requiredModules": [
+            "ante_up_sideboard"
+          ]
+        },
+        {
+          "text": "Reveal the top Trader Movement card and place the Traveling Trader miniature on any empty space in that region.",
+          "requiredModules": [
+            "blood_money_traveling_trader"
+          ]
+        },
+        {
+          "text": "Place 2 Gold Nuggets at each mining location. Place 1 Gold Nugget on the LP track spaces indicated by the Prospecting rules for {playerCount} players and a {targetLP}-LP game.",
+          "requiredModules": [
+            "prospecting_cards"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "players",
+      "title": "Prepare Players",
+      "summary": "Give each player their starting pieces.",
+      "steps": [
+        {
+          "text": "Each player takes a player mat, scoring cubes, color ring, and wound token."
+        },
+        {
+          "text": "Use the player mat side with Legendary Token spaces.",
+          "requiredModules": [
+            "base_legendary_tokens"
+          ]
+        },
+        {
+          "text": "Each player takes their Faro chips.",
+          "requiredModules": [
+            "ante_up_faro"
+          ]
+        },
+        {
+          "text": "Each player takes their Story disks.",
+          "requiredModules": [
+            "blood_money_stories"
+          ]
+        },
+        {
+          "text": "Place 1 scoring cube for each player left of the 1 space on the LP track."
+        },
+        {
+          "text": "Place 1 scoring cube for each player on the starting space of the Story track.",
+          "requiredModules": [
+            "blood_money_stories"
+          ]
+        },
+        {
+          "text": "Place each player’s remaining scoring cubes and Story disks beside the board.",
+          "requiredModules": [
+            "blood_money_stories"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "characters",
+      "title": "Choose Characters",
+      "summary": "Select characters and gain starting rewards.",
+      "steps": [
+        {
+          "text": "Each player chooses a character from the characters available in the selected expansions."
+        },
+        {
+          "text": "For each chosen character, take that character’s 4 Goal cards.",
+          "requiredModules": [
+            "base_goals"
+          ]
+        },
+        {
+          "text": "Each player gains starting items, money, Poker Cards, wounds, and points listed on their character."
+        },
+        {
+          "text": "If a character starts with Gambler, Legendary, Marshal, Story, or Wanted Points, place a cube on the matching track."
+        },
+        {
+          "text": "Resolve any starting item abilities, such as Gazette, Provisions, or similar effects."
+        }
+      ]
+    },
+    {
+      "id": "miniatures",
+      "title": "Place Miniatures",
+      "summary": "Place players, Sheriff, and Bandits.",
+      "steps": [
+        {
+          "text": "Highest Wanted player takes the First Player token. If tied or no one is Wanted, choose another method.",
+          "actionButtons": [
+            {
+              "label": "Pick First Player",
+              "opens": "firstPlayer"
+            }
+          ]
+        },
+        {
+          "text": "Starting with the first player, each player chooses a miniature and attaches their color ring."
+        },
+        {
+          "text": "Each player places their miniature at the Starting Location on their character card."
+        },
+        {
+          "text": "If a Starting Location is a General Store, Trading Post, or Saloon, place the miniature on any adjacent space."
+        },
+        {
+          "text": "Remove any Event, Claim Jumper, High Roller, Longhorn, Outlaw, or Unique Event token from a space where a player starts.",
+          "anyModules": [
+            "ante_up_events",
+            "wild_bunch_unique_events"
+          ]
+        },
+        {
+          "text": "Attach the brown ring to the Sheriff miniature and place the Sheriff at the Sheriff/Marshal Office in Darkrock."
+        },
+        {
+          "text": "Apply the numbered Bandit stickers to the bottoms of the grey Bandit rings.",
+          "requiredModules": [
+            "wild_bunch_bandit_variant"
+          ]
+        },
+        {
+          "text": "Attach grey rings to 6 Bandit miniatures. Place 1 Bandit at each Bandit Hideout that does not contain a player."
+        },
+        {
+          "text": "Choose a miniature to represent the Man in Black. Place it at the Rail Station or a location chosen by the first player, and place the scoring cube matching its base ring color to the left of the LP track with the player scoring cubes.",
+          "requiredModules": [
+            "wild_bunch_man_in_black"
+          ]
+        },
+        {
+          "text": "After all player miniatures are placed, the player last in turn order places the 3 Hunt Action markers on 3 different unoccupied spaces.",
+          "requiredModules": [
+            "hunting"
+          ]
+        },
+        {
+          "text": "Give each player a player aid."
+        }
+      ]
+    },
+    {
+      "id": "ready",
+      "title": "Ready to Play",
+      "summary": "Final check before starting.",
+      "steps": [
+        {
+          "text": "Confirm all selected modules have been set up."
+        },
+        {
+          "text": "Confirm the end-game marker is on {targetLP} LP."
+        },
+        {
+          "text": "Press Start Game when everyone is ready."
+        }
+      ]
+    }
+  ]
+}

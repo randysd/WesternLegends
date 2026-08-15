@@ -1,0 +1,371 @@
+[
+  {
+    "id": "story_railroad_rising",
+    "title": "The Iron Road",
+    "tags": [
+      "railroad",
+      "train",
+      "construction"
+    ],
+    "requiredModules": [
+      "ante_up"
+    ],
+    "chapters": [
+      {
+        "id": "rail_surveyors",
+        "type": "storyTrigger",
+        "trigger": "trig_travel_rail",
+        "title": "Surveyors Arrive",
+        "screenText": "End your turn at any Rail Station to gain $20 and Railroad Progress +1.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Surveyors arrive with chains, stakes, and the dangerous idea that tomorrow can be measured.\"",
+        "audioFile": "audio/arcs/rail_surveyors.mp3",
+        "requiresWorldTags": [],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_surveyed"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Surveyors Arrive was resolved."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_survey_ignored"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Surveyors Arrive was ignored."
+          }
+        ]
+      },
+      {
+        "id": "rail_lumber",
+        "type": "storyTrigger",
+        "trigger": "trig_deliver_resource_location",
+        "title": "Timbers for the Depot",
+        "screenText": "Deliver Wood to a Rail Station. Gain $20 and Railroad Progress +1.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Fresh timbers thump beside the tracks like bones of a new town.\"",
+        "audioFile": "audio/arcs/rail_lumber.mp3",
+        "requiresWorldTags": [
+          "rail_surveyed"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_wood_delivered"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Timbers for the Depot was resolved."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_wood_missing"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Timbers for the Depot was ignored."
+          }
+        ]
+      },
+      {
+        "id": "rail_iron",
+        "type": "storyTrigger",
+        "trigger": "trig_deliver_resource_location",
+        "title": "Iron for the Line",
+        "screenText": "Deliver Metal to a Rail Station. Gain $20 and Railroad Progress +1.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"The foreman runs a thumb along the iron and sees tomorrow.\"",
+        "audioFile": "audio/arcs/rail_iron.mp3",
+        "requiresWorldTags": [
+          "rail_surveyed"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_metal_delivered"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Iron for the Line was resolved."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_metal_missing"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Iron for the Line was ignored."
+          }
+        ]
+      },
+      {
+        "id": "rail_grand_opening",
+        "type": "worldEvent",
+        "title": "Grand Opening",
+        "requiresCounters": [
+          {
+            "counter": "railroad_progress",
+            "gte": 3
+          }
+        ],
+        "screenText": "For the next 6 primary triggers, Travel by Rail costs $0.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"With the last spike driven, the locomotive whistles like the frontier itself just woke up.\"",
+        "audioFile": "audio/storylines/rail_grand_opening.mp3",
+        "effects": [
+          {
+            "type": "start_world_event",
+            "eventId": "world_free_rail"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "story_lost_spanish_gold",
+    "title": "Lost Spanish Gold",
+    "tags": [
+      "treasure",
+      "mine",
+      "map"
+    ],
+    "chapters": [
+      {
+        "id": "spanish_journal",
+        "type": "storyTrigger",
+        "trigger": "trig_gain_gold_prospect",
+        "title": "Torn Journal",
+        "screenText": "End your turn at Cliff Junction Mine to gain 1 Legendary Token.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"A torn journal speaks of Spanish gold hidden where the cliffs throw shadows at noon.\"",
+        "audioFile": "audio/arcs/spanish_journal.mp3",
+        "requiresWorldTags": [],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_clue_1"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Torn Journal was resolved."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_journal_lost"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Torn Journal was ignored."
+          }
+        ]
+      },
+      {
+        "id": "spanish_marker",
+        "type": "storyTrigger",
+        "trigger": "trig_enter_cliff_junction",
+        "title": "The Stone Marker",
+        "screenText": "Draw 1 Fight Card. On 8+, gain 2 Gold; otherwise gain 1 wound.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[raspy][old cowboy][western][fast][low key][emotionless][quick]A stone cross leans from the dust, older than any town on this map.",
+        "audioFile": "audio/arcs/spanish_marker.mp3",
+        "requiresWorldTags": [
+          "spanish_clue_1"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_clue_2"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "The Stone Marker was resolved."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_marker_missed"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "The Stone Marker was ignored."
+          }
+        ]
+      },
+      {
+        "id": "spanish_cache",
+        "type": "storyTrigger",
+        "trigger": "trig_deposit_gold",
+        "title": "The Buried Cache",
+        "screenText": "Gain $40 and 2 LP. Add Lost Spanish Gold to the newspaper.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Under red stone waits a cache of coins stamped for a king who never saw this country.\"",
+        "audioFile": "audio/arcs/spanish_cache.mp3",
+        "requiresWorldTags": [
+          "spanish_clue_2"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_gold_found"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "The Buried Cache was resolved."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_gold_lost"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "The Buried Cache was ignored."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "story_white_buffalo",
+    "title": "The White Buffalo",
+    "tags": [
+      "legendary",
+      "hunt",
+      "sacred"
+    ],
+    "requiredModules": [
+      "hunting"
+    ],
+    "chapters": [
+      {
+        "id": "buffalo_tracks",
+        "type": "storyTrigger",
+        "trigger": "trig_hunt_success",
+        "title": "Strange Tracks",
+        "screenText": "After a Hunt, gain 1 White Buffalo Clue.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Tracks wide as dinner plates cut across the prairie, and every bird has gone quiet.\"",
+        "audioFile": "audio/arcs/buffalo_tracks.mp3",
+        "requiresWorldTags": [],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "buffalo_clue_1"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Strange Tracks was resolved."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "buffalo_tracks_lost"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Strange Tracks was ignored."
+          }
+        ]
+      },
+      {
+        "id": "buffalo_warning",
+        "type": "storyTrigger",
+        "trigger": "trig_enter_sunny_hills",
+        "title": "The Warning",
+        "screenText": "End your turn in Sunny Hills to gain 1 LP or draw 2 Poker Cards.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"An old scout warns that some animals are not trophies. They are tests.\"",
+        "audioFile": "audio/arcs/buffalo_warning.mp3",
+        "requiresWorldTags": [
+          "buffalo_clue_1"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "buffalo_warning_heard"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "The Warning was resolved."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "buffalo_warning_ignored"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "The Warning was ignored."
+          }
+        ]
+      },
+      {
+        "id": "buffalo_appears",
+        "type": "storyTrigger",
+        "trigger": "trig_hunt_success",
+        "title": "The White Buffalo Appears",
+        "screenText": "Special Hunt: draw 1 Fight Card. Discard Poker Cards totaling that value or higher. If successful, choose Protect or Hunt.",
+        "requiresWorldTags": [
+          "buffalo_warning_heard"
+        ],
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"The white buffalo steps from the morning haze, bright as a ghost and heavier than legend.\"",
+        "audioFile": "audio/storylines/buffalo_appears.mp3",
+        "resultButtons": [
+          {
+            "label": "Protect It",
+            "effects": [
+              {
+                "type": "gain_lp",
+                "amount": 3
+              },
+              {
+                "type": "addWorldTag",
+                "tag": "white_buffalo_protected"
+              }
+            ]
+          },
+          {
+            "label": "Hunt It",
+            "effects": [
+              {
+                "type": "gain_money",
+                "amount": 80
+              },
+              {
+                "type": "gain_lp",
+                "amount": 1
+              },
+              {
+                "type": "addWorldTag",
+                "tag": "white_buffalo_hunted"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

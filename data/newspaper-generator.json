@@ -1,0 +1,50 @@
+{
+  "id": "darkrock_gazette_generator",
+  "title": "The Darkrock Gazette",
+  "output": "pdf-ready-html",
+  "sections": [
+    {
+      "id": "headline",
+      "template": "{{largestStoryHeadline}}"
+    },
+    {
+      "id": "frontier_report",
+      "template": "Tonight the frontier remembers {{completedStoryCount}} resolved tales and {{ignoredStoryCount}} missed opportunities."
+    },
+    {
+      "id": "notable_events",
+      "source": "newspaperNotes",
+      "format": "bulletList"
+    },
+    {
+      "id": "character_arcs",
+      "source": "worldTags",
+      "rules": [
+        {
+          "ifTag": "prospector_helped",
+          "text": "A starving prospector was carried into town and repaid the kindness."
+        },
+        {
+          "ifTag": "prospector_abandoned",
+          "text": "A desperate prospector was left to the wild, and the wild answered."
+        },
+        {
+          "ifTag": "white_buffalo_protected",
+          "text": "The White Buffalo was spared, and a hush fell over the plains."
+        },
+        {
+          "ifTag": "white_buffalo_hunted",
+          "text": "The White Buffalo was hunted, and fortune came with a shadow."
+        },
+        {
+          "ifTag": "spanish_gold_found",
+          "text": "Lost Spanish gold was brought again into the light."
+        }
+      ]
+    },
+    {
+      "id": "closing",
+      "template": "So ends another chapter in the West, where every bootprint becomes rumor and every rumor becomes legend."
+    }
+  ]
+}

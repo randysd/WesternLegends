@@ -1,0 +1,14 @@
+{
+  "name": "Western Legends Frontier Director",
+  "short_name": "Frontier Director",
+  "description": "A lightweight Western Legends companion app with setup assist, event triggers, story narration, references, and end-game newspaper summaries.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f4e5c5",
+  "theme_color": "#8b5a2b",
+  "icons": [
+    { "src": "assets/icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
