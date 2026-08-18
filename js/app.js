@@ -284,19 +284,21 @@ const assistType = document.getElementById('assistType');
 
 let db = {};
 let state = null;
+let storyTrackNoticeTimer = null;
 let currentDialogEvent = null;
 let storyDialogReturnTarget = null;
+let gameSettingsReturnScreen = 'game';
 let assistView = 'menu';
 let assistReturnTarget = null;
 let assistReturnAfterClose = false;
+let assistOpenedDirectly = false;
 let assistNestedReturn = null;
 let worldEventHeartbeatTimer = null;
 let fightFlowReturnTarget = null;
 let gamblingFlowReturnTarget = null;
 let gamblingFlowSelection = 'poker';
 let actionsReturnTarget = null;
-let storyTrackNotificationQueue = [];
-let storyTrackNotificationActive = false;
+let firstPlayerAssistCleanup = null;
 
 const STORY_FREQUENCY_OPTIONS = [
   { value: 'rare', label: 'Rare' },
@@ -344,6 +346,10 @@ function normalizeStoryEventSettings() {
   if (!state.worldEventClock || typeof state.worldEventClock !== 'object') {
     state.worldEventClock = { nextAt: null, pendingEventId: null };
   }
+  if (!state.storyTrackLastReward || typeof state.storyTrackLastReward !== 'object') state.storyTrackLastReward = {};
+  if (!Object.prototype.hasOwnProperty.call(state, 'storyTrackNotice')) state.storyTrackNotice = null;
+  if (!state.settings || typeof state.settings !== 'object') state.settings = {};
+  if (typeof state.settings.hideStoryTrackReminders !== 'boolean') state.settings.hideStoryTrackReminders = false;
 }
 
 function storyEventsEnabled(key) {
@@ -395,12 +401,16 @@ function defaultState() {
     // marker per player color, position 0-3: 0=Start, 1=Move Sheriff,
     // 2=Spawn Bandits, 3=Choose a point, then wraps back to 0).
     storyTrack: {},
+    // Temporary in-page Story Point reward reminder. While present it
+    // replaces the Story Point marker row without changing the page layout.
+    storyTrackLastReward: {}, // retained for compatibility with v1.1.16 saves
+    storyTrackNotice: null,
     // Per-player running totals of Gambling/Legendary/Marshal/Wanted points
     // gained from landing on the "choose a point" story-track space.
     playerCounters: {},
     arcProgress: {},
     worldEventClock: { nextAt: null, pendingEventId: null },
-    settings: { musicOn: true, soundOn: true, voiceOn: true, musicVolume: 0.2, soundVolume: 0.6, voiceVolume: 0.8 }
+    settings: { musicOn: true, soundOn: true, voiceOn: true, musicVolume: 0.2, soundVolume: 0.6, voiceVolume: 0.8, hideStoryTrackReminders: false }
   };
 }
 
@@ -408,6 +418,7 @@ async function init() {
   db = await loadData();
   state = loadSave() || defaultState();
   if (state.screen === 'reference' || state.screen === 'settings') state.screen = state.gameStarted ? 'game' : 'home';
+  if (state.screen === 'gameSettings') state.screen = state.gameStarted ? 'game' : 'home';
   normalizeSetupModules();
   normalizeStoryEventSettings();
   ensureWorldEventClock();
@@ -420,19 +431,23 @@ async function init() {
     document.getElementById('drawerNav')?.classList.remove('open');
     openAssistMenu();
   }));
-  document.querySelectorAll('[data-open-audio]').forEach(btn => btn.addEventListener('click', () => {
+  document.querySelectorAll('[data-open-settings]').forEach(btn => btn.addEventListener('click', () => {
     const returnTarget = btn.closest('#drawerNav') ? 'drawer' : null;
     document.getElementById('drawerNav')?.classList.remove('open');
-    renderAudioSettings(returnTarget);
+    renderSettingsOverlay(returnTarget);
   }));
   document.querySelectorAll('[data-open-reference]').forEach(btn => btn.addEventListener('click', () => {
     const returnTarget = btn.closest('#drawerNav') ? 'drawer' : null;
     document.getElementById('drawerNav')?.classList.remove('open');
     renderReferenceOverlay(returnTarget);
   }));
+  document.getElementById('drawerGameSettingsBtn')?.addEventListener('click', () => {
+    document.getElementById('drawerNav')?.classList.remove('open');
+    renderSettingsOverlay('drawer');
+  });
   document.querySelectorAll('[data-end-game]').forEach(btn => btn.addEventListener('click', () => beginEndGame()));
   document.getElementById('assistCloseBtn')?.addEventListener('click', handleAssistCloseRequest);
-  document.getElementById('storyDialogCloseBtn')?.addEventListener('click', () => { if (dialog.open) { dialog.close(); render(); } });
+  document.getElementById('storyDialogCloseBtn')?.addEventListener('click', () => { if (dialog.open) { dialog.classList.remove('player-color-prompt-dialog'); dialog.close(); render(); } });
   installCreditsSupportButton();
   document.addEventListener('click', event => {
     const creditsBtn = event.target.closest?.('[data-open-credits-support]');
@@ -449,6 +464,10 @@ async function init() {
     storeAutoRandomizeTimer = null;
     Object.keys(prospectDieTimers).forEach(key => { clearTimeout(prospectDieTimers[key]); delete prospectDieTimers[key]; });
     resetFightCardHand();
+    if (firstPlayerAssistCleanup) {
+      firstPlayerAssistCleanup();
+      firstPlayerAssistCleanup = null;
+    }
     if (assistReturnAfterClose) {
       assistReturnAfterClose = false;
       openAssistMenu();
@@ -482,6 +501,9 @@ async function init() {
     const openBtn = event.target.closest?.('[data-open-assist]');
     if (!openBtn) return;
     event.preventDefault();
+    assistOpenedDirectly = true;
+    assistReturnTarget = null;
+    assistReturnAfterClose = false;
     openAssist(openBtn.dataset.openAssist);
   });
   document.addEventListener('click', event => {
@@ -527,6 +549,12 @@ function setActiveNav() {
   });
   const drawerGameBtn = document.getElementById('drawerGameBtn');
   if (drawerGameBtn) drawerGameBtn.textContent = state.gameStarted ? 'Resume Game' : 'New Game';
+  const drawerGameSettingsBtn = document.getElementById('drawerGameSettingsBtn');
+  if (drawerGameSettingsBtn) {
+    drawerGameSettingsBtn.disabled = false;
+    drawerGameSettingsBtn.setAttribute('aria-disabled', 'false');
+    drawerGameSettingsBtn.title = state.gameStarted ? 'Change audio and current game settings' : 'Change audio settings';
+  }
   document.querySelectorAll('[data-end-game]').forEach(btn => {
     btn.disabled = !state.gameStarted;
     btn.setAttribute('aria-disabled', state.gameStarted ? 'false' : 'true');
@@ -614,30 +642,60 @@ function getArcProgress(arcId) {
       completedNodeIds: [],
       assignedColor: null,
       lastOutcome: null,
+      lastCompletedNodeId: null,
+      lastActorColor: null,
+      nodeActors: {},
+      nodeOutcomes: {},
+      chapterHistory: [],
       status: 'inactive',
-      scope: 'personal'
+      scope: 'shared'
     };
   }
-  return state.arcProgress[arcId];
+  const progress = state.arcProgress[arcId];
+  // Forward-compatible migration for games saved before chapter-level actor
+  // history existed. Old assignedColor is preserved only for truly personal
+  // arcs; shared arcs ignore it when deciding who may trigger a later chapter.
+  if (!Array.isArray(progress.completedNodeIds)) progress.completedNodeIds = [];
+  if (!progress.nodeActors || typeof progress.nodeActors !== 'object') progress.nodeActors = {};
+  if (!progress.nodeOutcomes || typeof progress.nodeOutcomes !== 'object') progress.nodeOutcomes = {};
+  if (!Array.isArray(progress.chapterHistory)) progress.chapterHistory = [];
+  if (!('lastCompletedNodeId' in progress)) progress.lastCompletedNodeId = null;
+  if (!('lastActorColor' in progress)) progress.lastActorColor = null;
+  if (!progress.scope) progress.scope = 'shared';
+  return progress;
 }
 
-function markArcNodeStarted(arcId, assignedColor = null, scope = 'personal') {
+function markArcNodeStarted(arcId, assignedColor = null, scope = 'shared') {
   if (!arcId) return;
   const progress = getArcProgress(arcId);
   if (progress.status === 'inactive') progress.status = 'in_progress';
-  progress.scope = scope || progress.scope || 'personal';
+  progress.scope = scope || progress.scope || 'shared';
+  // Only an explicitly personal arc is owned by one player for its full run.
+  // Shared Character Arcs deliberately do NOT lock to their first player.
   if (assignedColor && !progress.assignedColor && progress.scope === 'personal') progress.assignedColor = assignedColor;
 }
 
-// Permanently retires a node so it can never be selected again, records the
-// outcome, and locks in the arc's assignedColor the first time one is set
-// (later chapters compare the *current* triggering player against this).
+// Permanently retires a chapter and remembers both its outcome and the player
+// involved in THAT chapter. Shared arcs use this history for later flavor text
+// without making the whole arc belong to that player.
 function markArcNodeCompleted(arcId, nodeId, outcome, assignedColor) {
   if (!arcId || !nodeId) return;
   const progress = getArcProgress(arcId);
   if (!progress.completedNodeIds.includes(nodeId)) progress.completedNodeIds.push(nodeId);
   progress.lastOutcome = outcome;
-  if (assignedColor && !progress.assignedColor) progress.assignedColor = assignedColor;
+  progress.lastCompletedNodeId = nodeId;
+  progress.lastActorColor = assignedColor || null;
+  progress.nodeActors[nodeId] = assignedColor || null;
+  progress.nodeOutcomes[nodeId] = outcome || null;
+  const existingHistory = progress.chapterHistory.find(h => h.nodeId === nodeId);
+  if (existingHistory) {
+    existingHistory.outcome = outcome || null;
+    existingHistory.color = assignedColor || null;
+    existingHistory.completedAt = Date.now();
+  } else {
+    progress.chapterHistory.push({ nodeId, outcome: outcome || null, color: assignedColor || null, completedAt: Date.now() });
+  }
+  if (assignedColor && !progress.assignedColor && progress.scope === 'personal') progress.assignedColor = assignedColor;
   if (progress.status === 'inactive') progress.status = 'in_progress';
   const stillEligible = allArcNodes().some(n => {
     if (n.arcId !== arcId || progress.completedNodeIds.includes(n.id)) return false;
@@ -647,6 +705,35 @@ function markArcNodeCompleted(arcId, nodeId, outcome, assignedColor) {
     return true;
   });
   if (!stillEligible) progress.status = 'complete';
+}
+
+function arcReferenceActorColor(arcId, compareToNodeId = null) {
+  if (!arcId) return null;
+  const progress = getArcProgress(arcId);
+  if (compareToNodeId) return progress.nodeActors?.[compareToNodeId] || null;
+  return progress.lastActorColor || null;
+}
+
+// A chapter may provide playerAwareText to change its title/instructions when
+// the player who triggered this chapter is (or is not) the player involved in
+// a specified earlier chapter. Any fields in the chosen variant can override
+// the base event, including title, screenText, narrationScript and audioFile.
+function prepareArcEventForPlayer(event, triggeringColor = null) {
+  if (!event?.arcId || !event.playerAwareText) return { ...event };
+  const config = event.playerAwareText;
+  const referenceColor = arcReferenceActorColor(event.arcId, config.compareToNodeId || null);
+  let variant = config.default || null;
+  let relation = 'unknown';
+  if (referenceColor && triggeringColor) {
+    relation = referenceColor === triggeringColor ? 'same' : 'different';
+    variant = relation === 'same' ? config.samePlayer : config.differentPlayer;
+  }
+  return {
+    ...event,
+    ...(variant || {}),
+    _referenceActorColor: referenceColor || null,
+    _playerAwareRelation: relation
+  };
 }
 
 // --- Virtual Story Point track --------------------------------------------
@@ -666,93 +753,170 @@ const STORY_TRACK_SPACES = [
   { id: 'start', title: 'Start' },
   { id: 'sheriff', title: 'Move the Sheriff', screenText: 'Move the Sheriff up to 3 spaces.' },
   { id: 'bandits', title: 'Spawn Bandits', screenText: 'Spawn Bandits at Hideout A, B, or C.' },
-  { id: 'choose', title: 'Choose a Point', screenText: 'Choose one to gain: Gambling Point, Legendary Point, Marshal Point, or Wanted Point.' }
+  { id: 'choose', title: 'Choose a Point', screenText: 'Gain 1 LP, WP, MP, or GP.' }
 ];
 
 function gainStoryPoint(color, onDone) {
   if (!color) { onDone?.(); return; }
+  // A Story Point can arrive while the previous reward reminder is still on
+  // screen. Commit that reminder's "Do not show again" choice before the
+  // notice is replaced so the preference cannot be lost.
+  commitStoryTrackReminderPreference();
   ensurePlayerTrackState(color);
   const next = (state.storyTrack[color] + 1) % STORY_TRACK_SPACES.length;
-  state.storyTrack[color] = next;
-  state.triggeredLog.unshift({ time: Date.now(), type: 'storyTrackAdvance', color, space: STORY_TRACK_SPACES[next].id });
+  const space = STORY_TRACK_SPACES[next];
+
+  // The fourth reward is "Choose a Point". At the table the marker returns
+  // to Start after that reward is resolved, so keep the virtual marker in sync.
+  state.storyTrack[color] = space.id === 'choose' ? 0 : next;
+  state.triggeredLog.unshift({ time: Date.now(), type: 'storyTrackAdvance', color, space: space.id });
+
+  // This reminder is passive page state, never a queued modal/snackbar. It
+  // temporarily replaces the Story Point marker row and therefore cannot
+  // cover or move the event triggers below it. Narrative events proceed now.
+  if (!state.settings?.hideStoryTrackReminders && space.id !== 'start') {
+    state.storyTrackNotice = { color, spaceId: space.id, at: Date.now() };
+  }
   save();
-  if (next !== 0) enqueueStoryTrackNotification(color, next, onDone);
-  else onDone?.();
+  onDone?.();
 }
 
-function ensureStoryTrackNotificationLayer() {
-  let layer = document.getElementById('storyTrackNotificationLayer');
-  if (layer) return layer;
-  layer = document.createElement('div');
-  layer.id = 'storyTrackNotificationLayer';
-  layer.className = 'story-track-notification-layer';
-  layer.setAttribute('aria-live', 'polite');
-  document.body.appendChild(layer);
-  return layer;
-}
-
-function enqueueStoryTrackNotification(color, position, onDone) {
-  storyTrackNotificationQueue.push({ color, position, onDone });
-  showNextStoryTrackNotification();
-}
-
-function showNextStoryTrackNotification() {
-  if (storyTrackNotificationActive || !storyTrackNotificationQueue.length) return;
-  storyTrackNotificationActive = true;
-  const item = storyTrackNotificationQueue.shift();
-  const { color, position, onDone } = item;
-  const space = STORY_TRACK_SPACES[position];
-  const layer = ensureStoryTrackNotificationLayer();
+function storyTrackNoticeMarkup() {
+  if (!isStoryTrackEnabled() || state.settings?.hideStoryTrackReminders || !state.storyTrackNotice) return '';
+  const { color, spaceId } = state.storyTrackNotice;
+  const space = STORY_TRACK_SPACES.find(item => item.id === spaceId);
+  if (!space || space.id === 'start') return '';
   const player = (state.setup.playerDetails || []).find(p => p.color === color);
   const displayName = player?.name?.trim() || player?.character?.trim() || `${color.charAt(0).toUpperCase()}${color.slice(1)} Player`;
   const dotClass = PLAYER_COLORS.includes(color) ? `swatch-${color}` : 'swatch-none';
-  let closed = false;
-  let autoDismissTimer = null;
-
-  const closeNotification = () => {
-    if (closed) return;
-    closed = true;
-    if (autoDismissTimer) clearTimeout(autoDismissTimer);
-
-    // This is only a reminder. The player resolves the physical choice at the
-    // table, so the companion does not ask which Hideout or point was chosen.
-    // After the fourth Story Track reward, return the virtual marker to Start.
-    if (space.id === 'choose') {
-      ensurePlayerTrackState(color);
-      state.storyTrack[color] = 0;
-      save();
-    }
-
-    layer.innerHTML = '';
-    storyTrackNotificationActive = false;
-    try { onDone?.(); } finally { setTimeout(showNextStoryTrackNotification, 0); }
-  };
-
-  layer.innerHTML = `<section class="story-track-notification" role="status" aria-label="Story Point reminder" tabindex="0">
-    <div class="story-track-notification-accent ${dotClass}" aria-hidden="true"></div>
-    <div class="story-track-notification-copy">
-      <div class="story-track-notification-kicker"><span class="story-track-notification-dot ${dotClass}" aria-hidden="true"></span>${escapeHtml(displayName)} · Story Point</div>
-      <div class="story-track-notification-line"><strong>${escapeHtml(space.title)}</strong><span>${escapeHtml(space.screenText)}</span></div>
-      <small>Tap to dismiss</small>
+  return `<div class="story-track-area-reminder" role="status" aria-live="polite" tabindex="0" data-dismiss-story-track-reminder title="Tap to dismiss">
+    <div class="story-track-reminder-heading">
+      <span class="player-color-swatch story-track-reminder-dot ${dotClass}" aria-hidden="true"></span>
+      <strong>${escapeHtml(displayName)}</strong>
+      <span class="story-track-reminder-label">Story Point</span>
+      <label class="story-track-reminder-never" title="Hide future Story Point reminder messages"><input type="checkbox" data-story-track-never> Do not show again</label>
     </div>
-    <button type="button" class="story-track-notification-close" aria-label="Dismiss Story Point reminder">×</button>
-  </section>`;
+    <div class="story-track-reminder-message"><strong>${escapeHtml(space.title)}:</strong> ${escapeHtml(space.screenText || '')}</div>
+  </div>`;
+}
 
-  const card = layer.querySelector('.story-track-notification');
-  card?.addEventListener('click', closeNotification);
-  card?.addEventListener('keydown', event => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      closeNotification();
+function activePlayerStoryAlertColors() {
+  const colors = new Set();
+  const collect = event => {
+    const color = event?.assignedColor || event?._assignedColor || event?.color || '';
+    if (PLAYER_COLORS.includes(color)) colors.add(color);
+  };
+  (state.activeStories || []).forEach(collect);
+  // World events are currently global, but include this for any future
+  // player-owned unresolved event type that uses the same assignedColor field.
+  (state.activeWorldEvents || []).forEach(collect);
+  return colors;
+}
+
+function storyTrackMarkersMarkup() {
+  const colors = (state.setup.playerColors || []).filter(Boolean);
+  const alertColors = activePlayerStoryAlertColors();
+  return `<div class="story-track-strip" aria-label="Story Point track per player">${colors.map(color => {
+    ensurePlayerTrackState(color);
+    const position = state.storyTrack[color] || 0;
+    const space = STORY_TRACK_SPACES[position];
+    const hasAlert = alertColors.has(color);
+    const alertLabel = hasAlert ? ' — unresolved story chapter' : '';
+    return `<button type="button" class="player-color-swatch story-track-chip swatch-${color}${hasAlert ? ' has-story-alert' : ''}" data-story-track-color="${color}" title="${escapeHtml(playerLabel(color))} — ${escapeHtml(space.title)} (tap to add a Story Point)${alertLabel}">
+      <span class="story-track-chip-number">${position + 1}</span>
+      ${hasAlert ? '<span class="player-story-alert-badge" aria-hidden="true">!</span>' : ''}
+    </button>`;
+  }).join('')}</div>`;
+}
+
+function playerStoryAlertsOnlyMarkup() {
+  const alertColors = activePlayerStoryAlertColors();
+  const colors = (state.setup.playerColors || []).filter(color => alertColors.has(color));
+  if (!colors.length) return '';
+  return `<div class="story-track-strip player-story-alert-strip" aria-label="Players with unresolved story chapters">${colors.map(color => {
+    const name = playerNameOnly(color);
+    return `<button type="button" class="player-color-swatch player-story-alert-only swatch-${color}" data-player-story-alert="${color}" title="${escapeHtml(name)} has an unresolved story chapter" aria-label="${escapeHtml(name)} has an unresolved story chapter. Tap to view it."><span>!</span></button>`;
+  }).join('')}</div>`;
+}
+
+function renderStoryTrackArea() {
+  const colors = (state.setup.playerColors || []).filter(Boolean);
+  if (!colors.length) return '';
+  if (!isStoryTrackEnabled()) {
+    const alerts = playerStoryAlertsOnlyMarkup();
+    return alerts ? `<div class="story-track-area story-alert-only-area">${alerts}</div>` : '';
+  }
+  const reminder = storyTrackNoticeMarkup();
+  return `<div class="story-track-area">${reminder || storyTrackMarkersMarkup()}</div>`;
+}
+
+function commitStoryTrackReminderPreference() {
+  const never = app.querySelector('[data-story-track-never]');
+  if (!never) return false;
+  state.settings.hideStoryTrackReminders = !!never.checked;
+  save();
+  return true;
+}
+
+function dismissStoryTrackNotice() {
+  if (!state.storyTrackNotice) return;
+  if (storyTrackNoticeTimer) clearTimeout(storyTrackNoticeTimer);
+  storyTrackNoticeTimer = null;
+  commitStoryTrackReminderPreference();
+  state.storyTrackNotice = null;
+  save();
+  render();
+}
+
+function scheduleStoryTrackNoticeTimeout() {
+  if (storyTrackNoticeTimer) clearTimeout(storyTrackNoticeTimer);
+  storyTrackNoticeTimer = null;
+  if (!state.storyTrackNotice) return;
+  const noticeAt = state.storyTrackNotice.at;
+
+  const expire = () => {
+    if (!state.storyTrackNotice || state.storyTrackNotice.at !== noticeAt) return;
+    // If a genuine story/world event is covering the page, do not let the
+    // reminder silently expire underneath it. Give the player a few seconds
+    // to see the reminder after the event dialog closes.
+    if (dialog?.open) {
+      storyTrackNoticeTimer = setTimeout(() => {
+        if (!dialog?.open) storyTrackNoticeTimer = setTimeout(expire, 3500);
+        else expire();
+      }, 500);
+      return;
     }
-  });
-  layer.querySelector('.story-track-notification-close')?.addEventListener('click', event => {
-    event.stopPropagation();
-    closeNotification();
-  });
+    dismissStoryTrackNotice();
+  };
+  storyTrackNoticeTimer = setTimeout(expire, 5000);
+}
 
-  // Informational reminders should never block the game indefinitely.
-  autoDismissTimer = setTimeout(closeNotification, 6500);
+function bindStoryTrackArea() {
+  const reminder = app.querySelector('[data-dismiss-story-track-reminder]');
+  if (reminder) {
+    reminder.addEventListener('click', event => {
+      if (event.target.closest('[data-story-track-never]')) return;
+      dismissStoryTrackNotice();
+    });
+    reminder.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        dismissStoryTrackNotice();
+      }
+    });
+    const never = reminder.querySelector('[data-story-track-never]');
+    never?.addEventListener('click', event => event.stopPropagation());
+    never?.addEventListener('change', () => {
+      // Persist immediately. The visible reminder can remain until its normal
+      // timeout, but any later render/replacement already knows the choice.
+      state.settings.hideStoryTrackReminders = !!never.checked;
+      save();
+    });
+    scheduleStoryTrackNoticeTimeout();
+  } else if (storyTrackNoticeTimer) {
+    clearTimeout(storyTrackNoticeTimer);
+    storyTrackNoticeTimer = null;
+  }
 }
 
 function categoryName(category) { return (category || 'frontier').replaceAll('_', ' '); }
@@ -1276,6 +1440,8 @@ function startGameFromSetup() {
   state.recentTriggerIds = [];
   state.arcProgress = {};
   state.storyTrack = {};
+  state.storyTrackLastReward = {};
+  state.storyTrackNotice = null;
   state.playerCounters = {};
   state.worldEventClock = { nextAt: null, pendingEventId: null };
   state.setup.setupProgress = [];
@@ -1378,7 +1544,7 @@ function queueDueWorldEvent() {
 
 function maybePresentPendingWorldEvent() {
   if (!state.gameStarted || state.screen !== 'game') return;
-  if (dialog.open || assistDialog.open || storyTrackNotificationActive) return;
+  if (dialog.open || assistDialog.open) return;
   const eventId = state.worldEventClock?.pendingEventId;
   if (!eventId) return;
   const event = db.worldEvents.find(item => item.id === eventId);
@@ -1445,22 +1611,24 @@ function tapPrimaryTrigger(triggerId, triggeringColor = null) {
     return;
   }
 
-  // Story Point rewards use their own compact notification layer. The real
-  // narrative event (if any) waits until that reminder/choice is complete.
+  // Story Point rewards update passive page UI only. They never delay or
+  // queue the real narrative event that may result from this trigger.
   gainStoryPoint(triggeringColor, () => finishPrimaryTriggerNarrative(trigger, triggeringColor));
 }
 
 function deliverArcEvent(event, triggeringColor) {
   if (!event) return false;
-  const scope = event.arcScope || 'personal';
-  if (scope === 'personal' && !triggeringColor) {
-    promptForPlayerColor('Who Is This Happening To?', event.title || 'Story Arc', 'Choose the player whose story this is.', color => {
-      handleCreatedEvent(event, 'characterArc', color);
+  const scope = event.arcScope || 'shared';
+  // Shared and personal chapters are owned by the player who triggered that
+  // chapter. Global storyline chapters remain table-wide.
+  if (scope !== 'global' && !triggeringColor) {
+    promptForPlayerColor('Who Triggered This Chapter?', event.title || 'Story Arc', 'Choose the player who encountered this chapter.', color => {
+      handleCreatedEvent(prepareArcEventForPlayer(event, color), 'characterArc', color);
       save();
     });
     return true;
   }
-  handleCreatedEvent(event, 'characterArc', triggeringColor);
+  handleCreatedEvent(prepareArcEventForPlayer(event, triggeringColor), 'characterArc', triggeringColor);
   return true;
 }
 
@@ -1501,7 +1669,7 @@ function allArcNodes() {
       ...node,
       arcId: arc.id,
       arcTitle: arc.title,
-      arcScope: arc.scope || 'personal',
+      arcScope: arc.scope || 'shared',
       arcIndex: index,
       arcStartTrigger: arc.startTrigger || arc.nodes?.[0]?.trigger,
       baseWeight: node.baseWeight || arc.baseWeight || 5
@@ -1538,6 +1706,9 @@ function pickArmedArcNode(triggerId, triggeringColor = null) {
     if (!arcNodeEligible(n, triggerId)) return false;
     const progress = getArcProgress(n.arcId);
     if (progress.status !== 'in_progress') return false;
+    // Only explicitly personal arcs stay locked to their original player.
+    // Shared Character Arcs can be advanced by any player; the triggering
+    // player owns only the chapter they just revealed.
     if (n.arcScope === 'personal' && progress.assignedColor && triggeringColor !== progress.assignedColor) return false;
     return true;
   });
@@ -1578,8 +1749,9 @@ function checkCounterGatedNodes() {
   });
   const pick = weightedPick(pool);
   if (!pick) return false;
-  handleCreatedEvent(pick, 'characterArc', getArcProgress(pick.arcId).assignedColor || null);
-  return true;
+  const progress = getArcProgress(pick.arcId);
+  const inheritedColor = pick.arcScope === 'personal' ? (progress.assignedColor || null) : null;
+  return deliverArcEvent(pick, inheritedColor);
 }
 
 function pickWorldEvent() {
@@ -1616,14 +1788,19 @@ function handleCreatedEvent(event, type, triggeringColor = null) {
       rewardText: event.rewardText || '',
       audioFile: event.audioFile,
       turnsLeft: event.expiresAfterPrimaryTriggers || db.settings.defaultStoryExpirationPrimaryTriggers || 6,
-      assignedColor: triggeringColor || '',
+      arcScope: event.arcScope || 'shared',
+      // Shared Character Arc chapters belong to whoever triggered THIS
+      // chapter. Personal arcs also have a chapter owner, while global
+      // storyline tasks remain resolvable by any player.
+      assignedColor: (event.arcScope || 'shared') === 'global' ? '' : (triggeringColor || ''),
+      referenceActorColor: event._referenceActorColor || null,
       onResolved: event.onResolved || [],
       onExpired: event.onExpired || [],
       createdAt: Date.now()
     };
     state.activeStories.unshift(story);
     state.activeStories = state.activeStories.slice(0, db.settings.activeStoryLimit || 5);
-    markArcNodeStarted(event.arcId, triggeringColor, event.arcScope || 'personal');
+    markArcNodeStarted(event.arcId, triggeringColor, event.arcScope || 'shared');
   } else if (event.type === 'worldEvent' && type === 'worldEvent') {
     state.activeWorldEvents.unshift({ ...event, turnsLeft: getDuration(event), createdAt: Date.now() });
     if (state.worldEventClock) {
@@ -1632,8 +1809,8 @@ function handleCreatedEvent(event, type, triggeringColor = null) {
     }
   } else if (event.arcId) {
     // instantEvent, or a storyline chapter typed as its own worldEvent - one-shot.
-    markArcNodeStarted(event.arcId, triggeringColor, event.arcScope || 'personal');
-    applyEffects(event.effects || [], { arcId: event.arcId, currentColor: triggeringColor });
+    markArcNodeStarted(event.arcId, triggeringColor, event.arcScope || 'shared');
+    applyEffects(event.effects || [], { arcId: event.arcId, currentColor: triggeringColor, referenceColor: event._referenceActorColor || null });
     markArcNodeCompleted(event.arcId, event.id, 'resolved', triggeringColor);
   }
   showEventDialog(event);
@@ -1644,6 +1821,11 @@ function getDuration(event) {
   return durationEffect?.count || event.durationPrimaryTriggers || 5;
 }
 
+// Active Story and World Event durations intentionally advance only when one
+// of the three primary action cards is tapped. Resolving an active Story card
+// does not spend another duration step, because that resolution can describe
+// the same tabletop action that was just reported through a primary trigger.
+// This keeps the countdown predictable and prevents accidental double-counting.
 function tickStoryExpirations() {
   const expired = [];
   state.activeStories = state.activeStories.map(s => ({ ...s, turnsLeft: s.turnsLeft - 1 })).filter(s => {
@@ -1651,7 +1833,7 @@ function tickStoryExpirations() {
     return true;
   });
   expired.forEach(s => {
-    applyEffects(s.onExpired || [], { arcId: s.arcId, currentColor: s.assignedColor });
+    applyEffects(s.onExpired || [], { arcId: s.arcId, currentColor: s.assignedColor, referenceColor: s.referenceActorColor || null });
     markArcNodeCompleted(s.arcId, s.id, 'expired', s.assignedColor);
     state.triggeredLog.unshift({ time: Date.now(), type: 'storyExpired', id: s.id, label: s.title });
   });
@@ -1663,13 +1845,37 @@ function tickWorldExpirations() {
   if (hadWorldEvents && !state.activeWorldEvents.length) scheduleNextWorldEvent(true);
 }
 
-function resolveStory(storyId) {
+function activeStoryScope(story) {
+  if (!story) return 'shared';
+  if (story.arcScope) return story.arcScope;
+  const savedScope = story.arcId ? getArcProgress(story.arcId).scope : null;
+  if (savedScope === 'global' || savedScope === 'personal' || savedScope === 'shared') return savedScope;
+  const sourceNode = story.arcId ? allArcNodes().find(node => node.arcId === story.arcId && node.id === story.id) : null;
+  return sourceNode?.arcScope || 'shared';
+}
+
+function storyResolverColor(story, resolvingColor = null) {
+  return activeStoryScope(story) === 'global' ? (resolvingColor || null) : (story.assignedColor || null);
+}
+
+function promptResolveStory(storyId) {
   const story = state.activeStories.find(s => s.id === storyId);
   if (!story) return;
-  applyEffects(story.onResolved || [], { arcId: story.arcId, currentColor: story.assignedColor });
-  markArcNodeCompleted(story.arcId, story.id, 'resolved', story.assignedColor);
+  if (activeStoryScope(story) === 'global' && isStoryTrackEnabled()) {
+    promptForPlayerColor('Who Resolved This?', story.title, 'Any player may resolve this story. Tap the player who completed it.', color => resolveStory(storyId, color));
+    return;
+  }
+  resolveStory(storyId, story.assignedColor || null);
+}
+
+function resolveStory(storyId, resolvingColor = null) {
+  const story = state.activeStories.find(s => s.id === storyId);
+  if (!story) return;
+  const resolverColor = storyResolverColor(story, resolvingColor);
+  applyEffects(story.onResolved || [], { arcId: story.arcId, currentColor: resolverColor, referenceColor: story.referenceActorColor || null });
+  markArcNodeCompleted(story.arcId, story.id, 'resolved', resolverColor);
   state.activeStories = state.activeStories.filter(s => s.id !== storyId);
-  state.triggeredLog.unshift({ time: Date.now(), type: 'storyResolved', id: story.id, label: story.title });
+  state.triggeredLog.unshift({ time: Date.now(), type: 'storyResolved', id: story.id, label: story.title, color: resolverColor || null });
 
   const afterStoryPoint = () => {
     const openedCounterChapter = checkCounterGatedNodes();
@@ -1678,14 +1884,14 @@ function resolveStory(storyId) {
     render();
     if (!openedCounterChapter) setTimeout(maybePresentPendingWorldEvent, 30);
   };
-  if (isStoryTrackEnabled() && story.assignedColor) gainStoryPoint(story.assignedColor, afterStoryPoint);
+  if (isStoryTrackEnabled() && resolverColor) gainStoryPoint(resolverColor, afterStoryPoint);
   else afterStoryPoint();
 }
 
 function expireStory(storyId) {
   const story = state.activeStories.find(s => s.id === storyId);
   if (!story) return;
-  applyEffects(story.onExpired || [], { arcId: story.arcId, currentColor: story.assignedColor });
+  applyEffects(story.onExpired || [], { arcId: story.arcId, currentColor: story.assignedColor, referenceColor: story.referenceActorColor || null });
   markArcNodeCompleted(story.arcId, story.id, 'expired', story.assignedColor);
   state.activeStories = state.activeStories.filter(s => s.id !== storyId);
   state.triggeredLog.unshift({ time: Date.now(), type: 'storyExpired', id: story.id, label: story.title });
@@ -1696,10 +1902,10 @@ function expireStory(storyId) {
   if (!openedCounterChapter) setTimeout(maybePresentPendingWorldEvent, 30);
 }
 
-// `context.arcId` / `context.currentColor` let effects branch on whether the
-// player resolving THIS chapter is the same player the arc originally
-// locked onto back at its first chapter - e.g. "if this is the same player
-// who abandoned the prospector, spawn 2 bandits instead of 1."
+// `context.arcId` / `context.currentColor` / `context.referenceColor` let an
+// effect branch on whether the player in THIS chapter is the same person who
+// participated in a relevant earlier chapter. Shared arcs never need to lock
+// the whole story to that earlier player.
 function applyEffects(effects = [], context = {}) {
   for (const e of effects) {
     if (e.type === 'addWorldTag') addTag(e.tag);
@@ -1715,9 +1921,9 @@ function applyEffects(effects = [], context = {}) {
       }
     }
     else if (e.type === 'if_same_color') {
-      const arcColor = context.arcId ? getArcProgress(context.arcId).assignedColor : null;
-      const isSame = !!(arcColor && context.currentColor && arcColor === context.currentColor);
-      applyEffects((isSame ? e.then : e.else) || [], context);
+      const referenceColor = context.referenceColor || (context.arcId ? arcReferenceActorColor(context.arcId, e.compareToNodeId || null) : null);
+      const isSame = !!(referenceColor && context.currentColor && referenceColor === context.currentColor);
+      applyEffects((isSame ? e.then : e.else) || [], { ...context, referenceColor });
     }
   }
 }
@@ -1731,6 +1937,7 @@ function applyEffects(effects = [], context = {}) {
 function promptForPlayerColor(dialogTypeLabel, titleText, subText, onChosen) {
   const colors = (state.setup.playerColors || []).filter(Boolean);
   if (!colors.length) { onChosen(null); return; }
+  dialog.classList.add('player-color-prompt-dialog');
   currentDialogEvent = null;
   document.getElementById('dialogType').textContent = dialogTypeLabel;
   document.getElementById('dialogTitle').textContent = titleText;
@@ -1748,17 +1955,12 @@ function promptForPlayerColor(dialogTypeLabel, titleText, subText, onChosen) {
   colors.forEach(color => {
     const btn = document.createElement('button');
     btn.type = 'button';
-    btn.className = 'player-color player-choice trigger-color-prompt-btn';
-    btn.style.background = color;
+    btn.className = `player-color-swatch player-choice trigger-color-prompt-btn swatch-${color}`;
     btn.title = playerLabel(color);
     btn.setAttribute('aria-label', playerLabel(color));
-    btn.onclick = () => { wrap.classList.remove('trigger-color-prompt-buttons'); dialog.close(); onChosen(color); };
+    btn.onclick = () => { wrap.classList.remove('trigger-color-prompt-buttons'); dialog.classList.remove('player-color-prompt-dialog'); dialog.close(); onChosen(color); };
     wrap.appendChild(btn);
   });
-  const skip = document.createElement('button');
-  skip.type = 'button'; skip.className = 'secondary-btn'; skip.textContent = 'Skip';
-  skip.onclick = () => { wrap.classList.remove('trigger-color-prompt-buttons'); dialog.close(); onChosen(null); };
-  wrap.appendChild(skip);
   if (!dialog.open) dialog.showModal();
 }
 
@@ -1789,13 +1991,84 @@ function resolveWorldEvent(eventId, color) {
   else finish();
 }
 
+function normalizeEventCopyForComparison(value = '') {
+  return String(value || '')
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/&[a-z0-9#]+;/gi, ' ')
+    .toLowerCase()
+    .replace(/\+/g, ' plus ')
+    .replace(/\$/g, ' ')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim()
+    .replace(/\s+/g, ' ');
+}
+
+function eventCopyAlreadyCovers(mainText, extraText) {
+  const main = normalizeEventCopyForComparison(mainText);
+  const extra = normalizeEventCopyForComparison(extraText);
+  if (!extra) return true;
+  if (!main) return false;
+  if (main.includes(extra) || extra.includes(main)) return true;
+
+  // Reward/callout wording does not have to match the sentence verbatim. If
+  // nearly all of its meaningful words are already in the main instruction,
+  // showing the parchment callout merely repeats what the player just read.
+  const ignored = new Set(['a','an','and','or','the','to','of','for','from','in','on','at','if','then','this','that','your','you','player','players','effect','reward']);
+  const mainTokens = new Set(main.split(' ').filter(token => token.length > 1 && !ignored.has(token)));
+  const extraTokens = [...new Set(extra.split(' ').filter(token => token.length > 1 && !ignored.has(token)))];
+  if (!extraTokens.length) return true;
+  const overlap = extraTokens.filter(token => mainTokens.has(token)).length / extraTokens.length;
+  return overlap >= 0.75;
+}
+
+function eventDialogCalloutHtml(event) {
+  const mainText = String(event?.screenText || '').trim();
+  const parts = [];
+
+  // `calloutText` is an escape hatch for authored content that genuinely adds
+  // a second piece of information. It is intentionally never auto-generated.
+  if (event?.calloutText && !eventCopyAlreadyCovers(mainText, event.calloutText)) {
+    const label = escapeHtml(event.calloutLabel || 'Effect');
+    parts.push(`<strong>${label}:</strong> ${escapeHtml(event.calloutText)}`);
+  }
+
+  // Rewards are only separated into the callout when the main instruction did
+  // not already tell the player about that reward.
+  if (event?.rewardText && !eventCopyAlreadyCovers(mainText, event.rewardText)) {
+    parts.push(`<strong>Reward:</strong> ${escapeHtml(event.rewardText)}`);
+  }
+
+  const effects = (event?.effects || []).filter(e => e?.type !== 'duration_primary_triggers');
+  if (effects.length) {
+    // Current event data states its mechanical instructions directly in
+    // screenText, so do not automatically translate the state/effect payload
+    // into a second summary box. A future event can explicitly opt in, or an
+    // effect can provide authored displayText/calloutText when it truly adds
+    // information that is not present in the main instruction.
+    if (event?.showEffectCallout === true || !mainText) {
+      const html = renderEffects(effects);
+      if (html) parts.push(html);
+    } else {
+      const authoredEffects = effects
+        .map(e => e?.displayText || e?.calloutText || '')
+        .filter(text => text && !eventCopyAlreadyCovers(mainText, text));
+      if (authoredEffects.length) {
+        parts.push(`<strong>Effect:</strong><ul>${authoredEffects.map(text => `<li>${escapeHtml(text)}</li>`).join('')}</ul>`);
+      }
+    }
+  }
+
+  return parts.join('');
+}
+
 function showEventDialog(event) {
+  dialog.classList.remove('player-color-prompt-dialog');
   currentDialogEvent = event;
   document.getElementById('dialogType').textContent = event._deliveryType === 'worldEvent' ? 'World Event' : event.arcTitle || 'Frontier Event';
   document.getElementById('dialogTitle').textContent = event.title || 'Frontier Event';
   document.getElementById('dialogText').textContent = event.screenText || 'Resolve the event as instructed.';
   const reward = document.getElementById('dialogReward');
-  reward.innerHTML = event.rewardText ? `<strong>Reward:</strong> ${event.rewardText}` : renderEffects(event.effects || []);
+  reward.innerHTML = eventDialogCalloutHtml(event);
   reward.classList.toggle('hidden', !reward.innerHTML.trim());
   const replayBtn = document.getElementById('dialogReplayVoice');
   if (event.audioFile) {
@@ -1818,7 +2091,7 @@ function renderDialogButtons(event) {
     const btn = document.createElement('button');
     btn.type = 'button'; btn.className = 'primary-btn'; btn.textContent = typeof b === 'string' ? b : b.label;
     btn.onclick = () => {
-      if (typeof b === 'object') applyEffects(b.effects || [], { arcId: event.arcId, currentColor: event._assignedColor });
+      if (typeof b === 'object') applyEffects(b.effects || [], { arcId: event.arcId, currentColor: event._assignedColor, referenceColor: event._referenceActorColor || null });
       const active = state.activeStories.find(s => s.id === event.id);
       if (active && event._assignedColor) active.assignedColor = event._assignedColor;
       save();
@@ -1831,8 +2104,12 @@ function renderDialogButtons(event) {
 }
 
 function renderEffects(effects) {
-  if (!effects.length) return '<strong>Effect:</strong> Follow the instructions above.';
-  return '<strong>Effect:</strong><ul>' + effects.map(e => `<li>${effectToText(e)}</li>`).join('') + '</ul>';
+  // Duration is already communicated by the live number + hourglass counter on
+  // ongoing Story/World cards. Do not repeat "Lasts X primary triggers" in
+  // the narrative dialog; keep the effect in state so expiration still works.
+  const visibleEffects = (effects || []).filter(e => e?.type !== 'duration_primary_triggers');
+  if (!visibleEffects.length) return '';
+  return '<strong>Effect:</strong><ul>' + visibleEffects.map(e => `<li>${effectToText(e)}</li>`).join('') + '</ul>';
 }
 function effectToText(e) {
   const map = {
@@ -1855,7 +2132,7 @@ function effectToText(e) {
     choice: `Choose one of the listed outcomes.`,
     choose_one: `Choose one of the listed outcomes.`
   };
-  return map[e.type] || e.type?.replaceAll('_', ' ') || 'Resolve listed effect';
+  return e?.displayText || e?.calloutText || map[e.type] || e.type?.replaceAll('_', ' ') || 'Resolve listed effect';
 }
 
 function render() {
@@ -1863,6 +2140,7 @@ function render() {
   refillTriggers();
   if (state.screen === 'home') return renderHome();
   if (state.screen === 'setup') return renderSetup();
+  if (state.screen === 'gameSettings') return renderGameSettings();
   if (state.screen === 'game') return renderGame();
   if (state.screen === 'end') return renderEndGame();
   if (state.screen === 'finalTally') return renderFinalTally();
@@ -1981,6 +2259,13 @@ function renderSetup() {
 
         <div class="setup-panel ${currentSetupPanel === 'modules' ? 'show' : ''}" id="panel-modules">
           <div class="module-groups">${MODULES.map(renderModuleGroup).join('')}</div>
+          <div class="dialog-actions setup-panel-actions">
+            <button class="primary-btn home-major-btn home-leather-btn home-leather-btn-primary setup-next-btn" type="button" data-setup-next="basics">
+              <span class="home-btn-mark" aria-hidden="true">◆</span>
+              <span class="home-btn-label">Next</span>
+              <span class="home-btn-arrow" aria-hidden="true">›</span>
+            </button>
+          </div>
         </div>
 
         <div class="setup-panel ${currentSetupPanel === 'basics' ? 'show' : ''}" id="panel-basics">
@@ -2029,20 +2314,26 @@ function renderSetup() {
               <div class="player-setup-list" id="playerSetupRows">${renderPlayerSetupRows()}</div>
             </div>
           </details>
+          <div class="dialog-actions setup-panel-actions">
+            <button class="primary-btn home-major-btn home-leather-btn home-leather-btn-primary setup-next-btn" type="button" data-setup-next="setup">
+              <span class="home-btn-mark" aria-hidden="true">◆</span>
+              <span class="home-btn-label">Next</span>
+              <span class="home-btn-arrow" aria-hidden="true">›</span>
+            </button>
+          </div>
         </div>
 
         <div class="setup-panel ${currentSetupPanel === 'setup' ? 'show' : ''}" id="panel-setup">
           <div id="setupNotes"></div>
+          <div class="dialog-actions setup-panel-actions setup-start-actions">
+            <button class="primary-btn home-major-btn home-leather-btn home-leather-btn-primary setup-start-game-btn" id="beginGame">
+              <span class="home-btn-mark" aria-hidden="true">◆</span>
+              <span class="home-btn-label">Start Game</span>
+              <span class="home-btn-arrow" aria-hidden="true">›</span>
+            </button>
+          </div>
         </div>
 
-      </div>
-
-      <div class="dialog-actions setup-final-actions-centered">
-        <button class="primary-btn home-major-btn home-leather-btn home-leather-btn-primary setup-start-game-btn" id="beginGame">
-          <span class="home-btn-mark" aria-hidden="true">◆</span>
-          <span class="home-btn-label">Start Game</span>
-          <span class="home-btn-arrow" aria-hidden="true">›</span>
-        </button>
       </div>
     </section>
   </div>`;
@@ -2051,19 +2342,26 @@ function renderSetup() {
 
   // --- trail step navigation ---
   const trailStops = Array.from(app.querySelectorAll('.trail-stop'));
-  trailStops.forEach((stop, index) => {
-    stop.addEventListener('click', () => {
-      trailStops.forEach((s, i) => {
-        s.classList.toggle('active', s === stop);
-        s.classList.toggle('done', i < index);
-        s.setAttribute('aria-selected', s === stop ? 'true' : 'false');
-      });
-      app.querySelectorAll('.setup-panel').forEach(p => p.classList.toggle('show', p.id === `panel-${stop.dataset.panel}`));
-      state.setup.setupPanel = stop.dataset.panel;
-      save();
-      app.querySelector('.setup-content').scrollTop = 0;
+  const showSetupPanel = panelName => {
+    const stop = trailStops.find(item => item.dataset.panel === panelName);
+    if (!stop) return;
+    const index = trailStops.indexOf(stop);
+    trailStops.forEach((s, i) => {
+      s.classList.toggle('active', s === stop);
+      s.classList.toggle('done', i < index);
+      s.setAttribute('aria-selected', s === stop ? 'true' : 'false');
     });
-  });
+    app.querySelectorAll('.setup-panel').forEach(p => p.classList.toggle('show', p.id === `panel-${panelName}`));
+    state.setup.setupPanel = panelName;
+    save();
+    const content = app.querySelector('.setup-content');
+    if (content) content.scrollTop = 0;
+  };
+  trailStops.forEach(stop => stop.addEventListener('click', () => showSetupPanel(stop.dataset.panel)));
+  app.querySelectorAll('[data-setup-next]').forEach(btn => btn.addEventListener('click', () => {
+    updateSetupFromUI(false);
+    showSetupPanel(btn.dataset.setupNext);
+  }));
 
   // --- independent story/event toggles + compact frequency dropdowns ---
   app.querySelectorAll('[id^="storyEnabled_"]').forEach(toggle => {
@@ -2150,6 +2448,95 @@ function renderSetup() {
   syncExpansionCheckboxStates();
   renderSetupNotes();
   updateStartGameDisabled();
+}
+
+function renderGameSettings() {
+  if (!state.gameStarted) return navigate('home');
+  normalizeStoryEventSettings();
+  const returnScreen = gameSettingsReturnScreen && gameSettingsReturnScreen !== 'gameSettings' ? gameSettingsReturnScreen : 'game';
+  app.innerHTML = `<div class="modal-screen-overlay" data-game-settings-backdrop>
+    <section class="panel modal-screen-card game-settings-card">
+      <button type="button" class="dialog-close-x" data-game-settings-close aria-label="Close">&#10005;</button>
+      <div class="modal-title-header game-settings-title-block">
+        <p class="eyebrow">Current Game</p>
+        <h1 class="section-title setup-title">Game Settings</h1>
+      </div>
+
+      <p class="game-settings-intro">Adjust story features without changing the modules used to start this game. Changes apply to future events; ongoing chapters and current world effects remain active.</p>
+
+      <details class="options-card story-events-options" open>
+        <summary class="options-card-head">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5v13z"/></svg>
+          <span class="options-card-title">Story &amp; Events</span>
+          <span class="options-card-caret">⌄</span>
+        </summary>
+        <div class="options-card-body">
+          <div class="story-event-settings">
+            ${renderStoryEventSetting('oneOff', 'One-Off Events', 'Short encounters caused by actions during the game.')}
+            ${renderStoryEventSetting('arcs', 'Character Arcs', 'Multi-part stories that remember earlier player choices and actions.')}
+            ${renderStoryEventSetting('world', 'World Events', 'Occasional frontier-wide events that arrive independently over time.')}
+          </div>
+        </div>
+      </details>
+
+      <details class="options-card" open>
+        <summary class="options-card-head">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M7 12h10"/></svg>
+          <span class="options-card-title">Story Points</span>
+          <span class="options-card-caret">⌄</span>
+        </summary>
+        <div class="options-card-body">
+          <label class="toggle-row check-row story-track-setting">
+            <div class="toggle-text"><span class="t-title">Track Story Points</span><span class="t-sub">Show and maintain each player's Story Point track during this game.</span></div>
+            <input type="checkbox" id="useStoryTrack" class="check-input" ${isStoryTrackEnabled() ? 'checked' : ''}>
+          </label>
+          <label class="toggle-row check-row story-track-setting">
+            <div class="toggle-text"><span class="t-title">Story Point Reward Reminders</span><span class="t-sub">Show the compact reminder when a Story Point advances a player's marker.</span></div>
+            <input type="checkbox" id="showStoryTrackReminders" class="check-input" ${state.settings?.hideStoryTrackReminders ? '' : 'checked'}>
+          </label>
+        </div>
+      </details>
+
+      <div class="dialog-actions game-settings-actions">
+        <button type="button" class="primary-btn home-major-btn home-leather-btn home-leather-btn-primary" id="gameSettingsDone">
+          <span class="home-btn-mark" aria-hidden="true">◆</span>
+          <span class="home-btn-label">Done</span>
+          <span class="home-btn-arrow" aria-hidden="true">›</span>
+        </button>
+      </div>
+    </section>
+  </div>`;
+
+  const applyGameSettings = () => {
+    updateSetupFromUI(false);
+    const showReminders = document.getElementById('showStoryTrackReminders')?.checked !== false;
+    state.settings.hideStoryTrackReminders = !showReminders;
+    if (!showReminders) state.storyTrackNotice = null;
+    save();
+  };
+
+  app.querySelectorAll('[id^="storyEnabled_"]').forEach(toggle => {
+    toggle.addEventListener('change', () => {
+      const card = toggle.closest('[data-story-setting]');
+      const frequencySelect = card?.querySelector('.story-frequency-select');
+      card?.classList.toggle('disabled', !toggle.checked);
+      if (frequencySelect) frequencySelect.disabled = !toggle.checked;
+      applyGameSettings();
+    });
+  });
+  app.querySelectorAll('.story-frequency-select').forEach(select => select.addEventListener('change', applyGameSettings));
+  document.getElementById('useStoryTrack')?.addEventListener('change', applyGameSettings);
+  document.getElementById('showStoryTrackReminders')?.addEventListener('change', applyGameSettings);
+
+  const closeSettings = () => {
+    applyGameSettings();
+    navigate(returnScreen);
+  };
+  document.getElementById('gameSettingsDone')?.addEventListener('click', closeSettings);
+  document.querySelector('[data-game-settings-close]')?.addEventListener('click', closeSettings);
+  document.querySelector('[data-game-settings-backdrop]')?.addEventListener('click', event => {
+    if (event.target.hasAttribute('data-game-settings-backdrop')) closeSettings();
+  });
 }
 
 function bindSetupPlayerInputs() {
@@ -2252,9 +2639,8 @@ function inferStepIconKey(step) {
   }
   return 'generic';
 }
-function renderStepIcon(step) {
-  const key = inferStepIconKey(step);
-  return `<svg class="step-type-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${SETUP_STEP_ICONS[key]}</svg>`;
+function renderStepIcon() {
+  return '<span class="step-type-bullet" aria-hidden="true">•</span>';
 }
 
 function getVisibleSetupSections() {
@@ -2265,21 +2651,72 @@ function getVisibleSetupSections() {
   })).filter(section => section.steps.length);
 }
 
-function setupStepKey(section, stepIndex, step) {
-  return `${section.title}::${stepIndex}::${step.text || ''}`.slice(0, 160);
+
+function setupStepKey(section, stepIndex, step, parentPath = []) {
+  const lineage = parentPath.length ? `${parentPath.join('.')}::` : '';
+  return `${section.title}::${lineage}${stepIndex}::${step.text || step.title || step.summary || ''}`.slice(0, 220);
+}
+
+function collectTrackableSetupSteps(section, steps = section?.steps || [], parentPath = []) {
+  const out = [];
+  (steps || []).forEach((step, stepIndex) => {
+    const path = [...parentPath, stepIndex];
+    if (Array.isArray(step.substeps) && step.substeps.length) {
+      out.push(...collectTrackableSetupSteps(section, step.substeps, path));
+      return;
+    }
+    if (step.checkable === false) return;
+    out.push({ step, key: setupStepKey(section, stepIndex, step, parentPath), stepIndex, parentPath });
+  });
+  return out;
+}
+
+function isSetupLeafStepDone(section, step, stepIndex, parentPath = []) {
+  const stepKey = setupStepKey(section, stepIndex, step, parentPath);
+  return setupStepProgress.has(stepKey);
+}
+
+function isSetupStepSatisfied(section, step, stepIndex, parentPath = []) {
+  if (Array.isArray(step.substeps) && step.substeps.length) {
+    const visibleSubsteps = step.substeps.filter(isSetupStepVisible);
+    if (!visibleSubsteps.length) return true;
+    return visibleSubsteps.every((childStep, childIndex) => isSetupStepSatisfied(section, childStep, childIndex, [...parentPath, stepIndex]));
+  }
+  if (step.checkable === false) return true;
+  return isSetupLeafStepDone(section, step, stepIndex, parentPath);
 }
 
 function isSetupSectionComplete(section) {
   if (!section?.steps?.length) return false;
-  return section.steps.every((step, stepIndex) => setupStepProgress.has(setupStepKey(section, stepIndex, step)));
+  const handledChoiceGroups = new Set();
+  let hasAnyTrackable = false;
+  for (let stepIndex = 0; stepIndex < section.steps.length; stepIndex += 1) {
+    const step = section.steps[stepIndex];
+    const groupId = step.choiceGroup || '';
+    if (groupId) {
+      if (handledChoiceGroups.has(groupId)) continue;
+      handledChoiceGroups.add(groupId);
+      const options = section.steps
+        .map((candidate, candidateIndex) => ({ candidate, candidateIndex }))
+        .filter(item => item.candidate.choiceGroup === groupId);
+      const hasGroupTrackable = options.some(item => collectTrackableSetupSteps(section, [item.candidate], []).length > 0);
+      if (hasGroupTrackable) hasAnyTrackable = true;
+      if (!options.some(item => isSetupStepSatisfied(section, item.candidate, item.candidateIndex))) return false;
+      continue;
+    }
+    const trackableCount = collectTrackableSetupSteps(section, [step], []).length;
+    if (trackableCount > 0) hasAnyTrackable = true;
+    if (!isSetupStepSatisfied(section, step, stepIndex)) return false;
+  }
+  return hasAnyTrackable;
 }
 
 function setupProgressStats(sections) {
   let total = 0;
   let done = 0;
-  sections.forEach(section => section.steps.forEach((step, stepIndex) => {
+  sections.forEach(section => collectTrackableSetupSteps(section).forEach(item => {
     total += 1;
-    if (setupStepProgress.has(setupStepKey(section, stepIndex, step))) done += 1;
+    if (setupStepProgress.has(item.key)) done += 1;
   }));
   return { total, done };
 }
@@ -2329,42 +2766,19 @@ function renderSetupNotes() {
   const wrap = document.getElementById('setupNotes');
   if (!wrap) return;
   setupStepProgress = new Set(state.setup.setupProgress || []);
+  state.setup.setupGuideMode = 'guided';
   const visibleSections = getVisibleSetupSections();
   if (!visibleSections.length) {
     wrap.innerHTML = '<p class="hint">No setup steps are required for the current selection.</p>';
     return;
   }
 
-  const mode = state.setup.setupGuideMode || 'guided';
-  const stats = setupProgressStats(visibleSections);
   const firstIncomplete = visibleSections.findIndex(section => !isSetupSectionComplete(section));
   let currentIndex = Math.max(0, Math.min(visibleSections.length - 1, Number(state.setup.setupGuideSection) || 0));
-  if (mode === 'guided' && firstIncomplete >= 0 && !Number.isFinite(Number(state.setup.setupGuideSection))) currentIndex = firstIncomplete;
+  if (firstIncomplete >= 0 && !Number.isFinite(Number(state.setup.setupGuideSection))) currentIndex = firstIncomplete;
   state.setup.setupGuideSection = currentIndex;
 
-  const progressPct = stats.total ? Math.round((stats.done / stats.total) * 100) : 0;
-  const allComplete = stats.total > 0 && stats.done === stats.total;
-
-  wrap.innerHTML = `
-    <section class="setup-guide-overview">
-      <div class="setup-mode-switch" role="group" aria-label="Setup guide view">
-        <button type="button" class="${mode === 'guided' ? 'active' : ''}" data-setup-mode="guided">Guided</button>
-        <button type="button" class="${mode === 'checklist' ? 'active' : ''}" data-setup-mode="checklist">Checklist</button>
-      </div>
-      <div class="setup-progress-summary">
-        <div>
-          <strong>${allComplete ? 'Ready to Play' : `${stats.done} of ${stats.total} tasks complete`}</strong>
-          <small>${allComplete ? 'The table is ready. Review anything you want, then start the game.' : mode === 'guided' ? `Step ${currentIndex + 1} of ${visibleSections.length} · ${escapeHtml(visibleSections[currentIndex].title)}` : 'Check items off in any order.'}</small>
-        </div>
-        <span>${progressPct}%</span>
-      </div>
-      <div class="setup-progress-bar" aria-label="${progressPct}% of setup complete"><span style="width:${progressPct}%"></span></div>
-      ${allComplete ? renderReadySetupSummary() : ''}
-    </section>
-    ${mode === 'guided'
-      ? renderGuidedSetup(visibleSections, currentIndex)
-      : `<div class="setup-note-list checklist-view">${visibleSections.map((section, index) => renderSetupSection(section, index, firstIncomplete)).join('')}</div>`}
-  `;
+  wrap.innerHTML = renderGuidedSetup(visibleSections, currentIndex);
   bindSetupNoteInteractions(wrap, visibleSections);
 }
 
@@ -2397,70 +2811,69 @@ function renderGuidedSetup(sections, currentIndex) {
   </div>`;
 }
 
-function bindSetupNoteInteractions(wrap, visibleSections) {
-  wrap.querySelectorAll('[data-setup-mode]').forEach(btn => btn.addEventListener('click', () => {
-    state.setup.setupGuideMode = btn.dataset.setupMode;
-    if (state.setup.setupGuideMode === 'guided') {
-      const firstIncomplete = visibleSections.findIndex(section => !isSetupSectionComplete(section));
-      if (firstIncomplete >= 0) state.setup.setupGuideSection = firstIncomplete;
+function scrollSetupGuideToTop(behavior = 'smooth') {
+  requestAnimationFrame(() => {
+    const rail = document.querySelector('#setupNotes .setup-section-rail');
+    const activeStop = rail?.querySelector('.setup-section-stop.active');
+    rail?.scrollIntoView({ behavior, block: 'start' });
+    if (rail && activeStop) {
+      const targetLeft = activeStop.offsetLeft - ((rail.clientWidth - activeStop.offsetWidth) / 2);
+      rail.scrollTo({ left: Math.max(0, targetLeft), behavior });
     }
-    save();
-    renderSetupNotes();
-  }));
+  });
+}
 
+function bindSetupNoteInteractions(wrap, visibleSections) {
   wrap.querySelectorAll('[data-setup-section]').forEach(btn => btn.addEventListener('click', () => {
     state.setup.setupGuideSection = Number(btn.dataset.setupSection);
     save();
     renderSetupNotes();
+    scrollSetupGuideToTop();
   }));
 
   wrap.querySelector('[data-setup-prev]')?.addEventListener('click', () => {
     state.setup.setupGuideSection = Math.max(0, Number(state.setup.setupGuideSection || 0) - 1);
     save();
     renderSetupNotes();
+    scrollSetupGuideToTop();
   });
   wrap.querySelector('[data-setup-next]')?.addEventListener('click', () => {
     state.setup.setupGuideSection = Math.min(visibleSections.length - 1, Number(state.setup.setupGuideSection || 0) + 1);
     save();
     renderSetupNotes();
-  });
-
-  const allDetails = Array.from(wrap.querySelectorAll('.setup-note'));
-  const focusSetupNote = target => {
-    allDetails.forEach(d => { d.open = (d === target); });
-  };
-  allDetails.forEach(details => {
-    details.addEventListener('toggle', () => { if (details.open) focusSetupNote(details); });
+    scrollSetupGuideToTop();
   });
 
   wrap.querySelectorAll('.step-image-toggle').forEach(btn => {
     btn.addEventListener('click', event => {
       event.preventDefault();
       event.stopPropagation();
-      const imagesEl = btn.nextElementSibling;
+      const imagesEl = btn.closest('.setup-step-item, .setup-step-group')?.querySelector(':scope > .setup-step-images');
       const expanded = imagesEl?.classList.toggle('expanded');
       btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
       btn.textContent = expanded ? 'Hide reference' : 'Show reference';
     });
   });
 
-  wrap.querySelectorAll('.setup-step-check').forEach(checkbox => {
-    checkbox.addEventListener('click', event => event.stopPropagation());
-    checkbox.addEventListener('change', () => {
-      const key = checkbox.dataset.stepKey;
-      if (checkbox.checked) setupStepProgress.add(key); else setupStepProgress.delete(key);
+  wrap.querySelectorAll('.setup-step-toggle').forEach(toggle => {
+    toggle.addEventListener('click', event => {
+      event.preventDefault();
+      const key = toggle.dataset.stepKey;
+      if (!key) return;
+      const willBeDone = !setupStepProgress.has(key);
+      if (willBeDone) setupStepProgress.add(key); else setupStepProgress.delete(key);
       state.setup.setupProgress = Array.from(setupStepProgress);
       const currentIndex = Number(state.setup.setupGuideSection || 0);
       const currentSection = visibleSections[currentIndex];
       const completedCurrent = currentSection && isSetupSectionComplete(currentSection);
       save();
-      if (state.setup.setupGuideMode === 'guided' && checkbox.checked && completedCurrent && currentIndex < visibleSections.length - 1) {
+      if (willBeDone && completedCurrent && currentIndex < visibleSections.length - 1) {
         setTimeout(() => {
           state.setup.setupGuideSection = currentIndex + 1;
           save();
           renderSetupNotes();
-          document.getElementById('setupNotes')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 350);
+          scrollSetupGuideToTop();
+        }, 250);
       } else {
         renderSetupNotes();
       }
@@ -2481,40 +2894,57 @@ function isSetupStepVisible(step) {
 function renderSetupSection(section, index, firstIncomplete = 0) {
   const complete = isSetupSectionComplete(section);
   const stepItems = section.steps.map((step, stepIndex) => renderSetupStep(step, section, stepIndex)).join('');
+  const stepTotal = collectTrackableSetupSteps(section).length;
+  const stepDone = collectTrackableSetupSteps(section).filter(item => setupStepProgress.has(item.key)).length;
   return `<details class="setup-note ${complete ? 'complete' : ''}" ${index === (firstIncomplete >= 0 ? firstIncomplete : 0) ? 'open' : ''}>
     <summary>
       <span class="step-number">${complete ? '✓' : index + 1}</span>
       <span class="setup-note-heading"><strong>${escapeHtml(section.title)}</strong><small>${escapeHtml(section.summary || '')}</small></span>
-      <span class="step-progress">${section.steps.filter((step, stepIndex) => setupStepProgress.has(setupStepKey(section, stepIndex, step))).length}/${section.steps.length}</span>
+      <span class="step-progress">${stepDone}/${stepTotal}</span>
     </summary>
     <ul class="setup-checklist">${stepItems}</ul>
   </details>`;
 }
 
-function renderSetupStep(step, section, stepIndex) {
-  const stepKey = setupStepKey(section, stepIndex, step);
-  const isDone = setupStepProgress.has(stepKey);
+function renderSetupStep(step, section, stepIndex, parentPath = []) {
+  const stepKey = setupStepKey(section, stepIndex, step, parentPath);
   const images = (step.images || []).filter(isSetupVisualVisible);
   let imageHtml = '';
   if (images.length) {
-    imageHtml = `<button type="button" class="step-image-toggle" aria-expanded="false">Show reference</button>
-      <div class="setup-step-images">${images.map(renderSetupStepImage).join('')}</div>`;
+    imageHtml = `<div class="setup-step-images">${images.map(renderSetupStepImage).join('')}</div>`;
   }
+  const imageToggleHtml = images.length ? `<button type="button" class="step-image-toggle" aria-expanded="false">Show reference</button>` : '';
+  const badgesHtml = renderSetupStepBadges(step);
+  const metaHtml = badgesHtml || imageToggleHtml
+    ? `<div class="setup-step-meta-row">${badgesHtml}${imageToggleHtml}</div>`
+    : '';
   const actionButtons = [
     ...(step.actionButton ? [step.actionButton] : []),
     ...(step.actionButtons || [])
   ].filter(isSetupVisualVisible);
   const actionButtonsHtml = actionButtons.length ? `<div class="setup-step-actions">${actionButtons.map(renderSetupStepActionButton).join('')}</div>` : '';
-  return `<li class="${isDone ? 'done' : ''}">
-    <label class="setup-step-line">
-      <input type="checkbox" class="setup-step-check" data-step-key="${escapeHtml(stepKey)}" ${isDone ? 'checked' : ''} aria-label="Mark step done">
+
+  if (Array.isArray(step.substeps) && step.substeps.length) {
+    const nested = step.substeps.filter(isSetupStepVisible).map((childStep, childIndex) => renderSetupStep(childStep, section, childIndex, [...parentPath, stepIndex])).join('');
+    return `<li class="setup-step-group">
+      <div class="setup-step-group-head">
+        ${renderStepIcon(step)}
+        <span class="setup-step-text"><strong>${formatSetupText(step.text)}</strong>${step.summary ? `<small class="setup-group-summary">${escapeHtml(step.summary)}</small>` : ''}</span>
+      </div>
+      ${metaHtml}${imageHtml}${actionButtonsHtml}
+      <ul class="setup-substeps">${nested}</ul>
+    </li>`;
+  }
+
+  const isDone = setupStepProgress.has(stepKey);
+  return `<li class="setup-step-item ${isDone ? 'done' : ''}">
+    <button type="button" class="setup-step-toggle" data-step-key="${escapeHtml(stepKey)}" aria-pressed="${isDone ? 'true' : 'false'}">
       ${renderStepIcon(step)}
-      <span class="setup-step-text">${formatSetupText(step.text)}${renderSetupStepBadges(step)}</span>
-    </label>
-    ${imageHtml}${actionButtonsHtml}
+      <span class="setup-step-text">${formatSetupText(step.text)}</span>
+    </button>
+    ${metaHtml}${imageHtml}${actionButtonsHtml}
   </li>`;
 }
-
 function renderSetupStepActionButton(action) {
   const label = action.label || action.text || 'Open';
   const opens = action.opens || action.assist || '';
@@ -2529,10 +2959,6 @@ function renderSetupStepImage(image) {
   const figureClasses = ['setup-step-image', isFullWidth ? 'setup-step-image-full' : '', image.className || ''].filter(Boolean).join(' ');
   const imgClasses = ['setup-step-image-img', isFullWidth ? 'setup-step-image-full' : ''].filter(Boolean).join(' ');
   const label = image.alt || image.caption || 'image';
-  // `schematicSrc` is an optional simplified/flat diagram to show at thumbnail
-  // size instead of a busy photo scan of the real component; the full photo
-  // (`src`) is always what opens in the tap-to-enlarge lightbox. Falls back
-  // to `src` for both when no schematic has been authored yet.
   const thumbSrc = image.schematicSrc || image.src;
   return `<figure class="${figureClasses}">
     <button type="button" class="setup-step-image-btn" data-view-image="${escapeHtml(image.src)}" data-view-alt="${escapeHtml(image.alt || '')}" data-view-caption="${escapeHtml(image.caption || '')}" aria-label="View ${escapeHtml(label)} full size">
@@ -2563,16 +2989,16 @@ function renderGame() {
     <h1 class="trigger-heading">Primary Actions</h1>
     <p>Perform one of these actions to see what happens.</p>
   </section>
-  ${renderStoryTrackStrip()}
+  ${renderStoryTrackArea()}
   <section class="trigger-grid" aria-label="Primary action triggers">
     ${state.activeTriggers.map(t => renderTriggerCard(t)).join('')}
   </section>
   ${hasStories ? `<section class="panel story-panel">
-    <h2 class="story-section-title">Active Story Triggers</h2>
+    <h2 class="story-section-title"><span>Ongoing Stories</span><span class="story-section-count" aria-label="${state.activeStories.length} ongoing stories">${state.activeStories.length}</span></h2>
     ${renderStoryList()}
   </section>` : ''}
   ${hasWorldEvents ? `<section class="panel story-panel">
-    <h2 class="story-section-title">Active World Effects</h2>
+    <h2 class="story-section-title"><span>Current World Event</span></h2>
     ${renderWorldList()}
   </section>` : ''}`;
   app.querySelectorAll('[data-trigger]').forEach(b => b.onclick = () => {
@@ -2581,35 +3007,24 @@ function renderGame() {
     if (isStoryTrackEnabled() || storyEventsEnabled('arcs')) promptTriggerColor(b.dataset.trigger);
     else tapPrimaryTrigger(b.dataset.trigger, null);
   });
-  app.querySelectorAll('[data-resolve]').forEach(b => b.onclick = () => resolveStory(b.dataset.resolve));
+  app.querySelectorAll('[data-resolve]').forEach(b => b.onclick = () => promptResolveStory(b.dataset.resolve));
   app.querySelectorAll('[data-resolve-world]').forEach(b => b.onclick = () => promptResolveWorldEvent(b.dataset.resolveWorld));
   app.querySelectorAll('[data-story-track-color]').forEach(b => b.onclick = () => {
     gainStoryPoint(b.dataset.storyTrackColor, () => { save(); render(); });
   });
+  app.querySelectorAll('[data-player-story-alert]').forEach(b => b.onclick = () => {
+    const target = app.querySelector(`[data-story-owner-color="${b.dataset.playerStoryAlert}"]`);
+    target?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+  bindStoryTrackArea();
   updateFrontierMoodMusic();
   if (queueDueWorldEvent()) save();
   setTimeout(maybePresentPendingWorldEvent, 40);
 }
 
-// One small row, one badge per player: colored background, current story-track
-// space number (1-4) shown large inside. Tapping a badge manually awards that
-// player a Story Point (for whenever one is earned some way other than a
-// primary trigger/story/world-event resolution) - same gainStoryPoint() path
-// used everywhere else, so it shows the same compact informational Story
-// Track reminder as any other source of a Story Point.
-function renderStoryTrackStrip() {
-  if (!isStoryTrackEnabled()) return '';
-  const colors = (state.setup.playerColors || []).filter(Boolean);
-  if (!colors.length) return '';
-  return `<div class="story-track-strip" aria-label="Story Point track per player">${colors.map(color => {
-    ensurePlayerTrackState(color);
-    const position = state.storyTrack[color] || 0;
-    const space = STORY_TRACK_SPACES[position];
-    return `<button type="button" class="player-color-swatch story-track-chip swatch-${color}" data-story-track-color="${color}" title="${escapeHtml(playerLabel(color))} \u2014 ${escapeHtml(space.title)} (tap to add a Story Point)">
-      <span class="story-track-chip-number">${position + 1}</span>
-    </button>`;
-  }).join('')}</div>`;
-}
+// Story Point markers and their temporary reminder share a fixed-height area
+// above the trigger grid. renderStoryTrackArea() owns both states so changing
+// between them never reflows the gameplay content below.
 
 function renderTriggerCard(t) {
   const title = renderTriggerTitle(t);
@@ -2661,41 +3076,59 @@ function escapeHtml(value = '') {
   return String(value).replace(/[&<>'"]/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[ch]));
 }
 
+function activeEventCounterMarkup(turnsLeft) {
+  const count = Math.max(0, Number(turnsLeft) || 0);
+  const label = `${count} primary action trigger${count === 1 ? '' : 's'} remaining`;
+  // Solid block hourglass silhouette, matching the compact tabletop-style icon
+  // used in the UI reference. currentColor keeps it matched to the number.
+  return `<span class="counter event-countdown" title="${escapeHtml(label)}" aria-label="${escapeHtml(label)}"><span class="event-countdown-number">${count}</span><svg class="event-countdown-hourglass" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 3H20V8L14.5 12L20 16V21H4V16L9.5 12L4 8V3Z"/></svg></span>`;
+}
+
+function playerNameOnly(color) {
+  const player = (state.setup.playerDetails || []).find(p => p.color === color);
+  return player?.name?.trim() || `${color.charAt(0).toUpperCase()}${color.slice(1)} player`;
+}
+
+function storyOwnerDot(story) {
+  if (activeStoryScope(story) === 'global' || !story.assignedColor || !PLAYER_COLORS.includes(story.assignedColor)) return '';
+  const name = playerNameOnly(story.assignedColor);
+  const label = `Only ${name} may resolve this chapter`;
+  return `<span class="story-owner-dot swatch-${story.assignedColor}" title="${escapeHtml(label)}" aria-label="${escapeHtml(label)}"></span>`;
+}
+
 function renderStoryList() {
-  if (!state.activeStories.length) return '<p>No active story triggers. Keep watching the three primary action cards.</p>';
+  if (!state.activeStories.length) return '<p>No ongoing stories. Keep watching the three primary action cards.</p>';
   return `<div class="story-list">${state.activeStories.map(s => {
-    const icon = storyIcon(s);
-    return `<article class="story-row">
-      <span class="story-icon" style="background-image:url('${icon}')" aria-hidden="true"></span>
+    const scope = activeStoryScope(s);
+    const hasChapterOwner = scope !== 'global' && !!s.assignedColor;
+    return `<article class="story-row${hasChapterOwner ? ' story-row-personal' : ''}"${hasChapterOwner ? ` data-story-owner-color="${escapeHtml(s.assignedColor)}"` : ''}>
       <div class="story-main">
-        <h3>${s.assignedColor ? `<span class="player-color" style="display:inline-block;background:${s.assignedColor};vertical-align:middle"></span> ` : ''}${escapeHtml(s.title)}</h3>
+        <div class="story-heading${hasChapterOwner ? ' story-heading-personal' : ''}">
+          ${hasChapterOwner ? storyOwnerDot(s) : ''}
+          <div class="story-heading-text">
+            <div class="story-meta story-source"><span>${escapeHtml(s.arcTitle || 'Story')}</span></div>
+            <h3>${escapeHtml(s.title)}</h3>
+          </div>
+        </div>
         <p>${escapeHtml(s.screenText)}</p>
-        <div class="story-meta">${escapeHtml(s.arcTitle || 'Story Trigger')}</div>
       </div>
-      <span class="counter">${s.turnsLeft} left</span>
-      ${s.rewardText ? `<p style="grid-column:1/-1"><strong>${escapeHtml(s.rewardText)}</strong></p>` : ''}
+      ${activeEventCounterMarkup(s.turnsLeft)}
+      ${s.rewardText ? `<p class="story-reward"><strong>${escapeHtml(s.rewardText)}</strong></p>` : ''}
       <div class="story-actions"><button class="small-btn" data-resolve="${s.id}">Resolved</button></div>
     </article>`;
   }).join('')}</div>`;
 }
 
-function storyIcon(s) {
-  const text = `${s.title} ${s.arcTitle} ${s.screenText}`.toLowerCase();
-  if (text.includes('prospector') || text.includes('mine')) return 'assets/images/triggers/prospect.svg';
-  if (text.includes('rail') || text.includes('train')) return 'assets/images/triggers/move.svg';
-  if (text.includes('marshal') || text.includes('sheriff') || text.includes('bandit')) return 'assets/images/triggers/bandit.svg';
-  if (text.includes('ranch') || text.includes('cattle')) return 'assets/images/triggers/ranch.svg';
-  if (text.includes('poker') || text.includes('saloon')) return 'assets/images/triggers/poker.svg';
-  if (text.includes('store') || text.includes('item')) return 'assets/images/triggers/item.svg';
-  return 'assets/images/triggers/generic.svg';
-}
-
 function renderWorldList() {
-  if (!state.activeWorldEvents.length) return '<p>No active world effects.</p>';
+  if (!state.activeWorldEvents.length) return '<p>No current world event.</p>';
   return `<div class="story-list">${state.activeWorldEvents.map(w => `<article class="story-row">
-    <span class="story-icon" style="background-image:url('${storyIcon(w)}')" aria-hidden="true"></span>
-    <div class="story-main"><h3>${escapeHtml(w.title)}</h3><p>${escapeHtml(w.screenText)}</p><div class="story-meta">World Event</div></div>
-    <span class="counter">${w.turnsLeft} left</span>
+    <div class="story-main">
+      <div class="story-heading">
+        <div class="story-heading-text"><h3>${escapeHtml(w.title)}</h3></div>
+      </div>
+      <p>${escapeHtml(w.screenText)}</p>
+    </div>
+    ${activeEventCounterMarkup(w.turnsLeft)}
     ${w.resolvable ? `<div class="story-actions"><button class="small-btn" data-resolve-world="${w.id}">Resolve</button></div>` : ''}
   </article>`).join('')}</div>`;
 }
@@ -3506,9 +3939,9 @@ function renderPointReference() {
       title: 'Legendary Points (LP)',
       cls: 'gold',
       items: [
-        { icon: 'bank.png', action: 'Deposit Gold', detail: 'At the Bank, gain $20 and 1 LP for each Gold Nugget sold.' },
-        { icon: 'cabaret.png', action: 'Revel', detail: 'At the Cabaret, pay $30 to gain 1 LP; you may repeat during the same Revel action.' },
-        { icon: 'fight.png', action: 'Win Fights', detail: 'Defeat Bandits or story NPCs when the fight reward allows LP.' },
+        { iconPath: 'assets/images/tokens/action-bank.png', action: 'Deposit Gold', detail: 'At the Bank, gain $20 and 1 LP for each Gold Nugget sold.' },
+        { iconPath: 'assets/images/tokens/action-revel.png', action: 'Revel', detail: 'At the Cabaret, pay $30 to gain 1 LP; you may repeat during the same Revel action.' },
+        { iconPath: 'assets/images/tokens/action-outlaw.png', action: 'Win Fights', detail: 'Defeat Bandits or story NPCs when the fight reward allows LP.' },
         { icon: 'lp.png', action: 'Complete Stories', detail: 'Story Cards, Legendary Stories, event triggers, and app story objectives may award LP.' },
         { icon: 'deed.png', action: 'Use Deeds', detail: 'Claim or use Deeds when a property reward grants LP.' },
         { icon: 'generic.svg', action: 'Expansion Rewards', detail: 'Hunting, fishing, crafting, and other expansion content may award LP through their own rules or stories.' }
@@ -3518,20 +3951,20 @@ function renderPointReference() {
       title: 'Marshal Points (MP)',
       cls: 'blue',
       items: [
-        { icon: 'ranch.png', action: 'Wrangle Cattle', detail: 'Deliver cattle tokens to a Rail Station.' },
-        { icon: 'sheriff.png', action: 'Arrest Outlaws', detail: 'Arrest Wanted players or resolve lawman rewards that grant Marshal Points.' },
-        { icon: 'bandit.png', action: 'Defeat Bandits', detail: 'Choose Marshal Points when the Bandit reward allows MP instead of LP.' },
-        { icon: 'marshal.png', action: 'Serve the Law', detail: 'Complete Sheriff, Marshal, Posse, or law-themed story events that award MP.' }
+        { iconPath: 'assets/images/tokens/action-ranch.png', action: 'Wrangle Cattle', detail: 'Deliver cattle tokens to a Rail Station.' },
+        { iconPath: 'assets/images/tokens/action-sheriff.png', action: 'Arrest Outlaws', detail: 'Arrest Wanted players or resolve lawman rewards that grant Marshal Points.' },
+        { iconPath: 'assets/images/tokens/action-bandit.png', action: 'Defeat Bandits', detail: 'Choose Marshal Points when the Bandit reward allows MP instead of LP.' },
+        { iconPath: 'assets/images/tokens/action-sheriff.png', action: 'Serve the Law', detail: 'Complete Sheriff, Marshal, Posse, or law-themed story events that award MP.' }
       ]
     },
     {
       title: 'Wanted Points (WP)',
       cls: 'black',
       items: [
-        { icon: 'ranch.png', action: 'Rustle Cattle', detail: 'Deliver cattle to the wrong Ranch color.' },
-        { icon: 'bankheist.png', action: 'Rob / Heist', detail: 'Rob another player, rob the Bank, or commit Heist/Outlaw actions that award Wanted Points.' },
-        { icon: 'gun.png', action: 'Fight the Law', detail: 'Attack or interfere with lawmen when a rule or story says to gain WP.' },
-        { icon: 'wanted.png', action: 'Outlaw Events', detail: 'Resolve outlaw, gang, train-heist, or bandit story events that grant WP.' }
+        { iconPath: 'assets/images/tokens/action-ranch.png', action: 'Rustle Cattle', detail: 'Deliver cattle to the wrong Ranch color.' },
+        { iconPath: 'assets/images/tokens/action-outlaw.png', action: 'Rob / Heist', detail: 'Rob another player, rob the Bank, or commit Heist/Outlaw actions that award Wanted Points.' },
+        { iconPath: 'assets/images/tokens/action-outlaw.png', action: 'Fight the Law', detail: 'Attack or interfere with lawmen when a rule or story says to gain WP.' },
+        { iconPath: 'assets/images/tokens/action-outlaw.png', action: 'Outlaw Events', detail: 'Resolve outlaw, gang, train-heist, or bandit story events that grant WP.' }
       ]
     },
     {
@@ -3539,9 +3972,9 @@ function renderPointReference() {
       cls: 'purple',
       requiredModules: ['ante_up_gambler'],
       items: [
-        { icon: 'gp.png', action: 'Gambling Rewards', detail: 'Win or resolve Ante Up gambling activities when the Gambler Track/module is enabled.' },
-        { icon: 'poker.svg', action: 'Poker / Faro', detail: 'Play Poker or Faro events that award Gambler Points.' },
-        { icon: 'saloon.png', action: 'Gambling Stories', detail: 'Complete saloon, cabaret, card-shark, or traveling-showman story events that award GP.' }
+        { iconPath: 'assets/images/tokens/action-cards.png', action: 'Gambling Rewards', detail: 'Win or resolve Ante Up gambling activities when the Gambler Track/module is enabled.' },
+        { iconPath: 'assets/images/tokens/action-cards.png', action: 'Poker / Faro', detail: 'Play Poker or Faro events that award Gambler Points.' },
+        { iconPath: 'assets/images/tokens/action-cards.png', action: 'Gambling Stories', detail: 'Complete saloon, cabaret, card-shark, or traveling-showman story events that award GP.' }
       ]
     },
     {
@@ -3565,24 +3998,83 @@ function renderPointReference() {
   </article>`).join('')}</div>`;
 }
 
-function renderAudioSettings(returnTarget = null) {
-  app.innerHTML = `<div class="modal-screen-overlay" data-modal-backdrop>
-    <section class="panel modal-screen-card audio-settings-card">
-      <button type="button" class="dialog-close-x" data-modal-close aria-label="Close">&#10005;</button>
-      <div class="modal-title-header">
-        <p class="eyebrow">Sound Controls</p>
-        <h1 class="section-title">Audio</h1>
+function renderSettingsOverlay(returnTarget = null) {
+  normalizeStoryEventSettings();
+  const gameSettingsMarkup = state.gameStarted ? `
+      <details class="options-card settings-dialog-section" open>
+        <summary class="options-card-head">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5v13z"/></svg>
+          <span class="options-card-title">Story &amp; Events</span>
+          <span class="options-card-caret">⌄</span>
+        </summary>
+        <div class="options-card-body">
+          <p class="settings-section-note">Change how often new story content appears. Modules stay locked to the choices used when this game began; ongoing chapters and current world effects are not removed.</p>
+          <div class="story-event-settings">
+            ${renderStoryEventSetting('oneOff', 'One-Off Events', 'Short encounters caused by actions during the game.')}
+            ${renderStoryEventSetting('arcs', 'Character Arcs', 'Multi-part stories that remember earlier player choices and actions.')}
+            ${renderStoryEventSetting('world', 'World Events', 'Occasional frontier-wide events that arrive independently over time.')}
+          </div>
+        </div>
+      </details>
+
+      <details class="options-card settings-dialog-section" open>
+        <summary class="options-card-head">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M7 12h10"/></svg>
+          <span class="options-card-title">Story Points</span>
+          <span class="options-card-caret">⌄</span>
+        </summary>
+        <div class="options-card-body">
+          <label class="toggle-row check-row story-track-setting">
+            <div class="toggle-text"><span class="t-title">Track Story Points</span><span class="t-sub">Show and maintain each player's Story Point track during this game.</span></div>
+            <input type="checkbox" id="useStoryTrack" class="check-input" ${isStoryTrackEnabled() ? 'checked' : ''}>
+          </label>
+          <label class="toggle-row check-row story-track-setting">
+            <div class="toggle-text"><span class="t-title">Story Point Reward Reminders</span><span class="t-sub">Show the compact reminder when a Story Point advances a player's marker.</span></div>
+            <input type="checkbox" id="showStoryTrackReminders" class="check-input" ${state.settings?.hideStoryTrackReminders ? '' : 'checked'}>
+          </label>
+        </div>
+      </details>` : `
+      <p class="settings-no-game-note">Start a game to see the Story &amp; Events and Story Point settings for that game.</p>`;
+
+  app.innerHTML = `<div class="modal-screen-overlay" data-settings-backdrop>
+    <section class="panel modal-screen-card settings-dialog-card">
+      <button type="button" class="dialog-close-x" data-settings-close aria-label="Close">&#10005;</button>
+      <div class="modal-title-header settings-dialog-title-block">
+        <p class="eyebrow">Frontier Director</p>
+        <h1 class="section-title">Settings</h1>
       </div>
-      <div class="sound-compact-grid">
-        ${soundControl('musicOn','Music','musicVolume')}
-        ${soundControl('soundOn','Sounds','soundVolume')}
-        ${soundControl('voiceOn','Voice','voiceVolume')}
+
+      <details class="options-card settings-dialog-section audio-settings-card" open>
+        <summary class="options-card-head">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18 6a8.5 8.5 0 0 1 0 12"/></svg>
+          <span class="options-card-title">Audio</span>
+          <span class="options-card-caret">⌄</span>
+        </summary>
+        <div class="options-card-body">
+          <div class="sound-compact-grid settings-sound-grid">
+            ${soundControl('musicOn','Music','musicVolume')}
+            ${soundControl('soundOn','Sounds','soundVolume')}
+            ${soundControl('voiceOn','Voice','voiceVolume')}
+          </div>
+        </div>
+      </details>
+
+      ${gameSettingsMarkup}
+
+      <div class="dialog-actions settings-dialog-actions">
+        <button type="button" class="primary-btn home-major-btn home-leather-btn home-leather-btn-primary" id="settingsDone">
+          <span class="home-btn-mark" aria-hidden="true">◆</span>
+          <span class="home-btn-label">Done</span>
+          <span class="home-btn-arrow" aria-hidden="true">›</span>
+        </button>
       </div>
     </section>
   </div>`;
+
   [['musicOn', 'musicVolume'], ['soundOn', 'soundVolume'], ['voiceOn', 'voiceVolume']].forEach(([flag, volumeKey]) => {
     const checkbox = document.getElementById(flag);
     const slider = document.getElementById(volumeKey);
+    if (!checkbox || !slider) return;
     checkbox.onchange = () => {
       state.settings[flag] = checkbox.checked;
       slider.disabled = !checkbox.checked;
@@ -3597,11 +4089,45 @@ function renderAudioSettings(returnTarget = null) {
       save();
     };
   });
-  const closeAudio = () => reopenDrawerAfterOverlay(returnTarget);
-  document.querySelector('[data-modal-close]').onclick = closeAudio;
-  document.querySelector('[data-modal-backdrop]').addEventListener('click', event => {
-    if (event.target.hasAttribute('data-modal-backdrop')) closeAudio();
+
+  const applyCurrentGameSettings = () => {
+    if (!state.gameStarted) return;
+    updateSetupFromUI(false);
+    const showReminders = document.getElementById('showStoryTrackReminders')?.checked !== false;
+    state.settings.hideStoryTrackReminders = !showReminders;
+    if (!showReminders) state.storyTrackNotice = null;
+    save();
+  };
+
+  if (state.gameStarted) {
+    app.querySelectorAll('[id^="storyEnabled_"]').forEach(toggle => {
+      toggle.addEventListener('change', () => {
+        const card = toggle.closest('[data-story-setting]');
+        const frequencySelect = card?.querySelector('.story-frequency-select');
+        card?.classList.toggle('disabled', !toggle.checked);
+        if (frequencySelect) frequencySelect.disabled = !toggle.checked;
+        applyCurrentGameSettings();
+      });
+    });
+    app.querySelectorAll('.story-frequency-select').forEach(select => select.addEventListener('change', applyCurrentGameSettings));
+    document.getElementById('useStoryTrack')?.addEventListener('change', applyCurrentGameSettings);
+    document.getElementById('showStoryTrackReminders')?.addEventListener('change', applyCurrentGameSettings);
+  }
+
+  const closeSettings = () => {
+    applyCurrentGameSettings();
+    reopenDrawerAfterOverlay(returnTarget);
+  };
+  document.getElementById('settingsDone')?.addEventListener('click', closeSettings);
+  document.querySelector('[data-settings-close]')?.addEventListener('click', closeSettings);
+  document.querySelector('[data-settings-backdrop]')?.addEventListener('click', event => {
+    if (event.target.hasAttribute('data-settings-backdrop')) closeSettings();
   });
+}
+
+// Backward-compatible alias for any older internal call sites.
+function renderAudioSettings(returnTarget = null) {
+  renderSettingsOverlay(returnTarget);
 }
 
 function soundControl(flag, label, volume) {
@@ -3916,6 +4442,7 @@ function assistGroupIcon(title) {
 }
 
 function openAssistMenu() {
+  assistOpenedDirectly = false;
   assistView = 'menu';
   assistNestedReturn = null;
   fightFlowReturnTarget = null;
@@ -3953,7 +4480,7 @@ function openAssistMenu() {
     <h3 class="assist-group-title">${assistGroupIcon(group.title)}<span>${escapeHtml(group.title)}</span></h3>
     <div class="assist-choice-list">${group.items.map(item => `<button type="button" class="assist-choice assist-choice-no-icon" data-assist-open="${item.id}"><span class="assist-choice-copy"><strong>${item.title}</strong><small>${item.desc}</small></span></button>`).join('')}</div>
   </div>`).join('');
-  assistBody.querySelectorAll('[data-assist-open]').forEach(btn => btn.onclick = () => openAssist(btn.dataset.assistOpen));
+  assistBody.querySelectorAll('[data-assist-open]').forEach(btn => btn.onclick = () => { assistOpenedDirectly = false; openAssist(btn.dataset.assistOpen); });
   showAssistDialog();
 }
 
@@ -4013,6 +4540,15 @@ function closeAssist() {
 
 function handleAssistCloseRequest() {
   if (!assistDialog.open) return;
+  // First Player is a full-screen utility. Its X is a true Close rather than
+  // the usual detail-view Back behavior used by the other Assist screens.
+  if (assistDialog.classList.contains('first-player-dialog')) {
+    assistReturnAfterClose = false;
+    assistOpenedDirectly = false;
+    assistReturnTarget = null;
+    closeAssist();
+    return;
+  }
   if (assistNestedReturn === 'fightFlow') {
     resetFightCardHand();
     renderFightFlowAssist(fightFlowReturnTarget);
@@ -4028,6 +4564,12 @@ function handleAssistCloseRequest() {
   }
   if (assistNestedReturn === 'reference') {
     assistNestedReturn = null;
+    closeAssist();
+    return;
+  }
+  if (assistOpenedDirectly) {
+    assistOpenedDirectly = false;
+    assistReturnAfterClose = false;
     closeAssist();
     return;
   }
@@ -4944,46 +5486,373 @@ function renderRandomPlayerAssist() {
 }
 
 function renderFirstPlayerAssist() {
+  // Clean up any previous selector session before creating another one.
+  if (firstPlayerAssistCleanup) {
+    firstPlayerAssistCleanup();
+    firstPlayerAssistCleanup = null;
+  }
+
   setAssistHeader('First Player', 'Touch Randomizer');
   assistDialog.classList.add('first-player-dialog');
   assistBody.innerHTML = `<div class="first-player-stage" id="firstPlayerStage">
+    <canvas id="firstPlayerCanvas" class="first-player-canvas" aria-label="First player touch selector"></canvas>
     <div class="first-player-timer" id="firstPlayerTimer">3</div>
-    <p>Place fingers on the screen. The timer resets whenever a finger is added or removed.</p>
-    <div id="fingerLayer" class="finger-layer"></div>
-  </div>`;
+    <p class="first-player-instructions" id="firstPlayerHint">Everyone place one finger on the screen. Hold steady while the timer counts down.</p>
+  </div>
+  <div class="first-player-footer"><button type="button" class="primary-btn first-player-reset-btn" data-first-player-reset>Start Over</button></div>`;
+
   const stage = document.getElementById('firstPlayerStage');
-  const layer = document.getElementById('fingerLayer');
+  const canvas = document.getElementById('firstPlayerCanvas');
   const timer = document.getElementById('firstPlayerTimer');
-  const touches = new Map();
-  let countdown = 3;
-  let interval = null;
-  const colors = ['#d84b3a', '#3a79b8', '#e1b93f', '#6f9f55', '#8a5ca8', '#eee'];
-  function resetTimer() {
-    countdown = 3;
-    timer.textContent = countdown;
-    clearInterval(interval);
-    if (touches.size === 0) return;
-    interval = setInterval(() => {
-      countdown -= 1;
-      timer.textContent = countdown;
-      if (countdown <= 0) chooseFinger();
-    }, 1000);
+  const hint = document.getElementById('firstPlayerHint');
+  const ctx = canvas.getContext('2d');
+
+  // Give each finger a different randomly ordered color each time the helper
+  // opens. The colors are intentionally bright against the dark selector.
+  const palette = [
+    '#d84b3a', // red
+    '#3a79b8', // blue
+    '#e1b93f', // gold
+    '#6f9f55', // green
+    '#8a5ca8', // purple
+    '#f08a45', // orange
+    '#45a6a0', // teal
+    '#d66e98', // rose
+    '#5aa9e6', // sky
+    '#eee6d3'  // cream
+  ];
+  for (let i = palette.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [palette[i], palette[j]] = [palette[j], palette[i]];
   }
-  function renderFingers(winnerId = null) {
-    layer.innerHTML = Array.from(touches.values()).map(t => `<span class="finger-pulse ${winnerId === t.id ? 'winner' : ''}" style="left:${t.x}px;top:${t.y}px;background:${t.color}"></span>`).join('');
-  }
-  function chooseFinger() {
-    clearInterval(interval);
-    if (!touches.size) return;
-    const picked = Array.from(touches.values())[Math.floor(Math.random() * touches.size)];
-    timer.textContent = '★';
-    renderFingers(picked.id);
-  }
-  stage.onpointerdown = e => { stage.setPointerCapture?.(e.pointerId); touches.set(e.pointerId, { id:e.pointerId, x:e.offsetX, y:e.offsetY, color: colors[touches.size % colors.length] }); renderFingers(); resetTimer(); };
-  stage.onpointermove = e => { if (!touches.has(e.pointerId)) return; const t = touches.get(e.pointerId); t.x = e.offsetX; t.y = e.offsetY; renderFingers(); };
-  const remove = e => { if (touches.delete(e.pointerId)) { renderFingers(); resetTimer(); } };
-  stage.onpointerup = remove;
-  stage.onpointercancel = remove;
+
+  const touches = new Map(); // id -> { x, y, color, bornAt, phase }
+  let paletteIndex = 0;
+  let rafId = 0;
+  let countdownIntervalId = 0;
+  let countdownDeadline = 0;
+  let isSelecting = false;
+  let selectedId = null;
+  let selectedColor = palette[0];
+  let selectedPos = null;
+  let selectStartAt = 0;
+  let pointerDown = false;
+  let destroyed = false;
+
+  const firstPlayerTokenImage = new Image();
+  firstPlayerTokenImage.decoding = 'async';
+  firstPlayerTokenImage.src = 'assets/images/tokens/firstplayer.png';
+
+  const BASE_RADIUS = 48;
+  const PULSE_AMPLITUDE = 8;
+  const SELECT_ANIM_MS = 950;
+  const STAR_RADIUS = 42;
+
+  const tryVibrate = pattern => {
+    try {
+      if (navigator && typeof navigator.vibrate === 'function') navigator.vibrate(pattern);
+    } catch (_) {}
+  };
+
+  const resize = () => {
+    if (destroyed) return;
+    const rect = stage.getBoundingClientRect();
+    const dpr = Math.max(1, window.devicePixelRatio || 1);
+    canvas.width = Math.max(1, Math.floor(rect.width * dpr));
+    canvas.height = Math.max(1, Math.floor(rect.height * dpr));
+    canvas.style.width = `${Math.floor(rect.width)}px`;
+    canvas.style.height = `${Math.floor(rect.height)}px`;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  };
+
+  const maxRadiusToCover = (x, y) => {
+    const rect = canvas.getBoundingClientRect();
+    return Math.max(
+      Math.hypot(x, y),
+      Math.hypot(x - rect.width, y),
+      Math.hypot(x, y - rect.height),
+      Math.hypot(x - rect.width, y - rect.height)
+    ) + 24;
+  };
+
+  const stopCountdown = () => {
+    if (countdownIntervalId) window.clearInterval(countdownIntervalId);
+    countdownIntervalId = 0;
+    countdownDeadline = 0;
+  };
+
+  const updateCountdownDisplay = () => {
+    if (!countdownDeadline || isSelecting) return;
+    const msLeft = Math.max(0, countdownDeadline - Date.now());
+    timer.textContent = String(Math.min(3, Math.max(0, Math.ceil(msLeft / 1000))));
+  };
+
+  const selectRandom = () => {
+    if (isSelecting || touches.size === 0) return;
+    stopCountdown();
+    isSelecting = true;
+
+    const ids = Array.from(touches.keys());
+    selectedId = ids[Math.floor(Math.random() * ids.length)];
+    const selected = touches.get(selectedId);
+    selectedColor = selected?.color || palette[0];
+    selectedPos = selected ? { x: selected.x, y: selected.y } : { x: 0, y: 0 };
+    selectStartAt = performance.now();
+
+    // Freeze input and the winning position before anyone lifts or slides a
+    // finger. This is what makes the result remain visually unambiguous.
+    canvas.style.pointerEvents = 'none';
+    timer.textContent = '';
+    timer.classList.add('selected');
+    hint.textContent = 'First player selected — take the First Player token.';
+    stage.classList.add('is-selected');
+    tryVibrate([30, 45, 90]);
+  };
+
+  const startCountdown = () => {
+    stopCountdown();
+    if (touches.size === 0 || isSelecting) return;
+    countdownDeadline = Date.now() + 3000;
+    timer.classList.remove('selected');
+    timer.textContent = '3';
+    countdownIntervalId = window.setInterval(() => {
+      if (destroyed) return;
+      const msLeft = Math.max(0, countdownDeadline - Date.now());
+      updateCountdownDisplay();
+      if (msLeft <= 0) selectRandom();
+    }, 50);
+  };
+
+  const getPosFromTouch = touch => {
+    const rect = canvas.getBoundingClientRect();
+    return { x: touch.clientX - rect.left, y: touch.clientY - rect.top };
+  };
+
+  const addTouch = (id, x, y) => {
+    if (touches.has(id)) {
+      const t = touches.get(id);
+      t.x = x;
+      t.y = y;
+      return;
+    }
+    const color = palette[paletteIndex % palette.length];
+    paletteIndex += 1;
+    touches.set(id, {
+      id,
+      x,
+      y,
+      color,
+      bornAt: performance.now(),
+      phase: Math.random() * Math.PI * 2
+    });
+    tryVibrate(12);
+  };
+
+  const onTouchStart = event => {
+    event.preventDefault();
+    if (isSelecting) return;
+    for (const touch of Array.from(event.changedTouches || [])) {
+      const { x, y } = getPosFromTouch(touch);
+      addTouch(touch.identifier, x, y);
+    }
+    startCountdown();
+  };
+
+  const onTouchMove = event => {
+    event.preventDefault();
+    if (isSelecting) return;
+    for (const touch of Array.from(event.changedTouches || [])) {
+      const t = touches.get(touch.identifier);
+      if (!t) continue;
+      const { x, y } = getPosFromTouch(touch);
+      t.x = x;
+      t.y = y;
+    }
+  };
+
+  const onTouchEnd = event => {
+    event.preventDefault();
+    if (isSelecting) return;
+    for (const touch of Array.from(event.changedTouches || [])) touches.delete(touch.identifier);
+    if (touches.size === 0) {
+      stopCountdown();
+      timer.textContent = '3';
+      hint.textContent = 'Everyone place one finger on the screen. Hold steady while the timer counts down.';
+    } else {
+      startCountdown();
+    }
+  };
+
+  // Desktop/testing fallback. Touch pointers are ignored here because the
+  // multi-touch Touch Events path above handles mobile devices separately.
+  const onPointerDown = event => {
+    if (event.pointerType === 'touch' || isSelecting) return;
+    pointerDown = true;
+    const rect = canvas.getBoundingClientRect();
+    addTouch('mouse', event.clientX - rect.left, event.clientY - rect.top);
+    startCountdown();
+  };
+  const onPointerMove = event => {
+    if (event.pointerType === 'touch' || !pointerDown || isSelecting) return;
+    const t = touches.get('mouse');
+    if (!t) return;
+    const rect = canvas.getBoundingClientRect();
+    t.x = event.clientX - rect.left;
+    t.y = event.clientY - rect.top;
+  };
+  const onPointerUp = event => {
+    if (event.pointerType === 'touch' || isSelecting) return;
+    pointerDown = false;
+    touches.delete('mouse');
+    stopCountdown();
+    timer.textContent = '3';
+  };
+
+  const drawFirstPlayerToken = (x, y, radius, alpha = 1) => {
+    if (radius <= 0) return;
+    if (firstPlayerTokenImage.complete && firstPlayerTokenImage.naturalWidth) {
+      ctx.save();
+      ctx.globalAlpha = alpha;
+      ctx.shadowColor = 'rgba(36,18,6,.45)';
+      ctx.shadowBlur = 12;
+      ctx.shadowOffsetY = 4;
+      ctx.drawImage(firstPlayerTokenImage, x - radius, y - radius, radius * 2, radius * 2);
+      ctx.restore();
+      return;
+    }
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.globalAlpha = alpha;
+    ctx.shadowColor = 'rgba(36,18,6,.55)';
+    ctx.shadowBlur = 12;
+    ctx.shadowOffsetY = 4;
+
+    ctx.beginPath();
+    for (let i = 0; i < 10; i += 1) {
+      const r = i % 2 === 0 ? radius : radius * 0.44;
+      const angle = -Math.PI / 2 + i * Math.PI / 5;
+      const px = Math.cos(angle) * r;
+      const py = Math.sin(angle) * r;
+      if (i === 0) ctx.moveTo(px, py);
+      else ctx.lineTo(px, py);
+    }
+    ctx.closePath();
+    ctx.fillStyle = '#d9a928';
+    ctx.fill();
+    ctx.shadowColor = 'transparent';
+    ctx.lineWidth = Math.max(4, radius * 0.11);
+    ctx.strokeStyle = '#4c2b11';
+    ctx.stroke();
+    ctx.lineWidth = Math.max(1.5, radius * 0.035);
+    ctx.strokeStyle = '#fff2bd';
+    ctx.stroke();
+    ctx.restore();
+  };
+
+  const renderFrame = now => {
+    if (destroyed) return;
+    const rect = canvas.getBoundingClientRect();
+    const w = rect.width;
+    const h = rect.height;
+
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = '#050403';
+    ctx.fillRect(0, 0, w, h);
+
+    if (!isSelecting) {
+      for (const t of touches.values()) {
+        const age = (now - t.bornAt) / 1000;
+        const pulse = Math.sin(age * 2.8 + t.phase) * PULSE_AMPLITUDE;
+        const radius = BASE_RADIUS + pulse;
+
+        const glow = ctx.createRadialGradient(t.x, t.y, radius * .2, t.x, t.y, radius * 1.45);
+        glow.addColorStop(0, `${t.color}dd`);
+        glow.addColorStop(1, `${t.color}00`);
+        ctx.fillStyle = glow;
+        ctx.beginPath();
+        ctx.arc(t.x, t.y, radius * 1.45, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = t.color;
+        ctx.beginPath();
+        ctx.arc(t.x, t.y, Math.max(20, radius * .58), 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.strokeStyle = 'rgba(255,248,233,.6)';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(t.x, t.y, Math.max(20, radius * .58) + 1, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+    } else if (selectedPos) {
+      const elapsed = now - selectStartAt;
+      const progress = Math.min(1, elapsed / SELECT_ANIM_MS);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const fillRadius = BASE_RADIUS + eased * (maxRadiusToCover(selectedPos.x, selectedPos.y) - BASE_RADIUS);
+
+      // The selected player's color grows outward from their finger until the
+      // entire selector is filled, exactly identifying who was selected.
+      ctx.fillStyle = selectedColor;
+      ctx.beginPath();
+      ctx.arc(selectedPos.x, selectedPos.y, fillRadius, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Keep a subtle target under the winning finger while the reveal grows.
+      const markerRadius = BASE_RADIUS * .62;
+      ctx.fillStyle = 'rgba(28,14,7,.82)';
+      ctx.beginPath();
+      ctx.arc(selectedPos.x, selectedPos.y, markerRadius, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(255,248,233,.68)';
+      ctx.lineWidth = 3;
+      ctx.stroke();
+
+      // The First Player token appears at the exact winning finger location.
+      const starProgress = Math.max(0, Math.min(1, (progress - .28) / .48));
+      const starEase = 1 - Math.pow(1 - starProgress, 3);
+      drawFirstPlayerToken(selectedPos.x, selectedPos.y, STAR_RADIUS * starEase, starProgress);
+
+      if (progress >= 1) {
+        for (const id of Array.from(touches.keys())) if (id !== selectedId) touches.delete(id);
+      }
+    }
+
+    rafId = window.requestAnimationFrame(renderFrame);
+  };
+
+  const cleanup = () => {
+    if (destroyed) return;
+    destroyed = true;
+    stopCountdown();
+    if (rafId) window.cancelAnimationFrame(rafId);
+    rafId = 0;
+    touches.clear();
+    canvas.style.pointerEvents = 'auto';
+    stage.removeEventListener('touchstart', onTouchStart);
+    stage.removeEventListener('touchmove', onTouchMove);
+    stage.removeEventListener('touchend', onTouchEnd);
+    stage.removeEventListener('touchcancel', onTouchEnd);
+    stage.removeEventListener('pointerdown', onPointerDown);
+    window.removeEventListener('pointermove', onPointerMove);
+    window.removeEventListener('pointerup', onPointerUp);
+    window.removeEventListener('pointercancel', onPointerUp);
+    window.removeEventListener('resize', resize);
+  };
+  firstPlayerAssistCleanup = cleanup;
+
+  resize();
+  window.addEventListener('resize', resize);
+  stage.addEventListener('touchstart', onTouchStart, { passive: false });
+  stage.addEventListener('touchmove', onTouchMove, { passive: false });
+  stage.addEventListener('touchend', onTouchEnd, { passive: false });
+  stage.addEventListener('touchcancel', onTouchEnd, { passive: false });
+  stage.addEventListener('pointerdown', onPointerDown);
+  window.addEventListener('pointermove', onPointerMove);
+  window.addEventListener('pointerup', onPointerUp);
+  window.addEventListener('pointercancel', onPointerUp);
+  assistBody.querySelector('[data-first-player-reset]')?.addEventListener('click', () => renderFirstPlayerAssist());
+
+  rafId = window.requestAnimationFrame(renderFrame);
   showAssistDialog();
 }
 function renderSimpleAssist(kind) {
@@ -5457,7 +6326,7 @@ function generateNewspaperArticle() {
     <h2>Final Word</h2><p>${generateFinalWord()}</p>`;
 }
 
-const APP_VERSION = '1.1.14';
+const APP_VERSION = '1.1.33';
 let swRegistration = null;
 let appUpdateAvailable = false;
 
