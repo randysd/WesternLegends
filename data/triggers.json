@@ -1,7 +1,7 @@
 [
   {
     "id": "trig_move_3_plus",
-    "label": "Move 3+ spaces during Move action",
+    "label": "Move 3+ spaces in Move action",
     "category": "movement",
     "baseWeight": 12,
     "requiredModules": [],
@@ -15,7 +15,7 @@
     "themeColor": "brown",
     "titleParts": [
       {
-        "text": "Move 3+ during MOVE action",
+        "text": "Move 3+ in MOVE action",
         "style": "brown"
       }
     ]
@@ -167,7 +167,7 @@
     "themeColor": "black",
     "titleParts": [
       {
-        "text": "Begins Bank Heist",
+        "text": "Begin Bank Heist",
         "style": "normal"
       }
     ]
@@ -188,7 +188,7 @@
     "themeColor": "red",
     "titleParts": [
       {
-        "text": "Gains Wanted Point",
+        "text": "Gain Wanted Point",
         "style": "normal"
       }
     ]
@@ -210,7 +210,7 @@
     "themeColor": "brown",
     "titleParts": [
       {
-        "text": "Rustles Cattle",
+        "text": "Rustle Cattle",
         "style": "normal"
       }
     ]
@@ -232,7 +232,7 @@
     "themeColor": "red",
     "titleParts": [
       {
-        "text": "Robs another player",
+        "text": "Rob another player",
         "style": "red"
       }
     ]
@@ -254,7 +254,7 @@
     "themeColor": "blue",
     "titleParts": [
       {
-        "text": "Defeats Bandit",
+        "text": "Defeat Bandit",
         "style": "blue"
       }
     ]
@@ -276,7 +276,7 @@
     "themeColor": "blue",
     "titleParts": [
       {
-        "text": "Begins fight with Bandit",
+        "text": "Begin fight with Bandit",
         "style": "blue"
       }
     ]
@@ -298,7 +298,7 @@
     "themeColor": "red",
     "titleParts": [
       {
-        "text": "Begins fight with another player",
+        "text": "Begin fight with another player",
         "style": "red"
       }
     ]
@@ -320,7 +320,7 @@
     "themeColor": "blue",
     "titleParts": [
       {
-        "text": "Arrests Wanted Player",
+        "text": "Arrest Wanted Player",
         "style": "blue"
       }
     ]
@@ -363,7 +363,7 @@
     "themeColor": "blue",
     "titleParts": [
       {
-        "text": "Gains Marshal Point",
+        "text": "Gain Marshal Point",
         "style": "blue"
       }
     ]
@@ -407,7 +407,7 @@
     "themeColor": "gold",
     "titleParts": [
       {
-        "text": "Gains gold while Prospecting",
+        "text": "Gain gold while Prospect",
         "style": "gold"
       }
     ]
@@ -429,7 +429,7 @@
     "themeColor": "gold",
     "titleParts": [
       {
-        "text": "Deposits Gold",
+        "text": "Deposit Gold",
         "style": "gold"
       }
     ]
@@ -450,7 +450,7 @@
     "themeColor": "brown",
     "titleParts": [
       {
-        "text": "Acquires Cattle at Ranch",
+        "text": "Acquire Cattle at Ranch",
         "style": "brown"
       }
     ]
@@ -472,7 +472,7 @@
     "themeColor": "brown",
     "titleParts": [
       {
-        "text": "Wrangles Cattle",
+        "text": "Wrangle Cattle",
         "style": "brown"
       }
     ]
@@ -516,7 +516,7 @@
     "themeColor": "green",
     "titleParts": [
       {
-        "text": "Heals at Doctor's Office",
+        "text": "Heal at Doctor's Office",
         "style": "normal"
       }
     ]
@@ -560,7 +560,7 @@
     "themeColor": "gold",
     "titleParts": [
       {
-        "text": "INITIATES A GAME OF",
+        "text": "INITIATE GAME OF",
         "style": "normal"
       },
       {
@@ -586,7 +586,7 @@
     "themeColor": "gold",
     "titleParts": [
       {
-        "text": "WINS A GAME OF",
+        "text": "WIN GAME OF",
         "style": "normal"
       },
       {
@@ -611,11 +611,11 @@
     "themeColor": "brown",
     "titleParts": [
       {
-        "text": "TAKES A",
+        "text": "TAKE A",
         "style": "normal"
       },
       {
-        "text": "WORK",
+        "text": "WORK ACTION",
         "style": "brown"
       }
     ]
@@ -636,7 +636,7 @@
     "themeColor": "green",
     "titleParts": [
       {
-        "text": "GAINS OR BUYS A LEGENDARY",
+        "text": "GAIN/BUY LEGENDARY",
         "style": "normal"
       },
       {
@@ -661,7 +661,7 @@
     "themeColor": "brown",
     "titleParts": [
       {
-        "text": "GAINS 2+ LP FROM A SINGLE ACTION",
+        "text": "GAIN 2+ LP FROM SINGLE ACTION",
         "style": "normal"
       }
     ]
@@ -685,7 +685,7 @@
     "themeColor": "brown",
     "titleParts": [
       {
-        "text": "TRAVELS BY",
+        "text": "TRAVEL BY",
         "style": "normal"
       },
       {
@@ -712,7 +712,7 @@
     "themeColor": "brown",
     "titleParts": [
       {
-        "text": "USES A MOUNTAIN PASS",
+        "text": "USE MOUNTAIN PASS",
         "style": "normal"
       }
     ]
@@ -737,7 +737,7 @@
     "themeColor": "red",
     "titleParts": [
       {
-        "text": "BEGINS A TRAIN",
+        "text": "BEGIN TRAIN",
         "style": "normal"
       },
       {
@@ -765,7 +765,7 @@
     "themeColor": "brown",
     "titleParts": [
       {
-        "text": "RESOLVES A FRONTIER TOKEN",
+        "text": "RESOLVE FRONTIER TOKEN",
         "style": "normal"
       }
     ]
@@ -789,7 +789,7 @@
     "themeColor": "brown",
     "titleParts": [
       {
-        "text": "ROLLS THE RISK DIE",
+        "text": "ROLL RISK DIE",
         "style": "normal"
       }
     ]
@@ -813,7 +813,7 @@
     "themeColor": "brown",
     "titleParts": [
       {
-        "text": "RECRUITS A GANG OR POSSE",
+        "text": "RECRUIT GANG OR POSSE",
         "style": "normal"
       }
     ]
@@ -837,7 +837,7 @@
     "themeColor": "brown",
     "titleParts": [
       {
-        "text": "SUCCESSFULLY HUNTS AN ANIMAL",
+        "text": "SUCCESSFUL HUNT",
         "style": "normal"
       }
     ]
@@ -861,7 +861,7 @@
     "themeColor": "brown",
     "titleParts": [
       {
-        "text": "GAINS A FORAGE RESOURCE",
+        "text": "GAIN FORAGE ITEM",
         "style": "normal"
       }
     ]
@@ -885,7 +885,7 @@
     "themeColor": "green",
     "titleParts": [
       {
-        "text": "CRAFTS AN",
+        "text": "CRAFT AN",
         "style": "normal"
       },
       {
@@ -913,7 +913,7 @@
     "themeColor": "brown",
     "titleParts": [
       {
-        "text": "DELIVERS A RESOURCE TO A NAMED LOCATION",
+        "text": "DELIVER RESOURCE TO NAMED LOCATION",
         "style": "normal"
       }
     ]

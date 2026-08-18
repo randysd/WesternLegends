@@ -28,6 +28,11 @@
             "tag": "rail_surveyed"
           },
           {
+            "type": "incrementCounter",
+            "counter": "railroad_progress",
+            "amount": 1
+          },
+          {
             "type": "newspaperNote",
             "text": "Surveyors Arrive was resolved."
           }
@@ -60,6 +65,11 @@
           {
             "type": "addWorldTag",
             "tag": "rail_wood_delivered"
+          },
+          {
+            "type": "incrementCounter",
+            "counter": "railroad_progress",
+            "amount": 1
           },
           {
             "type": "newspaperNote",
@@ -96,6 +106,11 @@
             "tag": "rail_metal_delivered"
           },
           {
+            "type": "incrementCounter",
+            "counter": "railroad_progress",
+            "amount": 1
+          },
+          {
             "type": "newspaperNote",
             "text": "Iron for the Line was resolved."
           }
@@ -121,7 +136,7 @@
             "gte": 3
           }
         ],
-        "screenText": "For the next 6 primary triggers, Travel by Rail costs $0.",
+        "screenText": "Travel by Rail costs $0.",
         "narrationScript": "[western storyteller][old cowboy][raspy] \"With the last spike driven, the locomotive whistles like the frontier itself just woke up.\"",
         "audioFile": "audio/storylines/rail_grand_opening.mp3",
         "effects": [
@@ -131,7 +146,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scope": "global"
   },
   {
     "id": "story_lost_spanish_gold",
@@ -242,7 +258,8 @@
           }
         ]
       }
-    ]
+    ],
+    "scope": "global"
   },
   {
     "id": "story_white_buffalo",
@@ -366,6 +383,7 @@
           }
         ]
       }
-    ]
+    ],
+    "scope": "global"
   }
 ]

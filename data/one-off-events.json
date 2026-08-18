@@ -137,7 +137,7 @@
   },
   {
     "id": "bandit_last_words",
-    "title": "Bandit\u2019s Last Words",
+    "title": "Bandit’s Last Words",
     "type": "oneOffEvent",
     "trigger": "trig_defeat_bandit",
     "baseWeight": 5,
@@ -278,7 +278,7 @@
   },
   {
     "id": "sheriffs_notice",
-    "title": "Sheriff\u2019s Notice",
+    "title": "Sheriff’s Notice",
     "type": "oneOffEvent",
     "trigger": "trig_gain_wp",
     "baseWeight": 7,
@@ -544,7 +544,7 @@
   },
   {
     "id": "claim_jumper_shadow",
-    "title": "Claim Jumper\u2019s Shadow",
+    "title": "Claim Jumper’s Shadow",
     "type": "oneOffEvent",
     "trigger": "trig_gain_gold_prospect",
     "baseWeight": 6,
@@ -554,7 +554,7 @@
       "claim_jumper"
     ],
     "screenText": "Place a Claim Jumper token at that Mine if available; otherwise gain $10.",
-    "narrationScript": "[western storyteller][old cowboy][raspy] \"Somebody watched you strike gold, and he ain\u2019t the sharing kind.\"",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Somebody watched you strike gold, and he ain’t the sharing kind.\"",
     "audioFile": "audio/oneoffs/claim_jumper_shadow.mp3",
     "effects": [
       {
@@ -608,7 +608,7 @@
   },
   {
     "id": "fools_gold",
-    "title": "Fool\u2019s Gold",
+    "title": "Fool’s Gold",
     "type": "oneOffEvent",
     "trigger": "trig_gain_gold_prospect",
     "baseWeight": 5,
@@ -618,7 +618,7 @@
       "gold"
     ],
     "screenText": "Lose 1 Gold Nugget just gained, then draw 2 Poker Cards.",
-    "narrationScript": "[western storyteller][old cowboy][raspy] \"That glitter in your pan is pretty, but pretty don\u2019t always pay.\"",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"That glitter in your pan is pretty, but pretty don’t always pay.\"",
     "audioFile": "audio/oneoffs/fools_gold.mp3",
     "effects": [
       {
@@ -644,7 +644,7 @@
   },
   {
     "id": "bankers_smile",
-    "title": "Banker\u2019s Smile",
+    "title": "Banker’s Smile",
     "type": "oneOffEvent",
     "trigger": "trig_deposit_gold",
     "baseWeight": 5,
@@ -743,7 +743,7 @@
   },
   {
     "id": "gunsmith_discount",
-    "title": "Gunsmith\u2019s Favor",
+    "title": "Gunsmith’s Favor",
     "type": "oneOffEvent",
     "trigger": "trig_purchase_item",
     "baseWeight": 6,
@@ -840,7 +840,7 @@
   },
   {
     "id": "doctor_secret",
-    "title": "Doctor\u2019s Secret Tonic",
+    "title": "Doctor’s Secret Tonic",
     "type": "oneOffEvent",
     "trigger": "trig_heal_doctor",
     "baseWeight": 6,
@@ -850,7 +850,7 @@
       "heal"
     ],
     "screenText": "Heal normally. Then draw 1 additional Poker Card.",
-    "narrationScript": "[western storyteller][old cowboy][raspy] \"The doctor pours something dark and says not to ask what\u2019s in it.\"",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"The doctor pours something dark and says not to ask what’s in it.\"",
     "audioFile": "audio/oneoffs/doctor_secret.mp3",
     "effects": [
       {
@@ -1012,7 +1012,7 @@
       "gambler"
     ],
     "screenText": "Winner gains +$20 from the supply.",
-    "narrationScript": "[western storyteller][old cowboy][raspy] \"That table\u2019s been lucky since the bullet hole got patched with silver.\"",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"That table’s been lucky since the bullet hole got patched with silver.\"",
     "audioFile": "audio/oneoffs/lucky_table.mp3",
     "effects": [
       {
@@ -1044,7 +1044,7 @@
       "fight"
     ],
     "screenText": "Before poker resolves, active player fights a Bandit. If they win, continue poker and gain 1 LP.",
-    "narrationScript": "[western storyteller][old cowboy][raspy] \"A chair breaks, a bottle flies, and the cards ain\u2019t the only trouble.\"",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"A chair breaks, a bottle flies, and the cards ain’t the only trouble.\"",
     "audioFile": "audio/oneoffs/saloon_brawl.mp3",
     "effects": [
       {
@@ -1142,7 +1142,7 @@
       "cattle"
     ],
     "screenText": "After acquiring cattle, immediately move 1 space away from the Ranch.",
-    "narrationScript": "[western storyteller][old cowboy][raspy] \"The herd bolts, hooves thunderin\u2019 like judgment day.\"",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"The herd bolts, hooves thunderin’ like judgment day.\"",
     "audioFile": "audio/oneoffs/stampede.mp3",
     "effects": [
       {
@@ -1198,7 +1198,7 @@
   },
   {
     "id": "rustler_brand",
-    "title": "Rustler\u2019s Brand",
+    "title": "Rustler’s Brand",
     "type": "oneOffEvent",
     "trigger": "trig_rustle_cattle",
     "baseWeight": 7,
@@ -1513,8 +1513,8 @@
       "spikes_view",
       "train"
     ],
-    "screenText": "Move the Train to Spike\u2019s View Rail Station if Ante Up is enabled; otherwise draw 1 Poker Card.",
-    "narrationScript": "[western storyteller][old cowboy][raspy] \"A signal fire burns on the ridge above Spike\u2019s View.\"",
+    "screenText": "Move the Train to Spike’s View Rail Station if Ante Up is enabled; otherwise draw 1 Poker Card.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"A signal fire burns on the ridge above Spike’s View.\"",
     "audioFile": "audio/oneoffs/spikes_view_signal.mp3",
     "effects": [
       {
@@ -1617,7 +1617,7 @@
       "lp",
       "newspaper"
     ],
-    "screenText": "Gain $10 and add \u201cFamous Deed\u201d to the newspaper summary.",
+    "screenText": "Gain $10 and add “Famous Deed” to the newspaper summary.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"By sundown, somebody is already telling the story wrong.\"",
     "audioFile": "audio/oneoffs/famous_deed.mp3",
     "effects": [
@@ -1824,7 +1824,7 @@
   },
   {
     "id": "hunters_mark",
-    "title": "Hunter\u2019s Mark",
+    "title": "Hunter’s Mark",
     "type": "oneOffEvent",
     "trigger": "trig_hunt_success",
     "baseWeight": 7,
@@ -1897,7 +1897,7 @@
   },
   {
     "id": "forager_cache",
-    "title": "Forager\u2019s Cache",
+    "title": "Forager’s Cache",
     "type": "oneOffEvent",
     "trigger": "trig_forage_resource",
     "baseWeight": 7,
@@ -1984,7 +1984,7 @@
       "crafting"
     ],
     "screenText": "After crafting, gain $10 or 1 LP.",
-    "narrationScript": "[western storyteller][old cowboy][raspy] \"That ain\u2019t just useful. That\u2019s work worth remembering.\"",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"That ain’t just useful. That’s work worth remembering.\"",
     "audioFile": "audio/oneoffs/fine_craft.mp3",
     "effects": [
       {
@@ -2119,6 +2119,322 @@
           {
             "type": "log_event",
             "id": "metal_for_tracks"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "robbery_hidden_witness",
+    "title": "Eyes in the Window",
+    "type": "oneOffEvent",
+    "trigger": "trig_rob_player",
+    "baseWeight": 7,
+    "requiredModules": [],
+    "tags": [
+      "outlaw",
+      "robbery"
+    ],
+    "screenText": "A witness saw the robbery. Gain 1 additional Wanted Point or pay $20 to keep them quiet.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"A curtain twitches across the street. Somebody saw the whole thing, and witnesses have a way of finding the sheriff.\"",
+    "audioFile": "audio/oneoffs/robbery_hidden_witness.mp3",
+    "effects": [
+      {
+        "type": "choice",
+        "options": [
+          "gain_1_wp",
+          "pay_20"
+        ]
+      }
+    ],
+    "resultButtons": [
+      {
+        "label": "Resolved",
+        "effects": [
+          {
+            "type": "log_event",
+            "id": "robbery_hidden_witness"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "robbery_dropped_purse",
+    "title": "A Little Extra",
+    "type": "oneOffEvent",
+    "trigger": "trig_rob_player",
+    "baseWeight": 6,
+    "requiredModules": [],
+    "tags": [
+      "outlaw",
+      "robbery"
+    ],
+    "screenText": "Among the stolen goods is another $10. Gain $10.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Something else hits the dust in the scramble: a small purse nobody noticed until now.\"",
+    "audioFile": "audio/oneoffs/robbery_dropped_purse.mp3",
+    "effects": [
+      {
+        "type": "gain_money",
+        "amount": 10
+      }
+    ],
+    "resultButtons": [
+      {
+        "label": "Resolved",
+        "effects": [
+          {
+            "type": "log_event",
+            "id": "robbery_dropped_purse"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "player_fight_crowd",
+    "title": "A Crowd Gathers",
+    "type": "oneOffEvent",
+    "trigger": "trig_start_player_fight",
+    "baseWeight": 7,
+    "requiredModules": [],
+    "tags": [
+      "fight",
+      "town"
+    ],
+    "screenText": "The winner of this fight gains $10 from impressed onlookers.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Boots scrape porches and saloon doors swing open. Folks smell a fight, and wagers start changing hands.\"",
+    "audioFile": "audio/oneoffs/player_fight_crowd.mp3",
+    "effects": [],
+    "resultButtons": [
+      {
+        "label": "Resolved",
+        "effects": [
+          {
+            "type": "log_event",
+            "id": "player_fight_crowd"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "player_fight_dust",
+    "title": "Dust in the Eyes",
+    "type": "oneOffEvent",
+    "trigger": "trig_start_player_fight",
+    "baseWeight": 6,
+    "requiredModules": [],
+    "tags": [
+      "fight"
+    ],
+    "screenText": "Both fighters draw 1 Poker Card before choosing their fight card.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"A hard gust throws grit between the fighters. For half a heartbeat, neither one can see straight.\"",
+    "audioFile": "audio/oneoffs/player_fight_dust.mp3",
+    "effects": [],
+    "resultButtons": [
+      {
+        "label": "Resolved",
+        "effects": [
+          {
+            "type": "log_event",
+            "id": "player_fight_dust"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sheriff_arrest_public_example",
+    "title": "Public Example",
+    "type": "oneOffEvent",
+    "trigger": "trig_sheriff_arrests",
+    "baseWeight": 7,
+    "requiredModules": [],
+    "tags": [
+      "law",
+      "arrest"
+    ],
+    "screenText": "After the arrest is resolved, the arrested player draws 1 additional Poker Card.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"The sheriff marches the prisoner through the middle of town where everybody can see how the day ended.\"",
+    "audioFile": "audio/oneoffs/sheriff_arrest_public_example.mp3",
+    "effects": [],
+    "resultButtons": [
+      {
+        "label": "Resolved",
+        "effects": [
+          {
+            "type": "log_event",
+            "id": "sheriff_arrest_public_example"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sheriff_arrest_loose_cuffs",
+    "title": "Loose Cuffs",
+    "type": "oneOffEvent",
+    "trigger": "trig_sheriff_arrests",
+    "baseWeight": 6,
+    "requiredModules": [],
+    "tags": [
+      "law",
+      "arrest"
+    ],
+    "screenText": "The arrested player may discard 1 Poker Card to keep $10 that would otherwise be lost during the arrest.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"The sheriff's cuffs have seen better years, and so has the deputy watching the prisoner's pockets.\"",
+    "audioFile": "audio/oneoffs/sheriff_arrest_loose_cuffs.mp3",
+    "effects": [],
+    "resultButtons": [
+      {
+        "label": "Resolved",
+        "effects": [
+          {
+            "type": "log_event",
+            "id": "sheriff_arrest_loose_cuffs"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rail_friendly_conductor",
+    "title": "Friendly Conductor",
+    "type": "oneOffEvent",
+    "trigger": "trig_travel_rail",
+    "baseWeight": 7,
+    "requiredModules": [
+      "ante_up_train"
+    ],
+    "tags": [
+      "ante_up",
+      "train"
+    ],
+    "screenText": "Draw 1 Poker Card.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"The conductor recognizes a familiar face and passes along a useful bit of news before the whistle blows.\"",
+    "audioFile": "audio/oneoffs/rail_friendly_conductor.mp3",
+    "effects": [
+      {
+        "type": "draw_poker",
+        "count": 1
+      }
+    ],
+    "resultButtons": [
+      {
+        "label": "Resolved",
+        "effects": [
+          {
+            "type": "log_event",
+            "id": "rail_friendly_conductor"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rail_late_freight",
+    "title": "Late Freight",
+    "type": "oneOffEvent",
+    "trigger": "trig_travel_rail",
+    "baseWeight": 6,
+    "requiredModules": [
+      "ante_up_train"
+    ],
+    "tags": [
+      "ante_up",
+      "train"
+    ],
+    "screenText": "Gain $10 for helping unload a late freight car.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"A freight car rolls in behind schedule and short on hands. Ten dollars buys a few minutes of honest work.\"",
+    "audioFile": "audio/oneoffs/rail_late_freight.mp3",
+    "effects": [
+      {
+        "type": "gain_money",
+        "amount": 10
+      }
+    ],
+    "resultButtons": [
+      {
+        "label": "Resolved",
+        "effects": [
+          {
+            "type": "log_event",
+            "id": "rail_late_freight"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mountain_pass_rockslide",
+    "title": "Rockslide",
+    "type": "oneOffEvent",
+    "trigger": "trig_use_mountain_pass",
+    "baseWeight": 7,
+    "requiredModules": [
+      "ante_up_sideboard"
+    ],
+    "tags": [
+      "ante_up",
+      "mountain"
+    ],
+    "screenText": "Discard 1 Poker Card or gain 1 wound.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Stone cracks loose above the trail and the whole mountain seems to come down at once.\"",
+    "audioFile": "audio/oneoffs/mountain_pass_rockslide.mp3",
+    "effects": [
+      {
+        "type": "choice",
+        "options": [
+          "discard_1_poker",
+          "gain_1_wound"
+        ]
+      }
+    ],
+    "resultButtons": [
+      {
+        "label": "Resolved",
+        "effects": [
+          {
+            "type": "log_event",
+            "id": "mountain_pass_rockslide"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mountain_pass_abandoned_cache",
+    "title": "Abandoned Cache",
+    "type": "oneOffEvent",
+    "trigger": "trig_use_mountain_pass",
+    "baseWeight": 6,
+    "requiredModules": [
+      "ante_up_sideboard"
+    ],
+    "tags": [
+      "ante_up",
+      "mountain"
+    ],
+    "screenText": "Find supplies tucked beneath a cairn. Gain $10 or draw 1 Poker Card.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Beneath a stack of trail stones sits a weathered cache left by somebody who never came back for it.\"",
+    "audioFile": "audio/oneoffs/mountain_pass_abandoned_cache.mp3",
+    "effects": [
+      {
+        "type": "choose_one",
+        "options": [
+          "gain_10",
+          "draw_1_poker"
+        ]
+      }
+    ],
+    "resultButtons": [
+      {
+        "label": "Resolved",
+        "effects": [
+          {
+            "type": "log_event",
+            "id": "mountain_pass_abandoned_cache"
           }
         ]
       }

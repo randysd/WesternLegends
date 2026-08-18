@@ -6,9 +6,6 @@
       "summary": "Place boards, overlays, and stands.",
       "steps": [
         {
-          "text": "Remove all components from the box."
-        },
-        {
           "text": "Place the main game board in the center of the table.",
           "images": [
             {
@@ -43,6 +40,14 @@
           "text": "Place the Legendary Story Board overlay over the core Story Card area.",
           "requiredModules": [
             "blood_money_stories"
+          ],
+          "images": [
+            {
+              "src": "assets/images/boards/story.png",
+              "alt": "Legendary Story Board overlay",
+              "caption": "Legendary Story Board",
+              "fullWidth": true
+            }
           ]
         },
         {
@@ -68,46 +73,58 @@
       "summary": "Set up item markets and trader inventory.",
       "steps": [
         {
-          "text": "Remove store randomizer cards for items not being used.",
+          "text": "Auto-Fill Stores with the helper, or skip it and follow the manual store setup below.",
           "actionButtons": [
             {
               "label": "Auto-Fill Stores",
               "opens": "storeRandomizer"
             }
-          ]
+          ],
+          "choiceGroup": "stores_fill"
         },
         {
-          "text": "Set aside the standard setup card as a quick store reference."
-        },
-        {
-          "text": "Shuffle the remaining store randomizer cards facedown."
-        },
-        {
-          "text": "Deal 1 randomizer card to each General Store slot."
-        },
-        {
-          "text": "Deal 1 randomizer card to each Trading Post slot.",
-          "requiredModules": [
-            "ante_up_sideboard"
-          ]
-        },
-        {
-          "text": "Place the first revealed Weapon and first revealed Mount in the General Store."
-        },
-        {
-          "text": "Place the second revealed Weapon and second revealed Mount in the Trading Post.",
-          "requiredModules": [
-            "ante_up_sideboard"
-          ]
-        },
-        {
-          "text": "If using standard setup, make sure each store has at least 1 Weapon and 1 Mount. Replace items randomly if needed.",
-          "requiredModules": [
-            "ante_up_sideboard"
-          ]
-        },
-        {
-          "text": "Place each item deck in the space matching its randomizer card."
+          "text": "Manually Fill Stores",
+          "summary": "Use these steps only if you are not using Auto-Fill Stores.",
+          "substeps": [
+            {
+              "text": "Remove store randomizer cards for items not being used."
+            },
+            {
+              "text": "Set aside the standard setup card as a quick store reference."
+            },
+            {
+              "text": "Shuffle the remaining store randomizer cards facedown."
+            },
+            {
+              "text": "Deal 1 randomizer card to each General Store slot."
+            },
+            {
+              "text": "Deal 1 randomizer card to each Trading Post slot.",
+              "requiredModules": [
+                "ante_up_sideboard"
+              ]
+            },
+            {
+              "text": "Place the first revealed Weapon and first revealed Mount in the General Store."
+            },
+            {
+              "text": "Place the second revealed Weapon and second revealed Mount in the Trading Post.",
+              "requiredModules": [
+                "ante_up_sideboard"
+              ]
+            },
+            {
+              "text": "If using standard setup, make sure each store has at least 1 Weapon and 1 Mount. Replace items randomly if needed.",
+              "requiredModules": [
+                "ante_up_sideboard"
+              ]
+            },
+            {
+              "text": "Place each item deck in the space matching its randomizer card."
+            }
+          ],
+          "checkable": false,
+          "choiceGroup": "stores_fill"
         },
         {
           "text": "Shuffle together the Legendary Items from the selected expansions and place the blocker card on the bottom.",
@@ -301,14 +318,28 @@
           "requiredModules": [
             "wild_bunch_man_in_black"
           ],
-          "maxPlayers": 2
+          "maxPlayers": 2,
+          "images": [
+            {
+              "src": "assets/images/cards/mib.png",
+              "alt": "Man in Black deck",
+              "caption": "Man in Black"
+            }
+          ]
         },
         {
           "text": "Shuffle the Man in Black cards together, excluding P-01, P-04, P-05, P-08, P-09, P-10, and P-15. Place the deck near the board.",
           "requiredModules": [
             "wild_bunch_man_in_black"
           ],
-          "minPlayers": 3
+          "minPlayers": 3,
+          "images": [
+            {
+              "src": "assets/images/cards/mib.png",
+              "alt": "Man in Black deck",
+              "caption": "Man in Black"
+            }
+          ]
         },
         {
           "text": "Shuffle the Rumor cards and place the deck near the board.",
@@ -438,12 +469,26 @@
       "summary": "Place markers and resolve setup effects.",
       "steps": [
         {
-          "text": "Place the end-game marker on {targetLP} LP."
+          "text": "Place the end-game marker on {targetLP} LP.",
+          "images": [
+            {
+              "src": "assets/images/tokens/watch.png",
+              "alt": "End-game marker pocket watch token",
+              "caption": "End-Game Marker"
+            }
+          ]
         },
         {
           "text": "Place Event markers on the 5th space of the Gambler, Marshal, and Wanted tracks, and on every 5th LP space before the end-game marker.",
           "requiredModules": [
             "ante_up_events"
+          ],
+          "images": [
+            {
+              "src": "assets/images/tokens/event-token.png",
+              "alt": "Event marker token",
+              "caption": "Event Marker"
+            }
           ]
         },
         {
@@ -456,12 +501,31 @@
           "text": "Randomly place 1 faceup Frontier token on each Frontier space. Keep unused Frontier tokens nearby.",
           "requiredModules": [
             "ante_up_sideboard"
+          ],
+          "images": [
+            {
+              "src": "assets/images/tokens/action-frontier.png",
+              "alt": "Frontier token",
+              "caption": "Frontier Token"
+            }
           ]
         },
         {
           "text": "Reveal the top Trader Movement card and place the Traveling Trader miniature on any empty space in that region.",
           "requiredModules": [
             "blood_money_traveling_trader"
+          ],
+          "images": [
+            {
+              "src": "assets/images/cards/travelingtrader-back.png",
+              "alt": "Trader Movement card back",
+              "caption": "Trader Movement Card"
+            },
+            {
+              "src": "assets/images/tokens/trader.png",
+              "alt": "Traveling Trader token",
+              "caption": "Traveling Trader"
+            }
           ]
         },
         {
@@ -508,7 +572,7 @@
           ]
         },
         {
-          "text": "Place each player’s remaining scoring cubes and Story disks beside the board.",
+          "text": "Place each player\u2019s remaining scoring cubes and Story disks beside the board.",
           "requiredModules": [
             "blood_money_stories"
           ]
@@ -524,7 +588,7 @@
           "text": "Each player chooses a character from the characters available in the selected expansions."
         },
         {
-          "text": "For each chosen character, take that character’s 4 Goal cards.",
+          "text": "For each chosen character, take that character\u2019s 4 Goal cards.",
           "requiredModules": [
             "base_goals"
           ]

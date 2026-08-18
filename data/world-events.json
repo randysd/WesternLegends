@@ -9,7 +9,7 @@
       "weather",
       "wound"
     ],
-    "screenText": "For the next 5 primary triggers, the first player ending outside town gains 1 wound.",
+    "screenText": "The first player ending outside town gains 1 wound.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The wells cough mud and the sun hangs mean in the sky.\"",
     "audioFile": "audio/world/world_drought.mp3",
     "effects": [
@@ -32,7 +32,7 @@
       "gold",
       "prospect"
     ],
-    "screenText": "For the next 5 primary triggers, Prospect actions gain +$10.",
+    "screenText": "Prospect actions gain +$10.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Gold fever spreads faster than common sense.\"",
     "audioFile": "audio/world/world_gold_rush.mp3",
     "effects": [
@@ -56,7 +56,7 @@
       "sheriff",
       "wanted"
     ],
-    "screenText": "For the next 5 primary triggers, whenever a player gains WP, move the Sheriff 3 spaces.",
+    "screenText": "Whenever a player gains WP, move the Sheriff 3 spaces.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The law sharpens its teeth.\"",
     "audioFile": "audio/world/world_sheriff_crackdown.mp3",
     "effects": [
@@ -80,7 +80,7 @@
       "bandit",
       "fight"
     ],
-    "screenText": "For the next 5 primary triggers, Bandits draw +1 Fight Card.",
+    "screenText": "Bandits draw +1 Fight Card.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The hills start spitting out hard men with loaded guns.\"",
     "audioFile": "audio/world/world_bandit_uprising.mp3",
     "effects": [
@@ -104,7 +104,7 @@
       "town",
       "positive"
     ],
-    "screenText": "For the next 4 primary triggers, the first Town action gains +$10.",
+    "screenText": "The first Town action gains +$10.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Music rolls out of town like lantern light.\"",
     "audioFile": "audio/world/world_frontier_festival.mp3",
     "effects": [
@@ -128,7 +128,7 @@
       "weather",
       "move"
     ],
-    "screenText": "For the next 4 primary triggers, Move actions are -1 space.",
+    "screenText": "Move actions are -1 space.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Rain turns every road into brown soup.\"",
     "audioFile": "audio/world/world_bad_weather.mp3",
     "effects": [
@@ -152,7 +152,7 @@
       "weather",
       "move"
     ],
-    "screenText": "For the next 4 primary triggers, Move actions are +1 space.",
+    "screenText": "Move actions are +1 space.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The sky clears, and every trail looks shorter.\"",
     "audioFile": "audio/world/world_clear_skies.mp3",
     "effects": [
@@ -175,7 +175,7 @@
     "tags": [
       "poker"
     ],
-    "screenText": "For the next 4 primary triggers, Poker winners gain +$20.",
+    "screenText": "Poker winners gain +$20.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Every fool with coin in his pocket wants a seat.\"",
     "audioFile": "audio/world/world_high_stakes.mp3",
     "effects": [
@@ -198,7 +198,7 @@
     "tags": [
       "cattle"
     ],
-    "screenText": "For the next 5 primary triggers, Wrangle/Rustle rewards gain +$10.",
+    "screenText": "Wrangle/Rustle rewards gain +$10.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Beef prices climb like smoke.\"",
     "audioFile": "audio/world/world_cattle_market.mp3",
     "effects": [
@@ -221,7 +221,7 @@
     "tags": [
       "doctor"
     ],
-    "screenText": "For the next 4 primary triggers, Heal costs +$10.",
+    "screenText": "Heal costs +$10.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The doctor is short on laudanum and patience.\"",
     "audioFile": "audio/world/world_doctor_shortage.mp3",
     "effects": [
@@ -247,7 +247,7 @@
       "rail",
       "ante_up"
     ],
-    "screenText": "For the next 6 primary triggers, Travel by Rail costs $0.",
+    "screenText": "Travel by Rail costs $0.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The locomotive whistles and every station celebrates.\"",
     "audioFile": "audio/world/world_free_rail.mp3",
     "effects": [
@@ -273,7 +273,7 @@
       "train",
       "ante_up"
     ],
-    "screenText": "For the next 5 primary triggers, Train Guards draw +1 Fight Card.",
+    "screenText": "Train Guards draw +1 Fight Card.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Railroad men hire guns by the dozen.\"",
     "audioFile": "audio/world/world_train_security.mp3",
     "effects": [
@@ -296,7 +296,7 @@
     "tags": [
       "mine"
     ],
-    "screenText": "For the next 5 primary triggers, Prospecting players gain 1 wound on Gravel.",
+    "screenText": "Prospecting players gain 1 wound on Gravel.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The earth groans under every pick.\"",
     "audioFile": "audio/world/world_mine_collapse.mp3",
     "effects": [
@@ -318,7 +318,7 @@
     "tags": [
       "trader"
     ],
-    "screenText": "For the next 5 primary triggers, Legendary Items cost $10 less.",
+    "screenText": "Legendary Items cost $10 less.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Dr. Herve’s wagon rolls heavy with wonders.\"",
     "audioFile": "audio/world/world_trader_boom.mp3",
     "effects": [
@@ -341,7 +341,7 @@
     "tags": [
       "saloon"
     ],
-    "screenText": "For the next 4 primary triggers, Poker cannot trigger one-off events.",
+    "screenText": "Players cannot take Gambling action",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The whiskey runs dry and the tables go cold.\"",
     "audioFile": "audio/world/world_saloons_dry.mp3",
     "effects": [
@@ -364,7 +364,7 @@
     "tags": [
       "ranch"
     ],
-    "screenText": "For the next 4 primary triggers, Acquire cattle costs 1 Poker Card.",
+    "screenText": "Acquire cattle costs 1 Poker Card.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Smoke rises from the north pasture.\"",
     "audioFile": "audio/world/world_ranch_fire.mp3",
     "effects": [
@@ -389,7 +389,7 @@
     "tags": [
       "foraging"
     ],
-    "screenText": "For the next 5 primary triggers, Forage draws +1 then discards 1.",
+    "screenText": "Forage draws +1 then discards 1.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The frontier is littered with things useful to clever hands.\"",
     "audioFile": "audio/world/world_resource_boom.mp3",
     "effects": [
@@ -415,7 +415,7 @@
     "tags": [
       "hunting"
     ],
-    "screenText": "For the next 5 primary triggers, successful Hunts gain +1 LP but also +1 wound.",
+    "screenText": "Successful Hunts gain +1 LP but also +1 wound.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Hungry eyes shine in the brush.\"",
     "audioFile": "audio/world/world_predator_migration.mp3",
     "effects": [
@@ -439,7 +439,7 @@
     "tags": [
       "crafting"
     ],
-    "screenText": "For the next 5 primary triggers, Craft action grants +$10.",
+    "screenText": "Craft action grants +$10.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Every useful trinket finds a buyer.\"",
     "audioFile": "audio/world/world_craft_fair.mp3",
     "effects": [
@@ -462,7 +462,7 @@
     "tags": [
       "legendary"
     ],
-    "screenText": "For the next 3 primary triggers, the first player to gain LP gains +1 LP.",
+    "screenText": "The first player to gain LP gains +1 LP.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The sunset burns red, and even ordinary deeds look legendary.\"",
     "audioFile": "audio/world/world_legendary_weather.mp3",
     "effects": [
