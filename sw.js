@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wl-frontier-director-v17';
+const CACHE_NAME = 'wl-frontier-director-v35';
 const APP_SHELL = [
   './', './index.html', './manifest.webmanifest', './css/styles.css', './js/app.js', './assets/icons/icon.svg',
   './assets/images/triggers/bandit.svg', './assets/images/triggers/prospect.svg', './assets/images/triggers/item.svg',
