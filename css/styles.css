@@ -4992,3 +4992,16 @@ button:disabled { opacity: .48; cursor: not-allowed; }
   z-index: 30;
   pointer-events: auto;
 }
+
+
+/* v1.1.34 fixed narrative dialog title sizing */
+/* Event-trigger player prompts, one-offs, Character Arc chapters, World
+   Events, and the other story-dialog variants all share one title size.
+   Never scale a title merely because its text is shorter or longer. */
+.story-dialog .dialog-header h2,
+.story-dialog.player-color-prompt-dialog .dialog-header h2 {
+  font-size: 1.5rem !important;
+  line-height: 1.05 !important;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
