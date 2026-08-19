@@ -277,6 +277,7 @@ const dialog = document.getElementById('storyDialog');
 const voicePlayer = document.getElementById('voicePlayer');
 const musicPlayer = document.getElementById('musicPlayer');
 const sfxPlayer = document.getElementById('sfxPlayer');
+const ambientSfxPlayer = document.getElementById('ambientSfxPlayer');
 const assistDialog = document.getElementById('assistDialog');
 const assistBody = document.getElementById('assistBody');
 const assistTitle = document.getElementById('assistTitle');
@@ -518,6 +519,7 @@ async function init() {
   applyAudioSettings();
   render();
   startWorldEventHeartbeat();
+  startWesternAmbientSfx();
 }
 
 async function loadData() {
@@ -1454,6 +1456,7 @@ function startGameFromSetup() {
   scheduleNextWorldEvent(true);
   save();
   playMusic();
+  startWesternAmbientSfx(true);
   render();
 }
 
@@ -4081,6 +4084,7 @@ function renderSettingsOverlay(returnTarget = null) {
       applyAudioSettings();
       save();
       if (flag === 'musicOn') setMusicEnabled(checkbox.checked);
+      if (flag === 'soundOn' && checkbox.checked) startWesternAmbientSfx();
       if (flag === 'voiceOn' && !checkbox.checked) voicePlayer.pause();
     };
     slider.oninput = () => {
@@ -4154,8 +4158,90 @@ function setMusicEnabled(enabled) {
   if (active.src) active.play().catch(() => {});
   else playMusic();
 }
-function applyAudioSettings() { musicPlayer.volume = state?.settings?.musicVolume ?? .2; sfxPlayer.volume = state?.settings?.soundVolume ?? .6; voicePlayer.volume = state?.settings?.voiceVolume ?? .8; }
+function applyAudioSettings() {
+  musicPlayer.volume = state?.settings?.musicVolume ?? .2;
+  sfxPlayer.volume = state?.settings?.soundVolume ?? .6;
+  voicePlayer.volume = state?.settings?.voiceVolume ?? .8;
+  if (ambientSfxPlayer) {
+    ambientSfxPlayer.volume = Math.min(1, (state?.settings?.soundVolume ?? .6) * 0.35);
+    if (!state?.settings?.soundOn) {
+      ambientSfxPlayer.pause();
+      ambientSfxPlayer.currentTime = 0;
+    }
+  }
+}
 function playMusic() { if (!state.settings.musicOn) return; if (!musicPlayer.src) musicPlayer.src = 'audio/music/western_loop.mp3'; musicPlayer.play().catch(()=>{}); }
+
+// Occasional Western soundscape details play independently of both the music
+// and the normal one-shot UI/game SFX. Keeping a dedicated player means a
+// distant horse, hammer, wolf, etc. never cuts off a dice roll or event sound.
+const WESTERN_AMBIENT_SFX = [
+  { src: 'audio/sfx/mount-gallop.mp3', gain: 0.36 },
+  { src: 'audio/sfx/mount-horse.mp3', gain: 0.34 },
+  { src: 'audio/sfx/mount-horsegallop.mp3', gain: 0.34 },
+  { src: 'audio/sfx/mount-whip.mp3', gain: 0.25 },
+  { src: 'audio/sfx/nature-horse.mp3', gain: 0.34 },
+  { src: 'audio/sfx/nature-wolf.mp3', gain: 0.30 },
+  { src: 'audio/sfx/prospect-pickaxe.mp3', gain: 0.30 },
+  { src: 'audio/sfx/ranch-moo.mp3', gain: 0.32 },
+  { src: 'audio/sfx/weapon-pistol.mp3', gain: 0.20 },
+  { src: 'audio/sfx/weapon-pistolcock.mp3', gain: 0.24 },
+  { src: 'audio/sfx/weapon-pistolholster.mp3', gain: 0.26 },
+  { src: 'audio/sfx/weapon-revolverspin.mp3', gain: 0.25 },
+  { src: 'audio/sfx/weapon-shotgun.mp3', gain: 0.18 },
+  { src: 'audio/sfx/weapon-shotguncock.mp3', gain: 0.23 },
+  { src: 'audio/sfx/work-hammer.mp3', gain: 0.30 }
+];
+const WESTERN_AMBIENT_FIRST_DELAY = { min: 18000, max: 40000 };
+const WESTERN_AMBIENT_DELAY = { min: 35000, max: 95000 };
+let westernAmbientTimer = null;
+let lastWesternAmbientSrc = '';
+
+function randomDelay(range) {
+  return Math.round(range.min + Math.random() * (range.max - range.min));
+}
+
+function scheduleNextWesternAmbientSfx(first = false) {
+  clearTimeout(westernAmbientTimer);
+  westernAmbientTimer = null;
+  if (!state?.gameStarted) return;
+  const delay = randomDelay(first ? WESTERN_AMBIENT_FIRST_DELAY : WESTERN_AMBIENT_DELAY);
+  westernAmbientTimer = window.setTimeout(() => {
+    westernAmbientTimer = null;
+    playRandomWesternAmbientSfx();
+    scheduleNextWesternAmbientSfx(false);
+  }, delay);
+}
+
+function playRandomWesternAmbientSfx() {
+  if (!state?.gameStarted || !state?.settings?.soundOn || !ambientSfxPlayer) return;
+  // Story narration and deliberate game SFX should remain the foreground.
+  // If either is busy, simply let this ambient moment pass; another one will
+  // be selected at the next randomized interval.
+  if (!voicePlayer.paused || !sfxPlayer.paused || !ambientSfxPlayer.paused) return;
+  let choices = WESTERN_AMBIENT_SFX.filter(item => item.src !== lastWesternAmbientSrc);
+  if (!choices.length) choices = WESTERN_AMBIENT_SFX;
+  const item = choices[Math.floor(Math.random() * choices.length)];
+  if (!item) return;
+  lastWesternAmbientSrc = item.src;
+  ambientSfxPlayer.src = item.src;
+  ambientSfxPlayer.volume = Math.min(1, (state.settings.soundVolume ?? 0.6) * item.gain);
+  ambientSfxPlayer.currentTime = 0;
+  ambientSfxPlayer.play().catch(() => {});
+}
+
+function startWesternAmbientSfx(reset = false) {
+  if (reset) {
+    clearTimeout(westernAmbientTimer);
+    westernAmbientTimer = null;
+    if (ambientSfxPlayer) {
+      ambientSfxPlayer.pause();
+      ambientSfxPlayer.currentTime = 0;
+    }
+  }
+  if (!state?.gameStarted) return;
+  if (!westernAmbientTimer) scheduleNextWesternAmbientSfx(true);
+}
 
 // One mp3 per frontier mood - crossfaded smoothly whenever the dominant
 // mood changes, rather than an abrupt cut. "quiet" reuses the same default
@@ -5840,7 +5926,6 @@ function renderFirstPlayerAssist() {
   };
   firstPlayerAssistCleanup = cleanup;
 
-  resize();
   window.addEventListener('resize', resize);
   stage.addEventListener('touchstart', onTouchStart, { passive: false });
   stage.addEventListener('touchmove', onTouchMove, { passive: false });
@@ -5852,8 +5937,15 @@ function renderFirstPlayerAssist() {
   window.addEventListener('pointercancel', onPointerUp);
   assistBody.querySelector('[data-first-player-reset]')?.addEventListener('click', () => renderFirstPlayerAssist());
 
-  rafId = window.requestAnimationFrame(renderFrame);
+  // The selector used to measure itself before showModal(), when its stage was
+  // still 0x0. That left the first-open canvas effectively unusable until
+  // Start Over rebuilt it while the dialog was already visible. Show first,
+  // then size on the next paint so touch input works immediately.
   showAssistDialog();
+  requestAnimationFrame(() => {
+    resize();
+    rafId = window.requestAnimationFrame(renderFrame);
+  });
 }
 function renderSimpleAssist(kind) {
   const labels = {
@@ -6326,7 +6418,7 @@ function generateNewspaperArticle() {
     <h2>Final Word</h2><p>${generateFinalWord()}</p>`;
 }
 
-const APP_VERSION = '1.1.33';
+const APP_VERSION = '1.1.34';
 let swRegistration = null;
 let appUpdateAvailable = false;
 
