@@ -14,6 +14,9 @@ const DATA_FILES = {
 
 const SAVE_KEY = 'wl_frontier_director_save_v1';
 const KOFI_SUPPORT_URL = 'https://ko-fi.com/randyd426';
+const BGG_USERNAME = 'randyd42';
+const BGG_PROFILE_URL = `https://boardgamegeek.com/user/${BGG_USERNAME}`;
+const CONTACT_EMAIL = 'rdykstra1@yahoo.com';
 const PLAYER_COLORS = ['white', 'red', 'yellow', 'blue', 'purple', 'black'];
 const NULL_PLAYER_COLOR = '';
 const PLAYER_COLOR_OPTIONS = [...PLAYER_COLORS, NULL_PLAYER_COLOR];
@@ -277,7 +280,6 @@ const dialog = document.getElementById('storyDialog');
 const voicePlayer = document.getElementById('voicePlayer');
 const musicPlayer = document.getElementById('musicPlayer');
 const sfxPlayer = document.getElementById('sfxPlayer');
-const ambientSfxPlayer = document.getElementById('ambientSfxPlayer');
 const assistDialog = document.getElementById('assistDialog');
 const assistBody = document.getElementById('assistBody');
 const assistTitle = document.getElementById('assistTitle');
@@ -517,9 +519,23 @@ async function init() {
   document.getElementById('menuBtn')?.addEventListener('click', () => document.getElementById('drawerNav')?.classList.toggle('open'));
   registerServiceWorker();
   applyAudioSettings();
+
+  // If the browser declined autoplay while restoring an in-progress game,
+  // the very next real user gesture should recover music automatically.
+  const recoverGameAudioFromGesture = () => {
+    if (state?.gameStarted && state?.screen === 'game') ensureFrontierMusicPlaying();
+  };
+  document.addEventListener('pointerdown', recoverGameAudioFromGesture, { passive: true });
+  document.addEventListener('keydown', recoverGameAudioFromGesture);
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden && state?.gameStarted && state?.screen === 'game') ensureFrontierMusicPlaying();
+  });
+  window.addEventListener('focus', () => {
+    if (state?.gameStarted && state?.screen === 'game') ensureFrontierMusicPlaying();
+  });
+
   render();
   startWorldEventHeartbeat();
-  startWesternAmbientSfx();
 }
 
 async function loadData() {
@@ -541,6 +557,11 @@ function navigate(screen) {
   document.getElementById('drawerNav')?.classList.remove('open');
   save();
   render();
+  if (screen === 'game' && state.gameStarted) {
+    // Navigation to the live game is normally initiated by a user click/tap,
+    // so use that gesture to recover from mobile/browser autoplay blocking.
+    ensureFrontierMusicPlaying();
+    }
   window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
 }
 function setActiveNav() {
@@ -601,7 +622,15 @@ function showCreditsSupportDialog() {
     <p>If it has earned a place at your table, a small tip helps support continued development and future frontier tales.</p>
     <p class="credits-disclaimer">Western Legends and its related expansions belong to their respective owners. This fan project is not affiliated with or endorsed by the publisher.</p>
   </div>
-  <div class="about-version-section">${renderVersionBlock()}</div>`;
+  <div class="about-version-section">${renderVersionBlock()}</div>
+  <section class="credits-contact-block" aria-labelledby="creditsContactTitle">
+    <h3 id="creditsContactTitle">Contact &amp; Feedback</h3>
+    <p>Found a bug, have a suggestion, or spotted a rules correction? I’d be glad to hear from you.</p>
+    <div class="credits-contact-links">
+      <a href="${escapeHtml(BGG_PROFILE_URL)}" target="_blank" rel="noopener noreferrer"><span>BoardGameGeek</span><strong>${escapeHtml(BGG_USERNAME)}</strong></a>
+      <a href="mailto:${escapeHtml(CONTACT_EMAIL)}"><span>Email</span><strong>${escapeHtml(CONTACT_EMAIL)}</strong></a>
+    </div>
+  </section>`;
   const reward = document.getElementById('dialogReward');
   reward.innerHTML = '';
   reward.classList.add('hidden');
@@ -627,6 +656,31 @@ function hasModule(moduleId) {
   return !!canonical && state.setup.modules.includes(canonical);
 }
 function hasAllModules(modules = []) { return modules.every(m => hasModule(m)); }
+
+// Event data can provide moduleVariants when the same encounter should behave
+// differently depending on optional modules in the current game. The base
+// event remains the fallback. A matching variant overrides only its authored
+// presentation/behavior fields; its requiredModules are matching rules and do
+// not replace the base event's eligibility requirements.
+function eventModuleVariantMatches(variant = {}) {
+  if (!hasAllModules(variant.requiredModules || [])) return false;
+  if (Array.isArray(variant.anyModules) && variant.anyModules.length && !variant.anyModules.some(id => hasModule(id))) return false;
+  const blocked = variant.blockedModules || variant.forbiddenModules || [];
+  if (blocked.some(id => hasModule(id))) return false;
+  return true;
+}
+
+function prepareEventForModules(event) {
+  if (!event || !Array.isArray(event.moduleVariants) || !event.moduleVariants.length) return event ? { ...event } : event;
+  const matches = event.moduleVariants
+    .filter(eventModuleVariantMatches)
+    .sort((a, b) => ((b.requiredModules || []).length + (b.anyModules || []).length) - ((a.requiredModules || []).length + (a.anyModules || []).length));
+  if (!matches.length) return { ...event };
+  const chosen = matches[0];
+  const { requiredModules, anyModules, blockedModules, forbiddenModules, id: variantId, ...overrides } = chosen;
+  return { ...event, ...overrides, _moduleVariantId: variantId || null };
+}
+
 function hasTags(tags = []) { return tags.every(t => state.worldTags.includes(t)); }
 function lacksTags(tags = []) { return tags.every(t => !state.worldTags.includes(t)); }
 function addTag(tag) { if (tag && !state.worldTags.includes(tag)) state.worldTags.push(tag); }
@@ -860,6 +914,10 @@ function commitStoryTrackReminderPreference() {
   return true;
 }
 
+function appPageOverlayOpen() {
+  return !!app.querySelector('[data-settings-backdrop], [data-game-settings-backdrop], [data-reference-backdrop]');
+}
+
 function dismissStoryTrackNotice() {
   if (!state.storyTrackNotice) return;
   if (storyTrackNoticeTimer) clearTimeout(storyTrackNoticeTimer);
@@ -867,7 +925,11 @@ function dismissStoryTrackNotice() {
   commitStoryTrackReminderPreference();
   state.storyTrackNotice = null;
   save();
-  render();
+  // Settings/reference overlays are rendered inside #app. Re-rendering the
+  // page while one is open destroys that overlay, which previously made the
+  // Settings dialog appear to close by itself when this five-second reminder
+  // expired. Let the overlay's normal close path perform the next render.
+  if (!appPageOverlayOpen()) render();
 }
 
 function scheduleStoryTrackNoticeTimeout() {
@@ -881,9 +943,9 @@ function scheduleStoryTrackNoticeTimeout() {
     // If a genuine story/world event is covering the page, do not let the
     // reminder silently expire underneath it. Give the player a few seconds
     // to see the reminder after the event dialog closes.
-    if (dialog?.open) {
+    if (dialog?.open || appPageOverlayOpen()) {
       storyTrackNoticeTimer = setTimeout(() => {
-        if (!dialog?.open) storyTrackNoticeTimer = setTimeout(expire, 3500);
+        if (!dialog?.open && !appPageOverlayOpen()) storyTrackNoticeTimer = setTimeout(expire, 3500);
         else expire();
       }, 500);
       return;
@@ -1345,7 +1407,7 @@ const WANTED_MARSHAL_WINDOW = 10;
 const WANTED_MARSHAL_STRENGTH = 0.14;
 
 function categoryBalanceFactor(trigger) {
-  const recent = state.triggeredLog.slice(0, WANTED_MARSHAL_WINDOW);
+  const recent = state.triggeredLog.filter(t => t.type === 'primaryTrigger').slice(0, WANTED_MARSHAL_WINDOW);
   const wantedRecent = recent.filter(t => triggerBalanceBucket(t) === 'wanted').length;
   const marshalRecent = recent.filter(t => triggerBalanceBucket(t) === 'marshal').length;
   const net = wantedRecent - marshalRecent; // >0: wanted has been running hot; <0: marshals are dominant
@@ -1418,6 +1480,9 @@ function refillTriggers() {
     state.activeTriggers.push({ ...pick, dealtAt: Date.now() });
     state.seenTriggerIds.push(pick.id);
   }
+  // The visible trigger sounds are small, short cues. Preload just the current
+  // three so the first tap is responsive without eagerly loading every SFX.
+  [...new Set(state.activeTriggers.map(trigger => trigger.soundFile).filter(Boolean))].forEach(preloadAudio);
 }
 
 function startGameFromSetup() {
@@ -1455,9 +1520,11 @@ function startGameFromSetup() {
   refillTriggers();
   scheduleNextWorldEvent(true);
   save();
-  playMusic();
-  startWesternAmbientSfx(true);
   render();
+  // Starting the game is a user gesture, which is the most reliable moment
+  // to begin HTML audio on mobile browsers. Start the track that matches the
+  // frontier's actual current mood rather than blindly starting the default.
+  ensureFrontierMusicPlaying();
 }
 
 function isStoryTrackEnabled() { return state.setup?.useStoryTrack !== false; }
@@ -1547,7 +1614,10 @@ function queueDueWorldEvent() {
 
 function maybePresentPendingWorldEvent() {
   if (!state.gameStarted || state.screen !== 'game') return;
-  if (dialog.open || assistDialog.open) return;
+  // Do not interrupt an app-level overlay such as Settings. These overlays
+  // live inside #app, so a later page render after the world event would make
+  // them disappear even though the player never closed them.
+  if (dialog.open || assistDialog.open || appPageOverlayOpen()) return;
   const eventId = state.worldEventClock?.pendingEventId;
   if (!eventId) return;
   const event = db.worldEvents.find(item => item.id === eventId);
@@ -1768,6 +1838,14 @@ function startWorldEventById(eventId) {
   const event = db.worldEvents.find(w => w.id === eventId);
   if (!event) return;
   state.activeWorldEvents.unshift({ ...event, turnsLeft: getDuration(event), createdAt: Date.now() });
+  state.triggeredLog.unshift({
+    time: Date.now(),
+    type: 'worldEventStarted',
+    id: event.id,
+    label: event.title || event.id,
+    tags: event.tags || []
+  });
+  state.triggeredLog = state.triggeredLog.slice(0, 200);
 }
 
 // event.type === 'storyTrigger' is a TASK: a player needs to go do something
@@ -1777,9 +1855,39 @@ function startWorldEventById(eventId) {
 // immediately - narration + effects fire right away and the node is retired
 // on the spot, since there's no ongoing task to track.
 function handleCreatedEvent(event, type, triggeringColor = null) {
+  // Resolve any optional-module-specific version before the event is stored or
+  // shown. This lets JSON alter text, buttons, rewards, effects, narration,
+  // tags, etc. without hard-coding individual encounters in JavaScript.
+  event = prepareEventForModules(event);
   event._deliveryType = type;
   if (triggeringColor) event._assignedColor = triggeringColor;
   const isTask = event.type === 'storyTrigger' || (type === 'characterArc' && !event.type);
+
+  // Keep a readable history of the actual narrative encounters that occurred.
+  // Primary triggers alone tell us what players did, but not which One-Offs or
+  // timed World Events actually appeared; the end-game Gazette needs both.
+  if (type === 'oneOff') {
+    state.triggeredLog.unshift({
+      time: Date.now(),
+      type: 'oneOffEvent',
+      id: event.id,
+      label: event.title || event.id,
+      color: triggeringColor || null,
+      trigger: event.trigger || null,
+      tags: event.tags || []
+    });
+    state.triggeredLog = state.triggeredLog.slice(0, 200);
+  } else if (type === 'worldEvent' && event.type === 'worldEvent') {
+    state.triggeredLog.unshift({
+      time: Date.now(),
+      type: 'worldEventStarted',
+      id: event.id,
+      label: event.title || event.id,
+      tags: event.tags || []
+    });
+    state.triggeredLog = state.triggeredLog.slice(0, 200);
+  }
+
   if (isTask) {
     const story = {
       id: event.id,
@@ -1838,7 +1946,7 @@ function tickStoryExpirations() {
   expired.forEach(s => {
     applyEffects(s.onExpired || [], { arcId: s.arcId, currentColor: s.assignedColor, referenceColor: s.referenceActorColor || null });
     markArcNodeCompleted(s.arcId, s.id, 'expired', s.assignedColor);
-    state.triggeredLog.unshift({ time: Date.now(), type: 'storyExpired', id: s.id, label: s.title });
+    state.triggeredLog.unshift({ time: Date.now(), type: 'storyExpired', id: s.id, label: s.title, color: s.assignedColor || null });
   });
 }
 
@@ -1897,7 +2005,7 @@ function expireStory(storyId) {
   applyEffects(story.onExpired || [], { arcId: story.arcId, currentColor: story.assignedColor, referenceColor: story.referenceActorColor || null });
   markArcNodeCompleted(story.arcId, story.id, 'expired', story.assignedColor);
   state.activeStories = state.activeStories.filter(s => s.id !== storyId);
-  state.triggeredLog.unshift({ time: Date.now(), type: 'storyExpired', id: story.id, label: story.title });
+  state.triggeredLog.unshift({ time: Date.now(), type: 'storyExpired', id: story.id, label: story.title, color: story.assignedColor || null });
   const openedCounterChapter = checkCounterGatedNodes();
   queueDueWorldEvent();
   save();
@@ -1961,7 +2069,16 @@ function promptForPlayerColor(dialogTypeLabel, titleText, subText, onChosen) {
     btn.className = `player-color-swatch player-choice trigger-color-prompt-btn swatch-${color}`;
     btn.title = playerLabel(color);
     btn.setAttribute('aria-label', playerLabel(color));
-    btn.onclick = () => { wrap.classList.remove('trigger-color-prompt-buttons'); dialog.classList.remove('player-color-prompt-dialog'); dialog.close(); onChosen(color); };
+    btn.onclick = () => {
+      wrap.classList.remove('trigger-color-prompt-buttons');
+      dialog.classList.remove('player-color-prompt-dialog');
+      // Wait until the color-prompt dialog has completely closed before
+      // opening the resulting event dialog. The shared dialog's global close
+      // handler stops narration; reopening it synchronously here allowed that
+      // old close event to immediately stop the NEW event's narration.
+      dialog.addEventListener('close', () => onChosen(color), { once: true });
+      dialog.close();
+    };
     wrap.appendChild(btn);
   });
   if (!dialog.open) dialog.showModal();
@@ -2082,8 +2199,14 @@ function showEventDialog(event) {
   }
   document.getElementById('dialogPlayerAssign').classList.add('hidden');
   renderDialogButtons(event);
-  playVoice(event.audioFile);
+  // Open the modal first, then start narration. Besides matching the visible
+  // dialog lifecycle, this avoids having playback begin while the dialog is
+  // still transitioning from a preceding prompt. requestAnimationFrame gives
+  // the browser one paint opportunity before audio starts.
   if (!dialog.open) dialog.showModal();
+  if (event.audioFile && state.settings.voiceOn) {
+    requestAnimationFrame(() => playVoice(event.audioFile));
+  }
 }
 
 function renderDialogButtons(event) {
@@ -3005,6 +3128,8 @@ function renderGame() {
     ${renderWorldList()}
   </section>` : ''}`;
   app.querySelectorAll('[data-trigger]').forEach(b => b.onclick = () => {
+    const trigger = state.activeTriggers.find(item => item.id === b.dataset.trigger);
+    playPrimaryTriggerSound(trigger);
     // Story Arcs are personal by default, so even when the virtual Story Track
     // is off we still need to know which player performed the trigger.
     if (isStoryTrackEnabled() || storyEventsEnabled('arcs')) promptTriggerColor(b.dataset.trigger);
@@ -3028,6 +3153,11 @@ function renderGame() {
 // Story Point markers and their temporary reminder share a fixed-height area
 // above the trigger grid. renderStoryTrackArea() owns both states so changing
 // between them never reflows the gameplay content below.
+
+function playPrimaryTriggerSound(trigger) {
+  if (!trigger?.soundFile) return;
+  playSoundEffect(trigger.soundFile);
+}
 
 function renderTriggerCard(t) {
   const title = renderTriggerTitle(t);
@@ -3138,19 +3268,19 @@ function renderWorldList() {
 
 
 function renderPokerHandsReference() {
-  return `<ol>
-    <li>5 of a Kind</li>
-    <li>Royal Flush</li>
-    <li>Straight Flush</li>
-    <li>4 of a Kind</li>
-    <li>Full House</li>
-    <li>Flush</li>
-    <li>Straight</li>
-    <li>3 of a Kind</li>
-    <li>Two Pair</li>
-    <li>Pair</li>
-    <li>High Card</li>
-  </ol>`;
+  return `<ol class="ref-card poker-hands-guide">
+    <li class="poker-hand-row"><div><span class="poker-hand-name">5 of a Kind</span><span class="cards"><span class="card blacksuit winner">A♠</span><span class="card blacksuit winner">A♣</span><span class="card blacksuit winner">A♥</span><span class="card blacksuit winner">A♦</span><span class="card blacksuit winner">A♠</span></span></div></li>
+    <li class="poker-hand-row"><div><span class="poker-hand-name">Royal Flush</span><span class="cards"><span class="card blacksuit winner"><span class="card-10">10</span>♠</span><span class="card blacksuit winner">J♠</span><span class="card blacksuit winner">Q♠</span><span class="card blacksuit winner">K♠</span><span class="card blacksuit winner">A♠</span></span></div></li>
+    <li class="poker-hand-row"><div><span class="poker-hand-name">Straight Flush</span><span class="cards"><span class="card redsuit winner">5♥</span><span class="card redsuit winner">6♥</span><span class="card redsuit winner">7♥</span><span class="card redsuit winner">8♥</span><span class="card redsuit winner">9♥</span></span></div></li>
+    <li class="poker-hand-row"><div><span class="poker-hand-name">4 of a Kind</span><span class="cards"><span class="card blacksuit winner">A♠</span><span class="card blacksuit winner">A♣</span><span class="card redsuit winner">A♥</span><span class="card redsuit winner">A♦</span><span class="card blacksuit">9♣</span></span></div></li>
+    <li class="poker-hand-row"><div><span class="poker-hand-name">Full House</span><span class="cards"><span class="card blacksuit winner">K♠</span><span class="card blacksuit winner">K♣</span><span class="card redsuit winner">K♥</span><span class="card blacksuit winner">7♠</span><span class="card redsuit winner">7♦</span></span></div></li>
+    <li class="poker-hand-row"><div><span class="poker-hand-name">Flush</span><span class="cards"><span class="card blacksuit winner">A♣</span><span class="card blacksuit winner">J♣</span><span class="card blacksuit winner">9♣</span><span class="card blacksuit winner">6♣</span><span class="card blacksuit winner">3♣</span></span></div></li>
+    <li class="poker-hand-row"><div><span class="poker-hand-name">Straight</span><span class="cards"><span class="card blacksuit winner">5♠</span><span class="card blacksuit winner">6♣</span><span class="card redsuit winner">7♦</span><span class="card redsuit winner">8♥</span><span class="card blacksuit winner">9♠</span></span></div></li>
+    <li class="poker-hand-row"><div><span class="poker-hand-name">3 of a Kind</span><span class="cards"><span class="card blacksuit winner">Q♠</span><span class="card redsuit winner">Q♣</span><span class="card redsuit winner">Q♦</span><span class="card redsuit">8♥</span><span class="card blacksuit">4♠</span></span></div></li>
+    <li class="poker-hand-row"><div><span class="poker-hand-name">Two Pair</span><span class="cards"><span class="card blacksuit winner">J♠</span><span class="card heartsuit winner">J♥</span><span class="card blacksuit winner">5♣</span><span class="card redsuit winner">5♦</span><span class="card blacksuit">A♠</span></span></div></li>
+    <li class="poker-hand-row"><div><span class="poker-hand-name">Pair</span><span class="cards"><span class="card blacksuit winner">8♠</span><span class="card redsuit winner">8♥</span><span class="card blacksuit">K♣</span><span class="card redsuit"><span class="card-10">10</span>♦</span><span class="card blacksuit">4♣</span></span></div></li>
+    <li class="poker-hand-row"><div><span class="poker-hand-name">High Card</span><span class="cards"><span class="card blacksuit winner">A♠</span><span class="card redsuit">J♥</span><span class="card blacksuit">8♣</span><span class="card redsuit">5♦</span><span class="card blacksuit">2♠</span></span></div></li>
+    </ol>`;
 }
 
 let fightFlowSelection = '';
@@ -3767,71 +3897,124 @@ function openActionTool(tool) {
 
 function gamblingFlowSteps(game = 'poker') {
   if (game === 'faro') return [
-    { title: 'Take Gamble Action', summary: 'Choose Faro at an adjacent Saloon', detail: 'Be in a space adjacent to a Saloon and choose Faro if the module is in play.' },
-    { title: 'Place Bets', summary: 'Place legal bets on the Faro layout', detail: 'Place legal bets on the Faro layout according to Ante Up rules.' },
-    { title: 'Reveal Dealer Cards', summary: 'Resolve the dealer cards in sequence', detail: 'Reveal and resolve the dealer cards in sequence.' },
-    { title: 'Pay Winners / Collect Losses', summary: 'Resolve each bet', detail: 'Resolve each bet as win, lose, or push according to Faro.' },
-    { title: 'Continue or End', summary: 'Finish the Faro sequence', detail: 'Continue the Faro sequence as allowed, then apply Gambler Point or event effects.' }
+    {
+      title: 'Start Faro',
+      summary: 'Gamble beside a Saloon; same-town players may join',
+      detail: 'Take a Gamble action while adjacent to a Saloon. Any other player in the same town may join. If at least one other player joins, the active player gains $10. The dealer is the closest non-participating player to the right of the active player; if everyone joins, the active player is the dealer.'
+    },
+    {
+      title: 'Reveal',
+      summary: 'Draw 4 Fight Cards; show 3 and keep 1 facedown',
+      detail: 'The dealer draws the top 4 Fight Cards. Reveal the first 3 to all players and leave the fourth card facedown.'
+    },
+    {
+      title: 'Bet',
+      summary: 'Place up to 2 bets of $10 or $20; active player bets last',
+      detail: 'In clockwise order, with the active player placing the last bet, each player may place up to 2 bet markers on the Faro board. Each marker is $10 or $20. Your two markers cannot be on the same card value, and your total bets cannot exceed the money you currently have.'
+    },
+    {
+      title: 'Loser',
+      summary: 'Shuffle the 4 cards; first reveal loses',
+      detail: 'The dealer shuffles all 4 cards facedown and offers the active player a cut. Reveal the top card as the Loser. Every bet on that card value loses: pay the amount on that marker to the supply and reclaim the marker.'
+    },
+    {
+      title: 'Winner',
+      summary: 'Second reveal pays 1:1 + 1 GP; decide whether to press on',
+      detail: 'Reveal the next card as the Winner. Matching bets pay 1:1: gain money equal to the marker and 1 Gambler Point, then reclaim that marker. Starting to the left of the active player, anyone with a marker still on the board must either reclaim it and stop or leave it for the Jackpot round.'
+    },
+    {
+      title: 'Jackpot',
+      summary: 'Third reveal pays 3:1 + 1 GP; all other remaining bets lose',
+      detail: 'Reveal the next card as the Jackpot. Matching bets gain 3 times the marker value and 1 Gambler Point, then reclaim the marker. Every other marker still on the board loses: pay its value to the supply and reclaim it. Shuffle all Fight Cards used in Faro and place them on the bottom of the Fight deck.'
+    }
   ];
+
   if (game === 'high_stakes') return [
     {
-      title: 'Take Gamble Action',
-      summary: 'Need $30 + 1 Poker Card; ante $10 & draw 1',
-      detail: 'The active player must have at least $30 and 1 Poker Card. At a Saloon, take a Gamble action, ante $10, and draw 1 Poker Card.'
+      title: 'Qualify & Ante',
+      summary: 'Need at least $30 + 1 Poker Card; ante $10 and draw 1',
+      detail: 'To initiate High Stakes Poker, the active player must have at least $30 and 1 Poker Card. Take a Gamble action while adjacent to a Saloon, pay $10 to the pot, and draw 1 Poker Card.'
     },
     {
-      title: 'Invite Other Players',
-      summary: 'Same-town players may join clockwise',
-      detail: 'Starting clockwise from the active player, every other player in the same town decides whether to join. A player needs at least $30 and 1 Poker Card to join; each joining player antes $10 and draws 1 Poker Card.'
+      title: 'Invite Players',
+      summary: 'Same-town players may join in clockwise order',
+      detail: 'Each other player in the same town decides in clockwise order whether to join. To join, a player must have at least $30 and 1 Poker Card; they pay $10 to the pot and draw 1 Poker Card.'
     },
     {
-      title: 'Build the Pot / Set Dealer',
-      summary: 'Saloon adds $40; solo player faces the dealer',
-      detail: 'The Saloon adds $40 to the pot. If no other player joins, the dealer (the player seated to the right of the active player) sets aside their normal hand and draws 5 Poker Cards to play against the active player.'
+      title: 'Build Pot / Set Dealer',
+      summary: 'Saloon adds $40; if solo, dealer draws 5 cards',
+      detail: 'The Saloon adds $40 to the pot. If no other player joined, the player to the right of the active player becomes the dealer, sets aside their normal hand, and draws 5 Poker Cards for this game.'
     },
     {
       title: 'Deal the Flop',
       summary: 'Reveal 3 communal Poker Cards',
-      detail: 'Deal the flop by turning 3 communal Poker Cards faceup.'
+      detail: 'Reveal 3 communal Poker Cards faceup. These are the flop.'
     },
     {
-      title: 'Bet or Fold',
-      summary: 'Add $20 or fold; dealer always bets',
-      detail: 'Starting with the first player left of the active player and proceeding clockwise, each player adds $20 to the pot or folds. A folding player forfeits their $10 ante, loses the High Stakes Poker game, and draws 1 Poker Card. The dealer always adds $20 from the supply and never folds.'
+      title: 'Add $20 or Fold',
+      summary: 'Players act clockwise from the active player’s left; dealer never folds',
+      detail: 'Starting with the player to the left of the active player and proceeding clockwise, each player either adds $20 to the pot or folds. A player who folds forfeits their $10 ante, loses the game, and draws 1 Poker Card. If a dealer is playing, the dealer always adds $20 from the supply and never folds.'
     },
     {
-      title: 'Check for an Early Winner',
+      title: 'Check for Early End',
       summary: 'All fold: clear pot; lone player may win immediately',
-      detail: 'If all players fold, return all money in the pot to the supply. If only 1 player remains and the dealer was not playing, that player takes the pot and gains 1 LP and 1 GP.'
+      detail: 'If all players fold, return all money in the pot to the supply. If only 1 player remains and no dealer is playing, that player immediately takes the pot and gains 1 Legendary Point and 1 Gambler Point.'
     },
     {
       title: 'Turn & River',
-      summary: 'Add $20 from Saloon if needed; reveal 2 more cards',
-      detail: 'If the hand continues and the dealer is not playing, the Saloon adds $20 to the pot. Then deal the turn and river: 2 more communal Poker Cards faceup.'
+      summary: 'If play continues, reveal 2 more communal cards',
+      detail: 'If the hand continues and no dealer is playing, the Saloon adds another $20 to the pot. Then reveal 2 more communal Poker Cards: the turn and river.'
     },
     {
-      title: 'Build Best Poker Hand',
-      summary: 'Use 2 hand cards + 3 communal cards',
-      detail: 'Starting left of the active player and proceeding clockwise, each player reveals 2 cards from hand and combines them with 3 communal cards to make their best Poker hand. The dealer does the same when playing. Resolve Poker/Gambling abilities as in a normal Poker game.',
+      title: 'Make the Best Hand',
+      summary: 'Reveal 2 hand cards + use any 3 communal cards',
+      detail: 'Starting to the left of the active player and proceeding clockwise, each remaining player reveals 2 cards from hand and combines them with 3 of the 5 communal cards to make the best Poker hand possible. The dealer does the same when playing. Resolve Poker/Gambling abilities as in normal Poker.',
       pokerHands: true
     },
     {
-      title: 'Determine the Winner',
-      summary: 'Best hand wins; dealer & active player have tie priority',
-      detail: 'The best Poker hand wins. The dealer wins ties. The active player wins ties against other players. If multiple non-active players remain tied, they each gain 1 LP and 1 GP and split the pot evenly, rounding down; return any extra money to the supply.'
-    },
-    {
-      title: 'Resolve Rewards & Cleanup',
-      summary: 'Winner takes pot +1 LP/+1 GP; losers draw 1',
-      detail: 'If the dealer wins, return the entire pot to the supply. A winning player takes the pot and gains 1 LP and 1 GP. All losing players draw 1 Poker Card. All players discard the cards they revealed.'
+      title: 'Winner, Ties & Rewards',
+      summary: 'Best hand wins; winner gets pot + 1 LP + 1 GP',
+      detail: 'The best hand wins. The dealer wins ties; the active player wins ties against other players. If multiple non-active players tie, each gains 1 LP and 1 GP and they split the pot evenly, rounding down; return any remainder to the supply. If the dealer wins, return the pot to the supply. Otherwise, a winning player takes the pot and gains 1 LP and 1 GP. All losers draw 1 Poker Card, and all players discard the cards they revealed.'
     }
   ];
+
   return [
-    { title: 'Take Gamble Action', summary: 'Gamble at an adjacent Saloon', detail: 'Be in a space adjacent to a Saloon and spend 1 action to Gamble.' },
-    { title: 'Pay Ante / Set Stakes', summary: 'Pay the required bet', detail: 'Pay or place any required bet according to the gambling rules in play.' },
-    { title: 'Deal Poker Cards', summary: 'Deal and draw cards as required', detail: 'Deal and/or draw Poker Cards as required by the Gamble action.' },
-    { title: 'Reveal & Compare Hands', summary: 'Determine the best Poker hand', detail: 'Use the Poker Hand reference to determine the winning hand.', pokerHands: true },
-    { title: 'Resolve Rewards', summary: 'Apply money, points, and other effects', detail: 'Apply money, Gambler Points, LP, or other effects from the game state and expansions.' }
+    {
+      title: 'Ante & Draw',
+      summary: 'Gamble beside a Saloon; pay $10 and draw 1 Poker Card',
+      detail: 'Take a Gamble action while adjacent to a Saloon. The active player pays $10 to the pot and draws 1 Poker Card.'
+    },
+    {
+      title: 'Invite Players',
+      summary: 'Any player in the same town may buy in for $10',
+      detail: 'Each other player in the same town may join. A joining player pays $10 to the pot and draws 1 Poker Card. After everyone has joined or passed, the house adds $50 to the pot.'
+    },
+    {
+      title: 'Set Dealer if Solo',
+      summary: 'If nobody joins, the player to the right deals against you',
+      detail: 'If no other player joined, the player to the right of the active player becomes the dealer. The dealer sets aside their normal Poker hand and draws 4 Poker Cards as their hand for this game.'
+    },
+    {
+      title: 'Deal the Flop',
+      summary: 'Reveal the top 3 Poker Cards',
+      detail: 'Reveal the top 3 Poker Cards faceup. These communal cards are the flop.'
+    },
+    {
+      title: 'Build Your Hand',
+      summary: 'Use 2 hand cards + the 3 flop cards',
+      detail: 'Make the best 5-card hand using the 3 flop cards and exactly 2 Poker Cards from your hand, if able. If you have only 1 Poker Card, use it to make the best 4-card hand you can. Aces may be low or high in a straight or straight flush.',
+      pokerHands: true
+    },
+    {
+      title: 'Reveal & Break Ties',
+      summary: 'Best hand wins; dealer and active player have tie priority',
+      detail: 'Reveal chosen cards simultaneously and announce each hand. The best hand wins. Between hands of the same rank, compare card values and then kickers if needed. A dealer wins ties. If players tie and the active player is among them, the active player wins. Otherwise tied players split the pot evenly; return any remainder to the supply.'
+    },
+    {
+      title: 'Award the Pot',
+      summary: 'Winner takes pot; losers draw 1 Poker Card',
+      detail: 'The winner takes the pot and any additional item or ability rewards. If the active player wins, they may gain either 1 Gambler Point or 1 Legendary Point. A winning non-active player gains 1 Gambler Point. Every losing player draws 1 Poker Card.'
+    }
   ];
 }
 
@@ -4008,10 +4191,10 @@ function renderSettingsOverlay(returnTarget = null) {
         <summary class="options-card-head">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5v13z"/></svg>
           <span class="options-card-title">Story &amp; Events</span>
-          <span class="options-card-caret">⌄</span>
+          <span class="options-card-caret" aria-hidden="true"></span>
         </summary>
         <div class="options-card-body">
-          <p class="settings-section-note">Change how often new story content appears. Modules stay locked to the choices used when this game began; ongoing chapters and current world effects are not removed.</p>
+          <p class="settings-section-note"><!--Change how often new story content appears. Modules stay locked to the choices used when this game began; ongoing chapters and current world effects are not removed.--></p>
           <div class="story-event-settings">
             ${renderStoryEventSetting('oneOff', 'One-Off Events', 'Short encounters caused by actions during the game.')}
             ${renderStoryEventSetting('arcs', 'Character Arcs', 'Multi-part stories that remember earlier player choices and actions.')}
@@ -4024,7 +4207,7 @@ function renderSettingsOverlay(returnTarget = null) {
         <summary class="options-card-head">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M7 12h10"/></svg>
           <span class="options-card-title">Story Points</span>
-          <span class="options-card-caret">⌄</span>
+          <span class="options-card-caret" aria-hidden="true"></span>
         </summary>
         <div class="options-card-body">
           <label class="toggle-row check-row story-track-setting">
@@ -4051,7 +4234,7 @@ function renderSettingsOverlay(returnTarget = null) {
         <summary class="options-card-head">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18 6a8.5 8.5 0 0 1 0 12"/></svg>
           <span class="options-card-title">Audio</span>
-          <span class="options-card-caret">⌄</span>
+          <span class="options-card-caret" aria-hidden="true"></span>
         </summary>
         <div class="options-card-body">
           <div class="sound-compact-grid settings-sound-grid">
@@ -4084,7 +4267,6 @@ function renderSettingsOverlay(returnTarget = null) {
       applyAudioSettings();
       save();
       if (flag === 'musicOn') setMusicEnabled(checkbox.checked);
-      if (flag === 'soundOn' && checkbox.checked) startWesternAmbientSfx();
       if (flag === 'voiceOn' && !checkbox.checked) voicePlayer.pause();
     };
     slider.oninput = () => {
@@ -4121,6 +4303,9 @@ function renderSettingsOverlay(returnTarget = null) {
   const closeSettings = () => {
     applyCurrentGameSettings();
     reopenDrawerAfterOverlay(returnTarget);
+    // If a timed World Event became due while Settings was open, present it
+    // only after the player intentionally closes Settings.
+    setTimeout(maybePresentPendingWorldEvent, 40);
   };
   document.getElementById('settingsDone')?.addEventListener('click', closeSettings);
   document.querySelector('[data-settings-close]')?.addEventListener('click', closeSettings);
@@ -4154,94 +4339,59 @@ function setMusicEnabled(enabled) {
     if (musicPlayerB) musicPlayerB.pause();
     return;
   }
-  const active = (typeof activeMusicSlot !== 'undefined' && activeMusicSlot === 'B' && musicPlayerB) ? musicPlayerB : musicPlayer;
-  if (active.src) active.play().catch(() => {});
+  if (state?.gameStarted && state?.screen === 'game') ensureFrontierMusicPlaying();
   else playMusic();
 }
 function applyAudioSettings() {
   musicPlayer.volume = state?.settings?.musicVolume ?? .2;
+  if (musicPlayerB) musicPlayerB.volume = state?.settings?.musicVolume ?? .2;
   sfxPlayer.volume = state?.settings?.soundVolume ?? .6;
   voicePlayer.volume = state?.settings?.voiceVolume ?? .8;
-  if (ambientSfxPlayer) {
-    ambientSfxPlayer.volume = Math.min(1, (state?.settings?.soundVolume ?? .6) * 0.35);
-    if (!state?.settings?.soundOn) {
-      ambientSfxPlayer.pause();
-      ambientSfxPlayer.currentTime = 0;
-    }
+}
+function currentFrontierMusicSource() {
+  const moodKey = state?.gameStarted ? computeFrontierMood().key : 'quiet';
+  return MOOD_MUSIC[moodKey] || MOOD_MUSIC.quiet;
+}
+
+function activeMusicPlayer() {
+  return activeMusicSlot === 'B' && musicPlayerB ? musicPlayerB : musicPlayer;
+}
+
+function ensureFrontierMusicPlaying() {
+  if (!state?.settings?.musicOn || !state?.gameStarted || state?.screen !== 'game') return;
+  const moodKey = computeFrontierMood().key;
+  const src = MOOD_MUSIC[moodKey] || MOOD_MUSIC.quiet;
+  currentMoodMusicKey = moodKey;
+
+  let active = activeMusicPlayer();
+  // If no player owns the correct current track (common after a reload), use
+  // the active slot directly instead of requiring a crossfade from silence.
+  if (!active.src || !active.src.endsWith(src)) {
+    if (musicPlayerB) musicPlayerB.pause();
+    musicPlayer.pause();
+    activeMusicSlot = 'A';
+    active = musicPlayer;
+    active.src = src;
+    active.currentTime = 0;
   }
-}
-function playMusic() { if (!state.settings.musicOn) return; if (!musicPlayer.src) musicPlayer.src = 'audio/music/western_loop.mp3'; musicPlayer.play().catch(()=>{}); }
-
-// Occasional Western soundscape details play independently of both the music
-// and the normal one-shot UI/game SFX. Keeping a dedicated player means a
-// distant horse, hammer, wolf, etc. never cuts off a dice roll or event sound.
-const WESTERN_AMBIENT_SFX = [
-  { src: 'audio/sfx/mount-gallop.mp3', gain: 0.36 },
-  { src: 'audio/sfx/mount-horse.mp3', gain: 0.34 },
-  { src: 'audio/sfx/mount-horsegallop.mp3', gain: 0.34 },
-  { src: 'audio/sfx/mount-whip.mp3', gain: 0.25 },
-  { src: 'audio/sfx/nature-horse.mp3', gain: 0.34 },
-  { src: 'audio/sfx/nature-wolf.mp3', gain: 0.30 },
-  { src: 'audio/sfx/prospect-pickaxe.mp3', gain: 0.30 },
-  { src: 'audio/sfx/ranch-moo.mp3', gain: 0.32 },
-  { src: 'audio/sfx/weapon-pistol.mp3', gain: 0.20 },
-  { src: 'audio/sfx/weapon-pistolcock.mp3', gain: 0.24 },
-  { src: 'audio/sfx/weapon-pistolholster.mp3', gain: 0.26 },
-  { src: 'audio/sfx/weapon-revolverspin.mp3', gain: 0.25 },
-  { src: 'audio/sfx/weapon-shotgun.mp3', gain: 0.18 },
-  { src: 'audio/sfx/weapon-shotguncock.mp3', gain: 0.23 },
-  { src: 'audio/sfx/work-hammer.mp3', gain: 0.30 }
-];
-const WESTERN_AMBIENT_FIRST_DELAY = { min: 18000, max: 40000 };
-const WESTERN_AMBIENT_DELAY = { min: 35000, max: 95000 };
-let westernAmbientTimer = null;
-let lastWesternAmbientSrc = '';
-
-function randomDelay(range) {
-  return Math.round(range.min + Math.random() * (range.max - range.min));
+  active.loop = true;
+  active.volume = state.settings.musicVolume ?? 0.2;
+  if (active.paused) active.play().catch(() => {});
 }
 
-function scheduleNextWesternAmbientSfx(first = false) {
-  clearTimeout(westernAmbientTimer);
-  westernAmbientTimer = null;
-  if (!state?.gameStarted) return;
-  const delay = randomDelay(first ? WESTERN_AMBIENT_FIRST_DELAY : WESTERN_AMBIENT_DELAY);
-  westernAmbientTimer = window.setTimeout(() => {
-    westernAmbientTimer = null;
-    playRandomWesternAmbientSfx();
-    scheduleNextWesternAmbientSfx(false);
-  }, delay);
-}
-
-function playRandomWesternAmbientSfx() {
-  if (!state?.gameStarted || !state?.settings?.soundOn || !ambientSfxPlayer) return;
-  // Story narration and deliberate game SFX should remain the foreground.
-  // If either is busy, simply let this ambient moment pass; another one will
-  // be selected at the next randomized interval.
-  if (!voicePlayer.paused || !sfxPlayer.paused || !ambientSfxPlayer.paused) return;
-  let choices = WESTERN_AMBIENT_SFX.filter(item => item.src !== lastWesternAmbientSrc);
-  if (!choices.length) choices = WESTERN_AMBIENT_SFX;
-  const item = choices[Math.floor(Math.random() * choices.length)];
-  if (!item) return;
-  lastWesternAmbientSrc = item.src;
-  ambientSfxPlayer.src = item.src;
-  ambientSfxPlayer.volume = Math.min(1, (state.settings.soundVolume ?? 0.6) * item.gain);
-  ambientSfxPlayer.currentTime = 0;
-  ambientSfxPlayer.play().catch(() => {});
-}
-
-function startWesternAmbientSfx(reset = false) {
-  if (reset) {
-    clearTimeout(westernAmbientTimer);
-    westernAmbientTimer = null;
-    if (ambientSfxPlayer) {
-      ambientSfxPlayer.pause();
-      ambientSfxPlayer.currentTime = 0;
-    }
+function playMusic() {
+  if (!state?.settings?.musicOn) return;
+  if (state?.gameStarted && state?.screen === 'game') {
+    ensureFrontierMusicPlaying();
+    return;
   }
-  if (!state?.gameStarted) return;
-  if (!westernAmbientTimer) scheduleNextWesternAmbientSfx(true);
+  if (!musicPlayer.src) musicPlayer.src = MOOD_MUSIC.quiet;
+  musicPlayer.volume = state.settings.musicVolume ?? 0.2;
+  musicPlayer.play().catch(() => {});
 }
+
+// Event-trigger sound effects are now defined directly in data/triggers.json.
+// Music remains continuous; SFX fire only when the corresponding trigger is tapped.
 
 // One mp3 per frontier mood - crossfaded smoothly whenever the dominant
 // mood changes, rather than an abrupt cut. "quiet" reuses the same default
@@ -4277,16 +4427,41 @@ function ensureSecondMusicPlayer() {
 function updateFrontierMoodMusic() {
   if (!state.gameStarted || state.screen !== 'game') return;
   const moodKey = computeFrontierMood().key;
-  if (moodKey === currentMoodMusicKey) return;
+  const src = MOOD_MUSIC[moodKey] || MOOD_MUSIC.quiet;
+
+  // A prior play() may have been blocked by the browser. Do not treat matching
+  // mood metadata as proof that audio is actually running.
+  if (moodKey === currentMoodMusicKey) {
+    if (state.settings.musicOn) ensureFrontierMusicPlaying();
+    return;
+  }
   currentMoodMusicKey = moodKey;
   if (!state.settings.musicOn) return;
-  const src = MOOD_MUSIC[moodKey] || MOOD_MUSIC.quiet;
   ensureSecondMusicPlayer();
   const active = activeMusicSlot === 'A' ? musicPlayer : musicPlayerB;
   const incoming = activeMusicSlot === 'A' ? musicPlayerB : musicPlayer;
-  if (active.src.endsWith(src)) return; // already playing this exact track
+
+  // If the outgoing track is silent/paused, a direct start is more reliable
+  // than pretending to crossfade from something the user cannot hear.
+  if (!active.src || active.paused) {
+    active.pause();
+    incoming.pause();
+    activeMusicSlot = 'A';
+    musicPlayer.src = src;
+    musicPlayer.loop = true;
+    musicPlayer.volume = state.settings.musicVolume ?? 0.2;
+    musicPlayer.currentTime = 0;
+    musicPlayer.play().catch(() => {});
+    return;
+  }
+  if (active.src.endsWith(src)) {
+    ensureFrontierMusicPlaying();
+    return;
+  }
+
   const targetVolume = state.settings.musicVolume ?? 0.2;
   incoming.src = src;
+  incoming.loop = true;
   incoming.volume = 0;
   incoming.currentTime = 0;
   incoming.play().catch(() => {});
@@ -4304,7 +4479,16 @@ function updateFrontierMoodMusic() {
     }
   }, MUSIC_CROSSFADE_MS / steps);
 }
-function playVoice(src) { if (!src || !state.settings.voiceOn) return; voicePlayer.src = src; voicePlayer.play().catch(()=>{}); }
+function playVoice(src) {
+  if (!src || !state.settings.voiceOn) return;
+  try {
+    voicePlayer.pause();
+    if (!voicePlayer.src.endsWith(src)) voicePlayer.src = src;
+    voicePlayer.currentTime = 0;
+    const playback = voicePlayer.play();
+    if (playback?.catch) playback.catch(() => {});
+  } catch (_) {}
+}
 function stopVoice() { voicePlayer.pause(); voicePlayer.currentTime = 0; }
 
 function showToolResult(html) { const el = document.getElementById('toolResult'); el.innerHTML = html; el.classList.remove('hidden'); }
@@ -6042,8 +6226,8 @@ function renderFinalScoringReference() {
     <div class="final-scoring-accordion-heading">
       <strong>Final Scoring</strong>
     </div>
-    <div class="final-scoring-panels">${steps.map(step => `<details class="final-scoring-item">
-      <summary><span class="final-scoring-item-copy"><strong>${escapeHtml(finalScoringStepTitle(step))}</strong><small>${escapeHtml(finalScoringStepSummary(step))}</small></span></summary>
+    <div class="final-scoring-panels">${steps.map((step, index) => `<details class="final-scoring-item">
+      <summary><span class="step-number final-scoring-step-number">${index + 1}</span><span class="final-scoring-item-copy"><strong>${escapeHtml(finalScoringStepTitle(step))}</strong><small>${escapeHtml(finalScoringStepSummary(step))}</small></span></summary>
       <div class="final-scoring-item-detail"><p>${escapeHtml(step.text)}</p></div>
     </details>`).join('')}</div>
   </section>`;
@@ -6216,10 +6400,14 @@ function formatNewspaperDate() {
 
 function renderEndGame() {
   const article = generateNewspaperArticle();
+  const paperTitle = db.newspaper?.title || 'Frontier Gazette';
+  const paperEdition = db.newspaper?.edition || '';
   app.innerHTML = `<section class="panel newspaper-page"><div class="newsprint" id="newspaper">
-    <h1>The Darkrock Gazette</h1>
+    <header class="newspaper-masthead-wrap">
+      <img class="newspaper-masthead" src="assets/images/newspaper/frontier-gazette-masthead.png" alt="${escapeHtml(paperTitle)} newspaper header">
+    </header>
     <p class="newspaper-date">${escapeHtml(formatNewspaperDate())}</p>
-    <p class="newspaper-edition">Special Frontier Edition</p>
+    <p class="newspaper-edition">${escapeHtml(paperEdition)}</p>
     ${article}
   </div><div class="actions newspaper-actions">
     <button class="secondary-btn" id="backGame">Back</button>
@@ -6362,19 +6550,449 @@ function frontierFlavorSentence(t) {
   const flavors = [
     [t.totals.gambling, 'the gambling halls did a brisk trade, and more than one fortune changed hands over a turn of cards'],
     [t.totals.legendary, 'talk of legendary deeds and legendary items passed from porch to porch faster than the telegraph could carry it'],
-    [t.storyPoints, 'story after story unfolded across the territory, each one adding a little more color to the frontier\u2019s memory']
+    [t.storyPoints, 'story after story unfolded across the territory, each one adding a little more color to the frontier’s memory']
   ].filter(([val]) => val > 0).sort((a, b) => b[0] - a[0]);
   return flavors.length ? `Meanwhile, ${flavors[0][1]}.` : '';
 }
 
-function generateFinalWord() {
-  const mood = computeFrontierMood();
-  const bank = FRONTIER_MOODS[mood.key] || FRONTIER_MOODS.opportunity;
-  const sentences = [pick(bank.closings)];
-  const flavor = frontierFlavorSentence(mood);
-  if (flavor) sentences.push(flavor);
-  sentences.push('Some riders chased gold, some chased glory, and some simply tried to stay ahead of trouble - but as every old hand knows, the frontier remembers what was done beneath that hard western sun.');
+function newspaperGameSeed() {
+  const logPart = (state.triggeredLog || []).slice().reverse().map(entry => `${entry.type}:${entry.id || ''}:${entry.color || ''}`).join('|');
+  const scorePart = Object.entries(state.finalScores || {}).sort(([a], [b]) => a.localeCompare(b)).map(([color, score]) => `${color}:${score}`).join('|');
+  const source = `${logPart}#${scorePart}#${state.setup?.players || 0}`;
+  let hash = 2166136261;
+  for (let i = 0; i < source.length; i += 1) {
+    hash ^= source.charCodeAt(i);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
+}
+
+function newspaperStablePick(list, salt = 0) {
+  if (!Array.isArray(list) || !list.length) return '';
+  return list[(newspaperGameSeed() + salt) % list.length];
+}
+
+function newspaperJoin(items = [], conjunction = 'and') {
+  const clean = items.filter(Boolean);
+  if (!clean.length) return '';
+  if (clean.length === 1) return clean[0];
+  if (clean.length === 2) return `${clean[0]} ${conjunction} ${clean[1]}`;
+  return `${clean.slice(0, -1).join(', ')}, ${conjunction} ${clean[clean.length - 1]}`;
+}
+
+const NEWSPAPER_ACTIVITY_BUCKETS = [
+  {
+    key: 'fight',
+    label: 'Fights & gunplay',
+    phrase: 'fights and gunplay',
+    test: log => log.category === 'fight' || (log.tags || []).some(tag => ['fight', 'duel', 'bandit'].includes(tag))
+  },
+  {
+    key: 'outlaw',
+    label: 'Outlaw deeds',
+    phrase: 'outlaw work',
+    test: log => log.category === 'outlaw' || triggerBalanceBucket(log) === 'wanted'
+  },
+  {
+    key: 'law',
+    label: 'Law work',
+    phrase: 'law work',
+    test: log => log.category === 'law' || triggerBalanceBucket(log) === 'marshal'
+  },
+  {
+    key: 'gambling',
+    label: 'Gambling & revelry',
+    phrase: 'poker, gambling, and revelry',
+    test: log => (log.tags || []).some(tag => ['poker', 'gambling', 'gambler', 'cabaret', 'revel', 'saloon'].includes(tag))
+      || /poker|revel|faro/i.test(`${log.id || ''} ${log.label || ''}`)
+  },
+  {
+    key: 'gold',
+    label: 'Prospecting & gold',
+    phrase: 'prospecting and gold',
+    test: log => (log.tags || []).some(tag => ['gold', 'prospect', 'mine'].includes(tag))
+      || /prospect|gold/i.test(`${log.id || ''} ${log.label || ''}`)
+  },
+  {
+    key: 'cattle',
+    label: 'Cattle & ranching',
+    phrase: 'cattle and ranch business',
+    test: log => (log.tags || []).some(tag => ['cattle', 'ranch'].includes(tag))
+  },
+  {
+    key: 'travel',
+    label: 'Travel & rail',
+    phrase: 'travel across the territory',
+    test: log => (log.tags || []).some(tag => ['move', 'travel', 'rail', 'train', 'railroad'].includes(tag))
+      || /move|travel|rail/i.test(`${log.id || ''} ${log.label || ''}`)
+  },
+  {
+    key: 'wilderness',
+    label: 'Hunting & wilderness',
+    phrase: 'hunting and wilderness travel',
+    test: log => (log.tags || []).some(tag => ['hunt', 'hunting', 'forage', 'frontier', 'wildlife'].includes(tag))
+      || /hunt|forag|outside town/i.test(`${log.id || ''} ${log.label || ''}`)
+  },
+  {
+    key: 'commerce',
+    label: 'Trade & work',
+    phrase: 'trade, work, and equipment',
+    test: log => (log.tags || []).some(tag => ['item', 'trader', 'work', 'craft', 'resource', 'deed', 'commerce'].includes(tag))
+      || /buy|purchase|trader|work|craft|deed/i.test(`${log.id || ''} ${log.label || ''}`)
+  }
+];
+
+function newspaperActivityBucket(log) {
+  return NEWSPAPER_ACTIVITY_BUCKETS.find(bucket => bucket.test(log)) || { key: 'other', label: 'Other frontier business', phrase: 'other frontier business' };
+}
+
+function newspaperActivityCounts(logs = []) {
+  const counts = new Map();
+  logs.forEach(log => {
+    const bucket = newspaperActivityBucket(log);
+    if (!counts.has(bucket.key)) counts.set(bucket.key, { ...bucket, count: 0 });
+    counts.get(bucket.key).count += 1;
+  });
+  return [...counts.values()].sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
+}
+
+function newspaperPlayerLabel(color) {
+  return color ? finalTallyPlayerLabel(color) : 'an unidentified rider';
+}
+
+function newspaperOneOffLogs() {
+  const direct = (state.triggeredLog || []).filter(log => log.type === 'oneOffEvent').map(log => ({ ...log }));
+  // Compatibility for games already in progress when v1.1.48 is installed:
+  // older builds recorded many resolved One-Offs only as raw ids in
+  // newspaperNotes. Resolve those ids back to their human-facing event title.
+  const legacy = (state.newspaperNotes || []).map(note => {
+    const event = (db.oneOffs || []).find(item => item.id === note.text);
+    if (!event) return null;
+    return { time: note.time || 0, type: 'oneOffEvent', id: event.id, label: event.title || event.id, color: null, trigger: event.trigger || null, tags: event.tags || [] };
+  }).filter(Boolean);
+  legacy.forEach(log => {
+    const duplicate = direct.some(item => item.id === log.id && Math.abs((item.time || 0) - (log.time || 0)) < 5000);
+    if (!duplicate) direct.push(log);
+  });
+  return direct.sort((a, b) => (a.time || 0) - (b.time || 0));
+}
+
+function newspaperWorldEventIds() {
+  const ids = (state.triggeredLog || []).filter(log => log.type === 'worldEventStarted').map(log => log.id).filter(Boolean);
+  (state.activeWorldEvents || []).forEach(event => {
+    if (event?.id && !ids.includes(event.id)) ids.push(event.id);
+  });
+  return ids;
+}
+
+function newspaperStartedCharacterArcs() {
+  return (db.arcs || []).filter(arc => {
+    const progress = state.arcProgress?.[arc.id];
+    const active = (state.activeStories || []).some(story => story.arcId === arc.id);
+    return active || (progress && (progress.status !== 'inactive' || (progress.chapterHistory || []).length));
+  });
+}
+
+function newspaperOverallSummary(primaryTriggers) {
+  const counts = newspaperActivityCounts(primaryTriggers);
+  const leaders = counts.slice(0, 2);
+  const oneOffCount = newspaperOneOffLogs().length;
+  const worldIds = newspaperWorldEventIds();
+  const characterArcCount = newspaperStartedCharacterArcs().length;
+  const parts = [];
+  if (leaders.length) {
+    const activities = leaders.map(item => item.phrase);
+    parts.push(`${newspaperJoin(activities)} accounted for much of what crossed the Gazette desk`);
+  }
+  if (oneOffCount) parts.push(`${oneOffCount} unusual frontier incident${oneOffCount === 1 ? '' : 's'} interrupted the ordinary business of the day`);
+  if (worldIds.length) parts.push(`${worldIds.length} territory-wide condition${worldIds.length === 1 ? '' : 's'} changed life on the range`);
+  if (characterArcCount) parts.push(`${characterArcCount} continuing character tale${characterArcCount === 1 ? '' : 's'} left a mark of ${characterArcCount === 1 ? 'its' : 'their'} own`);
+  if (!parts.length) return 'The day left only a light trail in the Companion’s record before the presses rolled.';
+  const sentence = newspaperJoin(parts, 'while');
+  return `${sentence.charAt(0).toUpperCase()}${sentence.slice(1)}.`;
+}
+
+function newspaperLedgerSection(primaryTriggers) {
+  const counts = newspaperActivityCounts(primaryTriggers).slice(0, 5);
+  if (!counts.length) return '';
+  return `<aside class="newspaper-ledger">
+    <h3>Gazette Ledger</h3>
+    <p>Recorded action reports</p>
+    <ul>${counts.map(item => `<li><span>${escapeHtml(item.label)}</span><strong>${item.count}</strong></li>`).join('')}</ul>
+  </aside>`;
+}
+
+function newspaperCleanNarration(script = '') {
+  return String(script || '')
+    .replace(/\[[^\]]*\]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .replace(/^["“”']+/, '')
+    .replace(/["“”']+$/, '')
+    .trim();
+}
+
+function newspaperFirstNarrationSentence(script = '') {
+  const text = newspaperCleanNarration(script);
+  if (!text) return '';
+  const match = text.match(/^(.+?[.!?])(?:\s|$)/);
+  return (match ? match[1] : text).trim();
+}
+
+function newspaperPossessive(label = '') {
+  if (!label) return '';
+  return /s$/i.test(label) ? `${label}’` : `${label}’s`;
+}
+
+function newspaperPersonalizeNarration(text = '', actor = '') {
+  if (!text) return '';
+  const namedActor = actor && actor !== 'a passing rider' && actor !== 'the territory' ? actor : '';
+  const subject = namedActor || 'the rider';
+  const possessive = namedActor ? newspaperPossessive(namedActor) : 'the rider’s';
+  return String(text)
+    .replace(/\byour\b/gi, possessive)
+    .replace(/\byou\b/gi, subject);
+}
+
+function newspaperNarrativeSentence(script = '', actor = '') {
+  let text = newspaperFirstNarrationSentence(script);
+  if (!text) return '';
+  text = newspaperPersonalizeNarration(text, actor).trim();
+  return /[.!?]$/.test(text) ? text : `${text}.`;
+}
+
+function newspaperOneOffEventForLog(log) {
+  const base = (db.oneOffs || []).find(event => event.id === log?.id);
+  if (!base) return null;
+  // Re-resolve the module variant that would be active for this game so the
+  // Gazette uses the same flavor text the player actually saw.
+  return prepareEventForModules({ ...base });
+}
+
+function newspaperOneOffNarrative(log) {
+  const event = newspaperOneOffEventForLog(log);
+  if (!event) return '';
+  const actor = log?.color ? newspaperPlayerLabel(log.color) : '';
+  const narration = newspaperNarrativeSentence(event.narrationScript, actor);
+  if (narration) return narration;
+  const bucket = newspaperActivityBucket({ ...log, tags: event.tags || log?.tags || [] });
+  return `An unexpected turn in ${bucket.phrase} drew attention before the day was out.`;
+}
+
+function newspaperPlayerRecapSection(primaryTriggers) {
+  const configuredPlayers = (state.setup?.playerDetails || []).filter(player => player.color);
+  if (!configuredPlayers.length) return '';
+  const storyResolved = (state.triggeredLog || []).filter(log => log.type === 'storyResolved');
+  const storyExpired = (state.triggeredLog || []).filter(log => log.type === 'storyExpired');
+  const oneOffs = newspaperOneOffLogs();
+
+  const paragraphs = configuredPlayers.map(player => {
+    const color = player.color;
+    const label = newspaperPlayerLabel(color);
+    const logs = primaryTriggers.filter(log => log.color === color);
+    if (!logs.length) return `<p><strong>${escapeHtml(label)}.</strong> The Companion recorded a quieter trail for this rider, with no dominant line of action before the final tally.</p>`;
+    const top = newspaperActivityCounts(logs).slice(0, 2);
+    const activityText = top.length
+      ? `Was most often seen around ${newspaperJoin(top.map(item => item.phrase))}.`
+      : 'Kept a varied trail across the territory.';
+    const resolvedCount = storyResolved.filter(log => log.color === color).length;
+    const expiredCount = storyExpired.filter(log => log.color === color).length;
+    const oneOffCount = oneOffs.filter(log => log.color === color).length;
+    const extras = [];
+    if (resolvedCount) extras.push(`carried ${resolvedCount} continuing tale${resolvedCount === 1 ? '' : 's'} forward`);
+    if (expiredCount) extras.push(`let ${expiredCount} opportunit${expiredCount === 1 ? 'y' : 'ies'} pass unanswered`);
+    if (oneOffCount) extras.push(`weathered ${oneOffCount} unexpected incident${oneOffCount === 1 ? '' : 's'} along the way`);
+    const extraText = extras.length ? `${newspaperJoin(extras).charAt(0).toUpperCase()}${newspaperJoin(extras).slice(1)}.` : '';
+    return `<p><strong>${escapeHtml(label)}.</strong> ${escapeHtml(activityText)} ${escapeHtml(extraText)}</p>`;
+  });
+
+  return `<article class="news-article newspaper-player-recap">
+    <h2>Riders Leave Their Mark</h2>
+    ${paragraphs.join('')}
+  </article>`;
+}
+
+function newspaperOneOffSection() {
+  const logs = newspaperOneOffLogs();
+  if (!logs.length) return '';
+  const byColor = new Map();
+  logs.forEach(log => {
+    const key = log.color || '_unknown';
+    if (!byColor.has(key)) byColor.set(key, []);
+    byColor.get(key).push(log);
+  });
+
+  const paragraphs = [...byColor.entries()].map(([color, playerLogs]) => {
+    const person = color === '_unknown' ? '' : newspaperPlayerLabel(color);
+    const unique = [];
+    const seen = new Set();
+    playerLogs.forEach(log => {
+      if (!log?.id || seen.has(log.id)) return;
+      seen.add(log.id);
+      unique.push(log);
+    });
+    const selected = unique.slice(0, 3);
+    const intro = person
+      ? `${person} found more than ordinary frontier business on the trail.`
+      : 'Other reports reached the Gazette from across the territory.';
+    const details = selected.map(newspaperOneOffNarrative).filter(Boolean);
+    const remaining = Math.max(0, unique.length - selected.length);
+    const tail = remaining
+      ? `${remaining} other unusual encounter${remaining === 1 ? '' : 's'} followed before the day was done.`
+      : '';
+    return `<p>${escapeHtml([intro, ...details, tail].filter(Boolean).join(' '))}</p>`;
+  }).join('');
+
+  return `<article class="news-article">
+    <h2>Dispatches From the Range</h2>
+    ${paragraphs}
+  </article>`;
+}
+
+function worldEventNewsPhrase(event) {
+  const tags = new Set(event?.tags || []);
+  const title = event?.title || 'An unnamed frontier event';
+  if (tags.has('weather')) return `${title} turned the weather itself into part of the day’s business`;
+  if (tags.has('gold') || tags.has('prospect')) return `${title} sent fresh talk of gold through the camps and mines`;
+  if (tags.has('sheriff') || tags.has('wanted')) return `${title} tightened the law’s grip on wanted riders`;
+  if (tags.has('bandit') || tags.has('fight')) return `${title} put more guns and danger on the roads`;
+  if (tags.has('poker')) return `${title} raised the temperature at the card tables`;
+  if (tags.has('cattle')) return `${title} shifted the fortunes of ranchers and rustlers alike`;
+  if (tags.has('doctor')) return `${title} made every wound a little harder to ignore`;
+  if (tags.has('rail') || tags.has('train') || tags.has('railroad') || tags.has('ante_up')) return `${title} put the railroad at the center of frontier attention`;
+  if (tags.has('mine')) return `${title} made the mines a more dangerous place to earn a dollar`;
+  if (tags.has('trader')) return `${title} stirred the traveling market and the price of rare goods`;
+  if (tags.has('saloon')) return `${title} changed the tone of the saloons and gaming tables`;
+  if (tags.has('ranch')) return `${title} brought fresh trouble to ranch country`;
+  if (tags.has('hunt') || tags.has('hunting')) return `${title} changed the fortunes of hunters on the open range`;
+  if (tags.has('town') || tags.has('positive')) return `${title} brought a rare spell of bustle and opportunity to town`;
+  return `${title} left its mark on the territory before giving way to the next turn of events`;
+}
+
+function newspaperWorldEventSection() {
+  const ids = newspaperWorldEventIds();
+  if (!ids.length) return '';
+  const events = ids.map(id => db.worldEvents.find(event => event.id === id)).filter(Boolean);
+  if (!events.length) return '';
+  const phrases = events.map(worldEventNewsPhrase);
+  return `<article class="news-article">
+    <h2>World Events Shape the Territory</h2>
+    <p>${escapeHtml(newspaperJoin(phrases))}.</p>
+  </article>`;
+}
+
+function newspaperArcNarrationForPiece(node, actorColor, progress, referenceActorColor = null) {
+  if (!node) return '';
+  let variant = null;
+  const aware = node.playerAwareText;
+  if (aware) {
+    const reference = referenceActorColor
+      || (aware.compareToNodeId ? progress?.nodeActors?.[aware.compareToNodeId] : null)
+      || null;
+    if (actorColor && reference) {
+      variant = actorColor === reference ? aware.samePlayer : aware.differentPlayer;
+    }
+    if (!variant) variant = aware.default || null;
+  }
+  return variant?.narrationScript || node.narrationScript || '';
+}
+
+function newspaperArcOutcomeSentence(piece, actor, includeGlobal, index) {
+  if (includeGlobal) {
+    if (piece.kind === 'active') return 'At press time, the matter was still unfolding across the territory.';
+    if (piece.outcome === 'expired') return 'The opportunity passed before anyone could carry it farther.';
+    return index === 0
+      ? 'The development set the wider story in motion.'
+      : 'The development carried the territory-wide tale another step forward.';
+  }
+
+  if (piece.kind === 'active') return `At press time, ${actor} was still caught up in the affair.`;
+  if (piece.outcome === 'expired') return `${actor} let the chance pass, and the story bent in another direction.`;
+  const resolvedPhrases = [
+    `${actor} saw the matter through.`,
+    `${actor} answered the moment and carried the tale forward.`,
+    `${actor} followed the trail to its next turn.`
+  ];
+  return resolvedPhrases[index % resolvedPhrases.length];
+}
+
+function newspaperArcJourney(arc, includeGlobal = false) {
+  const progress = state.arcProgress?.[arc.id] || null;
+  const history = (progress?.chapterHistory || []).slice();
+  const active = (state.activeStories || []).filter(story => story.arcId === arc.id);
+  if (!history.length && !active.length) return '';
+
+  const nodeList = includeGlobal ? (arc.chapters || []) : (arc.nodes || []);
+  const pieces = history
+    .map(entry => {
+      const node = nodeList.find(item => item.id === entry.nodeId);
+      if (!node) return null;
+      return {
+        kind: 'history',
+        time: entry.completedAt || 0,
+        node,
+        outcome: entry.outcome,
+        color: entry.color || null,
+        referenceActorColor: node.playerAwareText?.compareToNodeId
+          ? (progress?.nodeActors?.[node.playerAwareText.compareToNodeId] || null)
+          : null
+      };
+    })
+    .filter(Boolean)
+    .concat(active.map(story => ({
+      kind: 'active',
+      time: story.createdAt || Date.now(),
+      node: nodeList.find(item => item.id === story.id) || { id: story.id, title: story.title, screenText: story.screenText },
+      color: story.assignedColor || null,
+      referenceActorColor: story.referenceActorColor || null
+    })))
+    .sort((a, b) => a.time - b.time);
+
+  const sentences = [];
+  pieces.forEach((piece, index) => {
+    const actor = piece.color ? newspaperPlayerLabel(piece.color) : (includeGlobal ? 'the territory' : 'a passing rider');
+    const narration = newspaperArcNarrationForPiece(piece.node, piece.color, progress, piece.referenceActorColor);
+    const scene = newspaperNarrativeSentence(narration, actor);
+    if (scene) sentences.push(scene);
+    else if (!includeGlobal) sentences.push(`${actor} became drawn into the next turn of the story.`);
+    else sentences.push('Another development drew the territory deeper into the unfolding story.');
+    sentences.push(newspaperArcOutcomeSentence(piece, actor, includeGlobal, index));
+  });
+
+  if (progress?.status === 'complete' && !active.length) sentences.push('By the time the presses rolled, that trail had reached its end.');
+  else sentences.push(includeGlobal
+    ? 'The Gazette went to press with the larger story still unfinished.'
+    : 'What comes next remains unwritten.');
+
   return sentences.join(' ');
+}
+
+function newspaperCharacterArcSection() {
+  const arcs = newspaperStartedCharacterArcs();
+  if (!arcs.length) return '';
+  const articles = arcs.map(arc => `<article class="newspaper-story-card">
+      <h3>${escapeHtml(arc.title)}</h3>
+      <p>${escapeHtml(newspaperArcJourney(arc, false))}</p>
+    </article>`).join('');
+  return `<section class="newspaper-story-section">
+    <h2>Lives and Legends</h2>
+    <p class="newspaper-section-deck">The Gazette followed these recurring frontier figures as their fortunes changed from chapter to chapter.</p>
+    <div class="newspaper-story-grid">${articles}</div>
+  </section>`;
+}
+
+function newspaperGlobalStorylineSection() {
+  const stories = (db.storylines || []).filter(story => {
+    const progress = state.arcProgress?.[story.id];
+    const active = (state.activeStories || []).some(item => item.arcId === story.id);
+    return active || (progress && (progress.status !== 'inactive' || (progress.chapterHistory || []).length));
+  });
+  if (!stories.length) return '';
+  const paragraphs = stories.map(story => `<p><strong>${escapeHtml(story.title)}.</strong> ${escapeHtml(newspaperArcJourney(story, true))}</p>`).join('');
+  return `<article class="news-article">
+    <h2>Territory-Wide Tales</h2>
+    ${paragraphs}
+  </article>`;
 }
 
 function finalScoreboardSection() {
@@ -6385,42 +7003,137 @@ function finalScoreboardSection() {
   if (!winnerColors.length && state.finalWinnerColor && state.finalWinnerColor in scores) winnerColors = [state.finalWinnerColor];
   if (!winnerColors.length) winnerColors = [ranked[0][0]];
   const winnerScore = scores[winnerColors[0]] ?? ranked[0][1];
-  const rows = ranked.map(([color, score]) => `<li>${winnerColors.includes(color) ? '★ ' : ''}${escapeHtml(finalTallyPlayerLabel(color))} — ${score} LP</li>`).join('');
+  const rows = ranked.map(([color, score], index) => `<li class="${winnerColors.includes(color) ? 'winner' : ''}"><span>${index + 1}. ${escapeHtml(finalTallyPlayerLabel(color))}</span><strong>${score} LP</strong></li>`).join('');
   const winnerText = winnerColors.length === 1
-    ? `${escapeHtml(finalTallyPlayerLabel(winnerColors[0]))} stood tallest with ${winnerScore} Legendary Points to their name`
-    : `${winnerColors.map(color => escapeHtml(finalTallyPlayerLabel(color))).join(' and ')} shared the victory with ${winnerScore} Legendary Points apiece`;
-  return `<h2>Final Tally</h2>
-    <p>When the last card was played and the last horse stabled for the night, ${winnerText}, and the territory will be telling that tale for a while yet.</p>
-    <ul>${rows}</ul>`;
+    ? `${finalTallyPlayerLabel(winnerColors[0])} wins with ${winnerScore} LP`
+    : `${newspaperJoin(winnerColors.map(color => finalTallyPlayerLabel(color)))} share the victory at ${winnerScore} LP`;
+  return `<aside class="newspaper-scorebox">
+    <p class="newspaper-callout-kicker">Final Standings</p>
+    <h2>Final Tally</h2>
+    <p class="newspaper-winner">${escapeHtml(winnerText)}</p>
+    <ol>${rows}</ol>
+  </aside>`;
+}
+
+function generateFinalWord() {
+  const mood = computeFrontierMood();
+  const bank = FRONTIER_MOODS[mood.key] || FRONTIER_MOODS.opportunity;
+  const sentences = [newspaperStablePick(bank.closings, 31)];
+  const flavor = frontierFlavorSentence(mood);
+  if (flavor) sentences.push(flavor);
+
+  const primaryTriggers = (state.triggeredLog || []).filter(log => log.type === 'primaryTrigger');
+  const leadingActivity = newspaperActivityCounts(primaryTriggers)[0];
+  if (leadingActivity && leadingActivity.count >= 2) {
+    sentences.push(`More than anything else, the Gazette’s ledger kept returning to ${leadingActivity.phrase}.`);
+  }
+
+  const worldCount = newspaperWorldEventIds().length;
+  const arcCount = newspaperStartedCharacterArcs().length;
+  const oneOffCount = newspaperOneOffLogs().length;
+  const texture = [];
+  if (worldCount) texture.push(`${worldCount} world event${worldCount === 1 ? '' : 's'}`);
+  if (arcCount) texture.push(`${arcCount} continuing character tale${arcCount === 1 ? '' : 's'}`);
+  if (oneOffCount) texture.push(`${oneOffCount} unexpected incident${oneOffCount === 1 ? '' : 's'}`);
+  if (texture.length) sentences.push(`${newspaperJoin(texture)} gave this particular day its own shape.`);
+
+  const scores = state.finalScores || {};
+  const winnerColors = (state.finalWinnerColors || []).filter(color => color in scores);
+  if (winnerColors.length === 1) {
+    sentences.push(`When the books finally closed, ${finalTallyPlayerLabel(winnerColors[0])} stood atop the final tally.`);
+  } else if (winnerColors.length > 1) {
+    sentences.push(`When the books finally closed, ${newspaperJoin(winnerColors.map(color => finalTallyPlayerLabel(color)))} shared the top of the final tally.`);
+  }
+  return sentences.join(' ');
 }
 
 function generateNewspaperArticle() {
   const mood = computeFrontierMood();
   const bank = FRONTIER_MOODS[mood.key] || FRONTIER_MOODS.opportunity;
-  const primaryTriggers = state.triggeredLog.filter(l => l.type === 'primaryTrigger');
-  const resolved = state.triggeredLog.filter(l => l.type === 'storyResolved');
-  const ignored = state.triggeredLog.filter(l => l.type === 'storyExpired');
-  const humanPlayerNames = (state.setup.playerDetails || []).map((p, index) => p.name || p.character || `Player ${index + 1}`);
-  const playerNames = humanPlayerNames.concat(hasModule('wild_bunch_man_in_black') ? ['Man In Black'] : []).join(', ');
-  const triggerHighlights = primaryTriggers.slice(0, 8).map(l => `<li>${escapeHtml(l.label)}</li>`).join('') || '<li>No primary triggers were recorded before sundown.</li>';
-  const storyHighlights = [
-    ...resolved.slice(0, 4).map(l => `<li>${escapeHtml(l.label)} was resolved.</li>`),
-    ...ignored.slice(0, 3).map(l => `<li>${escapeHtml(l.label)} was ignored and faded into frontier rumor.</li>`)
-  ].join('') || '<li>No frontier tales reached their end, but the dust surely carried whispers.</li>';
-  const notes = state.newspaperNotes.slice(0, 6).map(n => `<p>${escapeHtml(n.text)}</p>`).join('');
-  return `<h2>${pick(bank.headlines)}</h2>
-    <p>${pick(bank.leads)}</p>
-    <p>Local witnesses report that ${escapeHtml(playerNames || 'a table of riders')} crossed the range with ${primaryTriggers.length} notable frontier moment${primaryTriggers.length === 1 ? '' : 's'} recorded by the Companion.</p>
-    ${notes ? `<h2>Frontier Happenings</h2>${notes}` : ''}
-    <h2>Watched by the Frontier</h2><p>${bank.sectionIntro}</p><ul>${triggerHighlights}</ul>
-    <h2>Tales Told Around the Fire</h2><ul>${storyHighlights}</ul>
+  const primaryTriggers = (state.triggeredLog || []).filter(log => log.type === 'primaryTrigger');
+  const humanPlayerNames = (state.setup.playerDetails || []).map((player, index) => player.name || player.character || `Player ${index + 1}`);
+  const playerNames = humanPlayerNames.concat(hasModule('wild_bunch_man_in_black') ? ['Man In Black'] : []);
+  const headline = newspaperStablePick(bank.headlines, 7);
+  const lead = newspaperStablePick(bank.leads, 13);
+  const participants = playerNames.length ? newspaperJoin(playerNames) : 'a table of frontier riders';
+
+  return `<article class="news-article newspaper-lead-story">
+      <h2>${escapeHtml(headline)}</h2>
+      <p class="newspaper-deck">${escapeHtml(lead)}</p>
+      <p>${escapeHtml(`${participants} crossed the range while the Companion recorded ${primaryTriggers.length} notable frontier moment${primaryTriggers.length === 1 ? '' : 's'}. ${newspaperOverallSummary(primaryTriggers)}`)}</p>
+    </article>
     ${finalScoreboardSection()}
-    <h2>Final Word</h2><p>${generateFinalWord()}</p>`;
+    ${newspaperLedgerSection(primaryTriggers)}
+    ${newspaperPlayerRecapSection(primaryTriggers)}
+    ${newspaperWorldEventSection()}
+    ${newspaperOneOffSection()}
+    ${newspaperCharacterArcSection()}
+    ${newspaperGlobalStorylineSection()}
+    <article class="news-article newspaper-final-word">
+      <h2>Final Word</h2>
+      <p>${escapeHtml(generateFinalWord())}</p>
+    </article>
+    <div class="newspaper-clear" aria-hidden="true"></div>`;
 }
 
-const APP_VERSION = '1.1.34';
+const APP_VERSION = '1.0';
 let swRegistration = null;
 let appUpdateAvailable = false;
+let deferredInstallPrompt = null;
+let installHelpMessage = '';
+
+function isPwaInstalled() {
+  return window.matchMedia?.('(display-mode: standalone)').matches
+    || window.navigator.standalone === true
+    || document.referrer.startsWith('android-app://');
+}
+
+function installFallbackMessage() {
+  const ua = navigator.userAgent || '';
+  const isIos = /iphone|ipad|ipod/i.test(ua);
+  if (isIos) return 'To install: tap Share, then choose Add to Home Screen.';
+  return 'Your browser does not offer the install prompt here. Open the browser menu and choose Install app or Add to Home screen.';
+}
+
+async function requestPwaInstall() {
+  installHelpMessage = '';
+  if (isPwaInstalled()) {
+    refreshVersionBlockStatus();
+    return;
+  }
+
+  if (!deferredInstallPrompt) {
+    installHelpMessage = installFallbackMessage();
+    refreshVersionBlockStatus();
+    return;
+  }
+
+  const promptEvent = deferredInstallPrompt;
+  deferredInstallPrompt = null;
+  try {
+    await promptEvent.prompt();
+    const choice = await promptEvent.userChoice;
+    if (choice?.outcome !== 'accepted') {
+      installHelpMessage = 'Installation was canceled. You can install Frontier Director later from this button or your browser menu.';
+    }
+  } catch (err) {
+    installHelpMessage = installFallbackMessage();
+  }
+  refreshVersionBlockStatus();
+}
+
+window.addEventListener('beforeinstallprompt', event => {
+  event.preventDefault();
+  deferredInstallPrompt = event;
+  installHelpMessage = '';
+  refreshVersionBlockStatus();
+});
+
+window.addEventListener('appinstalled', () => {
+  deferredInstallPrompt = null;
+  installHelpMessage = '';
+  refreshVersionBlockStatus();
+});
 
 function registerServiceWorker() {
   if (!('serviceWorker' in navigator)) return;
@@ -6450,8 +7163,10 @@ function registerServiceWorker() {
 
 function markUpdateAvailable() {
   appUpdateAvailable = true;
-  document.getElementById('menuBtn')?.classList.add('has-update-dot');
-  document.querySelector('[data-open-credits-support]')?.classList.add('has-update-dot');
+  if (isPwaInstalled()) {
+    document.getElementById('menuBtn')?.classList.add('has-update-dot');
+    document.querySelector('[data-open-credits-support]')?.classList.add('has-update-dot');
+  }
   refreshVersionBlockStatus();
 }
 
@@ -6466,6 +7181,12 @@ function applyAppUpdate() {
 }
 
 function renderUpdateStatus() {
+  if (!isPwaInstalled()) {
+    const help = installHelpMessage
+      ? `<p class="app-install-help">${escapeHtml(installHelpMessage)}</p>`
+      : '';
+    return `<button type="button" class="primary-btn app-update-btn" id="installAppBtn">Install App</button>${help}`;
+  }
   return appUpdateAvailable
     ? `<button type="button" class="primary-btn app-update-btn" id="applyUpdateBtn">Update Available — Tap to Update</button>`
     : `<button type="button" class="secondary-btn app-update-btn" id="checkUpdateBtn">Check for Updates</button>`;
@@ -6478,6 +7199,7 @@ function renderVersionBlock() {
   </div>`;
 }
 function wireVersionBlock() {
+  document.getElementById('installAppBtn')?.addEventListener('click', requestPwaInstall);
   document.getElementById('applyUpdateBtn')?.addEventListener('click', applyAppUpdate);
   document.getElementById('checkUpdateBtn')?.addEventListener('click', checkForAppUpdate);
 }
