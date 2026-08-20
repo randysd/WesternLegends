@@ -4894,8 +4894,8 @@ button:disabled { opacity: .48; cursor: not-allowed; }
 }
 .settings-dialog-actions .home-major-btn { width: 100%; max-width: 320px; }
 .mobile-header [data-open-settings] img {
-  width: 23px;
-  height: 23px;
+  /* width: 23px; */
+  /* height: 23px; */
   object-fit: contain;
 }
 
