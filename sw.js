@@ -1,8 +1,8 @@
-const CACHE_NAME = 'wl-frontier-director-v36';
+const CACHE_NAME = 'wl-frontier-director-v61';
 const APP_SHELL = [
   './', './index.html', './manifest.webmanifest', './css/styles.css', './js/app.js', './assets/icons/icon.svg',
   './assets/images/triggers/bandit.svg', './assets/images/triggers/prospect.svg', './assets/images/triggers/item.svg',
-  './assets/images/triggers/move.svg', './assets/images/triggers/poker.svg', './assets/images/triggers/ranch.svg', './assets/images/triggers/generic.svg',
+  './assets/images/triggers/move.svg', './assets/images/triggers/poker.svg', './assets/images/triggers/ranch.svg', './assets/images/triggers/generic.svg', './assets/images/newspaper/frontier-gazette-masthead.png', './assets/images/newspaper/paper-texture-tile.png', './assets/images/newspaper/paper-imperfections-tile.png', './assets/images/newspaper/paper-edge-frame.png',
   './data/settings.json', './data/triggers.json', './data/one-off-events.json', './data/character-arcs.json',
   './data/major-storylines.json', './data/world-events.json', './data/locations.json', './data/newspaper-generator.json'
 ];
