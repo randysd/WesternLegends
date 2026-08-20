@@ -1,7 +1,7 @@
 [
   {
     "id": "trig_move_3_plus",
-    "label": "Move 3+ in Move action",
+    "label": "Move 4+ in Move action",
     "category": "movement",
     "baseWeight": 12,
     "requiredModules": [],
@@ -15,7 +15,7 @@
     "themeColor": "brown",
     "titleParts": [
       {
-        "text": "Move 3+ in MOVE action",
+        "text": "Move 4+ in MOVE action",
         "style": "brown"
       }
     ],
