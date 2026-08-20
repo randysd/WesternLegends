@@ -1,50 +1,63 @@
 {
   "id": "darkrock_gazette_generator",
   "title": "The Darkrock Gazette",
-  "output": "pdf-ready-html",
+  "edition": "",
+  "output": "print-ready-html",
+  "bodyFont": "Times New Roman",
   "sections": [
     {
-      "id": "headline",
-      "template": "{{largestStoryHeadline}}"
+      "id": "lead_story",
+      "source": "frontierMood + triggeredLog.primaryTrigger",
+      "presentation": "headline-and-deck",
+      "description": "Mood-based lead story plus a concise summary of the dominant kinds of activity during the game."
     },
     {
-      "id": "frontier_report",
-      "template": "Tonight the frontier remembers {{completedStoryCount}} resolved tales and {{ignoredStoryCount}} missed opportunities."
+      "id": "final_tally",
+      "source": "finalScores + finalWinnerColors",
+      "presentation": "side-callout",
+      "description": "Compact final standings box with the winner and each player's LP score."
     },
     {
-      "id": "notable_events",
-      "source": "newspaperNotes",
-      "format": "bulletList"
+      "id": "gazette_ledger",
+      "source": "triggeredLog.primaryTrigger",
+      "presentation": "compact-counts",
+      "description": "User-friendly counts of the action categories that most often appeared in the recorded trigger history."
+    },
+    {
+      "id": "player_recaps",
+      "source": "triggeredLog grouped by player color",
+      "presentation": "prose",
+      "description": "Short player-by-player summaries based only on the actions, story outcomes, and one-off encounters actually recorded for that player."
+    },
+    {
+      "id": "world_events",
+      "source": "triggeredLog.worldEventStarted + activeWorldEvents",
+      "presentation": "article",
+      "description": "A prose roundup of the territory-wide events that occurred during the game."
+    },
+    {
+      "id": "one_off_dispatches",
+      "source": "triggeredLog.oneOffEvent",
+      "presentation": "article",
+      "description": "A prose roundup of unusual one-off incidents, grouped around the riders who encountered them."
     },
     {
       "id": "character_arcs",
-      "source": "worldTags",
-      "rules": [
-        {
-          "ifTag": "prospector_helped",
-          "text": "A starving prospector was carried into town and repaid the kindness."
-        },
-        {
-          "ifTag": "prospector_abandoned",
-          "text": "A desperate prospector was left to the wild, and the wild answered."
-        },
-        {
-          "ifTag": "white_buffalo_protected",
-          "text": "The White Buffalo was spared, and a hush fell over the plains."
-        },
-        {
-          "ifTag": "white_buffalo_hunted",
-          "text": "The White Buffalo was hunted, and fortune came with a shadow."
-        },
-        {
-          "ifTag": "spanish_gold_found",
-          "text": "Lost Spanish gold was brought again into the light."
-        }
-      ]
+      "source": "arcProgress + activeStories",
+      "presentation": "mini-articles",
+      "description": "One short article for every Character Arc that began, including completed, missed, and still-unfinished chapters."
     },
     {
-      "id": "closing",
-      "template": "So ends another chapter in the West, where every bootprint becomes rumor and every rumor becomes legend."
+      "id": "global_storylines",
+      "source": "arcProgress + activeStories",
+      "presentation": "article",
+      "description": "A concise roundup of any territory-wide major storylines that progressed during the game."
+    },
+    {
+      "id": "final_word",
+      "source": "frontierMood + finalScores + activity + narrative history",
+      "presentation": "closing-editorial",
+      "description": "A dynamic closing paragraph shaped by the frontier mood, dominant activity, stories, world events, one-offs, and final winner."
     }
   ]
 }

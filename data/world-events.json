@@ -56,7 +56,7 @@
       "sheriff",
       "wanted"
     ],
-    "screenText": "Whenever a player gains WP, move the Sheriff 3 spaces.",
+    "screenText": "Whenever a player gains WP, move the Sheriff 3 spaces toward that player.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The law sharpens its teeth.\"",
     "audioFile": "audio/world/world_sheriff_crackdown.mp3",
     "effects": [
@@ -341,7 +341,7 @@
     "tags": [
       "saloon"
     ],
-    "screenText": "Players cannot take Gambling action",
+    "screenText": "Poker cannot trigger one-off events.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The whiskey runs dry and the tables go cold.\"",
     "audioFile": "audio/world/world_saloons_dry.mp3",
     "effects": [

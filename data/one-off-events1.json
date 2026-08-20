@@ -319,7 +319,7 @@
       "bank",
       "heist"
     ],
-    "screenText": "If the heist succeeds, gain +$20. If it fails, gain +1 WP.",
+    "screenText": "If the heist succeeds, gain +$20. If it fails, the botched job draws the law: move the Sheriff up to 3 spaces toward you.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"A nervous teller leaves the vault latch loose.\"",
     "audioFile": "audio/oneoffs/inside_man.mp3",
     "effects": [
@@ -1207,7 +1207,7 @@
       "rustle",
       "wanted"
     ],
-    "screenText": "Gain +$20 when rustling, but also gain +1 WP.",
+    "screenText": "Gain +$20 when rustling. Your bold brand draws attention: move the Sheriff up to 3 spaces toward you.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The brand is fresh, and every lawman will smell it.\"",
     "audioFile": "audio/oneoffs/rustler_brand.mp3",
     "effects": [

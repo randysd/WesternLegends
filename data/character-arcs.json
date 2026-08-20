@@ -48,7 +48,7 @@
         "type": "storyTrigger",
         "trigger": "trig_purchase_item",
         "title": "Debt Repaid",
-        "screenText": "After purchasing/upgrading an Item, gain $20.",
+        "screenText": "The prospector pays forward the kindness that kept him alive. After purchasing/upgrading an Item, gain $20.",
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"The old prospector steps from the corner and lays coins on the counter. I told ya I would repay kindness.\"",
@@ -79,15 +79,16 @@
         "playerAwareText": {
           "compareToNodeId": "prospector_intro",
           "samePlayer": {
-            "screenText": "The prospector recognizes you and insists on repaying the kindness you showed him. After purchasing/upgrading an Item, gain $20.",
             "title": "Debt Repaid",
-            "narrationScript": "[western storyteller][old cowboy][raspy] \"The old prospector grins when he sees you. I ain't forgot what you did for me. Let me square that debt.\""
+            "screenText": "The prospector recognizes you immediately and finally gets to repay the kindness you showed him. After purchasing/upgrading an Item, gain $30.",
+            "audioFile": "audio/arcs/prospector_debt_repaid2.mp3",
+            "narrationScript": "[western storyteller][old cowboy][raspy] \"The old prospector grins when he sees you. I ain't forgot what you did for me. Let me square that debt proper.\""
           },
           "differentPlayer": {
-            "screenText": "The prospector tells you a stranger helped him when he was near death. His luck has turned, and he shares some of it with you. After purchasing/upgrading an Item, gain $20.",
-            "audioFile": null,
-            "title": "A Debt Remembered",
-            "narrationScript": "[western storyteller][old cowboy][raspy] \"The old prospector tells you a stranger once saved his hide when he had nothing. Seems that kindness changed his luck.\""
+            "title": "Kindness Passed On",
+            "screenText": "The prospector tells you a stranger once saved his life when he had nothing. He decides to pass that kindness along. After purchasing/upgrading an Item, gain $20.",
+            "audioFile": "audio/arcs/prospector_kindness_passed_on.mp3",
+            "narrationScript": "[western storyteller][old cowboy][raspy] \"The old prospector tells you some stranger once saved his hide. Says a kindness like that ought not stop with one man.\""
           },
           "default": {
             "screenText": "After purchasing/upgrading an Item, gain $20."
@@ -99,48 +100,20 @@
         "type": "instantEvent",
         "trigger": "trig_defeat_bandit",
         "title": "The Man You Left Behind",
-        "screenText": "Place 2 Bandits in the current space. Fight both simultaneously. Choose the result afterward.",
+        "screenText": "The starving prospector has fallen in with outlaws. How he treats you depends on whether you were the traveler who abandoned him.",
         "requiresWorldTags": [
           "prospector_abandoned"
         ],
         "narrationScript": "[western storyteller][old cowboy][raspy] \"The outlaw falls and removes his hat. Beneath the grime you recognize the prospector you left in the dust. He whistles, and two more bandits crawl from the rocks.\"",
         "audioFile": "audio/arcs/prospector_bandit_reveal.mp3",
-        "effects": [
-          {
-            "type": "spawn_bandits_current_space",
-            "count": 2
-          },
-          {
-            "type": "simultaneous_npc_fight",
-            "npc": "bandit",
-            "count": 2
-          }
-        ],
+        "effects": [],
         "resultButtons": [
           {
-            "label": "Prospector Captured",
+            "label": "Continue",
             "effects": [
               {
                 "type": "addWorldTag",
-                "tag": "prospector_captured"
-              }
-            ]
-          },
-          {
-            "label": "Prospector Escaped",
-            "effects": [
-              {
-                "type": "addWorldTag",
-                "tag": "prospector_escaped"
-              }
-            ]
-          },
-          {
-            "label": "Player Defeated",
-            "effects": [
-              {
-                "type": "addWorldTag",
-                "tag": "prospector_victorious"
+                "tag": "prospector_encountered_again"
               }
             ]
           }
@@ -148,14 +121,59 @@
         "playerAwareText": {
           "compareToNodeId": "prospector_intro",
           "samePlayer": {
-            "screenText": "Among the defeated bandits is the prospector you left to fend for himself. Hunger and bitterness drove him to this. Place 2 Bandits in the current space and fight both simultaneously. Choose the result afterward."
+            "title": "The Man You Left Behind",
+            "screenText": "The outlaw pulls off his hat: it is the prospector you left to fend for himself. He demands $20 for the life you nearly cost him. Pay $20 to settle the grudge, or refuse and place 2 Bandits in your space; fight both simultaneously. If you lose, gain 1 wound.",
+            "audioFile": null,
+            "effects": [],
+            "resultButtons": [
+              {
+                "label": "Paid Him $20",
+                "effects": [
+                  {
+                    "type": "addWorldTag",
+                    "tag": "prospector_paid_off"
+                  }
+                ]
+              },
+              {
+                "label": "Faced the Ambush",
+                "effects": [
+                  {
+                    "type": "addWorldTag",
+                    "tag": "prospector_grudge_fought"
+                  }
+                ]
+              }
+            ]
           },
           "differentPlayer": {
-            "screenText": "Among the defeated bandits is a starving prospector. He bitterly tells you another traveler left him to die in the hills. Place 2 Bandits in the current space and fight both simultaneously. Choose the result afterward.",
-            "audioFile": null
+            "title": "The Man Someone Left Behind",
+            "screenText": "A starving prospector tells you another traveler abandoned him in the hills. He has fallen in with outlaws and offers you a cut for helping him slip away. Help him escape to gain $20, then move the Sheriff up to 2 spaces toward you; or refuse and let him ride on with no reward.",
+            "audioFile": null,
+            "effects": [],
+            "resultButtons": [
+              {
+                "label": "Helped Him Escape",
+                "effects": [
+                  {
+                    "type": "addWorldTag",
+                    "tag": "prospector_helped_escape"
+                  }
+                ]
+              },
+              {
+                "label": "Refused",
+                "effects": [
+                  {
+                    "type": "addWorldTag",
+                    "tag": "prospector_refused_again"
+                  }
+                ]
+              }
+            ]
           },
           "default": {
-            "screenText": "Place 2 Bandits in the current space. Fight both simultaneously. Choose the result afterward."
+            "screenText": "The starving prospector has fallen in with outlaws. Resolve the encounter as instructed."
           }
         }
       }
@@ -210,7 +228,7 @@
         "type": "storyTrigger",
         "trigger": "trig_wrangle_cattle",
         "title": "A Safe Drive",
-        "screenText": "Wrangle cattle to gain +$20 and add Widow Gratitude.",
+        "screenText": "Wrangle cattle for Widow McCall to gain +$20.",
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"The widow’s brand rides among the herd, and every honest mile helps save her land.\"",
@@ -241,14 +259,15 @@
         "playerAwareText": {
           "compareToNodeId": "widow_fence_down",
           "samePlayer": {
-            "screenText": "Widow McCall remembers the help you gave her ranch and trusts you with another drive. Wrangle cattle to gain +$20 and add Widow Gratitude."
+            "screenText": "Widow McCall remembers that you helped save her ranch when the fence came down. She trusts you with her best cattle drive. Wrangle cattle to gain +$30.",
+            "audioFile": null
           },
           "differentPlayer": {
-            "screenText": "Widow McCall tells you another traveler helped save her ranch when the fence came down. She now trusts you with a cattle drive. Wrangle cattle to gain +$20 and add Widow Gratitude.",
+            "screenText": "Widow McCall tells you another traveler helped save her ranch when she needed it most. She offers you honest work on the next drive. Wrangle cattle to gain +$20.",
             "audioFile": null
           },
           "default": {
-            "screenText": "Wrangle cattle to gain +$20 and add Widow Gratitude."
+            "screenText": "Wrangle cattle for Widow McCall to gain +$20."
           }
         }
       },
@@ -257,7 +276,7 @@
         "type": "storyTrigger",
         "trigger": "trig_rustle_cattle",
         "title": "Black Veil Bandit",
-        "screenText": "After rustling, gain +$30 but gain +1 WP.",
+        "screenText": "Widow McCall has become an outlaw. After rustling, gain +$30 and +1 WP, then move the Sheriff up to 2 spaces toward you.",
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"A veiled rider joins the rustlers. Grief has sharpened her into something dangerous.\"",
@@ -288,14 +307,19 @@
         "playerAwareText": {
           "compareToNodeId": "widow_fence_down",
           "samePlayer": {
-            "screenText": "You recognize Widow McCall, hardened by the trouble that followed after you rode on. After rustling, gain +$30 but gain +1 WP."
+            "title": "Black Veil Reckoning",
+            "screenText": "The veiled rustler is Widow McCall, and she recognizes the traveler who left her ranch to fail. She wants payment, not partnership. Pay her $20 to settle the debt, or refuse and draw a Fight Card: on 8+, you drive her riders off; on 7 or less, gain 1 wound. You do not gain the Black Veil rustling bonus.",
+            "audioFile": "audio/arcs/widow_black_veil_reckoning.mp3",
+            "narrationScript": "[western storyteller][old cowboy][raspy] \"The widow lifts her veil and fixes you with a stare. Funny seeing you now, she says. Could have used you before I had to become this.\""
           },
           "differentPlayer": {
-            "screenText": "Widow McCall tells you no one came when her ranch was failing. Hard times have changed her. After rustling, gain +$30 but gain +1 WP.",
-            "audioFile": null
+            "title": "Black Veil Bandit",
+            "screenText": "Widow McCall tells you another traveler left her ranch to die, and hard times drove her onto the outlaw trail. She offers to ride with you. After rustling, gain +$30 and +1 WP, then move the Sheriff up to 2 spaces toward you.",
+            "audioFile": "audio/arcs/widow_black_veil_bandit.mp3",
+            "narrationScript": "[western storyteller][old cowboy][raspy] \"The veiled rider calls herself McCall. Says nobody came when the ranch was dying, so she learned to take what the frontier would not give.\""
           },
           "default": {
-            "screenText": "After rustling, gain +$30 but gain +1 WP."
+            "screenText": "After rustling, gain +$30 and +1 WP, then move the Sheriff up to 2 spaces toward you."
           }
         }
       }
@@ -351,7 +375,7 @@
         "type": "storyTrigger",
         "trigger": "trig_defeat_bandit",
         "title": "Crackdown Warrant",
-        "screenText": "After defeating a Bandit, gain +$20.",
+        "screenText": "After defeating a Bandit while serving Reeves’s warrant, gain +$20.",
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Reeves has warrants stacked like firewood and enough rope for every name on them.\"",
@@ -382,10 +406,11 @@
         "playerAwareText": {
           "compareToNodeId": "reeves_deputy_call",
           "samePlayer": {
-            "screenText": "Marshal Reeves remembers you answered his call before and hands you another warrant. After defeating a Bandit, gain +$20."
+            "screenText": "Marshal Reeves remembers that you answered his call when he needed a deputy. He gives you one of his priority warrants. After defeating a Bandit, gain +$20 and +1 MP.",
+            "audioFile": null
           },
           "differentPlayer": {
-            "screenText": "Marshal Reeves tells you another traveler once stood beside him when he needed help. He now hands you a warrant of your own. After defeating a Bandit, gain +$20.",
+            "screenText": "Marshal Reeves tells you another traveler stood beside him when trouble first started. The crackdown is working, and he gives you a warrant of your own. After defeating a Bandit, gain +$20.",
             "audioFile": null
           },
           "default": {
@@ -398,7 +423,7 @@
         "type": "storyTrigger",
         "trigger": "trig_gain_wp",
         "title": "Marshal on Your Trail",
-        "screenText": "Move the Sheriff up to 3 spaces. Wanted players in that space discard 1 Poker Card.",
+        "screenText": "Marshal Reeves is cracking down on the growing outlaw problem. Move the Sheriff up to 2 spaces toward the triggering player; if the Sheriff reaches that player, discard 1 Poker Card.",
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Reeves pins your name below the lantern and rides into the dark.\"",
@@ -429,14 +454,17 @@
         "playerAwareText": {
           "compareToNodeId": "reeves_deputy_call",
           "samePlayer": {
-            "screenText": "Marshal Reeves remembers that you ignored his earlier call for help. Now you have his attention for a different reason. Move the Sheriff up to 3 spaces. Wanted players in that space discard 1 Poker Card."
+            "title": "Reeves Has Your Name",
+            "screenText": "Marshal Reeves remembers that you refused his earlier call for help. Now your Wanted reputation has put your name at the top of his list. Move the Sheriff up to 3 spaces directly toward you. If the Sheriff reaches your space, discard 2 Poker Cards.",
+            "audioFile": null
           },
           "differentPlayer": {
-            "screenText": "Marshal Reeves tells you someone refused his call when trouble first started, and the frontier has only grown worse. Move the Sheriff up to 3 spaces. Wanted players in that space discard 1 Poker Card.",
+            "title": "Marshal on Your Trail",
+            "screenText": "Reeves says someone refused his call when the trouble first started, and now the frontier is paying for it. Your new Wanted reputation draws his attention. Move the Sheriff up to 2 spaces toward you; if the Sheriff reaches your space, discard 1 Poker Card.",
             "audioFile": null
           },
           "default": {
-            "screenText": "Move the Sheriff up to 3 spaces. Wanted players in that space discard 1 Poker Card."
+            "screenText": "Move the Sheriff up to 2 spaces toward the triggering player; if the Sheriff reaches that player, discard 1 Poker Card."
           }
         }
       }
@@ -492,7 +520,7 @@
         "type": "storyTrigger",
         "trigger": "trig_win_poker",
         "title": "Grand Frontier Show",
-        "screenText": "Winner gains +1 LP and +$20.",
+        "screenText": "Silas turns your Poker victory into the centerpiece of his Grand Frontier Show. Gain +1 LP and +$20.",
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Silas Bell calls your hand a miracle and sells tickets before the cards cool.\"",
@@ -523,14 +551,15 @@
         "playerAwareText": {
           "compareToNodeId": "showman_arrives",
           "samePlayer": {
-            "screenText": "Silas Bell recognizes one of the people who helped get his painted wagon show on its feet and insists you take part in his grand performance. Winner gains +1 LP and +$20."
+            "screenText": "Silas Bell recognizes the person who helped get his painted wagon show on its feet. He turns your Poker victory into his star attraction. Gain +1 LP and +$30.",
+            "audioFile": null
           },
           "differentPlayer": {
-            "screenText": "Silas Bell boasts that a helpful traveler got his show started, and now he wants you in the grand performance. Winner gains +1 LP and +$20.",
+            "screenText": "Silas boasts that another traveler helped get his show started, then turns your Poker victory into tonight’s headline act. Gain +1 LP and +$20.",
             "audioFile": null
           },
           "default": {
-            "screenText": "Winner gains +1 LP and +$20."
+            "screenText": "Silas turns your Poker victory into the centerpiece of his Grand Frontier Show. Gain +1 LP and +$20."
           }
         }
       },
@@ -539,7 +568,7 @@
         "type": "storyTrigger",
         "trigger": "trig_purchase_item",
         "title": "The Great Swindle",
-        "screenText": "After purchasing, discard $10 or 1 Poker Card.",
+        "screenText": "Silas has turned to less honest business. After purchasing, discard $10 or 1 Poker Card.",
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"The label says genuine. The showman’s smile says otherwise.\"",
@@ -570,10 +599,13 @@
         "playerAwareText": {
           "compareToNodeId": "showman_arrives",
           "samePlayer": {
-            "screenText": "Silas Bell remembers you passed him by when his show needed help. His smile is friendly, but the bargain is not. After purchasing, discard $10 or 1 Poker Card."
+            "title": "A Swindle With Your Name On It",
+            "screenText": "Silas Bell remembers that you passed him by when his show needed help, and this “bargain” was prepared especially for you. After purchasing, pay an additional $20 or discard 2 Poker Cards.",
+            "audioFile": null
           },
           "differentPlayer": {
-            "screenText": "Silas Bell complains that another traveler left his show in the dust. He has since found less honest ways to make ends meet. After purchasing, discard $10 or 1 Poker Card.",
+            "title": "The Great Swindle",
+            "screenText": "Silas complains that another traveler left his show in the dust. He has since learned less honest ways to make ends meet, but he has no particular grudge against you. After purchasing, discard $10 or 1 Poker Card.",
             "audioFile": null
           },
           "default": {
@@ -603,7 +635,7 @@
         "type": "storyTrigger",
         "trigger": "trig_hunt_success",
         "title": "Old Pike’s Tracks",
-        "screenText": "After a successful Hunt gain $10.",
+        "screenText": "After a successful Hunt, gain 1 extra animal resource if possible; otherwise gain $10.",
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Old Jeremiah Pike studies the tracks and grunts like the animal owed him money.\"",
@@ -635,7 +667,7 @@
         "type": "storyTrigger",
         "trigger": "trig_hunt_success",
         "title": "The White Bear Trail",
-        "screenText": "Draw two animals and choose one to encounter. If successful, gain +1 LP.",
+        "screenText": "Pike offers the White Bear trail. Draw two animals and choose one to encounter. If successful, gain +1 LP.",
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Pike points with a shaking finger. That trail belongs to something too big for ordinary fear.\"",
@@ -666,10 +698,11 @@
         "playerAwareText": {
           "compareToNodeId": "pike_tracks",
           "samePlayer": {
-            "screenText": "Old Pike recognizes you from the earlier hunt and finally trusts you enough to reveal the White Bear trail. Draw two animals and choose one to encounter. If successful, gain +1 LP."
+            "screenText": "Old Pike recognizes the hunter who earned his trust before. He gives you his best reading of the White Bear trail. Draw two animals and choose one to encounter. If successful, gain +1 LP and $10.",
+            "audioFile": null
           },
           "differentPlayer": {
-            "screenText": "Old Pike tells you another hunter earned his trust and helped him pick up the White Bear trail. He offers to let you follow it now. Draw two animals and choose one to encounter. If successful, gain +1 LP.",
+            "screenText": "Old Pike tells you another hunter earned his trust and helped him pick up the White Bear trail. He lets you follow it now. Draw two animals and choose one to encounter. If successful, gain +1 LP.",
             "audioFile": null
           },
           "default": {
@@ -682,7 +715,7 @@
         "type": "storyTrigger",
         "trigger": "trig_end_outside_town",
         "title": "Sprung Trap",
-        "screenText": "Gain 1 wound unless you discard 1 Poker Card.",
+        "screenText": "Pike has started laying spiteful traps after being ignored.",
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"A hidden trap snaps shut. Pike does not forgive being ignored.\"",
@@ -713,10 +746,13 @@
         "playerAwareText": {
           "compareToNodeId": "pike_tracks",
           "samePlayer": {
-            "screenText": "You recognize Pike's handiwork in the trap laid across your path. He has not forgotten that you ignored him. Gain 1 wound unless you discard 1 Poker Card."
+            "title": "A Trap Meant for You",
+            "screenText": "You recognize Pike’s mark beside the trap, and this one was laid for the traveler who ignored him. Gain 1 wound unless you discard 1 Poker Card.",
+            "audioFile": null
           },
           "differentPlayer": {
-            "screenText": "You find a trap marked with Pike's sign. He mutters that another traveler ignored his warning and put him in a foul mood. Gain 1 wound unless you discard 1 Poker Card.",
+            "title": "Someone Else’s Trap",
+            "screenText": "You spot Pike’s trap before stepping into it. He mutters that it was meant for the traveler who ignored him earlier. Disarm it and salvage what you can: gain $10 or draw 1 Poker Card.",
             "audioFile": null
           },
           "default": {
@@ -775,7 +811,7 @@
         "type": "storyTrigger",
         "trigger": "trig_win_poker",
         "title": "Beating the Shark",
-        "screenText": "Winner gains +$30 and 1 GP.",
+        "screenText": "After winning Poker against the Red Falls card shark, gain +$30 and 1 GP.",
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"For the first time all night, the stranger’s smile breaks.\"",
@@ -806,14 +842,15 @@
         "playerAwareText": {
           "compareToNodeId": "cardshark_first_hand",
           "samePlayer": {
-            "screenText": "The Red Falls card shark recognizes you from the earlier table and slides into the game with a grin. Winner gains +$30 and 1 GP."
+            "screenText": "The card shark recognizes you from the earlier table and raises the stakes for the rematch. Your win finally cracks his smile. Gain +$40 and 1 GP.",
+            "audioFile": null
           },
           "differentPlayer": {
-            "screenText": "The Red Falls card shark tells you about another player who crossed cards with him earlier. He is looking for a fresh challenge. Winner gains +$30 and 1 GP.",
+            "screenText": "The card shark tells you another gambler crossed cards with him earlier. You are the fresh challenger who finally beats him. Gain +$30 and 1 GP.",
             "audioFile": null
           },
           "default": {
-            "screenText": "Winner gains +$30 and 1 GP."
+            "screenText": "After winning Poker, gain +$30 and 1 GP."
           }
         }
       },
@@ -822,7 +859,7 @@
         "type": "storyTrigger",
         "trigger": "trig_start_player_fight",
         "title": "Debt Collector",
-        "screenText": "The active player may gain $40 before the fight, but if they lose, they gain +1 wound.",
+        "screenText": "The card shark’s unfinished business spills into your fight.",
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"A debt collector steps from the alley, quoting numbers no honest man remembers.\"",
@@ -853,14 +890,17 @@
         "playerAwareText": {
           "compareToNodeId": "cardshark_beaten",
           "samePlayer": {
-            "screenText": "The card shark has not forgotten how your last encounter ended. His collector offers you $40 before the fight, but if you lose, gain +1 wound."
+            "title": "Your Debt Comes Due",
+            "screenText": "The card shark remembers that you left his challenge unfinished, and his collector steps into your path before the fight. Pay $20 to settle the debt and fight normally, or refuse: if you lose this fight, gain 1 wound and discard 1 Poker Card.",
+            "audioFile": null
           },
           "differentPlayer": {
-            "screenText": "The card shark's collector says another gambler left unfinished business behind. You have stumbled into the fallout. You may gain $40 before the fight, but if you lose, gain +1 wound.",
+            "title": "Hired Muscle",
+            "screenText": "The card shark’s collector says another gambler left unfinished business behind. He offers you $20 to make an example of your opponent. If you win this player fight, gain +$20. If you lose, gain nothing extra.",
             "audioFile": null
           },
           "default": {
-            "screenText": "The active player may gain $40 before the fight, but if they lose, they gain +1 wound."
+            "screenText": "If you win this player fight, gain +$20."
           }
         }
       }

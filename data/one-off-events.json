@@ -3,15 +3,15 @@
     "id": "bandit_reinforcements",
     "title": "More in the Rocks",
     "type": "oneOffEvent",
-    "trigger": "trig_defeat_bandit",
+    "trigger": "trig_start_bandit_fight",
     "baseWeight": 8,
     "requiredModules": [],
     "tags": [
       "bandit",
       "fight"
     ],
-    "screenText": "Place 2 Bandits in the current space. Fight both simultaneously; play 1 Poker Card against each Fight Card.",
-    "narrationScript": "[western storyteller][old cowboy][raspy] \"Two more guns rise from the rocks.\"",
+    "screenText": "Place another Bandit in the current space. Fight both simultaneously; play 1 Poker Card against each Fight Card.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Another bandit jumps out from behind the rocks\"",
     "audioFile": "audio/oneoffs/bandit_reinforcements.mp3",
     "effects": [
       {
@@ -48,7 +48,7 @@
       "fight"
     ],
     "screenText": "Draw 2 Fight Cards. The player must beat both with 2 Poker Cards or lose the fight.",
-    "narrationScript": "[western storyteller][old cowboy][raspy] \"That rogue draws iron with both hands.\"",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"A second shot cracks from the ridge.\"",
     "audioFile": "audio/oneoffs/twin_pistol_rogue.mp3",
     "effects": [
       {
@@ -319,7 +319,7 @@
       "bank",
       "heist"
     ],
-    "screenText": "If the heist succeeds, gain +$20. If it fails, gain +1 WP.",
+    "screenText": "If the heist succeeds, gain +$20. If it fails, the botched job draws the law: move the Sheriff up to 3 spaces toward you.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"A nervous teller leaves the vault latch loose.\"",
     "audioFile": "audio/oneoffs/inside_man.mp3",
     "effects": [
@@ -980,7 +980,7 @@
       "saloon"
     ],
     "screenText": "Before the hand, the active player may draw 1 Poker Card, then must discard 1 Poker Card.",
-    "narrationScript": "[western storyteller][old cowboy][raspy] \"A card sharp slides into the game with clean cuffs and dirty eyes.\"",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"A card shark slides into the game with clean cuffs and dirty eyes.\"",
     "audioFile": "audio/oneoffs/card_shark.mp3",
     "effects": [
       {
@@ -1207,7 +1207,7 @@
       "rustle",
       "wanted"
     ],
-    "screenText": "Gain +$20 when rustling, but also gain +1 WP.",
+    "screenText": "Gain +$20 when rustling. Your bold brand draws attention: move the Sheriff up to 3 spaces toward you.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The brand is fresh, and every lawman will smell it.\"",
     "audioFile": "audio/oneoffs/rustler_brand.mp3",
     "effects": [
@@ -1607,6 +1607,122 @@
     ]
   },
   {
+    "id": "trader_sweetens_deal",
+    "title": "Herve’s Sweetener",
+    "type": "oneOffEvent",
+    "trigger": "trig_buy_traveling_trader",
+    "baseWeight": 6,
+    "requiredModules": [
+      "blood_money_traveling_trader"
+    ],
+    "tags": [
+      "trader",
+      "purchase",
+      "positive",
+      "blood_money"
+    ],
+    "screenText": "Dr. Herve sweetens the deal. Choose: recover $10 from your purchase or draw 2 Poker Cards.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Herve grins and taps a hidden drawer. Good customers deserve a little something extra.\"",
+    "audioFile": null,
+    "effects": [
+      {
+        "type": "choose_one",
+        "options": [
+          "gain_10",
+          "draw_2_poker"
+        ]
+      }
+    ],
+    "resultButtons": [
+      {
+        "label": "Resolved",
+        "effects": [
+          {
+            "type": "log_event",
+            "id": "trader_sweetens_deal"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "trader_no_questions_asked",
+    "title": "No Questions Asked",
+    "type": "oneOffEvent",
+    "trigger": "trig_buy_traveling_trader",
+    "baseWeight": 5,
+    "requiredModules": [
+      "blood_money_traveling_trader"
+    ],
+    "tags": [
+      "trader",
+      "purchase",
+      "wanted",
+      "temptation",
+      "blood_money"
+    ],
+    "screenText": "Dr. Herve slides $20 back across the counter and offers a cloudy concoction for the road. Take the no-questions-asked deal to gain $20 and 1 WP, or refuse it with no additional effect.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Herve slides some money back across the counter, then produces a cloudy bottle. Don't ask where either one came from. Just decide whether you're feeling lucky.\"",
+    "audioFile": null,
+    "effects": [],
+    "resultButtons": [
+      {
+        "label": "Take $20 + 1 WP",
+        "effects": [
+          {
+            "type": "log_event",
+            "id": "trader_no_questions_asked_wanted"
+          }
+        ]
+      },
+      {
+        "label": "Refuse",
+        "effects": [
+          {
+            "type": "log_event",
+            "id": "trader_no_questions_asked_refused"
+          }
+        ]
+      }
+    ],
+    "moduleVariants": [
+      {
+        "id": "gambler_track",
+        "requiredModules": [
+          "ante_up_gambler"
+        ],
+        "tags": [
+          "trader",
+          "purchase",
+          "gambling",
+          "temptation",
+          "blood_money"
+        ],
+        "screenText": "Dr. Herve slides $20 back across the counter and offers a cloudy concoction for the road. If you're feeling lucky, take the no-questions-asked deal to gain $20 and 1 Gambling Point; or refuse it with no additional effect.",
+        "resultButtons": [
+          {
+            "label": "Take $20 + 1 GP",
+            "effects": [
+              {
+                "type": "log_event",
+                "id": "trader_no_questions_asked_gambler"
+              }
+            ]
+          },
+          {
+            "label": "Refuse",
+            "effects": [
+              {
+                "type": "log_event",
+                "id": "trader_no_questions_asked_refused"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "famous_deed",
     "title": "Famous Deed",
     "type": "oneOffEvent",
@@ -1835,7 +1951,7 @@
       "hunt",
       "hunting"
     ],
-    "screenText": "Gain 1 additional resource from the hunted animal if your hunting rules allow it; otherwise gain $10.",
+    "screenText": "Ignore any consequences.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Clean work. Even the old trappers would nod at that shot.\"",
     "audioFile": "audio/oneoffs/hunters_mark.mp3",
     "effects": [
@@ -2135,7 +2251,7 @@
       "outlaw",
       "robbery"
     ],
-    "screenText": "A witness saw the robbery. Gain 1 additional Wanted Point or pay $20 to keep them quiet.",
+    "screenText": "A witness saw the robbery. Pay $20 to keep them quiet, or move the Sheriff up to 3 spaces toward you.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"A curtain twitches across the street. Somebody saw the whole thing, and witnesses have a way of finding the sheriff.\"",
     "audioFile": "audio/oneoffs/robbery_hidden_witness.mp3",
     "effects": [
@@ -2228,7 +2344,7 @@
     "tags": [
       "fight"
     ],
-    "screenText": "Both fighters draw 1 Poker Card before choosing their fight card.",
+    "screenText": "Both fighters randomly draw from the other player's hand.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"A hard gust throws grit between the fighters. For half a heartbeat, neither one can see straight.\"",
     "audioFile": "audio/oneoffs/player_fight_dust.mp3",
     "effects": [],
@@ -2255,7 +2371,7 @@
       "law",
       "arrest"
     ],
-    "screenText": "After the arrest is resolved, the arrested player draws 1 additional Poker Card.",
+    "screenText": "The player causing the arrest draws 1 Poker Card.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The sheriff marches the prisoner through the middle of town where everybody can see how the day ended.\"",
     "audioFile": "audio/oneoffs/sheriff_arrest_public_example.mp3",
     "effects": [],
@@ -2346,7 +2462,7 @@
       "train"
     ],
     "screenText": "Gain $10 for helping unload a late freight car.",
-    "narrationScript": "[western storyteller][old cowboy][raspy] \"A freight car rolls in behind schedule and short on hands. Ten dollars buys a few minutes of honest work.\"",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"A freight car rolls in behind schedule and short on hands.\"",
     "audioFile": "audio/oneoffs/rail_late_freight.mp3",
     "effects": [
       {

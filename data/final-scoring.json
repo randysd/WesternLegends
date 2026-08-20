@@ -1,21 +1,98 @@
 {
   "scoringSteps": [
-    { "id": "mounts_weapons", "text": "Gain LP for each upgraded mount and upgraded weapon owned (value is in the top-left corner of the card).", "requiredModules": [] },
-    { "id": "legendary_items", "text": "Gain LP from any Legendary Items owned that provide it (value is in the top-left corner of the card).", "requiredModules": [] },
-    { "id": "money", "text": "Gain 1 LP for every $60 owned (round down).", "requiredModules": [] },
-    { "id": "wounds", "text": "Lose 1 LP for each wound.", "requiredModules": [] },
-    { "id": "injuries", "text": "Lose LP from any Injury cards that cause an end-of-game loss (value is at the bottom of the card).", "requiredModules": ["blood_money_injuries"] },
-    { "id": "wanted", "text": "The most Wanted player gains 3 LP, and each other Wanted player gains 1 LP. If there's a tie for most Wanted, all Wanted players gain 1 LP instead.", "requiredModules": [] },
-    { "id": "marshal", "text": "Marshal players gain LP based on which row their scoring cube occupies on the Marshal track.", "requiredModules": [] },
-    { "id": "gambler", "text": "The player furthest along the Gambler track gains 1 LP. In the event of a tie, all tied players gain 1 LP.", "requiredModules": ["ante_up_gambler"] },
-    { "id": "legendary_tokens", "text": "Gain LP equal to the total value of all Legendary Tokens gained.", "requiredModules": ["base_legendary_tokens"] },
-    { "id": "deeds", "text": "Gain LP from Deeds as instructed on the scoring side of each Deed owned. Destroyed locations (with a ruin token) never count toward scoring.", "requiredModules": ["blood_money_deeds"] }
+    {
+      "id": "mounts_weapons",
+      "text": "Gain LP for each upgraded mount and upgraded weapon owned (value is in the top-left corner of the card).",
+      "requiredModules": []
+    },
+    {
+      "id": "legendary_items",
+      "text": "Gain LP from any Legendary Items owned that provide it (value is in the top-left corner of the card).",
+      "requiredModules": []
+    },
+    {
+      "id": "money",
+      "text": "Gain 1 LP for every $60 owned (round down).",
+      "requiredModules": []
+    },
+    {
+      "id": "wounds",
+      "text": "Lose 1 LP for each wound.",
+      "requiredModules": []
+    },
+    {
+      "id": "injuries",
+      "text": "Lose LP from any Injury cards that cause an end-of-game loss (value is at the bottom of the card).",
+      "requiredModules": [
+        "blood_money_injuries"
+      ]
+    },
+    {
+      "id": "wanted",
+      "text": "The most Wanted player gains 3 LP, and each other Wanted player gains 1 LP. If there's a tie for most Wanted, all Wanted players gain 1 LP instead.",
+      "requiredModules": []
+    },
+    {
+      "id": "marshal",
+      "text": "Marshal players gain LP based on which row their scoring cube occupies on the Marshal track.",
+      "requiredModules": []
+    },
+    {
+      "id": "gambler",
+      "text": "The player furthest along the Gambler track gains 1 LP. In the event of a tie, all tied players gain 1 LP.",
+      "requiredModules": [
+        "ante_up_gambler"
+      ]
+    },
+    {
+      "id": "legendary_tokens",
+      "text": "Gain LP equal to the total value of all Legendary Tokens gained.",
+      "requiredModules": [
+        "base_legendary_tokens"
+      ]
+    },
+    {
+      "id": "deeds",
+      "text": "Gain LP from Deeds as instructed on the scoring side of each Deed owned. Destroyed locations (with a ruin token) never count toward scoring.",
+      "requiredModules": [
+        "blood_money_deeds"
+      ]
+    },
+    {
+      "id": "titles",
+      "text": "Apply any end-game scoring or effects from the revealed Title card.",
+      "requiredModules": [
+        "wild_bunch_titles"
+      ]
+    },
+    {
+      "id": "man_in_black",
+      "text": "Include the Man In Black in the Final Tally. If he ties for the highest LP, the Man In Black wins the tie.",
+      "requiredModules": [
+        "wild_bunch_man_in_black"
+      ]
+    }
   ],
   "tiebreakers": [
-    { "id": "most_lp", "text": "The player with the most LP wins." },
-    { "id": "marshal_wanted", "text": "Still tied? The tied player with the most Marshal or Wanted points wins." },
-    { "id": "gold", "text": "Still tied? The tied player with the most gold nuggets wins." },
-    { "id": "wounds", "text": "Still tied? The tied player with the fewest wounds wins." },
-    { "id": "share", "text": "Still tied? The tied players share the victory." }
+    {
+      "id": "most_lp",
+      "text": "The player with the most LP wins."
+    },
+    {
+      "id": "marshal_wanted",
+      "text": "Still tied? The tied player with the most Marshal or Wanted points wins."
+    },
+    {
+      "id": "gold",
+      "text": "Still tied? The tied player with the most gold nuggets wins."
+    },
+    {
+      "id": "wounds",
+      "text": "Still tied? The tied player with the fewest wounds wins."
+    },
+    {
+      "id": "share",
+      "text": "Still tied? The tied players share the victory."
+    }
   ]
 }
