@@ -305,8 +305,8 @@ button { color: inherit; cursor: pointer; }
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-content: center;
-  align-items: baseline;
+  align-content: flex-start;
+  align-items: flex-start;
   column-gap: .22em;
   row-gap: 0;
   text-align: center;
@@ -328,7 +328,7 @@ button { color: inherit; cursor: pointer; }
 .trigger-card .rule {
   width: 60%; height: 1px; margin: 4px auto 2px; background: rgba(91,57,28,.3); position: relative;
 }
-.trigger-card .rule::after { content: '★'; position: absolute; inset: -8px 0 auto 0; text-align: center; font-size: .64rem; color: var(--gold); }
+.trigger-card .rule::after { content: none; display: none; }
 .trigger-image {
   display: inline-block;
   width: 100%;
@@ -667,7 +667,7 @@ button { color: inherit; cursor: pointer; }
 .ref-card h3 { margin: 0 0 8px; font-family: var(--wl-fell-font); text-transform: uppercase; }
 .ref-card table { width: 100%; border-collapse: collapse; font-size: .95rem; }
 .ref-card td, .ref-card th { border-bottom: 1px solid var(--line); padding: 7px 4px; text-align: left; }
-.newsprint { background: #fbf2d8; color: #2e241b; padding: 18px; border: 1px solid #5b4530; }
+.newsprint { background: #fbf2d8; color: #2e241b; padding: 18px; border: 1px solid #5b4530; box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.3);}
 .newsprint h1 { text-align: center; font-family: var(--wl-fell-font); margin: 0; border-bottom: 4px double #3d3024; }
 .newsprint h2 { border-bottom: 1px solid #3d3024; font-family: var(--wl-fell-font); }
 
@@ -721,10 +721,10 @@ button { color: inherit; cursor: pointer; }
 ol {
   padding-left: 20px;
 }
-.ref-card ol li {
+ol.ref-card li {
   padding: 2px 0;
 }
-.ref-card ol li div{
+ol.ref-card li div{
   display: flex;
   justify-content: space-between;
 }
@@ -4107,7 +4107,7 @@ button:disabled { opacity: .48; cursor: not-allowed; }
 }
 .newspaper-edition {
   margin-top: 1px;
-  padding-bottom: 7px;
+  /*padding-bottom: 7px;*/
   border-bottom: 1px solid #3d3024;
   font-size: .78rem;
   text-transform: uppercase;
@@ -5004,4 +5004,754 @@ button:disabled { opacity: .48; cursor: not-allowed; }
   line-height: 1.05 !important;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+}
+
+
+/* v1.1.39 settings triangles, frequency sizing, and portrait trigger artwork */
+
+/* Settings uses the same solid right/down triangle language as the expansion
+   tree instead of the hollow text caret. */
+.settings-dialog-section .options-card-caret {
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 7px solid var(--red);
+  color: transparent;
+  font-size: 0;
+  line-height: 0;
+  transform: none;
+  transform-origin: 45% 50%;
+  transition: transform .15s ease;
+}
+.settings-dialog-section[open] .options-card-caret {
+  transform: rotate(90deg);
+}
+
+/* Keep the full frequency labels visible, including Frequent, even on narrow
+   phones. The title column remains flexible instead of squeezing the select. */
+.story-event-setting {
+  grid-template-columns: minmax(0, 1fr) 42px 128px;
+}
+.story-frequency-select {
+  width: 128px;
+  min-width: 128px;
+  max-width: 128px;
+  padding: 5px 30px 5px 10px;
+  line-height: 1.15;
+  overflow: visible;
+  text-overflow: clip;
+  white-space: nowrap;
+}
+@media (max-width: 370px) {
+  .story-event-setting {
+    grid-template-columns: minmax(0, 1fr) 42px 124px;
+    gap: 7px;
+  }
+  .story-frequency-select {
+    width: 124px;
+    min-width: 124px;
+    max-width: 124px;
+    padding-left: 8px;
+    padding-right: 28px;
+    font-size: .9rem;
+  }
+}
+
+/* Trigger illustrations are authored at 300x400 (3:4). Preserve that ratio
+   instead of stretching them into the old landscape image slot. The card
+   itself keeps its existing height; the portrait artwork is anchored to the
+   bottom and floats behind the title so the text can overlap it naturally. */
+.trigger-card {
+  isolation: isolate;
+}
+.trigger-image {
+  display: block;
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: 100% auto;
+  pointer-events: none;
+}
+.trigger-title-text,
+.trigger-card .rule,
+.trigger-footer {
+  position: relative;
+  z-index: 2;
+}
+
+/* The portrait image now occupies the whole card as a bottom-anchored
+   background layer, so the old responsive fixed image-slot heights no longer
+   apply. */
+@media (min-width: 720px) {
+  .trigger-image { height: 100%; }
+}
+@media (max-width: 375px) {
+  .trigger-image { height: 100%; }
+}
+
+
+/* v1.1.41 - keep primary trigger titles at the top edge of the card.
+   Baseline alignment was placing text near the bottom of the reserved title
+   area. Both the flex lines and their contents now anchor to the top. */
+.trigger-card .trigger-title-text {
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+
+/* v1.1.42 - pin trigger titles to the trigger CARD itself, not merely to the
+   top of the old reserved title row. This makes the copy begin at the top of
+   the full event-trigger box while the portrait artwork remains bottom-anchored
+   behind it. */
+.trigger-card .trigger-title-text {
+  position: absolute;
+  top: 9px;
+  left: 6px;
+  right: 6px;
+  z-index: 3;
+  min-height: 0;
+  width: auto;
+  margin: 0;
+  align-content: flex-start;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* Preserve the old breathing room for the decorative rule without using that
+   space to vertically position the title. */
+.trigger-card .rule {
+  margin-top: 78px;
+}
+
+/* v1.1.43 - inset portrait trigger artwork so the 300x400 image has balanced
+   breathing room at the left, right, and bottom while remaining centered and
+   bottom-aligned behind the title. */
+.trigger-card .trigger-image {
+  left: 5%;
+  right: auto;
+  bottom: 8px;
+  width: 90%;
+  height: calc(100% - 8px);
+  background-position: center bottom;
+  background-size: 100% auto;
+}
+
+/* v1.1.48 final-scoring step numbers + newspaper recap redesign */
+
+/* Final Scoring uses the same numbered-circle language as the reference/setup
+   dialogs and the same solid right/down triangle used by other accordions. */
+.final-scoring-item > summary {
+  gap: 9px;
+  padding: 8px 35px 8px 9px;
+}
+.final-scoring-step-number {
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  min-height: 28px;
+  font-size: .84rem;
+}
+.final-scoring-item > summary::after {
+  content: '';
+  width: 0;
+  height: 0;
+  right: 12px;
+  top: 50%;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 7px solid var(--red);
+  color: transparent;
+  font-size: 0;
+  line-height: 0;
+  transform: translateY(-50%);
+  transform-origin: 45% 50%;
+  transition: transform .15s ease;
+}
+.final-scoring-item[open] > summary::after {
+  transform: translateY(-50%) rotate(90deg);
+}
+.final-scoring-item-copy { flex: 1 1 auto; }
+
+/* A compact serif body is closer to period newspaper type than Courier while
+   fitting considerably more copy into the same width. */
+.newsprint {
+  font-family: 'Times New Roman', Times, Georgia, serif;
+  font-size: .96rem;
+  line-height: 1.34;
+  letter-spacing: -.006em;
+}
+.newsprint p { margin: .58em 0; }
+.newsprint h1 {
+  font-family: Georgia, 'Times New Roman', serif;
+  letter-spacing: -.025em;
+}
+.newsprint h2 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.12rem;
+  line-height: 1.08;
+  margin: 1.05em 0 .38em;
+  padding-bottom: 3px;
+  text-transform: uppercase;
+  letter-spacing: .025em;
+}
+.newsprint h3 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: .98rem;
+  line-height: 1.08;
+  margin: 0 0 4px;
+}
+.newspaper-date,
+.newspaper-edition {
+  font-family: 'Times New Roman', Times, Georgia, serif;
+}
+.newspaper-date { font-size: .86rem; }
+.newspaper-edition { font-size: .76rem; letter-spacing: .11em; }
+.news-article { break-inside: avoid; }
+.newspaper-lead-story h2 {
+  margin-top: .85em;
+  font-size: 1.38rem;
+  border-bottom-width: 2px;
+}
+.newspaper-deck {
+  font-size: 1.02rem;
+  line-height: 1.26;
+  font-weight: 700;
+}
+.newspaper-section-deck {
+  margin-top: -.12em !important;
+  color: #514334;
+  font-style: italic;
+}
+
+/* Final scores read like a small sidebar/callout rather than another full
+   newspaper article. */
+.newspaper-scorebox {
+  float: right;
+  width: min(44%, 235px);
+  margin: 5px 0 11px 15px;
+  padding: 9px 10px 8px;
+  border: 2px solid #3d3024;
+  background: rgba(255,255,255,.18);
+  break-inside: avoid;
+}
+.newspaper-scorebox h2 {
+  margin: 2px 0 5px;
+  border-bottom: 3px double #3d3024;
+  font-size: 1.02rem;
+}
+.newspaper-callout-kicker {
+  margin: 0 !important;
+  font-size: .68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+}
+.newspaper-winner {
+  margin: 5px 0 7px !important;
+  font-weight: 700;
+  font-size: .9rem;
+  line-height: 1.18;
+}
+.newspaper-scorebox ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.newspaper-scorebox li {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 3px 0;
+  border-top: 1px dotted rgba(61,48,36,.45);
+  font-size: .82rem;
+  line-height: 1.15;
+}
+.newspaper-scorebox li:first-child { border-top: 0; }
+.newspaper-scorebox li span { min-width: 0; }
+.newspaper-scorebox li strong { white-space: nowrap; }
+.newspaper-scorebox li.winner { font-weight: 700; }
+.newspaper-scorebox li.winner span::before { content: '★ '; }
+
+/* The old "Watched by the Frontier" bullet dump becomes a compact ledger of
+   readable action categories. */
+.newspaper-ledger {
+  margin: 8px 0 12px;
+  padding: 7px 0;
+  border-top: 2px solid #3d3024;
+  border-bottom: 2px solid #3d3024;
+  break-inside: avoid;
+}
+.newspaper-ledger h3 {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+.newspaper-ledger > p {
+  margin: 1px 0 4px !important;
+  font-size: .73rem;
+  font-style: italic;
+}
+.newspaper-ledger ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 14px;
+}
+.newspaper-ledger li {
+  display: flex;
+  justify-content: space-between;
+  gap: 7px;
+  padding: 2px 0;
+  border-bottom: 1px dotted rgba(61,48,36,.35);
+  font-size: .8rem;
+}
+.newspaper-ledger li strong { white-space: nowrap; }
+
+/* Each recurring NPC gets a short independent newspaper item. */
+.newspaper-story-section {
+  clear: both;
+  break-before: auto;
+}
+.newspaper-story-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px 13px;
+}
+.newspaper-story-card {
+  padding-top: 5px;
+  border-top: 1px solid #3d3024;
+  break-inside: avoid;
+}
+.newspaper-story-card p {
+  margin: 0 !important;
+  font-size: .88rem;
+  line-height: 1.3;
+}
+.newspaper-player-recap p strong { font-family: Georgia, 'Times New Roman', serif; }
+.newspaper-final-word {
+  clear: both;
+  padding-top: 2px;
+}
+.newspaper-clear { clear: both; height: 0; }
+
+@media (max-width: 520px) {
+  .newspaper-scorebox {
+    float: none;
+    width: 100%;
+    margin: 8px 0 10px;
+  }
+  .newspaper-story-grid { grid-template-columns: 1fr; gap: 8px; }
+  .newspaper-ledger ul { grid-template-columns: 1fr; }
+}
+
+@media print {
+  .newspaper-scorebox { width: 38%; }
+  .newspaper-story-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .news-article,
+  .newspaper-story-card,
+  .newspaper-scorebox,
+  .newspaper-ledger { break-inside: avoid; }
+}
+
+
+/* v1.1.50 - let the newspaper use the full printable page width.
+   The app shell is intentionally capped at 480px on screen, but that cap
+   should not carry into print/PDF output. */
+@media print {
+  @page { margin: 0.4in; }
+
+  html,
+  body {
+    width: 100% !important;
+    max-width: none !important;
+    overflow: visible !important;
+  }
+
+  .app-shell,
+  #app.page,
+  .newspaper-page,
+  .newsprint {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .app-shell {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #app.page {
+    display: block !important;
+  }
+
+  .newspaper-page {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .newsprint {
+    margin: 0 !important;
+  }
+}
+
+
+/* v1.1.51 newspaper masthead integration */
+.newspaper-page {
+  background: #e2c79d;
+}
+.newsprint {
+  background:
+    radial-gradient(circle at 12% 8%, rgba(116,74,34,.035), transparent 28%),
+    radial-gradient(circle at 86% 18%, rgba(116,74,34,.025), transparent 22%),
+    linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02)),
+    #e2c79d;
+}
+.newspaper-masthead-wrap {
+  margin: -10px -10px 2px;
+}
+.newspaper-masthead {
+  display: block;
+  width: calc(100% + 20px);
+  max-width: none;
+  height: auto;
+  margin: 0 -10px;
+}
+.newsprint h1 { display: none; }
+.newspaper-date,
+.newspaper-edition {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.newspaper-date {
+  margin-top: 4px;
+}
+@media print {
+  .newsprint,
+  .newspaper-page {
+    background: #e2c79d !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .newspaper-masthead-wrap {
+    margin: 0 0 2px !important;
+  }
+  .newspaper-masthead {
+    width: 100% !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+}
+
+
+/* v1.1.52 lighter newspaper assets + repeating paper texture */
+.newspaper-page {
+  background: #f6ecda;
+}
+.newsprint {
+  background-color: #f6ecda;
+  background-image: url('../assets/images/newspaper/paper-texture-tile.png');
+  background-repeat: repeat-y;
+  background-position: top center;
+  background-size: 100% auto;
+}
+.newspaper-masthead-wrap {
+  margin: -10px -10px 0;
+}
+.newspaper-masthead {
+  display: block;
+  width: calc(100% + 20px);
+  max-width: none;
+  height: auto;
+  margin: 0 -10px;
+}
+.newspaper-date {
+  margin-top: 2px;
+}
+@media print {
+  .newsprint,
+  .newspaper-page {
+    background-color: #f6ecda !important;
+    background-image: url('../assets/images/newspaper/paper-texture-tile.png') !important;
+    background-repeat: repeat-y !important;
+    background-position: top center !important;
+    background-size: 100% auto !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+
+/* v1.1.53 framed parchment newspaper */
+.newspaper-page {
+  background: #f3ecdf;
+}
+.newsprint {
+  position: relative;
+  background: #f7f1e6;
+  /* border: 26px solid transparent; */
+  border-image-source: url('../assets/images/newspaper/paper-edge-frame.png');
+  border-image-slice: 120;
+  border-image-width: 26px;
+  border-image-repeat: round;
+  background-clip: padding-box;
+  overflow: visible;
+}
+.newsprint::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/images/newspaper/paper-imperfections-tile.png');
+  background-repeat: repeat;
+  background-size: 420px auto;
+  opacity: .42;
+  pointer-events: none;
+  z-index: 0;
+}
+.newsprint > * {
+  position: relative;
+  z-index: 1;
+}
+.newspaper-masthead-wrap {
+  margin: -18px -18px;
+  padding-bottom: 6px;
+}
+.newspaper-masthead {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  margin: 0;
+}
+.newspaper-date,
+.newspaper-edition {
+  margin-left: 0;
+  margin-right: 0;
+}
+.newspaper-date {
+  margin-top: 2px;
+}
+@media print {
+  .newspaper-page {
+    background: #f3ecdf !important;
+  }
+  .newsprint {
+    background: #f7f1e6 !important;
+    border: 26px solid transparent !important;
+    border-image-source: url('../assets/images/newspaper/paper-edge-frame.png') !important;
+    border-image-slice: 120 !important;
+    border-image-width: 26px !important;
+    border-image-repeat: round !important;
+    background-clip: padding-box !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .newsprint::before {
+    background-image: url('../assets/images/newspaper/paper-imperfections-tile.png') !important;
+    background-repeat: repeat !important;
+    background-size: 420px auto !important;
+    opacity: .42 !important;
+  }
+  .newspaper-masthead-wrap {
+    margin: 0 0 6px !important;
+  }
+  .newspaper-masthead {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+}
+
+
+/* v1.1.54 - stack Story & Events labels above their controls on narrow phones.
+   This preserves the compact three-column layout on wider screens while
+   preventing One-Off Events / Character Arcs / World Events from being
+   squeezed into narrow multi-line columns beside the switch and select. */
+@media (max-width: 430px) {
+  .story-event-setting {
+    grid-template-columns: 42px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 10px;
+    row-gap: 7px;
+    align-items: center;
+    min-height: 0;
+    padding: 9px 10px 10px;
+  }
+
+  .story-event-setting-title {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    width: 100%;
+    font-size: 1rem;
+    line-height: 1.05;
+  }
+
+  .story-event-setting .mini-switch {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+  }
+
+  .story-event-setting .story-frequency-select {
+    grid-column: 2;
+    grid-row: 2;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    font-size: .94rem;
+    padding-left: 9px;
+  }
+}
+
+
+/* v1.1.56 - responsive Poker Hands hierarchy. Keep every hand and all five
+   example cards inside the reference border at narrow mobile widths. */
+.poker-hands-guide {
+  --poker-card-width: clamp(19px, 6.1vw, 25px);
+  --poker-card-height: clamp(18px, 4.9vw, 20px);
+  --poker-card-font: clamp(.78rem, 4.1vw, 1rem);
+  overflow: hidden;
+}
+.poker-hands-guide .poker-hand-row {
+  min-width: 0;
+}
+.poker-hands-guide .poker-hand-row > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: clamp(4px, 1.6vw, 9px);
+  min-width: 0;
+}
+.poker-hands-guide .poker-hand-name {
+  min-width: 0;
+  line-height: 1.05;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+.poker-hands-guide .cards {
+  display: grid;
+  grid-template-columns: repeat(5, var(--poker-card-width));
+  gap: clamp(1px, .45vw, 3px);
+  flex: 0 0 auto;
+  white-space: nowrap;
+  line-height: 1;
+}
+.poker-hands-guide .cards .card {
+  box-sizing: border-box;
+  width: var(--poker-card-width);
+  height: var(--poker-card-height);
+  padding: 1px 0;
+  display: grid;
+  place-items: center;
+  font-size: var(--poker-card-font);
+  line-height: 1;
+}
+.poker-hands-guide .card-10 {
+  letter-spacing: -2px;
+  padding-right: 1px;
+}
+
+/* On exceptionally narrow phones, stacking the examples beneath the hand name
+   is preferable to shrinking the cards or text beyond comfortable readability. */
+@media (max-width: 315px) {
+  .poker-hands-guide .poker-hand-row > div {
+    grid-template-columns: 1fr;
+    row-gap: 3px;
+  }
+  .poker-hands-guide .cards {
+    justify-self: start;
+  }
+}
+
+
+/* v1.1.57 - preserve the ordered-list number gutter in Poker Hands.
+   List markers live just outside the row content box, so the previous
+   overflow:hidden clipped the left side of 1- and 2-digit markers. */
+.poker-hands-guide {
+  overflow: visible;
+  padding-left: 28px;
+}
+.poker-hands-guide > li::marker {
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 350px) {
+  .poker-hands-guide {
+    padding-left: 26px;
+    padding-right: 8px;
+  }
+}
+
+
+/* v1.0 official release - PWA install control in About */
+.about-version-section #appUpdateStatus {
+  display: grid;
+  gap: 6px;
+}
+.about-version-section .app-install-help {
+  margin: 0;
+  color: var(--muted);
+  font-size: .82rem;
+  line-height: 1.3;
+  text-align: left;
+}
+
+
+/* v1.0 official release - About contact and feedback details */
+.credits-contact-block {
+  margin-top: 12px;
+  padding-top: 11px;
+  border-top: 1px dashed rgba(91,57,28,.24);
+}
+.credits-contact-block h3 {
+  margin: 0 0 5px;
+  font-family: var(--wl-fell-font);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.credits-contact-block > p {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.35;
+}
+.credits-contact-links {
+  display: grid;
+  gap: 6px;
+}
+.credits-contact-links a {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0;
+  padding: 7px 9px;
+  border: 1px solid rgba(91,57,28,.22);
+  border-radius: 9px;
+  background: rgba(255,248,232,.54);
+  color: var(--ink);
+  text-decoration: none;
+}
+.credits-contact-links a:active { transform: translateY(1px); }
+.credits-contact-links a span {
+  color: var(--muted);
+  font-size: .82rem;
+}
+.credits-contact-links a strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  text-align: right;
+  font-size: .88rem;
 }
