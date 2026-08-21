@@ -9,10 +9,25 @@ const DATA_FILES = {
   newspaper: 'data/newspaper-generator.json',
   setupAssist: 'data/setup-assist.json',
   items: 'data/items.json',
-  finalScoring: 'data/final-scoring.json'
+  finalScoring: 'data/final-scoring.json',
+  ui: 'data/ui.json'
 };
 
 const SAVE_KEY = 'wl_frontier_director_save_v1';
+const LANGUAGE_KEY = 'wl_frontier_director_language';
+const DEFAULT_LANGUAGE = 'en';
+const LANGUAGE_GLOBE_SVG = `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>`;
+
+function selectedLanguageCode() {
+  return localStorage.getItem(LANGUAGE_KEY) || DEFAULT_LANGUAGE;
+}
+function hasExplicitLanguageSelection() {
+  return !!localStorage.getItem(LANGUAGE_KEY);
+}
+function localizedDataUrl(url, language = selectedLanguageCode()) {
+  if (!language || language === DEFAULT_LANGUAGE) return url;
+  return String(url).replace(/^data\//, `data/${language}/`);
+}
 const KOFI_SUPPORT_URL = 'https://ko-fi.com/randyd426';
 const BGG_USERNAME = 'randyd42';
 const BGG_PROFILE_URL = `https://boardgamegeek.com/user/${BGG_USERNAME}`;
@@ -136,90 +151,74 @@ function reconcileSelectedCharactersWithModules() {
 const MODULES = [
   {
     id: 'base',
-    name: 'Base Game',
-    detail: 'Required core Western Legends game content.',
     locked: true,
     modules: [
-      { id: 'base_core', name: 'Core Board & Actions', detail: 'Darkrock, Red Falls, ranches, mines, bandits, poker, cattle, and core actions.', locked: true },
-      { id: 'base_goals', name: 'Goals', detail: 'Adds character Goal cards and additional challenges/rewards. Automatically enables Legendary Tokens.' },
-      { id: 'base_legendary_tokens', name: 'Legendary Tokens', detail: 'Uses the facedown Legendary token supply and player mat token spaces.' }
+      { id: 'base_core', locked: true },
+      { id: 'base_goals' },
+      { id: 'base_legendary_tokens' }
     ]
   },
   {
     id: 'ante_up',
-    name: 'Ante Up',
-    detail: 'Adds Ante Up characters, items, Legendary Items, and selected modules below.',
     modules: [
-      { id: 'ante_up_sideboard', name: 'Buzzard Gulch Sideboard', detail: 'Adds Buzzard Gulch, mountain passes, frontier spaces, orange ranch, outlaw camp, and train station.' },
-      { id: 'ante_up_train', name: 'Train Module', detail: 'Uses the train, train deck, train movement, and train encounter hooks.' },
-      { id: 'ante_up_events', name: 'Events Deck', detail: 'Adds Event cards/tokens, setup events, and High Roller, Claim Jumper, Longhorn, and Outlaw token content.' },
-      { id: 'ante_up_gambler', name: 'Gambler Track', detail: 'Uses Gambler Points and gambling-related story opportunities.' },
-      { id: 'ante_up_faro', name: 'Faro', detail: 'Adds Faro as an alternate Gamble action at saloons.' },
-      { id: 'ante_up_high_stakes_poker', name: 'High Stakes Poker', detail: 'Adds the multiplayer High Stakes Poker gambling option.' }
+      { id: 'ante_up_sideboard' },
+      { id: 'ante_up_train' },
+      { id: 'ante_up_events' },
+      { id: 'ante_up_gambler' },
+      { id: 'ante_up_faro' },
+      { id: 'ante_up_high_stakes_poker' }
     ]
   },
   {
     id: 'blood_money',
-    name: 'Blood Money',
-    detail: 'Adds Blood Money characters, items, Legendary Items, and selected modules below.',
     modules: [
-      { id: 'blood_money_stories', name: 'Legendary Story System', detail: 'Adds the Legendary Story board/cards and enables Ruin-token related rules such as Repair.' },
-      { id: 'blood_money_risk_die', name: 'Risk Die', detail: 'Enables Risk Die challenges and high-risk event outcomes.' },
-      { id: 'blood_money_injuries', name: 'Injury Deck', detail: 'Enables injuries as lasting penalties and Doctor/healing hooks.' },
-      { id: 'blood_money_deeds', name: 'Deeds', detail: 'Adds Deeds, Claim actions, and property-related rewards.' },
-      { id: 'blood_money_traveling_trader', name: 'Traveling Trader', detail: 'Adds the Traveling Trader stand, movement deck, miniature, and Legendary Item market.' }
+      { id: 'blood_money_stories' },
+      { id: 'blood_money_risk_die' },
+      { id: 'blood_money_injuries' },
+      { id: 'blood_money_deeds' },
+      { id: 'blood_money_traveling_trader' }
     ]
   },
   {
     id: 'wild_bunch',
-    name: 'Wild Bunch of Extras',
-    detail: 'Adds Wild Bunch characters, items, Legendary Items, and optional variants.',
     modules: [
-      { id: 'wild_bunch_titles', name: 'Titles', detail: 'Adds Title cards and end-game scoring/effect options.' },
-      { id: 'wild_bunch_gang_posse', name: 'Gang/Posse', detail: 'Lets Marshal and Wanted players recruit extra muscle.' },
-      { id: 'wild_bunch_sheriff', name: 'Sheriff', detail: 'Adds Sheriff personality cards that change when the Sheriff loses a fight.' },
-      { id: 'wild_bunch_bandit_variant', name: 'Bandit Variant', detail: 'Adds numbered Bandit rings and Bandit personality cards/effects.' },
-      { id: 'wild_bunch_man_in_black', name: 'Man in Black', detail: 'Adds the automated Man in Black player, deck, setup, round turn, and scoring rules.' },
-      { id: 'wild_bunch_unique_events', name: 'Unique Events', detail: 'Adds Unique Event cards and tokens to the Event system.' }
+      { id: 'wild_bunch_titles' },
+      { id: 'wild_bunch_gang_posse' },
+      { id: 'wild_bunch_sheriff' },
+      { id: 'wild_bunch_bandit_variant' },
+      { id: 'wild_bunch_man_in_black' },
+      { id: 'wild_bunch_unique_events' }
     ]
   },
   {
     id: 'the_good_the_bad_and_the_handsome',
-    name: 'The Good, the Bad, and the Handsome',
-    detail: 'Adds this expansion’s characters, items, and Legendary Items.',
     modules: []
   },
   {
     id: 'fistful_of_extras',
-    name: 'Fistful of Extras',
-    detail: 'Adds this expansion’s characters/items and optional Joker variant.',
     modules: [
-      { id: 'fistful_jokers', name: 'Jokers Variant', detail: 'Adds Joker cards to the Poker deck.' }
+      { id: 'fistful_jokers' }
     ]
   },
   {
     id: 'promos',
-    name: 'Promos',
-    detail: 'Optional promotional and edition-specific content.',
     selectable: false,
     modules: [
-      { id: 'big_box', name: 'Big Box Edition', detail: 'Adds Aaron Ross and the Strongbox Legendary Item.' },
-      { id: 'promo_carbine', name: 'Carbine', detail: 'Adds the Carbine weapon item.' }
+      { id: 'big_box' },
+      { id: 'promo_carbine' }
     ]
   },
   {
     id: 'variants',
-    name: 'Variants',
-    detail: 'Optional add-on decks and fan-made gameplay variants.',
     selectable: false,
     modules: [
-      { id: 'treasure_hunting_rumors', name: 'Treasure Hunting', detail: 'Piece together Rumor cards to find the legendary buried treasure.' },
-      { id: 'hunting', name: 'Hunting', detail: 'Hunt legendary targets roaming the wild west.' },
-      { id: 'fishing', name: 'Fishing', detail: 'Fish river spaces for catches, LP, and recovery opportunities.' },
-      { id: 'foraging_crafting', name: 'Foraging/Crafting', detail: 'Gather resources to craft unique and powerful items.' },
-      { id: 'theatre', name: 'Theatre', detail: 'Adds variable Theatre-card results for the Revel action.' },
-      { id: 'prospecting_cards', name: 'Prospecting Deck', detail: 'Adds a Prospecting deck and LP-track gold triggers to vary mine strategy.' },
-      { id: 'dark_knight', name: 'Dark Knight', detail: 'Adds the fan-made Dark Knight character.' }
+      { id: 'treasure_hunting_rumors' },
+      { id: 'hunting' },
+      { id: 'fishing' },
+      { id: 'foraging_crafting' },
+      { id: 'theatre' },
+      { id: 'prospecting_cards' },
+      { id: 'dark_knight' }
     ]
   }
 ];
@@ -303,10 +302,134 @@ let gamblingFlowSelection = 'poker';
 let actionsReturnTarget = null;
 let firstPlayerAssistCleanup = null;
 
+
+function uiValue(path, fallback = undefined) {
+  const parts = String(path || '').split('.').filter(Boolean);
+  let value = db?.ui;
+  for (const part of parts) {
+    if (value == null || !Object.prototype.hasOwnProperty.call(value, part)) return fallback;
+    value = value[part];
+  }
+  return value === undefined ? fallback : value;
+}
+
+function t(key, params = {}) {
+  const value = uiValue(key, key);
+  if (typeof value !== 'string') return String(key || '');
+  return value.replace(/\{(\w+)\}/g, (match, name) => Object.prototype.hasOwnProperty.call(params, name) ? String(params[name]) : match);
+}
+
+function tp(key, count, params = {}) {
+  const bank = uiValue(key, null);
+  const template = bank && typeof bank === 'object' ? (count === 1 ? bank.one : bank.other) : null;
+  if (typeof template !== 'string') return t(key, { ...params, count });
+  return template.replace(/\{(\w+)\}/g, (match, name) => {
+    const values = { ...params, count };
+    return Object.prototype.hasOwnProperty.call(values, name) ? String(values[name]) : match;
+  });
+}
+
+function languageOptions() {
+  const options = uiValue('languageSelector.options', []);
+  return Array.isArray(options) ? options.filter(option => option && option.code && option.nativeName) : [];
+}
+
+function currentLanguageOption() {
+  const code = selectedLanguageCode();
+  return languageOptions().find(option => option.code === code)
+    || languageOptions().find(option => option.code === DEFAULT_LANGUAGE)
+    || { code, nativeName: code.toUpperCase(), dir: 'ltr' };
+}
+
+function currentLanguageName() {
+  return currentLanguageOption().nativeName || selectedLanguageCode().toUpperCase();
+}
+
+function closeLanguagePicker() {
+  document.querySelector('.language-picker-overlay')?.remove();
+}
+
+function openLanguagePicker() {
+  closeLanguagePicker();
+  const currentCode = selectedLanguageCode();
+  const options = languageOptions();
+  const overlay = document.createElement('div');
+  overlay.className = 'modal-screen-overlay language-picker-overlay';
+  overlay.innerHTML = `<section class="panel modal-screen-card language-picker-card" role="dialog" aria-modal="true" aria-labelledby="languagePickerTitle">
+    <button type="button" class="dialog-close-x" data-language-picker-close aria-label="${escapeHtml(t('accessibility.close'))}">&#10005;</button>
+    <div class="language-picker-heading">
+      <span class="language-picker-globe" aria-hidden="true">${LANGUAGE_GLOBE_SVG}</span>
+      <div>
+        <p class="eyebrow">${escapeHtml(t('app.brand'))}</p>
+        <h2 id="languagePickerTitle">${escapeHtml(t('languageSelector.choose'))}</h2>
+      </div>
+    </div>
+    <p class="language-picker-intro">${escapeHtml(t('languageSelector.prompt'))}</p>
+    <div class="language-picker-options" role="listbox" aria-label="${escapeHtml(t('languageSelector.choose'))}">
+      ${options.map(option => {
+        const active = option.code === currentCode;
+        return `<button type="button" class="language-picker-option ${active ? 'selected' : ''}" data-language-code="${escapeHtml(option.code)}" role="option" aria-selected="${active}">
+          <span class="language-picker-check" aria-hidden="true">${active ? '✓' : ''}</span>
+          <span class="language-picker-name">${escapeHtml(option.nativeName)}</span>
+          ${option.region ? `<span class="language-picker-region">${escapeHtml(option.region)}</span>` : ''}
+        </button>`;
+      }).join('')}
+    </div>
+  </section>`;
+  document.body.appendChild(overlay);
+
+  overlay.querySelector('[data-language-picker-close]')?.addEventListener('click', closeLanguagePicker);
+  overlay.addEventListener('click', event => { if (event.target === overlay) closeLanguagePicker(); });
+  overlay.querySelectorAll('[data-language-code]').forEach(button => {
+    button.addEventListener('click', () => {
+      const code = button.dataset.languageCode;
+      if (!languageOptions().some(option => option.code === code)) return;
+      localStorage.setItem(LANGUAGE_KEY, code);
+      window.location.reload();
+    });
+  });
+}
+
+function applyStaticTranslations(root = document) {
+  document.documentElement.lang = uiValue('app.language', 'en');
+  root.querySelectorAll?.('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
+  root.querySelectorAll?.('[data-i18n-aria-label]').forEach(el => { el.setAttribute('aria-label', t(el.dataset.i18nAriaLabel)); });
+  root.querySelectorAll?.('[data-i18n-title]').forEach(el => { el.setAttribute('title', t(el.dataset.i18nTitle)); });
+  root.querySelectorAll?.('[data-i18n-content]').forEach(el => { el.setAttribute('content', t(el.dataset.i18nContent)); });
+}
+
+function moduleName(item) {
+  if (!item?.id) return '';
+  const parent = MODULES.find(group => (group.modules || []).some(child => child.id === item.id));
+  return parent
+    ? t(`modules.${parent.id}.children.${item.id}.name`)
+    : t(`modules.${item.id}.name`);
+}
+function moduleDetail(item) {
+  if (!item?.id) return '';
+  const parent = MODULES.find(group => (group.modules || []).some(child => child.id === item.id));
+  return parent
+    ? t(`modules.${parent.id}.children.${item.id}.detail`)
+    : t(`modules.${item.id}.detail`);
+}
+function localizedColorName(color) {
+  return t(`setup.colors.${color}`);
+}
+function localizedColorPlayer(color) {
+  return t('setup.colorPlayer', { color: localizedColorName(color) });
+}
+
+function storyTrackTitle(space) { return space?.id ? t(`story.track.${space.id}.title`) : ''; }
+function storyTrackText(space) { return space?.id ? t(`story.track.${space.id}.screenText`) : ''; }
+function diceTypeLabel(typeKey) { return t(`assist.dice.types.${typeKey}.label`); }
+function diceFaceLabel(typeKey, face) { return t(`assist.dice.types.${typeKey}.faces.${face}`); }
+function fightCardAbilityText(rank) { return t(`assist.fight.cardAbilities.${rank}`); }
+function newspaperMoodBank(key) { return uiValue(`newspaper.moods.${key}`, uiValue('newspaper.moods.opportunity', {})); }
+
 const STORY_FREQUENCY_OPTIONS = [
-  { value: 'rare', label: 'Rare' },
-  { value: 'standard', label: 'Standard' },
-  { value: 'frequent', label: 'Frequent' }
+  { value: 'rare' },
+  { value: 'standard' },
+  { value: 'frequent' }
 ];
 
 function defaultStoryEventOptions() {
@@ -419,6 +542,7 @@ function defaultState() {
 
 async function init() {
   db = await loadData();
+  applyStaticTranslations();
   state = loadSave() || defaultState();
   if (state.screen === 'reference' || state.screen === 'settings') state.screen = state.gameStarted ? 'game' : 'home';
   if (state.screen === 'gameSettings') state.screen = state.gameStarted ? 'game' : 'home';
@@ -539,12 +663,23 @@ async function init() {
 }
 
 async function loadData() {
-  const entries = await Promise.all(Object.entries(DATA_FILES).map(async ([key, url]) => {
-    const response = await fetch(url);
-    if (!response.ok) throw new Error(`Unable to load ${url}`);
-    return [key, await response.json()];
-  }));
-  return Object.fromEntries(entries);
+  const language = selectedLanguageCode();
+  const uiUrl = localizedDataUrl(DATA_FILES.ui, language);
+  const uiResponse = await fetch(uiUrl);
+  if (!uiResponse.ok) throw new Error(uiUrl);
+  const ui = await uiResponse.json();
+  // Make UI copy available while the remaining data files load so any
+  // user-facing load error can already be localized.
+  db = { ...db, ui };
+  const entries = await Promise.all(Object.entries(DATA_FILES)
+    .filter(([key]) => key !== 'ui')
+    .map(async ([key, url]) => {
+      const localizedUrl = localizedDataUrl(url, language);
+      const response = await fetch(localizedUrl);
+      if (!response.ok) throw new Error(t('errors.unableLoad', { url: localizedUrl }));
+      return [key, await response.json()];
+    }));
+  return { ...Object.fromEntries(entries), ui };
 }
 
 function loadSave() {
@@ -571,17 +706,17 @@ function setActiveNav() {
     b.classList.toggle('active', !!(isScreenActive || isEndGameActive));
   });
   const drawerGameBtn = document.getElementById('drawerGameBtn');
-  if (drawerGameBtn) drawerGameBtn.textContent = state.gameStarted ? 'Resume Game' : 'New Game';
+  if (drawerGameBtn) drawerGameBtn.textContent = state.gameStarted ? t('navigation.resumeGame') : t('navigation.newGame');
   const drawerGameSettingsBtn = document.getElementById('drawerGameSettingsBtn');
   if (drawerGameSettingsBtn) {
     drawerGameSettingsBtn.disabled = false;
     drawerGameSettingsBtn.setAttribute('aria-disabled', 'false');
-    drawerGameSettingsBtn.title = state.gameStarted ? 'Change audio and current game settings' : 'Change audio settings';
+    drawerGameSettingsBtn.title = state.gameStarted ? t('settings.changeAudioGame') : t('settings.changeAudio');
   }
   document.querySelectorAll('[data-end-game]').forEach(btn => {
     btn.disabled = !state.gameStarted;
     btn.setAttribute('aria-disabled', state.gameStarted ? 'false' : 'true');
-    btn.title = state.gameStarted ? 'Wrap up the current game' : 'Start a game before ending it';
+    btn.title = state.gameStarted ? t('settings.wrapGame') : t('settings.startBeforeEnd');
   });
 }
 
@@ -606,7 +741,7 @@ function installCreditsSupportButton() {
   button.type = 'button';
   button.className = 'nav-btn credits-support-nav-btn';
   button.dataset.openCreditsSupport = 'true';
-  button.textContent = 'About';
+  button.textContent = t('navigation.about');
   drawer.appendChild(divider);
   drawer.appendChild(button);
 }
@@ -614,21 +749,21 @@ function installCreditsSupportButton() {
 function showCreditsSupportDialog() {
   const supportUrl = KOFI_SUPPORT_URL;
   currentDialogEvent = null;
-  document.getElementById('dialogType').textContent = 'Western Legends Companion';
-  document.getElementById('dialogTitle').textContent = 'About';
+  document.getElementById('dialogType').textContent = t('about.dialogType');
+  document.getElementById('dialogTitle').textContent = t('about.title');
   document.getElementById('dialogText').innerHTML = `<div class="credits-support-copy">
-    <p><strong>Frontier Director</strong> is an unofficial fan-made companion that adds dynamic events, story encounters, setup guidance, quick references, and table-side helpers to Western Legends.</p>
-    <p>Created and developed by Randy Dykstra for the Western Legends community.</p>
-    <p>If it has earned a place at your table, a small tip helps support continued development and future frontier tales.</p>
-    <p class="credits-disclaimer">Western Legends and its related expansions belong to their respective owners. This fan project is not affiliated with or endorsed by the publisher.</p>
+    <p>${t('about.intro')}</p>
+    <p>${escapeHtml(t('about.creator'))}</p>
+    <p>${escapeHtml(t('about.support'))}</p>
+    <p class="credits-disclaimer">${escapeHtml(t('about.disclaimer'))}</p>
   </div>
   <div class="about-version-section">${renderVersionBlock()}</div>
   <section class="credits-contact-block" aria-labelledby="creditsContactTitle">
-    <h3 id="creditsContactTitle">Contact &amp; Feedback</h3>
-    <p>Found a bug, have a suggestion, or spotted a rules correction? I’d be glad to hear from you.</p>
+    <h3 id="creditsContactTitle">${escapeHtml(t('about.contactTitle'))}</h3>
+    <p>${escapeHtml(t('about.contactCopy'))}</p>
     <div class="credits-contact-links">
-      <a href="${escapeHtml(BGG_PROFILE_URL)}" target="_blank" rel="noopener noreferrer"><span>BoardGameGeek</span><strong>${escapeHtml(BGG_USERNAME)}</strong></a>
-      <a href="mailto:${escapeHtml(CONTACT_EMAIL)}"><span>Email</span><strong>${escapeHtml(CONTACT_EMAIL)}</strong></a>
+      <a href="${escapeHtml(BGG_PROFILE_URL)}" target="_blank" rel="noopener noreferrer"><span>${escapeHtml(t('about.boardGameGeek'))}</span><strong>${escapeHtml(BGG_USERNAME)}</strong></a>
+      <a href="mailto:${escapeHtml(CONTACT_EMAIL)}"><span>${escapeHtml(t('about.email'))}</span><strong>${escapeHtml(CONTACT_EMAIL)}</strong></a>
     </div>
   </section>`;
   const reward = document.getElementById('dialogReward');
@@ -641,7 +776,7 @@ function showCreditsSupportDialog() {
   const supportBtn = document.createElement('button');
   supportBtn.type = 'button';
   supportBtn.className = 'primary-btn support-project-btn';
-  supportBtn.textContent = 'Support This Project';
+  supportBtn.textContent = t('about.supportButton');
   supportBtn.onclick = () => window.open(supportUrl, '_blank', 'noopener,noreferrer');
   wrap.appendChild(supportBtn);
   wireVersionBlock();
@@ -806,10 +941,10 @@ function ensurePlayerTrackState(color) {
 }
 
 const STORY_TRACK_SPACES = [
-  { id: 'start', title: 'Start' },
-  { id: 'sheriff', title: 'Move the Sheriff', screenText: 'Move the Sheriff up to 3 spaces.' },
-  { id: 'bandits', title: 'Spawn Bandits', screenText: 'Spawn Bandits at Hideout A, B, or C.' },
-  { id: 'choose', title: 'Choose a Point', screenText: 'Gain 1 LP, WP, MP, or GP.' }
+  { id: 'start' },
+  { id: 'sheriff' },
+  { id: 'bandits' },
+  { id: 'choose' }
 ];
 
 function gainStoryPoint(color, onDone) {
@@ -843,16 +978,16 @@ function storyTrackNoticeMarkup() {
   const space = STORY_TRACK_SPACES.find(item => item.id === spaceId);
   if (!space || space.id === 'start') return '';
   const player = (state.setup.playerDetails || []).find(p => p.color === color);
-  const displayName = player?.name?.trim() || player?.character?.trim() || `${color.charAt(0).toUpperCase()}${color.slice(1)} Player`;
+  const displayName = player?.name?.trim() || player?.character?.trim() || localizedColorPlayer(color);
   const dotClass = PLAYER_COLORS.includes(color) ? `swatch-${color}` : 'swatch-none';
-  return `<div class="story-track-area-reminder" role="status" aria-live="polite" tabindex="0" data-dismiss-story-track-reminder title="Tap to dismiss">
+  return `<div class="story-track-area-reminder" role="status" aria-live="polite" tabindex="0" data-dismiss-story-track-reminder title="${t('strings.tap_to_dismiss')}">
     <div class="story-track-reminder-heading">
       <span class="player-color-swatch story-track-reminder-dot ${dotClass}" aria-hidden="true"></span>
       <strong>${escapeHtml(displayName)}</strong>
-      <span class="story-track-reminder-label">Story Point</span>
-      <label class="story-track-reminder-never" title="Hide future Story Point reminder messages"><input type="checkbox" data-story-track-never> Do not show again</label>
+      <span class="story-track-reminder-label">${t('strings.story_point')}</span>
+      <label class="story-track-reminder-never" title="${t('strings.hide_future_story_point_reminder_messages')}"><input type="checkbox" data-story-track-never> ${t('strings.do_not_show_again')}</label>
     </div>
-    <div class="story-track-reminder-message"><strong>${escapeHtml(space.title)}:</strong> ${escapeHtml(space.screenText || '')}</div>
+    <div class="story-track-reminder-message"><strong>${escapeHtml(storyTrackTitle(space))}:</strong> ${escapeHtml(storyTrackText(space))}</div>
   </div>`;
 }
 
@@ -872,13 +1007,13 @@ function activePlayerStoryAlertColors() {
 function storyTrackMarkersMarkup() {
   const colors = (state.setup.playerColors || []).filter(Boolean);
   const alertColors = activePlayerStoryAlertColors();
-  return `<div class="story-track-strip" aria-label="Story Point track per player">${colors.map(color => {
+  return `<div class="story-track-strip" aria-label="${t('strings.story_point_track_per_player')}">${colors.map(color => {
     ensurePlayerTrackState(color);
     const position = state.storyTrack[color] || 0;
     const space = STORY_TRACK_SPACES[position];
     const hasAlert = alertColors.has(color);
-    const alertLabel = hasAlert ? ' — unresolved story chapter' : '';
-    return `<button type="button" class="player-color-swatch story-track-chip swatch-${color}${hasAlert ? ' has-story-alert' : ''}" data-story-track-color="${color}" title="${escapeHtml(playerLabel(color))} — ${escapeHtml(space.title)} (tap to add a Story Point)${alertLabel}">
+    const alertLabel = hasAlert ? t('strings.unresolved_story_chapter') : '';
+    return `<button type="button" class="player-color-swatch story-track-chip swatch-${color}${hasAlert ? ' has-story-alert' : ''}" data-story-track-color="${color}" title="${escapeHtml(t('story.markerTitle', { player: playerLabel(color), space: storyTrackTitle(space), alert: alertLabel }))}">
       <span class="story-track-chip-number">${position + 1}</span>
       ${hasAlert ? '<span class="player-story-alert-badge" aria-hidden="true">!</span>' : ''}
     </button>`;
@@ -889,9 +1024,9 @@ function playerStoryAlertsOnlyMarkup() {
   const alertColors = activePlayerStoryAlertColors();
   const colors = (state.setup.playerColors || []).filter(color => alertColors.has(color));
   if (!colors.length) return '';
-  return `<div class="story-track-strip player-story-alert-strip" aria-label="Players with unresolved story chapters">${colors.map(color => {
+  return `<div class="story-track-strip player-story-alert-strip" aria-label="${t('strings.players_with_unresolved_story_chapters')}">${colors.map(color => {
     const name = playerNameOnly(color);
-    return `<button type="button" class="player-color-swatch player-story-alert-only swatch-${color}" data-player-story-alert="${color}" title="${escapeHtml(name)} has an unresolved story chapter" aria-label="${escapeHtml(name)} has an unresolved story chapter. Tap to view it."><span>!</span></button>`;
+    return `<button type="button" class="player-color-swatch player-story-alert-only swatch-${color}" data-player-story-alert="${color}" title="${escapeHtml(t('story.alertTitle', { player: name }))}" aria-label="${escapeHtml(t('story.alertAria', { player: name }))}"><span>!</span></button>`;
   }).join('')}</div>`;
 }
 
@@ -1191,7 +1326,7 @@ function updateStartGameDisabled() {
   if (!btn) return;
   const everyPlayerHasColor = state.setup.playerDetails.length > 0 && state.setup.playerDetails.every(p => !!p.color);
   btn.disabled = !everyPlayerHasColor;
-  btn.title = everyPlayerHasColor ? '' : 'Assign a color to every player before starting.';
+  btn.title = everyPlayerHasColor ? '' : t('strings.assign_a_color_to_every_player_before_starting');
 }
 
 function isSetupReadyToStart() {
@@ -1264,26 +1399,23 @@ function renderPlayerSetupRows() {
     const characterOptions = [''].concat(availableCharacters.filter(name => !selectedOthers.has(name) || name === player.character));
     const canRemove = state.setup.playerDetails.length > 1;
     return `<div class="player-setup-row">
-      <button type="button" class="player-color-swatch ${colorClass}" data-cycle-player-color="${index}" onclick="cyclePlayerColor(${index})" title="Tap to cycle color" aria-label="Cycle Player ${index + 1} color"></button>
-      <input id="playerName_${index}" class="player-setup-input" value="${escapeHtml(player.name || '')}" placeholder="Name" autocomplete="off" aria-label="Player ${index + 1} name">
-      <select id="playerCharacter_${index}" class="player-setup-input player-character-select" aria-label="Player ${index + 1} character">
-        ${characterOptions.map(name => `<option value="${escapeHtml(name)}" ${player.character === name ? 'selected' : ''}>${name ? escapeHtml(name) : 'Character'}</option>`).join('')}
+      <button type="button" class="player-color-swatch ${colorClass}" data-cycle-player-color="${index}" onclick="cyclePlayerColor(${index})" title="${t('strings.tap_to_cycle_color')}" aria-label="${escapeHtml(t('setup.cyclePlayerColor', { number: index + 1 }))}"></button>
+      <input id="playerName_${index}" class="player-setup-input" value="${escapeHtml(player.name || '')}" placeholder="${t('strings.name')}" autocomplete="off" aria-label="${escapeHtml(t('setup.playerNameAria', { number: index + 1 }))}">
+      <select id="playerCharacter_${index}" class="player-setup-input player-character-select" aria-label="${escapeHtml(t('setup.playerCharacterAria', { number: index + 1 }))}">
+        ${characterOptions.map(name => `<option value="${escapeHtml(name)}" ${player.character === name ? 'selected' : ''}>${name ? escapeHtml(name) : escapeHtml(t('setup.character'))}</option>`).join('')}
       </select>
-      <button type="button" class="player-remove-btn" data-remove-player="${index}" ${canRemove ? '' : 'disabled'} aria-label="Remove Player ${index + 1}">${TRASH_ICON_SVG}</button>
+      <button type="button" class="player-remove-btn" data-remove-player="${index}" ${canRemove ? '' : 'disabled'} aria-label="${escapeHtml(t('setup.removePlayer', { number: index + 1 }))}">${TRASH_ICON_SVG}</button>
     </div>`;
   }).join('');
-  const manInBlackRow = hasModule('wild_bunch_man_in_black') ? `<div class="player-setup-row man-in-black-setup-row" aria-label="Man In Black automated player">
-    <span class="player-color-swatch swatch-man-in-black" aria-hidden="true"></span>
-    <strong class="man-in-black-setup-label">Man In Black</strong>
-  </div>` : '';
-  const goalsNote = hasModule('base_goals') ? `<p class="player-goals-note"><strong>Goals:</strong> after choosing each character, take that character's 4 Goal cards.</p>` : '';
-  const addButton = state.setup.playerDetails.length < 6 ? `<button type="button" class="secondary-btn add-player-btn" id="addPlayerBtn">Add Player</button>` : '';
+  const manInBlackRow = hasModule('wild_bunch_man_in_black') ? t('strings.man_in_black_2') : '';
+  const goalsNote = hasModule('base_goals') ? t('strings.goals_after_choosing_each_character_take_that_character_s_4_goal_cards') : '';
+  const addButton = state.setup.playerDetails.length < 6 ? t('strings.add_player') : '';
   return rows + manInBlackRow + addButton + goalsNote;
 }
 
 function playerLabel(color) {
   const player = (state.setup.playerDetails || []).find(p => p.color === color);
-  return player?.name ? `${player.name} (${color})` : `${color} player`;
+  return player?.name ? t('setup.playerWithColor', { name: player.name, color: localizedColorName(color) }) : localizedColorPlayer(color);
 }
 
 function moduleChildIds(group) {
@@ -1488,7 +1620,7 @@ function refillTriggers() {
 function startGameFromSetup() {
   updateSetupFromUI(false);
   if (!isSetupReadyToStart()) {
-    alert('Assign a color to every player before starting.');
+    alert(t('setup.assignColors'));
     updateStartGameDisabled();
     return;
   }
@@ -1695,7 +1827,7 @@ function deliverArcEvent(event, triggeringColor) {
   // Shared and personal chapters are owned by the player who triggered that
   // chapter. Global storyline chapters remain table-wide.
   if (scope !== 'global' && !triggeringColor) {
-    promptForPlayerColor('Who Triggered This Chapter?', event.title || 'Story Arc', 'Choose the player who encountered this chapter.', color => {
+    promptForPlayerColor(t('events.whoTriggeredChapter'), event.title || t('events.storyArc'), t('events.chooseChapterPlayer'), color => {
       handleCreatedEvent(prepareArcEventForPlayer(event, color), 'characterArc', color);
       save();
     });
@@ -1973,7 +2105,7 @@ function promptResolveStory(storyId) {
   const story = state.activeStories.find(s => s.id === storyId);
   if (!story) return;
   if (activeStoryScope(story) === 'global' && isStoryTrackEnabled()) {
-    promptForPlayerColor('Who Resolved This?', story.title, 'Any player may resolve this story. Tap the player who completed it.', color => resolveStory(storyId, color));
+    promptForPlayerColor(t('events.whoResolved'), story.title, t('events.anyResolve'), color => resolveStory(storyId, color));
     return;
   }
   resolveStory(storyId, story.assignedColor || null);
@@ -2087,13 +2219,13 @@ function promptForPlayerColor(dialogTypeLabel, titleText, subText, onChosen) {
 function promptTriggerColor(triggerId) {
   const trigger = state.activeTriggers.find(t => t.id === triggerId);
   if (!trigger) return;
-  promptForPlayerColor('Who Triggered This?', trigger.label, 'Tap the player who just did this.', color => tapPrimaryTrigger(triggerId, color));
+  promptForPlayerColor(t('events.whoTriggered'), trigger.label, t('events.tapTriggerPlayer'), color => tapPrimaryTrigger(triggerId, color));
 }
 
 function promptResolveWorldEvent(eventId) {
   const event = state.activeWorldEvents.find(w => w.id === eventId);
   if (!event) return;
-  promptForPlayerColor('Who Resolved This?', event.title, 'Tap the player who resolved this.', color => resolveWorldEvent(eventId, color));
+  promptForPlayerColor(t('events.whoResolved'), event.title, t('events.tapResolvedPlayer'), color => resolveWorldEvent(eventId, color));
 }
 
 function resolveWorldEvent(eventId, color) {
@@ -2116,7 +2248,7 @@ function normalizeEventCopyForComparison(value = '') {
     .replace(/<[^>]*>/g, ' ')
     .replace(/&[a-z0-9#]+;/gi, ' ')
     .toLowerCase()
-    .replace(/\+/g, ' plus ')
+    .replace(/\+/g, t('strings.plus'))
     .replace(/\$/g, ' ')
     .replace(/[^a-z0-9]+/g, ' ')
     .trim()
@@ -2148,14 +2280,14 @@ function eventDialogCalloutHtml(event) {
   // `calloutText` is an escape hatch for authored content that genuinely adds
   // a second piece of information. It is intentionally never auto-generated.
   if (event?.calloutText && !eventCopyAlreadyCovers(mainText, event.calloutText)) {
-    const label = escapeHtml(event.calloutLabel || 'Effect');
+    const label = escapeHtml(event.calloutLabel || t('dialogs.effect'));
     parts.push(`<strong>${label}:</strong> ${escapeHtml(event.calloutText)}`);
   }
 
   // Rewards are only separated into the callout when the main instruction did
   // not already tell the player about that reward.
   if (event?.rewardText && !eventCopyAlreadyCovers(mainText, event.rewardText)) {
-    parts.push(`<strong>Reward:</strong> ${escapeHtml(event.rewardText)}`);
+    parts.push(`<strong>${t('strings.reward')}</strong> ${escapeHtml(event.rewardText)}`);
   }
 
   const effects = (event?.effects || []).filter(e => e?.type !== 'duration_primary_triggers');
@@ -2173,7 +2305,7 @@ function eventDialogCalloutHtml(event) {
         .map(e => e?.displayText || e?.calloutText || '')
         .filter(text => text && !eventCopyAlreadyCovers(mainText, text));
       if (authoredEffects.length) {
-        parts.push(`<strong>Effect:</strong><ul>${authoredEffects.map(text => `<li>${escapeHtml(text)}</li>`).join('')}</ul>`);
+        parts.push(`<strong>${t('strings.effect')}</strong><ul>${authoredEffects.map(text => `<li>${escapeHtml(text)}</li>`).join('')}</ul>`);
       }
     }
   }
@@ -2184,9 +2316,9 @@ function eventDialogCalloutHtml(event) {
 function showEventDialog(event) {
   dialog.classList.remove('player-color-prompt-dialog');
   currentDialogEvent = event;
-  document.getElementById('dialogType').textContent = event._deliveryType === 'worldEvent' ? 'World Event' : event.arcTitle || 'Frontier Event';
-  document.getElementById('dialogTitle').textContent = event.title || 'Frontier Event';
-  document.getElementById('dialogText').textContent = event.screenText || 'Resolve the event as instructed.';
+  document.getElementById('dialogType').textContent = event._deliveryType === 'worldEvent' ? t('dialogs.worldEvent') : event.arcTitle || t('dialogs.frontierEvent');
+  document.getElementById('dialogTitle').textContent = event.title || t('dialogs.frontierEvent');
+  document.getElementById('dialogText').textContent = event.screenText || t('dialogs.resolveAsInstructed');
   const reward = document.getElementById('dialogReward');
   reward.innerHTML = eventDialogCalloutHtml(event);
   reward.classList.toggle('hidden', !reward.innerHTML.trim());
@@ -2212,7 +2344,7 @@ function showEventDialog(event) {
 function renderDialogButtons(event) {
   const wrap = document.getElementById('dialogButtons');
   wrap.innerHTML = '';
-  const buttons = event.resultButtons?.length ? event.resultButtons : [{ label: 'Dismiss' }];
+  const buttons = event.resultButtons?.length ? event.resultButtons : [{ label: t('dialogs.dismiss') }];
   buttons.forEach(b => {
     const btn = document.createElement('button');
     btn.type = 'button'; btn.className = 'primary-btn'; btn.textContent = typeof b === 'string' ? b : b.label;
@@ -2235,33 +2367,41 @@ function renderEffects(effects) {
   // the narrative dialog; keep the effect in state so expiration still works.
   const visibleEffects = (effects || []).filter(e => e?.type !== 'duration_primary_triggers');
   if (!visibleEffects.length) return '';
-  return '<strong>Effect:</strong><ul>' + visibleEffects.map(e => `<li>${effectToText(e)}</li>`).join('') + '</ul>';
+  return t('strings.effect_2') + visibleEffects.map(e => `<li>${effectToText(e)}</li>`).join('') + '</ul>';
 }
 function effectToText(e) {
+  const count = Number(e?.count || 1);
+  const amount = Number(e?.amount ?? 0);
+  const useValue = e?.use ? uiValue(`events.effects.useValues.${e.use}`, String(e.use)) : '';
+  const useSuffix = useValue ? t('events.effects.useSuffix', { use: useValue }) : '';
   const map = {
-    spawn_bandits_current_space: `Place ${e.count || 1} Bandit(s) in the current space.`,
-    simultaneous_npc_fight: `Fight ${e.count || 1} ${e.npc || 'NPC'}(s) simultaneously.`,
-    prospecting_bonus_die: `Roll ${e.count || 1} additional Prospecting Die.`,
-    addWorldTag: `World tag: ${e.tag}`,
-    duration_primary_triggers: `Lasts ${e.count} primary triggers.`,
-    start_world_event: `Starts the "${e.eventId}" world event.`,
-    if_same_color: `Different outcome if the same player is involved again.`,
-    gain_story_point: `The triggering player gains 1 Story Point.`,
-    gainPlayerCounter: `The triggering player gains 1 ${e.counter || 'point'}.`,
-    reset_story_track: `Returns the Story Point marker to Start.`,
-    gain_money: `Gain $${e.amount || 0}.`,
-    draw_poker: `Draw ${e.count || 1} Poker Card${(e.count || 1) === 1 ? '' : 's'}.`,
-    gain_wound: `Gain ${e.count || 1} wound${(e.count || 1) === 1 ? '' : 's'}.`,
-    gain_lp: `Gain ${e.amount || 1} LP.`,
-    gain_legendary_token: `Gain ${e.count || 1} Legendary Token${(e.count || 1) === 1 ? '' : 's'}.`,
-    npc_draws: `NPC draws ${e.cards || 1} Fight Card${(e.cards || 1) === 1 ? '' : 's'}${e.use ? `; use ${e.use}` : ''}.`,
-    choice: `Choose one of the listed outcomes.`,
-    choose_one: `Choose one of the listed outcomes.`
+    spawn_bandits_current_space: () => t('events.effects.spawnBandits', { count }),
+    simultaneous_npc_fight: () => t('events.effects.simultaneousNpcFight', { count, npc: e.npc ? uiValue(`events.effects.npcNames.${e.npc}`, String(e.npc)) : t('assist.fight.groups.npc') }),
+    prospecting_bonus_die: () => t('events.effects.prospectingBonusDie', { count }),
+    addWorldTag: () => t('events.effects.worldTag', { tag: e.tag || '' }),
+    duration_primary_triggers: () => t('events.effects.duration', { count: e.count ?? '' }),
+    start_world_event: () => t('events.effects.startWorldEvent', { eventId: e.eventId || '' }),
+    if_same_color: () => t('events.effects.sameColor'),
+    gain_story_point: () => t('events.effects.gainStoryPoint'),
+    gainPlayerCounter: () => t('events.effects.gainPlayerCounter', { counter: e.counter ? uiValue(`events.effects.counterNames.${e.counter}`, String(e.counter)) : t('events.effects.point') }),
+    reset_story_track: () => t('events.effects.resetStoryTrack'),
+    gain_money: () => t('events.effects.gainMoney', { amount }),
+    draw_poker: () => tp('events.effects.drawPoker', count, { count }),
+    gain_wound: () => tp('events.effects.gainWound', count, { count }),
+    gain_lp: () => t('events.effects.gainLP', { amount: e.amount || 1 }),
+    gain_legendary_token: () => tp('events.effects.gainLegendaryToken', count, { count }),
+    npc_draws: () => tp('events.effects.npcDraws', Number(e.cards || 1), { count: Number(e.cards || 1), use: useSuffix }),
+    choice: () => t('events.effects.chooseOne'),
+    choose_one: () => t('events.effects.chooseOne')
   };
-  return e?.displayText || e?.calloutText || map[e.type] || e.type?.replaceAll('_', ' ') || 'Resolve listed effect';
+  const mapped = map[e?.type];
+  return e?.displayText || e?.calloutText || (mapped ? mapped() : t('events.resolveListedEffect'));
 }
 
 function render() {
+  const homeLanguageSlot = document.getElementById('homeLanguageSelectorSlot');
+  if (homeLanguageSlot && state?.screen !== 'home') homeLanguageSlot.innerHTML = '';
+  document.body.classList.toggle('home-screen', state.screen === 'home');
   setActiveNav();
   refillTriggers();
   if (state.screen === 'home') return renderHome();
@@ -2281,15 +2421,15 @@ function renderHome() {
   const enabledStoryTypes = ['oneOff', 'arcs', 'world'].filter(key => storyEventsEnabled(key));
   const storySummary = enabledStoryTypes.length === 3 &&
     enabledStoryTypes.every(key => storyEventFrequency(key) === 'standard')
-      ? 'Standard Stories'
+      ? t('home.standardStories')
       : enabledStoryTypes.length === 0
-        ? 'Stories Off'
-        : 'Custom Stories';
+        ? t('home.storiesOff')
+        : t('home.customStories');
   const storyCount = Array.isArray(state.activeStories) ? state.activeStories.length : 0;
   const worldCount = Array.isArray(state.activeWorldEvents) ? state.activeWorldEvents.length : 0;
 
   const playerChips = players.map((player, index) => {
-    const name = player?.name?.trim() || player?.character?.trim() || `Player ${index + 1}`;
+    const name = player?.name?.trim() || player?.character?.trim() || t('setup.playerNumber', { number: index + 1 });
     const color = PLAYER_COLORS.includes(player?.color) ? player.color : 'none';
     const character = player?.character?.trim();
     const title = character && character !== name ? `${name} — ${character}` : name;
@@ -2297,9 +2437,21 @@ function renderHome() {
   }).join('');
 
   const activityParts = [];
-  if (storyCount) activityParts.push(`${storyCount} active stor${storyCount === 1 ? 'y' : 'ies'}`);
-  if (worldCount) activityParts.push(`${worldCount} world effect${worldCount === 1 ? '' : 's'}`);
-  const activityText = activityParts.length ? activityParts.join(' · ') : 'The frontier is quiet... for now.';
+  if (storyCount) activityParts.push(tp('home.activeStories', storyCount, { count: storyCount }));
+  if (worldCount) activityParts.push(tp('home.worldEffects', worldCount, { count: worldCount }));
+  const activityText = activityParts.length ? activityParts.join(' · ') : t('home.quiet');
+
+  const showHomeLanguageSelector = !hasExplicitLanguageSelection();
+  const languageName = currentLanguageName();
+
+  const homeLanguageSlot = document.getElementById('homeLanguageSelectorSlot');
+  if (homeLanguageSlot) {
+    homeLanguageSlot.innerHTML = showHomeLanguageSelector ? `<button type="button" class="language-selector-button home-language-selector" id="homeLanguageSelector" aria-label="${escapeHtml(t('languageSelector.selectAria', { language: languageName }))}">
+      <span class="language-selector-globe" aria-hidden="true">${LANGUAGE_GLOBE_SVG}</span>
+      <span class="language-selector-name">${escapeHtml(languageName)}</span>
+      <span class="language-selector-chevron" aria-hidden="true">▼</span>
+    </button>` : '';
+  }
 
   app.innerHTML = `<section class="hero home-hero ${isActiveGame ? 'has-active-game' : 'no-active-game'}">
     <div class="home-launcher">
@@ -2307,41 +2459,30 @@ function renderHome() {
         <div class="home-divider" aria-hidden="true"><span>★</span></div>
 
         ${isActiveGame ? `
-          <p class="home-kicker">The Trail Continues</p>
-          ${playerChips ? `<div class="home-player-chips" aria-label="Players in the current game">${playerChips}</div>` : ''}
-          <div class="home-game-facts" aria-label="Current game summary">
-            <span>${playerCount} Player${playerCount === 1 ? '' : 's'}</span>
-            <span>${targetLP} LP</span>
+          <p class="home-kicker">${t('strings.the_trail_continues')}</p>
+          ${playerChips ? `<div class="home-player-chips" aria-label="${t('strings.players_in_the_current_game')}">${playerChips}</div>` : ''}
+          <div class="home-game-facts" aria-label="${t('strings.current_game_summary')}">
+            <span>${escapeHtml(tp('home.playerCount', playerCount, { count: playerCount }))}</span>
+            <span>${targetLP} ${t('strings.lp')}</span>
             <span>${escapeHtml(storySummary)}</span>
           </div>
           <p class="home-context-line"><span aria-hidden="true">✦</span>${escapeHtml(activityText)}</p>
           <button class="primary-btn home-major-btn home-leather-btn home-leather-btn-primary" id="resumeBtn">
             <span class="home-btn-mark" aria-hidden="true">◆</span>
-            <span class="home-btn-label">Continue Game</span>
+            <span class="home-btn-label">${t('strings.continue_game')}</span>
             <span class="home-btn-arrow" aria-hidden="true">›</span>
-          </button>` : `
-          <p class="home-kicker">Your Legend Awaits</p>
-          <p class="home-subtitle">Gather your posse and make your mark on the frontier.</p>`}
+          </button>` : t('strings.your_legend_awaits_gather_your_posse_and_make_your_mark_on_the_frontie')}
       </div>
 
       <div class="actions home-actions">
-        ${isActiveGame ? `
-          <button class="secondary-btn home-major-btn home-leather-btn home-leather-btn-secondary" id="newGameBtn">
-            <span class="home-btn-mark" aria-hidden="true">◇</span>
-            <span class="home-btn-label">Start New Game</span>
-            <span class="home-btn-arrow" aria-hidden="true">›</span>
-          </button>` : `
-          <button class="primary-btn home-major-btn home-leather-btn home-leather-btn-primary" id="newGameBtn">
-            <span class="home-btn-mark" aria-hidden="true">◆</span>
-            <span class="home-btn-label">Start New Game</span>
-            <span class="home-btn-arrow" aria-hidden="true">›</span>
-          </button>`}
+        ${isActiveGame ? t('strings.start_new_game') : t('strings.start_new_game_2')}
       </div>
     </div>
   </section>`;
 
   document.getElementById('newGameBtn')?.addEventListener('click', () => navigate('setup'));
   document.getElementById('resumeBtn')?.addEventListener('click', () => navigate('game'));
+  document.getElementById('homeLanguageSelector')?.addEventListener('click', openLanguagePicker);
 }
 
 function renderStoryEventSetting(key, title, description) {
@@ -2349,12 +2490,12 @@ function renderStoryEventSetting(key, title, description) {
   const cfg = state.setup.storyOptions[key];
   return `<div class="story-event-setting ${cfg.enabled ? '' : 'disabled'}" data-story-setting="${key}" title="${escapeHtml(description)}">
     <strong class="story-event-setting-title">${escapeHtml(title)}</strong>
-    <label class="mini-switch" aria-label="${escapeHtml(title)} enabled">
+    <label class="mini-switch" aria-label="${escapeHtml(t('story.settingEnabled', { title }))}">
       <input type="checkbox" id="storyEnabled_${key}" ${cfg.enabled ? 'checked' : ''}>
       <span></span>
     </label>
-    <select class="story-frequency-select" data-story-frequency-select="${key}" aria-label="${escapeHtml(title)} frequency" ${cfg.enabled ? '' : 'disabled'}>
-      ${STORY_FREQUENCY_OPTIONS.map(option => `<option value="${option.value}" ${cfg.frequency === option.value ? 'selected' : ''}>${option.label}</option>`).join('')}
+    <select class="story-frequency-select" data-story-frequency-select="${key}" aria-label="${escapeHtml(t('story.settingFrequency', { title }))}" ${cfg.enabled ? '' : 'disabled'}>
+      ${STORY_FREQUENCY_OPTIONS.map(option => `<option value="${option.value}" ${cfg.frequency === option.value ? 'selected' : ''}>${escapeHtml(t(`story.frequency.${option.value}`))}</option>`).join('')}
     </select>
   </div>`;
 }
@@ -2367,17 +2508,17 @@ function renderSetup() {
   const currentSetupPanel = state.setup.setupPanel || 'modules';
   app.innerHTML = `<div class="modal-screen-overlay" data-modal-backdrop>
     <section class="panel modal-screen-card setup-card">
-      <button type="button" class="dialog-close-x" data-modal-close aria-label="Close">&#10005;</button>
+      <button type="button" class="dialog-close-x" data-modal-close aria-label="${t('strings.close')}">&#10005;</button>
 
       <div class="setup-header">
         <div class="modal-title-header setup-title-block">
-          <p class="eyebrow">Game Setup</p>
-          <h1 class="section-title setup-title">New Game</h1>
+          <p class="eyebrow">${t('strings.game_setup')}</p>
+          <h1 class="section-title setup-title">${t('strings.new_game')}</h1>
         </div>
-        <div class="setup-trail" role="tablist" aria-label="Setup steps">
-          <button type="button" class="trail-stop ${currentSetupPanel === 'modules' ? 'active' : ''}" data-panel="modules" role="tab" aria-selected="${currentSetupPanel === 'modules' ? 'true' : 'false'}"><span class="badge">1</span><span class="trail-label">Modules</span></button>
-          <button type="button" class="trail-stop ${currentSetupPanel === 'basics' ? 'active' : ''}" data-panel="basics" role="tab" aria-selected="${currentSetupPanel === 'basics' ? 'true' : 'false'}"><span class="badge">2</span><span class="trail-label">Basics</span></button>
-          <button type="button" class="trail-stop ${currentSetupPanel === 'setup' ? 'active' : ''}" data-panel="setup" role="tab" aria-selected="${currentSetupPanel === 'setup' ? 'true' : 'false'}"><span class="badge">3</span><span class="trail-label">Setup</span></button>
+        <div class="setup-trail" role="tablist" aria-label="${t('strings.setup_steps')}">
+          <button type="button" class="trail-stop ${currentSetupPanel === 'modules' ? 'active' : ''}" data-panel="modules" role="tab" aria-selected="${currentSetupPanel === 'modules' ? 'true' : 'false'}"><span class="badge">1</span><span class="trail-label">${t('strings.modules')}</span></button>
+          <button type="button" class="trail-stop ${currentSetupPanel === 'basics' ? 'active' : ''}" data-panel="basics" role="tab" aria-selected="${currentSetupPanel === 'basics' ? 'true' : 'false'}"><span class="badge">2</span><span class="trail-label">${t('strings.basics')}</span></button>
+          <button type="button" class="trail-stop ${currentSetupPanel === 'setup' ? 'active' : ''}" data-panel="setup" role="tab" aria-selected="${currentSetupPanel === 'setup' ? 'true' : 'false'}"><span class="badge">3</span><span class="trail-label">${t('strings.setup')}</span></button>
         </div>
       </div>
 
@@ -2388,7 +2529,7 @@ function renderSetup() {
           <div class="dialog-actions setup-panel-actions">
             <button class="primary-btn home-major-btn home-leather-btn home-leather-btn-primary setup-next-btn" type="button" data-setup-next="basics">
               <span class="home-btn-mark" aria-hidden="true">◆</span>
-              <span class="home-btn-label">Next</span>
+              <span class="home-btn-label">${t('strings.next')}</span>
               <span class="home-btn-arrow" aria-hidden="true">›</span>
             </button>
           </div>
@@ -2398,34 +2539,34 @@ function renderSetup() {
           <details class="options-card" open>
             <summary class="options-card-head">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 6.9H22l-5.8 4.2 2.2 7-6.4-4.4L5.6 20l2.2-7L2 8.9h7.6z"/></svg>
-              <span class="options-card-title">Victory Conditions</span>
-              <span class="options-card-caret">⌄</span>
+              <span class="options-card-title">${t('strings.victory_conditions')}</span>
+              <span class="options-card-caret" aria-hidden="true"></span>
             </summary>
             <div class="options-card-body">
               <div class="lp-row">
-                <button type="button" class="lp-step-btn" id="lpMinus" aria-label="Decrease target LP">−</button>
+                <button type="button" class="lp-step-btn" id="lpMinus" aria-label="${t('strings.decrease_target_lp')}">−</button>
                 <span id="targetLPValue" class="target-lp-value" data-value="${state.setup.targetLP}">${state.setup.targetLP}</span>
-                <button type="button" class="lp-step-btn" id="lpPlus" aria-label="Increase target LP">+</button>
+                <button type="button" class="lp-step-btn" id="lpPlus" aria-label="${t('strings.increase_target_lp')}">+</button>
               </div>
-              <p class="lp-caption">Target Legend Points to win the game</p>
+              <p class="lp-caption">${t('strings.target_legend_points_to_win_the_game')}</p>
             </div>
           </details>
 
           <details class="options-card story-events-options" open>
             <summary class="options-card-head">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5v13z"/></svg>
-              <span class="options-card-title">Story &amp; Events</span>
-              <span class="options-card-caret">⌄</span>
+              <span class="options-card-title">${t('strings.story_amp_events')}</span>
+              <span class="options-card-caret" aria-hidden="true"></span>
             </summary>
             <div class="options-card-body">
               <label class="toggle-row check-row story-track-setting">
-                <div class="toggle-text"><span class="t-title">Track Story Points</span><span class="t-sub">Track each player's Story Track and show compact reward reminders.</span></div>
+                <div class="toggle-text"><span class="t-title">${t('strings.track_story_points')}</span><span class="t-sub">${t('strings.track_each_player_s_story_track_and_show_compact_reward_reminders')}</span></div>
                 <input type="checkbox" id="useStoryTrack" class="check-input">
               </label>
               <div class="story-event-settings">
-                ${renderStoryEventSetting('oneOff', 'One-Off Events', 'Short encounters caused by actions during the game.')}
-                ${renderStoryEventSetting('arcs', 'Character Arcs', 'Multi-part stories that remember earlier player choices and actions.')}
-                ${renderStoryEventSetting('world', 'World Events', 'Occasional frontier-wide events that arrive independently over time.')}
+                ${renderStoryEventSetting('oneOff', t('story.eventTypes.oneOff.title'), t('story.eventTypes.oneOff.description'))}
+                ${renderStoryEventSetting('arcs', t('story.eventTypes.arcs.title'), t('story.eventTypes.arcs.description'))}
+                ${renderStoryEventSetting('world', t('story.eventTypes.world.title'), t('story.eventTypes.world.description'))}
               </div>
             </div>
           </details>
@@ -2433,8 +2574,8 @@ function renderSetup() {
           <details class="options-card" open>
             <summary class="options-card-head">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="18" cy="9" r="2.6"/><path d="M15.5 14a4.6 4.6 0 0 1 5.5 4.4"/></svg>
-              <span class="options-card-title">Players</span>
-              <span class="options-card-caret">⌄</span>
+              <span class="options-card-title">${t('strings.players')}</span>
+              <span class="options-card-caret" aria-hidden="true"></span>
             </summary>
             <div class="options-card-body">
               <div class="player-setup-list" id="playerSetupRows">${renderPlayerSetupRows()}</div>
@@ -2443,7 +2584,7 @@ function renderSetup() {
           <div class="dialog-actions setup-panel-actions">
             <button class="primary-btn home-major-btn home-leather-btn home-leather-btn-primary setup-next-btn" type="button" data-setup-next="setup">
               <span class="home-btn-mark" aria-hidden="true">◆</span>
-              <span class="home-btn-label">Next</span>
+              <span class="home-btn-label">${t('strings.next')}</span>
               <span class="home-btn-arrow" aria-hidden="true">›</span>
             </button>
           </div>
@@ -2454,7 +2595,7 @@ function renderSetup() {
           <div class="dialog-actions setup-panel-actions setup-start-actions">
             <button class="primary-btn home-major-btn home-leather-btn home-leather-btn-primary setup-start-game-btn" id="beginGame">
               <span class="home-btn-mark" aria-hidden="true">◆</span>
-              <span class="home-btn-label">Start Game</span>
+              <span class="home-btn-label">${t('strings.start_game')}</span>
               <span class="home-btn-arrow" aria-hidden="true">›</span>
             </button>
           </div>
@@ -2582,25 +2723,25 @@ function renderGameSettings() {
   const returnScreen = gameSettingsReturnScreen && gameSettingsReturnScreen !== 'gameSettings' ? gameSettingsReturnScreen : 'game';
   app.innerHTML = `<div class="modal-screen-overlay" data-game-settings-backdrop>
     <section class="panel modal-screen-card game-settings-card">
-      <button type="button" class="dialog-close-x" data-game-settings-close aria-label="Close">&#10005;</button>
+      <button type="button" class="dialog-close-x" data-game-settings-close aria-label="${t('strings.close')}">&#10005;</button>
       <div class="modal-title-header game-settings-title-block">
-        <p class="eyebrow">Current Game</p>
-        <h1 class="section-title setup-title">Game Settings</h1>
+        <p class="eyebrow">${t('strings.current_game')}</p>
+        <h1 class="section-title setup-title">${t('strings.game_settings')}</h1>
       </div>
 
-      <p class="game-settings-intro">Adjust story features without changing the modules used to start this game. Changes apply to future events; ongoing chapters and current world effects remain active.</p>
+      <p class="game-settings-intro">${t('strings.adjust_story_features_without_changing_the_modules_used_to_start_this_ga')}</p>
 
       <details class="options-card story-events-options" open>
         <summary class="options-card-head">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5v13z"/></svg>
-          <span class="options-card-title">Story &amp; Events</span>
-          <span class="options-card-caret">⌄</span>
+          <span class="options-card-title">${t('strings.story_amp_events')}</span>
+          <span class="options-card-caret" aria-hidden="true"></span>
         </summary>
         <div class="options-card-body">
           <div class="story-event-settings">
-            ${renderStoryEventSetting('oneOff', 'One-Off Events', 'Short encounters caused by actions during the game.')}
-            ${renderStoryEventSetting('arcs', 'Character Arcs', 'Multi-part stories that remember earlier player choices and actions.')}
-            ${renderStoryEventSetting('world', 'World Events', 'Occasional frontier-wide events that arrive independently over time.')}
+            ${renderStoryEventSetting('oneOff', t('story.eventTypes.oneOff.title'), t('story.eventTypes.oneOff.description'))}
+            ${renderStoryEventSetting('arcs', t('story.eventTypes.arcs.title'), t('story.eventTypes.arcs.description'))}
+            ${renderStoryEventSetting('world', t('story.eventTypes.world.title'), t('story.eventTypes.world.description'))}
           </div>
         </div>
       </details>
@@ -2608,16 +2749,16 @@ function renderGameSettings() {
       <details class="options-card" open>
         <summary class="options-card-head">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M7 12h10"/></svg>
-          <span class="options-card-title">Story Points</span>
-          <span class="options-card-caret">⌄</span>
+          <span class="options-card-title">${t('strings.story_points')}</span>
+          <span class="options-card-caret" aria-hidden="true"></span>
         </summary>
         <div class="options-card-body">
           <label class="toggle-row check-row story-track-setting">
-            <div class="toggle-text"><span class="t-title">Track Story Points</span><span class="t-sub">Show and maintain each player's Story Point track during this game.</span></div>
+            <div class="toggle-text"><span class="t-title">${t('strings.track_story_points')}</span><span class="t-sub">${t('strings.show_and_maintain_each_player_s_story_point_track_during_this_game')}</span></div>
             <input type="checkbox" id="useStoryTrack" class="check-input" ${isStoryTrackEnabled() ? 'checked' : ''}>
           </label>
           <label class="toggle-row check-row story-track-setting">
-            <div class="toggle-text"><span class="t-title">Story Point Reward Reminders</span><span class="t-sub">Show the compact reminder when a Story Point advances a player's marker.</span></div>
+            <div class="toggle-text"><span class="t-title">${t('strings.story_point_reward_reminders')}</span><span class="t-sub">${t('strings.show_the_compact_reminder_when_a_story_point_advances_a_player_s_marker')}</span></div>
             <input type="checkbox" id="showStoryTrackReminders" class="check-input" ${state.settings?.hideStoryTrackReminders ? '' : 'checked'}>
           </label>
         </div>
@@ -2626,7 +2767,7 @@ function renderGameSettings() {
       <div class="dialog-actions game-settings-actions">
         <button type="button" class="primary-btn home-major-btn home-leather-btn home-leather-btn-primary" id="gameSettingsDone">
           <span class="home-btn-mark" aria-hidden="true">◆</span>
-          <span class="home-btn-label">Done</span>
+          <span class="home-btn-label">${t('strings.done')}</span>
           <span class="home-btn-arrow" aria-hidden="true">›</span>
         </button>
       </div>
@@ -2692,17 +2833,20 @@ function bindSetupPlayerInputs() {
   updateStartGameDisabled();
 }
 
-const REQUIRED_CHIP = `<span class="lock-pill" title="Required"><svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5zm-3 8V7a3 3 0 0 1 6 0v3z"/></svg>Required</span>`;
+function requiredChip() {
+  const required = escapeHtml(t('setup.required'));
+  return `<span class="lock-pill" title="${required}"><svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 1 6 0v3z"/></svg>${required}</span>`;
+}
 
 function renderModuleGroup(group) {
   const children = group.modules || [];
   const parentChecked = group.locked || isModuleSelected(group.id);
-  const checkbox = group.selectable === false ? '' : `<input class="module-group-checkbox check-input" type="checkbox" data-group="${group.id}" value="${group.id}" ${parentChecked ? 'checked' : ''} ${group.locked ? 'disabled' : ''} aria-label="Enable ${escapeHtml(group.name)}">`;
+  const checkbox = group.selectable === false ? '' : `<input class="module-group-checkbox check-input" type="checkbox" data-group="${group.id}" value="${group.id}" ${parentChecked ? 'checked' : ''} ${group.locked ? 'disabled' : ''} aria-label="${escapeHtml(t('setup.enableModule', { module: moduleName(group) }))}">`;
   return `<article class="module-group ${group.locked ? 'locked' : ''} ${group.selectable === false ? 'category-group' : ''} ${children.length ? 'has-children' : 'no-children'}">
     <div class="module-group-header">
       ${checkbox}
-      <button type="button" class="module-group-header-content" aria-label="${children.length ? 'Expand' : 'Select'} ${escapeHtml(group.name)}">
-        <span class="m-body"><strong>${group.name}${group.locked ? ' ' + REQUIRED_CHIP : ''}</strong><small>${group.detail}</small></span>
+      <button type="button" class="module-group-header-content" aria-label="${escapeHtml(t(children.length ? 'setup.expandModule' : 'setup.selectModule', { module: moduleName(group) }))}">
+        <span class="m-body"><strong>${escapeHtml(moduleName(group))}${group.locked ? ' ' + requiredChip() : ''}</strong><small>${escapeHtml(moduleDetail(group))}</small></span>
         ${children.length ? '<span class="module-caret" aria-hidden="true"></span>' : ''}
       </button>
     </div>
@@ -2715,10 +2859,10 @@ function renderModuleChild(group, child) {
   // inside it required. Only children explicitly marked locked stay fixed.
   const checked = child.locked || isModuleSelected(child.id);
   const isLocked = !!child.locked;
-  const checkbox = `<input class="module-child-checkbox check-input" type="checkbox" data-parent="${group.id}" value="${child.id}" ${checked ? 'checked' : ''} ${isLocked ? 'disabled' : ''} aria-label="Enable ${escapeHtml(child.name)}">`;
+  const checkbox = `<input class="module-child-checkbox check-input" type="checkbox" data-parent="${group.id}" value="${child.id}" ${checked ? 'checked' : ''} ${isLocked ? 'disabled' : ''} aria-label="${escapeHtml(t('setup.enableModule', { module: moduleName(child) }))}">`;
   return `<div class="module-child ${isLocked ? 'locked' : ''}">
     ${checkbox}
-    <span class="m-body"><strong>${child.name}${isLocked ? ' ' + REQUIRED_CHIP : ''}</strong><small>${child.detail}</small></span>
+    <span class="m-body"><strong>${escapeHtml(moduleName(child))}${isLocked ? ' ' + requiredChip() : ''}</strong><small>${escapeHtml(moduleDetail(child))}</small></span>
   </div>`;
 }
 
@@ -2849,9 +2993,9 @@ function setupProgressStats(sections) {
 
 function findModuleLabel(moduleId) {
   for (const group of MODULES) {
-    if (group.id === moduleId) return group.name;
+    if (group.id === moduleId) return moduleName(group);
     const child = (group.modules || []).find(item => item.id === moduleId);
-    if (child) return child.name;
+    if (child) return moduleName(child);
   }
   const canonical = MODULE_ALIASES[moduleId];
   if (canonical && canonical !== moduleId) return findModuleLabel(canonical);
@@ -2872,17 +3016,17 @@ function renderReadySetupSummary() {
   const players = state.setup.playerDetails?.length || state.setup.players || 0;
   const selectedGroups = MODULES.filter(group => group.id === 'base' || state.setup.modules.includes(group.id))
     .filter(group => group.selectable !== false || (group.modules || []).some(child => state.setup.modules.includes(child.id)))
-    .map(group => group.name);
+    .map(group => moduleName(group));
   const storyTypes = [
-    storyEventsEnabled('oneOff') ? 'One-Offs' : null,
-    storyEventsEnabled('arcs') ? 'Story Arcs' : null,
-    storyEventsEnabled('world') ? 'World Events' : null
+    storyEventsEnabled('oneOff') ? t('setup.oneOffs') : null,
+    storyEventsEnabled('arcs') ? t('setup.storyArcs') : null,
+    storyEventsEnabled('world') ? t('strings.world_events') : null
   ].filter(Boolean);
   return `<div class="setup-ready-summary">
-    <span><strong>${players}</strong> Player${players === 1 ? '' : 's'}</span>
-    <span><strong>${Number(state.setup.targetLP || 20)}</strong> LP</span>
+    <span><strong>${players}</strong> ${t('strings.player')}${players === 1 ? '' : 's'}</span>
+    <span><strong>${Number(state.setup.targetLP || 20)}</strong> ${t('strings.lp')}</span>
     <span>${escapeHtml(selectedGroups.join(' · '))}</span>
-    <span>${storyTypes.length ? escapeHtml(storyTypes.join(' · ')) : 'Narrative events off'}</span>
+    <span>${storyTypes.length ? escapeHtml(storyTypes.join(' · ')) : t('setup.narrativeOff')}</span>
   </div>`;
 }
 
@@ -2895,7 +3039,7 @@ function renderSetupNotes() {
   state.setup.setupGuideMode = 'guided';
   const visibleSections = getVisibleSetupSections();
   if (!visibleSections.length) {
-    wrap.innerHTML = '<p class="hint">No setup steps are required for the current selection.</p>';
+    wrap.innerHTML = `<p class="hint">${escapeHtml(t('setup.noSteps'))}</p>`;
     return;
   }
 
@@ -2918,20 +3062,20 @@ function renderGuidedSetup(sections, currentIndex) {
     </button>`;
   }).join('');
   return `<div class="guided-setup">
-    <div class="setup-section-rail" aria-label="Setup sections">${rail}</div>
+    <div class="setup-section-rail" aria-label="${t('strings.setup_sections')}">${rail}</div>
     <article class="setup-guide-current ${currentComplete ? 'complete' : ''}">
       <header class="setup-guide-current-head">
         <span class="step-number">${currentComplete ? '✓' : currentIndex + 1}</span>
         <div>
-          <p class="eyebrow">Setup Step ${currentIndex + 1}</p>
+          <p class="eyebrow">${t('strings.setup_step')} ${currentIndex + 1}</p>
           <h3>${escapeHtml(current.title)}</h3>
           ${current.summary ? `<p>${escapeHtml(current.summary)}</p>` : ''}
         </div>
       </header>
       <ul class="setup-checklist guided-checklist">${current.steps.map((step, stepIndex) => renderSetupStep(step, current, stepIndex)).join('')}</ul>
       <div class="setup-guide-nav">
-        <button type="button" class="secondary-btn" data-setup-prev ${currentIndex === 0 ? 'disabled' : ''}>Back</button>
-        <button type="button" class="primary-btn" data-setup-next ${currentIndex === sections.length - 1 ? 'disabled' : ''}>Next</button>
+        <button type="button" class="secondary-btn" data-setup-prev ${currentIndex === 0 ? 'disabled' : ''}>${t('strings.back')}</button>
+        <button type="button" class="primary-btn" data-setup-next ${currentIndex === sections.length - 1 ? 'disabled' : ''}>${t('strings.next')}</button>
       </div>
     </article>
   </div>`;
@@ -2977,7 +3121,7 @@ function bindSetupNoteInteractions(wrap, visibleSections) {
       const imagesEl = btn.closest('.setup-step-item, .setup-step-group')?.querySelector(':scope > .setup-step-images');
       const expanded = imagesEl?.classList.toggle('expanded');
       btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-      btn.textContent = expanded ? 'Hide reference' : 'Show reference';
+      btn.textContent = expanded ? t('setup.hideReference') : t('setup.showReference');
     });
   });
 
@@ -3039,7 +3183,7 @@ function renderSetupStep(step, section, stepIndex, parentPath = []) {
   if (images.length) {
     imageHtml = `<div class="setup-step-images">${images.map(renderSetupStepImage).join('')}</div>`;
   }
-  const imageToggleHtml = images.length ? `<button type="button" class="step-image-toggle" aria-expanded="false">Show reference</button>` : '';
+  const imageToggleHtml = images.length ? t('strings.show_reference') : '';
   const badgesHtml = renderSetupStepBadges(step);
   const metaHtml = badgesHtml || imageToggleHtml
     ? `<div class="setup-step-meta-row">${badgesHtml}${imageToggleHtml}</div>`
@@ -3072,7 +3216,7 @@ function renderSetupStep(step, section, stepIndex, parentPath = []) {
   </li>`;
 }
 function renderSetupStepActionButton(action) {
-  const label = action.label || action.text || 'Open';
+  const label = action.label || action.text || t('setup.open');
   const opens = action.opens || action.assist || '';
   if (!opens) return '';
   return `<button type="button" class="setup-step-action-btn" data-open-assist="${escapeHtml(opens)}">${escapeHtml(label)}</button>`;
@@ -3084,10 +3228,10 @@ function renderSetupStepImage(image) {
   const isFullWidth = !!image.fullWidth;
   const figureClasses = ['setup-step-image', isFullWidth ? 'setup-step-image-full' : '', image.className || ''].filter(Boolean).join(' ');
   const imgClasses = ['setup-step-image-img', isFullWidth ? 'setup-step-image-full' : ''].filter(Boolean).join(' ');
-  const label = image.alt || image.caption || 'image';
+  const label = image.alt || image.caption || t('setup.imageFallback');
   const thumbSrc = image.schematicSrc || image.src;
   return `<figure class="${figureClasses}">
-    <button type="button" class="setup-step-image-btn" data-view-image="${escapeHtml(image.src)}" data-view-alt="${escapeHtml(image.alt || '')}" data-view-caption="${escapeHtml(image.caption || '')}" aria-label="View ${escapeHtml(label)} full size">
+    <button type="button" class="setup-step-image-btn" data-view-image="${escapeHtml(image.src)}" data-view-alt="${escapeHtml(image.alt || '')}" data-view-caption="${escapeHtml(image.caption || '')}" aria-label="${escapeHtml(t('setup.viewFullSize', { label }))}">
       <img class="${imgClasses}" src="${escapeHtml(thumbSrc)}" alt="${escapeHtml(image.alt || '')}" loading="lazy">
     </button>
     ${image.caption ? `<figcaption>${escapeHtml(image.caption)}</figcaption>` : ''}
@@ -3112,19 +3256,19 @@ function renderGame() {
   const hasStories = state.activeStories.length > 0;
   const hasWorldEvents = state.activeWorldEvents.length > 0;
   app.innerHTML = `<section class="game-intro">
-    <h1 class="trigger-heading">Primary Actions</h1>
-    <p>Perform one of these actions to see what happens.</p>
+    <h1 class="trigger-heading">${t('strings.primary_actions')}</h1>
+    <p>${t('strings.perform_one_of_these_actions_to_see_what_happens')}</p>
   </section>
   ${renderStoryTrackArea()}
-  <section class="trigger-grid" aria-label="Primary action triggers">
+  <section class="trigger-grid" aria-label="${t('strings.primary_action_triggers')}">
     ${state.activeTriggers.map(t => renderTriggerCard(t)).join('')}
   </section>
   ${hasStories ? `<section class="panel story-panel">
-    <h2 class="story-section-title"><span>Ongoing Stories</span><span class="story-section-count" aria-label="${state.activeStories.length} ongoing stories">${state.activeStories.length}</span></h2>
+    <h2 class="story-section-title"><span>${t('strings.ongoing_stories')}</span><span class="story-section-count" aria-label="${escapeHtml(tp('story.ongoingCount', state.activeStories.length, { count: state.activeStories.length }))}">${state.activeStories.length}</span></h2>
     ${renderStoryList()}
   </section>` : ''}
   ${hasWorldEvents ? `<section class="panel story-panel">
-    <h2 class="story-section-title"><span>Current World Event</span></h2>
+    <h2 class="story-section-title"><span>${t('strings.current_world_event')}</span></h2>
     ${renderWorldList()}
   </section>` : ''}`;
   app.querySelectorAll('[data-trigger]').forEach(b => b.onclick = () => {
@@ -3159,19 +3303,19 @@ function playPrimaryTriggerSound(trigger) {
   playSoundEffect(trigger.soundFile);
 }
 
-function renderTriggerCard(t) {
-  const title = renderTriggerTitle(t);
-  const image = t.image || imageForTrigger(t);
-  return `<button class="trigger-card" data-trigger="${t.id}" aria-label="${escapeHtml(t.label)}">
+function renderTriggerCard(trigger) {
+  const title = renderTriggerTitle(trigger);
+  const image = trigger.image || imageForTrigger(trigger);
+  return `<button class="trigger-card" data-trigger="${trigger.id}" aria-label="${escapeHtml(trigger.label)}">
     <span class="trigger-title-text">${title}</span>
     <span class="rule" aria-hidden="true"></span>
     <span class="trigger-image" style="background-image:url('${image}')" aria-hidden="true"></span>
-    <span class="trigger-footer">Tap When It Happens</span>
+    <span class="trigger-footer">${t('strings.tap_when_it_happens')}</span>
   </button>`;
 }
 
-function renderTriggerTitle(t) {
-  const parts = t.titleParts || titlePartsFromLabel(t.label);
+function renderTriggerTitle(trigger) {
+  const parts = trigger.titleParts || titlePartsFromLabel(trigger.label);
   return parts.map(part => {
     const cls = part.style && part.style !== 'normal' ? ` trigger-title-keyword ${part.style}` : ' trigger-title-line';
     return `<span class="${cls.trim()}">${escapeHtml(part.text)}</span>`;
@@ -3179,23 +3323,21 @@ function renderTriggerTitle(t) {
 }
 
 function titlePartsFromLabel(label = '') {
-  const clean = label.replace(/^A player /i, '').replace(/\.$/, '');
-  const words = clean.split(' ');
-  const keywordMap = [
-    ['Bandit','red'], ['Prospect','blue'], ['Gold','blue'], ['Item','green'], ['Poker','gold'], ['Saloon','gold'], ['Cattle','brown'], ['Ranch','brown'], ['Move','brown'], ['Heist','red'], ['Rob','red'], ['Arrest','blue'], ['Heal','green']
-  ];
+  const prefix = t('story.triggerPlayerPrefix');
+  const clean = (label.toLowerCase().startsWith(prefix.toLowerCase()) ? label.slice(prefix.length) : label).replace(/\.$/, '');
+  const keywordMap = uiValue('story.triggerKeywords', []).map(item => [item.word, item.style]);
   const found = keywordMap.find(([word]) => clean.toLowerCase().includes(word.toLowerCase()));
   if (!found) return [{ text: clean.toUpperCase(), style: 'normal' }];
   const [word, style] = found;
   const before = clean.slice(0, clean.toLowerCase().indexOf(word.toLowerCase())).trim();
   return [
-    { text: (before || 'A PLAYER').toUpperCase(), style: 'normal' },
+    { text: (before || t('strings.a_player')).toUpperCase(), style: 'normal' },
     { text: word.toUpperCase(), style }
   ];
 }
 
-function imageForTrigger(t) {
-  const text = `${t.label} ${(t.tags || []).join(' ')}`.toLowerCase();
+function imageForTrigger(trigger) {
+  const text = `${trigger.label} ${(trigger.tags || []).join(' ')}`.toLowerCase();
   if (text.includes('bandit') || text.includes('fight') || text.includes('rob') || text.includes('heist')) return 'assets/images/triggers/bandit.svg';
   if (text.includes('prospect') || text.includes('mine') || text.includes('gold')) return 'assets/images/triggers/prospect.svg';
   if (text.includes('purchase') || text.includes('item') || text.includes('upgrade') || text.includes('store')) return 'assets/images/triggers/item.svg';
@@ -3211,7 +3353,7 @@ function escapeHtml(value = '') {
 
 function activeEventCounterMarkup(turnsLeft) {
   const count = Math.max(0, Number(turnsLeft) || 0);
-  const label = `${count} primary action trigger${count === 1 ? '' : 's'} remaining`;
+  const label = tp('story.activeTriggersRemaining', count, { count });
   // Solid block hourglass silhouette, matching the compact tabletop-style icon
   // used in the UI reference. currentColor keeps it matched to the number.
   return `<span class="counter event-countdown" title="${escapeHtml(label)}" aria-label="${escapeHtml(label)}"><span class="event-countdown-number">${count}</span><svg class="event-countdown-hourglass" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 3H20V8L14.5 12L20 16V21H4V16L9.5 12L4 8V3Z"/></svg></span>`;
@@ -3219,18 +3361,18 @@ function activeEventCounterMarkup(turnsLeft) {
 
 function playerNameOnly(color) {
   const player = (state.setup.playerDetails || []).find(p => p.color === color);
-  return player?.name?.trim() || `${color.charAt(0).toUpperCase()}${color.slice(1)} player`;
+  return player?.name?.trim() || localizedColorPlayer(color);
 }
 
 function storyOwnerDot(story) {
   if (activeStoryScope(story) === 'global' || !story.assignedColor || !PLAYER_COLORS.includes(story.assignedColor)) return '';
   const name = playerNameOnly(story.assignedColor);
-  const label = `Only ${name} may resolve this chapter`;
+  const label = t('story.onlyPlayerMayResolve', { player: name });
   return `<span class="story-owner-dot swatch-${story.assignedColor}" title="${escapeHtml(label)}" aria-label="${escapeHtml(label)}"></span>`;
 }
 
 function renderStoryList() {
-  if (!state.activeStories.length) return '<p>No ongoing stories. Keep watching the three primary action cards.</p>';
+  if (!state.activeStories.length) return t('strings.no_ongoing_stories_keep_watching_the_three_primary_action_cards');
   return `<div class="story-list">${state.activeStories.map(s => {
     const scope = activeStoryScope(s);
     const hasChapterOwner = scope !== 'global' && !!s.assignedColor;
@@ -3239,7 +3381,7 @@ function renderStoryList() {
         <div class="story-heading${hasChapterOwner ? ' story-heading-personal' : ''}">
           ${hasChapterOwner ? storyOwnerDot(s) : ''}
           <div class="story-heading-text">
-            <div class="story-meta story-source"><span>${escapeHtml(s.arcTitle || 'Story')}</span></div>
+            <div class="story-meta story-source"><span>${escapeHtml(s.arcTitle || t('story.fallbackTitle'))}</span></div>
             <h3>${escapeHtml(s.title)}</h3>
           </div>
         </div>
@@ -3247,13 +3389,13 @@ function renderStoryList() {
       </div>
       ${activeEventCounterMarkup(s.turnsLeft)}
       ${s.rewardText ? `<p class="story-reward"><strong>${escapeHtml(s.rewardText)}</strong></p>` : ''}
-      <div class="story-actions"><button class="small-btn" data-resolve="${s.id}">Resolved</button></div>
+      <div class="story-actions"><button class="small-btn" data-resolve="${s.id}">${t('strings.resolved')}</button></div>
     </article>`;
   }).join('')}</div>`;
 }
 
 function renderWorldList() {
-  if (!state.activeWorldEvents.length) return '<p>No current world event.</p>';
+  if (!state.activeWorldEvents.length) return t('strings.no_current_world_event');
   return `<div class="story-list">${state.activeWorldEvents.map(w => `<article class="story-row">
     <div class="story-main">
       <div class="story-heading">
@@ -3262,40 +3404,129 @@ function renderWorldList() {
       <p>${escapeHtml(w.screenText)}</p>
     </div>
     ${activeEventCounterMarkup(w.turnsLeft)}
-    ${w.resolvable ? `<div class="story-actions"><button class="small-btn" data-resolve-world="${w.id}">Resolve</button></div>` : ''}
+    ${w.resolvable ? `<div class="story-actions"><button class="small-btn" data-resolve-world="${w.id}">${t('strings.resolve')}</button></div>` : ''}
   </article>`).join('')}</div>`;
 }
 
 
 function renderPokerHandsReference() {
-  return `<ol class="ref-card poker-hands-guide">
-    <li class="poker-hand-row"><div><span class="poker-hand-name">5 of a Kind</span><span class="cards"><span class="card blacksuit winner">A♠</span><span class="card blacksuit winner">A♣</span><span class="card blacksuit winner">A♥</span><span class="card blacksuit winner">A♦</span><span class="card blacksuit winner">A♠</span></span></div></li>
-    <li class="poker-hand-row"><div><span class="poker-hand-name">Royal Flush</span><span class="cards"><span class="card blacksuit winner"><span class="card-10">10</span>♠</span><span class="card blacksuit winner">J♠</span><span class="card blacksuit winner">Q♠</span><span class="card blacksuit winner">K♠</span><span class="card blacksuit winner">A♠</span></span></div></li>
-    <li class="poker-hand-row"><div><span class="poker-hand-name">Straight Flush</span><span class="cards"><span class="card redsuit winner">5♥</span><span class="card redsuit winner">6♥</span><span class="card redsuit winner">7♥</span><span class="card redsuit winner">8♥</span><span class="card redsuit winner">9♥</span></span></div></li>
-    <li class="poker-hand-row"><div><span class="poker-hand-name">4 of a Kind</span><span class="cards"><span class="card blacksuit winner">A♠</span><span class="card blacksuit winner">A♣</span><span class="card redsuit winner">A♥</span><span class="card redsuit winner">A♦</span><span class="card blacksuit">9♣</span></span></div></li>
-    <li class="poker-hand-row"><div><span class="poker-hand-name">Full House</span><span class="cards"><span class="card blacksuit winner">K♠</span><span class="card blacksuit winner">K♣</span><span class="card redsuit winner">K♥</span><span class="card blacksuit winner">7♠</span><span class="card redsuit winner">7♦</span></span></div></li>
-    <li class="poker-hand-row"><div><span class="poker-hand-name">Flush</span><span class="cards"><span class="card blacksuit winner">A♣</span><span class="card blacksuit winner">J♣</span><span class="card blacksuit winner">9♣</span><span class="card blacksuit winner">6♣</span><span class="card blacksuit winner">3♣</span></span></div></li>
-    <li class="poker-hand-row"><div><span class="poker-hand-name">Straight</span><span class="cards"><span class="card blacksuit winner">5♠</span><span class="card blacksuit winner">6♣</span><span class="card redsuit winner">7♦</span><span class="card redsuit winner">8♥</span><span class="card blacksuit winner">9♠</span></span></div></li>
-    <li class="poker-hand-row"><div><span class="poker-hand-name">3 of a Kind</span><span class="cards"><span class="card blacksuit winner">Q♠</span><span class="card redsuit winner">Q♣</span><span class="card redsuit winner">Q♦</span><span class="card redsuit">8♥</span><span class="card blacksuit">4♠</span></span></div></li>
-    <li class="poker-hand-row"><div><span class="poker-hand-name">Two Pair</span><span class="cards"><span class="card blacksuit winner">J♠</span><span class="card heartsuit winner">J♥</span><span class="card blacksuit winner">5♣</span><span class="card redsuit winner">5♦</span><span class="card blacksuit">A♠</span></span></div></li>
-    <li class="poker-hand-row"><div><span class="poker-hand-name">Pair</span><span class="cards"><span class="card blacksuit winner">8♠</span><span class="card redsuit winner">8♥</span><span class="card blacksuit">K♣</span><span class="card redsuit"><span class="card-10">10</span>♦</span><span class="card blacksuit">4♣</span></span></div></li>
-    <li class="poker-hand-row"><div><span class="poker-hand-name">High Card</span><span class="cards"><span class="card blacksuit winner">A♠</span><span class="card redsuit">J♥</span><span class="card blacksuit">8♣</span><span class="card redsuit">5♦</span><span class="card blacksuit">2♠</span></span></div></li>
-    </ol>`;
+  const pokerHands = [
+    {
+      name: t('strings.5_of_a_kind'),
+      cards: uiValue('assist.poker.examples.fiveKind', []),
+      winningCards: 5,
+      detail: t('strings.five_cards_of_the_same_rank')
+    },
+    {
+      name: t('strings.royal_flush'),
+      cards: uiValue('assist.poker.examples.royalFlush', []),
+      winningCards: 5,
+      detail: t('strings.10_jack_queen_king_and_ace_all_in_the_same_suit')
+    },
+    {
+      name: t('strings.straight_flush'),
+      cards: uiValue('assist.poker.examples.straightFlush', []),
+      winningCards: 5,
+      detail: t('strings.five_consecutive_cards_all_in_the_same_suit')
+    },
+    {
+      name: t('strings.4_of_a_kind'),
+      cards: uiValue('assist.poker.examples.fourKind', []),
+      winningCards: 4,
+      detail: t('strings.four_cards_of_the_same_rank_plus_any_other_card')
+    },
+    {
+      name: t('strings.full_house'),
+      cards: uiValue('assist.poker.examples.fullHouse', []),
+      winningCards: 5,
+      detail: t('strings.three_cards_of_one_rank_plus_two_cards_of_another_rank')
+    },
+    {
+      name: t('strings.flush'),
+      cards: uiValue('assist.poker.examples.flush', []),
+      winningCards: 5,
+      detail: t('strings.five_cards_in_the_same_suit_that_are_not_consecutive')
+    },
+    {
+      name: t('strings.straight'),
+      cards: uiValue('assist.poker.examples.straight', []),
+      winningCards: 5,
+      detail: t('strings.five_consecutive_cards_in_any_suits_an_ace_may_be_high_or_low')
+    },
+    {
+      name: t('strings.3_of_a_kind'),
+      cards: uiValue('assist.poker.examples.threeKind', []),
+      winningCards: 3,
+      detail: t('strings.three_cards_of_the_same_rank_plus_two_unmatched_cards')
+    },
+    {
+      name: t('strings.two_pair'),
+      cards: uiValue('assist.poker.examples.twoPair', []),
+      winningCards: 4,
+      detail: t('strings.two_cards_of_one_rank_and_two_cards_of_another_rank')
+    },
+    {
+      name: t('strings.pair'),
+      cards: uiValue('assist.poker.examples.pair', []),
+      winningCards: 2,
+      detail: t('strings.two_cards_of_the_same_rank_plus_three_unmatched_cards')
+    },
+    {
+      name: t('strings.high_card'),
+      cards: uiValue('assist.poker.examples.highCard', []),
+      winningCards: 1,
+      detail: t('strings.when_no_other_hand_is_made_the_highest_card_determines_the_hand')
+    }
+  ];
+
+  const cardMarkup = (card, winner) => {
+    const match = String(card).match(/^(10|[2-9JQKA])([♠♣♥♦])$/);
+    const rank = match?.[1] || card.slice(0, -1);
+    const suit = match?.[2] || card.slice(-1);
+    const suitClass = /[♥♦]/.test(suit) ? 'redsuit' : 'blacksuit';
+    return `<span class="card ${suitClass}${winner ? ' winner' : ''}" aria-label="${card}">
+      <span class="card-corner" aria-hidden="true"><span class="card-rank">${rank}</span><span class="card-suit">${suit}</span></span>
+      <span class="card-center-suit" aria-hidden="true">${suit}</span>
+    </span>`;
+  };
+
+  return `<div class="ref-card poker-hands-guide">
+    <div class="poker-strength-heading">
+      <span class="poker-strength-label">${t('strings.strongest')}</span>
+      <span class="poker-strength-help">${t('strings.higher_hands_beat_every_hand_below_them_tap_a_hand_for_a_quick_definitio')}</span>
+    </div>
+    <div class="poker-strength-ladder">
+      ${pokerHands.map((hand, handIndex) => `<details class="poker-hand-row">
+        <summary class="poker-hand-summary">
+          <span class="poker-hand-titleline">
+            <span class="poker-hand-rank-number" aria-hidden="true">${handIndex + 1}</span>
+            <span class="poker-hand-name">${hand.name}</span>
+            <span class="poker-hand-chevron" aria-hidden="true"></span>
+          </span>
+          <span class="cards" aria-label="${escapeHtml(t('assist.poker.exampleAria', { hand: hand.name }))}">
+            ${hand.cards.map((card, index) => cardMarkup(card, index < hand.winningCards)).join('')}
+          </span>
+        </summary>
+        <div class="poker-hand-detail">${hand.detail}</div>
+      </details>`).join('')}
+    </div>
+    <div class="poker-strength-footer"><span>↓</span><strong>${t('strings.weakest')}</strong></div>
+  </div>`;
 }
 
 let fightFlowSelection = '';
 
 function availableFightFlowTypes() {
   const types = [
-    { value: 'player_arrest', group: 'Player', label: 'Arrest', kind: 'player' },
-    { value: 'player_duel', group: 'Player', label: 'Duel', kind: 'player' },
-    { value: 'player_rob', group: 'Player', label: 'Rob', kind: 'player' },
-    { value: 'npc_bandit', group: 'NPC', label: 'Bandit', kind: 'npc', npcType: 'bandit', cards: 2 },
-    { value: 'npc_bank_guard', group: 'NPC', label: 'Bank Guard', kind: 'npc', npcType: 'bank_guard', cards: 3 },
-    { value: 'npc_sheriff', group: 'NPC', label: 'Sheriff', kind: 'npc', npcType: 'sheriff', cards: 4 },
-    { value: 'npc_outlaw', group: 'NPC', label: 'Outlaw', kind: 'npc', npcType: 'other', cards: null, countSource: 'the Outlaw token', requiredModules: ['ante_up_events'] },
-    { value: 'npc_claim_jumper', group: 'NPC', label: 'Claim Jumper', kind: 'npc', npcType: 'other', cards: null, countSource: 'the Claim Jumper token', requiredModules: ['ante_up_events'] },
-    { value: 'npc_train_guard', group: 'NPC', label: 'Train Guard', kind: 'npc', npcType: 'other', cards: null, countSource: 'the Train Encounter card', requiredModules: ['ante_up_train'] }
+    { value: 'player_arrest', group: 'player', label: t('strings.arrest'), kind: 'player' },
+    { value: 'player_duel', group: 'player', label: t('strings.duel'), kind: 'player' },
+    { value: 'player_rob', group: 'player', label: t('strings.rob'), kind: 'player' },
+    { value: 'npc_bandit', group: 'npc', label: t('strings.bandit'), kind: 'npc', npcType: 'bandit', cards: 2 },
+    { value: 'npc_bank_guard', group: 'npc', label: t('strings.bank_guard'), kind: 'npc', npcType: 'bank_guard', cards: 3 },
+    { value: 'npc_sheriff', group: 'npc', label: t('strings.sheriff'), kind: 'npc', npcType: 'sheriff', cards: 4 },
+    { value: 'npc_outlaw', group: 'npc', label: t('strings.outlaw'), kind: 'npc', npcType: 'other', cards: null, countSource: t('strings.the_outlaw_token'), requiredModules: ['ante_up_events'] },
+    { value: 'npc_claim_jumper', group: 'npc', label: t('strings.claim_jumper'), kind: 'npc', npcType: 'other', cards: null, countSource: t('strings.the_claim_jumper_token'), requiredModules: ['ante_up_events'] },
+    { value: 'npc_train_guard', group: 'npc', label: t('strings.train_guard'), kind: 'npc', npcType: 'other', cards: null, countSource: t('strings.the_train_encounter_card'), requiredModules: ['ante_up_train'] }
   ];
   return types.filter(type => !type.requiredModules || hasAllModules(type.requiredModules));
 }
@@ -3308,14 +3539,14 @@ function selectedFightFlowType() {
 
 function renderFightFlowTypeSelector() {
   const types = availableFightFlowTypes();
-  const groups = ['Player', 'NPC'];
+  const groups = ['player', 'npc'];
   return `<div class="fight-flow-selector-card">
-    <label for="fightFlowType"><span>Fight Type</span><select id="fightFlowType" data-fight-flow-type>
-      <option value="" ${fightFlowSelection ? '' : 'selected'} disabled>Choose fight type…</option>
+    <label for="fightFlowType"><span>${t('strings.fight_type')}</span><select id="fightFlowType" data-fight-flow-type>
+      <option value="" ${fightFlowSelection ? '' : 'selected'} disabled>${t('strings.choose_fight_type')}</option>
       ${groups.map(group => {
         const options = types.filter(type => type.group === group);
         if (!options.length) return '';
-        return `<optgroup label="${group}">${options.map(type => `<option value="${type.value}" ${type.value === fightFlowSelection ? 'selected' : ''}>${escapeHtml(type.label)}</option>`).join('')}</optgroup>`;
+        return `<optgroup label="${escapeHtml(t(`assist.fight.groups.${group}`))}">${options.map(type => `<option value="${type.value}" ${type.value === fightFlowSelection ? 'selected' : ''}>${escapeHtml(type.label)}</option>`).join('')}</optgroup>`;
       }).join('')}
     </select></label>
   </div>`;
@@ -3337,50 +3568,138 @@ function renderFightFlowNode(icon, eyebrow, title, summary, stepKey, cls = '') {
       <strong>${escapeHtml(title)}</strong>
       ${summary ? `<span>${escapeHtml(summary)}</span>` : ''}
     </span>
-    <span class="fight-flow-info-dot" aria-hidden="true">i</span>
+    <span class="fight-flow-info-dot" aria-hidden="true">${t('strings.i')}</span>
   </button>`;
 }
 
 function fightFlowTargetLabel(type) {
-  return type ? `${type.group}: ${type.label}` : '';
+  return type ? `${t(`assist.fight.groups.${type.group}`)}: ${type.label}` : '';
 }
 
 function fightFlowNpcCardSummary(type) {
   if (!type || type.kind !== 'npc') return '';
-  return Number.isFinite(type.cards) ? `Draw ${type.cards} Fight Card${type.cards === 1 ? '' : 's'}` : 'Use count shown on token/card';
+  return Number.isFinite(type.cards) ? tp('assist.fight.drawCards', type.cards, { count: type.cards }) : t('strings.use_count_shown_on_token_card');
 }
 
 function fightFlowResultSummary(type, outcome) {
   if (!type) return '';
   const win = outcome === 'win';
   const summaries = {
-    player_arrest: win ? 'Arrest the target' : 'Target avoids capture',
-    player_duel: win ? 'Gain 2 LP' : 'Take 1 wound',
-    player_rob: win ? 'Steal from the target' : 'Robbery fails',
-    npc_bandit: win ? 'Gain 1 MP or 1 LP' : 'Take 1 wound',
-    npc_bank_guard: win ? 'Gain 3 WP & $80' : '1 wound & gain 1 WP',
-    npc_sheriff: win ? (hasModule('wild_bunch_sheriff') ? 'Return Sheriff & reveal new Sheriff' : 'Return Sheriff to office') : 'You are arrested',
-    npc_outlaw: win ? 'Gain printed reward' : 'Take 1 wound',
-    npc_claim_jumper: win ? 'Gain printed reward' : 'Take 1 wound',
-    npc_train_guard: win ? 'Gain printed reward' : 'Resolve card consequences'
+    player_arrest: win ? t('strings.arrest_the_target') : t('strings.target_avoids_capture'),
+    player_duel: win ? t('strings.gain_2_lp') : t('strings.take_1_wound'),
+    player_rob: win ? t('strings.steal_from_the_target') : t('strings.robbery_fails'),
+    npc_bandit: win ? t('strings.gain_1_mp_or_1_lp') : t('strings.take_1_wound'),
+    npc_bank_guard: win ? t('strings.gain_3_wp_80') : t('strings.1_wound_gain_1_wp'),
+    npc_sheriff: win ? (hasModule('wild_bunch_sheriff') ? t('strings.return_sheriff_reveal_new_sheriff') : t('strings.return_sheriff_to_office')) : t('strings.you_are_arrested'),
+    npc_outlaw: win ? t('strings.gain_printed_reward') : t('strings.take_1_wound'),
+    npc_claim_jumper: win ? t('strings.gain_printed_reward') : t('strings.take_1_wound'),
+    npc_train_guard: win ? t('strings.gain_printed_reward') : t('assist.fight.resolveCardConsequences')
   };
-  return summaries[type.value] || (win ? 'Resolve the win result' : 'Resolve the loss result');
+  return summaries[type.value] || (win ? t('strings.resolve_the_win_result') : t('strings.resolve_the_loss_result'));
 }
 
-function renderFightFlowOutcome(type) {
-  return `<div class="fight-flow-outcome-shell">
-    <div class="fight-flow-outcome-connector" aria-hidden="true"></div>
-    <div class="fight-flow-outcomes">
-      <div class="fight-flow-outcome-branch fight-flow-win">
-        <span class="fight-flow-branch-label">WIN</span>
-        ${renderFightFlowNode('★', '', 'Active Player Wins', fightFlowResultSummary(type, 'win'), 'result-win', 'fight-flow-result-node')}
-      </div>
-      <div class="fight-flow-outcome-branch fight-flow-loss">
-        <span class="fight-flow-branch-label">LOSE</span>
-        ${renderFightFlowNode('✕', '', 'Active Player Loses', fightFlowResultSummary(type, 'lose'), 'result-lose', 'fight-flow-result-node')}
-      </div>
+function renderFightFlowInlineDetail(stepKey, type, cls = '') {
+  const info = fightFlowStepDetail(stepKey, type);
+  if (!info) return '';
+  return `<section class="fight-flow-inline-detail ${cls}">
+    <div class="fight-flow-inline-heading">
+      ${info.eyebrow ? `<small>${escapeHtml(info.eyebrow)}</small>` : ''}
+      <strong>${escapeHtml(info.title || '')}</strong>
     </div>
-    <div class="fight-flow-outcome-merge" aria-hidden="true"></div>
+    <div class="fight-flow-inline-copy">${info.html || ''}</div>
+    ${info.autoSelect ? t('strings.auto_select_fight_card') : ''}
+  </section>`;
+}
+
+function renderFightFlowStage(number, stageKey, eyebrow, title, summary, content, cls = '') {
+  return `<details class="fight-flow-stage fight-flow-stage-${escapeHtml(stageKey)} ${cls}">
+    <summary class="fight-flow-stage-summary">
+      <span class="fight-flow-stage-number" aria-hidden="true">${number}</span>
+      <span class="fight-flow-stage-copy">
+        ${eyebrow ? `<small>${escapeHtml(eyebrow)}</small>` : ''}
+        <strong>${escapeHtml(title)}</strong>
+        ${summary ? `<span>${escapeHtml(summary)}</span>` : ''}
+      </span>
+      <span class="fight-flow-stage-chevron" aria-hidden="true"></span>
+    </summary>
+    <div class="fight-flow-stage-body">${content}</div>
+  </details>`;
+}
+
+function renderFightFlowMiniCardFan(kind = 'fight', count = 1) {
+  const safeCount = Math.max(1, Number(count) || 1);
+  if (safeCount <= 1) {
+    return `<span class="fight-flow-mini-card ${kind === 'fight' ? 'fight-flow-mini-fight' : 'fight-flow-mini-poker'}"><span>${kind === 'fight' ? '★' : '♠'}</span></span>`;
+  }
+  const angles = safeCount === 2
+    ? [-4, 4]
+    : safeCount === 3
+      ? [-5, 0, 5]
+      : safeCount === 4
+        ? [-6, -2, 2, 6]
+        : Array.from({ length: safeCount }, (_, i) => Math.round((-6) + (12 * i / Math.max(1, safeCount - 1))));
+  return `<span class="fight-flow-mini-fan fight-flow-mini-fan-${kind} fight-flow-mini-fan-count-${safeCount}" style="--fan-count:${safeCount}" aria-hidden="true">${Array.from({ length: safeCount }, (_, index) => {
+    const angle = angles[index] ?? 0;
+    const icon = kind === 'fight' ? '' : '♠';
+    const z = index + 1;
+    return `<span class="fight-flow-mini-card fight-flow-mini-fan-card ${kind === 'fight' ? 'fight-flow-mini-fight' : 'fight-flow-mini-poker'}" style="--fan-angle:${angle}deg; z-index:${z}"><span>${icon}</span></span>`;
+  }).join('')}</span>`;
+}
+
+function renderFightFlowCardDuel(type) {
+  const playerFight = type.kind === 'player';
+  const opponentLabel = playerFight ? t('strings.target_player') : type.label;
+  const opponentCaption = playerFight ? t('assist.fight.choosePokerCard') : fightFlowNpcCardSummary(type);
+  const playerVisual = renderFightFlowMiniCardFan('poker', 1);
+  const opponentVisual = playerFight
+    ? renderFightFlowMiniCardFan('poker', 1)
+    : renderFightFlowMiniCardFan('fight', type.cards || 1);
+  return `<div class="fight-flow-card-duel" aria-hidden="true">
+    <div class="fight-flow-card-side">
+      ${playerVisual}
+      <strong>${escapeHtml(t('assist.fight.activePlayer'))}</strong>
+      <small>${escapeHtml(t('assist.fight.choosePokerCard'))}</small>
+    </div>
+    <span class="fight-flow-versus">${escapeHtml(t('assist.fight.versus'))}</span>
+    <div class="fight-flow-card-side">
+      ${opponentVisual}
+      <strong>${escapeHtml(opponentLabel)}</strong>
+      <small>${escapeHtml(opponentCaption)}</small>
+    </div>
+  </div>`;
+}
+
+function renderFightFlowBrief(type) {
+  const playerFight = type.kind === 'player';
+  const cardFact = playerFight ? t('assist.fight.choosePokerCard') : fightFlowNpcCardSummary(type);
+  const tieFact = playerFight ? t('strings.highest_value_wins_active_player_wins_ties') : t('strings.highest_value_wins_npc_wins_ties');
+  return `<div class="fight-flow-brief">
+    <div class="fight-flow-brief-heading">
+      <span class="fight-flow-brief-icon" aria-hidden="true">⚔</span>
+      <span><small>${escapeHtml(t(`assist.fight.groups.${type.group}`))}</small><strong>${escapeHtml(type.label)}</strong></span>
+    </div>
+    <div class="fight-flow-brief-facts">
+      <span>${escapeHtml(cardFact)}</span>
+      <span>${escapeHtml(tieFact)}</span>
+    </div>
+  </div>`;
+}
+
+function renderFightFlowResultCards(type) {
+  const resultCard = (outcome, icon, title, summary, cls) => {
+    const info = fightFlowStepDetail(`result-${outcome}`, type);
+    return `<details class="fight-flow-result-card ${cls}">
+      <summary>
+        <span class="fight-flow-result-icon" aria-hidden="true">${icon}</span>
+        <span class="fight-flow-result-copy"><strong>${escapeHtml(title)}</strong><span>${escapeHtml(summary)}</span></span>
+        <span class="fight-flow-result-chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="fight-flow-result-detail">${info?.html || ''}</div>
+    </details>`;
+  };
+  return `<div class="fight-flow-result-list">
+    ${resultCard('win', '★', t('assist.fight.activePlayerWins'), fightFlowResultSummary(type, 'win'), 'fight-flow-result-win')}
+    ${resultCard('lose', '✕', t('assist.fight.activePlayerLoses'), fightFlowResultSummary(type, 'lose'), 'fight-flow-result-loss')}
   </div>`;
 }
 
@@ -3388,155 +3707,147 @@ function renderFightSequenceReference() {
   const type = selectedFightFlowType();
   const selector = renderFightFlowTypeSelector();
   if (!type) {
-    return `<div class="fight-flowchart interactive-fight-flow" aria-label="Interactive fight resolution flowchart">
+    return `<div class="fight-flowchart interactive-fight-flow" aria-label="${t('strings.interactive_fight_resolution_flowchart')}">
       ${selector}
-      <div class="fight-flow-empty"><span aria-hidden="true">⚔</span><strong>Select a fight type to begin</strong><p>The rest of the flow adapts to Player or NPC fights and the modules enabled for this game.</p></div>
+      <div class="fight-flow-empty"><span aria-hidden="true">⚔</span><strong>${t('strings.select_a_fight_type_to_begin')}</strong><p>${t('strings.the_rest_of_the_flow_adapts_to_player_or_npc_fights_and_the_modules_enab')}</p></div>
     </div>`;
   }
 
   const playerFight = type.kind === 'player';
-  const opponentStep = playerFight
-    ? renderFightFlowNode('🃏', 'Target Player', 'Choose a Card or Decline', '1 Poker Card facedown — or decline and lose immediately', 'opponent-card')
-    : renderFightFlowNode('🂠', type.label, 'Choose NPC Fight Card', fightFlowNpcCardSummary(type), 'opponent-card', 'fight-flow-tool-node');
-  const reactionSummary = playerFight ? 'Alternate until both players pass' : 'Active player reactions, then NPC card effect';
-  const compareSummary = playerFight ? 'Highest value wins — Active Player wins ties' : 'Highest value wins — NPC wins ties';
+  const reactionSummary = playerFight ? t('strings.alternate_until_both_players_pass') : t('strings.active_player_reactions_then_npc_card_effect');
+  const compareSummary = playerFight ? t('strings.highest_value_wins_active_player_wins_ties') : t('strings.highest_value_wins_npc_wins_ties');
+  const startSummary = playerFight ? t('strings.alternate_until_both_players_pass') : t('assist.fight.activePlayerResolvesStart');
+  const chooseSummary = playerFight ? t('strings.1_poker_card_facedown_or_decline_and_lose_immediately') : fightFlowNpcCardSummary(type);
+  const revealSummary = `${t('assist.fight.revealBothCards')} · ${t('strings.apply_bonuses_abilities')} · ${playerFight ? t('strings.play_reaction_effects') : t('strings.reactions_fight_card_effect')}`;
+  const resultSummary = `${t('assist.fight.activePlayerWins')} / ${t('assist.fight.activePlayerLoses')}`;
+  const cleanupSummary = playerFight ? t('assist.fight.discardBothPoker') : t('strings.return_fight_cards_discard_played_poker_card');
 
-  return `<div class="fight-flowchart interactive-fight-flow" aria-label="Interactive fight resolution flowchart">
+  const startContent = `${renderFightFlowInlineDetail('start-effects', type)}${type.value === 'npc_bandit' && hasModule('wild_bunch_bandit_variant') ? renderFightFlowInlineDetail('bandit-variant', type, 'fight-flow-inline-accent') : ''}`;
+  const chooseContent = `${renderFightFlowCardDuel(type)}${renderFightFlowInlineDetail('active-card', type)}${renderFightFlowInlineDetail('opponent-card', type, !playerFight ? 'fight-flow-inline-tool' : '')}`;
+  const revealContent = `${renderFightFlowInlineDetail('reveal-cards', type)}${renderFightFlowInlineDetail('bonuses', type)}${renderFightFlowInlineDetail('reactions', type)}`;
+  const compareContent = renderFightFlowInlineDetail('compare', type);
+  const resultContent = renderFightFlowResultCards(type);
+  const cleanupContent = `${renderFightFlowInlineDetail('end-effects', type)}${renderFightFlowInlineDetail('cleanup', type)}`;
+
+  return `<div class="fight-flowchart interactive-fight-flow" aria-label="${t('strings.interactive_fight_resolution_flowchart')}">
     ${selector}
-    <div class="fight-flow-selected"><span>${escapeHtml(fightFlowTargetLabel(type))}</span></div>
-    ${renderFightFlowPhase('START OF FIGHT')}
-    ${renderFightFlowNode('⚡', 'Start', 'Resolve Start Effects', playerFight ? 'Alternate until both players pass' : 'Active Player resolves start effects', 'start-effects')}
-    ${type.value === 'npc_bandit' && hasModule('wild_bunch_bandit_variant') ? `${renderFightFlowArrow()}${renderFightFlowNode('◆', 'Bandit Variant', 'Reveal Bandit Effect', 'Reveal top Bandit card & mini ring number', 'bandit-variant')}` : ''}
-    ${renderFightFlowArrow()}
-    ${renderFightFlowNode('🃏', 'Active Player', 'Choose Poker Card', 'Choose 1 card and place it facedown', 'active-card')}
-    ${renderFightFlowArrow()}
-    ${opponentStep}
-    ${renderFightFlowArrow()}
-    ${renderFightFlowPhase('REVEAL')}
-    ${renderFightFlowNode('👁', 'Reveal', 'Reveal Both Cards', 'Turn both selected cards faceup', 'reveal-cards')}
-    ${renderFightFlowArrow()}
-    ${renderFightFlowNode('✦', 'Abilities', 'Apply Bonuses & Abilities', playerFight ? 'Active Player, then Target Player' : 'Resolve Active Player bonuses and abilities', 'bonuses')}
-    ${renderFightFlowArrow()}
-    ${renderFightFlowNode('↻', 'Reactions', playerFight ? 'Play Reaction Effects' : 'Reactions & Fight Card Effect', reactionSummary, 'reactions')}
-    ${renderFightFlowArrow()}
-    ${renderFightFlowPhase('COMPARE')}
-    ${renderFightFlowNode('⚖', 'Compare', 'Compare Final Values', compareSummary, 'compare')}
-    ${renderFightFlowArrow()}
-    ${renderFightFlowPhase('RESULT')}
-    ${renderFightFlowOutcome(type)}
-    ${renderFightFlowArrow()}
-    ${renderFightFlowPhase('END OF FIGHT')}
-    ${renderFightFlowNode('✓', 'End', 'Resolve End Effects', playerFight ? 'Active Player, then Target Player' : 'Resolve Active Player end effects', 'end-effects')}
-    ${renderFightFlowArrow()}
-    ${renderFightFlowNode('🂠', 'Cleanup', 'Clean Up Played Cards', playerFight ? 'Discard both played Poker Cards' : 'Return Fight Cards, discard played Poker Card', 'cleanup')}
+    ${renderFightFlowBrief(type)}
+    <div class="fight-flow-stages">
+      ${renderFightFlowStage(1, 'start', t('assist.fight.start'), t('strings.start_of_fight_2'), startSummary, startContent)}
+      ${renderFightFlowStage(2, 'choose', '', t('strings.card_selection'), chooseSummary, chooseContent)}
+      ${renderFightFlowStage(3, 'reveal', t('assist.fight.revealPhase'), t('assist.fight.revealBothCards'), revealSummary, revealContent)}
+      ${renderFightFlowStage(4, 'compare', t('assist.fight.comparePhase'), t('strings.compare_final_values'), compareSummary, compareContent, 'fight-flow-stage-compare-emphasis')}
+      ${renderFightFlowStage(5, 'result', t('assist.fight.resultPhase'), t('assist.fight.resultEyebrow'), resultSummary, resultContent, 'fight-flow-stage-result-emphasis')}
+      ${renderFightFlowStage(6, 'cleanup', t('assist.fight.end'), t('strings.end_of_fight_2'), cleanupSummary, cleanupContent)}
+    </div>
   </div>`;
 }
 
 function fightFlowResultDetail(type, outcome) {
   const win = outcome === 'win';
   const hasEvents = hasModule('ante_up_events');
-  const longhornText = hasEvents ? ' all Cattle and Longhorn tokens,' : ' all Cattle tokens,';
-  const robberyTokenText = hasEvents ? ' plus 1 Cattle or Longhorn token.' : ' plus 1 Cattle token.';
+  const longhornText = hasEvents ? t('strings.all_cattle_and_longhorn_tokens') : t('strings.all_cattle_tokens');
+  const robberyTokenText = hasEvents ? t('strings.plus_1_cattle_or_longhorn_token') : t('strings.plus_1_cattle_token');
   const details = {
     player_arrest: win
-      ? `<p><strong>Active Player:</strong> Gain 1 Wanted Point.</p><p><strong>Target Player:</strong> Gain 1 wound and draw 1 Poker Card. Place the target miniature at the Sheriff/Marshal Office with the Sheriff. The target loses all Wanted Points,${longhornText} half of their Gold Nuggets rounded up, and half of their money rounded up.</p>`
-      : `<p><strong>Active Player:</strong> Gain 1 wound and draw 1 Poker Card.</p><p><strong>Target Player:</strong> Avoids capture.</p>`,
+      ? `<p><strong>${t('strings.active_player')}</strong> ${t('strings.gain_1_marshal_point')}</p><p><strong>${t('strings.target_player_2')}</strong> ${t('strings.gain_1_wound_and_draw_1_poker_card_place_the_target_miniature_at_the_she')}${longhornText} ${t('strings.half_of_their_gold_nuggets_rounded_up_and_half_of_their_money_rounded_up')}</p>`
+      : t('strings.active_player_gain_1_wound_and_draw_1_poker_card_target_player_avoids_'),
     player_duel: win
-      ? `<p><strong>Active Player:</strong> Gain 2 Legendary Points.</p><p><strong>Target Player:</strong> Gain 1 wound and draw 1 Poker Card.</p>`
-      : `<p><strong>Active Player:</strong> Gain 1 wound and draw 1 Poker Card.</p><p><strong>Target Player:</strong> No additional effect.</p>`,
+      ? t('strings.active_player_gain_2_legendary_points_target_player_gain_1_wound_and_d')
+      : t('strings.active_player_gain_1_wound_and_draw_1_poker_card_target_player_no_addi'),
     player_rob: win
-      ? `<p><strong>Active Player:</strong> Gain 1 Wanted Point. Steal half of the target's money <em>or</em> half of their Gold Nuggets, rounded up,${robberyTokenText}</p><p><strong>Target Player:</strong> Gain 1 wound and draw 1 Poker Card.</p>`
-      : `<p><strong>Active Player:</strong> Gain 1 wound and draw 1 Poker Card.</p><p><strong>Target Player:</strong> Avoids being robbed.</p>`,
+      ? `<p><strong>${t('strings.active_player')}</strong> ${t('strings.gain_1_wanted_point_steal_half_of_the_target_s_money')} <em>${t('strings.or')}</em> ${t('strings.half_of_their_gold_nuggets_rounded_up')}${robberyTokenText}</p><p><strong>${t('strings.target_player_2')}</strong> ${t('strings.gain_1_wound_and_draw_1_poker_card')}</p>`
+      : t('strings.active_player_gain_1_wound_and_draw_1_poker_card_target_player_avoids__2'),
     npc_bandit: win
-      ? `<p>Gain <strong>1 Marshal Point or 1 Legendary Point</strong>, then remove the Bandit from play.</p>`
-      : `<p>Gain <strong>1 wound</strong>, draw 1 Poker Card, then remove the Bandit from play.</p>`,
+      ? t('strings.gain_1_marshal_point_or_1_legendary_point_then_remove_the_bandit_from_')
+      : t('strings.gain_1_wound_draw_1_poker_card_then_remove_the_bandit_from_play'),
     npc_bank_guard: win
-      ? `<p>Gain <strong>3 Wanted Points and $80</strong>.</p>`
-      : `<p>Gain <strong>1 wound</strong>, draw 1 Poker Card, and gain <strong>1 Wanted Point</strong>.</p>`,
+      ? t('strings.gain_3_wanted_points_and_80')
+      : t('strings.gain_1_wound_draw_1_poker_card_and_gain_1_wanted_point'),
     npc_sheriff: win
-      ? `<p>Place the Sheriff at the <strong>Sheriff/Marshal Office</strong>.</p>${hasModule('wild_bunch_sheriff') ? '<p><strong>Sheriff Variant:</strong> the Sheriff lost the fight, so discard/replace the current Sheriff card and reveal the next Sheriff card.</p>' : ''}`
-      : `<p>The player is <strong>arrested</strong>, gains 1 wound, and draws 1 Poker Card.</p>`,
+      ? `<p>${t('strings.place_the_sheriff_at_the')} <strong>${t('strings.sheriff_marshal_office')}</strong>.</p>${hasModule('wild_bunch_sheriff') ? t('strings.sheriff_variant_the_sheriff_lost_the_fight_so_discard_replace_the_curr') : ''}`
+      : t('strings.the_player_is_arrested_gains_1_wound_and_draws_1_poker_card'),
     npc_outlaw: win
-      ? `<p>Gain the <strong>reward printed on the Outlaw token</strong>, then remove the token from play.</p>`
-      : `<p>Gain <strong>1 wound</strong>, draw 1 Poker Card, then remove the Outlaw token from play.</p>`,
+      ? t('strings.gain_the_reward_printed_on_the_outlaw_token_then_remove_the_token_from')
+      : t('strings.gain_1_wound_draw_1_poker_card_then_remove_the_outlaw_token_from_play'),
     npc_claim_jumper: win
-      ? `<p>Gain the <strong>reward printed on the Claim Jumper token</strong>, then remove the token from play.</p>`
-      : `<p>Gain <strong>1 wound</strong>, draw 1 Poker Card, then remove the Claim Jumper token from play.</p>`,
+      ? t('strings.gain_the_reward_printed_on_the_claim_jumper_token_then_remove_the_toke')
+      : t('strings.gain_1_wound_draw_1_poker_card_then_remove_the_claim_jumper_token_from'),
     npc_train_guard: win
-      ? `<p>Gain the <strong>reward printed on the Train Encounter card</strong>.</p>`
-      : `<p>Gain <strong>1 wound</strong>, draw 1 Poker Card, and resolve the additional consequences printed on the Train Encounter card.</p>`
+      ? t('strings.gain_the_reward_printed_on_the_train_encounter_card')
+      : t('strings.gain_1_wound_draw_1_poker_card_and_resolve_the_additional_consequences')
   };
-  return details[type.value] || '<p>Resolve the result listed by the fight or encounter.</p>';
+  return details[type.value] || t('strings.resolve_the_result_listed_by_the_fight_or_encounter');
 }
 
 function fightFlowStepDetail(stepKey, type) {
   if (!type) return null;
   const playerFight = type.kind === 'player';
   const npcDrawText = Number.isFinite(type.cards)
-    ? `Another player draws <strong>${type.cards} Fight Card${type.cards === 1 ? '' : 's'}</strong>, chooses 1, and places it facedown.`
-    : `Another player draws the number of Fight Cards shown on <strong>${escapeHtml(type.countSource || 'the NPC component')}</strong>, chooses 1, and places it facedown.`;
+    ? `${t('strings.another_player_draws')} <strong>${escapeHtml(tp('assist.fight.drawCards', type.cards, { count: type.cards }))}</strong> ${t('strings.chooses_1_and_places_it_facedown')}`
+    : `${t('strings.another_player_draws_the_number_of_fight_cards_shown_on')} <strong>${escapeHtml(type.countSource || t('strings.the_npc_component'))}</strong>${t('strings.chooses_1_and_places_it_facedown')}`;
   const info = {
     'start-effects': {
-      eyebrow: 'Start of Fight', title: 'Resolve Start Effects',
+      eyebrow: t('strings.start_of_fight_2'), title: t('strings.resolve_start_effects'),
       html: playerFight
-        ? `<p>The <strong>Active Player</strong> resolves a Start of Fight effect, then the <strong>Target Player</strong> may resolve one. Continue alternating until both players pass.</p>`
-        : `<p>The <strong>Active Player</strong> resolves all applicable Start of Fight effects before cards are chosen.</p>`
+        ? t('strings.the_active_player_resolves_a_start_of_fight_effect_then_the_target_pla')
+        : t('strings.the_active_player_resolves_all_applicable_start_of_fight_effects_befor')
     },
     'bandit-variant': {
-      eyebrow: 'Bandit Variant', title: 'Reveal Bandit Effect',
-      html: `<p>Reveal the <strong>top Bandit card</strong>, then reveal the number on the bottom of the Bandit miniature's grey ring. Read the matching Bandit effect aloud and apply it for this fight.</p>`
+      eyebrow: t('strings.bandit_variant'), title: t('strings.reveal_bandit_effect'),
+      html: t('strings.reveal_the_top_bandit_card_then_reveal_the_number_on_the_bottom_of_the')
     },
     'active-card': {
-      eyebrow: 'Card Selection', title: 'Active Player Chooses',
-      html: `<p>The Active Player chooses <strong>1 Poker Card from hand</strong> and places it facedown.</p>`
+      eyebrow: t('strings.card_selection'), title: t('strings.active_player_chooses'),
+      html: t('strings.the_active_player_chooses_1_poker_card_from_hand_and_places_it_facedow')
     },
     'opponent-card': {
-      eyebrow: playerFight ? 'Target Player' : type.label,
-      title: playerFight ? 'Choose a Card or Decline' : 'Choose NPC Fight Card',
+      eyebrow: playerFight ? t('strings.target_player') : type.label,
+      title: playerFight ? t('assist.fight.chooseCardOrDecline') : t('assist.fight.chooseNpcFightCard'),
       html: playerFight
-        ? `<p>The Target Player chooses <strong>1 Poker Card from hand</strong> and places it facedown.</p><p>Instead, the Target Player may <strong>decline the fight</strong>. If they decline, they instantly lose — skip Reveal and Compare and resolve the Active Player's win result.</p>`
-        : `<p>${npcDrawText}</p><p>The Active Player's Poker Card and the chosen NPC Fight Card remain facedown until the Reveal step.</p>`,
+        ? t('strings.the_target_player_chooses_1_poker_card_from_hand_and_places_it_facedow')
+        : `<p>${npcDrawText}</p><p>${t('strings.the_active_player_s_poker_card_and_the_chosen_npc_fight_card_remain_face')}</p>`,
       autoSelect: !playerFight
     },
     'reveal-cards': {
-      eyebrow: 'Reveal', title: 'Reveal Both Cards',
-      html: `<p>Reveal the Active Player's Poker Card and the opposing Poker/Fight Card at the same time.</p>`
+      eyebrow: t('strings.reveal'), title: t('strings.reveal_both_cards'),
+      html: t('strings.reveal_the_active_player_s_poker_card_and_the_opposing_poker_fight_car')
     },
     'bonuses': {
-      eyebrow: 'Reveal', title: 'Apply Bonuses & Abilities',
+      eyebrow: t('strings.reveal'), title: t('strings.apply_bonuses_abilities'),
       html: playerFight
-        ? `<p>The <strong>Active Player</strong> resolves any bonus, character ability, or item ability that affects the revealed card. Then the <strong>Target Player</strong> resolves their applicable bonuses and abilities.</p>`
-        : `<p>The <strong>Active Player</strong> resolves any bonus, character ability, or item ability that affects their revealed card.</p>`
+        ? t('strings.the_active_player_resolves_any_bonus_character_ability_or_item_ability')
+        : t('strings.the_active_player_resolves_any_bonus_character_ability_or_item_ability_2')
     },
     'reactions': {
-      eyebrow: 'Reveal', title: playerFight ? 'Play Reaction Effects' : 'Reactions & Fight Card Effect',
+      eyebrow: t('strings.reveal'), title: playerFight ? t('strings.play_reaction_effects') : t('strings.reactions_fight_card_effect'),
       html: playerFight
-        ? `<p>The Active Player may play a Reaction effect, then the Target Player may play one. <strong>Alternate until both players pass.</strong></p>`
-        : `<p>The Active Player resolves applicable Reaction effects. Then apply the effect printed on the selected <strong>NPC Fight Card</strong>.</p>`
+        ? t('strings.the_active_player_may_play_a_reaction_effect_then_the_target_player_ma')
+        : t('strings.the_active_player_resolves_applicable_reaction_effects_then_apply_the_')
     },
     'compare': {
-      eyebrow: 'Compare', title: 'Compare Final Values',
+      eyebrow: t('strings.compare'), title: t('strings.compare_final_values'),
       html: playerFight
-        ? `<p>After all modifiers and effects, the <strong>highest final value wins</strong>. If the values are tied, the <strong>Active Player wins the tie</strong>.</p>`
-        : `<p>After all modifiers and effects, the <strong>highest final value wins</strong>. If the values are tied, the <strong>NPC wins the tie</strong>.</p>`
+        ? t('strings.after_all_modifiers_and_effects_the_highest_final_value_wins_if_the_va')
+        : t('strings.after_all_modifiers_and_effects_the_highest_final_value_wins_if_the_va_2')
     },
     'result-win': {
-      eyebrow: `${type.label} Result`, title: 'Active Player Wins', html: fightFlowResultDetail(type, 'win')
+      eyebrow: t('fight.resultLabel', { target: type.label }), title: t('strings.active_player_wins'), html: fightFlowResultDetail(type, 'win')
     },
     'result-lose': {
-      eyebrow: `${type.label} Result`, title: 'Active Player Loses', html: fightFlowResultDetail(type, 'lose')
+      eyebrow: t('fight.resultLabel', { target: type.label }), title: t('strings.active_player_loses'), html: fightFlowResultDetail(type, 'lose')
     },
     'end-effects': {
-      eyebrow: 'End of Fight', title: 'Resolve End Effects',
+      eyebrow: t('strings.end_of_fight_2'), title: t('strings.resolve_end_effects'),
       html: playerFight
-        ? `<p>The <strong>Active Player</strong> resolves all applicable End of Fight effects. Then the <strong>Target Player</strong> resolves their applicable End of Fight effects.</p>`
-        : `<p>The <strong>Active Player</strong> resolves all applicable End of Fight effects.</p>`
+        ? t('strings.the_active_player_resolves_all_applicable_end_of_fight_effects_then_th')
+        : t('strings.the_active_player_resolves_all_applicable_end_of_fight_effects')
     },
     'cleanup': {
-      eyebrow: 'End of Fight', title: 'Clean Up Played Cards',
+      eyebrow: t('strings.end_of_fight_2'), title: t('strings.clean_up_played_cards'),
       html: playerFight
-        ? `<p>Discard all Poker Cards played in this fight.</p>`
-        : `<p>Shuffle the Fight Cards drawn for this fight and place them on the <strong>bottom of the Fight deck</strong>. Discard all Poker Cards played in the fight.</p>`
+        ? t('strings.discard_all_poker_cards_played_in_this_fight')
+        : t('strings.shuffle_the_fight_cards_drawn_for_this_fight_and_place_them_on_the_bot')
     }
   };
   return info[stepKey] || null;
@@ -3547,11 +3858,11 @@ function showFightFlowInfo(info, source, host) {
   const overlay = document.createElement('div');
   overlay.className = 'fight-flow-info-viewer';
   overlay.innerHTML = `<div class="fight-flow-info-card">
-    <p class="eyebrow">${escapeHtml(info.eyebrow || 'Fight Flow')}</p>
+    <p class="eyebrow">${escapeHtml(info.eyebrow || t('reference.fightFlow'))}</p>
     <h3>${escapeHtml(info.title || '')}</h3>
     <div class="fight-flow-info-copy">${info.html || ''}</div>
-    ${info.autoSelect ? `<button type="button" class="primary-btn fight-flow-auto-btn" data-fight-auto-select>Auto-Select Fight Card</button>` : ''}
-    <small>Tap anywhere to close</small>
+    ${info.autoSelect ? t('strings.auto_select_fight_card') : ''}
+    <small>${t('strings.tap_anywhere_to_close')}</small>
   </div>`;
   overlay.addEventListener('click', event => {
     const autoBtn = event.target.closest('[data-fight-auto-select]');
@@ -3578,10 +3889,11 @@ function bindFightFlowInteractions(host, source = 'assist') {
       bindFightFlowInteractions(host, source);
     });
   }
-  host.querySelectorAll('[data-fight-flow-step]').forEach(node => {
-    node.addEventListener('click', () => {
-      const type = selectedFightFlowType();
-      showFightFlowInfo(fightFlowStepDetail(node.dataset.fightFlowStep, type), source, host);
+  host.querySelectorAll('[data-fight-auto-select]').forEach(button => {
+    button.addEventListener('click', event => {
+      event.preventDefault();
+      event.stopPropagation();
+      openFightCardFromFlow(source);
     });
   });
 }
@@ -3589,7 +3901,7 @@ function bindFightFlowInteractions(host, source = 'assist') {
 function renderFightFlowAssist(returnTarget = fightFlowReturnTarget) {
   fightFlowReturnTarget = returnTarget || null;
   assistNestedReturn = fightFlowReturnTarget || null;
-  setAssistHeader('Fight Flow', 'Fight Helper');
+  setAssistHeader(t('strings.fight_flow'), t('strings.fight_helper'));
   assistBody.innerHTML = `<div class="assist-panel reference-assist-panel fight-flow-assist-panel"><div data-fight-flow-host>${renderFightSequenceReference()}</div></div>`;
   bindFightFlowInteractions(assistBody.querySelector('[data-fight-flow-host]'), 'assist');
   showAssistDialog();
@@ -3597,27 +3909,27 @@ function renderFightFlowAssist(returnTarget = fightFlowReturnTarget) {
 
 function renderReferenceOverlay(returnTarget = null) {
   const fightReference = `
-    <h4 class="reference-subheading">Fight Flow</h4>
+    <h4 class="reference-subheading">${t('strings.fight_flow')}</h4>
     <div data-fight-flow-host>${renderFightSequenceReference()}</div>`;
   const gamblingReference = `
-    <h4 class="reference-subheading">Gambling Flow</h4>
+    <h4 class="reference-subheading">${t('strings.gambling_flow')}</h4>
     <div data-gambling-flow-host>${renderGamblingSequenceReference()}</div>`;
   const turnAndActions = `
-    <h4 class="reference-subheading">Turn Summary</h4>
+    <h4 class="reference-subheading">${t('strings.turn_summary')}</h4>
     ${renderTurnSummaryReference()}`;
 
   app.innerHTML = `<div class="modal-screen-overlay" data-modal-backdrop>
     <section class="panel modal-screen-card">
-      <button type="button" class="dialog-close-x" data-modal-close aria-label="Close">&#10005;</button>
+      <button type="button" class="dialog-close-x" data-modal-close aria-label="${t('strings.close')}">&#10005;</button>
       <div class="modal-title-header">
-        <p class="eyebrow">Rules & Reminders</p>
-        <h1 class="section-title">Quick Reference</h1>
+        <p class="eyebrow">${t('strings.rules_reminders')}</p>
+        <h1 class="section-title">${t('strings.quick_reference')}</h1>
       </div>
       <div class="utility-grid reference-sections">
-        ${renderReferenceSection('Turn/Actions', turnAndActions)}
-        ${renderReferenceSection('Fight', fightReference)}
-        ${renderReferenceSection('Gambling', gamblingReference)}
-        ${renderReferenceSection('Points', renderPointReference())}
+        ${renderReferenceSection(t('strings.turn_actions'), turnAndActions)}
+        ${renderReferenceSection(t('strings.fight'), fightReference)}
+        ${renderReferenceSection(t('strings.gambling'), gamblingReference)}
+        ${renderReferenceSection(t('strings.points'), renderPointReference())}
       </div>
     </section>
   </div>`;
@@ -3651,50 +3963,50 @@ function renderTurnPhasePanel(eyebrow, title, bodyHtml, open = false) {
 function renderTurnSummaryReference() {
   const targetLP = Number(state.setup?.targetLP || 20);
   const startItems = [
-    hasModule('ante_up_train') ? '<li>Move the Train.</li>' : '',
-    '<li>Resolve start of turn effects.</li>',
-    '<li>Choose income.</li>',
-    '<li>Choose active weapon/mount.</li>'
+    hasModule('ante_up_train') ? t('strings.move_the_train') : '',
+    t('strings.resolve_start_of_turn_effects'),
+    t('strings.choose_income'),
+    t('strings.choose_active_weapon_mount')
   ].filter(Boolean).join('');
 
   const actionItems = [
-    '<li><strong>Move:</strong> move up to your movement value (2 default).</li>',
-    '<li><strong>Card:</strong> play a Poker Card action as written.</li>',
-    '<li><strong>Fight Another Player:</strong> initiate a fight in your space.</li>',
-    '<li><strong>Free Deliveries:</strong> Rustle after ending movement at Ranch; Wrangle after ending movement at Rail Station.</li>',
-    `<li class="turn-location-action"><strong>Location:</strong> use the available location/module actions. <button type="button" class="small-btn inline-reference-btn" data-open-actions-reference>View Actions</button></li>`,
-    hasModule('blood_money_risk_die') ? '<li><strong>Risk Die:</strong> once per turn, roll at no action cost to draw 1 Poker Card, gain $10, or move 1 (not a Move action).</li>' : ''
+    t('strings.move_move_up_to_your_movement_value_2_default'),
+    t('strings.card_play_a_poker_card_action_as_written'),
+    t('strings.fight_another_player_initiate_a_fight_in_your_space'),
+    t('strings.free_deliveries_rustle_after_ending_movement_at_ranch_wrangle_after_en'),
+    t('strings.location_use_the_available_location_module_actions_view_actions'),
+    hasModule('blood_money_risk_die') ? t('strings.risk_die_once_per_turn_roll_at_no_action_cost_to_draw_1_poker_card_gai') : ''
   ].filter(Boolean).join('');
 
   const endItems = [
-    '<li>Resolve end of turn effects.</li>',
-    hasModule('blood_money_stories') ? '<li>Resolve Legendary Story Card conditions.</li>' : '',
-    '<li>Discard down to hand size: <strong>5 - 1 per wound.</strong></li>',
-    '<li>If Wanted, gain LP from the Wanted Track.</li>',
-    `<li>If LP is at least <strong>${targetLP}</strong>, trigger the end: finish the current round, then play 1 final full round.</li>`
+    t('strings.resolve_end_of_turn_effects'),
+    hasModule('blood_money_stories') ? t('strings.resolve_legendary_story_card_conditions') : '',
+    t('strings.discard_down_to_hand_size_5_1_per_wound'),
+    t('strings.if_wanted_gain_lp_from_the_wanted_track'),
+    `<li>${t('strings.if_lp_is_at_least')} <strong>${targetLP}</strong>${t('strings.trigger_the_end_finish_the_current_round_then_play_1_final_full_round')}</li>`
   ].filter(Boolean).join('');
 
   const manInBlackItems = hasModule('wild_bunch_man_in_black') ? [
-    '<li>Draw and resolve, top to bottom, 1 card from the Man in Black deck.</li>',
-    '<li>He is considered a player for gameplay effects.</li>',
-    '<li>He cannot gain MP, WP, GP, SP, or Wounds.</li>',
-    '<li>He always has $120 and 4 Gold Nuggets.</li>',
-    '<li>He draws 3 Fight Cards in fights and resolves the highest-value card.</li>',
-    '<li>He decreases the value of Poker Cards played against him by 1.</li>',
-    '<li>He wins all ties.</li>'
+    t('strings.draw_and_resolve_top_to_bottom_1_card_from_the_man_in_black_deck'),
+    t('strings.he_is_considered_a_player_for_gameplay_effects'),
+    t('strings.he_cannot_gain_mp_wp_gp_sp_or_wounds'),
+    t('strings.he_always_has_120_and_4_gold_nuggets'),
+    t('strings.he_draws_3_fight_cards_in_fights_and_resolves_the_highest_value_card'),
+    t('strings.he_decreases_the_value_of_poker_cards_played_against_him_by_1'),
+    t('strings.he_wins_all_ties')
   ].join('') : '';
 
   const prospectingTrackItems = hasModule('prospecting_cards') ? [
-    '<li>When a player lands on or passes a Gold Nugget on the LP track, return that nugget to the supply.</li>',
-    '<li>Reveal the next Prospecting Card and add the designated Gold Nuggets to the indicated mines.</li>'
+    t('strings.when_a_player_lands_on_or_passes_a_gold_nugget_on_the_lp_track_return_'),
+    t('strings.reveal_the_next_prospecting_card_and_add_the_designated_gold_nuggets_t')
   ].join('') : '';
 
   return `<div class="turn-summary-panels">
-    ${renderTurnPhasePanel('Start', 'Choose 2: $10, 1 Card', `<ul class="compact-list turn-phase-list">${startItems}</ul>`)}
-    ${renderTurnPhasePanel('Actions', 'Take up to 3 actions', `<ul class="compact-list turn-phase-list">${actionItems}</ul>`)}
-    ${renderTurnPhasePanel('End', 'Discard to hand size', `<ul class="compact-list turn-phase-list">${endItems}</ul>`)}
-    ${manInBlackItems ? renderTurnPhasePanel('End of Round', 'Man in Black Turn', `<ul class="compact-list turn-phase-list">${manInBlackItems}</ul>`) : ''}
-    ${prospectingTrackItems ? renderTurnPhasePanel('Track Trigger', 'Prospecting Deck', `<ul class="compact-list turn-phase-list">${prospectingTrackItems}</ul>`) : ''}
+    ${renderTurnPhasePanel(t('strings.start'), t('strings.choose_2_10_1_card'), `<ul class="compact-list turn-phase-list">${startItems}</ul>`)}
+    ${renderTurnPhasePanel(t('strings.actions'), t('strings.take_up_to_3_actions'), `<ul class="compact-list turn-phase-list">${actionItems}</ul>`)}
+    ${renderTurnPhasePanel(t('strings.end'), t('strings.discard_to_hand_size'), `<ul class="compact-list turn-phase-list">${endItems}</ul>`)}
+    ${manInBlackItems ? renderTurnPhasePanel(t('strings.end_of_round'), t('strings.man_in_black_turn'), `<ul class="compact-list turn-phase-list">${manInBlackItems}</ul>`) : ''}
+    ${prospectingTrackItems ? renderTurnPhasePanel(t('strings.track_trigger'), t('strings.prospecting_deck'), `<ul class="compact-list turn-phase-list">${prospectingTrackItems}</ul>`) : ''}
   </div>`;
 }
 
@@ -3729,118 +4041,118 @@ function renderActionsReferenceContent() {
   const hasGangPosse = hasModule('wild_bunch_gang_posse');
   const hasRuins = hasRuinModule();
   const hasTheatre = hasModule('theatre');
-  const gambleGames = ['Poker', hasFaro ? 'Faro' : '', hasHighStakes ? 'High Stakes Poker' : ''].filter(Boolean);
+  const gambleGames = [t('reference.poker'), hasFaro ? t('reference.faro') : '', hasHighStakes ? t('strings.high_stakes_poker') : ''].filter(Boolean);
 
   const locationActions = [
     {
-      title: 'Acquire',
-      summary: 'Take a facedown Cattle token at a Ranch',
-      body: '<p>While at a Ranch space, gain 1 facedown Cattle token if you are not already carrying one.</p>'
+      title: t('strings.acquire'),
+      summary: t('strings.take_a_facedown_cattle_token_at_a_ranch'),
+      body: t('strings.while_at_a_ranch_space_gain_1_facedown_cattle_token_if_you_are_not_alr')
     },
     hasModule('treasure_hunting_rumors') ? {
-      title: 'Acquire Rumor',
-      summary: 'Buy Rumor cards in town for $30 each',
-      body: '<p>While inside town, buy any number of Rumor Cards for $30 each. Rumor Cards are treated as $10 while in your possession.</p>'
+      title: t('strings.acquire_rumor'),
+      summary: t('strings.buy_rumor_cards_in_town_for_30_each'),
+      body: t('strings.while_inside_town_buy_any_number_of_rumor_cards_for_30_each_rumor_card')
     } : null,
     hasModule('ante_up_events') ? {
-      title: 'Challenge',
-      summary: 'Challenge the High Roller to Poker',
-      body: '<p>While adjacent to a Saloon where the High Roller token is present, initiate a game of Poker.</p>'
+      title: t('strings.challenge'),
+      summary: t('strings.challenge_the_high_roller_to_poker'),
+      body: t('strings.while_adjacent_to_a_saloon_where_the_high_roller_token_is_present_init')
     } : null,
     hasModule('blood_money_deeds') ? {
-      title: 'Claim',
-      summary: 'Purchase a Deed at its location',
-      body: '<p>While at any location with a Deed card, pay its cost and take the Deed card.</p>'
+      title: t('strings.claim'),
+      summary: t('strings.purchase_a_deed_at_its_location'),
+      body: t('strings.while_at_any_location_with_a_deed_card_pay_its_cost_and_take_the_deed_')
     } : null,
     {
-      title: 'Deposit',
-      summary: 'Sell Gold Nuggets at the Bank',
-      body: '<p>While at the Bank space, sell Gold Nuggets. Gain <strong>$20 + 1 LP per nugget</strong>.</p>'
+      title: t('strings.deposit'),
+      summary: t('strings.sell_gold_nuggets_at_the_bank'),
+      body: t('strings.while_at_the_bank_space_sell_gold_nuggets_gain_20_1_lp_per_nugget')
     },
     hasModule('treasure_hunting_rumors') ? {
-      title: 'Dig Up Treasure',
-      summary: 'Turn 3 matching Rumors into buried treasure',
-      body: '<p>When your miniature is on the board space indicated by 3 Rumor Cards, discard those Rumor Cards and gain <strong>3 LP</strong>, 1 random Legendary Item, and the result of 2 Prospecting Dice rolls.</p>'
+      title: t('strings.dig_up_treasure'),
+      summary: t('strings.turn_3_matching_rumors_into_buried_treasure'),
+      body: t('strings.when_your_miniature_is_on_the_board_space_indicated_by_3_rumor_cards_d')
     } : null,
     hasModule('fishing') ? {
-      title: 'Fishing',
-      summary: 'Fish while on a river space',
-      body: '<p>While on a river space, discard 1 Poker Card (J, Q, K = 10; A = 11) plus any Fish Cards (1 per card) to determine Fishing Effort. Reveal Fish Cards until their total value is at least the Fishing Effort, discarding any overage. Gain 1 LP if the total equals the Fishing Effort and you caught at least 1 Fish.</p>'
+      title: t('strings.fishing'),
+      summary: t('strings.fish_while_on_a_river_space'),
+      body: t('strings.while_on_a_river_space_discard_1_poker_card_j_q_k_10_a_11_plus_any_fis')
     } : null,
     hasSideboard ? {
-      title: 'Frontier',
-      summary: 'Complete a Frontier token challenge',
-      body: '<p>While on a space with a Frontier token, discard Poker Cards from your hand with a total value greater than or equal to the Frontier token + space. Gain the reward printed on the back. J, Q, K = 10; A = 11.</p>'
+      title: t('strings.frontier'),
+      summary: t('strings.complete_a_frontier_token_challenge'),
+      body: t('strings.while_on_a_space_with_a_frontier_token_discard_poker_cards_from_your_h')
     } : null,
     {
-      title: 'Gamble',
-      summary: `Play ${gambleGames.join(', ').replace(/, ([^,]*)$/, ' or $1')} at a Saloon`,
-      body: `<p>While adjacent to a Saloon, choose to play ${gambleGames.join(', ').replace(/, ([^,]*)$/, ' or $1')}.</p>`,
-      tool: renderActionToolButton('Gambling Flow', 'gambling')
+      title: t('strings.gamble'),
+      summary: t('reference.gambleSummary', { games: gambleGames.join(', ').replace(/, ([^,]*)$/, t('reference.actions.orOneDollar')) }),
+      body: t('reference.gambleBody', { games: gambleGames.join(', ').replace(/, ([^,]*)$/, t('reference.actions.orOneDollar')) }),
+      tool: renderActionToolButton(t('strings.gambling_flow'), 'gambling')
     },
     {
-      title: 'Heal',
-      summary: 'Remove wounds and injuries at the Doctor',
-      body: '<p>While at the Doctor\'s Office, pay $10 to lose all wounds/injuries, then draw 1 Poker Card per wound.</p>'
+      title: t('strings.heal'),
+      summary: t('strings.remove_wounds_and_injuries_at_the_doctor'),
+      body: t('strings.while_at_the_doctor_s_office_pay_10_to_lose_all_wounds_injuries_then_d')
     },
     {
-      title: 'Heist',
-      summary: `Once per turn: fight the guard at the Bank${hasTrain ? ' or Train' : ''}`,
-      body: `<p><strong>Once per turn:</strong> while at the Bank${hasTrain ? ' or Train' : ''}, fight the guard.</p>`,
-      tool: renderActionToolButton('Fight Flow', 'heist-fight')
+      title: t('strings.heist'),
+      summary: t('reference.heistSummary', { train: hasTrain ? t('strings.or_train') : '' }),
+      body: `<p><strong>${t('strings.once_per_turn')}</strong> ${t('strings.while_at_the_bank')}${hasTrain ? t('strings.or_train') : ''}${t('strings.fight_the_guard')}</p>`,
+      tool: renderActionToolButton(t('strings.fight_flow'), 'heist-fight')
     },
     hasModule('hunting') ? {
-      title: 'Hunt',
-      summary: 'Use a Hunt Action marker to hunt an animal',
-      body: '<p>While on a space with a Hunt Action marker, remove the marker and draw Animal Cards until one matching the marker size or a Bird is revealed. Either discard the chosen Animal Card and end the action, or discard Poker Card(s) whose total value (J, Q, K = 10; A = 11) is at least the animal\'s Strength. Rifle modifies the check by +/-1; Shotgun gives +2. Then place the Hunt Action marker on a new unoccupied space.</p>'
+      title: t('strings.hunt'),
+      summary: t('strings.use_a_hunt_action_marker_to_hunt_an_animal'),
+      body: t('strings.while_on_a_space_with_a_hunt_action_marker_remove_the_marker_and_draw_')
     } : null,
     {
-      title: 'Prospect',
-      summary: 'Roll Prospecting Dice at a Mine',
-      body: `<p>While at a Mine, roll the mining dice and gain the results.</p>${hasModule('prospecting_cards') ? '<p><strong>Prospecting Deck:</strong> whenever your LP marker lands on or passes a Gold Nugget on the LP track, return it to the supply and reveal the next Prospecting Card, adding the designated Gold Nuggets to the indicated mines.</p>' : ''}`,
-      tool: renderActionToolButton('Dice Roller', 'prospecting-dice')
+      title: t('strings.prospect'),
+      summary: t('strings.roll_prospecting_dice_at_a_mine'),
+      body: `<p>${t('strings.while_at_a_mine_roll_the_mining_dice_and_gain_the_results')}</p>${hasModule('prospecting_cards') ? t('strings.prospecting_deck_whenever_your_lp_marker_lands_on_or_passes_a_gold_nug') : ''}`,
+      tool: renderActionToolButton(t('strings.dice_roller'), 'prospecting-dice')
     },
     {
-      title: 'Purchase/Upgrade',
-      summary: `Buy or upgrade items at the Store${hasSideboard ? ' or Trading Post' : ''}`,
-      body: `<p>While adjacent to the Store${hasSideboard ? ' or Trading Post' : ''}, purchase an item from the rack or pay to upgrade an owned item.</p>`
+      title: t('strings.purchase_upgrade'),
+      summary: t('reference.purchaseSummary', { tradingPost: hasSideboard ? t('strings.or_trading_post') : '' }),
+      body: `<p>${t('strings.while_adjacent_to_the_store')}${hasSideboard ? t('strings.or_trading_post') : ''}${t('strings.purchase_an_item_from_the_rack_or_pay_to_upgrade_an_owned_item')}</p>`
     },
     hasGangPosse ? {
-      title: 'Recruit',
-      summary: 'Recruit a Posse or Gang for $20',
-      body: '<p>Pay $20. At the Sheriff/Marshal Office with Marshal Points, recruit a Posse; at the Outlaw Camp with Wanted Points, recruit a Gang.</p>'
+      title: t('strings.recruit'),
+      summary: t('strings.recruit_a_posse_or_gang_for_20'),
+      body: t('strings.pay_20_at_the_sheriff_marshal_office_with_marshal_points_recruit_a_pos')
     } : null,
     hasRuins ? {
-      title: 'Repair',
-      summary: 'Remove a Ruin token for 2 SP',
-      body: '<p>While at a space with a Ruin token, discard 1 Poker Card to gain 2 SP and remove the Ruin token.</p>'
+      title: t('strings.repair'),
+      summary: t('strings.remove_a_ruin_token_for_2_sp'),
+      body: t('strings.while_at_a_space_with_a_ruin_token_discard_1_poker_card_to_gain_2_sp_a')
     } : null,
     {
-      title: 'Revel',
-      summary: hasTheatre ? 'Buy faceup Theatre cards at the Cabaret' : 'Pay $30 at the Cabaret for 1 LP',
+      title: t('strings.revel'),
+      summary: hasTheatre ? t('reference.actions.theatre') : t('strings.pay_30_at_the_cabaret_for_1_lp'),
       body: hasTheatre
-        ? '<p>While at the Cabaret, buy any number of faceup Theatre Cards and gain the LP indicated on them. Reveal new cards until 3 Theatre Cards are faceup again.</p>'
-        : '<p>While at the Cabaret, pay $30 to gain 1 LP.</p>'
+        ? t('strings.while_at_the_cabaret_buy_any_number_of_faceup_theatre_cards_and_gain_t')
+        : t('strings.while_at_the_cabaret_pay_30_to_gain_1_lp')
     },
     hasSideboard ? {
-      title: 'Trail',
-      summary: 'Move between matching trail heads',
-      body: '<p>Use a Move action from one trail head location to the matching trail head location on the opposite board.</p>'
+      title: t('strings.trail'),
+      summary: t('strings.move_between_matching_trail_heads'),
+      body: t('strings.use_a_move_action_from_one_trail_head_location_to_the_matching_trail_h')
     } : null,
     hasModule('blood_money_traveling_trader') ? {
-      title: 'Trader',
-      summary: 'Buy an item from the Traveling Trader',
-      body: '<p>While in the same region as the Traveling Trader, pay $40 to gain an item from the Trader stand. Move the Trader to a new location based on the drawn card.</p>'
+      title: t('strings.trader'),
+      summary: t('strings.buy_an_item_from_the_traveling_trader'),
+      body: t('strings.while_in_the_same_region_as_the_traveling_trader_pay_40_to_gain_an_ite')
     } : null,
     hasTrain ? {
-      title: 'Travel By Rail',
-      summary: 'Pay $10 to travel between Rail Stations',
-      body: '<p>Pay $10 to place your miniature on the opposite Rail Station, then continue the Move action up to your maximum movement.</p>'
+      title: t('strings.travel_by_rail'),
+      summary: t('strings.pay_10_to_travel_between_rail_stations'),
+      body: t('strings.pay_10_to_place_your_miniature_on_the_opposite_rail_station_then_conti')
     } : null,
     {
-      title: 'Work',
-      summary: 'Gain $10 at any location',
-      body: `<p>Gain $10 at any location${hasRuins ? ' without a Ruin token' : ''}.</p>`
+      title: t('strings.work'),
+      summary: t('strings.gain_10_at_any_location'),
+      body: `<p>${t('strings.gain_10_at_any_location')}${hasRuins ? t('strings.without_a_ruin_token') : ''}.</p>`
     }
   ].filter(Boolean).sort((a, b) => a.title.localeCompare(b.title));
 
@@ -3849,11 +4161,11 @@ function renderActionsReferenceContent() {
     .join('');
 
   return `<div class="actions-reference-list">
-    ${renderActionReferencePanel('Move', 'Move up to your movement value (2 default)', '<p>Move up to your movement value. The default movement value is 2.</p>')}
-    ${renderActionReferencePanel('Fight', 'Initiate a fight with a player in your space', `<p>Initiate a fight in your space with another player: Arrest, Duel, or Rob.</p><div class="action-reference-tools">${renderActionToolButton('Fight Flow', 'fight')}</div>`)}
-    ${renderActionReferencePanel('Card', 'Play a Poker Card action', '<p>Play a Poker Card action as written on the card.</p>')}
-    ${renderActionReferencePanel('Free Deliveries', 'Rustle or Wrangle after movement', '<p><strong>Rustle:</strong> after ending movement at a Ranch.</p><p><strong>Wrangle:</strong> after ending movement at a Rail Station.</p>')}
-    ${renderActionReferencePanel('Location', 'Actions available at specific locations', `<div class="location-action-list">${locationPanels}</div>`, true)}
+    ${renderActionReferencePanel(t('strings.move'), t('strings.move_up_to_your_movement_value_2_default'), t('strings.move_up_to_your_movement_value_the_default_movement_value_is_2'))}
+    ${renderActionReferencePanel(t('strings.fight'), t('strings.initiate_a_fight_with_a_player_in_your_space'), `<p>${t('strings.initiate_a_fight_in_your_space_with_another_player_arrest_duel_or_rob')}</p><div class="action-reference-tools">${renderActionToolButton(t('strings.fight_flow'), 'fight')}</div>`)}
+    ${renderActionReferencePanel(t('strings.card'), t('strings.play_a_poker_card_action'), t('strings.play_a_poker_card_action_as_written_on_the_card'))}
+    ${renderActionReferencePanel(t('strings.free_deliveries'), t('strings.rustle_or_wrangle_after_movement'), t('strings.rustle_after_ending_movement_at_a_ranch_wrangle_after_ending_movement_'))}
+    ${renderActionReferencePanel(t('strings.location'), t('strings.actions_available_at_specific_locations'), `<div class="location-action-list">${locationPanels}</div>`, true)}
   </div>`;
 }
 function openActionsReference(source = 'reference') {
@@ -3864,7 +4176,7 @@ function openActionsReference(source = 'reference') {
 function renderActionsAssist() {
   assistView = 'detail';
   assistNestedReturn = actionsReturnTarget === 'reference' ? 'reference' : null;
-  setAssistHeader('Actions', 'Quick Reference');
+  setAssistHeader(t('strings.actions'), t('strings.quick_reference'));
   assistBody.innerHTML = `<div class="assist-panel actions-reference-assist">${renderActionsReferenceContent()}</div>`;
   assistBody.querySelectorAll('[data-action-tool]').forEach(btn => btn.addEventListener('click', () => openActionTool(btn.dataset.actionTool)));
   showAssistDialog();
@@ -3898,131 +4210,131 @@ function openActionTool(tool) {
 function gamblingFlowSteps(game = 'poker') {
   if (game === 'faro') return [
     {
-      title: 'Start Faro',
-      summary: 'Gamble beside a Saloon; same-town players may join',
-      detail: 'Take a Gamble action while adjacent to a Saloon. Any other player in the same town may join. If at least one other player joins, the active player gains $10. The dealer is the closest non-participating player to the right of the active player; if everyone joins, the active player is the dealer.'
+      title: t('strings.start_faro'),
+      summary: t('strings.gamble_beside_a_saloon_same_town_players_may_join'),
+      detail: t('strings.take_a_gamble_action_while_adjacent_to_a_saloon_any_other_player_in_the_')
     },
     {
-      title: 'Reveal',
-      summary: 'Draw 4 Fight Cards; show 3 and keep 1 facedown',
-      detail: 'The dealer draws the top 4 Fight Cards. Reveal the first 3 to all players and leave the fourth card facedown.'
+      title: t('strings.reveal'),
+      summary: t('strings.draw_4_fight_cards_show_3_and_keep_1_facedown'),
+      detail: t('strings.the_dealer_draws_the_top_4_fight_cards_reveal_the_first_3_to_all_players')
     },
     {
-      title: 'Bet',
-      summary: 'Place up to 2 bets of $10 or $20; active player bets last',
-      detail: 'In clockwise order, with the active player placing the last bet, each player may place up to 2 bet markers on the Faro board. Each marker is $10 or $20. Your two markers cannot be on the same card value, and your total bets cannot exceed the money you currently have.'
+      title: t('strings.bet'),
+      summary: t('strings.place_up_to_2_bets_of_10_or_20_active_player_bets_last'),
+      detail: t('strings.in_clockwise_order_with_the_active_player_placing_the_last_bet_each_play')
     },
     {
-      title: 'Loser',
-      summary: 'Shuffle the 4 cards; first reveal loses',
-      detail: 'The dealer shuffles all 4 cards facedown and offers the active player a cut. Reveal the top card as the Loser. Every bet on that card value loses: pay the amount on that marker to the supply and reclaim the marker.'
+      title: t('strings.loser'),
+      summary: t('strings.shuffle_the_4_cards_first_reveal_loses'),
+      detail: t('strings.the_dealer_shuffles_all_4_cards_facedown_and_offers_the_active_player_a_')
     },
     {
-      title: 'Winner',
-      summary: 'Second reveal pays 1:1 + 1 GP; decide whether to press on',
-      detail: 'Reveal the next card as the Winner. Matching bets pay 1:1: gain money equal to the marker and 1 Gambler Point, then reclaim that marker. Starting to the left of the active player, anyone with a marker still on the board must either reclaim it and stop or leave it for the Jackpot round.'
+      title: t('strings.winner_2'),
+      summary: t('strings.second_reveal_pays_1_1_1_gp_decide_whether_to_press_on'),
+      detail: t('strings.reveal_the_next_card_as_the_winner_matching_bets_pay_1_1_gain_money_equa')
     },
     {
-      title: 'Jackpot',
-      summary: 'Third reveal pays 3:1 + 1 GP; all other remaining bets lose',
-      detail: 'Reveal the next card as the Jackpot. Matching bets gain 3 times the marker value and 1 Gambler Point, then reclaim the marker. Every other marker still on the board loses: pay its value to the supply and reclaim it. Shuffle all Fight Cards used in Faro and place them on the bottom of the Fight deck.'
+      title: t('strings.jackpot'),
+      summary: t('strings.third_reveal_pays_3_1_1_gp_all_other_remaining_bets_lose'),
+      detail: t('strings.reveal_the_next_card_as_the_jackpot_matching_bets_gain_3_times_the_marke')
     }
   ];
 
   if (game === 'high_stakes') return [
     {
-      title: 'Qualify & Ante',
-      summary: 'Need at least $30 + 1 Poker Card; ante $10 and draw 1',
-      detail: 'To initiate High Stakes Poker, the active player must have at least $30 and 1 Poker Card. Take a Gamble action while adjacent to a Saloon, pay $10 to the pot, and draw 1 Poker Card.'
+      title: t('strings.qualify_ante'),
+      summary: t('strings.need_at_least_30_1_poker_card_ante_10_and_draw_1'),
+      detail: t('strings.to_initiate_high_stakes_poker_the_active_player_must_have_at_least_30_an')
     },
     {
-      title: 'Invite Players',
-      summary: 'Same-town players may join in clockwise order',
-      detail: 'Each other player in the same town decides in clockwise order whether to join. To join, a player must have at least $30 and 1 Poker Card; they pay $10 to the pot and draw 1 Poker Card.'
+      title: t('strings.invite_players'),
+      summary: t('strings.same_town_players_may_join_in_clockwise_order'),
+      detail: t('strings.each_other_player_in_the_same_town_decides_in_clockwise_order_whether_to')
     },
     {
-      title: 'Build Pot / Set Dealer',
-      summary: 'Saloon adds $40; if solo, dealer draws 5 cards',
-      detail: 'The Saloon adds $40 to the pot. If no other player joined, the player to the right of the active player becomes the dealer, sets aside their normal hand, and draws 5 Poker Cards for this game.'
+      title: t('strings.build_pot_set_dealer'),
+      summary: t('strings.saloon_adds_40_if_solo_dealer_draws_5_cards'),
+      detail: t('strings.the_saloon_adds_40_to_the_pot_if_no_other_player_joined_the_player_to_th')
     },
     {
-      title: 'Deal the Flop',
-      summary: 'Reveal 3 communal Poker Cards',
-      detail: 'Reveal 3 communal Poker Cards faceup. These are the flop.'
+      title: t('strings.deal_the_flop'),
+      summary: t('strings.reveal_3_communal_poker_cards'),
+      detail: t('strings.reveal_3_communal_poker_cards_faceup_these_are_the_flop')
     },
     {
-      title: 'Add $20 or Fold',
-      summary: 'Players act clockwise from the active player’s left; dealer never folds',
-      detail: 'Starting with the player to the left of the active player and proceeding clockwise, each player either adds $20 to the pot or folds. A player who folds forfeits their $10 ante, loses the game, and draws 1 Poker Card. If a dealer is playing, the dealer always adds $20 from the supply and never folds.'
+      title: t('strings.add_20_or_fold'),
+      summary: t('strings.players_act_clockwise_from_the_active_player_s_left_dealer_never_folds'),
+      detail: t('strings.starting_with_the_player_to_the_left_of_the_active_player_and_proceeding')
     },
     {
-      title: 'Check for Early End',
-      summary: 'All fold: clear pot; lone player may win immediately',
-      detail: 'If all players fold, return all money in the pot to the supply. If only 1 player remains and no dealer is playing, that player immediately takes the pot and gains 1 Legendary Point and 1 Gambler Point.'
+      title: t('strings.check_for_early_end'),
+      summary: t('strings.all_fold_clear_pot_lone_player_may_win_immediately'),
+      detail: t('strings.if_all_players_fold_return_all_money_in_the_pot_to_the_supply_if_only_1_')
     },
     {
-      title: 'Turn & River',
-      summary: 'If play continues, reveal 2 more communal cards',
-      detail: 'If the hand continues and no dealer is playing, the Saloon adds another $20 to the pot. Then reveal 2 more communal Poker Cards: the turn and river.'
+      title: t('strings.turn_river'),
+      summary: t('strings.if_play_continues_reveal_2_more_communal_cards'),
+      detail: t('strings.if_the_hand_continues_and_no_dealer_is_playing_the_saloon_adds_another_2')
     },
     {
-      title: 'Make the Best Hand',
-      summary: 'Reveal 2 hand cards + use any 3 communal cards',
-      detail: 'Starting to the left of the active player and proceeding clockwise, each remaining player reveals 2 cards from hand and combines them with 3 of the 5 communal cards to make the best Poker hand possible. The dealer does the same when playing. Resolve Poker/Gambling abilities as in normal Poker.',
+      title: t('strings.make_the_best_hand'),
+      summary: t('strings.reveal_2_hand_cards_use_any_3_communal_cards'),
+      detail: t('strings.starting_to_the_left_of_the_active_player_and_proceeding_clockwise_each_'),
       pokerHands: true
     },
     {
-      title: 'Winner, Ties & Rewards',
-      summary: 'Best hand wins; winner gets pot + 1 LP + 1 GP',
-      detail: 'The best hand wins. The dealer wins ties; the active player wins ties against other players. If multiple non-active players tie, each gains 1 LP and 1 GP and they split the pot evenly, rounding down; return any remainder to the supply. If the dealer wins, return the pot to the supply. Otherwise, a winning player takes the pot and gains 1 LP and 1 GP. All losers draw 1 Poker Card, and all players discard the cards they revealed.'
+      title: t('strings.winner_ties_rewards'),
+      summary: t('strings.best_hand_wins_winner_gets_pot_1_lp_1_gp'),
+      detail: t('strings.the_best_hand_wins_the_dealer_wins_ties_the_active_player_wins_ties_agai')
     }
   ];
 
   return [
     {
-      title: 'Ante & Draw',
-      summary: 'Gamble beside a Saloon; pay $10 and draw 1 Poker Card',
-      detail: 'Take a Gamble action while adjacent to a Saloon. The active player pays $10 to the pot and draws 1 Poker Card.'
+      title: t('strings.ante_draw'),
+      summary: t('strings.gamble_beside_a_saloon_pay_10_and_draw_1_poker_card'),
+      detail: t('strings.take_a_gamble_action_while_adjacent_to_a_saloon_the_active_player_pays_1')
     },
     {
-      title: 'Invite Players',
-      summary: 'Any player in the same town may buy in for $10',
-      detail: 'Each other player in the same town may join. A joining player pays $10 to the pot and draws 1 Poker Card. After everyone has joined or passed, the house adds $50 to the pot.'
+      title: t('strings.invite_players'),
+      summary: t('strings.any_player_in_the_same_town_may_buy_in_for_10'),
+      detail: t('strings.each_other_player_in_the_same_town_may_join_a_joining_player_pays_10_to_')
     },
     {
-      title: 'Set Dealer if Solo',
-      summary: 'If nobody joins, the player to the right deals against you',
-      detail: 'If no other player joined, the player to the right of the active player becomes the dealer. The dealer sets aside their normal Poker hand and draws 4 Poker Cards as their hand for this game.'
+      title: t('strings.set_dealer_if_solo'),
+      summary: t('strings.if_nobody_joins_the_player_to_the_right_deals_against_you'),
+      detail: t('strings.if_no_other_player_joined_the_player_to_the_right_of_the_active_player_b')
     },
     {
-      title: 'Deal the Flop',
-      summary: 'Reveal the top 3 Poker Cards',
-      detail: 'Reveal the top 3 Poker Cards faceup. These communal cards are the flop.'
+      title: t('strings.deal_the_flop'),
+      summary: t('strings.reveal_the_top_3_poker_cards'),
+      detail: t('strings.reveal_the_top_3_poker_cards_faceup_these_communal_cards_are_the_flop')
     },
     {
-      title: 'Build Your Hand',
-      summary: 'Use 2 hand cards + the 3 flop cards',
-      detail: 'Make the best 5-card hand using the 3 flop cards and exactly 2 Poker Cards from your hand, if able. If you have only 1 Poker Card, use it to make the best 4-card hand you can. Aces may be low or high in a straight or straight flush.',
+      title: t('strings.build_your_hand'),
+      summary: t('strings.use_2_hand_cards_the_3_flop_cards'),
+      detail: t('strings.make_the_best_5_card_hand_using_the_3_flop_cards_and_exactly_2_poker_car'),
       pokerHands: true
     },
     {
-      title: 'Reveal & Break Ties',
-      summary: 'Best hand wins; dealer and active player have tie priority',
-      detail: 'Reveal chosen cards simultaneously and announce each hand. The best hand wins. Between hands of the same rank, compare card values and then kickers if needed. A dealer wins ties. If players tie and the active player is among them, the active player wins. Otherwise tied players split the pot evenly; return any remainder to the supply.'
+      title: t('strings.reveal_break_ties'),
+      summary: t('strings.best_hand_wins_dealer_and_active_player_have_tie_priority'),
+      detail: t('strings.reveal_chosen_cards_simultaneously_and_announce_each_hand_the_best_hand_')
     },
     {
-      title: 'Award the Pot',
-      summary: 'Winner takes pot; losers draw 1 Poker Card',
-      detail: 'The winner takes the pot and any additional item or ability rewards. If the active player wins, they may gain either 1 Gambler Point or 1 Legendary Point. A winning non-active player gains 1 Gambler Point. Every losing player draws 1 Poker Card.'
+      title: t('strings.award_the_pot'),
+      summary: t('strings.winner_takes_pot_losers_draw_1_poker_card'),
+      detail: t('strings.the_winner_takes_the_pot_and_any_additional_item_or_ability_rewards_if_t')
     }
   ];
 }
 
 function availableGamblingGames() {
   return [
-    { value: 'poker', label: 'Poker' },
-    hasModule('ante_up_faro') ? { value: 'faro', label: 'Faro' } : null,
-    hasModule('ante_up_high_stakes_poker') ? { value: 'high_stakes', label: 'High Stakes Poker' } : null
+    { value: 'poker', label: t('strings.poker') },
+    hasModule('ante_up_faro') ? { value: 'faro', label: t('strings.faro') } : null,
+    hasModule('ante_up_high_stakes_poker') ? { value: 'high_stakes', label: t('strings.high_stakes_poker') } : null
   ].filter(Boolean);
 }
 
@@ -4036,10 +4348,10 @@ function renderGamblingGameSelector() {
   const games = availableGamblingGames();
   normalizeGamblingFlowSelection();
   if (games.length === 1) {
-    return `<div class="gambling-flow-game-chip"><span>Game</span><strong>Poker</strong></div>`;
+    return t('strings.game_poker');
   }
   return `<div class="fight-flow-selector-card gambling-flow-selector-card">
-    <label for="gamblingFlowGame"><span>Game</span><select id="gamblingFlowGame" data-gambling-flow-game>
+    <label for="gamblingFlowGame"><span>${t('strings.game')}</span><select id="gamblingFlowGame" data-gambling-flow-game>
       ${games.map(game => `<option value="${game.value}" ${gamblingFlowSelection === game.value ? 'selected' : ''}>${escapeHtml(game.label)}</option>`).join('')}
     </select></label>
   </div>`;
@@ -4049,25 +4361,80 @@ function renderGamblingFlowNode(step, index) {
   const icons = ['♠', '$', '🂠', '⚖', '★', '◆', '🃏', '♣', '★', '✓'];
   return `<div class="fight-flow-node gambling-flow-node" data-gambling-flow-step="${index}" tabindex="0" role="button">
     <span class="fight-flow-icon" aria-hidden="true">${icons[index] || '•'}</span>
-    <span class="fight-flow-copy"><small>Step ${index + 1}</small><strong>${escapeHtml(step.title)}</strong><span>${escapeHtml(step.summary || step.detail)}</span></span>
-    <span class="fight-flow-info-dot" aria-hidden="true">i</span>
-    ${step.pokerHands ? `<button type="button" class="small-btn gambling-poker-hands-btn" data-open-poker-hands>Poker Hands</button>` : ''}
+    <span class="fight-flow-copy"><small>${t('strings.step')} ${index + 1}</small><strong>${escapeHtml(step.title)}</strong><span>${escapeHtml(step.summary || step.detail)}</span></span>
+    <span class="fight-flow-info-dot" aria-hidden="true">${t('strings.i')}</span>
+    ${step.pokerHands ? t('strings.poker_hands_2') : ''}
   </div>`;
 }
 
+
+function renderGamblingFlowBrief(game) {
+  const gameLabel = gamblingFlowLabel(game);
+  if (game === 'faro') {
+    return `<div class="fight-flow-brief gambling-flow-brief">
+      <div class="fight-flow-brief-heading">
+        <span class="fight-flow-brief-icon" aria-hidden="true">♦</span>
+        <span><small>${escapeHtml(t('strings.gambling_reference'))}</small><strong>${escapeHtml(gameLabel)}</strong></span>
+      </div>
+      <div class="fight-flow-brief-facts">
+        <span>${escapeHtml(t('strings.place_up_to_2_bets_of_10_or_20_active_player_bets_last'))}</span>
+        <span>${escapeHtml(t('strings.third_reveal_pays_3_1_1_gp_all_other_remaining_bets_lose'))}</span>
+      </div>
+    </div>`;
+  }
+  if (game === 'high_stakes') {
+    return `<div class="fight-flow-brief gambling-flow-brief">
+      <div class="fight-flow-brief-heading">
+        <span class="fight-flow-brief-icon" aria-hidden="true">♠</span>
+        <span><small>${escapeHtml(t('strings.gambling_reference'))}</small><strong>${escapeHtml(gameLabel)}</strong></span>
+      </div>
+      <div class="fight-flow-brief-facts">
+        <span>${escapeHtml(t('strings.need_at_least_30_1_poker_card_ante_10_and_draw_1'))}</span>
+        <span>${escapeHtml(t('strings.best_hand_wins_winner_gets_pot_1_lp_1_gp'))}</span>
+      </div>
+    </div>`;
+  }
+  return `<div class="fight-flow-brief gambling-flow-brief">
+    <div class="fight-flow-brief-heading">
+      <span class="fight-flow-brief-icon" aria-hidden="true">♣</span>
+      <span><small>${escapeHtml(t('strings.gambling_reference'))}</small><strong>${escapeHtml(gameLabel)}</strong></span>
+    </div>
+    <div class="fight-flow-brief-facts">
+      <span>${escapeHtml(t('strings.gamble_beside_a_saloon_pay_10_and_draw_1_poker_card'))}</span>
+      <span>${escapeHtml(t('strings.winner_takes_pot_losers_draw_1_poker_card'))}</span>
+    </div>
+  </div>`;
+}
+
+function renderGamblingFlowDetail(step) {
+  const handsButton = step.pokerHands ? `<button type="button" class="action-btn action-btn-secondary fight-flow-auto-btn gambling-inline-btn" data-open-poker-hands>${escapeHtml(t('strings.poker_hands'))}</button>` : '';
+  return `<div class="fight-flow-inline-detail gambling-flow-inline-detail${handsButton ? ' gambling-flow-inline-tool' : ''}">
+    <p>${escapeHtml(step.detail)}</p>
+    ${handsButton}
+  </div>`;
+}
+
+function renderGamblingFlowStage(index, step) {
+  const stageKey = `gambling-${gamblingFlowSelection}-${index}`;
+  const eyebrow = `${t('strings.step')} ${index + 1}`;
+  return renderFightFlowStage(index + 1, stageKey, eyebrow, step.title, step.summary || '', renderGamblingFlowDetail(step), step.pokerHands ? 'gambling-flow-stage-poker-emphasis' : '');
+}
+
 function gamblingFlowLabel(game) {
-  if (game === 'faro') return 'Faro';
-  if (game === 'high_stakes') return 'High Stakes Poker';
-  return 'Poker';
+  if (game === 'faro') return t('reference.faro');
+  if (game === 'high_stakes') return t('strings.high_stakes_poker');
+  return t('reference.poker');
 }
 
 function renderGamblingSequenceReference() {
   const game = normalizeGamblingFlowSelection();
   const steps = gamblingFlowSteps(game);
-  return `<div class="fight-flowchart gambling-flowchart" aria-label="${escapeHtml(gamblingFlowLabel(game))} gambling flowchart">
+  return `<div class="fight-flowchart gambling-flowchart" aria-label="${escapeHtml(t('assist.gambling.flowAria', { game: gamblingFlowLabel(game) }))}">
     ${renderGamblingGameSelector()}
-    ${renderFightFlowPhase(gamblingFlowLabel(game).toUpperCase())}
-    ${steps.map((step, index) => `${renderGamblingFlowNode(step, index)}${index < steps.length - 1 ? renderFightFlowArrow() : ''}`).join('')}
+    ${renderGamblingFlowBrief(game)}
+    <div class="fight-flow-stage-list gambling-flow-stage-list">
+      ${steps.map((step, index) => renderGamblingFlowStage(index, step)).join('')}
+    </div>
   </div>`;
 }
 
@@ -4075,7 +4442,7 @@ function gamblingFlowStepInfo(index) {
   const game = normalizeGamblingFlowSelection();
   const step = gamblingFlowSteps(game)[Number(index)];
   if (!step) return null;
-  return { eyebrow: `${gamblingFlowLabel(game)} Flow`, title: step.title, html: `<p>${escapeHtml(step.detail)}</p>` };
+  return { eyebrow: t('assist.gambling.flowLabel', { game: gamblingFlowLabel(game) }), title: step.title, html: `<p>${escapeHtml(step.detail)}</p>` };
 }
 
 function openPokerHandsFromGambling(source = 'reference') {
@@ -4086,7 +4453,7 @@ function openPokerHandsFromGambling(source = 'reference') {
     assistNestedReturn = 'gamblingFlow';
   }
   assistView = 'detail';
-  renderReferenceStyleAssist('Poker Hands', renderPokerHandsReference(), 'Gambling Reference');
+  renderReferenceStyleAssist(t('strings.poker_hands'), renderPokerHandsReference(), t('strings.gambling_reference'));
 }
 
 function bindGamblingFlowInteractions(host, source = 'reference') {
@@ -4095,16 +4462,6 @@ function bindGamblingFlowInteractions(host, source = 'reference') {
     gamblingFlowSelection = event.target.value;
     host.innerHTML = renderGamblingSequenceReference();
     bindGamblingFlowInteractions(host, source);
-  });
-  host.querySelectorAll('[data-gambling-flow-step]').forEach(node => {
-    const showInfo = event => {
-      if (event.target.closest?.('[data-open-poker-hands]')) return;
-      showFightFlowInfo(gamblingFlowStepInfo(node.dataset.gamblingFlowStep), source, host);
-    };
-    node.addEventListener('click', showInfo);
-    node.addEventListener('keydown', event => {
-      if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); showInfo(event); }
-    });
   });
   host.querySelectorAll('[data-open-poker-hands]').forEach(btn => btn.addEventListener('click', event => {
     event.preventDefault(); event.stopPropagation(); openPokerHandsFromGambling(source);
@@ -4122,55 +4479,55 @@ function renderReferenceStep(number, title, detail) {
 function renderPointReference() {
   const sections = [
     {
-      title: 'Legendary Points (LP)',
+      title: t('strings.legendary_points_lp'),
       cls: 'gold',
       items: [
-        { iconPath: 'assets/images/tokens/action-bank.png', action: 'Deposit Gold', detail: 'At the Bank, gain $20 and 1 LP for each Gold Nugget sold.' },
-        { iconPath: 'assets/images/tokens/action-revel.png', action: 'Revel', detail: 'At the Cabaret, pay $30 to gain 1 LP; you may repeat during the same Revel action.' },
-        { iconPath: 'assets/images/tokens/action-outlaw.png', action: 'Win Fights', detail: 'Defeat Bandits or story NPCs when the fight reward allows LP.' },
-        { icon: 'lp.png', action: 'Complete Stories', detail: 'Story Cards, Legendary Stories, event triggers, and app story objectives may award LP.' },
-        { icon: 'deed.png', action: 'Use Deeds', detail: 'Claim or use Deeds when a property reward grants LP.' },
-        { icon: 'generic.svg', action: 'Expansion Rewards', detail: 'Hunting, fishing, crafting, and other expansion content may award LP through their own rules or stories.' }
+        { iconPath: 'assets/images/tokens/action-bank.png', action: t('strings.deposit_gold'), detail: t('strings.at_the_bank_gain_20_and_1_lp_for_each_gold_nugget_sold') },
+        { iconPath: 'assets/images/tokens/action-revel.png', action: t('strings.revel'), detail: t('strings.at_the_cabaret_pay_30_to_gain_1_lp_you_may_repeat_during_the_same_revel_') },
+        { iconPath: 'assets/images/tokens/action-outlaw.png', action: t('strings.win_fights'), detail: t('strings.defeat_bandits_or_story_npcs_when_the_fight_reward_allows_lp') },
+        { icon: 'lp.png', action: t('strings.complete_stories'), detail: t('strings.story_cards_legendary_stories_event_triggers_and_app_story_objectives_ma') },
+        { icon: 'deed.png', action: t('strings.use_deeds'), detail: t('strings.claim_or_use_deeds_when_a_property_reward_grants_lp') },
+        { icon: 'generic.svg', action: t('strings.expansion_rewards'), detail: t('strings.hunting_fishing_crafting_and_other_expansion_content_may_award_lp_throug') }
       ]
     },
     {
-      title: 'Marshal Points (MP)',
+      title: t('strings.marshal_points_mp'),
       cls: 'blue',
       items: [
-        { iconPath: 'assets/images/tokens/action-ranch.png', action: 'Wrangle Cattle', detail: 'Deliver cattle tokens to a Rail Station.' },
-        { iconPath: 'assets/images/tokens/action-sheriff.png', action: 'Arrest Outlaws', detail: 'Arrest Wanted players or resolve lawman rewards that grant Marshal Points.' },
-        { iconPath: 'assets/images/tokens/action-bandit.png', action: 'Defeat Bandits', detail: 'Choose Marshal Points when the Bandit reward allows MP instead of LP.' },
-        { iconPath: 'assets/images/tokens/action-sheriff.png', action: 'Serve the Law', detail: 'Complete Sheriff, Marshal, Posse, or law-themed story events that award MP.' }
+        { iconPath: 'assets/images/tokens/action-ranch.png', action: t('strings.wrangle_cattle'), detail: t('strings.deliver_cattle_tokens_to_a_rail_station') },
+        { iconPath: 'assets/images/tokens/action-sheriff.png', action: t('strings.arrest_outlaws'), detail: t('strings.arrest_wanted_players_or_resolve_lawman_rewards_that_grant_marshal_point') },
+        { iconPath: 'assets/images/tokens/action-bandit.png', action: t('strings.defeat_bandits'), detail: t('strings.choose_marshal_points_when_the_bandit_reward_allows_mp_instead_of_lp') },
+        { iconPath: 'assets/images/tokens/action-sheriff.png', action: t('strings.serve_the_law'), detail: t('strings.complete_sheriff_marshal_posse_or_law_themed_story_events_that_award_mp') }
       ]
     },
     {
-      title: 'Wanted Points (WP)',
+      title: t('strings.wanted_points_wp'),
       cls: 'black',
       items: [
-        { iconPath: 'assets/images/tokens/action-ranch.png', action: 'Rustle Cattle', detail: 'Deliver cattle to the wrong Ranch color.' },
-        { iconPath: 'assets/images/tokens/action-outlaw.png', action: 'Rob / Heist', detail: 'Rob another player, rob the Bank, or commit Heist/Outlaw actions that award Wanted Points.' },
-        { iconPath: 'assets/images/tokens/action-outlaw.png', action: 'Fight the Law', detail: 'Attack or interfere with lawmen when a rule or story says to gain WP.' },
-        { iconPath: 'assets/images/tokens/action-outlaw.png', action: 'Outlaw Events', detail: 'Resolve outlaw, gang, train-heist, or bandit story events that grant WP.' }
+        { iconPath: 'assets/images/tokens/action-ranch.png', action: t('strings.rustle_cattle'), detail: t('strings.deliver_cattle_to_the_wrong_ranch_color') },
+        { iconPath: 'assets/images/tokens/action-outlaw.png', action: t('strings.rob_heist'), detail: t('strings.rob_another_player_rob_the_bank_or_commit_heist_outlaw_actions_that_awar') },
+        { iconPath: 'assets/images/tokens/action-outlaw.png', action: t('strings.fight_the_law'), detail: t('strings.attack_or_interfere_with_lawmen_when_a_rule_or_story_says_to_gain_wp') },
+        { iconPath: 'assets/images/tokens/action-outlaw.png', action: t('strings.outlaw_events'), detail: t('strings.resolve_outlaw_gang_train_heist_or_bandit_story_events_that_grant_wp') }
       ]
     },
     {
-      title: 'Gambler Points (GP)',
+      title: t('strings.gambler_points_gp'),
       cls: 'purple',
       requiredModules: ['ante_up_gambler'],
       items: [
-        { iconPath: 'assets/images/tokens/action-cards.png', action: 'Gambling Rewards', detail: 'Win or resolve Ante Up gambling activities when the Gambler Track/module is enabled.' },
-        { iconPath: 'assets/images/tokens/action-cards.png', action: 'Poker / Faro', detail: 'Play Poker or Faro events that award Gambler Points.' },
-        { iconPath: 'assets/images/tokens/action-cards.png', action: 'Gambling Stories', detail: 'Complete saloon, cabaret, card-shark, or traveling-showman story events that award GP.' }
+        { iconPath: 'assets/images/tokens/action-cards.png', action: t('strings.gambling_rewards'), detail: t('strings.win_or_resolve_ante_up_gambling_activities_when_the_gambler_track_module') },
+        { iconPath: 'assets/images/tokens/action-cards.png', action: t('strings.poker_faro'), detail: t('strings.play_poker_or_faro_events_that_award_gambler_points') },
+        { iconPath: 'assets/images/tokens/action-cards.png', action: t('strings.gambling_stories'), detail: t('strings.complete_saloon_cabaret_card_shark_or_traveling_showman_story_events_tha') }
       ]
     },
     {
-      title: 'Story Points (SP)',
+      title: t('strings.story_points_sp'),
       cls: 'silver',
       requiredModules: ['blood_money_stories'],
       items: [
-        { icon: 'sp.png', action: 'Legendary Stories', detail: 'Gain Story Points from Blood Money Legendary Story content when instructed.' },
-        { iconPath: 'assets/images/dice/risk.png', action: 'Risk Die Effects', detail: 'Gain Story Points from the Risk Die or other module effects when instructed.' },
-        { icon: 'sp.png', action: 'Story Objectives', detail: 'Complete story objectives, major storyline chapters, or app events that explicitly award Story Points.' }
+        { icon: 'sp.png', action: t('strings.legendary_stories'), detail: t('strings.gain_story_points_from_blood_money_legendary_story_content_when_instruct') },
+        { iconPath: 'assets/images/dice/risk.png', action: t('strings.risk_die_effects'), detail: t('strings.gain_story_points_from_the_risk_die_or_other_module_effects_when_instruc') },
+        { icon: 'sp.png', action: t('strings.story_objectives'), detail: t('strings.complete_story_objectives_major_storyline_chapters_or_app_events_that_ex') }
       ]
     }
   ].filter(referenceItemVisible);
@@ -4190,15 +4547,15 @@ function renderSettingsOverlay(returnTarget = null) {
       <details class="options-card settings-dialog-section" open>
         <summary class="options-card-head">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5v13z"/></svg>
-          <span class="options-card-title">Story &amp; Events</span>
+          <span class="options-card-title">${t('strings.story_amp_events')}</span>
           <span class="options-card-caret" aria-hidden="true"></span>
         </summary>
         <div class="options-card-body">
           <p class="settings-section-note"><!--Change how often new story content appears. Modules stay locked to the choices used when this game began; ongoing chapters and current world effects are not removed.--></p>
           <div class="story-event-settings">
-            ${renderStoryEventSetting('oneOff', 'One-Off Events', 'Short encounters caused by actions during the game.')}
-            ${renderStoryEventSetting('arcs', 'Character Arcs', 'Multi-part stories that remember earlier player choices and actions.')}
-            ${renderStoryEventSetting('world', 'World Events', 'Occasional frontier-wide events that arrive independently over time.')}
+            ${renderStoryEventSetting('oneOff', t('story.eventTypes.oneOff.title'), t('story.eventTypes.oneOff.description'))}
+            ${renderStoryEventSetting('arcs', t('story.eventTypes.arcs.title'), t('story.eventTypes.arcs.description'))}
+            ${renderStoryEventSetting('world', t('story.eventTypes.world.title'), t('story.eventTypes.world.description'))}
           </div>
         </div>
       </details>
@@ -4206,56 +4563,75 @@ function renderSettingsOverlay(returnTarget = null) {
       <details class="options-card settings-dialog-section" open>
         <summary class="options-card-head">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M7 12h10"/></svg>
-          <span class="options-card-title">Story Points</span>
+          <span class="options-card-title">${t('strings.story_points')}</span>
           <span class="options-card-caret" aria-hidden="true"></span>
         </summary>
         <div class="options-card-body">
           <label class="toggle-row check-row story-track-setting">
-            <div class="toggle-text"><span class="t-title">Track Story Points</span><span class="t-sub">Show and maintain each player's Story Point track during this game.</span></div>
+            <div class="toggle-text"><span class="t-title">${t('strings.track_story_points')}</span><span class="t-sub">${t('strings.show_and_maintain_each_player_s_story_point_track_during_this_game')}</span></div>
             <input type="checkbox" id="useStoryTrack" class="check-input" ${isStoryTrackEnabled() ? 'checked' : ''}>
           </label>
           <label class="toggle-row check-row story-track-setting">
-            <div class="toggle-text"><span class="t-title">Story Point Reward Reminders</span><span class="t-sub">Show the compact reminder when a Story Point advances a player's marker.</span></div>
+            <div class="toggle-text"><span class="t-title">${t('strings.story_point_reward_reminders')}</span><span class="t-sub">${t('strings.show_the_compact_reminder_when_a_story_point_advances_a_player_s_marker')}</span></div>
             <input type="checkbox" id="showStoryTrackReminders" class="check-input" ${state.settings?.hideStoryTrackReminders ? '' : 'checked'}>
           </label>
         </div>
-      </details>` : `
-      <p class="settings-no-game-note">Start a game to see the Story &amp; Events and Story Point settings for that game.</p>`;
+      </details>` : t('strings.start_a_game_to_see_the_story_events_and_story_point_settings_for_that');
 
   app.innerHTML = `<div class="modal-screen-overlay" data-settings-backdrop>
     <section class="panel modal-screen-card settings-dialog-card">
-      <button type="button" class="dialog-close-x" data-settings-close aria-label="Close">&#10005;</button>
+      <button type="button" class="dialog-close-x" data-settings-close aria-label="${t('strings.close')}">&#10005;</button>
       <div class="modal-title-header settings-dialog-title-block">
-        <p class="eyebrow">Frontier Director</p>
-        <h1 class="section-title">Settings</h1>
+        <p class="eyebrow">${t('strings.frontier_director')}</p>
+        <h1 class="section-title">${t('strings.settings')}</h1>
       </div>
 
       <details class="options-card settings-dialog-section audio-settings-card" open>
         <summary class="options-card-head">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18 6a8.5 8.5 0 0 1 0 12"/></svg>
-          <span class="options-card-title">Audio</span>
+          <span class="options-card-title">${t('strings.audio')}</span>
           <span class="options-card-caret" aria-hidden="true"></span>
         </summary>
         <div class="options-card-body">
           <div class="sound-compact-grid settings-sound-grid">
-            ${soundControl('musicOn','Music','musicVolume')}
-            ${soundControl('soundOn','Sounds','soundVolume')}
-            ${soundControl('voiceOn','Voice','voiceVolume')}
+            ${soundControl('musicOn',t('settings.music'),'musicVolume')}
+            ${soundControl('soundOn',t('settings.sounds'),'soundVolume')}
+            ${soundControl('voiceOn',t('settings.voice'),'voiceVolume')}
           </div>
         </div>
       </details>
 
       ${gameSettingsMarkup}
 
+      <details class="options-card settings-dialog-section settings-language">
+        <summary class="options-card-head">
+          <span class="settings-language-icon" aria-hidden="true">${LANGUAGE_GLOBE_SVG}</span>
+          <span class="options-card-title">${escapeHtml(t('languageSelector.title'))}</span>
+          <span class="settings-language-caret options-card-caret" aria-hidden="true"></span>
+        </summary>
+        <div class="options-card-body settings-language-body">
+          <button type="button" class="settings-language-button" id="settingsLanguageSelector" aria-label="${escapeHtml(t('languageSelector.selectAria', { language: currentLanguageName() }))}">
+            <span class="settings-language-copy">
+              <span class="settings-language-label">${escapeHtml(t('languageSelector.current'))}</span>
+              <strong class="settings-language-current">${escapeHtml(currentLanguageName())}</strong>
+            </span>
+            <span class="settings-language-action">${escapeHtml(t('languageSelector.change'))}</span>
+            <span class="settings-language-chevron" aria-hidden="true">›</span>
+          </button>
+        </div>
+      </details>
+
       <div class="dialog-actions settings-dialog-actions">
         <button type="button" class="primary-btn home-major-btn home-leather-btn home-leather-btn-primary" id="settingsDone">
           <span class="home-btn-mark" aria-hidden="true">◆</span>
-          <span class="home-btn-label">Done</span>
+          <span class="home-btn-label">${t('strings.done')}</span>
           <span class="home-btn-arrow" aria-hidden="true">›</span>
         </button>
       </div>
     </section>
   </div>`;
+
+  document.getElementById('settingsLanguageSelector')?.addEventListener('click', openLanguagePicker);
 
   [['musicOn', 'musicVolume'], ['soundOn', 'soundVolume'], ['voiceOn', 'voiceVolume']].forEach(([flag, volumeKey]) => {
     const checkbox = document.getElementById(flag);
@@ -4324,8 +4700,8 @@ function soundControl(flag, label, volume) {
   return `<article class="ref-card sound-control-block">
     <h3>${label}</h3>
     <div class="sound-control-row">
-      <input type="checkbox" id="${flag}" class="sound-toggle" ${on ? 'checked' : ''} aria-label="${label} on/off">
-      <input id="${volume}" type="range" min="0" max="1" step="0.01" value="${state.settings[volume]}" ${on ? '' : 'disabled'} aria-label="${label} volume">
+      <input type="checkbox" id="${flag}" class="sound-toggle" ${on ? 'checked' : ''} aria-label="${escapeHtml(t('settings.onOffAria', { label }))}">
+      <input id="${volume}" type="range" min="0" max="1" step="0.01" value="${state.settings[volume]}" ${on ? '' : 'disabled'} aria-label="${escapeHtml(t('settings.volumeAria', { label }))}">
     </div>
   </article>`;
 }
@@ -4513,21 +4889,7 @@ const FIGHT_HARM_SCORE = { '2': 95, '3': 90, '4': 82, '6': 74, '7': 68, '5': 62 
 // game - only rank 6 explicitly says its wound "cannot be canceled."
 const FIGHT_WOUND_AMOUNT = { '2': 1, '3': 2, '4': 1, '5': 1, '6': 1, '7': 0.5 };
 const FIGHT_WOUND_UNCANCELABLE = { '6': true };
-const FIGHT_CARD_ABILITY_TEXT = {
-  'A': 'The other player gains 1 LP, 1 Marshal Point, or 1 Wanted Point.',
-  'K': 'The other player gains 1 LP.',
-  'Q': 'The other player draws 1 Poker Card.',
-  'J': 'The other player gains $10.',
-  '10': 'Cancel this fight and start another. Shuffle these cards to the bottom of the deck, then draw again.',
-  '9': 'The other player discards 1 Poker Card or loses $10.',
-  '8': 'The other player gains 1 wound.',
-  '7': 'The other player gains 1 wound or discards 1 random Poker Card.',
-  '6': 'The other player gains 1 wound. This wound cannot be canceled.',
-  '5': 'The other player gains 1 wound.',
-  '4': 'The other player gains 1 wound and discards 1 Poker Card.',
-  '3': 'The other player gains 2 wounds.',
-  '2': 'The other player gains 1 wound and loses 1 LP.'
-};
+
 
 // Looks at what's actually still left in the persistent deck (state.fightDeck
 // already excludes whatever's currently drawn) to reason about the odds of
@@ -4700,15 +5062,15 @@ function discardFightCardsToDeck(ranks) {
 
 
 const ASSIST_GROUP_ICONS = {
-  Fight: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4l15 15M19 4L4 19M6 3l3 3-3 3M18 3l-3 3 3 3"/></svg>',
-  Gambling: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c-2.5 3.6-6 5.6-6 9a4 4 0 0 0 7 2.6V18H9v3h6v-3h-4v-3.4A4 4 0 0 0 18 12c0-3.4-3.5-5.4-6-9z"/></svg>',
-  Dice: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="9" cy="9" r="1"/><circle cx="15" cy="15" r="1"/><circle cx="15" cy="9" r="1"/><circle cx="9" cy="15" r="1"/></svg>',
-  Randomizers: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h3c5 0 5 10 10 10h5M18 14l3 3-3 3M3 17h3c2.2 0 3.4-1.8 4.6-4M18 4l3 3-3 3M14 7h7"/></svg>',
-  More: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="19" cy="12" r="1.4"/></svg>'
+  fight: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4l15 15M19 4L4 19M6 3l3 3-3 3M18 3l-3 3 3 3"/></svg>',
+  gambling: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c-2.5 3.6-6 5.6-6 9a4 4 0 0 0 7 2.6V18H9v3h6v-3h-4v-3.4A4 4 0 0 0 18 12c0-3.4-3.5-5.4-6-9z"/></svg>',
+  dice: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="9" cy="9" r="1"/><circle cx="15" cy="15" r="1"/><circle cx="15" cy="9" r="1"/><circle cx="9" cy="15" r="1"/></svg>',
+  randomizers: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h3c5 0 5 10 10 10h5M18 14l3 3-3 3M3 17h3c2.2 0 3.4-1.8 4.6-4M18 4l3 3-3 3M14 7h7"/></svg>',
+  other: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="19" cy="12" r="1.4"/></svg>'
 };
 
-function assistGroupIcon(title) {
-  return `<span class="assist-group-heading-icon">${ASSIST_GROUP_ICONS[title] || ASSIST_GROUP_ICONS.More}</span>`;
+function assistGroupIcon(groupId) {
+  return `<span class="assist-group-heading-icon">${ASSIST_GROUP_ICONS[groupId] || ASSIST_GROUP_ICONS.other}</span>`;
 }
 
 function openAssistMenu() {
@@ -4717,37 +5079,35 @@ function openAssistMenu() {
   assistNestedReturn = null;
   fightFlowReturnTarget = null;
   gamblingFlowReturnTarget = null;
-  setAssistHeader('Game Assist', 'Quick Helpers');
+  setAssistHeader(t('strings.game_assist'), t('strings.quick_helpers'));
   const groups = [
-    { title: 'Fight', items: [
-      { id: 'fightCards', title: 'Draw', desc: 'Auto-draw NPC Fight Card' },
-      { id: 'fightFlow', title: 'Fight Flow', desc: 'Step-by-step fight guide' }
+    { id: 'fight', title: t('assist.groups.fight'), items: [
+      { id: 'fightCards', title: t('strings.draw'), desc: t('assist.fight.autoDrawNpc') },
+      { id: 'fightFlow', title: t('strings.fight_flow'), desc: t('strings.step_by_step_fight_guide') }
     ]},
-    { title: 'Gambling', items: [
-      { id: 'pokerHands', title: 'Poker Hands', desc: 'Which hand beats which.' },
-      { id: 'pokerFlow', title: 'Poker', desc: 'Step-by-step Poker guide.' },
-      ...(hasModule('ante_up_faro') ? [{ id: 'faroFlow', title: 'Faro', desc: 'Step-by-step Faro guide.' }] : []),
-      ...(hasModule('ante_up_high_stakes_poker') ? [{ id: 'highStakesPokerFlow', title: 'High Stakes Poker', desc: 'Step-by-step high stakes guide.' }] : [])
+    { id: 'gambling', title: t('assist.groups.gambling'), items: [
+      { id: 'pokerHands', title: t('strings.poker_hands'), desc: t('strings.which_hand_beats_which') },
+      { id: 'pokerFlow', title: t('strings.poker'), desc: t('strings.step_by_step_poker_guide') },
+      ...(hasModule('ante_up_faro') ? [{ id: 'faroFlow', title: t('strings.faro'), desc: t('strings.step_by_step_faro_guide') }] : []),
+      ...(hasModule('ante_up_high_stakes_poker') ? [{ id: 'highStakesPokerFlow', title: t('strings.high_stakes_poker'), desc: t('strings.step_by_step_high_stakes_guide') }] : [])
     ]},
-    { title: 'Dice', items: [
-      { id: 'prospectDiceMenu', title: 'Prospecting Dice', desc: 'Roll Prospecting Dice' },
-      ...(hasModule('blood_money_risk_die') ? [{ id: 'riskDiceMenu', title: 'Risk Die', desc: 'Roll the Risk Die.' }] : [])
+    { id: 'dice', title: t('assist.groups.dice'), items: [
+      { id: 'prospectDiceMenu', title: t('strings.prospecting_dice'), desc: t('strings.roll_prospecting_dice') },
+      ...(hasModule('blood_money_risk_die') ? [{ id: 'riskDiceMenu', title: t('strings.risk_die'), desc: t('strings.roll_the_risk_die') }] : [])
     ]},
-    { title: 'Randomizers', items: [
-      { id: 'firstPlayer', title: 'First Player', desc: 'Choose first player' },
-      { id: 'randomPlayer', title: 'Random Player', desc: 'Pick a random player color.' },
-      { id: 'storeRandomizer', title: 'Store Randomizer', desc: hasModule('ante_up_sideboard') ? 'Fill General Store/Trading Post' : 'Fill General Store' }
+    { id: 'randomizers', title: t('assist.groups.randomizers'), items: [
+      { id: 'firstPlayer', title: t('strings.first_player'), desc: t('strings.choose_first_player') },
+      { id: 'randomPlayer', title: t('strings.random_player'), desc: t('strings.pick_a_random_player_color') },
+      { id: 'storeRandomizer', title: t('strings.store_randomizer'), desc: hasModule('ante_up_sideboard') ? t('strings.fill_general_store_trading_post') : t('strings.fill_general_store') }
     ]}
   ];
-  const extras = [];
-  if (hasModule('ante_up_train')) extras.push({ id: 'train', title: 'Train Assist', desc: 'Quick train reminder.' });
-  if (hasModule('hunting_animals')) extras.push({ id: 'hunt', title: 'Hunting Assist', desc: 'Quick hunt challenge placeholder.' });
-  if (hasModule('fishing_fish_deck')) extras.push({ id: 'fish', title: 'Fishing Assist', desc: 'Quick fishing placeholder.' });
-  if (hasModule('foraging_resources')) extras.push({ id: 'forage', title: 'Foraging Assist', desc: 'Quick forage/crafting placeholder.' });
-  if (extras.length) groups.push({ title: 'More', items: extras });
+  // Reserved for future module-specific helpers. The section remains hidden
+  // until a useful helper is deliberately added here.
+  const otherAssistItems = [];
+  if (otherAssistItems.length) groups.push({ id: 'other', title: t('assist.groups.other'), items: otherAssistItems });
 
   assistBody.innerHTML = groups.map(group => `<div class="assist-group">
-    <h3 class="assist-group-title">${assistGroupIcon(group.title)}<span>${escapeHtml(group.title)}</span></h3>
+    <h3 class="assist-group-title">${assistGroupIcon(group.id)}<span>${escapeHtml(group.title)}</span></h3>
     <div class="assist-choice-list">${group.items.map(item => `<button type="button" class="assist-choice assist-choice-no-icon" data-assist-open="${item.id}"><span class="assist-choice-copy"><strong>${item.title}</strong><small>${item.desc}</small></span></button>`).join('')}</div>
   </div>`).join('');
   assistBody.querySelectorAll('[data-assist-open]').forEach(btn => btn.onclick = () => { assistOpenedDirectly = false; openAssist(btn.dataset.assistOpen); });
@@ -4757,7 +5117,7 @@ function openAssistMenu() {
 // A lightweight wrapper for showing static reference-style content (steps,
 // tables, lists) inside the Assist dialog, reusing the exact same content
 // generators as the full Rules screen so the two never drift apart.
-function renderReferenceStyleAssist(title, contentHtml, type = 'Reference') {
+function renderReferenceStyleAssist(title, contentHtml, type = t('assist.referenceType')) {
   setAssistHeader(title, type);
   assistBody.innerHTML = `${assistBackButton()}<div class="assist-panel reference-assist-panel">${contentHtml}</div>`;
   bindAssistBack();
@@ -4768,12 +5128,22 @@ function renderReferenceStyleAssist(title, contentHtml, type = 'Reference') {
 // "Prospecting Dice" and "Risk Die" Assist menu buttons so each starts
 // fresh with the expected default rather than whatever was left over from
 // an earlier session.
-function openDiceAssist(defaultType) {
-  if (defaultType === 'risk' && hasModule('blood_money_risk_die')) {
+function setProspectDiceType(type) {
+  // Western Legends never needs Prospecting and Risk dice in the same roll.
+  // Switching types replaces the current dice with that type's normal default.
+  Object.keys(prospectDieTimers).forEach(key => {
+    clearTimeout(prospectDieTimers[key]);
+    delete prospectDieTimers[key];
+  });
+  if (type === 'risk' && hasModule('blood_money_risk_die')) {
     prospectDiceState = { dice: [{ type: 'risk', face: DICE_TYPES.risk.outcomes[0] }], selectedType: 'risk' };
   } else {
     prospectDiceState = { dice: [{ type: 'prospecting', face: 'gold' }, { type: 'prospecting', face: 'gold' }], selectedType: 'prospecting' };
   }
+}
+
+function openDiceAssist(defaultType) {
+  setProspectDiceType(defaultType);
   renderProspectingAssist();
 }
 
@@ -4781,7 +5151,7 @@ function openAssist(kind) {
   assistView = 'detail';
   if (kind === 'fightCards') return renderFightCardAssist();
   if (kind === 'fightFlow') { fightFlowReturnTarget = null; return renderFightFlowAssist(null); }
-  if (kind === 'pokerHands') return renderReferenceStyleAssist('Poker Hands', renderPokerHandsReference(), 'Gambling Reference');
+  if (kind === 'pokerHands') return renderReferenceStyleAssist(t('strings.poker_hands'), renderPokerHandsReference(), t('strings.gambling_reference'));
   if (kind === 'pokerFlow') { gamblingFlowReturnTarget = null; return renderGamblingAssist('poker', null); }
   if (kind === 'faroFlow') { gamblingFlowReturnTarget = null; return renderGamblingAssist('faro', null); }
   if (kind === 'highStakesPokerFlow') { gamblingFlowReturnTarget = null; return renderGamblingAssist('high_stakes', null); }
@@ -4793,13 +5163,13 @@ function openAssist(kind) {
   return renderSimpleAssist(kind);
 }
 
-function setAssistHeader(title, type = 'Trail Helper') {
+function setAssistHeader(title, type = t('strings.trail_helper')) {
   document.getElementById('assistTitle').textContent = title;
   document.getElementById('assistType').textContent = type;
 }
 
 function showAssistDialog() {
-  if (assistTitle.textContent !== 'First Player') assistDialog.classList.remove('first-player-dialog');
+  if (assistTitle.textContent !== t('reference.firstPlayer')) assistDialog.classList.remove('first-player-dialog');
   if (!assistDialog.open) assistDialog.showModal();
 }
 
@@ -4864,10 +5234,10 @@ function bindAssistBack() {
 let fightCardState = null;
 
 const FIGHT_CARD_NPC_PRESETS = {
-  bandit: { label: 'Bandit', count: 2 },
-  bank_guard: { label: 'Bank Guard', count: 3 },
-  sheriff: { label: 'Sheriff', count: 4 },
-  other: { label: 'Other', count: 2 }
+  bandit: { labelKey: 'assist.fight.npcLabels.bandit', count: 2 },
+  bank_guard: { labelKey: 'assist.fight.npcLabels.bank_guard', count: 3 },
+  sheriff: { labelKey: 'assist.fight.npcLabels.sheriff', count: 4 },
+  other: { labelKey: 'assist.fight.npcLabels.other', count: 2 }
 };
 
 function createFightCardState(npcType = 'bandit', count = null, context = {}) {
@@ -4901,7 +5271,7 @@ function resetFightCardHand() {
 
 function fightCardImgHtml(rank, showFront) {
   const src = showFront ? fightCardFrontSrc(rank) : FIGHT_CARD_BACK_SRC;
-  const alt = showFront ? `Fight card ${rank}` : 'Fight card back';
+  const alt = showFront ? t('assist.fight.cardAlt', { rank }) : t('reference.fightCardBack');
   return `<img src="${escapeHtml(src)}" alt="${escapeHtml(alt)}" loading="lazy" onerror="this.closest('.fight-card-3d').classList.add('store-slot-noart');this.remove();">`;
 }
 function fightCardFaceInner(rank, showFront) {
@@ -4935,8 +5305,8 @@ function fightCardPresetForFlow(type) {
     return { npcType: type.npcType, count: type.cards || FIGHT_CARD_NPC_PRESETS[type.npcType]?.count || 2, flowTargetLabel: '', flowCountHint: '' };
   }
   const hint = type.value === 'npc_train_guard'
-    ? 'Use the Fight Card count shown on the Train Encounter card.'
-    : `Use the Fight Card count shown on ${type.countSource || 'the NPC component'}.`;
+    ? t('strings.use_the_fight_card_count_shown_on_the_train_encounter_card')
+    : t('assist.fight.useCountOnComponent', { component: type.countSource || t('strings.the_npc_component') });
   return { npcType: 'other', count: 2, flowTargetLabel: type.label, flowCountHint: hint };
 }
 
@@ -4972,32 +5342,32 @@ function changeFightCardOpponent(npcType) {
 }
 
 function renderFightCardAssist() {
-  setAssistHeader('Draw Fight Cards', 'Fight Helper');
+  setAssistHeader(t('strings.draw_fight_cards'), t('strings.fight_helper'));
   const st = ensureFightCardState();
   const chosenRank = st.chosenIndex != null ? st.cards[st.chosenIndex]?.rank : null;
   const customCount = st.npcType === 'other';
   assistBody.innerHTML = `${assistBackButton()}<div class="assist-panel">
     <div class="fight-card-opponent-control ${customCount ? 'has-custom-count' : 'fixed-count'}">
-      <label><span>NPC</span><select data-fc-opponent>
-        ${Object.entries(FIGHT_CARD_NPC_PRESETS).map(([value, preset]) => `<option value="${value}" ${st.npcType === value ? 'selected' : ''}>${escapeHtml(preset.label)}${value === 'other' ? '' : ` — ${preset.count} cards`}</option>`).join('')}
+      <label><span>${t('strings.npc')}</span><select data-fc-opponent>
+        ${Object.entries(FIGHT_CARD_NPC_PRESETS).map(([value, preset]) => `<option value="${value}" ${st.npcType === value ? 'selected' : ''}>${escapeHtml(t(preset.labelKey))}${value === 'other' ? '' : tp('assist.fight.cardCountSuffix', preset.count, { count: preset.count })}</option>`).join('')}
       </select></label>
       ${customCount ? `<div class="fight-card-count-control">
-        <span>Fight Cards</span>
-        <div class="dice-count-control"><button type="button" class="small-btn" data-fc-minus aria-label="Draw one fewer Fight Card">−</button><strong>${st.count}</strong><button type="button" class="small-btn" data-fc-plus aria-label="Draw one more Fight Card">+</button></div>
+        <span>${t('strings.fight_cards')}</span>
+        <div class="dice-count-control"><button type="button" class="small-btn" data-fc-minus aria-label="${t('strings.draw_one_fewer_fight_card')}">−</button><strong>${st.count}</strong><button type="button" class="small-btn" data-fc-plus aria-label="${t('strings.draw_one_more_fight_card')}">+</button></div>
       </div>` : ''}
     </div>
     ${st.flowTargetLabel ? `<div class="fight-card-flow-context"><strong>${escapeHtml(st.flowTargetLabel)}</strong><span>${escapeHtml(st.flowCountHint)}</span></div>` : ''}
-    <p class="assist-hint">${st.hasDrawn ? 'Tap a face-down card to peek at it. Tap any revealed card to view it full size.' : 'Tap Draw to draw this many Fight Cards and reveal the NPC\u2019s best play.'}</p>
+    <p class="assist-hint">${st.hasDrawn ? t('strings.tap_a_face_down_card_to_peek_at_it_tap_any_revealed_card_to_view_it_full') : t('strings.tap_draw_to_draw_this_many_fight_cards_and_reveal_the_npc_s_best_play')}</p>
     <div class="fight-card-grid" data-fight-card-area>${st.cards.map((c, i) => renderFightCardEl(i)).join('')}</div>
-    ${chosenRank ? `<div class="dialog-reward fight-card-chosen-note"><strong>NPC plays the ${escapeHtml(chosenRank)}:</strong> ${escapeHtml(FIGHT_CARD_ABILITY_TEXT[chosenRank] || '')}</div>` : ''}
+    ${chosenRank ? `<div class="dialog-reward fight-card-chosen-note"><strong>${t('strings.npc_plays_the')} ${escapeHtml(chosenRank)}:</strong> ${escapeHtml(fightCardAbilityText(chosenRank))}</div>` : ''}
     <details class="fight-context-toggles">
-      <summary>Advanced: refine the NPC's decision</summary>
-      <label class="fight-weapon-toggle"><input type="checkbox" data-fc-weapon ${st.opponentHasWeapon ? 'checked' : ''}> Opponent has a card-reducing weapon</label>
-      <label class="fight-weapon-toggle"><input type="checkbox" data-fc-maxwounds ${st.opponentAtMaxWounds ? 'checked' : ''}> Opponent already has 3 wounds (the max)</label>
-      <label class="fight-weapon-toggle"><input type="checkbox" data-fc-stakes ${st.highStakesNpc ? 'checked' : ''}> This NPC\u2019s defeat reward is especially valuable (Bank Guard, Sheriff, etc.)</label>
-      <label class="fight-weapon-toggle"><input type="checkbox" data-fc-nopoker ${st.opponentHasNoPokerCards ? 'checked' : ''}> Opponent has no Poker Cards to discard</label>
+      <summary>${t('strings.advanced_refine_the_npc_s_decision')}</summary>
+      <label class="fight-weapon-toggle"><input type="checkbox" data-fc-weapon ${st.opponentHasWeapon ? 'checked' : ''}> ${t('strings.opponent_has_a_card_reducing_weapon')}</label>
+      <label class="fight-weapon-toggle"><input type="checkbox" data-fc-maxwounds ${st.opponentAtMaxWounds ? 'checked' : ''}> ${t('strings.opponent_already_has_3_wounds_the_max')}</label>
+      <label class="fight-weapon-toggle"><input type="checkbox" data-fc-stakes ${st.highStakesNpc ? 'checked' : ''}> ${t('strings.this_npc_u2019s_defeat_reward_is_especially_valuable_bank_guard_sheriff_')}</label>
+      <label class="fight-weapon-toggle"><input type="checkbox" data-fc-nopoker ${st.opponentHasNoPokerCards ? 'checked' : ''}> ${t('strings.opponent_has_no_poker_cards_to_discard')}</label>
     </details>
-    <button type="button" class="primary-btn assist-action-btn-centered" data-fc-draw>${st.hasDrawn ? 'Re-Draw' : 'Draw'}</button>
+    <button type="button" class="primary-btn assist-action-btn-centered" data-fc-draw>${st.hasDrawn ? t('reference.redraw') : t('reference.draw')}</button>
   </div>`;
   bindAssistBack();
   assistBody.querySelector('[data-fc-opponent]').onchange = event => changeFightCardOpponent(event.target.value);
@@ -5016,7 +5386,7 @@ function renderFightCardAssist() {
     const index = Number(cardEl.dataset.cardIndex);
     const entry = fightCardState.cards[index];
     if (!entry || !entry.rank) return;
-    if (entry.revealed) showFullscreenImage(fightCardFrontSrc(entry.rank), `Fight Card ${entry.rank}`, '');
+    if (entry.revealed) showFullscreenImage(fightCardFrontSrc(entry.rank), t('assist.fight.cardAlt', { rank: entry.rank }), '');
     else animatePeekFightCard(index);
   };
   showAssistDialog();
@@ -5112,7 +5482,7 @@ function renderGamblingAssist(game = null, returnTarget = gamblingFlowReturnTarg
   if (game) gamblingFlowSelection = game;
   normalizeGamblingFlowSelection();
   assistNestedReturn = gamblingFlowReturnTarget || null;
-  setAssistHeader('Gambling Flow', 'Gambling Helper');
+  setAssistHeader(t('strings.gambling_flow'), t('strings.gambling_helper'));
   assistBody.innerHTML = `<div class="assist-panel reference-assist-panel gambling-flow-assist-panel"><div data-gambling-flow-host>${renderGamblingSequenceReference()}</div></div>`;
   bindGamblingFlowInteractions(assistBody.querySelector('[data-gambling-flow-host]'), 'assist');
   showAssistDialog();
@@ -5136,7 +5506,7 @@ function renderAssistDetailStep(number, title, detail) {
 // image filenames) if it doesn't match.
 const DICE_TYPES = {
   prospecting: {
-    label: 'Prospecting Die',
+    labelKey: 'assist.dice.types.prospecting.label',
     requiredModule: null,
     outcomes: ['gold', 'gold', 'gold', 'money', 'reroll', 'miss'],
     images: {
@@ -5145,11 +5515,11 @@ const DICE_TYPES = {
       reroll: 'assets/images/dice/face-reroll.png',
       miss: 'assets/images/dice/face-null.png'
     },
-    labels: { gold: 'Gold Nugget', money: 'Money', reroll: '$ + Reroll', miss: 'Miss' },
+    labelKeys: { gold: 'gold', money: 'money', reroll: 'reroll', miss: 'miss' },
     slotMap: { front: 'gold', back: 'gold', right: 'gold', left: 'money', top: 'reroll', bottom: 'miss' }
   },
   risk: {
-    label: 'Risk Die',
+    labelKey: 'assist.dice.types.risk.label',
     requiredModule: 'blood_money_risk_die',
     outcomes: ['blank', 'wound', 'wound', 'doublewound', 'storypoint', 'woundstorypoint'],
     // Use the supplied per-face Risk Die artwork when available. The die
@@ -5161,7 +5531,7 @@ const DICE_TYPES = {
       storypoint: 'assets/images/dice/risk-sp.png',
       woundstorypoint: 'assets/images/dice/risk-woundsp.png'
     },
-    labels: { blank: 'Blank', wound: 'Gain 1 wound', doublewound: 'Gain 2 wounds', storypoint: 'Gain 1 Story Point', woundstorypoint: 'Gain 1 wound + 1 Story Point' },
+    labelKeys: { blank: 'blank', wound: 'wound', doublewound: 'doublewound', storypoint: 'storypoint', woundstorypoint: 'woundstorypoint' },
     slotMap: { front: 'woundstorypoint', back: 'blank', right: 'wound', left: 'wound', top: 'storypoint', bottom: 'doublewound' }
   }
 };
@@ -5221,7 +5591,7 @@ function dieCubeMarkup(typeKey) {
   const type = DICE_TYPES[typeKey] || DICE_TYPES.prospecting;
   const face = slotFace => {
     const outcomeKey = type.slotMap[slotFace];
-    const label = type.labels[outcomeKey] || outcomeKey;
+    const label = diceFaceLabel(typeKey, outcomeKey);
     const image = type.images?.[outcomeKey];
     const content = image
       ? `<img src="${escapeHtml(image)}" alt="${escapeHtml(label)}" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="die-face-text" hidden>${escapeHtml(label)}</span>`
@@ -5267,21 +5637,21 @@ function updateRollAllButtonState() {
 
 function renderProspectingAssist() {
   const st = ensureProspectDiceState();
-  setAssistHeader(st.selectedType === 'risk' ? 'Risk Die' : 'Prospecting Dice', 'Dice Roller');
+  setAssistHeader(st.selectedType === 'risk' ? t('strings.risk_die') : t('strings.prospecting_dice'), t('strings.dice_roller'));
   const typeOptions = availableDiceTypes();
   const showTypeSelect = typeOptions.length > 1;
   assistBody.innerHTML = `${assistBackButton()}<div class="assist-panel">
-    ${showTypeSelect ? `<label class="dice-type-select-label">Die Type
-      <select data-dice-type-select>${typeOptions.map(([key, type]) => `<option value="${key}" ${st.selectedType === key ? 'selected' : ''}>${escapeHtml(type.label)}</option>`).join('')}</select>
+    ${showTypeSelect ? `<label class="dice-type-select-label">${escapeHtml(t('assist.dice.dieType'))}
+      <select data-dice-type-select>${typeOptions.map(([key]) => `<option value="${key}" ${st.selectedType === key ? 'selected' : ''}>${escapeHtml(diceTypeLabel(key))}</option>`).join('')}</select>
     </label>` : ''}
     <div class="dice-count-control"><button type="button" class="small-btn" data-prospect-minus>−</button><strong>${st.dice.length}</strong><button type="button" class="small-btn" data-prospect-plus>+</button></div>
-    <div class="prospect-dice-area" data-roll-prospect aria-label="Roll dice">
+    <div class="prospect-dice-area" data-roll-prospect aria-label="${t('strings.roll_dice')}">
       ${st.dice.map((d, index) => `<div class="prospect-die-3d" data-die-index="${index}" data-face="${d.face}" data-die-type="${d.type}">
         <div class="prospect-die-cube-wrap">${dieCubeMarkup(d.type)}</div>
-        <div class="prospect-die-label">${escapeHtml(DICE_TYPES[d.type]?.labels[d.face] || '')}</div>
+        <div class="prospect-die-label">${escapeHtml(diceFaceLabel(d.type, d.face))}</div>
       </div>`).join('')}
     </div>
-    <button type="button" class="primary-btn assist-action-btn-centered" data-roll-all>Roll All Dice</button>
+    <button type="button" class="primary-btn assist-action-btn-centered" data-roll-all>${t('strings.roll_all_dice')}</button>
   </div>`;
   bindAssistBack();
   // Snap every cube straight to its resting orientation (no animation) so a
@@ -5294,7 +5664,7 @@ function renderProspectingAssist() {
     cube.style.transition = '';
   });
   if (showTypeSelect) {
-    assistBody.querySelector('[data-dice-type-select]').onchange = event => { prospectDiceState.selectedType = event.target.value; renderProspectingAssist(); };
+    assistBody.querySelector('[data-dice-type-select]').onchange = event => { setProspectDiceType(event.target.value); renderProspectingAssist(); };
   }
   assistBody.querySelector('[data-prospect-minus]').onclick = () => { removeProspectDie(); renderProspectingAssist(); };
   assistBody.querySelector('[data-prospect-plus]').onclick = () => { addProspectDie(); renderProspectingAssist(); };
@@ -5372,7 +5742,7 @@ function animateProspectReroll(index) {
     delete prospectDieTimers[index];
     if (prospectDiceState) prospectDiceState.dice[index].face = nextFace;
     dieEl.dataset.face = nextFace;
-    if (label) label.textContent = DICE_TYPES[type]?.labels[nextFace] || '';
+    if (label) label.textContent = diceFaceLabel(type, nextFace);
     snapCubeToRest(cube, type, nextFace);
     updateRollAllButtonState();
   }, PROSPECT_ROLL_MS);
@@ -5398,7 +5768,7 @@ function animateProspectRollAll() {
       delete prospectDieTimers[i];
       if (prospectDiceState) prospectDiceState.dice[i].face = nextFace;
       el.dataset.face = nextFace;
-      if (label) label.textContent = DICE_TYPES[type]?.labels[nextFace] || '';
+      if (label) label.textContent = diceFaceLabel(type, nextFace);
       snapCubeToRest(cube, type, nextFace);
       updateRollAllButtonState();
     }, i * 45 + PROSPECT_ROLL_MS);
@@ -5501,9 +5871,9 @@ let currentStoreLayout = null;
 let storeAutoRandomizeTimer = null;
 
 function itemTypeLabel(type) {
-  if (type === 'weapon') return 'Weapon';
-  if (type === 'mount') return 'Mount';
-  return 'Misc';
+  if (type === 'weapon') return t('reference.weapon');
+  if (type === 'mount') return t('reference.mount');
+  return t('reference.misc');
 }
 
 function itemImageSrc(item) {
@@ -5514,7 +5884,7 @@ function itemImageSrc(item) {
 
 function storeSlotImgHtml(item, showFront) {
   const src = showFront ? itemImageSrc(item) : CARD_BACK_SRC;
-  const alt = showFront ? escapeHtml(item.name) : 'Item card back';
+  const alt = showFront ? escapeHtml(item.name) : t('reference.itemCardBack');
   return `<img src="${escapeHtml(src)}" alt="${alt}" loading="lazy" onerror="this.closest('.store-slot').classList.add('store-slot-noart');this.remove();">`;
 }
 
@@ -5534,14 +5904,14 @@ function storeSlotFaceInnerHtml(item, showFront) {
 //   an item obj -> drawn card, shown as its back or front depending on `revealed`
 function renderStoreSlotCard(item, area, index, revealed) {
   if (!item) {
-    return `<div class="store-slot store-slot-empty" data-slot="${area}:${index}"><span class="store-slot-empty-label">Empty</span></div>`;
+    return `<div class="store-slot store-slot-empty" data-slot="${area}:${index}"><span class="store-slot-empty-label">${t('strings.empty')}</span></div>`;
   }
   const showFront = !!revealed;
   const rerollBtn = showFront
-    ? `<button type="button" class="store-slot-reroll" data-reroll-slot="${area}:${index}" title="Draw a different item" aria-label="Reroll ${escapeHtml(item.name)}">⟲</button>`
+    ? `<button type="button" class="store-slot-reroll" data-reroll-slot="${area}:${index}" title="${t('strings.draw_a_different_item')}" aria-label="${escapeHtml(t('assist.store.rerollItem', { item: item.name }))}">⟲</button>`
     : '';
   return `<div class="store-slot ${showFront ? 'store-slot-' + item.type : 'store-slot-back'}" data-slot="${area}:${index}">
-    <div class="store-slot-face" ${showFront ? `data-view-card="${area}:${index}" role="button" tabindex="0" aria-label="View ${escapeHtml(item.name)} full size"` : ''}>${storeSlotFaceInnerHtml(item, showFront)}</div>
+    <div class="store-slot-face" ${showFront ? `data-view-card="${area}:${index}" role="button" tabindex="0" aria-label="${escapeHtml(t('assist.store.viewItemFullSize', { item: item.name }))}"` : ''}>${storeSlotFaceInnerHtml(item, showFront)}</div>
     ${rerollBtn}
   </div>`;
 }
@@ -5565,7 +5935,7 @@ function updateStoreSlotDom(container, item, area, index, showFront) {
     face.dataset.viewCard = `${area}:${index}`;
     face.setAttribute('role', 'button');
     face.setAttribute('tabindex', '0');
-    face.setAttribute('aria-label', `View ${item.name} full size`);
+    face.setAttribute('aria-label', t('assist.store.viewItemFullSize', { item: item.name }));
     if (!rerollBtn) {
       rerollBtn = document.createElement('button');
       rerollBtn.type = 'button';
@@ -5573,8 +5943,8 @@ function updateStoreSlotDom(container, item, area, index, showFront) {
       container.appendChild(rerollBtn);
     }
     rerollBtn.dataset.rerollSlot = `${area}:${index}`;
-    rerollBtn.title = 'Draw a different item';
-    rerollBtn.setAttribute('aria-label', `Reroll ${item.name}`);
+    rerollBtn.title = t('strings.draw_a_different_item');
+    rerollBtn.setAttribute('aria-label', t('assist.store.rerollItem', { item: item.name }));
     rerollBtn.textContent = '⟲';
   } else {
     delete face.dataset.viewCard;
@@ -5690,7 +6060,7 @@ function showFullscreenStoreCard(item) {
 }
 
 function renderStoreRandomizerAssist() {
-  setAssistHeader('Store Randomizer', 'Setup Helper');
+  setAssistHeader(t('strings.store_randomizer'), t('strings.setup_helper'));
   const generalSlots = db.items?.storeLayout?.generalStore?.slots || 6;
   const tradingActive = isTradingPostActive();
   const tradingSlots = tradingActive ? (db.items?.storeLayout?.tradingPost?.slots || 6) : 0;
@@ -5699,18 +6069,18 @@ function renderStoreRandomizerAssist() {
   const tradingItems = hasLayout ? currentStoreLayout.tradingPost : Array.from({ length: tradingSlots }, () => ({ __pending: true }));
 
   // A "pending" placeholder has no real name/type yet — it only ever renders as a card back.
-  const generalHtml = renderStoreArea('General Store', generalItems, 'generalStore', hasLayout);
+  const generalHtml = renderStoreArea(t('strings.general_store'), generalItems, 'generalStore', hasLayout);
   const tradingHtml = tradingActive
-    ? renderStoreArea('Trading Post', tradingItems, 'tradingPost', hasLayout)
-    : `<p class="assist-hint">Trading Post is inactive for this setup — enable the Buzzard Gulch Sideboard module to include it.</p>`;
+    ? renderStoreArea(t('strings.trading_post'), tradingItems, 'tradingPost', hasLayout)
+    : t('strings.trading_post_is_inactive_for_this_setup_enable_the_buzzard_gulch_sideb');
   const hint = !hasLayout
-    ? 'Tap Randomize to reveal the store.'
-    : 'Tap a card to view it full size, or tap ⟲ to draw a different item. The first drawn Weapon and Mount are locked into the General Store automatically.';
+    ? t('strings.tap_randomize_to_reveal_the_store')
+    : t('strings.tap_a_card_to_view_it_full_size_or_tap_to_draw_a_different_item_the_firs');
   assistBody.innerHTML = `${assistBackButton()}<div class="assist-panel store-randomizer">
     <p class="assist-hint">${hint}</p>
     ${generalHtml}
     ${tradingHtml}
-    <button type="button" class="secondary-btn" data-store-randomize-all>${hasLayout ? 'Re-Randomize' : 'Randomize'}</button>
+    <button type="button" class="secondary-btn" data-store-randomize-all>${hasLayout ? t('reference.rerandomize') : t('reference.randomize')}</button>
   </div>`;
   bindAssistBack();
   const wrap = assistBody.querySelector('.store-randomizer');
@@ -5743,12 +6113,12 @@ function renderStoreRandomizerAssist() {
 }
 
 function renderRandomPlayerAssist() {
-  setAssistHeader('Random Player', 'Randomizer');
+  setAssistHeader(t('strings.random_player'), t('strings.randomizer'));
   const colors = (state.setup.playerColors || PLAYER_COLORS.slice(0, state.setup.players || 4)).filter(Boolean);
   const picked = colors[Math.floor(Math.random() * colors.length)] || 'white';
   assistBody.innerHTML = `${assistBackButton()}<div class="assist-panel">
-    <div class="random-player-result"><span class="player-color large" style="background:${picked}"></span><strong>${picked.toUpperCase()} Player</strong></div>
-    <button type="button" class="primary-btn" data-random-again>Pick Again</button>
+    <div class="random-player-result"><span class="player-color large" style="background:${picked}"></span><strong>${picked.toUpperCase()} ${t('strings.player')}</strong></div>
+    <button type="button" class="primary-btn" data-random-again>${t('strings.pick_again')}</button>
   </div>`;
   bindAssistBack();
   assistBody.querySelector('[data-random-again]').onclick = renderRandomPlayerAssist;
@@ -5762,14 +6132,9 @@ function renderFirstPlayerAssist() {
     firstPlayerAssistCleanup = null;
   }
 
-  setAssistHeader('First Player', 'Touch Randomizer');
+  setAssistHeader(t('strings.first_player'), t('strings.touch_randomizer'));
   assistDialog.classList.add('first-player-dialog');
-  assistBody.innerHTML = `<div class="first-player-stage" id="firstPlayerStage">
-    <canvas id="firstPlayerCanvas" class="first-player-canvas" aria-label="First player touch selector"></canvas>
-    <div class="first-player-timer" id="firstPlayerTimer">3</div>
-    <p class="first-player-instructions" id="firstPlayerHint">Everyone place one finger on the screen. Hold steady while the timer counts down.</p>
-  </div>
-  <div class="first-player-footer"><button type="button" class="primary-btn first-player-reset-btn" data-first-player-reset>Start Over</button></div>`;
+  assistBody.innerHTML = t('strings.3_everyone_place_one_finger_on_the_screen_hold_steady_while_the_timer_');
 
   const stage = document.getElementById('firstPlayerStage');
   const canvas = document.getElementById('firstPlayerCanvas');
@@ -5874,7 +6239,7 @@ function renderFirstPlayerAssist() {
     canvas.style.pointerEvents = 'none';
     timer.textContent = '';
     timer.classList.add('selected');
-    hint.textContent = 'First player selected — take the First Player token.';
+    hint.textContent = t('assist.firstPlayer.selected');
     stage.classList.add('is-selected');
     tryVibrate([30, 45, 90]);
   };
@@ -5947,7 +6312,7 @@ function renderFirstPlayerAssist() {
     if (touches.size === 0) {
       stopCountdown();
       timer.textContent = '3';
-      hint.textContent = 'Everyone place one finger on the screen. Hold steady while the timer counts down.';
+      hint.textContent = t('assist.firstPlayer.instruction');
     } else {
       startCountdown();
     }
@@ -6133,14 +6498,14 @@ function renderFirstPlayerAssist() {
 }
 function renderSimpleAssist(kind) {
   const labels = {
-    train: ['Train Assist', 'Use this for train movement, train heists, and Train Encounter reminders.'],
-    hunt: ['Hunting Assist', 'Use this for Hunt markers, animal draws, strength checks, and harvest rewards.'],
-    fish: ['Fishing Assist', 'Use this for fish draws, bait/lure checks, and fish delivery hooks.'],
-    forage: ['Foraging & Crafting Assist', 'Use this for resource draws, craft costs, and delivery story hooks.']
+    train: [t('assist.simple.train.title'), t('strings.use_this_for_train_movement_train_heists_and_train_encounter_reminders')],
+    hunt: [t('assist.simple.hunt.title'), t('strings.use_this_for_hunt_markers_animal_draws_strength_checks_and_harvest_rewar')],
+    fish: [t('assist.simple.fish.title'), t('strings.use_this_for_fish_draws_bait_lure_checks_and_fish_delivery_hooks')],
+    forage: [t('strings.foraging_crafting_assist'), t('strings.use_this_for_resource_draws_craft_costs_and_delivery_story_hooks')]
   };
-  const [title, text] = labels[kind] || ['Assist', 'This assist can be expanded later.'];
-  setAssistHeader(title, 'Module Helper');
-  assistBody.innerHTML = `${assistBackButton()}<div class="assist-panel"><p>${escapeHtml(text)}</p><p class="assist-hint">Placeholder ready for the next build-out.</p></div>`;
+  const [title, text] = labels[kind] || [t('assist.simple.default.title'), t('strings.this_assist_can_be_expanded_later')];
+  setAssistHeader(title, t('assist.moduleHelper'));
+  assistBody.innerHTML = `${assistBackButton()}<div class="assist-panel"><p>${escapeHtml(text)}</p><p class="assist-hint">${t('strings.placeholder_ready_for_the_next_build_out')}</p></div>`;
   bindAssistBack();
   showAssistDialog();
 }
@@ -6152,11 +6517,11 @@ function finalTallyContestants() {
 }
 
 function finalTallyPlayerLabel(color) {
-  if (color === MAN_IN_BLACK_ID) return 'Man In Black';
+  if (color === MAN_IN_BLACK_ID) return t('strings.man_in_black');
   const player = (state.setup.playerDetails || []).find(p => p.color === color);
   const character = player?.character?.trim();
   const name = player?.name?.trim();
-  const colorLabel = `${String(color || '').charAt(0).toUpperCase()}${String(color || '').slice(1)} Player`;
+  const colorLabel = localizedColorPlayer(color);
   if (character && name) return `${character} (${name})`;
   if (character) return character;
   if (name) return `${colorLabel} (${name})`;
@@ -6164,51 +6529,22 @@ function finalTallyPlayerLabel(color) {
 }
 
 function finalTallyPlayerDisplay(color) {
-  if (color === MAN_IN_BLACK_ID) return { eyebrow: '', title: 'Man In Black' };
+  if (color === MAN_IN_BLACK_ID) return { eyebrow: '', title: t('strings.man_in_black') };
   const player = (state.setup.playerDetails || []).find(p => p.color === color);
   const character = player?.character?.trim();
   const name = player?.name?.trim();
-  const colorLabel = `${String(color || '').charAt(0).toUpperCase()}${String(color || '').slice(1)} Player`;
+  const colorLabel = localizedColorPlayer(color);
   return { eyebrow: name || '', title: character || colorLabel };
 }
 
-const FINAL_SCORING_STEP_TITLES = {
-  mounts_weapons: 'Upgraded Gear',
-  legendary_items: 'Legendary Items',
-  money: 'Money',
-  wounds: 'Wounds',
-  injuries: 'Injuries',
-  wanted: 'Wanted Track',
-  marshal: 'Marshal Track',
-  gambler: 'Gambler Track',
-  legendary_tokens: 'Legendary Tokens',
-  deeds: 'Deeds',
-  titles: 'Title Card',
-  man_in_black: 'Man In Black'
-};
 
-const FINAL_SCORING_STEP_SUMMARIES = {
-  mounts_weapons: 'Score LP shown on upgraded mounts & weapons',
-  legendary_items: 'Score any LP printed on Legendary Items',
-  money: '+1 LP for every $60',
-  wounds: '−1 LP for each wound',
-  injuries: 'Apply any end-game Injury penalties',
-  wanted: 'Most Wanted: +3 LP; other Wanted: +1 LP',
-  marshal: 'Score the LP shown by your Marshal row',
-  gambler: 'Leader(s) gain +1 LP',
-  legendary_tokens: 'Add the LP value of your tokens',
-  deeds: 'Score eligible Deeds',
-  titles: 'Apply the revealed Title card',
-  man_in_black: 'Wins end-game ties'
-};
 
 function finalScoringStepTitle(step) {
-  return FINAL_SCORING_STEP_TITLES[step.id]
-    || String(step.id || 'Scoring').replaceAll('_', ' ').replace(/\b\w/g, c => c.toUpperCase());
+  return uiValue(`finalScoring.steps.${step.id}.title`, t('finalScoring.defaultTitle'));
 }
 
 function finalScoringStepSummary(step) {
-  return FINAL_SCORING_STEP_SUMMARIES[step.id] || 'Tap for the complete scoring rule';
+  return uiValue(`finalScoring.steps.${step.id}.summary`, t('finalScoring.defaultSummary'));
 }
 
 const FINAL_SCORING_ORDER = ['mounts_weapons', 'legendary_items', 'deeds', 'titles', 'money', 'legendary_tokens', 'wanted', 'marshal', 'gambler', 'wounds', 'injuries', 'man_in_black'];
@@ -6222,9 +6558,9 @@ function renderFinalScoringReference() {
     return (ai < 0 ? 999 : ai) - (bi < 0 ? 999 : bi);
   });
   if (!steps.length) return '';
-  return `<section class="final-scoring-reference final-scoring-accordion" aria-label="Final scoring reminders">
+  return `<section class="final-scoring-reference final-scoring-accordion" aria-label="${t('strings.final_scoring_reminders')}">
     <div class="final-scoring-accordion-heading">
-      <strong>Final Scoring</strong>
+      <strong>${t('strings.final_scoring')}</strong>
     </div>
     <div class="final-scoring-panels">${steps.map((step, index) => `<details class="final-scoring-item">
       <summary><span class="step-number final-scoring-step-number">${index + 1}</span><span class="final-scoring-item-copy"><strong>${escapeHtml(finalScoringStepTitle(step))}</strong><small>${escapeHtml(finalScoringStepSummary(step))}</small></span></summary>
@@ -6237,7 +6573,7 @@ function finalTieBreakerReference() {
   const tiebreakers = (db.finalScoring?.tiebreakers || []).slice(1);
   if (!tiebreakers.length) return '';
   return `<details class="final-tiebreak-details">
-    <summary>Tie-breakers</summary>
+    <summary>${t('strings.tie_breakers')}</summary>
     <ol>${tiebreakers.map(s => `<li>${escapeHtml(s.text)}</li>`).join('')}</ol>
   </details>`;
 }
@@ -6246,10 +6582,10 @@ function renderFinalTally() {
   const colors = finalTallyContestants();
   app.innerHTML = `<div class="modal-screen-overlay end-game-overlay" data-modal-backdrop>
     <section class="panel modal-screen-card final-tally-card">
-      <button type="button" class="dialog-close-x" data-final-close aria-label="Back to game">&#10005;</button>
+      <button type="button" class="dialog-close-x" data-final-close aria-label="${t('strings.back_to_game')}">&#10005;</button>
       <div class="modal-title-header">
-        <p class="eyebrow">End Game</p>
-        <h1 class="section-title">Final Tally</h1>
+        <p class="eyebrow">${t('strings.end_game')}</p>
+        <h1 class="section-title">${t('strings.final_tally')}</h1>
       </div>
       ${renderFinalScoringReference()}
       <div class="final-tally-rows">
@@ -6261,16 +6597,16 @@ function renderFinalTally() {
               ${display.eyebrow ? `<small>${escapeHtml(display.eyebrow)}</small>` : ''}
               <strong>${escapeHtml(display.title)}</strong>
             </span>
-            <input type="number" inputmode="numeric" class="final-tally-input" data-final-score="${color}" min="0" value="${state.finalScores?.[color] ?? ''}" placeholder="LP" aria-label="Final LP for ${escapeHtml(finalTallyPlayerLabel(color))}">
-            <span class="final-winner-star hidden" data-winner-star="${color}" title="Winner" aria-label="Winner">★</span>
+            <input type="number" inputmode="numeric" class="final-tally-input" data-final-score="${color}" min="0" value="${state.finalScores?.[color] ?? ''}" placeholder="${t('strings.lp')}" aria-label="${escapeHtml(t('finalScoring.finalLpAria', { player: finalTallyPlayerLabel(color) }))}">
+            <span class="final-winner-star hidden" data-winner-star="${color}" title="${t('strings.winner_2')}" aria-label="${t('strings.winner_2')}">★</span>
           </div>`;
-        }).join('') || '<p>No players were assigned colors this game.</p>'}
+        }).join('') || t('strings.no_players_were_assigned_colors_this_game')}
       </div>
       <div class="final-tie-panel hidden" id="finalTiePanel"></div>
       <p class="form-error hidden" id="finalTallyError" role="alert"></p>
       <div class="dialog-actions setup-final-actions final-tally-actions">
-        <button class="secondary-btn" id="cancelTally">Back</button>
-        <button class="primary-btn" id="generateNewspaperBtn">Newspaper</button>
+        <button class="secondary-btn" id="cancelTally">${t('strings.back')}</button>
+        <button class="primary-btn" id="generateNewspaperBtn">${t('strings.newspaper')}</button>
       </div>
     </section>
   </div>`;
@@ -6316,7 +6652,7 @@ function renderFinalTally() {
       resolvedWinnerColors = [MAN_IN_BLACK_ID];
       app.querySelector(`[data-winner-star="${MAN_IN_BLACK_ID}"]`)?.classList.remove('hidden');
       app.querySelector(`[data-final-player="${MAN_IN_BLACK_ID}"]`)?.classList.add('winner-row');
-      tiePanel.innerHTML = `<div class="auto-winner-note"><span class="sheriff-star" aria-hidden="true">★</span><span><small>Man in Black tie rule</small><strong>Man In Black wins the tie</strong></span></div>`;
+      tiePanel.innerHTML = t('strings.man_in_black_tie_rule_man_in_black_wins_the_tie');
       tiePanel.classList.remove('hidden');
       return;
     }
@@ -6326,7 +6662,7 @@ function renderFinalTally() {
       const winner = tied[0];
       app.querySelector(`[data-winner-star="${winner}"]`)?.classList.remove('hidden');
       app.querySelector(`[data-final-player="${winner}"]`)?.classList.add('winner-row');
-      tiePanel.innerHTML = `<div class="auto-winner-note"><span class="sheriff-star" aria-hidden="true">★</span><span><small>Highest LP</small><strong>${escapeHtml(finalTallyPlayerLabel(winner))} wins</strong></span></div>`;
+      tiePanel.innerHTML = `<div class="auto-winner-note"><span class="sheriff-star" aria-hidden="true">★</span><span><small>${t('strings.highest_lp')}</small><strong>${escapeHtml(finalTallyPlayerLabel(winner))} ${t('strings.wins')}</strong></span></div>`;
       tiePanel.classList.remove('hidden');
       return;
     }
@@ -6336,15 +6672,15 @@ function renderFinalTally() {
     const savedShared = savedWinners.length > 1 && tied.every(color => savedWinners.includes(color));
     const selectedSingle = tieSelection && tieSelection !== 'shared' && tied.includes(tieSelection) ? tieSelection : savedSingle;
     const selectedShared = tieSelection === 'shared' || (!tieSelection && savedShared);
-    tiePanel.innerHTML = `<div class="tie-heading"><span class="sheriff-star" aria-hidden="true">★</span><span><small>Highest LP is tied</small><strong>Resolve the tie</strong></span></div>
-      <p>Use the normal tie-breakers, then choose the winner. If the tie remains, choose Shared Victory.</p>
+    tiePanel.innerHTML = `<div class="tie-heading"><span class="sheriff-star" aria-hidden="true">★</span><span><small>${t('strings.highest_lp_is_tied')}</small><strong>${t('strings.resolve_the_tie')}</strong></span></div>
+      <p>${t('strings.use_the_normal_tie_breakers_then_choose_the_winner_if_the_tie_remains_ch')}</p>
       ${finalTieBreakerReference()}
       <div class="tie-choice-grid">
         ${tied.map(color => {
           const display = finalTallyPlayerDisplay(color);
           return `<label class="tie-choice"><input type="radio" name="finalTieWinner" value="${color}" ${selectedSingle === color ? 'checked' : ''}><span>${escapeHtml(display.title)}</span></label>`;
         }).join('')}
-        <label class="tie-choice shared"><input type="radio" name="finalTieWinner" value="shared" ${selectedShared ? 'checked' : ''}><span>Shared Victory</span></label>
+        <label class="tie-choice shared"><input type="radio" name="finalTieWinner" value="shared" ${selectedShared ? 'checked' : ''}><span>${t('strings.shared_victory')}</span></label>
       </div>`;
     tiePanel.classList.remove('hidden');
 
@@ -6371,13 +6707,13 @@ function renderFinalTally() {
     const { scores, missing } = readScores();
     const error = document.getElementById('finalTallyError');
     if (missing.length) {
-      error.textContent = 'Enter the final LP score for every player.';
+      error.textContent = t('finalScoring.enterScores');
       error.classList.remove('hidden');
       return;
     }
     updateWinnerDisplay();
     if (!resolvedWinnerColors.length) {
-      error.textContent = 'Resolve the tied high score before previewing the newspaper.';
+      error.textContent = t('finalScoring.resolveTieBeforePaper');
       error.classList.remove('hidden');
       return;
     }
@@ -6392,31 +6728,31 @@ function renderFinalTally() {
 
 function formatNewspaperDate() {
   try {
-    return new Intl.DateTimeFormat(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).format(new Date());
+    return new Intl.DateTimeFormat(uiValue('app.locale', undefined), { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).format(new Date());
   } catch {
-    return new Date().toLocaleDateString();
+    return new Date().toLocaleDateString(uiValue('app.locale', undefined));
   }
 }
 
 function renderEndGame() {
   const article = generateNewspaperArticle();
-  const paperTitle = db.newspaper?.title || 'Frontier Gazette';
+  const paperTitle = db.newspaper?.title || t('strings.frontier_gazette');
   const paperEdition = db.newspaper?.edition || '';
   app.innerHTML = `<section class="panel newspaper-page"><div class="newsprint" id="newspaper">
     <header class="newspaper-masthead-wrap">
-      <img class="newspaper-masthead" src="assets/images/newspaper/frontier-gazette-masthead.png" alt="${escapeHtml(paperTitle)} newspaper header">
+      <img class="newspaper-masthead" src="assets/images/newspaper/frontier-gazette-masthead.png" alt="${escapeHtml(t('newspaper.mastheadAlt', { title: paperTitle }))}">
     </header>
     <p class="newspaper-date">${escapeHtml(formatNewspaperDate())}</p>
     <p class="newspaper-edition">${escapeHtml(paperEdition)}</p>
     ${article}
   </div><div class="actions newspaper-actions">
-    <button class="secondary-btn" id="backGame">Back</button>
-    <button class="primary-btn" onclick="window.print()">Save</button>
-    <button class="danger-btn" id="finishGame">Finish Game</button>
+    <button class="secondary-btn" id="backGame">${t('strings.back')}</button>
+    <button class="primary-btn" onclick="window.print()">${t('strings.save')}</button>
+    <button class="danger-btn" id="finishGame">${t('strings.finish_game')}</button>
   </div></section>`;
   document.getElementById('backGame').onclick = () => navigate('game');
   document.getElementById('finishGame').onclick = () => {
-    if (!confirm('Finish this game and clear its saved data? Print or save the newspaper first if you want to keep it.')) return;
+    if (!confirm(t('strings.finish_this_game_and_clear_its_saved_data_print_or_save_the_newspaper_fi'))) return;
     localStorage.removeItem(SAVE_KEY);
     state = defaultState();
     render();
@@ -6451,15 +6787,15 @@ function computeWorldTension() {
 // drives both the newspaper's voice and which music track is playing, so
 // the two always agree with each other.
 function computeFrontierMood() {
-  const t = computeWorldTension();
+  const tension = computeWorldTension();
   let key, label;
-  if (t.total < 3) { key = 'quiet'; label = 'Quiet'; }
-  else if (t.total >= 5 && t.fights / t.total >= 0.5) { key = 'bloodshed'; label = 'Bloodshed'; }
-  else if (t.net >= 3) { key = 'lawless'; label = 'Lawless'; }
-  else if (t.net <= -3) { key = 'orderly'; label = 'Law and Order'; }
-  else if (Math.abs(t.net) <= 1 && t.wanted + t.marshal >= 4) { key = 'tense'; label = 'Tense Standoff'; }
-  else { key = 'opportunity'; label = 'Opportunity'; }
-  return { key, label, ...t };
+  if (tension.total < 3) { key = 'quiet'; label = t('newspaper.moodLabels.quiet'); }
+  else if (tension.total >= 5 && tension.fights / tension.total >= 0.5) { key = 'bloodshed'; label = t('newspaper.moodLabels.bloodshed'); }
+  else if (tension.net >= 3) { key = 'lawless'; label = t('newspaper.moodLabels.lawless'); }
+  else if (tension.net <= -3) { key = 'orderly'; label = t('newspaper.moodLabels.orderly'); }
+  else if (Math.abs(tension.net) <= 1 && tension.wanted + tension.marshal >= 4) { key = 'tense'; label = t('newspaper.moodLabels.tense'); }
+  else { key = 'opportunity'; label = t('newspaper.moodLabels.opportunity'); }
+  return { key, label, ...tension };
 }
 
 function pick(list) { return list[Math.floor(Math.random() * list.length)]; }
@@ -6468,91 +6804,16 @@ function pick(list) { return list[Math.floor(Math.random() * list.length)]; }
 // section-intro line that flavors the "Watched by the Frontier" roundup,
 // and closing lines - so the whole article reads in one consistent voice
 // instead of a mood-neutral template with a single tacked-on sentence.
-const FRONTIER_MOODS = {
-  quiet: {
-    headlines: ['Quiet Day on the Frontier', 'Not Much to Report', 'Darkrock Sleeps Easy'],
-    leads: [
-      'The dust settled soft over Darkrock and Red Falls, with few tales fit for ink before the presses rolled.',
-      'For once the territory kept its business to itself, and the Gazette\u2019s runners came back with empty notebooks.'
-    ],
-    sectionIntro: 'What little did cross the wire is recorded plainly below, for whatever it\u2019s worth:',
-    closings: [
-      'The frontier held its breath - no notable deeds crossed the Companion\u2019s ledger before the presses rolled, and Darkrock slept easy for once.',
-      'Not a single wire came in from the range today. Some say a quiet frontier is a lucky one; others say it just means the trouble hasn\u2019t been caught yet.'
-    ]
-  },
-  lawless: {
-    headlines: ['Outlaw Trouble Rides Again', 'The Law Loses Its Grip', 'Bandits Own the Night'],
-    leads: [
-      'Honest folk kept one eye on their wallets and the other on the road as lawless deeds stirred the territory from sunup to sundown.',
-      'Word from every stagecoach and saloon agrees: the wanted rode bolder this week than the marshals could answer.'
-    ],
-    sectionIntro: 'The wanted made their mark from one end of the territory to the other:',
-    closings: [
-      'Outlaws rode wilder than the law could answer this time - prospectors panned nervous and merchants counted their tills twice, for the wanted held the upper hand across the territory.',
-      'The wanted ledger grew fat and the marshals grew thin trying to keep pace - it was, by any honest account, a lawless season out here.'
-    ]
-  },
-  orderly: {
-    headlines: ['Marshals Lay Down the Law', 'A Firm Hand on the Territory', 'Order Rules Darkrock'],
-    leads: [
-      'Badges outnumbered bandits at every turn this week, and the territory was all the calmer for it.',
-      'From the Sheriff\u2019s office to the farthest ranch, word travels that the law is riding tall and the wanted are riding careful.'
-    ],
-    sectionIntro: 'The marshals kept a full ledger of their own this week:',
-    closings: [
-      'The marshals kept a tight rein on the territory - wanted men rode careful and quiet, and honest prospectors and shopkeepers turned a fine profit under a watchful, orderly sky.',
-      'Law and order carried the day from start to finish - the badges outpaced the bandits at every turn, and the territory prospered for it.'
-    ]
-  },
-  tense: {
-    headlines: ['A Territory on Edge', 'Outlaw and Lawman, Even Odds', 'The Standoff Continues'],
-    leads: [
-      'For every robbery answered by an arrest, some fresh mischief rose up to take its place, and the territory stayed exactly as tense as the old-timers like it.',
-      'Neither badge nor bandit could claim the upper hand this week - a seesaw of trouble and order that kept every saloon conversation lively.'
-    ],
-    sectionIntro: 'Both sides of the law had their say this week:',
-    closings: [
-      'It was a fair fight between outlaw and lawman all season - for every robbery answered by an arrest, some fresh mischief rose to take its place, and the territory stayed exactly as tense as the old-timers like it.',
-      'Neither the wanted nor the marshals ever quite gained the upper hand - a seesaw of trouble and order that kept every saloon conversation lively.'
-    ]
-  },
-  opportunity: {
-    headlines: ['The Open Range Calls', 'Gold, Grit, and Good Fortune', 'Opportunity Knocks Across the Territory'],
-    leads: [
-      'From dusty mines to crowded card tables, the frontier offered opportunity to anyone bold enough to reach for it.',
-      'Prospectors, gamblers, and shopkeepers alike found the territory generous this week, with fortune favoring the industrious over the infamous.'
-    ],
-    sectionIntro: 'Enterprise, not outlawry, carried the territory this week:',
-    closings: [
-      'The territory saw its share of both trouble and order, but mostly it saw opportunity - gold panned, cards played, and deals struck under a fair frontier sky.',
-      'A little lawlessness, a little justice, and a whole lot of honest hustle filled out the day, the way it usually goes out here when the range is generous.'
-    ]
-  },
-  bloodshed: {
-    headlines: ['Guns Blaze Across the Territory', 'A Season of Powder Smoke', 'Blood on the Frontier'],
-    leads: [
-      'Fists and firearms settled more arguments than words this week, and the Gazette struggled to keep the tally of split lips and spent cartridges straight.',
-      'Whatever else happened out on the range, the territory will remember this as the week when every disagreement seemed to end in a fight.'
-    ],
-    sectionIntro: 'Reports of fights - won, lost, and everything between - poured into the Gazette office:',
-    closings: [
-      'Whether it was over cards, cattle, or plain old grudges, the territory settled its business with fists and fight cards more often than words this week.',
-      'Some weeks the frontier talks its way through trouble. This wasn\u2019t one of them - the fight cards did most of the talking instead.'
-    ]
-  }
-};
-
 // Which point type dominated (Gambling / Legendary / Story), layered on
 // top of the mood as a second flavor sentence - independent of whether the
 // week was lawless, orderly, or quiet.
-function frontierFlavorSentence(t) {
+function frontierFlavorSentence(tension) {
   const flavors = [
-    [t.totals.gambling, 'the gambling halls did a brisk trade, and more than one fortune changed hands over a turn of cards'],
-    [t.totals.legendary, 'talk of legendary deeds and legendary items passed from porch to porch faster than the telegraph could carry it'],
-    [t.storyPoints, 'story after story unfolded across the territory, each one adding a little more color to the frontier’s memory']
+    [tension.totals.gambling, t('strings.the_gambling_halls_did_a_brisk_trade_and_more_than_one_fortune_changed_h')],
+    [tension.totals.legendary, t('newspaper.flavors.legendary')],
+    [tension.storyPoints, t('strings.story_after_story_unfolded_across_the_territory_each_one_adding_a_little')]
   ].filter(([val]) => val > 0).sort((a, b) => b[0] - a[0]);
-  return flavors.length ? `Meanwhile, ${flavors[0][1]}.` : '';
+  return flavors.length ? t('newspaper.flavorLead', { flavor: flavors[0][1] }) : '';
 }
 
 function newspaperGameSeed() {
@@ -6572,6 +6833,28 @@ function newspaperStablePick(list, salt = 0) {
   return list[(newspaperGameSeed() + salt) % list.length];
 }
 
+function newspaperTextSalt(source = {}, salt = 0) {
+  const key = String(source?.id || source?.title || source?.label || 'newspaper');
+  let hash = 0;
+  for (let i = 0; i < key.length; i += 1) hash = ((hash * 31) + key.charCodeAt(i)) >>> 0;
+  return hash + salt;
+}
+
+function newspaperAuthoredText(source, actor = '', salt = 0) {
+  const choices = Array.isArray(source?.newspaperText)
+    ? source.newspaperText.filter(value => typeof value === 'string' && value.trim())
+    : [];
+  if (!choices.length) return '';
+  const picked = newspaperStablePick(choices, newspaperTextSalt(source, salt));
+  const subject = actor || t('strings.a_passing_rider');
+  const templated = picked
+    .replace(/\{actor\}/g, subject)
+    .replace(/\{actorPossessive\}/g, newspaperPossessive(subject));
+  const personalized = newspaperPersonalizeNarration(templated, actor).trim();
+  return /[.!?]$/.test(personalized) ? personalized : `${personalized}.`;
+}
+
+
 function newspaperJoin(items = [], conjunction = 'and') {
   const clean = items.filter(Boolean);
   if (!clean.length) return '';
@@ -6583,67 +6866,51 @@ function newspaperJoin(items = [], conjunction = 'and') {
 const NEWSPAPER_ACTIVITY_BUCKETS = [
   {
     key: 'fight',
-    label: 'Fights & gunplay',
-    phrase: 'fights and gunplay',
     test: log => log.category === 'fight' || (log.tags || []).some(tag => ['fight', 'duel', 'bandit'].includes(tag))
   },
   {
     key: 'outlaw',
-    label: 'Outlaw deeds',
-    phrase: 'outlaw work',
     test: log => log.category === 'outlaw' || triggerBalanceBucket(log) === 'wanted'
   },
   {
     key: 'law',
-    label: 'Law work',
-    phrase: 'law work',
     test: log => log.category === 'law' || triggerBalanceBucket(log) === 'marshal'
   },
   {
     key: 'gambling',
-    label: 'Gambling & revelry',
-    phrase: 'poker, gambling, and revelry',
     test: log => (log.tags || []).some(tag => ['poker', 'gambling', 'gambler', 'cabaret', 'revel', 'saloon'].includes(tag))
       || /poker|revel|faro/i.test(`${log.id || ''} ${log.label || ''}`)
   },
   {
     key: 'gold',
-    label: 'Prospecting & gold',
-    phrase: 'prospecting and gold',
     test: log => (log.tags || []).some(tag => ['gold', 'prospect', 'mine'].includes(tag))
       || /prospect|gold/i.test(`${log.id || ''} ${log.label || ''}`)
   },
   {
     key: 'cattle',
-    label: 'Cattle & ranching',
-    phrase: 'cattle and ranch business',
     test: log => (log.tags || []).some(tag => ['cattle', 'ranch'].includes(tag))
   },
   {
     key: 'travel',
-    label: 'Travel & rail',
-    phrase: 'travel across the territory',
     test: log => (log.tags || []).some(tag => ['move', 'travel', 'rail', 'train', 'railroad'].includes(tag))
       || /move|travel|rail/i.test(`${log.id || ''} ${log.label || ''}`)
   },
   {
     key: 'wilderness',
-    label: 'Hunting & wilderness',
-    phrase: 'hunting and wilderness travel',
     test: log => (log.tags || []).some(tag => ['hunt', 'hunting', 'forage', 'frontier', 'wildlife'].includes(tag))
       || /hunt|forag|outside town/i.test(`${log.id || ''} ${log.label || ''}`)
   },
   {
     key: 'commerce',
-    label: 'Trade & work',
-    phrase: 'trade, work, and equipment',
     test: log => (log.tags || []).some(tag => ['item', 'trader', 'work', 'craft', 'resource', 'deed', 'commerce'].includes(tag))
       || /buy|purchase|trader|work|craft|deed/i.test(`${log.id || ''} ${log.label || ''}`)
   }
 ];
 
 function newspaperActivityBucket(log) {
-  return NEWSPAPER_ACTIVITY_BUCKETS.find(bucket => bucket.test(log)) || { key: 'other', label: 'Other frontier business', phrase: 'other frontier business' };
+  const bucket = NEWSPAPER_ACTIVITY_BUCKETS.find(candidate => candidate.test(log));
+  const key = bucket?.key || 'other';
+  return { ...(bucket || { key }), label: t(`newspaper.activity.${key}.label`), phrase: t(`newspaper.activity.${key}.phrase`) };
 }
 
 function newspaperActivityCounts(logs = []) {
@@ -6657,7 +6924,7 @@ function newspaperActivityCounts(logs = []) {
 }
 
 function newspaperPlayerLabel(color) {
-  return color ? finalTallyPlayerLabel(color) : 'an unidentified rider';
+  return color ? finalTallyPlayerLabel(color) : t('newspaper.unidentifiedRider');
 }
 
 function newspaperOneOffLogs() {
@@ -6702,12 +6969,12 @@ function newspaperOverallSummary(primaryTriggers) {
   const parts = [];
   if (leaders.length) {
     const activities = leaders.map(item => item.phrase);
-    parts.push(`${newspaperJoin(activities)} accounted for much of what crossed the Gazette desk`);
+    parts.push(t('newspaper.overall.leaders', { activities: newspaperJoin(activities) }));
   }
-  if (oneOffCount) parts.push(`${oneOffCount} unusual frontier incident${oneOffCount === 1 ? '' : 's'} interrupted the ordinary business of the day`);
-  if (worldIds.length) parts.push(`${worldIds.length} territory-wide condition${worldIds.length === 1 ? '' : 's'} changed life on the range`);
-  if (characterArcCount) parts.push(`${characterArcCount} continuing character tale${characterArcCount === 1 ? '' : 's'} left a mark of ${characterArcCount === 1 ? 'its' : 'their'} own`);
-  if (!parts.length) return 'The day left only a light trail in the Companion’s record before the presses rolled.';
+  if (oneOffCount) parts.push(tp('newspaper.overall.oneOff', oneOffCount, { count: oneOffCount }));
+  if (worldIds.length) parts.push(tp('newspaper.overall.world', worldIds.length, { count: worldIds.length }));
+  if (characterArcCount) parts.push(tp('newspaper.overall.arcs', characterArcCount, { count: characterArcCount }));
+  if (!parts.length) return t('strings.the_day_left_only_a_light_trail_in_the_companion_s_record_before_the_pre');
   const sentence = newspaperJoin(parts, 'while');
   return `${sentence.charAt(0).toUpperCase()}${sentence.slice(1)}.`;
 }
@@ -6716,8 +6983,8 @@ function newspaperLedgerSection(primaryTriggers) {
   const counts = newspaperActivityCounts(primaryTriggers).slice(0, 5);
   if (!counts.length) return '';
   return `<aside class="newspaper-ledger">
-    <h3>Gazette Ledger</h3>
-    <p>Recorded action reports</p>
+    <h3>${t('strings.gazette_ledger')}</h3>
+    <p>${t('strings.recorded_action_reports')}</p>
     <ul>${counts.map(item => `<li><span>${escapeHtml(item.label)}</span><strong>${item.count}</strong></li>`).join('')}</ul>
   </aside>`;
 }
@@ -6746,9 +7013,9 @@ function newspaperPossessive(label = '') {
 
 function newspaperPersonalizeNarration(text = '', actor = '') {
   if (!text) return '';
-  const namedActor = actor && actor !== 'a passing rider' && actor !== 'the territory' ? actor : '';
-  const subject = namedActor || 'the rider';
-  const possessive = namedActor ? newspaperPossessive(namedActor) : 'the rider’s';
+  const namedActor = actor && actor !== t('newspaper.passingRider') && actor !== t('newspaper.territory') ? actor : '';
+  const subject = namedActor || t('strings.the_rider');
+  const possessive = namedActor ? newspaperPossessive(namedActor) : t('strings.the_rider_s');
   return String(text)
     .replace(/\byour\b/gi, possessive)
     .replace(/\byou\b/gi, subject);
@@ -6773,10 +7040,12 @@ function newspaperOneOffNarrative(log) {
   const event = newspaperOneOffEventForLog(log);
   if (!event) return '';
   const actor = log?.color ? newspaperPlayerLabel(log.color) : '';
+  const authored = newspaperAuthoredText(event, actor);
+  if (authored) return authored;
   const narration = newspaperNarrativeSentence(event.narrationScript, actor);
   if (narration) return narration;
   const bucket = newspaperActivityBucket({ ...log, tags: event.tags || log?.tags || [] });
-  return `An unexpected turn in ${bucket.phrase} drew attention before the day was out.`;
+  return t('newspaper.player.defaultIncident', { activity: bucket.phrase });
 }
 
 function newspaperPlayerRecapSection(primaryTriggers) {
@@ -6790,24 +7059,24 @@ function newspaperPlayerRecapSection(primaryTriggers) {
     const color = player.color;
     const label = newspaperPlayerLabel(color);
     const logs = primaryTriggers.filter(log => log.color === color);
-    if (!logs.length) return `<p><strong>${escapeHtml(label)}.</strong> The Companion recorded a quieter trail for this rider, with no dominant line of action before the final tally.</p>`;
+    if (!logs.length) return `<p><strong>${escapeHtml(label)}.</strong> ${t('strings.the_companion_recorded_a_quieter_trail_for_this_rider_with_no_dominant_l')}</p>`;
     const top = newspaperActivityCounts(logs).slice(0, 2);
     const activityText = top.length
-      ? `Was most often seen around ${newspaperJoin(top.map(item => item.phrase))}.`
-      : 'Kept a varied trail across the territory.';
+      ? t('newspaper.player.activity', { activity: newspaperJoin(top.map(item => item.phrase)) })
+      : t('strings.kept_a_varied_trail_across_the_territory');
     const resolvedCount = storyResolved.filter(log => log.color === color).length;
     const expiredCount = storyExpired.filter(log => log.color === color).length;
     const oneOffCount = oneOffs.filter(log => log.color === color).length;
     const extras = [];
-    if (resolvedCount) extras.push(`carried ${resolvedCount} continuing tale${resolvedCount === 1 ? '' : 's'} forward`);
-    if (expiredCount) extras.push(`let ${expiredCount} opportunit${expiredCount === 1 ? 'y' : 'ies'} pass unanswered`);
-    if (oneOffCount) extras.push(`weathered ${oneOffCount} unexpected incident${oneOffCount === 1 ? '' : 's'} along the way`);
+    if (resolvedCount) extras.push(tp('newspaper.player.resolvedTales', resolvedCount, { count: resolvedCount }));
+    if (expiredCount) extras.push(tp('newspaper.player.expired', expiredCount, { count: expiredCount }));
+    if (oneOffCount) extras.push(tp('newspaper.player.oneOffs', oneOffCount, { count: oneOffCount }));
     const extraText = extras.length ? `${newspaperJoin(extras).charAt(0).toUpperCase()}${newspaperJoin(extras).slice(1)}.` : '';
     return `<p><strong>${escapeHtml(label)}.</strong> ${escapeHtml(activityText)} ${escapeHtml(extraText)}</p>`;
   });
 
   return `<article class="news-article newspaper-player-recap">
-    <h2>Riders Leave Their Mark</h2>
+    <h2>${t('strings.riders_leave_their_mark')}</h2>
     ${paragraphs.join('')}
   </article>`;
 }
@@ -6833,40 +7102,41 @@ function newspaperOneOffSection() {
     });
     const selected = unique.slice(0, 3);
     const intro = person
-      ? `${person} found more than ordinary frontier business on the trail.`
-      : 'Other reports reached the Gazette from across the territory.';
+      ? t('newspaper.oneOff.personIntro', { person })
+      : t('strings.other_reports_reached_the_gazette_from_across_the_territory');
     const details = selected.map(newspaperOneOffNarrative).filter(Boolean);
     const remaining = Math.max(0, unique.length - selected.length);
     const tail = remaining
-      ? `${remaining} other unusual encounter${remaining === 1 ? '' : 's'} followed before the day was done.`
+      ? tp('newspaper.oneOff.remaining', remaining, { count: remaining })
       : '';
     return `<p>${escapeHtml([intro, ...details, tail].filter(Boolean).join(' '))}</p>`;
   }).join('');
 
   return `<article class="news-article">
-    <h2>Dispatches From the Range</h2>
+    <h2>${t('strings.dispatches_from_the_range')}</h2>
     ${paragraphs}
   </article>`;
 }
 
 function worldEventNewsPhrase(event) {
   const tags = new Set(event?.tags || []);
-  const title = event?.title || 'An unnamed frontier event';
-  if (tags.has('weather')) return `${title} turned the weather itself into part of the day’s business`;
-  if (tags.has('gold') || tags.has('prospect')) return `${title} sent fresh talk of gold through the camps and mines`;
-  if (tags.has('sheriff') || tags.has('wanted')) return `${title} tightened the law’s grip on wanted riders`;
-  if (tags.has('bandit') || tags.has('fight')) return `${title} put more guns and danger on the roads`;
-  if (tags.has('poker')) return `${title} raised the temperature at the card tables`;
-  if (tags.has('cattle')) return `${title} shifted the fortunes of ranchers and rustlers alike`;
-  if (tags.has('doctor')) return `${title} made every wound a little harder to ignore`;
-  if (tags.has('rail') || tags.has('train') || tags.has('railroad') || tags.has('ante_up')) return `${title} put the railroad at the center of frontier attention`;
-  if (tags.has('mine')) return `${title} made the mines a more dangerous place to earn a dollar`;
-  if (tags.has('trader')) return `${title} stirred the traveling market and the price of rare goods`;
-  if (tags.has('saloon')) return `${title} changed the tone of the saloons and gaming tables`;
-  if (tags.has('ranch')) return `${title} brought fresh trouble to ranch country`;
-  if (tags.has('hunt') || tags.has('hunting')) return `${title} changed the fortunes of hunters on the open range`;
-  if (tags.has('town') || tags.has('positive')) return `${title} brought a rare spell of bustle and opportunity to town`;
-  return `${title} left its mark on the territory before giving way to the next turn of events`;
+  const title = event?.title || t('newspaper.unnamedEvent');
+  let key = 'default';
+  if (tags.has('weather')) key = 'weather';
+  else if (tags.has('gold') || tags.has('prospect')) key = 'gold';
+  else if (tags.has('sheriff') || tags.has('wanted')) key = 'sheriff';
+  else if (tags.has('bandit') || tags.has('fight')) key = 'bandit';
+  else if (tags.has('poker')) key = 'poker';
+  else if (tags.has('cattle')) key = 'cattle';
+  else if (tags.has('doctor')) key = 'doctor';
+  else if (tags.has('rail') || tags.has('train') || tags.has('railroad') || tags.has('ante_up')) key = 'rail';
+  else if (tags.has('mine')) key = 'mine';
+  else if (tags.has('trader')) key = 'trader';
+  else if (tags.has('saloon')) key = 'saloon';
+  else if (tags.has('ranch')) key = 'ranch';
+  else if (tags.has('hunt') || tags.has('hunting')) key = 'hunting';
+  else if (tags.has('town') || tags.has('positive')) key = 'town';
+  return t(`newspaper.worldPhrases.${key}`, { title });
 }
 
 function newspaperWorldEventSection() {
@@ -6874,13 +7144,15 @@ function newspaperWorldEventSection() {
   if (!ids.length) return '';
   const events = ids.map(id => db.worldEvents.find(event => event.id === id)).filter(Boolean);
   if (!events.length) return '';
-  const phrases = events.map(worldEventNewsPhrase);
+  const sentences = events.map((event, index) =>
+    newspaperAuthoredText(event, t('strings.the_territory'), index * 17)
+      || `${worldEventNewsPhrase(event)}.`
+  );
   return `<article class="news-article">
-    <h2>World Events Shape the Territory</h2>
-    <p>${escapeHtml(newspaperJoin(phrases))}.</p>
+    <h2>${t('strings.world_events_shape_the_territory')}</h2>
+    <p>${escapeHtml(sentences.join(' '))}</p>
   </article>`;
 }
-
 function newspaperArcNarrationForPiece(node, actorColor, progress, referenceActorColor = null) {
   if (!node) return '';
   let variant = null;
@@ -6897,22 +7169,35 @@ function newspaperArcNarrationForPiece(node, actorColor, progress, referenceActo
   return variant?.narrationScript || node.narrationScript || '';
 }
 
+function newspaperArcAuthoredTextForPiece(node, actorColor, progress, referenceActorColor = null, actor = '', salt = 0) {
+  if (!node) return '';
+  let variant = null;
+  const aware = node.playerAwareText;
+  if (aware) {
+    const reference = referenceActorColor
+      || (aware.compareToNodeId ? progress?.nodeActors?.[aware.compareToNodeId] : null)
+      || null;
+    if (actorColor && reference) {
+      variant = actorColor === reference ? aware.samePlayer : aware.differentPlayer;
+    }
+  }
+  const source = Array.isArray(variant?.newspaperText) && variant.newspaperText.length ? variant : node;
+  return newspaperAuthoredText(source, actor, salt);
+}
+
+
 function newspaperArcOutcomeSentence(piece, actor, includeGlobal, index) {
   if (includeGlobal) {
-    if (piece.kind === 'active') return 'At press time, the matter was still unfolding across the territory.';
-    if (piece.outcome === 'expired') return 'The opportunity passed before anyone could carry it farther.';
+    if (piece.kind === 'active') return t('strings.arc_global_active');
+    if (piece.outcome === 'expired') return t('strings.arc_global_expired');
     return index === 0
-      ? 'The development set the wider story in motion.'
-      : 'The development carried the territory-wide tale another step forward.';
+      ? t('strings.arc_global_started')
+      : t('strings.arc_global_progress');
   }
 
-  if (piece.kind === 'active') return `At press time, ${actor} was still caught up in the affair.`;
-  if (piece.outcome === 'expired') return `${actor} let the chance pass, and the story bent in another direction.`;
-  const resolvedPhrases = [
-    `${actor} saw the matter through.`,
-    `${actor} answered the moment and carried the tale forward.`,
-    `${actor} followed the trail to its next turn.`
-  ];
+  if (piece.kind === 'active') return t('newspaper.arc.active', { actor });
+  if (piece.outcome === 'expired') return t('newspaper.arc.expired', { actor });
+  const resolvedPhrases = uiValue('newspaper.arc.resolved', []).map(template => String(template).replaceAll('{actor}', actor));
   return resolvedPhrases[index % resolvedPhrases.length];
 }
 
@@ -6950,19 +7235,26 @@ function newspaperArcJourney(arc, includeGlobal = false) {
 
   const sentences = [];
   pieces.forEach((piece, index) => {
-    const actor = piece.color ? newspaperPlayerLabel(piece.color) : (includeGlobal ? 'the territory' : 'a passing rider');
+    const actor = piece.color ? newspaperPlayerLabel(piece.color) : (includeGlobal ? t('strings.the_territory') : t('strings.a_passing_rider'));
     const narration = newspaperArcNarrationForPiece(piece.node, piece.color, progress, piece.referenceActorColor);
-    const scene = newspaperNarrativeSentence(narration, actor);
+    const scene = newspaperArcAuthoredTextForPiece(
+      piece.node,
+      piece.color,
+      progress,
+      piece.referenceActorColor,
+      actor,
+      index * 23
+    ) || newspaperNarrativeSentence(narration, actor);
     if (scene) sentences.push(scene);
-    else if (!includeGlobal) sentences.push(`${actor} became drawn into the next turn of the story.`);
-    else sentences.push('Another development drew the territory deeper into the unfolding story.');
+    else if (!includeGlobal) sentences.push(t('newspaper.arc.drawnIn', { actor }));
+    else sentences.push(t('strings.arc_global_deeper'));
     sentences.push(newspaperArcOutcomeSentence(piece, actor, includeGlobal, index));
   });
 
-  if (progress?.status === 'complete' && !active.length) sentences.push('By the time the presses rolled, that trail had reached its end.');
+  if (progress?.status === 'complete' && !active.length) sentences.push(t('strings.arc_complete'));
   else sentences.push(includeGlobal
-    ? 'The Gazette went to press with the larger story still unfinished.'
-    : 'What comes next remains unwritten.');
+    ? t('strings.arc_global_unfinished')
+    : t('strings.arc_unwritten'));
 
   return sentences.join(' ');
 }
@@ -6975,8 +7267,8 @@ function newspaperCharacterArcSection() {
       <p>${escapeHtml(newspaperArcJourney(arc, false))}</p>
     </article>`).join('');
   return `<section class="newspaper-story-section">
-    <h2>Lives and Legends</h2>
-    <p class="newspaper-section-deck">The Gazette followed these recurring frontier figures as their fortunes changed from chapter to chapter.</p>
+    <h2>${t('strings.lives_and_legends')}</h2>
+    <p class="newspaper-section-deck">${t('strings.the_gazette_followed_these_recurring_frontier_figures_as_their_fortunes_')}</p>
     <div class="newspaper-story-grid">${articles}</div>
   </section>`;
 }
@@ -6990,7 +7282,7 @@ function newspaperGlobalStorylineSection() {
   if (!stories.length) return '';
   const paragraphs = stories.map(story => `<p><strong>${escapeHtml(story.title)}.</strong> ${escapeHtml(newspaperArcJourney(story, true))}</p>`).join('');
   return `<article class="news-article">
-    <h2>Territory-Wide Tales</h2>
+    <h2>${t('strings.territory_wide_tales')}</h2>
     ${paragraphs}
   </article>`;
 }
@@ -7003,13 +7295,13 @@ function finalScoreboardSection() {
   if (!winnerColors.length && state.finalWinnerColor && state.finalWinnerColor in scores) winnerColors = [state.finalWinnerColor];
   if (!winnerColors.length) winnerColors = [ranked[0][0]];
   const winnerScore = scores[winnerColors[0]] ?? ranked[0][1];
-  const rows = ranked.map(([color, score], index) => `<li class="${winnerColors.includes(color) ? 'winner' : ''}"><span>${index + 1}. ${escapeHtml(finalTallyPlayerLabel(color))}</span><strong>${score} LP</strong></li>`).join('');
+  const rows = ranked.map(([color, score], index) => `<li class="${winnerColors.includes(color) ? 'winner' : ''}"><span>${index + 1}. ${escapeHtml(finalTallyPlayerLabel(color))}</span><strong>${score} ${t('strings.lp')}</strong></li>`).join('');
   const winnerText = winnerColors.length === 1
-    ? `${finalTallyPlayerLabel(winnerColors[0])} wins with ${winnerScore} LP`
-    : `${newspaperJoin(winnerColors.map(color => finalTallyPlayerLabel(color)))} share the victory at ${winnerScore} LP`;
+    ? t('newspaper.score.winner', { winner: finalTallyPlayerLabel(winnerColors[0]), score: winnerScore })
+    : t('newspaper.score.shared', { winners: newspaperJoin(winnerColors.map(color => finalTallyPlayerLabel(color))), score: winnerScore });
   return `<aside class="newspaper-scorebox">
-    <p class="newspaper-callout-kicker">Final Standings</p>
-    <h2>Final Tally</h2>
+    <p class="newspaper-callout-kicker">${t('strings.final_standings')}</p>
+    <h2>${t('strings.final_tally')}</h2>
     <p class="newspaper-winner">${escapeHtml(winnerText)}</p>
     <ol>${rows}</ol>
   </aside>`;
@@ -7017,7 +7309,7 @@ function finalScoreboardSection() {
 
 function generateFinalWord() {
   const mood = computeFrontierMood();
-  const bank = FRONTIER_MOODS[mood.key] || FRONTIER_MOODS.opportunity;
+  const bank = newspaperMoodBank(mood.key);
   const sentences = [newspaperStablePick(bank.closings, 31)];
   const flavor = frontierFlavorSentence(mood);
   if (flavor) sentences.push(flavor);
@@ -7025,42 +7317,42 @@ function generateFinalWord() {
   const primaryTriggers = (state.triggeredLog || []).filter(log => log.type === 'primaryTrigger');
   const leadingActivity = newspaperActivityCounts(primaryTriggers)[0];
   if (leadingActivity && leadingActivity.count >= 2) {
-    sentences.push(`More than anything else, the Gazette’s ledger kept returning to ${leadingActivity.phrase}.`);
+    sentences.push(t('newspaper.final.leading', { activity: leadingActivity.phrase }));
   }
 
   const worldCount = newspaperWorldEventIds().length;
   const arcCount = newspaperStartedCharacterArcs().length;
   const oneOffCount = newspaperOneOffLogs().length;
   const texture = [];
-  if (worldCount) texture.push(`${worldCount} world event${worldCount === 1 ? '' : 's'}`);
-  if (arcCount) texture.push(`${arcCount} continuing character tale${arcCount === 1 ? '' : 's'}`);
-  if (oneOffCount) texture.push(`${oneOffCount} unexpected incident${oneOffCount === 1 ? '' : 's'}`);
-  if (texture.length) sentences.push(`${newspaperJoin(texture)} gave this particular day its own shape.`);
+  if (worldCount) texture.push(tp('newspaper.final.worldCount', worldCount, { count: worldCount }));
+  if (arcCount) texture.push(tp('newspaper.final.arcCount', arcCount, { count: arcCount }));
+  if (oneOffCount) texture.push(tp('newspaper.final.oneOffCount', oneOffCount, { count: oneOffCount }));
+  if (texture.length) sentences.push(t('newspaper.final.texture', { texture: newspaperJoin(texture) }));
 
   const scores = state.finalScores || {};
   const winnerColors = (state.finalWinnerColors || []).filter(color => color in scores);
   if (winnerColors.length === 1) {
-    sentences.push(`When the books finally closed, ${finalTallyPlayerLabel(winnerColors[0])} stood atop the final tally.`);
+    sentences.push(t('newspaper.final.soloWinner', { winner: finalTallyPlayerLabel(winnerColors[0]) }));
   } else if (winnerColors.length > 1) {
-    sentences.push(`When the books finally closed, ${newspaperJoin(winnerColors.map(color => finalTallyPlayerLabel(color)))} shared the top of the final tally.`);
+    sentences.push(t('newspaper.final.sharedWinner', { winners: newspaperJoin(winnerColors.map(color => finalTallyPlayerLabel(color))) }));
   }
   return sentences.join(' ');
 }
 
 function generateNewspaperArticle() {
   const mood = computeFrontierMood();
-  const bank = FRONTIER_MOODS[mood.key] || FRONTIER_MOODS.opportunity;
+  const bank = newspaperMoodBank(mood.key);
   const primaryTriggers = (state.triggeredLog || []).filter(log => log.type === 'primaryTrigger');
-  const humanPlayerNames = (state.setup.playerDetails || []).map((player, index) => player.name || player.character || `Player ${index + 1}`);
-  const playerNames = humanPlayerNames.concat(hasModule('wild_bunch_man_in_black') ? ['Man In Black'] : []);
+  const humanPlayerNames = (state.setup.playerDetails || []).map((player, index) => player.name || player.character || t('setup.playerNumber', { number: index + 1 }));
+  const playerNames = humanPlayerNames.concat(hasModule('wild_bunch_man_in_black') ? [t('strings.man_in_black')] : []);
   const headline = newspaperStablePick(bank.headlines, 7);
   const lead = newspaperStablePick(bank.leads, 13);
-  const participants = playerNames.length ? newspaperJoin(playerNames) : 'a table of frontier riders';
+  const participants = playerNames.length ? newspaperJoin(playerNames) : t('newspaper.tableRiders');
 
   return `<article class="news-article newspaper-lead-story">
       <h2>${escapeHtml(headline)}</h2>
       <p class="newspaper-deck">${escapeHtml(lead)}</p>
-      <p>${escapeHtml(`${participants} crossed the range while the Companion recorded ${primaryTriggers.length} notable frontier moment${primaryTriggers.length === 1 ? '' : 's'}. ${newspaperOverallSummary(primaryTriggers)}`)}</p>
+      <p>${escapeHtml(tp('newspaper.lead.recorded', primaryTriggers.length, { participants, count: primaryTriggers.length, summary: newspaperOverallSummary(primaryTriggers) }))}</p>
     </article>
     ${finalScoreboardSection()}
     ${newspaperLedgerSection(primaryTriggers)}
@@ -7070,20 +7362,20 @@ function generateNewspaperArticle() {
     ${newspaperCharacterArcSection()}
     ${newspaperGlobalStorylineSection()}
     <article class="news-article newspaper-final-word">
-      <h2>Final Word</h2>
+      <h2>${t('strings.final_word')}</h2>
       <p>${escapeHtml(generateFinalWord())}</p>
     </article>
     <div class="newspaper-clear" aria-hidden="true"></div>`;
 }
 
-const APP_VERSION = '1.0';
+const APP_VERSION = '1.1.0-beta';
 let swRegistration = null;
 let appUpdateAvailable = false;
 let deferredInstallPrompt = null;
 let installHelpMessage = '';
 
 function isPwaInstalled() {
-  return window.matchMedia?.('(display-mode: standalone)').matches
+  return window.matchMedia?.(t('strings.display_mode_standalone')).matches
     || window.navigator.standalone === true
     || document.referrer.startsWith('android-app://');
 }
@@ -7091,8 +7383,8 @@ function isPwaInstalled() {
 function installFallbackMessage() {
   const ua = navigator.userAgent || '';
   const isIos = /iphone|ipad|ipod/i.test(ua);
-  if (isIos) return 'To install: tap Share, then choose Add to Home Screen.';
-  return 'Your browser does not offer the install prompt here. Open the browser menu and choose Install app or Add to Home screen.';
+  if (isIos) return t('install.ios');
+  return t('install.browser');
 }
 
 async function requestPwaInstall() {
@@ -7114,7 +7406,7 @@ async function requestPwaInstall() {
     await promptEvent.prompt();
     const choice = await promptEvent.userChoice;
     if (choice?.outcome !== 'accepted') {
-      installHelpMessage = 'Installation was canceled. You can install Frontier Director later from this button or your browser menu.';
+      installHelpMessage = t('install.canceled');
     }
   } catch (err) {
     installHelpMessage = installFallbackMessage();
@@ -7185,16 +7477,16 @@ function renderUpdateStatus() {
     const help = installHelpMessage
       ? `<p class="app-install-help">${escapeHtml(installHelpMessage)}</p>`
       : '';
-    return `<button type="button" class="primary-btn app-update-btn" id="installAppBtn">Install App</button>${help}`;
+    return `<button type="button" class="primary-btn app-update-btn" id="installAppBtn">${t('strings.install_app')}</button>${help}`;
   }
   return appUpdateAvailable
-    ? `<button type="button" class="primary-btn app-update-btn" id="applyUpdateBtn">Update Available — Tap to Update</button>`
-    : `<button type="button" class="secondary-btn app-update-btn" id="checkUpdateBtn">Check for Updates</button>`;
+    ? t('strings.update_available_tap_to_update')
+    : t('strings.check_for_updates');
 }
 
 function renderVersionBlock() {
   return `<div class="app-version-block">
-    <span class="app-version-label">Version ${escapeHtml(APP_VERSION)}</span>
+    <span class="app-version-label">${t('strings.version')} ${escapeHtml(APP_VERSION)}</span>
     <div id="appUpdateStatus">${renderUpdateStatus()}</div>
   </div>`;
 }
@@ -7211,5 +7503,5 @@ function refreshVersionBlockStatus() {
 }
 
 init().catch(err => {
-  app.innerHTML = `<section class="panel"><h1>Unable to Start</h1><p>${err.message}</p><p>Run this app from a local web server so the JSON files can load.</p></section>`;
+  app.innerHTML = `<section class="panel"><h1>${t('strings.unable_to_start')}</h1><p>${err.message}</p><p>${t('strings.run_this_app_from_a_local_web_server_so_the_json_files_can_load')}</p></section>`;
 });

@@ -4,93 +4,52 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f3dfb7">
-  <meta name="description" content="Western Legends Frontier Director companion app">
+  <meta name="description" content="" data-i18n-content="app.description">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/styles.css">
-  <title>Western Legends Companion</title>
+  <title data-i18n="app.title"></title>
 </head>
 <body>
   <div class="app-shell">
-    <header class="mobile-header" aria-label="App header">
-      <button class="header-icon" id="menuBtn" aria-label="Menu">
-        <img src="assets/icons/menu.png">
-      </button>
+    <header class="mobile-header" data-i18n-aria-label="accessibility.appHeader">
+      <button class="header-icon" id="menuBtn" data-i18n-aria-label="accessibility.menu"><img src="assets/icons/menu.png"></button>
       <div style="text-align: center;">
-        <button id="navHome" class="logo-button" aria-label="Go home">
-          <img id="logo" src="assets/images/logo.png">
-        </button>
-        <span class="logo-sub">Companion</span>
+        <button id="navHome" class="logo-button" data-i18n-aria-label="accessibility.goHome"><img id="logo" src="assets/images/logo.png"></button>
+        <span class="logo-sub" data-i18n="app.companion"></span><div id="homeLanguageSelectorSlot" class="home-language-selector-slot" aria-live="polite"></div>
       </div>
-      <button class="header-icon gear" data-open-settings="true" aria-label="Settings">
-        <img src="assets/icons/settings.png" alt="">
-      </button>
+      <button class="header-icon gear" data-open-settings="true" data-i18n-aria-label="navigation.settings"><img src="assets/icons/settings.png" alt=""></button>
     </header>
-
-    <nav id="drawerNav" class="drawer-nav" aria-label="Main navigation">
+    <nav id="drawerNav" class="drawer-nav" data-i18n-aria-label="accessibility.mainNavigation">
       <div class="drawer-nav-card">
-        <button type="button" class="dialog-close-x" id="drawerNavCloseBtn" aria-label="Close">&#10005;</button>
-        <div class="drawer-menu-header">
-          <p class="eyebrow">Western Legends</p>
-          <h2>Companion Menu</h2>
-        </div>
-        <button data-view="home" class="nav-btn active">Home</button>
-        <button data-view="game" class="nav-btn" id="drawerGameBtn">New Game</button>
-        <button type="button" data-open-reference="true" class="nav-btn">Reference</button>
-        <button type="button" data-assist="menu" class="nav-btn">Assist</button>
-        <button type="button" class="nav-btn game-settings-nav-btn" id="drawerGameSettingsBtn">Settings</button>
-        <button type="button" data-end-game="true" class="nav-btn end-game-nav">End Game</button>
+        <button type="button" class="dialog-close-x" id="drawerNavCloseBtn" data-i18n-aria-label="accessibility.close">&#10005;</button>
+        <div class="drawer-menu-header"><p class="eyebrow" data-i18n="app.brand"></p><h2 data-i18n="navigation.companionMenu"></h2></div>
+        <button data-view="home" class="nav-btn active" data-i18n="navigation.home"></button>
+        <button data-view="game" class="nav-btn" id="drawerGameBtn" data-i18n="navigation.newGame"></button>
+        <button type="button" data-open-reference="true" class="nav-btn" data-i18n="navigation.reference"></button>
+        <button type="button" data-assist="menu" class="nav-btn" data-i18n="navigation.assist"></button>
+        <button type="button" class="nav-btn game-settings-nav-btn" id="drawerGameSettingsBtn" data-i18n="navigation.settings"></button>
+        <button type="button" data-end-game="true" class="nav-btn end-game-nav" data-i18n="navigation.endGame"></button>
       </div>
     </nav>
-
     <main id="app" class="page"></main>
-
-    <nav class="bottom-nav" aria-label="Bottom navigation">
-      <button data-view="home" class="bottom-btn active">⌂<span>Home</span></button>
-      <button data-view="game" class="bottom-btn">⚔<span>Game</span></button>
-      <button type="button" data-open-reference="true" class="bottom-btn">☰<span>Reference</span></button>
-      <button type="button" data-assist="menu" class="bottom-btn">✦<span>Assist</span></button>
-      <button type="button" data-end-game="true" class="bottom-btn end-game-nav">▤<span>End Game</span></button>
+    <nav class="bottom-nav" data-i18n-aria-label="accessibility.bottomNavigation">
+      <button data-view="home" class="bottom-btn active">⌂<span data-i18n="navigation.home"></span></button>
+      <button data-view="game" class="bottom-btn">⚔<span data-i18n="navigation.game"></span></button>
+      <button type="button" data-open-reference="true" class="bottom-btn">☰<span data-i18n="navigation.reference"></span></button>
+      <button type="button" data-assist="menu" class="bottom-btn">✦<span data-i18n="navigation.assist"></span></button>
+      <button type="button" data-end-game="true" class="bottom-btn end-game-nav">▤<span data-i18n="navigation.endGame"></span></button>
     </nav>
   </div>
-
-  <dialog id="storyDialog" class="story-dialog">
-    <form method="dialog" class="dialog-card">
-      <button type="button" class="dialog-close-x" id="storyDialogCloseBtn" aria-label="Close">&#10005;</button>
-      <button type="button" id="dialogReplayVoice" class="narration-replay-btn hidden" aria-label="Replay narration" title="Replay narration">
-        <svg class="replay-ring" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><polyline points="20 4 20 8.5 15.5 8.5"/></svg>
-        <svg class="replay-speaker" viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M4 9v6h3.5l4.5 4V5l-4.5 4H4z"/></svg>
-      </button>
-      <div class="dialog-header">
-        <p id="dialogType" class="eyebrow">Frontier Tale</p>
-        <h2 id="dialogTitle"></h2>
-      </div>
-      <p id="dialogText" class="dialog-text"></p>
-      <div id="dialogReward" class="dialog-reward"></div>
-      <div id="dialogPlayerAssign" class="player-assign hidden"></div>
-      <div id="dialogButtons" class="dialog-actions"></div>
-    </form>
-  </dialog>
-
-
-  <dialog id="assistDialog" class="assist-dialog">
-    <form method="dialog" class="dialog-card assist-card">
-      <button type="button" class="dialog-close-x" id="assistCloseBtn" aria-label="Close">&#10005;</button>
-      <div class="dialog-header assist-dialog-header">
-        <div>
-          <p id="assistType" class="eyebrow">Trail Helper</p>
-          <h2 id="assistTitle">Assists</h2>
-        </div>
-      </div>
-      <div id="assistBody" class="assist-body"></div>
-    </form>
-  </dialog>
-
-
-  <audio id="musicPlayer" loop preload="auto"></audio>
-  <audio id="voicePlayer" preload="auto"></audio>
-  <audio id="sfxPlayer" preload="auto"></audio>
-
+  <dialog id="storyDialog" class="story-dialog"><form method="dialog" class="dialog-card">
+    <button type="button" class="dialog-close-x" id="storyDialogCloseBtn" data-i18n-aria-label="accessibility.close">&#10005;</button>
+    <button type="button" id="dialogReplayVoice" class="narration-replay-btn hidden" data-i18n-aria-label="accessibility.replayNarration" data-i18n-title="accessibility.replayNarration"><svg class="replay-ring" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><polyline points="20 4 20 8.5 15.5 8.5"/></svg><svg class="replay-speaker" viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M4 9v6h3.5l4.5 4V5l-4.5 4H4z"/></svg></button>
+    <div class="dialog-header"><p id="dialogType" class="eyebrow" data-i18n="dialogs.frontierTale"></p><h2 id="dialogTitle"></h2></div><p id="dialogText" class="dialog-text"></p><div id="dialogReward" class="dialog-reward"></div><div id="dialogPlayerAssign" class="player-assign hidden"></div><div id="dialogButtons" class="dialog-actions"></div>
+  </form></dialog>
+  <dialog id="assistDialog" class="assist-dialog"><form method="dialog" class="dialog-card assist-card">
+    <button type="button" class="dialog-close-x" id="assistCloseBtn" data-i18n-aria-label="accessibility.close">&#10005;</button>
+    <div class="dialog-header assist-dialog-header"><div><p id="assistType" class="eyebrow" data-i18n="dialogs.trailHelper"></p><h2 id="assistTitle" data-i18n="dialogs.assists"></h2></div></div><div id="assistBody" class="assist-body"></div>
+  </form></dialog>
+  <audio id="musicPlayer" loop preload="auto"></audio><audio id="voicePlayer" preload="auto"></audio><audio id="sfxPlayer" preload="auto"></audio>
   <script src="js/app.js" defer></script>
-</body>
-</html>
+</body></html>

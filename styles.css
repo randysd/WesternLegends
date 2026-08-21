@@ -1554,8 +1554,9 @@ ol {
 }
 .modal-screen-card {
   position: relative;
-  width: 100%;
+  width: min(420px, calc(100vw - 28px));
   max-width: 420px;
+  box-sizing: border-box;
   margin-top: 10px;
 }
 .setup-card {
