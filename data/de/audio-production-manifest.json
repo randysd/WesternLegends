@@ -1,0 +1,1082 @@
+[
+  {
+    "type": "one-off",
+    "id": "bandit_reinforcements",
+    "title": "Mehr zwischen den Felsen",
+    "trigger": "trig_defeat_bandit",
+    "audioFile": "audio/oneoffs/bandit_reinforcements.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Zwei weitere Waffen tauchen zwischen den Felsen auf.\""
+  },
+  {
+    "type": "one-off",
+    "id": "twin_pistol_rogue",
+    "title": "Schurke mit zwei Pistolen",
+    "trigger": "trig_start_bandit_fight",
+    "audioFile": "audio/oneoffs/twin_pistol_rogue.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Dieser Schurke zieht mit beiden Händen Eisen.\""
+  },
+  {
+    "type": "one-off",
+    "id": "drunken_bandit",
+    "title": "Betrunkener Bandit",
+    "trigger": "trig_start_bandit_fight",
+    "audioFile": "audio/oneoffs/drunken_bandit.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Er taumelt auf die Straße, mit mehr Whiskey als Verstand im Leib.\""
+  },
+  {
+    "type": "one-off",
+    "id": "veteran_bandit",
+    "title": "Veteranen-Bandit",
+    "trigger": "trig_start_bandit_fight",
+    "audioFile": "audio/oneoffs/veteran_bandit.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Dieser hier hat zu viele Schießereien überlebt, als dass es nur Glück sein könnte.\""
+  },
+  {
+    "type": "one-off",
+    "id": "bandit_last_words",
+    "title": "Letzte Worte des Banditen",
+    "trigger": "trig_defeat_bandit",
+    "audioFile": "audio/oneoffs/bandit_last_words.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Mit seinem letzten Atemzug nennt der Bandit ein Versteck unter einer gespaltenen Zeder.\""
+  },
+  {
+    "type": "one-off",
+    "id": "hidden_sniper",
+    "title": "Versteckter Scharfschütze",
+    "trigger": "trig_defeat_bandit",
+    "audioFile": "audio/oneoffs/hidden_sniper.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ein zweiter Schuss kracht vom Kamm herab.\""
+  },
+  {
+    "type": "one-off",
+    "id": "posse_cheers",
+    "title": "Jubel der Posse",
+    "trigger": "trig_gain_mp",
+    "audioFile": "audio/oneoffs/posse_cheers.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Die Leute in der Stadt ziehen den Hut. Das Gesetz bedeutet hier draußen noch etwas.\""
+  },
+  {
+    "type": "one-off",
+    "id": "false_badge",
+    "title": "Falscher Stern",
+    "trigger": "trig_arrest_player",
+    "audioFile": "audio/oneoffs/false_badge.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Aus der Ferne sieht der Stern echt aus, doch aus der Nähe riecht er nach Ärger.\""
+  },
+  {
+    "type": "one-off",
+    "id": "sheriffs_notice",
+    "title": "Mitteilung des Sheriffs",
+    "trigger": "trig_gain_wp",
+    "audioFile": "audio/oneoffs/sheriffs_notice.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ein Steckbrief rollt sich an der Wand, und der Sheriff sattelt bereits auf.\""
+  },
+  {
+    "type": "one-off",
+    "id": "inside_man",
+    "title": "Mann im Inneren",
+    "trigger": "trig_bank_heist",
+    "audioFile": "audio/oneoffs/inside_man.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ein nervöser Bankangestellter lässt den Riegel des Tresors locker.\""
+  },
+  {
+    "type": "one-off",
+    "id": "locked_vault",
+    "title": "Verriegelter Tresor",
+    "trigger": "trig_bank_heist",
+    "audioFile": "audio/oneoffs/locked_vault.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Die Tresortür ächzt ins Schloss. Dieser Coup ist gerade deutlich lauter geworden.\""
+  },
+  {
+    "type": "one-off",
+    "id": "dusty_getaway",
+    "title": "Staubige Flucht",
+    "trigger": "trig_bank_heist",
+    "audioFile": "audio/oneoffs/dusty_getaway.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ein Staubsturm zieht auf, hässlich genug, um eine verzweifelte Flucht zu verbergen.\""
+  },
+  {
+    "type": "one-off",
+    "id": "train_payroll",
+    "title": "Lohnwagen",
+    "trigger": "trig_train_heist",
+    "audioFile": "audio/oneoffs/train_payroll.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Heute Nacht fährt der Lohn mit dem Zug, und jeder Outlaw kann ihn wittern.\""
+  },
+  {
+    "type": "one-off",
+    "id": "railroad_guard",
+    "title": "Eisenbahnwache",
+    "trigger": "trig_train_heist",
+    "audioFile": "audio/oneoffs/railroad_guard.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Eine uniformierte Wache erkennt ein gesetzestreues Gesicht und bittet um Hilfe.\""
+  },
+  {
+    "type": "one-off",
+    "id": "rich_vein",
+    "title": "Reiche Ader",
+    "trigger": "trig_begin_prospect",
+    "audioFile": "audio/oneoffs/rich_vein.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Goldstaub rieselt heraus wie abgefüllter Sonnenschein.\""
+  },
+  {
+    "type": "one-off",
+    "id": "cave_in",
+    "title": "Einsturz",
+    "trigger": "trig_begin_prospect",
+    "audioFile": "audio/oneoffs/cave_in.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Über dir krachen die Stützbalken. Heute will die Mine mit Blut bezahlt werden.\""
+  },
+  {
+    "type": "one-off",
+    "id": "claim_jumper_shadow",
+    "title": "Schatten des Claim Jumpers",
+    "trigger": "trig_gain_gold_prospect",
+    "audioFile": "audio/oneoffs/claim_jumper_shadow.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Jemand hat gesehen, wie du Gold gefunden hast, und er teilt nicht gern.\""
+  },
+  {
+    "type": "one-off",
+    "id": "lost_map_tube",
+    "title": "Karte in einer Röhre",
+    "trigger": "trig_gain_gold_prospect",
+    "audioFile": "audio/oneoffs/lost_map_tube.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"In Wachstuch gewickelt wartet eine Karte, die älter ist als die Stadt selbst.\""
+  },
+  {
+    "type": "one-off",
+    "id": "fools_gold",
+    "title": "Katzengold",
+    "trigger": "trig_gain_gold_prospect",
+    "audioFile": "audio/oneoffs/fools_gold.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Das Glitzern in deiner Pfanne ist hübsch, aber hübsch zahlt sich nicht immer aus.\""
+  },
+  {
+    "type": "one-off",
+    "id": "bankers_smile",
+    "title": "Lächeln des Bankiers",
+    "trigger": "trig_deposit_gold",
+    "audioFile": "audio/oneoffs/bankers_smile.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Der Bankier grinst so breit, dass man jeden Zahn in seinem Mund sieht.\""
+  },
+  {
+    "type": "one-off",
+    "id": "assayer_dispute",
+    "title": "Streit mit dem Assayer",
+    "trigger": "trig_deposit_gold",
+    "audioFile": "audio/oneoffs/assayer_dispute.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Der Prüfer kneift die Augen bei deinem Gold zusammen und behauptet, es sei zu leicht.\""
+  },
+  {
+    "type": "one-off",
+    "id": "free_spurs",
+    "title": "Kostenlose Sporen",
+    "trigger": "trig_purchase_item",
+    "audioFile": "audio/oneoffs/free_spurs.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Der Ladenbesitzer legt Sporen dazu, die einst einem schnellen Mann gehörten.\""
+  },
+  {
+    "type": "one-off",
+    "id": "gunsmith_discount",
+    "title": "Gefallen des Büchsenmachers",
+    "trigger": "trig_purchase_item",
+    "audioFile": "audio/oneoffs/gunsmith_discount.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Der Büchsenmacher mustert dein Eisen und geht mit dem Preis um zehn runter.\""
+  },
+  {
+    "type": "one-off",
+    "id": "counterfeit_goods",
+    "title": "Gefälschte Ware",
+    "trigger": "trig_purchase_item",
+    "audioFile": "audio/oneoffs/counterfeit_goods.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Im Licht des Ladens sah das Schnäppchen gut aus. Dann fängt es an zu rauchen.\""
+  },
+  {
+    "type": "one-off",
+    "id": "rare_shipment",
+    "title": "Seltene Lieferung",
+    "trigger": "trig_purchase_item",
+    "audioFile": "audio/oneoffs/rare_shipment.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Eine Kiste aus dem Osten landet auf dem Tresen, versiegelt mit großen Versprechen.\""
+  },
+  {
+    "type": "one-off",
+    "id": "doctor_secret",
+    "title": "Geheimtonikum des Arztes",
+    "trigger": "trig_heal_doctor",
+    "audioFile": "audio/oneoffs/doctor_secret.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Der Arzt gießt etwas Dunkles ein und sagt, man solle besser nicht fragen, was darin ist.\""
+  },
+  {
+    "type": "one-off",
+    "id": "bad_medicine",
+    "title": "Schlechte Medizin",
+    "trigger": "trig_heal_doctor",
+    "audioFile": "audio/oneoffs/bad_medicine.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Die Medizin wirkt, aber der Raum steht weiterhin schief.\""
+  },
+  {
+    "type": "one-off",
+    "id": "cabaret_ovation",
+    "title": "Stehende Ovationen",
+    "trigger": "trig_revel_cabaret",
+    "audioFile": "audio/oneoffs/cabaret_ovation.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Die Menge hämmert auf die Tische, bis die Dachsparren beben.\""
+  },
+  {
+    "type": "one-off",
+    "id": "cabaret_scandal",
+    "title": "Cabaret-Skandal",
+    "trigger": "trig_revel_cabaret",
+    "audioFile": "audio/oneoffs/cabaret_scandal.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Bei Sonnenaufgang weiß es halb Red Falls, und die andere Hälfte hat sich noch Schlimmeres ausgedacht.\""
+  },
+  {
+    "type": "one-off",
+    "id": "card_shark",
+    "title": "Kartenhai",
+    "trigger": "trig_begin_poker",
+    "audioFile": "audio/oneoffs/card_shark.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ein Kartenhai setzt sich mit sauberen Manschetten und schmutzigem Blick an den Tisch.\""
+  },
+  {
+    "type": "one-off",
+    "id": "lucky_table",
+    "title": "Glückstisch",
+    "trigger": "trig_win_poker",
+    "audioFile": "audio/oneoffs/lucky_table.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Dieser Tisch bringt Glück, seit das Einschussloch mit Silber geflickt wurde.\""
+  },
+  {
+    "type": "one-off",
+    "id": "saloon_brawl",
+    "title": "Saloonschlägerei",
+    "trigger": "trig_begin_poker",
+    "audioFile": "audio/oneoffs/saloon_brawl.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ein Stuhl zerbricht, eine Flasche fliegt, und die Karten sind nicht das einzige Problem.\""
+  },
+  {
+    "type": "one-off",
+    "id": "work_honest_pay",
+    "title": "Ehrlicher Lohn",
+    "trigger": "trig_work_action",
+    "audioFile": "audio/oneoffs/work_honest_pay.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ehrlicher Schweiß lässt sich bestens ausgeben.\""
+  },
+  {
+    "type": "one-off",
+    "id": "work_splintered_hand",
+    "title": "Splitter in der Hand",
+    "trigger": "trig_work_action",
+    "audioFile": "audio/oneoffs/work_splintered_hand.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Der Griff bricht und treibt einen Splitter tief genug hinein, dass du dich daran erinnern wirst.\""
+  },
+  {
+    "type": "one-off",
+    "id": "stampede",
+    "title": "Stampede",
+    "trigger": "trig_acquire_cattle",
+    "audioFile": "audio/oneoffs/stampede.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Die Herde bricht aus, und die Hufe donnern wie am Tag des Jüngsten Gerichts.\""
+  },
+  {
+    "type": "one-off",
+    "id": "prize_steer",
+    "title": "Preisgekrönter Stier",
+    "trigger": "trig_acquire_cattle",
+    "audioFile": "audio/oneoffs/prize_steer.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Der Ranchhelfer zeigt auf den fettesten Stier im Pferch.\""
+  },
+  {
+    "type": "one-off",
+    "id": "rustler_brand",
+    "title": "Brandzeichen des Viehdiebs",
+    "trigger": "trig_rustle_cattle",
+    "audioFile": "audio/oneoffs/rustler_brand.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Das Brandzeichen ist frisch, und jeder Gesetzeshüter wird es wittern.\""
+  },
+  {
+    "type": "one-off",
+    "id": "clean_drive",
+    "title": "Sauberer Viehtrieb",
+    "trigger": "trig_wrangle_cattle",
+    "audioFile": "audio/oneoffs/clean_drive.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Kein einziges Rind verirrt sich. Solche Arbeit verdient Respekt.\""
+  },
+  {
+    "type": "one-off",
+    "id": "broken_bridge",
+    "title": "Eingestürzte Brücke",
+    "trigger": "trig_move_3_plus",
+    "audioFile": "audio/oneoffs/broken_bridge.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Die Brücke vor dir besteht mehr aus Erinnerung als aus Holz.\""
+  },
+  {
+    "type": "one-off",
+    "id": "runaway_stage",
+    "title": "Durchgehende Postkutsche",
+    "trigger": "trig_move_3_plus",
+    "audioFile": "audio/oneoffs/runaway_stage.mp3",
+    "status": "ready",
+    "narrationScript": "[raspy][old cowboy][western][fast][low key][emotionless][quick]Eine führerlose Postkutsche rast die Straße herunter!"
+  },
+  {
+    "type": "one-off",
+    "id": "snakebite",
+    "title": "Schlangenbiss",
+    "trigger": "trig_end_outside_town",
+    "audioFile": "audio/oneoffs/snakebite.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Eine Klapperschlange schlägt aus einem Schatten zu, kaum größer als ein Stiefelabsatz.\""
+  },
+  {
+    "type": "one-off",
+    "id": "desert_shortcut",
+    "title": "Abkürzung durch die Wüste",
+    "trigger": "trig_enter_dixon_creek",
+    "audioFile": "audio/oneoffs/desert_shortcut.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ein alter Pfad führt durch Land, von dem die meisten schwören, es sei unpassierbar.\""
+  },
+  {
+    "type": "one-off",
+    "id": "dixon_ambush",
+    "title": "Hinterhalt am Dixon Creek",
+    "trigger": "trig_enter_dixon_creek",
+    "audioFile": "audio/oneoffs/dixon_ambush.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Dixon Creek ist still. Zu still für ehrliches Land.\""
+  },
+  {
+    "type": "one-off",
+    "id": "mesitos_greenhorn",
+    "title": "Grünschnabel auf der Grünen Ranch",
+    "trigger": "trig_enter_mesitos_point",
+    "audioFile": "audio/oneoffs/mesitos_greenhorn.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ein junger Ranchhelfer winkt dich mit Panik in den Augen heran.\""
+  },
+  {
+    "type": "one-off",
+    "id": "sunny_hills_luck",
+    "title": "Glück in Sunny Hills",
+    "trigger": "trig_enter_sunny_hills",
+    "audioFile": "audio/oneoffs/sunny_hills_luck.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Sunny Hills macht seinem Namen alle Ehre, als selbst der Stein zu glänzen beginnt.\""
+  },
+  {
+    "type": "one-off",
+    "id": "spikes_view_signal",
+    "title": "Signalfeuer",
+    "trigger": "trig_enter_spikes_view",
+    "audioFile": "audio/oneoffs/spikes_view_signal.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Auf dem Kamm über Spike’s View brennt ein Signalfeuer.\""
+  },
+  {
+    "type": "one-off",
+    "id": "cliff_junction_echo",
+    "title": "Echo in den Klippen",
+    "trigger": "trig_enter_cliff_junction",
+    "audioFile": "audio/oneoffs/cliff_junction_echo.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Etwas tief im Fels antwortet auf deine Schritte.\""
+  },
+  {
+    "type": "one-off",
+    "id": "legendary_whisper",
+    "title": "Legendäres Flüstern",
+    "trigger": "trig_gain_legendary_item",
+    "audioFile": "audio/oneoffs/legendary_whisper.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Manche Gegenstände tragen bereits Geschichten in sich, bevor sie je deine Hand berühren.\""
+  },
+  {
+    "type": "one-off",
+    "id": "famous_deed",
+    "title": "Berühmte Tat",
+    "trigger": "trig_gain_lp_2_plus",
+    "audioFile": "audio/oneoffs/famous_deed.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Bis Sonnenuntergang erzählt irgendjemand die Geschichte schon falsch.\""
+  },
+  {
+    "type": "one-off",
+    "id": "risk_pays",
+    "title": "Risiko zahlt sich aus",
+    "trigger": "trig_roll_risk_die",
+    "audioFile": "audio/oneoffs/risk_pays.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Das Glück begünstigt den Narren, der weiß, wann er laufen muss.\""
+  },
+  {
+    "type": "one-off",
+    "id": "risk_bites",
+    "title": "Risiko beißt",
+    "trigger": "trig_roll_risk_die",
+    "audioFile": "audio/oneoffs/risk_bites.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Das Risiko hat Zähne, und heute hat es Fleisch gefunden.\""
+  },
+  {
+    "type": "one-off",
+    "id": "gang_loyalty",
+    "title": "Treue Mannschaft",
+    "trigger": "trig_recruit_gang_posse",
+    "audioFile": "audio/oneoffs/gang_loyalty.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ein paar harte Gesichter kennen deinen Namen und reiten für wenig Geld.\""
+  },
+  {
+    "type": "one-off",
+    "id": "frontier_cache",
+    "title": "Grenzlandversteck",
+    "trigger": "trig_frontier_action",
+    "audioFile": "audio/oneoffs/frontier_cache.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Unter einem flachen Stein wartet ein Versteck, das jemand zurückließ, der nie wiederkam.\""
+  },
+  {
+    "type": "one-off",
+    "id": "frontier_deadfall",
+    "title": "Grenzland-Totholzfalle",
+    "trigger": "trig_frontier_action",
+    "audioFile": "audio/oneoffs/frontier_deadfall.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Das Grenzland gibt mit der einen Hand und lässt mit der anderen einen Baumstamm fallen.\""
+  },
+  {
+    "type": "one-off",
+    "id": "hunters_mark",
+    "title": "Zeichen des Jägers",
+    "trigger": "trig_hunt_success",
+    "audioFile": "audio/oneoffs/hunters_mark.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Saubere Arbeit. Selbst die alten Trapper würden bei diesem Schuss anerkennend nicken.\""
+  },
+  {
+    "type": "one-off",
+    "id": "wounded_predator",
+    "title": "Verwundetes Raubtier",
+    "trigger": "trig_hunt_success",
+    "audioFile": "audio/oneoffs/wounded_predator.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Das Tier fällt, doch nicht bevor es seine Spuren hinterlässt.\""
+  },
+  {
+    "type": "one-off",
+    "id": "forager_cache",
+    "title": "Versteck des Sammlers",
+    "trigger": "trig_forage_resource",
+    "audioFile": "audio/oneoffs/forager_cache.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ein trockenes Bachbett verbirgt mehr als nur Staub.\""
+  },
+  {
+    "type": "one-off",
+    "id": "spoiled_bundle",
+    "title": "Verdorbenes Bündel",
+    "trigger": "trig_forage_resource",
+    "audioFile": "audio/oneoffs/spoiled_bundle.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Was im Schatten noch nützlich aussah, riecht in der Sonne übel.\""
+  },
+  {
+    "type": "one-off",
+    "id": "fine_craft",
+    "title": "Feine Handwerkskunst",
+    "trigger": "trig_craft_item",
+    "audioFile": "audio/oneoffs/fine_craft.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Das ist nicht nur nützlich. Das ist Arbeit, an die man sich erinnert.\""
+  },
+  {
+    "type": "one-off",
+    "id": "broken_tool",
+    "title": "Gebrochenes Werkzeug",
+    "trigger": "trig_craft_item",
+    "audioFile": "audio/oneoffs/broken_tool.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Das Werkzeug hält gerade lange genug zusammen, um die Arbeit zu beenden.\""
+  },
+  {
+    "type": "one-off",
+    "id": "wood_for_station",
+    "title": "Holz für den Bahnhof",
+    "trigger": "trig_deliver_resource_location",
+    "audioFile": "audio/oneoffs/wood_for_station.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Frisch geschlagene Balken schlagen neben den Gleisen auf wie die Knochen einer neuen Stadt.\""
+  },
+  {
+    "type": "one-off",
+    "id": "metal_for_tracks",
+    "title": "Eisen für die Strecke",
+    "trigger": "trig_deliver_resource_location",
+    "audioFile": "audio/oneoffs/metal_for_tracks.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Der Vorarbeiter fährt mit dem Daumen über das Eisen und lächelt wie ein Mann, der die Zukunft sieht.\""
+  },
+  {
+    "type": "one-off",
+    "id": "robbery_hidden_witness",
+    "title": "Augen im Fenster",
+    "trigger": "trig_rob_player",
+    "audioFile": "audio/oneoffs/robbery_hidden_witness.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Auf der anderen Straßenseite bewegt sich ein Vorhang. Jemand hat alles gesehen, und Zeugen finden irgendwie immer den Sheriff.\""
+  },
+  {
+    "type": "one-off",
+    "id": "robbery_dropped_purse",
+    "title": "Ein kleines Extra",
+    "trigger": "trig_rob_player",
+    "audioFile": "audio/oneoffs/robbery_dropped_purse.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Im Durcheinander fällt noch etwas in den Staub: ein kleiner Geldbeutel, den bis jetzt niemand bemerkt hat.\""
+  },
+  {
+    "type": "one-off",
+    "id": "player_fight_crowd",
+    "title": "Eine Menge versammelt sich",
+    "trigger": "trig_start_player_fight",
+    "audioFile": "audio/oneoffs/player_fight_crowd.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Stiefel scharren über Veranden und Saloontüren schwingen auf. Die Leute wittern einen Kampf, und schon wechseln Wetteinsätze den Besitzer.\""
+  },
+  {
+    "type": "one-off",
+    "id": "player_fight_dust",
+    "title": "Staub in den Augen",
+    "trigger": "trig_start_player_fight",
+    "audioFile": "audio/oneoffs/player_fight_dust.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Eine harte Böe wirbelt Sand zwischen die Kämpfer. Für einen halben Herzschlag kann keiner von beiden klar sehen.\""
+  },
+  {
+    "type": "one-off",
+    "id": "sheriff_arrest_public_example",
+    "title": "Öffentliches Exempel",
+    "trigger": "trig_sheriff_arrests",
+    "audioFile": "audio/oneoffs/sheriff_arrest_public_example.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Der Sheriff führt den Gefangenen mitten durch die Stadt, damit jeder sehen kann, wie der Tag ausgegangen ist.\""
+  },
+  {
+    "type": "one-off",
+    "id": "sheriff_arrest_loose_cuffs",
+    "title": "Lockere Handschellen",
+    "trigger": "trig_sheriff_arrests",
+    "audioFile": "audio/oneoffs/sheriff_arrest_loose_cuffs.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Die Handschellen des Sheriffs haben bessere Jahre gesehen, ebenso wie der Deputy, der auf die Taschen des Gefangenen achtet.\""
+  },
+  {
+    "type": "one-off",
+    "id": "rail_friendly_conductor",
+    "title": "Freundlicher Schaffner",
+    "trigger": "trig_travel_rail",
+    "audioFile": "audio/oneoffs/rail_friendly_conductor.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Der Schaffner erkennt ein bekanntes Gesicht und gibt vor dem Pfiff noch eine nützliche Information weiter.\""
+  },
+  {
+    "type": "one-off",
+    "id": "rail_late_freight",
+    "title": "Verspätete Fracht",
+    "trigger": "trig_travel_rail",
+    "audioFile": "audio/oneoffs/rail_late_freight.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ein Güterwagen rollt verspätet ein, und es fehlen Hände. Zehn Dollar kaufen ein paar Minuten ehrlicher Arbeit.\""
+  },
+  {
+    "type": "one-off",
+    "id": "mountain_pass_rockslide",
+    "title": "Felssturz",
+    "trigger": "trig_use_mountain_pass",
+    "audioFile": "audio/oneoffs/mountain_pass_rockslide.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Über dem Pfad bricht Fels los, und der ganze Berg scheint auf einmal herabzustürzen.\""
+  },
+  {
+    "type": "one-off",
+    "id": "mountain_pass_abandoned_cache",
+    "title": "Verlassenes Versteck",
+    "trigger": "trig_use_mountain_pass",
+    "audioFile": "audio/oneoffs/mountain_pass_abandoned_cache.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Unter einem Stapel Wegsteine liegt ein verwittertes Versteck, zurückgelassen von jemandem, der nie wiederkam, um es zu holen.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "prospector_intro",
+    "title": "Ein Mann dem Tod nahe",
+    "trigger": "trig_begin_prospect",
+    "audioFile": "audio/arcs/prospector_intro.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ein halb verhungerter Goldsucher taumelt aus dem Salbeigestrüpp und umklammert einen Lederbeutel. Für einen Drink und eine Fahrt in die Stadt bietet er zwanzig Dollar.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "prospector_debt_repaid",
+    "title": "Schuld beglichen",
+    "trigger": "trig_purchase_item",
+    "audioFile": "audio/arcs/prospector_debt_repaid.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Der alte Goldsucher tritt aus der Ecke und legt Münzen auf den Tresen. Hab doch gesagt, dass ich mich für Freundlichkeit revanchiere.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "prospector_bandit_reveal",
+    "title": "Der Mann, den du zurückgelassen hast",
+    "trigger": "trig_defeat_bandit",
+    "audioFile": "audio/arcs/prospector_bandit_reveal.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Der Outlaw fällt und nimmt den Hut ab. Unter dem Schmutz erkennst du den Goldsucher, den du im Staub zurückgelassen hast. Er pfeift, und zwei weitere Banditen kriechen zwischen den Felsen hervor.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "widow_fence_down",
+    "title": "Zaunlinie niedergerissen",
+    "trigger": "trig_acquire_cattle",
+    "audioFile": "audio/arcs/widow_fence_down.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Eine Witwe in Schwarz bittet um Hilfe beim Flicken eines Zauns, bevor Viehdiebe die Lücke entdecken.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "widow_cattle_drive",
+    "title": "Ein sicherer Viehtrieb",
+    "trigger": "trig_wrangle_cattle",
+    "audioFile": "audio/arcs/widow_cattle_drive.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Das Brandzeichen der Witwe zieht mit der Herde, und jede ehrliche Meile hilft, ihr Land zu retten.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "widow_black_veil",
+    "title": "Banditin mit schwarzem Schleier",
+    "trigger": "trig_rustle_cattle",
+    "audioFile": "audio/arcs/widow_black_veil.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Eine verschleierte Reiterin schließt sich den Viehdieben an. Die Trauer hat sie zu etwas Gefährlichem geschärft.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "reeves_deputy_call",
+    "title": "Deputy für einen Tag",
+    "trigger": "trig_gain_mp",
+    "audioFile": "audio/arcs/reeves_deputy_call.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Marshal Reeves braucht eine ruhige Hand und ein noch ruhigeres Gewissen.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "reeves_crackdown",
+    "title": "Haftbefehl beim Durchgreifen",
+    "trigger": "trig_defeat_bandit",
+    "audioFile": "audio/arcs/reeves_crackdown.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Bei Reeves stapeln sich die Haftbefehle wie Feuerholz, und er hat genug Strick für jeden Namen darauf.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "reeves_hunted",
+    "title": "Marshal auf deiner Spur",
+    "trigger": "trig_gain_wp",
+    "audioFile": "audio/arcs/reeves_hunted.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Reeves heftet deinen Namen unter die Laterne und reitet in die Dunkelheit.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "showman_arrives",
+    "title": "Der bemalte Wagen",
+    "trigger": "trig_revel_cabaret",
+    "audioFile": "audio/arcs/showman_arrives.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ein bemalter Wagen rollt nach Red Falls und verspricht zu gleichen Teilen Wunder, Musik und Lügen.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "showman_grand_show",
+    "title": "Große Grenzlandshow",
+    "trigger": "trig_win_poker",
+    "audioFile": "audio/arcs/showman_grand_show.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Silas Bell nennt deine Hand ein Wunder und verkauft Eintrittskarten, bevor die Karten kalt sind.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "showman_swindle",
+    "title": "Der große Schwindel",
+    "trigger": "trig_purchase_item",
+    "audioFile": "audio/arcs/showman_swindle.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Das Etikett sagt echt. Das Lächeln des Schaustellers sagt etwas anderes.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "pike_tracks",
+    "title": "Old Pikes Spuren",
+    "trigger": "trig_hunt_success",
+    "audioFile": "audio/arcs/pike_tracks.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Der alte Jeremiah Pike studiert die Spuren und grunzt, als schulde ihm das Tier Geld.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "pike_white_bear",
+    "title": "Die Spur des weißen Bären",
+    "trigger": "trig_hunt_success",
+    "audioFile": "audio/arcs/pike_white_bear.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Pike zeigt mit zitterndem Finger. Diese Spur gehört zu etwas, das zu groß für gewöhnliche Angst ist.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "pike_trap_line",
+    "title": "Ausgelöste Falle",
+    "trigger": "trig_end_outside_town",
+    "audioFile": "audio/arcs/pike_trap_line.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Eine versteckte Falle schnappt zu. Pike verzeiht es nicht, ignoriert zu werden.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "cardshark_first_hand",
+    "title": "Ein Fremder am Tisch",
+    "trigger": "trig_begin_poker",
+    "audioFile": "audio/arcs/cardshark_first_hand.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ein Fremder mit hellen Handschuhen setzt sich ungefragt dazu und lächelt ohne jede Wärme.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "cardshark_beaten",
+    "title": "Den Hai schlagen",
+    "trigger": "trig_win_poker",
+    "audioFile": "audio/arcs/cardshark_beaten.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Zum ersten Mal in dieser Nacht zerbricht das Lächeln des Fremden.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "cardshark_debt",
+    "title": "Schuldeneintreiber",
+    "trigger": "trig_start_player_fight",
+    "audioFile": "audio/arcs/cardshark_debt.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ein Schuldeneintreiber tritt aus der Gasse und nennt Zahlen, an die sich kein ehrlicher Mann erinnert.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "rail_surveyors",
+    "title": "Vermesser treffen ein",
+    "trigger": "trig_travel_rail",
+    "audioFile": "audio/arcs/rail_surveyors.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Vermesser treffen mit Ketten, Pflöcken und der gefährlichen Idee ein, dass sich die Zukunft vermessen lässt.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "rail_lumber",
+    "title": "Balken für den Bahnhof",
+    "trigger": "trig_deliver_resource_location",
+    "audioFile": "audio/arcs/rail_lumber.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Frische Balken schlagen neben den Gleisen auf wie die Knochen einer neuen Stadt.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "rail_iron",
+    "title": "Eisen für die Strecke",
+    "trigger": "trig_deliver_resource_location",
+    "audioFile": "audio/arcs/rail_iron.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Der Vorarbeiter fährt mit dem Daumen über das Eisen und sieht die Zukunft.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "rail_grand_opening",
+    "title": "Große Eröffnung",
+    "trigger": "",
+    "audioFile": "audio/storylines/rail_grand_opening.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Mit dem letzten eingeschlagenen Schienennagel pfeift die Lokomotive, als wäre das Grenzland selbst gerade erwacht.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "spanish_journal",
+    "title": "Zerrissenes Tagebuch",
+    "trigger": "trig_gain_gold_prospect",
+    "audioFile": "audio/arcs/spanish_journal.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ein zerrissenes Tagebuch berichtet von spanischem Gold, verborgen dort, wo die Klippen mittags Schatten werfen.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "spanish_marker",
+    "title": "Der Steinmarker",
+    "trigger": "trig_enter_cliff_junction",
+    "audioFile": "audio/arcs/spanish_marker.mp3",
+    "status": "missing",
+    "narrationScript": "[raspy][old cowboy][western][fast][low key][emotionless][quick]Ein steinernes Kreuz ragt schief aus dem Staub, älter als jede Stadt auf dieser Karte."
+  },
+  {
+    "type": "major-storyline",
+    "id": "spanish_cache",
+    "title": "Der vergrabene Schatz",
+    "trigger": "trig_deposit_gold",
+    "audioFile": "audio/arcs/spanish_cache.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Unter rotem Stein wartet ein Versteck voller Münzen, geprägt für einen König, der dieses Land nie gesehen hat.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "buffalo_tracks",
+    "title": "Seltsame Spuren",
+    "trigger": "trig_hunt_success",
+    "audioFile": "audio/arcs/buffalo_tracks.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Spuren so breit wie Essteller ziehen sich durch die Prärie, und jeder Vogel ist verstummt.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "buffalo_warning",
+    "title": "Die Warnung",
+    "trigger": "trig_enter_sunny_hills",
+    "audioFile": "audio/arcs/buffalo_warning.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ein alter Scout warnt, dass manche Tiere keine Trophäen sind. Sie sind Prüfungen.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "buffalo_appears",
+    "title": "Der weiße Büffel erscheint",
+    "trigger": "trig_hunt_success",
+    "audioFile": "audio/storylines/buffalo_appears.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Der weiße Büffel tritt aus dem Morgennebel, hell wie ein Geist und schwerer als eine Legende.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_drought",
+    "title": "Dürre",
+    "trigger": "",
+    "audioFile": "audio/world/world_drought.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Die Brunnen husten Schlamm, und die Sonne hängt erbarmungslos am Himmel.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_gold_rush",
+    "title": "Goldrausch",
+    "trigger": "",
+    "audioFile": "audio/world/world_gold_rush.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Goldfieber verbreitet sich schneller als gesunder Menschenverstand.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_sheriff_crackdown",
+    "title": "Durchgreifen des Sheriffs",
+    "trigger": "",
+    "audioFile": "audio/world/world_sheriff_crackdown.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Das Gesetz zeigt die Zähne.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_bandit_uprising",
+    "title": "Banditenaufstand",
+    "trigger": "",
+    "audioFile": "audio/world/world_bandit_uprising.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Die Hügel spucken plötzlich harte Kerle mit geladenen Waffen aus.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_frontier_festival",
+    "title": "Grenzlandfest",
+    "trigger": "",
+    "audioFile": "audio/world/world_frontier_festival.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Musik strömt aus der Stadt wie das Licht von Laternen.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_bad_weather",
+    "title": "Schlechtes Wetter",
+    "trigger": "",
+    "audioFile": "audio/world/world_bad_weather.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Der Regen verwandelt jede Straße in braune Suppe.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_clear_skies",
+    "title": "Klarer Himmel",
+    "trigger": "",
+    "audioFile": "audio/world/world_clear_skies.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Der Himmel klart auf, und jeder Weg wirkt plötzlich kürzer.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_high_stakes",
+    "title": "Nacht der hohen Einsätze",
+    "trigger": "",
+    "audioFile": "audio/world/world_high_stakes.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Jeder Narr mit einer Münze in der Tasche will einen Platz am Tisch.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_cattle_market",
+    "title": "Viehmarkt",
+    "trigger": "",
+    "audioFile": "audio/world/world_cattle_market.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Die Rindfleischpreise steigen wie Rauch.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_doctor_shortage",
+    "title": "Ärztemangel",
+    "trigger": "",
+    "audioFile": "audio/world/world_doctor_shortage.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Dem Arzt gehen Laudanum und Geduld aus.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_free_rail",
+    "title": "Eisenbahnjubiläum",
+    "trigger": "",
+    "audioFile": "audio/world/world_free_rail.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Die Lokomotive pfeift, und jeder Bahnhof feiert.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_train_security",
+    "title": "Bewaffnete Zugwachen",
+    "trigger": "",
+    "audioFile": "audio/world/world_train_security.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Die Eisenbahngesellschaft heuert Bewaffnete gleich dutzendweise an.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_mine_collapse",
+    "title": "Instabile Minen",
+    "trigger": "",
+    "audioFile": "audio/world/world_mine_collapse.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Die Erde ächzt unter jedem Schlag der Spitzhacke.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_trader_boom",
+    "title": "Händlerboom",
+    "trigger": "",
+    "audioFile": "audio/world/world_trader_boom.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Dr. Herves Wagen rollt schwer beladen mit Wunderdingen heran.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_saloons_dry",
+    "title": "Trockene Saloons",
+    "trigger": "",
+    "audioFile": "audio/world/world_saloons_dry.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Der Whiskey geht aus, und die Tische werden still.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_ranch_fire",
+    "title": "Ranchbrand",
+    "trigger": "",
+    "audioFile": "audio/world/world_ranch_fire.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Rauch steigt von der Nordweide auf.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_resource_boom",
+    "title": "Nützlicher Schrott",
+    "trigger": "",
+    "audioFile": "audio/world/world_resource_boom.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Das Grenzland liegt voller Dinge, die in geschickten Händen nützlich werden.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_predator_migration",
+    "title": "Raubtierwanderung",
+    "trigger": "",
+    "audioFile": "audio/world/world_predator_migration.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Hungrige Augen leuchten im Gebüsch.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_craft_fair",
+    "title": "Handwerksmarkt",
+    "trigger": "",
+    "audioFile": "audio/world/world_craft_fair.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Für jedes nützliche Stück findet sich ein Käufer.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_legendary_weather",
+    "title": "Roter Sonnenuntergang",
+    "trigger": "",
+    "audioFile": "audio/world/world_legendary_weather.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Der Sonnenuntergang brennt rot, und selbst gewöhnliche Taten wirken legendär.\""
+  }
+]

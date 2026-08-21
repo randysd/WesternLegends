@@ -1,0 +1,467 @@
+[
+  {
+    "id": "story_railroad_rising",
+    "title": "Die eiserne Straße",
+    "newspaperText": [
+      "Die gebietsweite Geschichte von Die eiserne Straße entfaltete sich in einer Reihe von Entwicklungen, die im ganzen Grenzland zu spüren waren.",
+      "Mehrere Ereignisse verbanden sich zu der größeren Grenzlandgeschichte namens Die eiserne Straße.",
+      "Die fortlaufende Geschichte von Die eiserne Straße reichte über einen einzelnen Reiter hinaus und begann, das Gebiet selbst zu prägen.",
+      "Als die Gazette in Druck ging, war Die eiserne Straße zu einer der größeren sich entfaltenden Geschichten des Grenzlands geworden."
+    ],
+    "tags": [
+      "railroad",
+      "train",
+      "construction"
+    ],
+    "requiredModules": [
+      "ante_up"
+    ],
+    "chapters": [
+      {
+        "id": "rail_surveyors",
+        "type": "storyTrigger",
+        "trigger": "trig_travel_rail",
+        "title": "Vermesser treffen ein",
+        "screenText": "Beende deinen Zug an einem beliebigen Bahnhof, um $20 zu erhalten und den Eisenbahnfortschritt um +1 zu erhöhen.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Vermesser treffen mit Ketten, Pflöcken und der gefährlichen Idee ein, dass sich die Zukunft vermessen lässt.\"",
+        "newspaperText": [
+          "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Vermesser treffen mit Ketten, Pflöcken und der gefährlichen Idee ein, dass sich die Zukunft vermessen lässt.",
+          "Ein weiteres Kapitel der sich entfaltenden Geschichte erreichte die Gazette mit einem eindrücklichen Detail: Vermesser treffen mit Ketten, Pflöcken und der gefährlichen Idee ein, dass sich die Zukunft vermessen lässt.",
+          "Die Spur der größeren Geschichte führte zu einer neuen Entwicklung: Vermesser treffen mit Ketten, Pflöcken und der gefährlichen Idee ein, dass sich die Zukunft vermessen lässt.",
+          "Zeugen verbanden die jüngste Wendung der Geschichte mit einer besonders einprägsamen Szene: Vermesser treffen mit Ketten, Pflöcken und der gefährlichen Idee ein, dass sich die Zukunft vermessen lässt."
+        ],
+        "audioFile": "audio/arcs/rail_surveyors.mp3",
+        "requiresWorldTags": [],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_surveyed"
+          },
+          {
+            "type": "incrementCounter",
+            "counter": "railroad_progress",
+            "amount": 1
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Vermesser treffen ein wurde abgehandelt."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_survey_ignored"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Vermesser treffen ein wurde ignoriert."
+          }
+        ]
+      },
+      {
+        "id": "rail_lumber",
+        "type": "storyTrigger",
+        "trigger": "trig_deliver_resource_location",
+        "title": "Balken für den Bahnhof",
+        "screenText": "Liefere Holz an einen Bahnhof. Erhalte $20 und erhöhe den Eisenbahnfortschritt um +1.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Frische Balken schlagen neben den Gleisen auf wie die Knochen einer neuen Stadt.\"",
+        "newspaperText": [
+          "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Frische Balken schlagen neben den Gleisen auf wie die Knochen einer neuen Stadt.",
+          "Ein weiteres Kapitel der sich entfaltenden Geschichte erreichte die Gazette mit einem eindrücklichen Detail: Frische Balken schlagen neben den Gleisen auf wie die Knochen einer neuen Stadt.",
+          "Die Spur der größeren Geschichte führte zu einer neuen Entwicklung: Frische Balken schlagen neben den Gleisen auf wie die Knochen einer neuen Stadt.",
+          "Zeugen verbanden die jüngste Wendung der Geschichte mit einer besonders einprägsamen Szene: Frische Balken schlagen neben den Gleisen auf wie die Knochen einer neuen Stadt."
+        ],
+        "audioFile": "audio/arcs/rail_lumber.mp3",
+        "requiresWorldTags": [
+          "rail_surveyed"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_wood_delivered"
+          },
+          {
+            "type": "incrementCounter",
+            "counter": "railroad_progress",
+            "amount": 1
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Balken für den Bahnhof wurde abgehandelt."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_wood_missing"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Balken für den Bahnhof wurde ignoriert."
+          }
+        ]
+      },
+      {
+        "id": "rail_iron",
+        "type": "storyTrigger",
+        "trigger": "trig_deliver_resource_location",
+        "title": "Eisen für die Strecke",
+        "screenText": "Liefere Metall an einen Bahnhof. Erhalte $20 und erhöhe den Eisenbahnfortschritt um +1.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Der Vorarbeiter fährt mit dem Daumen über das Eisen und sieht die Zukunft.\"",
+        "newspaperText": [
+          "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Der Vorarbeiter fährt mit dem Daumen über das Eisen und sieht die Zukunft.",
+          "Ein weiteres Kapitel der sich entfaltenden Geschichte erreichte die Gazette mit einem eindrücklichen Detail: Der Vorarbeiter fährt mit dem Daumen über das Eisen und sieht die Zukunft.",
+          "Die Spur der größeren Geschichte führte zu einer neuen Entwicklung: Der Vorarbeiter fährt mit dem Daumen über das Eisen und sieht die Zukunft.",
+          "Zeugen verbanden die jüngste Wendung der Geschichte mit einer besonders einprägsamen Szene: Der Vorarbeiter fährt mit dem Daumen über das Eisen und sieht die Zukunft."
+        ],
+        "audioFile": "audio/arcs/rail_iron.mp3",
+        "requiresWorldTags": [
+          "rail_surveyed"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_metal_delivered"
+          },
+          {
+            "type": "incrementCounter",
+            "counter": "railroad_progress",
+            "amount": 1
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Eisen für die Strecke wurde abgehandelt."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_metal_missing"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Eisen für die Strecke wurde ignoriert."
+          }
+        ]
+      },
+      {
+        "id": "rail_grand_opening",
+        "type": "worldEvent",
+        "title": "Große Eröffnung",
+        "requiresCounters": [
+          {
+            "counter": "railroad_progress",
+            "gte": 3
+          }
+        ],
+        "screenText": "Reisen mit der Eisenbahn kostet $0.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Mit dem letzten eingeschlagenen Schienennagel pfeift die Lokomotive, als wäre das Grenzland selbst gerade erwacht.\"",
+        "newspaperText": [
+          "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Mit dem letzten eingeschlagenen Schienennagel pfeift die Lokomotive, als wäre das Grenzland selbst gerade erwacht.",
+          "Ein weiteres Kapitel der sich entfaltenden Geschichte erreichte die Gazette mit einem eindrücklichen Detail: Mit dem letzten eingeschlagenen Schienennagel pfeift die Lokomotive, als wäre das Grenzland selbst gerade erwacht.",
+          "Die Spur der größeren Geschichte führte zu einer neuen Entwicklung: Mit dem letzten eingeschlagenen Schienennagel pfeift die Lokomotive, als wäre das Grenzland selbst gerade erwacht.",
+          "Zeugen verbanden die jüngste Wendung der Geschichte mit einer besonders einprägsamen Szene: Mit dem letzten eingeschlagenen Schienennagel pfeift die Lokomotive, als wäre das Grenzland selbst gerade erwacht."
+        ],
+        "audioFile": "audio/storylines/rail_grand_opening.mp3",
+        "effects": [
+          {
+            "type": "start_world_event",
+            "eventId": "world_free_rail"
+          }
+        ]
+      }
+    ],
+    "scope": "global"
+  },
+  {
+    "id": "story_lost_spanish_gold",
+    "title": "Verlorenes spanisches Gold",
+    "newspaperText": [
+      "Die gebietsweite Geschichte von Verlorenes spanisches Gold entfaltete sich in einer Reihe von Entwicklungen, die im ganzen Grenzland zu spüren waren.",
+      "Mehrere Ereignisse verbanden sich zu der größeren Grenzlandgeschichte namens Verlorenes spanisches Gold.",
+      "Die fortlaufende Geschichte von Verlorenes spanisches Gold reichte über einen einzelnen Reiter hinaus und begann, das Gebiet selbst zu prägen.",
+      "Als die Gazette in Druck ging, war Verlorenes spanisches Gold zu einer der größeren sich entfaltenden Geschichten des Grenzlands geworden."
+    ],
+    "tags": [
+      "treasure",
+      "mine",
+      "map"
+    ],
+    "chapters": [
+      {
+        "id": "spanish_journal",
+        "type": "storyTrigger",
+        "trigger": "trig_gain_gold_prospect",
+        "title": "Zerrissenes Tagebuch",
+        "screenText": "Beende deinen Zug in der Mine von Cliff Junction, um 1 Legendären Marker zu erhalten.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Ein zerrissenes Tagebuch berichtet von spanischem Gold, verborgen dort, wo die Klippen mittags Schatten werfen.\"",
+        "newspaperText": [
+          "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Ein zerrissenes Tagebuch berichtet von spanischem Gold, verborgen dort, wo die Klippen mittags Schatten werfen.",
+          "Ein weiteres Kapitel der sich entfaltenden Geschichte erreichte die Gazette mit einem eindrücklichen Detail: Ein zerrissenes Tagebuch berichtet von spanischem Gold, verborgen dort, wo die Klippen mittags Schatten werfen.",
+          "Die Spur der größeren Geschichte führte zu einer neuen Entwicklung: Ein zerrissenes Tagebuch berichtet von spanischem Gold, verborgen dort, wo die Klippen mittags Schatten werfen.",
+          "Zeugen verbanden die jüngste Wendung der Geschichte mit einer besonders einprägsamen Szene: Ein zerrissenes Tagebuch berichtet von spanischem Gold, verborgen dort, wo die Klippen mittags Schatten werfen."
+        ],
+        "audioFile": "audio/arcs/spanish_journal.mp3",
+        "requiresWorldTags": [],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_clue_1"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Zerrissenes Tagebuch wurde abgehandelt."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_journal_lost"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Zerrissenes Tagebuch wurde ignoriert."
+          }
+        ]
+      },
+      {
+        "id": "spanish_marker",
+        "type": "storyTrigger",
+        "trigger": "trig_enter_cliff_junction",
+        "title": "Der Steinmarker",
+        "screenText": "Ziehe 1 Kampfkarte. Bei 8+ erhältst du 2 Gold; andernfalls erleidest du 1 Wunde.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[raspy][old cowboy][western][fast][low key][emotionless][quick]Ein steinernes Kreuz ragt schief aus dem Staub, älter als jede Stadt auf dieser Karte.",
+        "newspaperText": [
+          "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Ein steinernes Kreuz ragt schief aus dem Staub, älter als jede Stadt auf dieser Karte.",
+          "Ein weiteres Kapitel der sich entfaltenden Geschichte erreichte die Gazette mit einem eindrücklichen Detail: Ein steinernes Kreuz ragt schief aus dem Staub, älter als jede Stadt auf dieser Karte.",
+          "Die Spur der größeren Geschichte führte zu einer neuen Entwicklung: Ein steinernes Kreuz ragt schief aus dem Staub, älter als jede Stadt auf dieser Karte.",
+          "Zeugen verbanden die jüngste Wendung der Geschichte mit einer besonders einprägsamen Szene: Ein steinernes Kreuz ragt schief aus dem Staub, älter als jede Stadt auf dieser Karte."
+        ],
+        "audioFile": "audio/arcs/spanish_marker.mp3",
+        "requiresWorldTags": [
+          "spanish_clue_1"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_clue_2"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Der Steinmarker wurde abgehandelt."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_marker_missed"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Der Steinmarker wurde ignoriert."
+          }
+        ]
+      },
+      {
+        "id": "spanish_cache",
+        "type": "storyTrigger",
+        "trigger": "trig_deposit_gold",
+        "title": "Der vergrabene Schatz",
+        "screenText": "Erhalte $40 und 2 LP. Füge „Verlorenes spanisches Gold“ der Zeitung hinzu.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Unter rotem Stein wartet ein Versteck voller Münzen, geprägt für einen König, der dieses Land nie gesehen hat.\"",
+        "newspaperText": [
+          "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Unter rotem Stein wartet ein Versteck voller Münzen, geprägt für einen König, der dieses Land nie gesehen hat.",
+          "Ein weiteres Kapitel der sich entfaltenden Geschichte erreichte die Gazette mit einem eindrücklichen Detail: Unter rotem Stein wartet ein Versteck voller Münzen, geprägt für einen König, der dieses Land nie gesehen hat.",
+          "Die Spur der größeren Geschichte führte zu einer neuen Entwicklung: Unter rotem Stein wartet ein Versteck voller Münzen, geprägt für einen König, der dieses Land nie gesehen hat.",
+          "Zeugen verbanden die jüngste Wendung der Geschichte mit einer besonders einprägsamen Szene: Unter rotem Stein wartet ein Versteck voller Münzen, geprägt für einen König, der dieses Land nie gesehen hat."
+        ],
+        "audioFile": "audio/arcs/spanish_cache.mp3",
+        "requiresWorldTags": [
+          "spanish_clue_2"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_gold_found"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Der vergrabene Schatz wurde abgehandelt."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_gold_lost"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Der vergrabene Schatz wurde ignoriert."
+          }
+        ]
+      }
+    ],
+    "scope": "global"
+  },
+  {
+    "id": "story_white_buffalo",
+    "title": "Der weiße Büffel",
+    "newspaperText": [
+      "Die gebietsweite Geschichte von Der weiße Büffel entfaltete sich in einer Reihe von Entwicklungen, die im ganzen Grenzland zu spüren waren.",
+      "Mehrere Ereignisse verbanden sich zu der größeren Grenzlandgeschichte namens Der weiße Büffel.",
+      "Die fortlaufende Geschichte von Der weiße Büffel reichte über einen einzelnen Reiter hinaus und begann, das Gebiet selbst zu prägen.",
+      "Als die Gazette in Druck ging, war Der weiße Büffel zu einer der größeren sich entfaltenden Geschichten des Grenzlands geworden."
+    ],
+    "tags": [
+      "legendary",
+      "hunt",
+      "sacred"
+    ],
+    "requiredModules": [
+      "hunting"
+    ],
+    "chapters": [
+      {
+        "id": "buffalo_tracks",
+        "type": "storyTrigger",
+        "trigger": "trig_hunt_success",
+        "title": "Seltsame Spuren",
+        "screenText": "Erhalte nach einer Jagd 1 Hinweis auf den Weißen Büffel.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Spuren so breit wie Essteller ziehen sich durch die Prärie, und jeder Vogel ist verstummt.\"",
+        "newspaperText": [
+          "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Spuren so breit wie Essteller ziehen sich durch die Prärie, und jeder Vogel ist verstummt.",
+          "Ein weiteres Kapitel der sich entfaltenden Geschichte erreichte die Gazette mit einem eindrücklichen Detail: Spuren so breit wie Essteller ziehen sich durch die Prärie, und jeder Vogel ist verstummt.",
+          "Die Spur der größeren Geschichte führte zu einer neuen Entwicklung: Spuren so breit wie Essteller ziehen sich durch die Prärie, und jeder Vogel ist verstummt.",
+          "Zeugen verbanden die jüngste Wendung der Geschichte mit einer besonders einprägsamen Szene: Spuren so breit wie Essteller ziehen sich durch die Prärie, und jeder Vogel ist verstummt."
+        ],
+        "audioFile": "audio/arcs/buffalo_tracks.mp3",
+        "requiresWorldTags": [],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "buffalo_clue_1"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Seltsame Spuren wurde abgehandelt."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "buffalo_tracks_lost"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Seltsame Spuren wurde ignoriert."
+          }
+        ]
+      },
+      {
+        "id": "buffalo_warning",
+        "type": "storyTrigger",
+        "trigger": "trig_enter_sunny_hills",
+        "title": "Die Warnung",
+        "screenText": "Beende deinen Zug in Sunny Hills, um 1 LP zu erhalten oder 2 Pokerkarten zu ziehen.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Ein alter Scout warnt, dass manche Tiere keine Trophäen sind. Sie sind Prüfungen.\"",
+        "newspaperText": [
+          "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Ein alter Scout warnt, dass manche Tiere keine Trophäen sind. Sie sind Prüfungen.",
+          "Ein weiteres Kapitel der sich entfaltenden Geschichte erreichte die Gazette mit einem eindrücklichen Detail: Ein alter Scout warnt, dass manche Tiere keine Trophäen sind. Sie sind Prüfungen.",
+          "Die Spur der größeren Geschichte führte zu einer neuen Entwicklung: Ein alter Scout warnt, dass manche Tiere keine Trophäen sind. Sie sind Prüfungen.",
+          "Zeugen verbanden die jüngste Wendung der Geschichte mit einer besonders einprägsamen Szene: Ein alter Scout warnt, dass manche Tiere keine Trophäen sind. Sie sind Prüfungen."
+        ],
+        "audioFile": "audio/arcs/buffalo_warning.mp3",
+        "requiresWorldTags": [
+          "buffalo_clue_1"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "buffalo_warning_heard"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Die Warnung wurde abgehandelt."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "buffalo_warning_ignored"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Die Warnung wurde ignoriert."
+          }
+        ]
+      },
+      {
+        "id": "buffalo_appears",
+        "type": "storyTrigger",
+        "trigger": "trig_hunt_success",
+        "title": "Der weiße Büffel erscheint",
+        "screenText": "Spezialjagd: Ziehe 1 Kampfkarte. Wirf Pokerkarten mit einem Gesamtwert in mindestens dieser Höhe ab. Bei Erfolg wähle „Beschützen“ oder „Jagen“.",
+        "requiresWorldTags": [
+          "buffalo_warning_heard"
+        ],
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Der weiße Büffel tritt aus dem Morgennebel, hell wie ein Geist und schwerer als eine Legende.\"",
+        "newspaperText": [
+          "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Der weiße Büffel tritt aus dem Morgennebel, hell wie ein Geist und schwerer als eine Legende.",
+          "Ein weiteres Kapitel der sich entfaltenden Geschichte erreichte die Gazette mit einem eindrücklichen Detail: Der weiße Büffel tritt aus dem Morgennebel, hell wie ein Geist und schwerer als eine Legende.",
+          "Die Spur der größeren Geschichte führte zu einer neuen Entwicklung: Der weiße Büffel tritt aus dem Morgennebel, hell wie ein Geist und schwerer als eine Legende.",
+          "Zeugen verbanden die jüngste Wendung der Geschichte mit einer besonders einprägsamen Szene: Der weiße Büffel tritt aus dem Morgennebel, hell wie ein Geist und schwerer als eine Legende."
+        ],
+        "audioFile": "audio/storylines/buffalo_appears.mp3",
+        "resultButtons": [
+          {
+            "label": "Beschützen",
+            "effects": [
+              {
+                "type": "gain_lp",
+                "amount": 3
+              },
+              {
+                "type": "addWorldTag",
+                "tag": "white_buffalo_protected"
+              }
+            ]
+          },
+          {
+            "label": "Jagen",
+            "effects": [
+              {
+                "type": "gain_money",
+                "amount": 80
+              },
+              {
+                "type": "gain_lp",
+                "amount": 1
+              },
+              {
+                "type": "addWorldTag",
+                "tag": "white_buffalo_hunted"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "scope": "global"
+  }
+]

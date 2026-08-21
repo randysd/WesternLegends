@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 2,
+  "engineName": "Western Legends Frontier Director",
+  "primaryTriggerSlots": 3,
+  "eventRoll": {
+    "none": 55,
+    "oneOff": 25,
+    "characterArc": 15,
+    "worldEvent": 5
+  },
+  "activeStoryLimit": 5,
+  "defaultStoryExpirationPrimaryTriggers": 6,
+  "audio": {
+    "musicDefaultVolume": 0.45,
+    "sfxDefaultVolume": 0.7,
+    "voiceDefaultVolume": 1.0
+  },
+  "enabledModulesDefault": [
+    "base"
+  ],
+  "weightingNotes": "Los eventos únicos se sortean a partir del disparador pulsado; las continuaciones activas de Arcos de Historia son deterministas cuando se cumplen sus condiciones de disparador/jugador; los Eventos Mundiales usan un reloj de tiempo real aleatorio guardado y un latido ligero para que aparezcan cuando corresponda incluso si no se pulsa ningún disparador de juego.",
+  "storyEvents": {
+    "defaults": {
+      "oneOff": {
+        "enabled": true,
+        "frequency": "standard"
+      },
+      "arcs": {
+        "enabled": true,
+        "frequency": "standard"
+      },
+      "world": {
+        "enabled": true,
+        "frequency": "standard"
+      }
+    },
+    "frequency": {
+      "oneOffChance": {
+        "rare": 0.15,
+        "standard": 0.35,
+        "frequent": 0.75
+      },
+      "arcStartChance": {
+        "rare": 0.08,
+        "standard": 0.2,
+        "frequent": 0.5
+      },
+      "worldEventMinutes": {
+        "rare": {
+          "min": 30,
+          "max": 45
+        },
+        "standard": {
+          "min": 15,
+          "max": 25
+        },
+        "frequent": {
+          "min": 5,
+          "max": 8
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,515 @@
+{
+  "storeLayout": {
+    "generalStore": {
+      "slots": 12
+    },
+    "tradingPost": {
+      "slots": 6,
+      "requiredModules": [
+        "ante_up_sideboard"
+      ]
+    }
+  },
+  "items": [
+    {
+      "id": "bedroll",
+      "name": "Schlafrolle",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "wild_bunch_of_extras"
+      ]
+    },
+    {
+      "id": "boot_knife",
+      "name": "Stiefelmesser",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "bullwhip",
+      "name": "Bullenpeitsche",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "burro",
+      "name": "Esel",
+      "type": "mount",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "carbine",
+      "name": "Karabiner",
+      "type": "weapon",
+      "icon": "",
+      "requiredModules": [
+        "promo_carbine"
+      ]
+    },
+    {
+      "id": "derringer",
+      "name": "Derringer",
+      "type": "weapon",
+      "icon": "",
+      "requiredModules": [
+        "ante_up"
+      ]
+    },
+    {
+      "id": "gazette",
+      "name": "Gazette",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "ante_up"
+      ]
+    },
+    {
+      "id": "holster",
+      "name": "Holster",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "fistful_of_extras"
+      ]
+    },
+    {
+      "id": "medicine_pouch",
+      "name": "Medizintasche",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "miners_map",
+      "name": "Bergmannskarte",
+      "type": "misc",
+      "icon": ""
+    },
+    {
+      "id": "mule",
+      "name": "Maultier",
+      "type": "mount",
+      "icon": ""
+    },
+    {
+      "id": "mustang",
+      "name": "Mustang",
+      "type": "mount",
+      "icon": ""
+    },
+    {
+      "id": "peacekeeper",
+      "name": "Friedensstifter",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "fistful_of_extras"
+      ]
+    },
+    {
+      "id": "pocket_watch",
+      "name": "Taschenuhr",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "provisions",
+      "name": "Proviant",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "fistful_of_extras"
+      ]
+    },
+    {
+      "id": "quarter_horse",
+      "name": "Quarter Horse",
+      "type": "mount",
+      "icon": "",
+      "requiredModules": [
+        "ante_up"
+      ]
+    },
+    {
+      "id": "repeating_shotgun",
+      "name": "Repetierflinte",
+      "type": "weapon",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "revolver",
+      "name": "Revolver",
+      "type": "weapon",
+      "icon": ""
+    },
+    {
+      "id": "rifle",
+      "name": "Gewehr",
+      "type": "weapon",
+      "icon": ""
+    },
+    {
+      "id": "saddle_bags",
+      "name": "Satteltaschen",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "wild_bunch_of_extras"
+      ]
+    },
+    {
+      "id": "shotgun",
+      "name": "Schrotflinte",
+      "type": "weapon",
+      "icon": ""
+    },
+    {
+      "id": "snake_oil",
+      "name": "Schlangenöl",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "ante_up"
+      ]
+    },
+    {
+      "id": "ten_gallon",
+      "name": "Zehn-Gallonen-Hut",
+      "type": "misc",
+      "icon": ""
+    },
+    {
+      "id": "whiskey",
+      "name": "Whiskey",
+      "type": "misc",
+      "icon": ""
+    },
+    {
+      "id": "work_horse",
+      "name": "Arbeitspferd",
+      "type": "mount",
+      "icon": "",
+      "requiredModules": [
+        "fistful_of_extras"
+      ]
+    }
+  ],
+  "legendary_items": [
+    {
+      "id": "bandolier",
+      "name": "Patronengurt",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "wild_bunch_of_extras"
+      ]
+    },
+    {
+      "id": "black_coat",
+      "name": "Schwarzer Mantel",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "the_good_the_bad_and_the_handsome"
+      ]
+    },
+    {
+      "id": "bowie_knife",
+      "name": "Bowie-Messer",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "the_good_the_bad_and_the_handsome"
+      ]
+    },
+    {
+      "id": "canteen",
+      "name": "Feldflasche",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "cattle_brand",
+      "name": "Brandeisen",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "companion",
+      "name": "Begleiter",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "the_good_the_bad_and_the_handsome"
+      ]
+    },
+    {
+      "id": "dime_western",
+      "name": "Groschenwestern",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "dragoons",
+      "name": "Dragoner",
+      "type": "weapon",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "dynamite",
+      "name": "Dynamit",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "the_good_the_bad_and_the_handsome"
+      ]
+    },
+    {
+      "id": "fiddle",
+      "name": "Fiedel",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "lasso",
+      "name": "Lasso",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "the_good_the_bad_and_the_handsome"
+      ]
+    },
+    {
+      "id": "lightning",
+      "name": "Blitz",
+      "type": "mount",
+      "icon": "",
+      "requiredModules": [
+        "the_good_the_bad_and_the_handsome"
+      ]
+    },
+    {
+      "id": "lucky_coin",
+      "name": "Glücksmünze",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "wild_bunch_of_extras"
+      ]
+    },
+    {
+      "id": "marked_cards",
+      "name": "Gezinkte Karten",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "wild_bunch_of_extras"
+      ]
+    },
+    {
+      "id": "marshals_badge",
+      "name": "Marshalstern",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "the_good_the_bad_and_the_handsome"
+      ]
+    },
+    {
+      "id": "mesa_deed",
+      "name": "Mesa-Urkunde",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "the_good_the_bad_and_the_handsome"
+      ]
+    },
+    {
+      "id": "molasses",
+      "name": "Melasse",
+      "type": "mount",
+      "icon": "",
+      "requiredModules": [
+        "wild_bunch_of_extras"
+      ]
+    },
+    {
+      "id": "outlaws_mask",
+      "name": "Outlaw-Maske",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "the_good_the_bad_and_the_handsome"
+      ]
+    },
+    {
+      "id": "portrait",
+      "name": "Porträt",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "pump_trolley",
+      "name": "Draisine",
+      "type": "mount",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "saber",
+      "name": "Säbel",
+      "type": "weapon",
+      "icon": "",
+      "requiredModules": [
+        "wild_bunch_of_extras"
+      ]
+    },
+    {
+      "id": "serape",
+      "name": "Serape",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "wild_bunch_of_extras"
+      ]
+    },
+    {
+      "id": "short_cut",
+      "name": "Abkürzung",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "shot_glass",
+      "name": "Schnapsglas",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "silver_flask",
+      "name": "Silberflachmann",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "the_good_the_bad_and_the_handsome"
+      ]
+    },
+    {
+      "id": "snakeskin_boots",
+      "name": "Schlangenhautstiefel",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "spurs",
+      "name": "Sporen",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "spyglass",
+      "name": "Fernrohr",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "wild_bunch_of_extras"
+      ]
+    },
+    {
+      "id": "strongbox",
+      "name": "Geldkassette",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "big_box"
+      ]
+    },
+    {
+      "id": "telegram",
+      "name": "Telegramm",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "thunder",
+      "name": "Donner",
+      "type": "weapon",
+      "icon": "",
+      "requiredModules": [
+        "the_good_the_bad_and_the_handsome"
+      ]
+    },
+    {
+      "id": "tomahawk",
+      "name": "Tomahawk",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "the_good_the_bad_and_the_handsome"
+      ]
+    },
+    {
+      "id": "treasure_map",
+      "name": "Schatzkarte",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "wild_bunch_of_extras"
+      ]
+    }
+  ]
+}

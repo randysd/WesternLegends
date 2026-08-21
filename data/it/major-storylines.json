@@ -1,0 +1,467 @@
+[
+  {
+    "id": "story_railroad_rising",
+    "title": "La Strada di Ferro",
+    "newspaperText": [
+      "La storia estesa a tutto il territorio de La Strada di Ferro si sviluppò attraverso una serie di eventi avvertiti in tutta la frontiera.",
+      "Diversi eventi si unirono nel più ampio racconto della frontiera noto come La Strada di Ferro.",
+      "La storia continuativa de La Strada di Ferro superò i confini di un singolo cavaliere e iniziò a plasmare il territorio stesso.",
+      "Quando la Gazette andò in stampa, La Strada di Ferro era diventata una delle grandi storie in divenire della frontiera."
+    ],
+    "tags": [
+      "railroad",
+      "train",
+      "construction"
+    ],
+    "requiredModules": [
+      "ante_up"
+    ],
+    "chapters": [
+      {
+        "id": "rail_surveyors",
+        "type": "storyTrigger",
+        "trigger": "trig_travel_rail",
+        "title": "Arrivano i Geometri",
+        "screenText": "Termina il tuo turno in una qualsiasi Stazione Ferroviaria per ottenere $20 e Progresso Ferroviario +1.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Arrivano geometri con catene, picchetti e la pericolosa idea che il domani possa essere misurato.\"",
+        "newspaperText": [
+          "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: Arrivano geometri con catene, picchetti e la pericolosa idea che il domani possa essere misurato.",
+          "Un altro capitolo della storia in corso giunse alla Gazette con un dettaglio vivido: Arrivano geometri con catene, picchetti e la pericolosa idea che il domani possa essere misurato.",
+          "La pista della storia più ampia portò a un nuovo sviluppo: Arrivano geometri con catene, picchetti e la pericolosa idea che il domani possa essere misurato.",
+          "I testimoni collegarono l'ultima svolta della storia a una scena memorabile: Arrivano geometri con catene, picchetti e la pericolosa idea che il domani possa essere misurato."
+        ],
+        "audioFile": "audio/arcs/rail_surveyors.mp3",
+        "requiresWorldTags": [],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_surveyed"
+          },
+          {
+            "type": "incrementCounter",
+            "counter": "railroad_progress",
+            "amount": 1
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Arrivano i Geometri è stato risolto."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_survey_ignored"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Arrivano i Geometri è stato ignorato."
+          }
+        ]
+      },
+      {
+        "id": "rail_lumber",
+        "type": "storyTrigger",
+        "trigger": "trig_deliver_resource_location",
+        "title": "Legname per il Deposito",
+        "screenText": "Consegna Legno a una Stazione Ferroviaria. Ottieni $20 e Progresso Ferroviario +1.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Travi appena tagliate cadono accanto ai binari come le ossa di una nuova città.\"",
+        "newspaperText": [
+          "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: Travi appena tagliate cadono accanto ai binari come le ossa di una nuova città.",
+          "Un altro capitolo della storia in corso giunse alla Gazette con un dettaglio vivido: Travi appena tagliate cadono accanto ai binari come le ossa di una nuova città.",
+          "La pista della storia più ampia portò a un nuovo sviluppo: Travi appena tagliate cadono accanto ai binari come le ossa di una nuova città.",
+          "I testimoni collegarono l'ultima svolta della storia a una scena memorabile: Travi appena tagliate cadono accanto ai binari come le ossa di una nuova città."
+        ],
+        "audioFile": "audio/arcs/rail_lumber.mp3",
+        "requiresWorldTags": [
+          "rail_surveyed"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_wood_delivered"
+          },
+          {
+            "type": "incrementCounter",
+            "counter": "railroad_progress",
+            "amount": 1
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Legname per il Deposito è stato risolto."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_wood_missing"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Legname per il Deposito è stato ignorato."
+          }
+        ]
+      },
+      {
+        "id": "rail_iron",
+        "type": "storyTrigger",
+        "trigger": "trig_deliver_resource_location",
+        "title": "Ferro per la Linea",
+        "screenText": "Consegna Metallo a una Stazione Ferroviaria. Ottieni $20 e Progresso Ferroviario +1.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Il caposquadra passa il pollice sul ferro e vede il domani.\"",
+        "newspaperText": [
+          "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: Il caposquadra passa il pollice sul ferro e vede il domani.",
+          "Un altro capitolo della storia in corso giunse alla Gazette con un dettaglio vivido: Il caposquadra passa il pollice sul ferro e vede il domani.",
+          "La pista della storia più ampia portò a un nuovo sviluppo: Il caposquadra passa il pollice sul ferro e vede il domani.",
+          "I testimoni collegarono l'ultima svolta della storia a una scena memorabile: Il caposquadra passa il pollice sul ferro e vede il domani."
+        ],
+        "audioFile": "audio/arcs/rail_iron.mp3",
+        "requiresWorldTags": [
+          "rail_surveyed"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_metal_delivered"
+          },
+          {
+            "type": "incrementCounter",
+            "counter": "railroad_progress",
+            "amount": 1
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Ferro per la Linea è stato risolto."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_metal_missing"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Ferro per la Linea è stato ignorato."
+          }
+        ]
+      },
+      {
+        "id": "rail_grand_opening",
+        "type": "worldEvent",
+        "title": "Grande Inaugurazione",
+        "requiresCounters": [
+          {
+            "counter": "railroad_progress",
+            "gte": 3
+          }
+        ],
+        "screenText": "Viaggiare in Treno costa $0.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Con l'ultimo chiodo piantato, la locomotiva fischia come se la frontiera stessa si fosse appena svegliata.\"",
+        "newspaperText": [
+          "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: Con l'ultimo chiodo piantato, la locomotiva fischia come se la frontiera stessa si fosse appena svegliata.",
+          "Un altro capitolo della storia in corso giunse alla Gazette con un dettaglio vivido: Con l'ultimo chiodo piantato, la locomotiva fischia come se la frontiera stessa si fosse appena svegliata.",
+          "La pista della storia più ampia portò a un nuovo sviluppo: Con l'ultimo chiodo piantato, la locomotiva fischia come se la frontiera stessa si fosse appena svegliata.",
+          "I testimoni collegarono l'ultima svolta della storia a una scena memorabile: Con l'ultimo chiodo piantato, la locomotiva fischia come se la frontiera stessa si fosse appena svegliata."
+        ],
+        "audioFile": "audio/storylines/rail_grand_opening.mp3",
+        "effects": [
+          {
+            "type": "start_world_event",
+            "eventId": "world_free_rail"
+          }
+        ]
+      }
+    ],
+    "scope": "global"
+  },
+  {
+    "id": "story_lost_spanish_gold",
+    "title": "L'Oro Spagnolo Perduto",
+    "newspaperText": [
+      "La storia estesa a tutto il territorio de L'Oro Spagnolo Perduto si sviluppò attraverso una serie di eventi avvertiti in tutta la frontiera.",
+      "Diversi eventi si unirono nel più ampio racconto della frontiera noto come L'Oro Spagnolo Perduto.",
+      "La storia continuativa de L'Oro Spagnolo Perduto superò i confini di un singolo cavaliere e iniziò a plasmare il territorio stesso.",
+      "Quando la Gazette andò in stampa, L'Oro Spagnolo Perduto era diventato una delle grandi storie in divenire della frontiera."
+    ],
+    "tags": [
+      "treasure",
+      "mine",
+      "map"
+    ],
+    "chapters": [
+      {
+        "id": "spanish_journal",
+        "type": "storyTrigger",
+        "trigger": "trig_gain_gold_prospect",
+        "title": "Diario Strappato",
+        "screenText": "Termina il tuo turno alla Miniera di Cliff Junction per ottenere 1 Segnalino Leggendario.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Un diario strappato parla di oro spagnolo nascosto dove le scogliere proiettano ombre a mezzogiorno.\"",
+        "newspaperText": [
+          "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: Un diario strappato parla di oro spagnolo nascosto dove le scogliere proiettano ombre a mezzogiorno.",
+          "Un altro capitolo della storia in corso giunse alla Gazette con un dettaglio vivido: Un diario strappato parla di oro spagnolo nascosto dove le scogliere proiettano ombre a mezzogiorno.",
+          "La pista della storia più ampia portò a un nuovo sviluppo: Un diario strappato parla di oro spagnolo nascosto dove le scogliere proiettano ombre a mezzogiorno.",
+          "I testimoni collegarono l'ultima svolta della storia a una scena memorabile: Un diario strappato parla di oro spagnolo nascosto dove le scogliere proiettano ombre a mezzogiorno."
+        ],
+        "audioFile": "audio/arcs/spanish_journal.mp3",
+        "requiresWorldTags": [],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_clue_1"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Diario Strappato è stato risolto."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_journal_lost"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Diario Strappato è stato ignorato."
+          }
+        ]
+      },
+      {
+        "id": "spanish_marker",
+        "type": "storyTrigger",
+        "trigger": "trig_enter_cliff_junction",
+        "title": "Il Cippo di Pietra",
+        "screenText": "Pesca 1 Carta Scontro. Con 8+, ottieni 2 Oro; altrimenti subisci 1 ferita.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[raspy][old cowboy][western][fast][low key][emotionless][quick]Una croce di pietra emerge inclinata dalla polvere, più antica di qualsiasi città su questa mappa.",
+        "newspaperText": [
+          "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: Una croce di pietra emerge inclinata dalla polvere, più antica di qualsiasi città su questa mappa.",
+          "Un altro capitolo della storia in corso giunse alla Gazette con un dettaglio vivido: Una croce di pietra emerge inclinata dalla polvere, più antica di qualsiasi città su questa mappa.",
+          "La pista della storia più ampia portò a un nuovo sviluppo: Una croce di pietra emerge inclinata dalla polvere, più antica di qualsiasi città su questa mappa.",
+          "I testimoni collegarono l'ultima svolta della storia a una scena memorabile: Una croce di pietra emerge inclinata dalla polvere, più antica di qualsiasi città su questa mappa."
+        ],
+        "audioFile": "audio/arcs/spanish_marker.mp3",
+        "requiresWorldTags": [
+          "spanish_clue_1"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_clue_2"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Il Cippo di Pietra è stato risolto."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_marker_missed"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Il Cippo di Pietra è stato ignorato."
+          }
+        ]
+      },
+      {
+        "id": "spanish_cache",
+        "type": "storyTrigger",
+        "trigger": "trig_deposit_gold",
+        "title": "Il Nascondiglio Sepolto",
+        "screenText": "Ottieni $40 e 2 LP. Aggiungi L'Oro Spagnolo Perduto al giornale.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Sotto la pietra rossa attende un tesoretto di monete coniate per un re che non vide mai questa terra.\"",
+        "newspaperText": [
+          "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: Sotto la pietra rossa attende un tesoretto di monete coniate per un re che non vide mai questa terra.",
+          "Un altro capitolo della storia in corso giunse alla Gazette con un dettaglio vivido: Sotto la pietra rossa attende un tesoretto di monete coniate per un re che non vide mai questa terra.",
+          "La pista della storia più ampia portò a un nuovo sviluppo: Sotto la pietra rossa attende un tesoretto di monete coniate per un re che non vide mai questa terra.",
+          "I testimoni collegarono l'ultima svolta della storia a una scena memorabile: Sotto la pietra rossa attende un tesoretto di monete coniate per un re che non vide mai questa terra."
+        ],
+        "audioFile": "audio/arcs/spanish_cache.mp3",
+        "requiresWorldTags": [
+          "spanish_clue_2"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_gold_found"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Il Nascondiglio Sepolto è stato risolto."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_gold_lost"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Il Nascondiglio Sepolto è stato ignorato."
+          }
+        ]
+      }
+    ],
+    "scope": "global"
+  },
+  {
+    "id": "story_white_buffalo",
+    "title": "Il Bisonte Bianco",
+    "newspaperText": [
+      "La storia estesa a tutto il territorio de Il Bisonte Bianco si sviluppò attraverso una serie di eventi avvertiti in tutta la frontiera.",
+      "Diversi eventi si unirono nel più ampio racconto della frontiera noto come Il Bisonte Bianco.",
+      "La storia continuativa de Il Bisonte Bianco superò i confini di un singolo cavaliere e iniziò a plasmare il territorio stesso.",
+      "Quando la Gazette andò in stampa, Il Bisonte Bianco era diventato una delle grandi storie in divenire della frontiera."
+    ],
+    "tags": [
+      "legendary",
+      "hunt",
+      "sacred"
+    ],
+    "requiredModules": [
+      "hunting"
+    ],
+    "chapters": [
+      {
+        "id": "buffalo_tracks",
+        "type": "storyTrigger",
+        "trigger": "trig_hunt_success",
+        "title": "Tracce Insolite",
+        "screenText": "Dopo una Caccia, ottieni 1 Indizio del Bisonte Bianco.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Tracce larghe come piatti attraversano la prateria, e ogni uccello è diventato silenzioso.\"",
+        "newspaperText": [
+          "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: Tracce larghe come piatti attraversano la prateria, e ogni uccello è diventato silenzioso.",
+          "Un altro capitolo della storia in corso giunse alla Gazette con un dettaglio vivido: Tracce larghe come piatti attraversano la prateria, e ogni uccello è diventato silenzioso.",
+          "La pista della storia più ampia portò a un nuovo sviluppo: Tracce larghe come piatti attraversano la prateria, e ogni uccello è diventato silenzioso.",
+          "I testimoni collegarono l'ultima svolta della storia a una scena memorabile: Tracce larghe come piatti attraversano la prateria, e ogni uccello è diventato silenzioso."
+        ],
+        "audioFile": "audio/arcs/buffalo_tracks.mp3",
+        "requiresWorldTags": [],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "buffalo_clue_1"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Tracce Insolite è stato risolto."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "buffalo_tracks_lost"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Tracce Insolite è stato ignorato."
+          }
+        ]
+      },
+      {
+        "id": "buffalo_warning",
+        "type": "storyTrigger",
+        "trigger": "trig_enter_sunny_hills",
+        "title": "L'Avvertimento",
+        "screenText": "Termina il tuo turno a Sunny Hills per ottenere 1 LP oppure pescare 2 Carte Poker.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Un vecchio esploratore avverte che alcuni animali non sono trofei. Sono prove.\"",
+        "newspaperText": [
+          "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: Un vecchio esploratore avverte che alcuni animali non sono trofei. Sono prove.",
+          "Un altro capitolo della storia in corso giunse alla Gazette con un dettaglio vivido: Un vecchio esploratore avverte che alcuni animali non sono trofei. Sono prove.",
+          "La pista della storia più ampia portò a un nuovo sviluppo: Un vecchio esploratore avverte che alcuni animali non sono trofei. Sono prove.",
+          "I testimoni collegarono l'ultima svolta della storia a una scena memorabile: Un vecchio esploratore avverte che alcuni animali non sono trofei. Sono prove."
+        ],
+        "audioFile": "audio/arcs/buffalo_warning.mp3",
+        "requiresWorldTags": [
+          "buffalo_clue_1"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "buffalo_warning_heard"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "L'Avvertimento è stato risolto."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "buffalo_warning_ignored"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "L'Avvertimento è stato ignorato."
+          }
+        ]
+      },
+      {
+        "id": "buffalo_appears",
+        "type": "storyTrigger",
+        "trigger": "trig_hunt_success",
+        "title": "Appare il Bisonte Bianco",
+        "screenText": "Caccia Speciale: pesca 1 Carta Scontro. Scarta Carte Poker per un valore totale pari o superiore. Se hai successo, scegli Proteggilo o Caccialo.",
+        "requiresWorldTags": [
+          "buffalo_warning_heard"
+        ],
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Il bisonte bianco esce dalla foschia del mattino, luminoso come un fantasma e più pesante della leggenda.\"",
+        "newspaperText": [
+          "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: Il bisonte bianco esce dalla foschia del mattino, luminoso come un fantasma e più pesante della leggenda.",
+          "Un altro capitolo della storia in corso giunse alla Gazette con un dettaglio vivido: Il bisonte bianco esce dalla foschia del mattino, luminoso come un fantasma e più pesante della leggenda.",
+          "La pista della storia più ampia portò a un nuovo sviluppo: Il bisonte bianco esce dalla foschia del mattino, luminoso come un fantasma e più pesante della leggenda.",
+          "I testimoni collegarono l'ultima svolta della storia a una scena memorabile: Il bisonte bianco esce dalla foschia del mattino, luminoso come un fantasma e più pesante della leggenda."
+        ],
+        "audioFile": "audio/storylines/buffalo_appears.mp3",
+        "resultButtons": [
+          {
+            "label": "Proteggilo",
+            "effects": [
+              {
+                "type": "gain_lp",
+                "amount": 3
+              },
+              {
+                "type": "addWorldTag",
+                "tag": "white_buffalo_protected"
+              }
+            ]
+          },
+          {
+            "label": "Caccialo",
+            "effects": [
+              {
+                "type": "gain_money",
+                "amount": 80
+              },
+              {
+                "type": "gain_lp",
+                "amount": 1
+              },
+              {
+                "type": "addWorldTag",
+                "tag": "white_buffalo_hunted"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "scope": "global"
+  }
+]

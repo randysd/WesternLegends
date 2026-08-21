@@ -33,25 +33,25 @@
       "id": "world_events",
       "source": "triggeredLog.worldEventStarted + activeWorldEvents",
       "presentation": "article",
-      "description": "A prose roundup of the territory-wide events that occurred during the game."
+      "description": "A prose roundup of the territory-wide events that occurred during the game, using authored newspaperText variants when available."
     },
     {
       "id": "one_off_dispatches",
       "source": "triggeredLog.oneOffEvent",
       "presentation": "article",
-      "description": "A prose roundup of unusual one-off incidents, grouped around the riders who encountered them."
+      "description": "A prose roundup of unusual one-off incidents, grouped around the riders who encountered them, using authored newspaperText variants when available."
     },
     {
       "id": "character_arcs",
       "source": "arcProgress + activeStories",
       "presentation": "mini-articles",
-      "description": "One short article for every Character Arc that began, including completed, missed, and still-unfinished chapters."
+      "description": "One short article for every Character Arc that began, including completed, missed, and still-unfinished chapters, using authored newspaperText variants when available."
     },
     {
       "id": "global_storylines",
       "source": "arcProgress + activeStories",
       "presentation": "article",
-      "description": "A concise roundup of any territory-wide major storylines that progressed during the game."
+      "description": "A concise roundup of any territory-wide major storylines that progressed during the game, using authored newspaperText variants when available."
     },
     {
       "id": "final_word",

@@ -1,0 +1,467 @@
+[
+  {
+    "id": "story_railroad_rising",
+    "title": "El camino de hierro",
+    "newspaperText": [
+      "La historia de todo el territorio de El camino de hierro se desarrolló mediante una serie de acontecimientos sentidos en toda la frontera.",
+      "Varios eventos se unieron para formar el gran relato fronterizo conocido como El camino de hierro.",
+      "La historia en curso de El camino de hierro se extendió más allá de cualquier jinete y empezó a dar forma al propio territorio.",
+      "Cuando la Gazette salió a imprenta, El camino de hierro se había convertido en una de las grandes historias en desarrollo de la frontera."
+    ],
+    "tags": [
+      "railroad",
+      "train",
+      "construction"
+    ],
+    "requiredModules": [
+      "ante_up"
+    ],
+    "chapters": [
+      {
+        "id": "rail_surveyors",
+        "type": "storyTrigger",
+        "trigger": "trig_travel_rail",
+        "title": "Llegan los topógrafos",
+        "screenText": "Termina tu turno en cualquier Estación de Tren para ganar $20 y Progreso del Ferrocarril +1.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Llegan topógrafos con cadenas, estacas y la peligrosa idea de que el mañana puede medirse.\"",
+        "newspaperText": [
+          "El relato en curso dio otro giro, y los informes describieron la escena así: Llegan topógrafos con cadenas, estacas y la peligrosa idea de que el mañana puede medirse.",
+          "Otro capítulo de la historia en desarrollo llegó a la Gazette con un detalle vívido: Llegan topógrafos con cadenas, estacas y la peligrosa idea de que el mañana puede medirse.",
+          "El rastro de la historia mayor condujo a un nuevo acontecimiento: Llegan topógrafos con cadenas, estacas y la peligrosa idea de que el mañana puede medirse.",
+          "Los testigos relacionaron el último giro de la historia con una escena memorable: Llegan topógrafos con cadenas, estacas y la peligrosa idea de que el mañana puede medirse."
+        ],
+        "audioFile": "audio/arcs/rail_surveyors.mp3",
+        "requiresWorldTags": [],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_surveyed"
+          },
+          {
+            "type": "incrementCounter",
+            "counter": "railroad_progress",
+            "amount": 1
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Llegan los topógrafos fue resuelto."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_survey_ignored"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Llegan los topógrafos fue ignorado."
+          }
+        ]
+      },
+      {
+        "id": "rail_lumber",
+        "type": "storyTrigger",
+        "trigger": "trig_deliver_resource_location",
+        "title": "Maderos para el depósito",
+        "screenText": "Entrega Madera en una Estación de Tren. Gana $20 y Progreso del Ferrocarril +1.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Maderos recién cortados golpean junto a las vías como los huesos de una ciudad nueva.\"",
+        "newspaperText": [
+          "El relato en curso dio otro giro, y los informes describieron la escena así: Maderos recién cortados golpean junto a las vías como los huesos de una ciudad nueva.",
+          "Otro capítulo de la historia en desarrollo llegó a la Gazette con un detalle vívido: Maderos recién cortados golpean junto a las vías como los huesos de una ciudad nueva.",
+          "El rastro de la historia mayor condujo a un nuevo acontecimiento: Maderos recién cortados golpean junto a las vías como los huesos de una ciudad nueva.",
+          "Los testigos relacionaron el último giro de la historia con una escena memorable: Maderos recién cortados golpean junto a las vías como los huesos de una ciudad nueva."
+        ],
+        "audioFile": "audio/arcs/rail_lumber.mp3",
+        "requiresWorldTags": [
+          "rail_surveyed"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_wood_delivered"
+          },
+          {
+            "type": "incrementCounter",
+            "counter": "railroad_progress",
+            "amount": 1
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Maderos para el depósito fue resuelto."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_wood_missing"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Maderos para el depósito fue ignorado."
+          }
+        ]
+      },
+      {
+        "id": "rail_iron",
+        "type": "storyTrigger",
+        "trigger": "trig_deliver_resource_location",
+        "title": "Hierro para la línea",
+        "screenText": "Entrega Metal en una Estación de Tren. Gana $20 y Progreso del Ferrocarril +1.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"El capataz pasa el pulgar por el hierro y ve el mañana.\"",
+        "newspaperText": [
+          "El relato en curso dio otro giro, y los informes describieron la escena así: El capataz pasa el pulgar por el hierro y ve el mañana.",
+          "Otro capítulo de la historia en desarrollo llegó a la Gazette con un detalle vívido: El capataz pasa el pulgar por el hierro y ve el mañana.",
+          "El rastro de la historia mayor condujo a un nuevo acontecimiento: El capataz pasa el pulgar por el hierro y ve el mañana.",
+          "Los testigos relacionaron el último giro de la historia con una escena memorable: El capataz pasa el pulgar por el hierro y ve el mañana."
+        ],
+        "audioFile": "audio/arcs/rail_iron.mp3",
+        "requiresWorldTags": [
+          "rail_surveyed"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_metal_delivered"
+          },
+          {
+            "type": "incrementCounter",
+            "counter": "railroad_progress",
+            "amount": 1
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Hierro para la línea fue resuelto."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_metal_missing"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Hierro para la línea fue ignorado."
+          }
+        ]
+      },
+      {
+        "id": "rail_grand_opening",
+        "type": "worldEvent",
+        "title": "Gran inauguración",
+        "requiresCounters": [
+          {
+            "counter": "railroad_progress",
+            "gte": 3
+          }
+        ],
+        "screenText": "Viajar en tren cuesta $0.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Con el último clavo colocado, la locomotora silba como si la propia frontera acabara de despertar.\"",
+        "newspaperText": [
+          "El relato en curso dio otro giro, y los informes describieron la escena así: Con el último clavo colocado, la locomotora silba como si la propia frontera acabara de despertar.",
+          "Otro capítulo de la historia en desarrollo llegó a la Gazette con un detalle vívido: Con el último clavo colocado, la locomotora silba como si la propia frontera acabara de despertar.",
+          "El rastro de la historia mayor condujo a un nuevo acontecimiento: Con el último clavo colocado, la locomotora silba como si la propia frontera acabara de despertar.",
+          "Los testigos relacionaron el último giro de la historia con una escena memorable: Con el último clavo colocado, la locomotora silba como si la propia frontera acabara de despertar."
+        ],
+        "audioFile": "audio/storylines/rail_grand_opening.mp3",
+        "effects": [
+          {
+            "type": "start_world_event",
+            "eventId": "world_free_rail"
+          }
+        ]
+      }
+    ],
+    "scope": "global"
+  },
+  {
+    "id": "story_lost_spanish_gold",
+    "title": "Oro español perdido",
+    "newspaperText": [
+      "La historia de todo el territorio de Oro español perdido se desarrolló mediante una serie de acontecimientos sentidos en toda la frontera.",
+      "Varios eventos se unieron para formar el gran relato fronterizo conocido como Oro español perdido.",
+      "La historia en curso de Oro español perdido se extendió más allá de cualquier jinete y empezó a dar forma al propio territorio.",
+      "Cuando la Gazette salió a imprenta, Oro español perdido se había convertido en una de las grandes historias en desarrollo de la frontera."
+    ],
+    "tags": [
+      "treasure",
+      "mine",
+      "map"
+    ],
+    "chapters": [
+      {
+        "id": "spanish_journal",
+        "type": "storyTrigger",
+        "trigger": "trig_gain_gold_prospect",
+        "title": "Diario rasgado",
+        "screenText": "Termina tu turno en la Mina de Cliff Junction para obtener 1 Ficha Legendaria.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Un diario rasgado habla de oro español oculto donde los acantilados proyectan sombras al mediodía.\"",
+        "newspaperText": [
+          "El relato en curso dio otro giro, y los informes describieron la escena así: Un diario rasgado habla de oro español oculto donde los acantilados proyectan sombras al mediodía.",
+          "Otro capítulo de la historia en desarrollo llegó a la Gazette con un detalle vívido: Un diario rasgado habla de oro español oculto donde los acantilados proyectan sombras al mediodía.",
+          "El rastro de la historia mayor condujo a un nuevo acontecimiento: Un diario rasgado habla de oro español oculto donde los acantilados proyectan sombras al mediodía.",
+          "Los testigos relacionaron el último giro de la historia con una escena memorable: Un diario rasgado habla de oro español oculto donde los acantilados proyectan sombras al mediodía."
+        ],
+        "audioFile": "audio/arcs/spanish_journal.mp3",
+        "requiresWorldTags": [],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_clue_1"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Diario rasgado fue resuelto."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_journal_lost"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Diario rasgado fue ignorado."
+          }
+        ]
+      },
+      {
+        "id": "spanish_marker",
+        "type": "storyTrigger",
+        "trigger": "trig_enter_cliff_junction",
+        "title": "El marcador de piedra",
+        "screenText": "Roba 1 Carta de Pelea. Con 8+, gana 2 de Oro; de lo contrario, recibe 1 herida.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[raspy][old cowboy][western][fast][low key][emotionless][quick]Una cruz de piedra se inclina entre el polvo, más antigua que cualquier ciudad de este mapa.",
+        "newspaperText": [
+          "El relato en curso dio otro giro, y los informes describieron la escena así: Una cruz de piedra se inclina entre el polvo, más antigua que cualquier ciudad de este mapa.",
+          "Otro capítulo de la historia en desarrollo llegó a la Gazette con un detalle vívido: Una cruz de piedra se inclina entre el polvo, más antigua que cualquier ciudad de este mapa.",
+          "El rastro de la historia mayor condujo a un nuevo acontecimiento: Una cruz de piedra se inclina entre el polvo, más antigua que cualquier ciudad de este mapa.",
+          "Los testigos relacionaron el último giro de la historia con una escena memorable: Una cruz de piedra se inclina entre el polvo, más antigua que cualquier ciudad de este mapa."
+        ],
+        "audioFile": "audio/arcs/spanish_marker.mp3",
+        "requiresWorldTags": [
+          "spanish_clue_1"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_clue_2"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "El marcador de piedra fue resuelto."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_marker_missed"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "El marcador de piedra fue ignorado."
+          }
+        ]
+      },
+      {
+        "id": "spanish_cache",
+        "type": "storyTrigger",
+        "trigger": "trig_deposit_gold",
+        "title": "El alijo enterrado",
+        "screenText": "Gana $40 y 2 LP. Añade Oro español perdido al periódico.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Bajo una piedra roja espera un alijo de monedas acuñadas para un rey que jamás vio estas tierras.\"",
+        "newspaperText": [
+          "El relato en curso dio otro giro, y los informes describieron la escena así: Bajo una piedra roja espera un alijo de monedas acuñadas para un rey que jamás vio estas tierras.",
+          "Otro capítulo de la historia en desarrollo llegó a la Gazette con un detalle vívido: Bajo una piedra roja espera un alijo de monedas acuñadas para un rey que jamás vio estas tierras.",
+          "El rastro de la historia mayor condujo a un nuevo acontecimiento: Bajo una piedra roja espera un alijo de monedas acuñadas para un rey que jamás vio estas tierras.",
+          "Los testigos relacionaron el último giro de la historia con una escena memorable: Bajo una piedra roja espera un alijo de monedas acuñadas para un rey que jamás vio estas tierras."
+        ],
+        "audioFile": "audio/arcs/spanish_cache.mp3",
+        "requiresWorldTags": [
+          "spanish_clue_2"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_gold_found"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "El alijo enterrado fue resuelto."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_gold_lost"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "El alijo enterrado fue ignorado."
+          }
+        ]
+      }
+    ],
+    "scope": "global"
+  },
+  {
+    "id": "story_white_buffalo",
+    "title": "El búfalo blanco",
+    "newspaperText": [
+      "La historia de todo el territorio de El búfalo blanco se desarrolló mediante una serie de acontecimientos sentidos en toda la frontera.",
+      "Varios eventos se unieron para formar el gran relato fronterizo conocido como El búfalo blanco.",
+      "La historia en curso de El búfalo blanco se extendió más allá de cualquier jinete y empezó a dar forma al propio territorio.",
+      "Cuando la Gazette salió a imprenta, El búfalo blanco se había convertido en una de las grandes historias en desarrollo de la frontera."
+    ],
+    "tags": [
+      "legendary",
+      "hunt",
+      "sacred"
+    ],
+    "requiredModules": [
+      "hunting"
+    ],
+    "chapters": [
+      {
+        "id": "buffalo_tracks",
+        "type": "storyTrigger",
+        "trigger": "trig_hunt_success",
+        "title": "Huellas extrañas",
+        "screenText": "Después de una Caza, obtén 1 Pista del Búfalo Blanco.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Huellas anchas como platos atraviesan la pradera, y todos los pájaros han enmudecido.\"",
+        "newspaperText": [
+          "El relato en curso dio otro giro, y los informes describieron la escena así: Huellas anchas como platos atraviesan la pradera, y todos los pájaros han enmudecido.",
+          "Otro capítulo de la historia en desarrollo llegó a la Gazette con un detalle vívido: Huellas anchas como platos atraviesan la pradera, y todos los pájaros han enmudecido.",
+          "El rastro de la historia mayor condujo a un nuevo acontecimiento: Huellas anchas como platos atraviesan la pradera, y todos los pájaros han enmudecido.",
+          "Los testigos relacionaron el último giro de la historia con una escena memorable: Huellas anchas como platos atraviesan la pradera, y todos los pájaros han enmudecido."
+        ],
+        "audioFile": "audio/arcs/buffalo_tracks.mp3",
+        "requiresWorldTags": [],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "buffalo_clue_1"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Huellas extrañas fue resuelto."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "buffalo_tracks_lost"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Huellas extrañas fue ignorado."
+          }
+        ]
+      },
+      {
+        "id": "buffalo_warning",
+        "type": "storyTrigger",
+        "trigger": "trig_enter_sunny_hills",
+        "title": "La advertencia",
+        "screenText": "Termina tu turno en Sunny Hills para ganar 1 LP o robar 2 cartas de Poker.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Un viejo explorador advierte que algunos animales no son trofeos. Son pruebas.\"",
+        "newspaperText": [
+          "El relato en curso dio otro giro, y los informes describieron la escena así: Un viejo explorador advierte que algunos animales no son trofeos. Son pruebas.",
+          "Otro capítulo de la historia en desarrollo llegó a la Gazette con un detalle vívido: Un viejo explorador advierte que algunos animales no son trofeos. Son pruebas.",
+          "El rastro de la historia mayor condujo a un nuevo acontecimiento: Un viejo explorador advierte que algunos animales no son trofeos. Son pruebas.",
+          "Los testigos relacionaron el último giro de la historia con una escena memorable: Un viejo explorador advierte que algunos animales no son trofeos. Son pruebas."
+        ],
+        "audioFile": "audio/arcs/buffalo_warning.mp3",
+        "requiresWorldTags": [
+          "buffalo_clue_1"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "buffalo_warning_heard"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "La advertencia fue resuelta."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "buffalo_warning_ignored"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "La advertencia fue ignorada."
+          }
+        ]
+      },
+      {
+        "id": "buffalo_appears",
+        "type": "storyTrigger",
+        "trigger": "trig_hunt_success",
+        "title": "Aparece el búfalo blanco",
+        "screenText": "Caza especial: roba 1 Carta de Pelea. Descarta cartas de Poker cuyo total sea igual o superior a ese valor. Si tienes éxito, elige Proteger o Cazar.",
+        "requiresWorldTags": [
+          "buffalo_warning_heard"
+        ],
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"El búfalo blanco sale de la neblina matinal, brillante como un fantasma y más pesado que la leyenda.\"",
+        "newspaperText": [
+          "El relato en curso dio otro giro, y los informes describieron la escena así: El búfalo blanco sale de la neblina matinal, brillante como un fantasma y más pesado que la leyenda.",
+          "Otro capítulo de la historia en desarrollo llegó a la Gazette con un detalle vívido: El búfalo blanco sale de la neblina matinal, brillante como un fantasma y más pesado que la leyenda.",
+          "El rastro de la historia mayor condujo a un nuevo acontecimiento: El búfalo blanco sale de la neblina matinal, brillante como un fantasma y más pesado que la leyenda.",
+          "Los testigos relacionaron el último giro de la historia con una escena memorable: El búfalo blanco sale de la neblina matinal, brillante como un fantasma y más pesado que la leyenda."
+        ],
+        "audioFile": "audio/storylines/buffalo_appears.mp3",
+        "resultButtons": [
+          {
+            "label": "Protegerlo",
+            "effects": [
+              {
+                "type": "gain_lp",
+                "amount": 3
+              },
+              {
+                "type": "addWorldTag",
+                "tag": "white_buffalo_protected"
+              }
+            ]
+          },
+          {
+            "label": "Cazarlo",
+            "effects": [
+              {
+                "type": "gain_money",
+                "amount": 80
+              },
+              {
+                "type": "gain_lp",
+                "amount": 1
+              },
+              {
+                "type": "addWorldTag",
+                "tag": "white_buffalo_hunted"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "scope": "global"
+  }
+]

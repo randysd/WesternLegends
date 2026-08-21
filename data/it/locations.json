@@ -1,0 +1,62 @@
+{
+  "towns": [
+    "Darkrock",
+    "Red Falls",
+    "Buzzard Gulch"
+  ],
+  "regions": [
+    "Mesito’s Point",
+    "Sunny Hills",
+    "Spike’s View",
+    "Cliff Junction",
+    "Dixon Creek",
+    "Buzzard Gulch Frontier"
+  ],
+  "locations": {
+    "Darkrock": [
+      "Ufficio dello Sheriff",
+      "Negozio Generale",
+      "Saloon",
+      "Bank"
+    ],
+    "Red Falls": [
+      "Studio del Dottore",
+      "Saloon",
+      "Negozio Generale",
+      "Cabaret"
+    ],
+    "Buzzard Gulch": [
+      "Ufficio del Marshal",
+      "Emporio",
+      "Saloon"
+    ],
+    "Mesito’s Point": [
+      "Nascondiglio dei Banditi A",
+      "Ranch Verde"
+    ],
+    "Sunny Hills": [
+      "Nascondiglio dei Banditi A",
+      "Mine",
+      "Ranch Blu"
+    ],
+    "Spike’s View": [
+      "Nascondiglio dei Banditi C",
+      "Mine",
+      "Stazione Ferroviaria"
+    ],
+    "Cliff Junction": [
+      "Nascondiglio dei Banditi C",
+      "Mine"
+    ],
+    "Dixon Creek": [
+      "Nascondiglio dei Banditi B"
+    ],
+    "Buzzard Gulch Frontier": [
+      "Orange Ranch",
+      "Campo dei Fuorilegge",
+      "Stazione del Treno",
+      "Passo di Montagna A",
+      "Passo di Montagna C"
+    ]
+  }
+}

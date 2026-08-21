@@ -2,6 +2,12 @@
   {
     "id": "trig_move_3_plus",
     "label": "Move 4+ in Move action",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a rider covered four or more spaces in a single Move action.",
+      "Reports from the range noted that a rider covered four or more spaces in a single Move action.",
+      "Among the day's notable happenings, a rider covered four or more spaces in a single Move action.",
+      "Witnesses across the territory reported that a rider covered four or more spaces in a single Move action."
+    ],
     "category": "movement",
     "baseWeight": 12,
     "requiredModules": [],
@@ -24,6 +30,12 @@
   {
     "id": "trig_end_outside_town",
     "label": "End Move outside town",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a rider ended a journey out on the open frontier instead of safely in town.",
+      "Reports from the range noted that a rider ended a journey out on the open frontier instead of safely in town.",
+      "Among the day's notable happenings, a rider ended a journey out on the open frontier instead of safely in town.",
+      "Witnesses across the territory reported that a rider ended a journey out on the open frontier instead of safely in town."
+    ],
     "category": "movement",
     "baseWeight": 8,
     "requiredModules": [],
@@ -46,6 +58,12 @@
   {
     "id": "trig_enter_dixon_creek",
     "label": "Enter Dixon Creek",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a rider entered the rough country around Dixon Creek.",
+      "Reports from the range noted that a rider entered the rough country around Dixon Creek.",
+      "Among the day's notable happenings, a rider entered the rough country around Dixon Creek.",
+      "Witnesses across the territory reported that a rider entered the rough country around Dixon Creek."
+    ],
     "category": "movement",
     "baseWeight": 6,
     "requiredModules": [],
@@ -68,6 +86,12 @@
   {
     "id": "trig_enter_mesitos_point",
     "label": "Enter Mesito’s Point",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a rider passed through Mesito's Point.",
+      "Reports from the range noted that a rider passed through Mesito's Point.",
+      "Among the day's notable happenings, a rider passed through Mesito's Point.",
+      "Witnesses across the territory reported that a rider passed through Mesito's Point."
+    ],
     "category": "movement",
     "baseWeight": 5,
     "requiredModules": [],
@@ -91,6 +115,12 @@
   {
     "id": "trig_enter_sunny_hills",
     "label": "Enter Sunny Hills",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a rider entered the Sunny Hills country.",
+      "Reports from the range noted that a rider entered the Sunny Hills country.",
+      "Among the day's notable happenings, a rider entered the Sunny Hills country.",
+      "Witnesses across the territory reported that a rider entered the Sunny Hills country."
+    ],
     "category": "movement",
     "baseWeight": 5,
     "requiredModules": [],
@@ -114,6 +144,12 @@
   {
     "id": "trig_enter_spikes_view",
     "label": "Enter Spike’s View",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a rider reached Spike's View.",
+      "Reports from the range noted that a rider reached Spike's View.",
+      "Among the day's notable happenings, a rider reached Spike's View.",
+      "Witnesses across the territory reported that a rider reached Spike's View."
+    ],
     "category": "movement",
     "baseWeight": 5,
     "requiredModules": [],
@@ -137,6 +173,12 @@
   {
     "id": "trig_enter_cliff_junction",
     "label": "Enter Cliff Junction",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a rider entered Cliff Junction.",
+      "Reports from the range noted that a rider entered Cliff Junction.",
+      "Among the day's notable happenings, a rider entered Cliff Junction.",
+      "Witnesses across the territory reported that a rider entered Cliff Junction."
+    ],
     "category": "movement",
     "baseWeight": 5,
     "requiredModules": [],
@@ -160,6 +202,12 @@
   {
     "id": "trig_bank_heist",
     "label": "Begin Bank Heist",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that an outlaw set a bank heist in motion.",
+      "Reports from the range noted that an outlaw set a bank heist in motion.",
+      "Among the day's notable happenings, an outlaw set a bank heist in motion.",
+      "Witnesses across the territory reported that an outlaw set a bank heist in motion."
+    ],
     "category": "outlaw",
     "baseWeight": 11,
     "requiredModules": [],
@@ -183,6 +231,12 @@
   {
     "id": "trig_gain_wp",
     "label": "Gain Wanted Point",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a rider added another Wanted Point to a growing reputation.",
+      "Reports from the range noted that a rider added another Wanted Point to a growing reputation.",
+      "Among the day's notable happenings, a rider added another Wanted Point to a growing reputation.",
+      "Witnesses across the territory reported that a rider added another Wanted Point to a growing reputation."
+    ],
     "category": "outlaw",
     "baseWeight": 11,
     "requiredModules": [],
@@ -205,6 +259,12 @@
   {
     "id": "trig_rustle_cattle",
     "label": "Rustle cattle",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that cattle were rustled from a frontier ranch.",
+      "Reports from the range noted that cattle were rustled from a frontier ranch.",
+      "Among the day's notable happenings, cattle were rustled from a frontier ranch.",
+      "Witnesses across the territory reported that cattle were rustled from a frontier ranch."
+    ],
     "category": "outlaw",
     "baseWeight": 9,
     "requiredModules": [],
@@ -227,7 +287,13 @@
   },
   {
     "id": "trig_rob_player",
-    "label": "Rob another player",
+    "label": "Rob player",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that one rider robbed another on the frontier.",
+      "Reports from the range noted that one rider robbed another on the frontier.",
+      "Among the day's notable happenings, one rider robbed another on the frontier.",
+      "Witnesses across the territory reported that one rider robbed another on the frontier."
+    ],
     "category": "outlaw",
     "baseWeight": 8,
     "requiredModules": [],
@@ -242,7 +308,7 @@
     "themeColor": "red",
     "titleParts": [
       {
-        "text": "Rob another player",
+        "text": "Rob player",
         "style": "red"
       }
     ],
@@ -251,6 +317,12 @@
   {
     "id": "trig_defeat_bandit",
     "label": "Defeat Bandit",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a bandit was defeated in a fight.",
+      "Reports from the range noted that a bandit was defeated in a fight.",
+      "Among the day's notable happenings, a bandit was defeated in a fight.",
+      "Witnesses across the territory reported that a bandit was defeated in a fight."
+    ],
     "category": "fight",
     "baseWeight": 13,
     "requiredModules": [],
@@ -274,6 +346,12 @@
   {
     "id": "trig_start_bandit_fight",
     "label": "Begin fight with Bandit",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a rider entered a fight with a bandit.",
+      "Reports from the range noted that a rider entered a fight with a bandit.",
+      "Among the day's notable happenings, a rider entered a fight with a bandit.",
+      "Witnesses across the territory reported that a rider entered a fight with a bandit."
+    ],
     "category": "fight",
     "baseWeight": 12,
     "requiredModules": [],
@@ -297,6 +375,12 @@
   {
     "id": "trig_start_player_fight",
     "label": "Begin fight with player",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that two frontier riders came to blows.",
+      "Reports from the range noted that two frontier riders came to blows.",
+      "Among the day's notable happenings, two frontier riders came to blows.",
+      "Witnesses across the territory reported that two frontier riders came to blows."
+    ],
     "category": "fight",
     "baseWeight": 9,
     "requiredModules": [],
@@ -320,6 +404,12 @@
   {
     "id": "trig_arrest_player",
     "label": "Arrest Wanted player",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a wanted rider faced an attempted arrest.",
+      "Reports from the range noted that a wanted rider faced an attempted arrest.",
+      "Among the day's notable happenings, a wanted rider faced an attempted arrest.",
+      "Witnesses across the territory reported that a wanted rider faced an attempted arrest."
+    ],
     "category": "law",
     "baseWeight": 8,
     "requiredModules": [],
@@ -343,6 +433,12 @@
   {
     "id": "trig_sheriff_arrests",
     "label": "Sheriff arrests player",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that the Sheriff brought a wanted rider under arrest.",
+      "Reports from the range noted that the Sheriff brought a wanted rider under arrest.",
+      "Among the day's notable happenings, the Sheriff brought a wanted rider under arrest.",
+      "Witnesses across the territory reported that the Sheriff brought a wanted rider under arrest."
+    ],
     "category": "law",
     "baseWeight": 6,
     "requiredModules": [],
@@ -366,6 +462,12 @@
   {
     "id": "trig_gain_mp",
     "label": "Gain Marshal Point",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a rider earned another Marshal Point through lawful deeds.",
+      "Reports from the range noted that a rider earned another Marshal Point through lawful deeds.",
+      "Among the day's notable happenings, a rider earned another Marshal Point through lawful deeds.",
+      "Witnesses across the territory reported that a rider earned another Marshal Point through lawful deeds."
+    ],
     "category": "law",
     "baseWeight": 9,
     "requiredModules": [],
@@ -388,6 +490,12 @@
   {
     "id": "trig_begin_prospect",
     "label": "Begin Prospect action",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a prospector went to work in search of gold.",
+      "Reports from the range noted that a prospector went to work in search of gold.",
+      "Among the day's notable happenings, a prospector went to work in search of gold.",
+      "Witnesses across the territory reported that a prospector went to work in search of gold."
+    ],
     "category": "frontier",
     "baseWeight": 13,
     "requiredModules": [],
@@ -411,6 +519,12 @@
   {
     "id": "trig_gain_gold_prospect",
     "label": "Gain Gold while Prospect",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a prospector brought gold out of the ground.",
+      "Reports from the range noted that a prospector brought gold out of the ground.",
+      "Among the day's notable happenings, a prospector brought gold out of the ground.",
+      "Witnesses across the territory reported that a prospector brought gold out of the ground."
+    ],
     "category": "frontier",
     "baseWeight": 12,
     "requiredModules": [],
@@ -434,6 +548,12 @@
   {
     "id": "trig_deposit_gold",
     "label": "Deposit Gold",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that freshly mined gold was deposited at the bank.",
+      "Reports from the range noted that freshly mined gold was deposited at the bank.",
+      "Among the day's notable happenings, freshly mined gold was deposited at the bank.",
+      "Witnesses across the territory reported that freshly mined gold was deposited at the bank."
+    ],
     "category": "town",
     "baseWeight": 9,
     "requiredModules": [],
@@ -457,6 +577,12 @@
   {
     "id": "trig_acquire_cattle",
     "label": "Acquire Cattle at Ranch",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a rider acquired cattle at a ranch.",
+      "Reports from the range noted that a rider acquired cattle at a ranch.",
+      "Among the day's notable happenings, a rider acquired cattle at a ranch.",
+      "Witnesses across the territory reported that a rider acquired cattle at a ranch."
+    ],
     "category": "ranch",
     "baseWeight": 9,
     "requiredModules": [],
@@ -479,6 +605,12 @@
   {
     "id": "trig_wrangle_cattle",
     "label": "Wrangle Cattle",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a rider completed a cattle-wrangling effort.",
+      "Reports from the range noted that a rider completed a cattle-wrangling effort.",
+      "Among the day's notable happenings, a rider completed a cattle-wrangling effort.",
+      "Witnesses across the territory reported that a rider completed a cattle-wrangling effort."
+    ],
     "category": "ranch",
     "baseWeight": 8,
     "requiredModules": [],
@@ -502,6 +634,12 @@
   {
     "id": "trig_purchase_item",
     "label": "Purchase Item",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a rider made a new purchase in town.",
+      "Reports from the range noted that a rider made a new purchase in town.",
+      "Among the day's notable happenings, a rider made a new purchase in town.",
+      "Witnesses across the territory reported that a rider made a new purchase in town."
+    ],
     "category": "town",
     "baseWeight": 12,
     "requiredModules": [],
@@ -525,6 +663,12 @@
   {
     "id": "trig_heal_doctor",
     "label": "Heal at Doctor’s Office",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that an injured rider sought treatment at the doctor's office.",
+      "Reports from the range noted that an injured rider sought treatment at the doctor's office.",
+      "Among the day's notable happenings, an injured rider sought treatment at the doctor's office.",
+      "Witnesses across the territory reported that an injured rider sought treatment at the doctor's office."
+    ],
     "category": "town",
     "baseWeight": 8,
     "requiredModules": [],
@@ -548,6 +692,12 @@
   {
     "id": "trig_revel_cabaret",
     "label": "Revel at Cabaret",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a rider spent time reveling at the cabaret.",
+      "Reports from the range noted that a rider spent time reveling at the cabaret.",
+      "Among the day's notable happenings, a rider spent time reveling at the cabaret.",
+      "Witnesses across the territory reported that a rider spent time reveling at the cabaret."
+    ],
     "category": "town",
     "baseWeight": 7,
     "requiredModules": [],
@@ -571,6 +721,12 @@
   {
     "id": "trig_begin_poker",
     "label": "Begin game of Poker",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a new poker game began at the saloon.",
+      "Reports from the range noted that a new poker game began at the saloon.",
+      "Among the day's notable happenings, a new poker game began at the saloon.",
+      "Witnesses across the territory reported that a new poker game began at the saloon."
+    ],
     "category": "gamble",
     "baseWeight": 12,
     "requiredModules": [],
@@ -594,6 +750,12 @@
   {
     "id": "trig_win_poker",
     "label": "Win game of Poker",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a rider walked away the winner of a poker game.",
+      "Reports from the range noted that a rider walked away the winner of a poker game.",
+      "Among the day's notable happenings, a rider walked away the winner of a poker game.",
+      "Witnesses across the territory reported that a rider walked away the winner of a poker game."
+    ],
     "category": "gamble",
     "baseWeight": 10,
     "requiredModules": [],
@@ -617,6 +779,12 @@
   {
     "id": "trig_work_action",
     "label": "Take Work action",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a rider put in an honest spell of frontier work.",
+      "Reports from the range noted that a rider put in an honest spell of frontier work.",
+      "Among the day's notable happenings, a rider put in an honest spell of frontier work.",
+      "Witnesses across the territory reported that a rider put in an honest spell of frontier work."
+    ],
     "category": "town",
     "baseWeight": 7,
     "requiredModules": [],
@@ -639,6 +807,12 @@
   {
     "id": "trig_gain_legendary_item",
     "label": "Gain Legendary Item",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a rider came into possession of a legendary item.",
+      "Reports from the range noted that a rider came into possession of a legendary item.",
+      "Among the day's notable happenings, a rider came into possession of a legendary item.",
+      "Witnesses across the territory reported that a rider came into possession of a legendary item."
+    ],
     "category": "legendary",
     "baseWeight": 5,
     "requiredModules": [],
@@ -661,6 +835,12 @@
   {
     "id": "trig_buy_traveling_trader",
     "label": "Traveling Trader Purchase",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a rider struck a deal with the traveling trader.",
+      "Reports from the range noted that a rider struck a deal with the traveling trader.",
+      "Among the day's notable happenings, a rider struck a deal with the traveling trader.",
+      "Witnesses across the territory reported that a rider struck a deal with the traveling trader."
+    ],
     "category": "legendary",
     "baseWeight": 6,
     "requiredModules": [
@@ -687,6 +867,12 @@
   {
     "id": "trig_gain_lp_2_plus",
     "label": "Gain 2+ LP in single action",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a single deed earned two or more Legendary Points.",
+      "Reports from the range noted that a single deed earned two or more Legendary Points.",
+      "Among the day's notable happenings, a single deed earned two or more Legendary Points.",
+      "Witnesses across the territory reported that a single deed earned two or more Legendary Points."
+    ],
     "category": "legendary",
     "baseWeight": 7,
     "requiredModules": [],
@@ -709,6 +895,12 @@
   {
     "id": "trig_travel_rail",
     "label": "Travel by Rail",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a rider crossed part of the territory by rail.",
+      "Reports from the range noted that a rider crossed part of the territory by rail.",
+      "Among the day's notable happenings, a rider crossed part of the territory by rail.",
+      "Witnesses across the territory reported that a rider crossed part of the territory by rail."
+    ],
     "category": "ante_up",
     "baseWeight": 7,
     "requiredModules": [
@@ -734,6 +926,12 @@
   {
     "id": "trig_use_mountain_pass",
     "label": "Use Mountain Pass",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a rider took the dangerous mountain pass.",
+      "Reports from the range noted that a rider took the dangerous mountain pass.",
+      "Among the day's notable happenings, a rider took the dangerous mountain pass.",
+      "Witnesses across the territory reported that a rider took the dangerous mountain pass."
+    ],
     "category": "ante_up",
     "baseWeight": 5,
     "requiredModules": [
@@ -758,6 +956,12 @@
   {
     "id": "trig_train_heist",
     "label": "Begin Train Heist",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that outlaws launched a heist against the train.",
+      "Reports from the range noted that outlaws launched a heist against the train.",
+      "Among the day's notable happenings, outlaws launched a heist against the train.",
+      "Witnesses across the territory reported that outlaws launched a heist against the train."
+    ],
     "category": "ante_up",
     "baseWeight": 8,
     "requiredModules": [
@@ -784,6 +988,12 @@
   {
     "id": "trig_frontier_action",
     "label": "Resolve Frontier token",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a frontier token brought a new development in Buzzard Gulch.",
+      "Reports from the range noted that a frontier token brought a new development in Buzzard Gulch.",
+      "Among the day's notable happenings, a frontier token brought a new development in Buzzard Gulch.",
+      "Witnesses across the territory reported that a frontier token brought a new development in Buzzard Gulch."
+    ],
     "category": "ante_up",
     "baseWeight": 8,
     "requiredModules": [
@@ -809,6 +1019,12 @@
   {
     "id": "trig_roll_risk_die",
     "label": "Roll Risk Die",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a rider trusted fortune to a roll of the Risk Die.",
+      "Reports from the range noted that a rider trusted fortune to a roll of the Risk Die.",
+      "Among the day's notable happenings, a rider trusted fortune to a roll of the Risk Die.",
+      "Witnesses across the territory reported that a rider trusted fortune to a roll of the Risk Die."
+    ],
     "category": "blood_money",
     "baseWeight": 8,
     "requiredModules": [
@@ -834,6 +1050,12 @@
   {
     "id": "trig_recruit_gang_posse",
     "label": "Recruit Gang or Posse",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a rider recruited new hands into a gang or posse.",
+      "Reports from the range noted that a rider recruited new hands into a gang or posse.",
+      "Among the day's notable happenings, a rider recruited new hands into a gang or posse.",
+      "Witnesses across the territory reported that a rider recruited new hands into a gang or posse."
+    ],
     "category": "blood_money",
     "baseWeight": 6,
     "requiredModules": [
@@ -859,6 +1081,12 @@
   {
     "id": "trig_hunt_success",
     "label": "Successful Hunt",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a hunter returned from a successful hunt.",
+      "Reports from the range noted that a hunter returned from a successful hunt.",
+      "Among the day's notable happenings, a hunter returned from a successful hunt.",
+      "Witnesses across the territory reported that a hunter returned from a successful hunt."
+    ],
     "category": "hunting",
     "baseWeight": 8,
     "requiredModules": [
@@ -884,6 +1112,12 @@
   {
     "id": "trig_forage_resource",
     "label": "Gain Forage resource",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a forager found a useful resource in the wild.",
+      "Reports from the range noted that a forager found a useful resource in the wild.",
+      "Among the day's notable happenings, a forager found a useful resource in the wild.",
+      "Witnesses across the territory reported that a forager found a useful resource in the wild."
+    ],
     "category": "foraging",
     "baseWeight": 8,
     "requiredModules": [
@@ -909,6 +1143,12 @@
   {
     "id": "trig_craft_item",
     "label": "Craft Item",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that frontier materials were turned into a crafted item.",
+      "Reports from the range noted that frontier materials were turned into a crafted item.",
+      "Among the day's notable happenings, frontier materials were turned into a crafted item.",
+      "Witnesses across the territory reported that frontier materials were turned into a crafted item."
+    ],
     "category": "crafting",
     "baseWeight": 7,
     "requiredModules": [
@@ -934,6 +1174,12 @@
   {
     "id": "trig_deliver_resource_location",
     "label": "Deliver Resource",
+    "newspaperText": [
+      "The Gazette's trail ledger recorded that a useful resource was delivered where it was needed.",
+      "Reports from the range noted that a useful resource was delivered where it was needed.",
+      "Among the day's notable happenings, a useful resource was delivered where it was needed.",
+      "Witnesses across the territory reported that a useful resource was delivered where it was needed."
+    ],
     "category": "foraging",
     "baseWeight": 6,
     "requiredModules": [

@@ -1,0 +1,1082 @@
+[
+  {
+    "type": "one-off",
+    "id": "bandit_reinforcements",
+    "title": "Ещё кто-то за камнями",
+    "trigger": "trig_defeat_bandit",
+    "audioFile": "audio/oneoffs/bandit_reinforcements.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Из-за камней поднимаются ещё два ствола.\""
+  },
+  {
+    "type": "one-off",
+    "id": "twin_pistol_rogue",
+    "title": "Разбойник с двумя пистолетами",
+    "trigger": "trig_start_bandit_fight",
+    "audioFile": "audio/oneoffs/twin_pistol_rogue.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Этот головорез хватается за оружие обеими руками.\""
+  },
+  {
+    "type": "one-off",
+    "id": "drunken_bandit",
+    "title": "Пьяный бандит",
+    "trigger": "trig_start_bandit_fight",
+    "audioFile": "audio/oneoffs/drunken_bandit.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Он вываливается на дорогу — виски в нём больше, чем здравого смысла.\""
+  },
+  {
+    "type": "one-off",
+    "id": "veteran_bandit",
+    "title": "Бандит-ветеран",
+    "trigger": "trig_start_bandit_fight",
+    "audioFile": "audio/oneoffs/veteran_bandit.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Этот пережил слишком много перестрелок, чтобы всё объяснялось удачей.\""
+  },
+  {
+    "type": "one-off",
+    "id": "bandit_last_words",
+    "title": "Последние слова бандита",
+    "trigger": "trig_defeat_bandit",
+    "audioFile": "audio/oneoffs/bandit_last_words.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"На последнем дыхании бандит называет тайник под расколотым кедром.\""
+  },
+  {
+    "type": "one-off",
+    "id": "hidden_sniper",
+    "title": "Скрытый снайпер",
+    "trigger": "trig_defeat_bandit",
+    "audioFile": "audio/oneoffs/hidden_sniper.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"С гребня хлопает второй выстрел.\""
+  },
+  {
+    "type": "one-off",
+    "id": "posse_cheers",
+    "title": "Ликование отряда",
+    "trigger": "trig_gain_mp",
+    "audioFile": "audio/oneoffs/posse_cheers.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Горожане приподнимают шляпы. Закон здесь всё ещё что-то значит.\""
+  },
+  {
+    "type": "one-off",
+    "id": "false_badge",
+    "title": "Фальшивый значок",
+    "trigger": "trig_arrest_player",
+    "audioFile": "audio/oneoffs/false_badge.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Издалека значок выглядит как надо, но вблизи от него пахнет неприятностями.\""
+  },
+  {
+    "type": "one-off",
+    "id": "sheriffs_notice",
+    "title": "Объявление шерифа",
+    "trigger": "trig_gain_wp",
+    "audioFile": "audio/oneoffs/sheriffs_notice.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Плакат о розыске заворачивается на стене, а шериф уже седлает коня.\""
+  },
+  {
+    "type": "one-off",
+    "id": "inside_man",
+    "title": "Свой человек",
+    "trigger": "trig_bank_heist",
+    "audioFile": "audio/oneoffs/inside_man.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Нервный кассир оставляет защёлку хранилища незапертой.\""
+  },
+  {
+    "type": "one-off",
+    "id": "locked_vault",
+    "title": "Запертое хранилище",
+    "trigger": "trig_bank_heist",
+    "audioFile": "audio/oneoffs/locked_vault.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Дверь хранилища со стоном захлопывается. Теперь работа стала куда громче.\""
+  },
+  {
+    "type": "one-off",
+    "id": "dusty_getaway",
+    "title": "Побег в пыли",
+    "trigger": "trig_bank_heist",
+    "audioFile": "audio/oneoffs/dusty_getaway.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Налетает пыльная буря — достаточно мерзкая, чтобы скрыть отчаянный побег.\""
+  },
+  {
+    "type": "one-off",
+    "id": "train_payroll",
+    "title": "Вагон с жалованьем",
+    "trigger": "trig_train_heist",
+    "audioFile": "audio/oneoffs/train_payroll.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Сегодня поезд везёт жалованье, и каждый преступник чует это за милю.\""
+  },
+  {
+    "type": "one-off",
+    "id": "railroad_guard",
+    "title": "Железнодорожный охранник",
+    "trigger": "trig_train_heist",
+    "audioFile": "audio/oneoffs/railroad_guard.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Охранник в форме узнаёт законника и просит о помощи.\""
+  },
+  {
+    "type": "one-off",
+    "id": "rich_vein",
+    "title": "Богатая жила",
+    "trigger": "trig_begin_prospect",
+    "audioFile": "audio/oneoffs/rich_vein.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Золотая пыль сыплется наружу, словно солнечный свет из бутылки.\""
+  },
+  {
+    "type": "one-off",
+    "id": "cave_in",
+    "title": "Обвал",
+    "trigger": "trig_begin_prospect",
+    "audioFile": "audio/oneoffs/cave_in.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Балки трещат над головой. Сегодня шахта требует плату кровью.\""
+  },
+  {
+    "type": "one-off",
+    "id": "claim_jumper_shadow",
+    "title": "Тень захватчика прииска",
+    "trigger": "trig_gain_gold_prospect",
+    "audioFile": "audio/oneoffs/claim_jumper_shadow.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Кто-то видел, как вы нашли золото, и делиться он явно не любит.\""
+  },
+  {
+    "type": "one-off",
+    "id": "lost_map_tube",
+    "title": "Карта в тубусе",
+    "trigger": "trig_gain_gold_prospect",
+    "audioFile": "audio/oneoffs/lost_map_tube.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"В промасленной ткани ждёт карта, старше самого города.\""
+  },
+  {
+    "type": "one-off",
+    "id": "fools_gold",
+    "title": "Пирит",
+    "trigger": "trig_gain_gold_prospect",
+    "audioFile": "audio/oneoffs/fools_gold.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Блестит в лотке красиво, но красота не всегда приносит деньги.\""
+  },
+  {
+    "type": "one-off",
+    "id": "bankers_smile",
+    "title": "Улыбка банкира",
+    "trigger": "trig_deposit_gold",
+    "audioFile": "audio/oneoffs/bankers_smile.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Банкир улыбается так широко, что виден каждый зуб.\""
+  },
+  {
+    "type": "one-off",
+    "id": "assayer_dispute",
+    "title": "Спор с пробирщиком",
+    "trigger": "trig_deposit_gold",
+    "audioFile": "audio/oneoffs/assayer_dispute.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Пробирщик щурится на ваше золото и заявляет, что оно слишком лёгкое.\""
+  },
+  {
+    "type": "one-off",
+    "id": "free_spurs",
+    "title": "Бесплатные шпоры",
+    "trigger": "trig_purchase_item",
+    "audioFile": "audio/oneoffs/free_spurs.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Лавочник добавляет к покупке шпоры, которые когда-то принадлежали быстрому человеку.\""
+  },
+  {
+    "type": "one-off",
+    "id": "gunsmith_discount",
+    "title": "Услуга оружейника",
+    "trigger": "trig_purchase_item",
+    "audioFile": "audio/oneoffs/gunsmith_discount.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Оружейник оценивает ваше железо и сбрасывает десятку с цены.\""
+  },
+  {
+    "type": "one-off",
+    "id": "counterfeit_goods",
+    "title": "Поддельный товар",
+    "trigger": "trig_purchase_item",
+    "audioFile": "audio/oneoffs/counterfeit_goods.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"При свете магазина выгодная покупка выглядела отлично. А потом она начала дымиться.\""
+  },
+  {
+    "type": "one-off",
+    "id": "rare_shipment",
+    "title": "Редкая поставка",
+    "trigger": "trig_purchase_item",
+    "audioFile": "audio/oneoffs/rare_shipment.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"На прилавок опускается ящик с Востока, запечатанный обещаниями.\""
+  },
+  {
+    "type": "one-off",
+    "id": "doctor_secret",
+    "title": "Секретный тоник доктора",
+    "trigger": "trig_heal_doctor",
+    "audioFile": "audio/oneoffs/doctor_secret.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Доктор наливает что-то тёмное и просит не спрашивать, что внутри.\""
+  },
+  {
+    "type": "one-off",
+    "id": "bad_medicine",
+    "title": "Плохое лекарство",
+    "trigger": "trig_heal_doctor",
+    "audioFile": "audio/oneoffs/bad_medicine.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Лекарство помогает, но комната всё никак не перестанет стоять боком.\""
+  },
+  {
+    "type": "one-off",
+    "id": "cabaret_ovation",
+    "title": "Бурные овации",
+    "trigger": "trig_revel_cabaret",
+    "audioFile": "audio/oneoffs/cabaret_ovation.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Публика колотит по столам так, что дрожат стропила.\""
+  },
+  {
+    "type": "one-off",
+    "id": "cabaret_scandal",
+    "title": "Скандал в кабаре",
+    "trigger": "trig_revel_cabaret",
+    "audioFile": "audio/oneoffs/cabaret_scandal.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"К рассвету половина Ред-Фоллс уже знает правду, а вторая половина придумала кое-что похуже.\""
+  },
+  {
+    "type": "one-off",
+    "id": "card_shark",
+    "title": "Карточный шулер",
+    "trigger": "trig_begin_poker",
+    "audioFile": "audio/oneoffs/card_shark.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Карточный шулер подсаживается к игре: манжеты чистые, а взгляд грязный.\""
+  },
+  {
+    "type": "one-off",
+    "id": "lucky_table",
+    "title": "Счастливый стол",
+    "trigger": "trig_win_poker",
+    "audioFile": "audio/oneoffs/lucky_table.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Этот стол приносит удачу с тех пор, как пулевое отверстие заделали серебром.\""
+  },
+  {
+    "type": "one-off",
+    "id": "saloon_brawl",
+    "title": "Драка в салуне",
+    "trigger": "trig_begin_poker",
+    "audioFile": "audio/oneoffs/saloon_brawl.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ломается стул, летит бутылка — и карты уже не единственная неприятность.\""
+  },
+  {
+    "type": "one-off",
+    "id": "work_honest_pay",
+    "title": "Честная плата",
+    "trigger": "trig_work_action",
+    "audioFile": "audio/oneoffs/work_honest_pay.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Честный пот тоже отлично оплачивается.\""
+  },
+  {
+    "type": "one-off",
+    "id": "work_splintered_hand",
+    "title": "Заноза в ладони",
+    "trigger": "trig_work_action",
+    "audioFile": "audio/oneoffs/work_splintered_hand.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Рукоять ломается и загоняет занозу достаточно глубоко, чтобы вы её запомнили.\""
+  },
+  {
+    "type": "one-off",
+    "id": "stampede",
+    "title": "Stampede",
+    "trigger": "trig_acquire_cattle",
+    "audioFile": "audio/oneoffs/stampede.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Стадо срывается с места, копыта гремят будто в Судный день.\""
+  },
+  {
+    "type": "one-off",
+    "id": "prize_steer",
+    "title": "Призовой бычок",
+    "trigger": "trig_acquire_cattle",
+    "audioFile": "audio/oneoffs/prize_steer.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Работник ранчо показывает на самого откормленного бычка в загоне.\""
+  },
+  {
+    "type": "one-off",
+    "id": "rustler_brand",
+    "title": "Клеймо угонщика",
+    "trigger": "trig_rustle_cattle",
+    "audioFile": "audio/oneoffs/rustler_brand.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Клеймо свежее, и каждый законник его учует.\""
+  },
+  {
+    "type": "one-off",
+    "id": "clean_drive",
+    "title": "Чистый перегон",
+    "trigger": "trig_wrangle_cattle",
+    "audioFile": "audio/oneoffs/clean_drive.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ни один бычок не отбился. Такая работа заслуживает уважения.\""
+  },
+  {
+    "type": "one-off",
+    "id": "broken_bridge",
+    "title": "Сломанный мост",
+    "trigger": "trig_move_3_plus",
+    "audioFile": "audio/oneoffs/broken_bridge.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Мост впереди больше похож на воспоминание о мосте, чем на древесину.\""
+  },
+  {
+    "type": "one-off",
+    "id": "runaway_stage",
+    "title": "Сбежавший дилижанс",
+    "trigger": "trig_move_3_plus",
+    "audioFile": "audio/oneoffs/runaway_stage.mp3",
+    "status": "ready",
+    "narrationScript": "[raspy][old cowboy][western][fast][low key][emotionless][quick]По дороге несётся дилижанс без кучера!"
+  },
+  {
+    "type": "one-off",
+    "id": "snakebite",
+    "title": "Укус змеи",
+    "trigger": "trig_end_outside_town",
+    "audioFile": "audio/oneoffs/snakebite.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Гремучая змея бросается из тени размером не больше каблука.\""
+  },
+  {
+    "type": "one-off",
+    "id": "desert_shortcut",
+    "title": "Пустынный короткий путь",
+    "trigger": "trig_enter_dixon_creek",
+    "audioFile": "audio/oneoffs/desert_shortcut.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Старая тропа проходит через земли, которые большинство считает непроходимыми.\""
+  },
+  {
+    "type": "one-off",
+    "id": "dixon_ambush",
+    "title": "Засада в Диксон-Крик",
+    "trigger": "trig_enter_dixon_creek",
+    "audioFile": "audio/oneoffs/dixon_ambush.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"В Диксон-Крик тихо. Слишком тихо для честных земель.\""
+  },
+  {
+    "type": "one-off",
+    "id": "mesitos_greenhorn",
+    "title": "Новичок с Зелёного ранчо",
+    "trigger": "trig_enter_mesitos_point",
+    "audioFile": "audio/oneoffs/mesitos_greenhorn.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Молодой работник ранчо машет вам, в глазах у него паника.\""
+  },
+  {
+    "type": "one-off",
+    "id": "sunny_hills_luck",
+    "title": "Удача Санни-Хиллз",
+    "trigger": "trig_enter_sunny_hills",
+    "audioFile": "audio/oneoffs/sunny_hills_luck.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Санни-Хиллз оправдывает своё имя, когда сам камень начинает сиять.\""
+  },
+  {
+    "type": "one-off",
+    "id": "spikes_view_signal",
+    "title": "Сигнальный огонь",
+    "trigger": "trig_enter_spikes_view",
+    "audioFile": "audio/oneoffs/spikes_view_signal.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"На гребне над Спайкс-Вью горит сигнальный костёр.\""
+  },
+  {
+    "type": "one-off",
+    "id": "cliff_junction_echo",
+    "title": "Эхо в скалах",
+    "trigger": "trig_enter_cliff_junction",
+    "audioFile": "audio/oneoffs/cliff_junction_echo.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Из глубины скалы что-то отвечает на ваши шаги.\""
+  },
+  {
+    "type": "one-off",
+    "id": "legendary_whisper",
+    "title": "Легендарный шёпот",
+    "trigger": "trig_gain_legendary_item",
+    "audioFile": "audio/oneoffs/legendary_whisper.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Некоторые предметы носят в себе истории ещё до того, как попадают к вам в руки.\""
+  },
+  {
+    "type": "one-off",
+    "id": "famous_deed",
+    "title": "Знаменитый подвиг",
+    "trigger": "trig_gain_lp_2_plus",
+    "audioFile": "audio/oneoffs/famous_deed.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"К закату кто-то уже пересказывает эту историю неправильно.\""
+  },
+  {
+    "type": "one-off",
+    "id": "risk_pays",
+    "title": "Риск окупается",
+    "trigger": "trig_roll_risk_die",
+    "audioFile": "audio/oneoffs/risk_pays.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Удача любит дурака, который знает, когда пора бежать.\""
+  },
+  {
+    "type": "one-off",
+    "id": "risk_bites",
+    "title": "Риск кусается",
+    "trigger": "trig_roll_risk_die",
+    "audioFile": "audio/oneoffs/risk_bites.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"У риска есть зубы, и сегодня они добрались до кожи.\""
+  },
+  {
+    "type": "one-off",
+    "id": "gang_loyalty",
+    "title": "Верная команда",
+    "trigger": "trig_recruit_gang_posse",
+    "audioFile": "audio/oneoffs/gang_loyalty.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Несколько суровых лиц знают твоё имя и готовы ездить задёшево.\""
+  },
+  {
+    "type": "one-off",
+    "id": "frontier_cache",
+    "title": "Тайник на фронтире",
+    "trigger": "trig_frontier_action",
+    "audioFile": "audio/oneoffs/frontier_cache.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Под плоским камнем лежит тайник, оставленный кем-то, кто так и не вернулся.\""
+  },
+  {
+    "type": "one-off",
+    "id": "frontier_deadfall",
+    "title": "Ловушка на фронтире",
+    "trigger": "trig_frontier_action",
+    "audioFile": "audio/oneoffs/frontier_deadfall.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Фронтир одной рукой даёт, а другой роняет на тебя бревно.\""
+  },
+  {
+    "type": "one-off",
+    "id": "hunters_mark",
+    "title": "Меткость охотника",
+    "trigger": "trig_hunt_success",
+    "audioFile": "audio/oneoffs/hunters_mark.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Чистая работа. Даже старые трапперы одобрительно кивнули бы после такого выстрела.\""
+  },
+  {
+    "type": "one-off",
+    "id": "wounded_predator",
+    "title": "Раненый хищник",
+    "trigger": "trig_hunt_success",
+    "audioFile": "audio/oneoffs/wounded_predator.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Зверь падает, но успевает оставить свой след.\""
+  },
+  {
+    "type": "one-off",
+    "id": "forager_cache",
+    "title": "Тайник собирателя",
+    "trigger": "trig_forage_resource",
+    "audioFile": "audio/oneoffs/forager_cache.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Сухое русло прячет не только пыль.\""
+  },
+  {
+    "type": "one-off",
+    "id": "spoiled_bundle",
+    "title": "Испорченный свёрток",
+    "trigger": "trig_forage_resource",
+    "audioFile": "audio/oneoffs/spoiled_bundle.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"То, что в тени казалось полезным, на солнце пахнет совсем недобро.\""
+  },
+  {
+    "type": "one-off",
+    "id": "fine_craft",
+    "title": "Тонкая работа",
+    "trigger": "trig_craft_item",
+    "audioFile": "audio/oneoffs/fine_craft.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Это не просто полезная вещь. Такую работу стоит запомнить.\""
+  },
+  {
+    "type": "one-off",
+    "id": "broken_tool",
+    "title": "Сломанный инструмент",
+    "trigger": "trig_craft_item",
+    "audioFile": "audio/oneoffs/broken_tool.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Инструмент держится ровно столько, сколько нужно, чтобы закончить работу.\""
+  },
+  {
+    "type": "one-off",
+    "id": "wood_for_station",
+    "title": "Древесина для станции",
+    "trigger": "trig_deliver_resource_location",
+    "audioFile": "audio/oneoffs/wood_for_station.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Свежесрубленные брёвна глухо падают у путей, словно кости нового города.\""
+  },
+  {
+    "type": "one-off",
+    "id": "metal_for_tracks",
+    "title": "Железо для линии",
+    "trigger": "trig_deliver_resource_location",
+    "audioFile": "audio/oneoffs/metal_for_tracks.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Прораб проводит большим пальцем по железу и улыбается, как человек, увидевший завтрашний день.\""
+  },
+  {
+    "type": "one-off",
+    "id": "robbery_hidden_witness",
+    "title": "Глаза в окне",
+    "trigger": "trig_rob_player",
+    "audioFile": "audio/oneoffs/robbery_hidden_witness.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"На другой стороне улицы дёргается занавеска. Кто-то видел всё, а свидетели имеют привычку находить шерифа.\""
+  },
+  {
+    "type": "one-off",
+    "id": "robbery_dropped_purse",
+    "title": "Небольшая прибавка",
+    "trigger": "trig_rob_player",
+    "audioFile": "audio/oneoffs/robbery_dropped_purse.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"В суматохе в пыль падает ещё кое-что: маленький кошелёк, которого раньше никто не заметил.\""
+  },
+  {
+    "type": "one-off",
+    "id": "player_fight_crowd",
+    "title": "Собирается толпа",
+    "trigger": "trig_start_player_fight",
+    "audioFile": "audio/oneoffs/player_fight_crowd.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Сапоги скребут по крыльцам, двери салунов распахиваются. Люди чуют драку, и ставки начинают переходить из рук в руки.\""
+  },
+  {
+    "type": "one-off",
+    "id": "player_fight_dust",
+    "title": "Пыль в глаза",
+    "trigger": "trig_start_player_fight",
+    "audioFile": "audio/oneoffs/player_fight_dust.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Резкий порыв швыряет песок между бойцами. На пол-удара сердца ни один не видит толком.\""
+  },
+  {
+    "type": "one-off",
+    "id": "sheriff_arrest_public_example",
+    "title": "Показательный арест",
+    "trigger": "trig_sheriff_arrests",
+    "audioFile": "audio/oneoffs/sheriff_arrest_public_example.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Шериф ведёт пленника через самый центр города, чтобы все видели, чем закончился этот день.\""
+  },
+  {
+    "type": "one-off",
+    "id": "sheriff_arrest_loose_cuffs",
+    "title": "Расшатанные наручники",
+    "trigger": "trig_sheriff_arrests",
+    "audioFile": "audio/oneoffs/sheriff_arrest_loose_cuffs.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Наручники шерифа повидали лучшие времена — как и помощник, который следит за карманами пленника.\""
+  },
+  {
+    "type": "one-off",
+    "id": "rail_friendly_conductor",
+    "title": "Дружелюбный кондуктор",
+    "trigger": "trig_travel_rail",
+    "audioFile": "audio/oneoffs/rail_friendly_conductor.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Кондуктор узнаёт знакомое лицо и перед свистком делится полезной новостью.\""
+  },
+  {
+    "type": "one-off",
+    "id": "rail_late_freight",
+    "title": "Опоздавший груз",
+    "trigger": "trig_travel_rail",
+    "audioFile": "audio/oneoffs/rail_late_freight.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Товарный вагон прибывает с опозданием, а рабочих не хватает. Десять долларов купят несколько минут честного труда.\""
+  },
+  {
+    "type": "one-off",
+    "id": "mountain_pass_rockslide",
+    "title": "Камнепад",
+    "trigger": "trig_use_mountain_pass",
+    "audioFile": "audio/oneoffs/mountain_pass_rockslide.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Над тропой срывается камень, и кажется, будто вся гора разом рушится вниз.\""
+  },
+  {
+    "type": "one-off",
+    "id": "mountain_pass_abandoned_cache",
+    "title": "Заброшенный тайник",
+    "trigger": "trig_use_mountain_pass",
+    "audioFile": "audio/oneoffs/mountain_pass_abandoned_cache.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Под грудой дорожных камней лежит потрёпанный тайник, оставленный кем-то, кто так и не вернулся за ним.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "prospector_intro",
+    "title": "Человек на грани смерти",
+    "trigger": "trig_begin_prospect",
+    "audioFile": "audio/arcs/prospector_intro.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Полумёртвый от голода старатель вываливается из полыни, прижимая кожаный мешок. За выпивку и поездку в город он предлагает двадцать долларов.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "prospector_debt_repaid",
+    "title": "Долг возвращён",
+    "trigger": "trig_purchase_item",
+    "audioFile": "audio/arcs/prospector_debt_repaid.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Старый старатель выходит из угла и кладёт монеты на прилавок. Я ж говорил, что за добро отплачу.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "prospector_bandit_reveal",
+    "title": "Тот, кого вы оставили",
+    "trigger": "trig_defeat_bandit",
+    "audioFile": "audio/arcs/prospector_bandit_reveal.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Преступник падает и снимает шляпу. Под грязью вы узнаёте старателя, которого оставили в пыли. Он свистит — и из-за камней выползают ещё два бандита.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "widow_fence_down",
+    "title": "Упавшая изгородь",
+    "trigger": "trig_acquire_cattle",
+    "audioFile": "audio/arcs/widow_fence_down.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Вдова в чёрном просит помочь починить ограду, пока угонщики не нашли пролом.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "widow_cattle_drive",
+    "title": "Безопасный перегон",
+    "trigger": "trig_wrangle_cattle",
+    "audioFile": "audio/arcs/widow_cattle_drive.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Клеймо вдовы едет вместе со стадом, и каждая честная миля помогает спасти её землю.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "widow_black_veil",
+    "title": "Бандит в чёрной вуали",
+    "trigger": "trig_rustle_cattle",
+    "audioFile": "audio/arcs/widow_black_veil.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Всадница под вуалью присоединяется к угонщикам. Горе заточило её во что-то опасное.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "reeves_deputy_call",
+    "title": "Помощник шерифа на день",
+    "trigger": "trig_gain_mp",
+    "audioFile": "audio/arcs/reeves_deputy_call.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Маршалу Ривзу нужна твёрдая рука и ещё более твёрдая совесть.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "reeves_crackdown",
+    "title": "Ордер на облаву",
+    "trigger": "trig_defeat_bandit",
+    "audioFile": "audio/arcs/reeves_crackdown.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"У Ривза ордера сложены как дрова, и верёвки хватит на каждое имя в них.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "reeves_hunted",
+    "title": "Маршал идёт по вашему следу",
+    "trigger": "trig_gain_wp",
+    "audioFile": "audio/arcs/reeves_hunted.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ривз прикалывает ваше имя под фонарём и уезжает во тьму.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "showman_arrives",
+    "title": "Расписной фургон",
+    "trigger": "trig_revel_cabaret",
+    "audioFile": "audio/arcs/showman_arrives.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"В Ред-Фоллс вкатывается расписной фургон, обещая чудеса, музыку и ложь в равных долях.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "showman_grand_show",
+    "title": "Большое шоу фронтира",
+    "trigger": "trig_win_poker",
+    "audioFile": "audio/arcs/showman_grand_show.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Сайлас Белл называет вашу комбинацию чудом и продаёт билеты, пока карты ещё не успели остыть.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "showman_swindle",
+    "title": "Великая афера",
+    "trigger": "trig_purchase_item",
+    "audioFile": "audio/arcs/showman_swindle.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"На этикетке написано «настоящее». Улыбка шоумена говорит об обратном.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "pike_tracks",
+    "title": "Следы старого Пайка",
+    "trigger": "trig_hunt_success",
+    "audioFile": "audio/arcs/pike_tracks.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Старый Джеремайя Пайк изучает следы и ворчит так, будто зверь задолжал ему денег.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "pike_white_bear",
+    "title": "Тропа Белого Медведя",
+    "trigger": "trig_hunt_success",
+    "audioFile": "audio/arcs/pike_white_bear.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Пайк указывает дрожащим пальцем. Этот след принадлежит чему-то слишком большому для обычного страха.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "pike_trap_line",
+    "title": "Сработавшая ловушка",
+    "trigger": "trig_end_outside_town",
+    "audioFile": "audio/arcs/pike_trap_line.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Скрытая ловушка захлопывается. Пайк не прощает, когда его игнорируют.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "cardshark_first_hand",
+    "title": "Незнакомец за столом",
+    "trigger": "trig_begin_poker",
+    "audioFile": "audio/arcs/cardshark_first_hand.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Незнакомец в светлых перчатках садится без приглашения и улыбается без всякого тепла.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "cardshark_beaten",
+    "title": "Переиграть шулера",
+    "trigger": "trig_win_poker",
+    "audioFile": "audio/arcs/cardshark_beaten.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Впервые за весь вечер улыбка незнакомца ломается.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "cardshark_debt",
+    "title": "Сборщик долгов",
+    "trigger": "trig_start_player_fight",
+    "audioFile": "audio/arcs/cardshark_debt.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Из переулка выходит сборщик долгов и называет цифры, которых не помнит ни один честный человек.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "rail_surveyors",
+    "title": "Прибывают землемеры",
+    "trigger": "trig_travel_rail",
+    "audioFile": "audio/arcs/rail_surveyors.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Землемеры прибывают с цепями, кольями и опасной мыслью, что завтрашний день можно измерить.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "rail_lumber",
+    "title": "Брёвна для депо",
+    "trigger": "trig_deliver_resource_location",
+    "audioFile": "audio/arcs/rail_lumber.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Свежие брёвна глухо падают у путей, словно кости нового города.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "rail_iron",
+    "title": "Железо для линии",
+    "trigger": "trig_deliver_resource_location",
+    "audioFile": "audio/arcs/rail_iron.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Бригадир проводит большим пальцем по железу и видит завтрашний день.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "rail_grand_opening",
+    "title": "Торжественное открытие",
+    "trigger": "",
+    "audioFile": "audio/storylines/rail_grand_opening.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Когда забит последний костыль, локомотив свистит так, будто сам фронтир только что проснулся.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "spanish_journal",
+    "title": "Разорванный дневник",
+    "trigger": "trig_gain_gold_prospect",
+    "audioFile": "audio/arcs/spanish_journal.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Разорванный дневник рассказывает об испанском золоте, спрятанном там, где в полдень скалы отбрасывают тени.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "spanish_marker",
+    "title": "Каменный знак",
+    "trigger": "trig_enter_cliff_junction",
+    "audioFile": "audio/arcs/spanish_marker.mp3",
+    "status": "missing",
+    "narrationScript": "[raspy][old cowboy][western][fast][low key][emotionless][quick]Из пыли торчит накренившийся каменный крест, старше любого города на этой карте."
+  },
+  {
+    "type": "major-storyline",
+    "id": "spanish_cache",
+    "title": "Зарытый тайник",
+    "trigger": "trig_deposit_gold",
+    "audioFile": "audio/arcs/spanish_cache.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Под красным камнем лежит тайник с монетами, отчеканенными для короля, который никогда не видел этих земель.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "buffalo_tracks",
+    "title": "Странные следы",
+    "trigger": "trig_hunt_success",
+    "audioFile": "audio/arcs/buffalo_tracks.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Следы шириной с обеденные тарелки пересекают прерию, и все птицы вдруг замолкли.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "buffalo_warning",
+    "title": "Предупреждение",
+    "trigger": "trig_enter_sunny_hills",
+    "audioFile": "audio/arcs/buffalo_warning.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Старый разведчик предупреждает: некоторые звери — не трофеи. Они — испытания.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "buffalo_appears",
+    "title": "Появляется Белый бизон",
+    "trigger": "trig_hunt_success",
+    "audioFile": "audio/storylines/buffalo_appears.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Белый бизон выходит из утренней дымки, яркий как призрак и тяжёлый как сама легенда.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_drought",
+    "title": "Засуха",
+    "trigger": "",
+    "audioFile": "audio/world/world_drought.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Колодцы кашляют грязью, а солнце зло висит в небе.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_gold_rush",
+    "title": "Золотая лихорадка",
+    "trigger": "",
+    "audioFile": "audio/world/world_gold_rush.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Золотая лихорадка распространяется быстрее здравого смысла.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_sheriff_crackdown",
+    "title": "Жёсткие меры Шерифа",
+    "trigger": "",
+    "audioFile": "audio/world/world_sheriff_crackdown.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Закон точит зубы.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_bandit_uprising",
+    "title": "Восстание бандитов",
+    "trigger": "",
+    "audioFile": "audio/world/world_bandit_uprising.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Холмы начинают выплёвывать суровых людей с заряженными ружьями.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_frontier_festival",
+    "title": "Праздник фронтира",
+    "trigger": "",
+    "audioFile": "audio/world/world_frontier_festival.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Музыка льётся из города, словно свет фонарей.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_bad_weather",
+    "title": "Непогода",
+    "trigger": "",
+    "audioFile": "audio/world/world_bad_weather.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Дождь превращает каждую дорогу в коричневую жижу.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_clear_skies",
+    "title": "Ясное небо",
+    "trigger": "",
+    "audioFile": "audio/world/world_clear_skies.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Небо проясняется, и каждая тропа кажется короче.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_high_stakes",
+    "title": "Ночь высоких ставок",
+    "trigger": "",
+    "audioFile": "audio/world/world_high_stakes.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Каждый дурак с монетой в кармане хочет занять место за столом.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_cattle_market",
+    "title": "Рынок скота",
+    "trigger": "",
+    "audioFile": "audio/world/world_cattle_market.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Цены на говядину поднимаются, как дым.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_doctor_shortage",
+    "title": "Нехватка врачей",
+    "trigger": "",
+    "audioFile": "audio/world/world_doctor_shortage.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"У доктора заканчиваются лауданум и терпение.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_free_rail",
+    "title": "Железнодорожный праздник",
+    "trigger": "",
+    "audioFile": "audio/world/world_free_rail.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Локомотив свистит, и каждая станция празднует.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_train_security",
+    "title": "Вооружённая охрана поезда",
+    "trigger": "",
+    "audioFile": "audio/world/world_train_security.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Железнодорожники нанимают стрелков десятками.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_mine_collapse",
+    "title": "Нестабильные шахты",
+    "trigger": "",
+    "audioFile": "audio/world/world_mine_collapse.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Земля стонет под каждым ударом кирки.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_trader_boom",
+    "title": "Торговый бум",
+    "trigger": "",
+    "audioFile": "audio/world/world_trader_boom.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Фургон доктора Эрве тяжело катится, набитый чудесами.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_saloons_dry",
+    "title": "Сухие салуны",
+    "trigger": "",
+    "audioFile": "audio/world/world_saloons_dry.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Виски заканчивается, и столы остывают.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_ranch_fire",
+    "title": "Пожар на ранчо",
+    "trigger": "",
+    "audioFile": "audio/world/world_ranch_fire.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Дым поднимается над северным пастбищем.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_resource_boom",
+    "title": "Полезные обломки",
+    "trigger": "",
+    "audioFile": "audio/world/world_resource_boom.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Фронтир усеян вещами, полезными для умелых рук.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_predator_migration",
+    "title": "Миграция хищников",
+    "trigger": "",
+    "audioFile": "audio/world/world_predator_migration.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Голодные глаза блестят в кустах.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_craft_fair",
+    "title": "Ярмарка ремёсел",
+    "trigger": "",
+    "audioFile": "audio/world/world_craft_fair.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"На каждую полезную безделушку найдётся покупатель.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_legendary_weather",
+    "title": "Красный закат",
+    "trigger": "",
+    "audioFile": "audio/world/world_legendary_weather.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Закат пылает красным, и даже обычные поступки выглядят легендарными.\""
+  }
+]

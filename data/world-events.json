@@ -11,6 +11,11 @@
     ],
     "screenText": "The first player ending outside town gains 1 wound.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The wells cough mud and the sun hangs mean in the sky.\"",
+    "newspaperText": [
+      "A punishing drought settled over the territory, leaving wells low and travelers watching every drop of water.",
+      "Weeks of hard sun left the frontier dry and brittle, with water becoming nearly as valuable as gold.",
+      "Dry weather tightened its grip on the range, and riders caught outside town felt the worst of it."
+    ],
     "audioFile": "audio/world/world_drought.mp3",
     "effects": [
       {
@@ -34,6 +39,11 @@
     ],
     "screenText": "Prospect actions gain +$10.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Gold fever spreads faster than common sense.\"",
+    "newspaperText": [
+      "Fresh talk of gold swept through the camps, drawing prospectors back to the diggings with renewed fever.",
+      "Gold fever seized the territory once again as promising strikes sent miners scrambling for their pans and picks.",
+      "Rumors of rich ground spread from claim to claim, making every prospecting trip feel a little more valuable."
+    ],
     "audioFile": "audio/world/world_gold_rush.mp3",
     "effects": [
       {
@@ -58,6 +68,11 @@
     ],
     "screenText": "Whenever a player gains WP, move the Sheriff 3 spaces toward that player.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The law sharpens its teeth.\"",
+    "newspaperText": [
+      "The Sheriff launched a hard crackdown on lawlessness, riding quickly whenever fresh wanted notices appeared.",
+      "Wanted riders found the territory suddenly less forgiving as the Sheriff answered new crimes with unusual speed.",
+      "The law tightened its grip across the frontier, with the Sheriff pressing closer on anyone adding to a wanted reputation."
+    ],
     "audioFile": "audio/world/world_sheriff_crackdown.mp3",
     "effects": [
       {
@@ -82,6 +97,11 @@
     ],
     "screenText": "Bandits draw +1 Fight Card.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The hills start spitting out hard men with loaded guns.\"",
+    "newspaperText": [
+      "Bandit activity surged across the territory, and travelers reported tougher, better-armed gangs on the roads.",
+      "An outbreak of bandit violence made the range more dangerous, with outlaw gangs showing unexpected strength in a fight.",
+      "Armed bandits grew bolder throughout the frontier, turning routine encounters into far more dangerous affairs."
+    ],
     "audioFile": "audio/world/world_bandit_uprising.mp3",
     "effects": [
       {
@@ -106,6 +126,11 @@
     ],
     "screenText": "The first Town action gains +$10.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Music rolls out of town like lantern light.\"",
+    "newspaperText": [
+      "A frontier festival filled town with music, trade and loose coin, rewarding the first bit of business done amid the celebration.",
+      "Town streets came alive with a rare festival, bringing crowds, opportunity and a little extra money to local business.",
+      "Celebration swept through town as a frontier festival drew settlers from miles around and put fresh coin into circulation."
+    ],
     "audioFile": "audio/world/world_frontier_festival.mp3",
     "effects": [
       {
@@ -130,6 +155,11 @@
     ],
     "screenText": "Move actions are -1 space.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Rain turns every road into brown soup.\"",
+    "newspaperText": [
+      "Heavy weather turned the roads to mud and made every journey across the territory slower than usual.",
+      "Rain and miserable trail conditions settled over the frontier, cutting short even the strongest riders' travel.",
+      "Bad weather made the open range hard going, with washed roads and deep mud slowing movement everywhere."
+    ],
     "audioFile": "audio/world/world_bad_weather.mp3",
     "effects": [
       {
@@ -154,6 +184,11 @@
     ],
     "screenText": "Move actions are +1 space.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The sky clears, and every trail looks shorter.\"",
+    "newspaperText": [
+      "Clear skies and firm trails opened the territory, allowing riders to cover more ground than usual.",
+      "A spell of fine weather made the roads unusually friendly and shortened journeys across the frontier.",
+      "Bright skies and dry trails favored travelers, helping riders press farther with every move."
+    ],
     "audioFile": "audio/world/world_clear_skies.mp3",
     "effects": [
       {
@@ -177,6 +212,11 @@
     ],
     "screenText": "Poker winners gain +$20.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Every fool with coin in his pocket wants a seat.\"",
+    "newspaperText": [
+      "High-stakes poker swept the saloons, with larger pots waiting for anyone skilled enough to win them.",
+      "The card tables ran hot as deep-pocketed gamblers pushed poker winnings well above their usual stakes.",
+      "Money changed hands freely during a run of high-stakes poker that drew ambitious gamblers to the tables."
+    ],
     "audioFile": "audio/world/world_high_stakes.mp3",
     "effects": [
       {
@@ -200,6 +240,11 @@
     ],
     "screenText": "Wrangle/Rustle rewards gain +$10.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Beef prices climb like smoke.\"",
+    "newspaperText": [
+      "A strong cattle market pushed beef prices higher and made successful ranch work unusually profitable.",
+      "Demand for cattle climbed across the territory, bringing extra money to both honest wranglers and daring rustlers.",
+      "Cattle prices rose sharply, turning every successful drive into a richer piece of frontier business."
+    ],
     "audioFile": "audio/world/world_cattle_market.mp3",
     "effects": [
       {
@@ -223,6 +268,11 @@
     ],
     "screenText": "Heal costs +$10.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The doctor is short on laudanum and patience.\"",
+    "newspaperText": [
+      "A shortage of doctors and medicine drove the price of treatment higher across the frontier.",
+      "Medical care became scarce throughout the territory, forcing wounded riders to pay dearly for a doctor's attention.",
+      "With medicine running short, the cost of getting patched up rose everywhere the Gazette received reports."
+    ],
     "audioFile": "audio/world/world_doctor_shortage.mp3",
     "effects": [
       {
@@ -249,6 +299,11 @@
     ],
     "screenText": "Travel by Rail costs $0.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The locomotive whistles and every station celebrates.\"",
+    "newspaperText": [
+      "A railroad jubilee opened the rails to free travel, sending passengers from station to station without charge.",
+      "The railroad celebrated in grand fashion by waiving fares and packing its cars with frontier travelers.",
+      "Whistles echoed from every station as a railroad jubilee made rail travel free across the territory."
+    ],
     "audioFile": "audio/world/world_free_rail.mp3",
     "effects": [
       {
@@ -275,6 +330,11 @@
     ],
     "screenText": "Train Guards draw +1 Fight Card.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Railroad men hire guns by the dozen.\"",
+    "newspaperText": [
+      "Railroad companies answered growing trouble by placing heavily armed guards aboard their trains.",
+      "Train security increased sharply as the railroad hired extra guns to protect its valuable cars.",
+      "Would-be train robbers faced stiffer resistance after armed guards began riding the rails in greater numbers."
+    ],
     "audioFile": "audio/world/world_train_security.mp3",
     "effects": [
       {
@@ -298,6 +358,11 @@
     ],
     "screenText": "Prospecting players gain 1 wound on Gravel.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The earth groans under every pick.\"",
+    "newspaperText": [
+      "Unstable ground made the mines treacherous, with even ordinary prospecting carrying a greater risk of injury.",
+      "Reports of shifting earth and unsafe shafts spread through the mining camps, making every dig more dangerous.",
+      "The territory's mines grew perilous as unstable ground threatened prospectors working the gravel."
+    ],
     "audioFile": "audio/world/world_mine_collapse.mp3",
     "effects": [
       {
@@ -320,6 +385,11 @@
     ],
     "screenText": "Legendary Items cost $10 less.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Dr. Herve’s wagon rolls heavy with wonders.\"",
+    "newspaperText": [
+      "A traveling-trader boom brought rare goods within easier reach and pushed the price of legendary wares downward.",
+      "Rare merchandise flooded the frontier market, giving riders an uncommon chance to buy legendary items for less.",
+      "The arrival of well-stocked traders stirred the territory and briefly made prized goods cheaper to acquire."
+    ],
     "audioFile": "audio/world/world_trader_boom.mp3",
     "effects": [
       {
@@ -343,6 +413,11 @@
     ],
     "screenText": "Poker cannot trigger one-off events.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The whiskey runs dry and the tables go cold.\"",
+    "newspaperText": [
+      "Saloons across the territory ran dry, quieting the tables and putting an end to the usual poker-born surprises.",
+      "A shortage of whiskey left saloons subdued and poker games strangely uneventful throughout the frontier.",
+      "Dry taps changed the mood of the saloons, where card games continued without their usual unexpected complications."
+    ],
     "audioFile": "audio/world/world_saloons_dry.mp3",
     "effects": [
       {
@@ -366,6 +441,11 @@
     ],
     "screenText": "Acquire cattle costs 1 Poker Card.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Smoke rises from the north pasture.\"",
+    "newspaperText": [
+      "A ranch fire sent smoke over cattle country and made replacing livestock more costly than usual.",
+      "Flames swept through ranch country, complicating cattle purchases and forcing buyers to pay an extra price.",
+      "Smoke on the range marked a damaging ranch fire that made acquiring fresh cattle unusually difficult."
+    ],
     "audioFile": "audio/world/world_ranch_fire.mp3",
     "effects": [
       {
@@ -391,6 +471,11 @@
     ],
     "screenText": "Forage draws +1 then discards 1.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The frontier is littered with things useful to clever hands.\"",
+    "newspaperText": [
+      "Useful scraps and salvage became plentiful across the frontier, giving clever foragers more to work with.",
+      "A sudden abundance of usable material rewarded resourceful hands willing to search the territory for supplies.",
+      "Discarded goods proved unusually valuable as a resource boom gave frontier foragers better choices in what they carried."
+    ],
     "audioFile": "audio/world/world_resource_boom.mp3",
     "effects": [
       {
@@ -417,6 +502,11 @@
     ],
     "screenText": "Successful Hunts gain +1 LP but also +1 wound.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Hungry eyes shine in the brush.\"",
+    "newspaperText": [
+      "A migration of hungry predators made successful hunts more rewarding, but also far more dangerous.",
+      "Predators moved through the territory in unusual numbers, raising both the glory and the cost of a successful hunt.",
+      "Hunters found bigger opportunity and sharper teeth on the range as predators crowded into the region."
+    ],
     "audioFile": "audio/world/world_predator_migration.mp3",
     "effects": [
       {
@@ -441,6 +531,11 @@
     ],
     "screenText": "Craft action grants +$10.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Every useful trinket finds a buyer.\"",
+    "newspaperText": [
+      "A frontier craft fair created eager buyers for handmade goods and put extra money into the hands of capable craftsmen.",
+      "Useful handiwork commanded a premium as a craft fair drew buyers from across the territory.",
+      "Crafted goods found ready customers during a lively fair that rewarded anyone putting frontier materials to good use."
+    ],
     "audioFile": "audio/world/world_craft_fair.mp3",
     "effects": [
       {
@@ -464,6 +559,11 @@
     ],
     "screenText": "The first player to gain LP gains +1 LP.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The sunset burns red, and even ordinary deeds look legendary.\"",
+    "newspaperText": [
+      "A brilliant red sunset cast the frontier in legendary light, and the first notable deed of the evening drew extra acclaim.",
+      "The sky burned red over the territory, lending uncommon weight to the first legend made beneath it.",
+      "A remarkable sunset stopped riders in their tracks and seemed to magnify the first legendary deed that followed."
+    ],
     "audioFile": "audio/world/world_legendary_weather.mp3",
     "effects": [
       {

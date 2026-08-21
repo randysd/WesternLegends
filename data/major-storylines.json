@@ -2,6 +2,12 @@
   {
     "id": "story_railroad_rising",
     "title": "The Iron Road",
+    "newspaperText": [
+      "The territory-wide story of The Iron Road unfolded through a series of developments felt across the frontier.",
+      "Several events joined together into the larger frontier tale known as The Iron Road.",
+      "The continuing story of The Iron Road stretched beyond any one rider and began shaping the territory itself.",
+      "By the time the Gazette went to press, The Iron Road had become one of the frontier's larger unfolding stories."
+    ],
     "tags": [
       "railroad",
       "train",
@@ -20,6 +26,12 @@
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Surveyors arrive with chains, stakes, and the dangerous idea that tomorrow can be measured.\"",
+        "newspaperText": [
+          "The continuing tale took another turn, and reports described the scene this way: Surveyors arrive with chains, stakes, and the dangerous idea that tomorrow can be measured.",
+          "Another chapter in the unfolding story reached the Gazette with a vivid detail: Surveyors arrive with chains, stakes, and the dangerous idea that tomorrow can be measured.",
+          "The trail of the larger story led to a fresh development: Surveyors arrive with chains, stakes, and the dangerous idea that tomorrow can be measured.",
+          "Witnesses tied the latest turn in the story to one memorable scene: Surveyors arrive with chains, stakes, and the dangerous idea that tomorrow can be measured."
+        ],
         "audioFile": "audio/arcs/rail_surveyors.mp3",
         "requiresWorldTags": [],
         "onResolved": [
@@ -57,6 +69,12 @@
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Fresh timbers thump beside the tracks like bones of a new town.\"",
+        "newspaperText": [
+          "The continuing tale took another turn, and reports described the scene this way: Fresh timbers thump beside the tracks like bones of a new town.",
+          "Another chapter in the unfolding story reached the Gazette with a vivid detail: Fresh timbers thump beside the tracks like bones of a new town.",
+          "The trail of the larger story led to a fresh development: Fresh timbers thump beside the tracks like bones of a new town.",
+          "Witnesses tied the latest turn in the story to one memorable scene: Fresh timbers thump beside the tracks like bones of a new town."
+        ],
         "audioFile": "audio/arcs/rail_lumber.mp3",
         "requiresWorldTags": [
           "rail_surveyed"
@@ -96,6 +114,12 @@
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"The foreman runs a thumb along the iron and sees tomorrow.\"",
+        "newspaperText": [
+          "The continuing tale took another turn, and reports described the scene this way: The foreman runs a thumb along the iron and sees tomorrow.",
+          "Another chapter in the unfolding story reached the Gazette with a vivid detail: The foreman runs a thumb along the iron and sees tomorrow.",
+          "The trail of the larger story led to a fresh development: The foreman runs a thumb along the iron and sees tomorrow.",
+          "Witnesses tied the latest turn in the story to one memorable scene: The foreman runs a thumb along the iron and sees tomorrow."
+        ],
         "audioFile": "audio/arcs/rail_iron.mp3",
         "requiresWorldTags": [
           "rail_surveyed"
@@ -138,6 +162,12 @@
         ],
         "screenText": "Travel by Rail costs $0.",
         "narrationScript": "[western storyteller][old cowboy][raspy] \"With the last spike driven, the locomotive whistles like the frontier itself just woke up.\"",
+        "newspaperText": [
+          "The continuing tale took another turn, and reports described the scene this way: With the last spike driven, the locomotive whistles like the frontier itself just woke up.",
+          "Another chapter in the unfolding story reached the Gazette with a vivid detail: With the last spike driven, the locomotive whistles like the frontier itself just woke up.",
+          "The trail of the larger story led to a fresh development: With the last spike driven, the locomotive whistles like the frontier itself just woke up.",
+          "Witnesses tied the latest turn in the story to one memorable scene: With the last spike driven, the locomotive whistles like the frontier itself just woke up."
+        ],
         "audioFile": "audio/storylines/rail_grand_opening.mp3",
         "effects": [
           {
@@ -152,6 +182,12 @@
   {
     "id": "story_lost_spanish_gold",
     "title": "Lost Spanish Gold",
+    "newspaperText": [
+      "The territory-wide story of Lost Spanish Gold unfolded through a series of developments felt across the frontier.",
+      "Several events joined together into the larger frontier tale known as Lost Spanish Gold.",
+      "The continuing story of Lost Spanish Gold stretched beyond any one rider and began shaping the territory itself.",
+      "By the time the Gazette went to press, Lost Spanish Gold had become one of the frontier's larger unfolding stories."
+    ],
     "tags": [
       "treasure",
       "mine",
@@ -167,6 +203,12 @@
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"A torn journal speaks of Spanish gold hidden where the cliffs throw shadows at noon.\"",
+        "newspaperText": [
+          "The continuing tale took another turn, and reports described the scene this way: A torn journal speaks of Spanish gold hidden where the cliffs throw shadows at noon.",
+          "Another chapter in the unfolding story reached the Gazette with a vivid detail: A torn journal speaks of Spanish gold hidden where the cliffs throw shadows at noon.",
+          "The trail of the larger story led to a fresh development: A torn journal speaks of Spanish gold hidden where the cliffs throw shadows at noon.",
+          "Witnesses tied the latest turn in the story to one memorable scene: A torn journal speaks of Spanish gold hidden where the cliffs throw shadows at noon."
+        ],
         "audioFile": "audio/arcs/spanish_journal.mp3",
         "requiresWorldTags": [],
         "onResolved": [
@@ -199,6 +241,12 @@
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[raspy][old cowboy][western][fast][low key][emotionless][quick]A stone cross leans from the dust, older than any town on this map.",
+        "newspaperText": [
+          "The continuing tale took another turn, and reports described the scene this way: A stone cross leans from the dust, older than any town on this map.",
+          "Another chapter in the unfolding story reached the Gazette with a vivid detail: A stone cross leans from the dust, older than any town on this map.",
+          "The trail of the larger story led to a fresh development: A stone cross leans from the dust, older than any town on this map.",
+          "Witnesses tied the latest turn in the story to one memorable scene: A stone cross leans from the dust, older than any town on this map."
+        ],
         "audioFile": "audio/arcs/spanish_marker.mp3",
         "requiresWorldTags": [
           "spanish_clue_1"
@@ -233,6 +281,12 @@
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Under red stone waits a cache of coins stamped for a king who never saw this country.\"",
+        "newspaperText": [
+          "The continuing tale took another turn, and reports described the scene this way: Under red stone waits a cache of coins stamped for a king who never saw this country.",
+          "Another chapter in the unfolding story reached the Gazette with a vivid detail: Under red stone waits a cache of coins stamped for a king who never saw this country.",
+          "The trail of the larger story led to a fresh development: Under red stone waits a cache of coins stamped for a king who never saw this country.",
+          "Witnesses tied the latest turn in the story to one memorable scene: Under red stone waits a cache of coins stamped for a king who never saw this country."
+        ],
         "audioFile": "audio/arcs/spanish_cache.mp3",
         "requiresWorldTags": [
           "spanish_clue_2"
@@ -264,6 +318,12 @@
   {
     "id": "story_white_buffalo",
     "title": "The White Buffalo",
+    "newspaperText": [
+      "The territory-wide story of The White Buffalo unfolded through a series of developments felt across the frontier.",
+      "Several events joined together into the larger frontier tale known as The White Buffalo.",
+      "The continuing story of The White Buffalo stretched beyond any one rider and began shaping the territory itself.",
+      "By the time the Gazette went to press, The White Buffalo had become one of the frontier's larger unfolding stories."
+    ],
     "tags": [
       "legendary",
       "hunt",
@@ -282,6 +342,12 @@
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Tracks wide as dinner plates cut across the prairie, and every bird has gone quiet.\"",
+        "newspaperText": [
+          "The continuing tale took another turn, and reports described the scene this way: Tracks wide as dinner plates cut across the prairie, and every bird has gone quiet.",
+          "Another chapter in the unfolding story reached the Gazette with a vivid detail: Tracks wide as dinner plates cut across the prairie, and every bird has gone quiet.",
+          "The trail of the larger story led to a fresh development: Tracks wide as dinner plates cut across the prairie, and every bird has gone quiet.",
+          "Witnesses tied the latest turn in the story to one memorable scene: Tracks wide as dinner plates cut across the prairie, and every bird has gone quiet."
+        ],
         "audioFile": "audio/arcs/buffalo_tracks.mp3",
         "requiresWorldTags": [],
         "onResolved": [
@@ -314,6 +380,12 @@
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"An old scout warns that some animals are not trophies. They are tests.\"",
+        "newspaperText": [
+          "The continuing tale took another turn, and reports described the scene this way: An old scout warns that some animals are not trophies. They are tests.",
+          "Another chapter in the unfolding story reached the Gazette with a vivid detail: An old scout warns that some animals are not trophies. They are tests.",
+          "The trail of the larger story led to a fresh development: An old scout warns that some animals are not trophies. They are tests.",
+          "Witnesses tied the latest turn in the story to one memorable scene: An old scout warns that some animals are not trophies. They are tests."
+        ],
         "audioFile": "audio/arcs/buffalo_warning.mp3",
         "requiresWorldTags": [
           "buffalo_clue_1"
@@ -349,6 +421,12 @@
           "buffalo_warning_heard"
         ],
         "narrationScript": "[western storyteller][old cowboy][raspy] \"The white buffalo steps from the morning haze, bright as a ghost and heavier than legend.\"",
+        "newspaperText": [
+          "The continuing tale took another turn, and reports described the scene this way: The white buffalo steps from the morning haze, bright as a ghost and heavier than legend.",
+          "Another chapter in the unfolding story reached the Gazette with a vivid detail: The white buffalo steps from the morning haze, bright as a ghost and heavier than legend.",
+          "The trail of the larger story led to a fresh development: The white buffalo steps from the morning haze, bright as a ghost and heavier than legend.",
+          "Witnesses tied the latest turn in the story to one memorable scene: The white buffalo steps from the morning haze, bright as a ghost and heavier than legend."
+        ],
         "audioFile": "audio/storylines/buffalo_appears.mp3",
         "resultButtons": [
           {

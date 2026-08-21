@@ -12,6 +12,12 @@
     ],
     "screenText": "Place another Bandit in the current space. Fight both simultaneously; play 1 Poker Card against each Fight Card.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Another bandit jumps out from behind the rocks\"",
+    "newspaperText": [
+      "Gunplay and law business supplied one of the day's sharper reports: Another bandit jumps out from behind the rocks.",
+      "Trouble on the frontier quickly became the talk of nearby settlements: Another bandit jumps out from behind the rocks.",
+      "Witnesses to the confrontation carried a vivid account back to town: Another bandit jumps out from behind the rocks.",
+      "The encounter earned a place in the Gazette after reports agreed on one striking detail: Another bandit jumps out from behind the rocks."
+    ],
     "audioFile": "audio/oneoffs/bandit_reinforcements.mp3",
     "effects": [
       {
@@ -49,6 +55,12 @@
     ],
     "screenText": "Draw 2 Fight Cards. The player must beat both with 2 Poker Cards or lose the fight.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"A second shot cracks from the ridge.\"",
+    "newspaperText": [
+      "Gunplay and law business supplied one of the day's sharper reports: A second shot cracks from the ridge.",
+      "Trouble on the frontier quickly became the talk of nearby settlements: A second shot cracks from the ridge.",
+      "Witnesses to the confrontation carried a vivid account back to town: A second shot cracks from the ridge.",
+      "The encounter earned a place in the Gazette after reports agreed on one striking detail: A second shot cracks from the ridge."
+    ],
     "audioFile": "audio/oneoffs/twin_pistol_rogue.mp3",
     "effects": [
       {
@@ -82,6 +94,12 @@
     ],
     "screenText": "Draw 2 Fight Cards and use the lower value.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"He staggers into the road with more whiskey than sense.\"",
+    "newspaperText": [
+      "Gunplay and law business supplied one of the day's sharper reports: He staggers into the road with more whiskey than sense.",
+      "Trouble on the frontier quickly became the talk of nearby settlements: He staggers into the road with more whiskey than sense.",
+      "Witnesses to the confrontation carried a vivid account back to town: He staggers into the road with more whiskey than sense.",
+      "The encounter earned a place in the Gazette after reports agreed on one striking detail: He staggers into the road with more whiskey than sense."
+    ],
     "audioFile": "audio/oneoffs/drunken_bandit.mp3",
     "effects": [
       {
@@ -115,6 +133,12 @@
     ],
     "screenText": "Draw 3 Fight Cards and use the highest value.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"This one has survived too many gunfights to be lucky.\"",
+    "newspaperText": [
+      "Gunplay and law business supplied one of the day's sharper reports: This one has survived too many gunfights to be lucky.",
+      "Trouble on the frontier quickly became the talk of nearby settlements: This one has survived too many gunfights to be lucky.",
+      "Witnesses to the confrontation carried a vivid account back to town: This one has survived too many gunfights to be lucky.",
+      "The encounter earned a place in the Gazette after reports agreed on one striking detail: This one has survived too many gunfights to be lucky."
+    ],
     "audioFile": "audio/oneoffs/veteran_bandit.mp3",
     "effects": [
       {
@@ -148,6 +172,12 @@
     ],
     "screenText": "Gain $10 and draw 1 Poker Card.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"With his last breath, the bandit names a cache under a split cedar.\"",
+    "newspaperText": [
+      "Gunplay and law business supplied one of the day's sharper reports: With his last breath, the bandit names a cache under a split cedar.",
+      "Trouble on the frontier quickly became the talk of nearby settlements: With his last breath, the bandit names a cache under a split cedar.",
+      "Witnesses to the confrontation carried a vivid account back to town: With his last breath, the bandit names a cache under a split cedar.",
+      "The encounter earned a place in the Gazette after reports agreed on one striking detail: With his last breath, the bandit names a cache under a split cedar."
+    ],
     "audioFile": "audio/oneoffs/bandit_last_words.mp3",
     "effects": [
       {
@@ -184,6 +214,12 @@
     ],
     "screenText": "After the fight, gain 1 wound unless you discard 1 Poker Card.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"A second shot cracks from the ridge.\"",
+    "newspaperText": [
+      "Gunplay and law business supplied one of the day's sharper reports: A second shot cracks from the ridge.",
+      "Trouble on the frontier quickly became the talk of nearby settlements: A second shot cracks from the ridge.",
+      "Witnesses to the confrontation carried a vivid account back to town: A second shot cracks from the ridge.",
+      "The encounter earned a place in the Gazette after reports agreed on one striking detail: A second shot cracks from the ridge."
+    ],
     "audioFile": "audio/oneoffs/hidden_sniper.mp3",
     "effects": [
       {
@@ -218,6 +254,12 @@
     ],
     "screenText": "Gain $20 or draw 2 Poker Cards.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Folks in town tip their hats. Law still means something out here.\"",
+    "newspaperText": [
+      "Gunplay and law business supplied one of the day's sharper reports: Folks in town tip their hats. Law still means something out here.",
+      "Trouble on the frontier quickly became the talk of nearby settlements: Folks in town tip their hats. Law still means something out here.",
+      "Witnesses to the confrontation carried a vivid account back to town: Folks in town tip their hats. Law still means something out here.",
+      "The encounter earned a place in the Gazette after reports agreed on one striking detail: Folks in town tip their hats. Law still means something out here."
+    ],
     "audioFile": "audio/oneoffs/posse_cheers.mp3",
     "effects": [
       {
@@ -253,6 +295,12 @@
     ],
     "screenText": "The arresting player gains 1 wound, then draws 1 Poker Card.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The badge looks right from a distance, but close up it smells of trouble.\"",
+    "newspaperText": [
+      "Gunplay and law business supplied one of the day's sharper reports: The badge looks right from a distance, but close up it smells of trouble.",
+      "Trouble on the frontier quickly became the talk of nearby settlements: The badge looks right from a distance, but close up it smells of trouble.",
+      "Witnesses to the confrontation carried a vivid account back to town: The badge looks right from a distance, but close up it smells of trouble.",
+      "The encounter earned a place in the Gazette after reports agreed on one striking detail: The badge looks right from a distance, but close up it smells of trouble."
+    ],
     "audioFile": "audio/oneoffs/false_badge.mp3",
     "effects": [
       {
@@ -289,6 +337,12 @@
     ],
     "screenText": "Move the Sheriff up to 3 spaces toward the player who triggered this.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"A wanted poster curls on the wall, and the sheriff is saddling up.\"",
+    "newspaperText": [
+      "Gunplay and law business supplied one of the day's sharper reports: A wanted poster curls on the wall, and the sheriff is saddling up.",
+      "Trouble on the frontier quickly became the talk of nearby settlements: A wanted poster curls on the wall, and the sheriff is saddling up.",
+      "Witnesses to the confrontation carried a vivid account back to town: A wanted poster curls on the wall, and the sheriff is saddling up.",
+      "The encounter earned a place in the Gazette after reports agreed on one striking detail: A wanted poster curls on the wall, and the sheriff is saddling up."
+    ],
     "audioFile": "audio/oneoffs/sheriffs_notice.mp3",
     "effects": [
       {
@@ -321,6 +375,12 @@
     ],
     "screenText": "If the heist succeeds, gain +$20. If it fails, the botched job draws the law: move the Sheriff up to 3 spaces toward you.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"A nervous teller leaves the vault latch loose.\"",
+    "newspaperText": [
+      "News from the bank carried more excitement than ordinary business: A nervous teller leaves the vault latch loose.",
+      "A tense bit of bank business soon became frontier talk: A nervous teller leaves the vault latch loose.",
+      "Word of the affair at the bank spread quickly through town: A nervous teller leaves the vault latch loose.",
+      "The Gazette received a lively account of the latest trouble involving the bank: A nervous teller leaves the vault latch loose."
+    ],
     "audioFile": "audio/oneoffs/inside_man.mp3",
     "effects": [
       {
@@ -354,6 +414,12 @@
     ],
     "screenText": "Bank Guard draws 1 additional Fight Card.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The vault door groans shut. This job just got louder.\"",
+    "newspaperText": [
+      "News from the bank carried more excitement than ordinary business: The vault door groans shut. This job just got louder.",
+      "A tense bit of bank business soon became frontier talk: The vault door groans shut. This job just got louder.",
+      "Word of the affair at the bank spread quickly through town: The vault door groans shut. This job just got louder.",
+      "The Gazette received a lively account of the latest trouble involving the bank: The vault door groans shut. This job just got louder."
+    ],
     "audioFile": "audio/oneoffs/locked_vault.mp3",
     "effects": [
       {
@@ -387,6 +453,12 @@
     ],
     "screenText": "After resolving the heist, move up to 2 spaces.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"A dust storm rolls in, ugly enough to hide a desperate escape.\"",
+    "newspaperText": [
+      "News from the bank carried more excitement than ordinary business: A dust storm rolls in, ugly enough to hide a desperate escape.",
+      "A tense bit of bank business soon became frontier talk: A dust storm rolls in, ugly enough to hide a desperate escape.",
+      "Word of the affair at the bank spread quickly through town: A dust storm rolls in, ugly enough to hide a desperate escape.",
+      "The Gazette received a lively account of the latest trouble involving the bank: A dust storm rolls in, ugly enough to hide a desperate escape."
+    ],
     "audioFile": "audio/oneoffs/dusty_getaway.mp3",
     "effects": [
       {
@@ -422,6 +494,12 @@
     ],
     "screenText": "If the Train Heist succeeds, gain +$30. If it fails, gain 1 wound.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Tonight the train carries payroll, and every outlaw can smell it.\"",
+    "newspaperText": [
+      "Railroad news carried an unexpected turn: Tonight the train carries payroll, and every outlaw can smell it.",
+      "Word from the tracks reached the Gazette before the whistle faded: Tonight the train carries payroll, and every outlaw can smell it.",
+      "Travelers along the rail line brought back a fresh account: Tonight the train carries payroll, and every outlaw can smell it.",
+      "The day's railroad business produced a story of its own: Tonight the train carries payroll, and every outlaw can smell it."
+    ],
     "audioFile": "audio/oneoffs/train_payroll.mp3",
     "effects": [
       {
@@ -458,6 +536,12 @@
     ],
     "screenText": "A Marshal may cancel the heist to gain 1 MP. Otherwise resolve the heist normally.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"A uniformed guard recognizes a lawful face and asks for help.\"",
+    "newspaperText": [
+      "Railroad news carried an unexpected turn: A uniformed guard recognizes a lawful face and asks for help.",
+      "Word from the tracks reached the Gazette before the whistle faded: A uniformed guard recognizes a lawful face and asks for help.",
+      "Travelers along the rail line brought back a fresh account: A uniformed guard recognizes a lawful face and asks for help.",
+      "The day's railroad business produced a story of its own: A uniformed guard recognizes a lawful face and asks for help."
+    ],
     "audioFile": "audio/oneoffs/railroad_guard.mp3",
     "effects": [
       {
@@ -491,6 +575,12 @@
     ],
     "screenText": "Roll 1 additional Prospecting Die during this Prospect action.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Gold dust spills out like bottled sunshine.\"",
+    "newspaperText": [
+      "Word from the diggings reached town quickly: Gold dust spills out like bottled sunshine.",
+      "The mining camps supplied another story for the Gazette: Gold dust spills out like bottled sunshine.",
+      "Talk of gold and hard luck traveled together after one fresh report: Gold dust spills out like bottled sunshine.",
+      "Prospectors carried a new tale back from the claims: Gold dust spills out like bottled sunshine."
+    ],
     "audioFile": "audio/oneoffs/rich_vein.mp3",
     "effects": [
       {
@@ -523,6 +613,12 @@
     ],
     "screenText": "Resolve Prospecting, then gain 1 wound.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The timbers crack overhead. The mine wants paid in blood today.\"",
+    "newspaperText": [
+      "Word from the diggings reached town quickly: The timbers crack overhead. The mine wants paid in blood today.",
+      "The mining camps supplied another story for the Gazette: The timbers crack overhead. The mine wants paid in blood today.",
+      "Talk of gold and hard luck traveled together after one fresh report: The timbers crack overhead. The mine wants paid in blood today.",
+      "Prospectors carried a new tale back from the claims: The timbers crack overhead. The mine wants paid in blood today."
+    ],
     "audioFile": "audio/oneoffs/cave_in.mp3",
     "effects": [
       {
@@ -555,6 +651,12 @@
     ],
     "screenText": "Place a Claim Jumper token at that Mine if available; otherwise gain $10.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Somebody watched you strike gold, and he ain’t the sharing kind.\"",
+    "newspaperText": [
+      "Word from the diggings reached town quickly: Somebody watched you strike gold, and he ain’t the sharing kind.",
+      "The mining camps supplied another story for the Gazette: Somebody watched you strike gold, and he ain’t the sharing kind.",
+      "Talk of gold and hard luck traveled together after one fresh report: Somebody watched you strike gold, and he ain’t the sharing kind.",
+      "Prospectors carried a new tale back from the claims: Somebody watched you strike gold, and he ain’t the sharing kind."
+    ],
     "audioFile": "audio/oneoffs/claim_jumper_shadow.mp3",
     "effects": [
       {
@@ -587,6 +689,12 @@
     ],
     "screenText": "Draw 1 Legendary Token. Keep it facedown as normal.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Wrapped in oilskin waits a map older than the town itself.\"",
+    "newspaperText": [
+      "Word from the diggings reached town quickly: Wrapped in oilskin waits a map older than the town itself.",
+      "The mining camps supplied another story for the Gazette: Wrapped in oilskin waits a map older than the town itself.",
+      "Talk of gold and hard luck traveled together after one fresh report: Wrapped in oilskin waits a map older than the town itself.",
+      "Prospectors carried a new tale back from the claims: Wrapped in oilskin waits a map older than the town itself."
+    ],
     "audioFile": "audio/oneoffs/lost_map_tube.mp3",
     "effects": [
       {
@@ -619,6 +727,12 @@
     ],
     "screenText": "Lose 1 Gold Nugget just gained, then draw 2 Poker Cards.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"That glitter in your pan is pretty, but pretty don’t always pay.\"",
+    "newspaperText": [
+      "Word from the diggings reached town quickly: That glitter in your pan is pretty, but pretty don’t always pay.",
+      "The mining camps supplied another story for the Gazette: That glitter in your pan is pretty, but pretty don’t always pay.",
+      "Talk of gold and hard luck traveled together after one fresh report: That glitter in your pan is pretty, but pretty don’t always pay.",
+      "Prospectors carried a new tale back from the claims: That glitter in your pan is pretty, but pretty don’t always pay."
+    ],
     "audioFile": "audio/oneoffs/fools_gold.mp3",
     "effects": [
       {
@@ -655,6 +769,12 @@
     ],
     "screenText": "Gain +$10 for each Gold Nugget deposited this action.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The banker smiles wide enough to show every tooth he owns.\"",
+    "newspaperText": [
+      "News from the bank carried more excitement than ordinary business: The banker smiles wide enough to show every tooth he owns.",
+      "A tense bit of bank business soon became frontier talk: The banker smiles wide enough to show every tooth he owns.",
+      "Word of the affair at the bank spread quickly through town: The banker smiles wide enough to show every tooth he owns.",
+      "The Gazette received a lively account of the latest trouble involving the bank: The banker smiles wide enough to show every tooth he owns."
+    ],
     "audioFile": "audio/oneoffs/bankers_smile.mp3",
     "effects": [
       {
@@ -687,6 +807,12 @@
     ],
     "screenText": "Before depositing, discard 1 Poker Card or receive $10 less total.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The assayer squints at your gold and calls it light.\"",
+    "newspaperText": [
+      "News from the bank carried more excitement than ordinary business: The assayer squints at your gold and calls it light.",
+      "A tense bit of bank business soon became frontier talk: The assayer squints at your gold and calls it light.",
+      "Word of the affair at the bank spread quickly through town: The assayer squints at your gold and calls it light.",
+      "The Gazette received a lively account of the latest trouble involving the bank: The assayer squints at your gold and calls it light."
+    ],
     "audioFile": "audio/oneoffs/assayer_dispute.mp3",
     "effects": [
       {
@@ -722,6 +848,12 @@
     ],
     "screenText": "After purchasing, move up to 1 space. This is not a Move action.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The shopkeep tosses in spurs that belonged to a fast man.\"",
+    "newspaperText": [
+      "A bit of frontier commerce turned into a story of its own: The shopkeep tosses in spurs that belonged to a fast man.",
+      "Town merchants had more than ordinary business to discuss: The shopkeep tosses in spurs that belonged to a fast man.",
+      "A purchase in town supplied an unexpected item for the Gazette: The shopkeep tosses in spurs that belonged to a fast man.",
+      "Word from the shops carried one memorable detail: The shopkeep tosses in spurs that belonged to a fast man."
+    ],
     "audioFile": "audio/oneoffs/free_spurs.mp3",
     "effects": [
       {
@@ -754,6 +886,12 @@
     ],
     "screenText": "Immediately recover $10 from the purchase or upgrade cost.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The gunsmith eyes your iron and knocks ten off the price.\"",
+    "newspaperText": [
+      "A bit of frontier commerce turned into a story of its own: The gunsmith eyes your iron and knocks ten off the price.",
+      "Town merchants had more than ordinary business to discuss: The gunsmith eyes your iron and knocks ten off the price.",
+      "A purchase in town supplied an unexpected item for the Gazette: The gunsmith eyes your iron and knocks ten off the price.",
+      "Word from the shops carried one memorable detail: The gunsmith eyes your iron and knocks ten off the price."
+    ],
     "audioFile": "audio/oneoffs/gunsmith_discount.mp3",
     "effects": [
       {
@@ -786,6 +924,12 @@
     ],
     "screenText": "Draw a Poker Card. If its value is 6 or less, gain 1 wound from faulty goods.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The bargain looked fine in the store light. Then it starts smoking.\"",
+    "newspaperText": [
+      "A bit of frontier commerce turned into a story of its own: The bargain looked fine in the store light. Then it starts smoking.",
+      "Town merchants had more than ordinary business to discuss: The bargain looked fine in the store light. Then it starts smoking.",
+      "A purchase in town supplied an unexpected item for the Gazette: The bargain looked fine in the store light. Then it starts smoking.",
+      "Word from the shops carried one memorable detail: The bargain looked fine in the store light. Then it starts smoking."
+    ],
     "audioFile": "audio/oneoffs/counterfeit_goods.mp3",
     "effects": [
       {
@@ -819,6 +963,12 @@
     ],
     "screenText": "Reveal 1 Legendary Item. The triggering player may buy it for $30.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"A crate from back East lands on the counter sealed with promise.\"",
+    "newspaperText": [
+      "A bit of frontier commerce turned into a story of its own: A crate from back East lands on the counter sealed with promise.",
+      "Town merchants had more than ordinary business to discuss: A crate from back East lands on the counter sealed with promise.",
+      "A purchase in town supplied an unexpected item for the Gazette: A crate from back East lands on the counter sealed with promise.",
+      "Word from the shops carried one memorable detail: A crate from back East lands on the counter sealed with promise."
+    ],
     "audioFile": "audio/oneoffs/rare_shipment.mp3",
     "effects": [
       {
@@ -851,6 +1001,12 @@
     ],
     "screenText": "Heal normally. Then draw 1 additional Poker Card.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The doctor pours something dark and says not to ask what’s in it.\"",
+    "newspaperText": [
+      "The doctor's office supplied one of the day's stranger reports: The doctor pours something dark and says not to ask what’s in it.",
+      "News concerning injury and treatment soon made its way to the Gazette: The doctor pours something dark and says not to ask what’s in it.",
+      "A rough day on the frontier ended with one memorable medical account: The doctor pours something dark and says not to ask what’s in it.",
+      "Town talk lingered over an unusual turn involving wounds and medicine: The doctor pours something dark and says not to ask what’s in it."
+    ],
     "audioFile": "audio/oneoffs/doctor_secret.mp3",
     "effects": [
       {
@@ -883,6 +1039,12 @@
     ],
     "screenText": "Heal normally, but your next Move action is -1 space.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The medicine works, but the room keeps standing sideways.\"",
+    "newspaperText": [
+      "The doctor's office supplied one of the day's stranger reports: The medicine works, but the room keeps standing sideways.",
+      "News concerning injury and treatment soon made its way to the Gazette: The medicine works, but the room keeps standing sideways.",
+      "A rough day on the frontier ended with one memorable medical account: The medicine works, but the room keeps standing sideways.",
+      "Town talk lingered over an unusual turn involving wounds and medicine: The medicine works, but the room keeps standing sideways."
+    ],
     "audioFile": "audio/oneoffs/bad_medicine.mp3",
     "effects": [
       {
@@ -915,6 +1077,12 @@
     ],
     "screenText": "After Reveling, draw 1 Poker Card for each LP gained this action.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The crowd pounds tables until the rafters shake.\"",
+    "newspaperText": [
+      "Talk from the saloons and entertainment houses reached the Gazette by nightfall: The crowd pounds tables until the rafters shake.",
+      "A lively bit of town nightlife soon became the story everyone repeated: The crowd pounds tables until the rafters shake.",
+      "The tables and saloons produced more than ordinary amusement: The crowd pounds tables until the rafters shake.",
+      "By closing time, one account was making the rounds through town: The crowd pounds tables until the rafters shake."
+    ],
     "audioFile": "audio/oneoffs/cabaret_ovation.mp3",
     "effects": [
       {
@@ -946,6 +1114,12 @@
     ],
     "screenText": "After Reveling, choose: gain 1 WP or discard 1 Poker Card.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"By sunrise, half of Red Falls knows and the rest invented worse.\"",
+    "newspaperText": [
+      "Gunplay and law business supplied one of the day's sharper reports: By sunrise, half of Red Falls knows and the rest invented worse.",
+      "Trouble on the frontier quickly became the talk of nearby settlements: By sunrise, half of Red Falls knows and the rest invented worse.",
+      "Witnesses to the confrontation carried a vivid account back to town: By sunrise, half of Red Falls knows and the rest invented worse.",
+      "The encounter earned a place in the Gazette after reports agreed on one striking detail: By sunrise, half of Red Falls knows and the rest invented worse."
+    ],
     "audioFile": "audio/oneoffs/cabaret_scandal.mp3",
     "effects": [
       {
@@ -981,6 +1155,12 @@
     ],
     "screenText": "Before the hand, the active player may draw 1 Poker Card, then must discard 1 Poker Card.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"A card shark slides into the game with clean cuffs and dirty eyes.\"",
+    "newspaperText": [
+      "Talk from the saloons and entertainment houses reached the Gazette by nightfall: A card shark slides into the game with clean cuffs and dirty eyes.",
+      "A lively bit of town nightlife soon became the story everyone repeated: A card shark slides into the game with clean cuffs and dirty eyes.",
+      "The tables and saloons produced more than ordinary amusement: A card shark slides into the game with clean cuffs and dirty eyes.",
+      "By closing time, one account was making the rounds through town: A card shark slides into the game with clean cuffs and dirty eyes."
+    ],
     "audioFile": "audio/oneoffs/card_shark.mp3",
     "effects": [
       {
@@ -1013,6 +1193,12 @@
     ],
     "screenText": "Winner gains +$20 from the supply.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"That table’s been lucky since the bullet hole got patched with silver.\"",
+    "newspaperText": [
+      "Talk from the saloons and entertainment houses reached the Gazette by nightfall: That table’s been lucky since the bullet hole got patched with silver.",
+      "A lively bit of town nightlife soon became the story everyone repeated: That table’s been lucky since the bullet hole got patched with silver.",
+      "The tables and saloons produced more than ordinary amusement: That table’s been lucky since the bullet hole got patched with silver.",
+      "By closing time, one account was making the rounds through town: That table’s been lucky since the bullet hole got patched with silver."
+    ],
     "audioFile": "audio/oneoffs/lucky_table.mp3",
     "effects": [
       {
@@ -1045,6 +1231,12 @@
     ],
     "screenText": "Before poker resolves, active player fights a Bandit. If they win, continue poker and gain 1 LP.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"A chair breaks, a bottle flies, and the cards ain’t the only trouble.\"",
+    "newspaperText": [
+      "Gunplay and law business supplied one of the day's sharper reports: A chair breaks, a bottle flies, and the cards ain’t the only trouble.",
+      "Trouble on the frontier quickly became the talk of nearby settlements: A chair breaks, a bottle flies, and the cards ain’t the only trouble.",
+      "Witnesses to the confrontation carried a vivid account back to town: A chair breaks, a bottle flies, and the cards ain’t the only trouble.",
+      "The encounter earned a place in the Gazette after reports agreed on one striking detail: A chair breaks, a bottle flies, and the cards ain’t the only trouble."
+    ],
     "audioFile": "audio/oneoffs/saloon_brawl.mp3",
     "effects": [
       {
@@ -1076,6 +1268,12 @@
     ],
     "screenText": "Gain $20 instead of $10 for this Work action.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Honest sweat spends just fine.\"",
+    "newspaperText": [
+      "Reports reaching the Gazette described the scene plainly: Honest sweat spends just fine.",
+      "Word traveled quickly across the territory after witnesses gave this account: Honest sweat spends just fine.",
+      "By sundown, travelers were repeating the same account along the trail: Honest sweat spends just fine.",
+      "The affair soon became frontier talk, with witnesses recalling one detail above the rest: Honest sweat spends just fine."
+    ],
     "audioFile": "audio/oneoffs/work_honest_pay.mp3",
     "effects": [
       {
@@ -1108,6 +1306,12 @@
     ],
     "screenText": "Gain $10 as normal, then gain 1 wound unless you discard 1 Poker Card.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The handle snaps and buries a splinter deep enough to remember.\"",
+    "newspaperText": [
+      "The doctor's office supplied one of the day's stranger reports: The handle snaps and buries a splinter deep enough to remember.",
+      "News concerning injury and treatment soon made its way to the Gazette: The handle snaps and buries a splinter deep enough to remember.",
+      "A rough day on the frontier ended with one memorable medical account: The handle snaps and buries a splinter deep enough to remember.",
+      "Town talk lingered over an unusual turn involving wounds and medicine: The handle snaps and buries a splinter deep enough to remember."
+    ],
     "audioFile": "audio/oneoffs/work_splintered_hand.mp3",
     "effects": [
       {
@@ -1143,6 +1347,12 @@
     ],
     "screenText": "After acquiring cattle, immediately move 1 space away from the Ranch.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The herd bolts, hooves thunderin’ like judgment day.\"",
+    "newspaperText": [
+      "Ranch country produced another tale before sundown: The herd bolts, hooves thunderin’ like judgment day.",
+      "Word from the cattle country reached the Gazette with plenty of dust on it: The herd bolts, hooves thunderin’ like judgment day.",
+      "The day's ranch business took an unexpected turn: The herd bolts, hooves thunderin’ like judgment day.",
+      "Riders returning from the ranches carried one story in particular: The herd bolts, hooves thunderin’ like judgment day."
+    ],
     "audioFile": "audio/oneoffs/stampede.mp3",
     "effects": [
       {
@@ -1176,6 +1386,12 @@
     ],
     "screenText": "Look at 2 cattle tokens from that Ranch. Keep 1 and return the other facedown.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The ranch hand points out the fattest steer in the pen.\"",
+    "newspaperText": [
+      "Ranch country produced another tale before sundown: The ranch hand points out the fattest steer in the pen.",
+      "Word from the cattle country reached the Gazette with plenty of dust on it: The ranch hand points out the fattest steer in the pen.",
+      "The day's ranch business took an unexpected turn: The ranch hand points out the fattest steer in the pen.",
+      "Riders returning from the ranches carried one story in particular: The ranch hand points out the fattest steer in the pen."
+    ],
     "audioFile": "audio/oneoffs/prize_steer.mp3",
     "effects": [
       {
@@ -1209,6 +1425,12 @@
     ],
     "screenText": "Gain +$20 when rustling. Your bold brand draws attention: move the Sheriff up to 3 spaces toward you.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The brand is fresh, and every lawman will smell it.\"",
+    "newspaperText": [
+      "Gunplay and law business supplied one of the day's sharper reports: The brand is fresh, and every lawman will smell it.",
+      "Trouble on the frontier quickly became the talk of nearby settlements: The brand is fresh, and every lawman will smell it.",
+      "Witnesses to the confrontation carried a vivid account back to town: The brand is fresh, and every lawman will smell it.",
+      "The encounter earned a place in the Gazette after reports agreed on one striking detail: The brand is fresh, and every lawman will smell it."
+    ],
     "audioFile": "audio/oneoffs/rustler_brand.mp3",
     "effects": [
       {
@@ -1242,6 +1464,12 @@
     ],
     "screenText": "Gain +$10 when wrangling cattle.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Not one steer strays. That kind of work earns respect.\"",
+    "newspaperText": [
+      "Gunplay and law business supplied one of the day's sharper reports: Not one steer strays. That kind of work earns respect.",
+      "Trouble on the frontier quickly became the talk of nearby settlements: Not one steer strays. That kind of work earns respect.",
+      "Witnesses to the confrontation carried a vivid account back to town: Not one steer strays. That kind of work earns respect.",
+      "The encounter earned a place in the Gazette after reports agreed on one striking detail: Not one steer strays. That kind of work earns respect."
+    ],
     "audioFile": "audio/oneoffs/clean_drive.mp3",
     "effects": [
       {
@@ -1274,6 +1502,12 @@
     ],
     "screenText": "End the Move action immediately. Draw 1 Poker Card.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The bridge ahead is more memory than timber.\"",
+    "newspaperText": [
+      "Travelers brought back a fresh account from the trail: The bridge ahead is more memory than timber.",
+      "The open road supplied one of the day's more unusual stories: The bridge ahead is more memory than timber.",
+      "Word from the range reached town ahead of the next rider: The bridge ahead is more memory than timber.",
+      "Another journey across the frontier produced a tale worth printing: The bridge ahead is more memory than timber."
+    ],
     "audioFile": "audio/oneoffs/broken_bridge.mp3",
     "effects": [
       {
@@ -1309,6 +1543,12 @@
     ],
     "screenText": "Move up to 2 additional spaces. Then gain 1 wound unless you discard 1 Poker Card.",
     "narrationScript": "[raspy][old cowboy][western][fast][low key][emotionless][quick]A driverless stagecoach comes barreling down the road!",
+    "newspaperText": [
+      "Travelers brought back a fresh account from the trail: A driverless stagecoach comes barreling down the road!",
+      "The open road supplied one of the day's more unusual stories: A driverless stagecoach comes barreling down the road!",
+      "Word from the range reached town ahead of the next rider: A driverless stagecoach comes barreling down the road!",
+      "Another journey across the frontier produced a tale worth printing: A driverless stagecoach comes barreling down the road!"
+    ],
     "audioFile": "audio/oneoffs/runaway_stage.mp3",
     "effects": [
       {
@@ -1348,6 +1588,12 @@
     ],
     "screenText": "Gain 1 wound. Then draw 1 Poker Card.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"A rattler strikes from a shadow no bigger than a boot heel.\"",
+    "newspaperText": [
+      "The doctor's office supplied one of the day's stranger reports: A rattler strikes from a shadow no bigger than a boot heel.",
+      "News concerning injury and treatment soon made its way to the Gazette: A rattler strikes from a shadow no bigger than a boot heel.",
+      "A rough day on the frontier ended with one memorable medical account: A rattler strikes from a shadow no bigger than a boot heel.",
+      "Town talk lingered over an unusual turn involving wounds and medicine: A rattler strikes from a shadow no bigger than a boot heel."
+    ],
     "audioFile": "audio/oneoffs/snakebite.mp3",
     "effects": [
       {
@@ -1384,6 +1630,12 @@
     ],
     "screenText": "Immediately move up to 2 spaces. Ignore mesas only for this movement if all players agree to the route.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"An old trail cuts through country most folks swear is impassable.\"",
+    "newspaperText": [
+      "Travelers brought back a fresh account from the trail: An old trail cuts through country most folks swear is impassable.",
+      "The open road supplied one of the day's more unusual stories: An old trail cuts through country most folks swear is impassable.",
+      "Word from the range reached town ahead of the next rider: An old trail cuts through country most folks swear is impassable.",
+      "Another journey across the frontier produced a tale worth printing: An old trail cuts through country most folks swear is impassable."
+    ],
     "audioFile": "audio/oneoffs/desert_shortcut.mp3",
     "effects": [
       {
@@ -1417,6 +1669,12 @@
     ],
     "screenText": "Fight a Bandit immediately. If you win, gain +$10.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Dixon Creek is quiet. Too quiet for honest country.\"",
+    "newspaperText": [
+      "Gunplay and law business supplied one of the day's sharper reports: Dixon Creek is quiet. Too quiet for honest country.",
+      "Trouble on the frontier quickly became the talk of nearby settlements: Dixon Creek is quiet. Too quiet for honest country.",
+      "Witnesses to the confrontation carried a vivid account back to town: Dixon Creek is quiet. Too quiet for honest country.",
+      "The encounter earned a place in the Gazette after reports agreed on one striking detail: Dixon Creek is quiet. Too quiet for honest country."
+    ],
     "audioFile": "audio/oneoffs/dixon_ambush.mp3",
     "effects": [
       {
@@ -1449,6 +1707,12 @@
     ],
     "screenText": "If at Green Ranch, gain $20. Otherwise draw 1 Poker Card.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"A young ranch hand waves you down with panic in his eyes.\"",
+    "newspaperText": [
+      "Ranch country produced another tale before sundown: A young ranch hand waves you down with panic in his eyes.",
+      "Word from the cattle country reached the Gazette with plenty of dust on it: A young ranch hand waves you down with panic in his eyes.",
+      "The day's ranch business took an unexpected turn: A young ranch hand waves you down with panic in his eyes.",
+      "Riders returning from the ranches carried one story in particular: A young ranch hand waves you down with panic in his eyes."
+    ],
     "audioFile": "audio/oneoffs/mesitos_greenhorn.mp3",
     "effects": [
       {
@@ -1483,6 +1747,12 @@
     ],
     "screenText": "If at Sunny Hills Mine, roll 1 Prospecting Die without spending an action.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Sunny Hills earns its name when the stone itself starts shining.\"",
+    "newspaperText": [
+      "Word from the diggings reached town quickly: Sunny Hills earns its name when the stone itself starts shining.",
+      "The mining camps supplied another story for the Gazette: Sunny Hills earns its name when the stone itself starts shining.",
+      "Talk of gold and hard luck traveled together after one fresh report: Sunny Hills earns its name when the stone itself starts shining.",
+      "Prospectors carried a new tale back from the claims: Sunny Hills earns its name when the stone itself starts shining."
+    ],
     "audioFile": "audio/oneoffs/sunny_hills_luck.mp3",
     "effects": [
       {
@@ -1515,6 +1785,12 @@
     ],
     "screenText": "Move the Train to Spike’s View Rail Station if Ante Up is enabled; otherwise draw 1 Poker Card.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"A signal fire burns on the ridge above Spike’s View.\"",
+    "newspaperText": [
+      "Railroad news carried an unexpected turn: A signal fire burns on the ridge above Spike’s View.",
+      "Word from the tracks reached the Gazette before the whistle faded: A signal fire burns on the ridge above Spike’s View.",
+      "Travelers along the rail line brought back a fresh account: A signal fire burns on the ridge above Spike’s View.",
+      "The day's railroad business produced a story of its own: A signal fire burns on the ridge above Spike’s View."
+    ],
     "audioFile": "audio/oneoffs/spikes_view_signal.mp3",
     "effects": [
       {
@@ -1548,6 +1824,12 @@
     ],
     "screenText": "Draw 1 Fight Card. On 7+, gain $20. On 6 or less, gain 1 wound.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Something answers your footsteps from deep in the rock.\"",
+    "newspaperText": [
+      "Fortune and danger crossed paths in one of the day's harder-edged reports: Something answers your footsteps from deep in the rock.",
+      "The rougher side of frontier life supplied a fresh story for the Gazette: Something answers your footsteps from deep in the rock.",
+      "A gamble with danger quickly became part of the day's talk: Something answers your footsteps from deep in the rock.",
+      "Word spread of another affair where nerve mattered as much as good sense: Something answers your footsteps from deep in the rock."
+    ],
     "audioFile": "audio/oneoffs/cliff_junction_echo.mp3",
     "effects": [
       {
@@ -1581,6 +1863,12 @@
     ],
     "screenText": "Draw 1 Poker Card. If it is a face card or Ace, gain 1 LP.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Some items carry stories before they ever touch your hand.\"",
+    "newspaperText": [
+      "Reports reaching the Gazette described the scene plainly: Some items carry stories before they ever touch your hand.",
+      "Word traveled quickly across the territory after witnesses gave this account: Some items carry stories before they ever touch your hand.",
+      "By sundown, travelers were repeating the same account along the trail: Some items carry stories before they ever touch your hand.",
+      "The affair soon became frontier talk, with witnesses recalling one detail above the rest: Some items carry stories before they ever touch your hand."
+    ],
     "audioFile": "audio/oneoffs/legendary_whisper.mp3",
     "effects": [
       {
@@ -1623,6 +1911,12 @@
     ],
     "screenText": "Dr. Herve sweetens the deal. Choose: recover $10 from your purchase or draw 2 Poker Cards.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Herve grins and taps a hidden drawer. Good customers deserve a little something extra.\"",
+    "newspaperText": [
+      "A bit of frontier commerce turned into a story of its own: Herve grins and taps a hidden drawer. Good customers deserve a little something extra.",
+      "Town merchants had more than ordinary business to discuss: Herve grins and taps a hidden drawer. Good customers deserve a little something extra.",
+      "A purchase in town supplied an unexpected item for the Gazette: Herve grins and taps a hidden drawer. Good customers deserve a little something extra.",
+      "Word from the shops carried one memorable detail: Herve grins and taps a hidden drawer. Good customers deserve a little something extra."
+    ],
     "audioFile": null,
     "effects": [
       {
@@ -1663,6 +1957,12 @@
     ],
     "screenText": "Dr. Herve slides $20 back across the counter and offers a cloudy concoction for the road. Take the no-questions-asked deal to gain $20 and 1 WP, or refuse it with no additional effect.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Herve slides some money back across the counter, then produces a cloudy bottle. Don't ask where either one came from. Just decide whether you're feeling lucky.\"",
+    "newspaperText": [
+      "Gunplay and law business supplied one of the day's sharper reports: Herve slides some money back across the counter, then produces a cloudy bottle. Don't ask where either one came from. Just decide whether you're feeling lucky.",
+      "Trouble on the frontier quickly became the talk of nearby settlements: Herve slides some money back across the counter, then produces a cloudy bottle. Don't ask where either one came from. Just decide whether you're feeling lucky.",
+      "Witnesses to the confrontation carried a vivid account back to town: Herve slides some money back across the counter, then produces a cloudy bottle. Don't ask where either one came from. Just decide whether you're feeling lucky.",
+      "The encounter earned a place in the Gazette after reports agreed on one striking detail: Herve slides some money back across the counter, then produces a cloudy bottle. Don't ask where either one came from. Just decide whether you're feeling lucky."
+    ],
     "audioFile": null,
     "effects": [],
     "resultButtons": [
@@ -1699,6 +1999,12 @@
           "blood_money"
         ],
         "screenText": "Dr. Herve slides $20 back across the counter and offers a cloudy concoction for the road. If you're feeling lucky, take the no-questions-asked deal to gain $20 and 1 Gambling Point; or refuse it with no additional effect.",
+        "newspaperText": [
+          "Dr. Herve quietly sweetened a traveling customer's purchase with loose cash and a wager fit for the gambling halls.",
+          "A no-questions-asked deal at Dr. Herve's wagon mixed trade, easy money and a little extra gambling temptation.",
+          "Word spread that Dr. Herve had begun offering select customers a suspiciously generous bargain tied to the frontier's gambling scene.",
+          "One traveler left Dr. Herve's wagon richer in cash and deeper in the sort of gamble that keeps saloon tables busy."
+        ],
         "resultButtons": [
           {
             "label": "Take $20 + 1 GP",
@@ -1735,6 +2041,12 @@
     ],
     "screenText": "Gain $10 and add “Famous Deed” to the newspaper summary.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"By sundown, somebody is already telling the story wrong.\"",
+    "newspaperText": [
+      "Reports reaching the Gazette described the scene plainly: By sundown, somebody is already telling the story wrong.",
+      "Word traveled quickly across the territory after witnesses gave this account: By sundown, somebody is already telling the story wrong.",
+      "By sundown, travelers were repeating the same account along the trail: By sundown, somebody is already telling the story wrong.",
+      "The affair soon became frontier talk, with witnesses recalling one detail above the rest: By sundown, somebody is already telling the story wrong."
+    ],
     "audioFile": "audio/oneoffs/famous_deed.mp3",
     "effects": [
       {
@@ -1773,6 +2085,12 @@
     ],
     "screenText": "After resolving the Risk Die, draw 1 Poker Card.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Fortune favors the fool who knows when to run.\"",
+    "newspaperText": [
+      "Fortune and danger crossed paths in one of the day's harder-edged reports: Fortune favors the fool who knows when to run.",
+      "The rougher side of frontier life supplied a fresh story for the Gazette: Fortune favors the fool who knows when to run.",
+      "A gamble with danger quickly became part of the day's talk: Fortune favors the fool who knows when to run.",
+      "Word spread of another affair where nerve mattered as much as good sense: Fortune favors the fool who knows when to run."
+    ],
     "audioFile": "audio/oneoffs/risk_pays.mp3",
     "effects": [
       {
@@ -1810,6 +2128,12 @@
     ],
     "screenText": "After resolving the Risk Die, discard 1 Poker Card or gain 1 wound.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Risk has teeth, and today it found skin.\"",
+    "newspaperText": [
+      "Fortune and danger crossed paths in one of the day's harder-edged reports: Risk has teeth, and today it found skin.",
+      "The rougher side of frontier life supplied a fresh story for the Gazette: Risk has teeth, and today it found skin.",
+      "A gamble with danger quickly became part of the day's talk: Risk has teeth, and today it found skin.",
+      "Word spread of another affair where nerve mattered as much as good sense: Risk has teeth, and today it found skin."
+    ],
     "audioFile": "audio/oneoffs/risk_bites.mp3",
     "effects": [
       {
@@ -1848,6 +2172,12 @@
     ],
     "screenText": "Recruit cost is reduced by $10.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"A few hard faces know your name and ride cheap.\"",
+    "newspaperText": [
+      "Fortune and danger crossed paths in one of the day's harder-edged reports: A few hard faces know your name and ride cheap.",
+      "The rougher side of frontier life supplied a fresh story for the Gazette: A few hard faces know your name and ride cheap.",
+      "A gamble with danger quickly became part of the day's talk: A few hard faces know your name and ride cheap.",
+      "Word spread of another affair where nerve mattered as much as good sense: A few hard faces know your name and ride cheap."
+    ],
     "audioFile": "audio/oneoffs/gang_loyalty.mp3",
     "effects": [
       {
@@ -1882,6 +2212,12 @@
     ],
     "screenText": "After resolving the Frontier token, gain $10 or draw 1 Poker Card.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Under a flat stone waits a cache left by somebody who never came back.\"",
+    "newspaperText": [
+      "Railroad news carried an unexpected turn: Under a flat stone waits a cache left by somebody who never came back.",
+      "Word from the tracks reached the Gazette before the whistle faded: Under a flat stone waits a cache left by somebody who never came back.",
+      "Travelers along the rail line brought back a fresh account: Under a flat stone waits a cache left by somebody who never came back.",
+      "The day's railroad business produced a story of its own: Under a flat stone waits a cache left by somebody who never came back."
+    ],
     "audioFile": "audio/oneoffs/frontier_cache.mp3",
     "effects": [
       {
@@ -1919,6 +2255,12 @@
     ],
     "screenText": "After resolving the Frontier token, gain 1 wound.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The frontier gives with one hand and drops a log with the other.\"",
+    "newspaperText": [
+      "Railroad news carried an unexpected turn: The frontier gives with one hand and drops a log with the other.",
+      "Word from the tracks reached the Gazette before the whistle faded: The frontier gives with one hand and drops a log with the other.",
+      "Travelers along the rail line brought back a fresh account: The frontier gives with one hand and drops a log with the other.",
+      "The day's railroad business produced a story of its own: The frontier gives with one hand and drops a log with the other."
+    ],
     "audioFile": "audio/oneoffs/frontier_deadfall.mp3",
     "effects": [
       {
@@ -1953,6 +2295,12 @@
     ],
     "screenText": "Ignore any consequences.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Clean work. Even the old trappers would nod at that shot.\"",
+    "newspaperText": [
+      "Life off the beaten trail produced another notable report: Clean work. Even the old trappers would nod at that shot.",
+      "A day of living off the land brought an unexpected development: Clean work. Even the old trappers would nod at that shot.",
+      "News from the wilder parts of the territory reached the Gazette: Clean work. Even the old trappers would nod at that shot.",
+      "Frontier skill and hard country combined in one story worth repeating: Clean work. Even the old trappers would nod at that shot."
+    ],
     "audioFile": "audio/oneoffs/hunters_mark.mp3",
     "effects": [
       {
@@ -1988,6 +2336,12 @@
     ],
     "screenText": "After the Hunt, gain 1 wound, then gain 1 LP.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The beast falls, but not before leaving its mark.\"",
+    "newspaperText": [
+      "The doctor's office supplied one of the day's stranger reports: The beast falls, but not before leaving its mark.",
+      "News concerning injury and treatment soon made its way to the Gazette: The beast falls, but not before leaving its mark.",
+      "A rough day on the frontier ended with one memorable medical account: The beast falls, but not before leaving its mark.",
+      "Town talk lingered over an unusual turn involving wounds and medicine: The beast falls, but not before leaving its mark."
+    ],
     "audioFile": "audio/oneoffs/wounded_predator.mp3",
     "effects": [
       {
@@ -2026,6 +2380,12 @@
     ],
     "screenText": "Draw 1 additional Forage card, then discard 1 Forage card.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"A dry creek bed hides more than dust.\"",
+    "newspaperText": [
+      "Life off the beaten trail produced another notable report: A dry creek bed hides more than dust.",
+      "A day of living off the land brought an unexpected development: A dry creek bed hides more than dust.",
+      "News from the wilder parts of the territory reached the Gazette: A dry creek bed hides more than dust.",
+      "Frontier skill and hard country combined in one story worth repeating: A dry creek bed hides more than dust."
+    ],
     "audioFile": "audio/oneoffs/forager_cache.mp3",
     "effects": [
       {
@@ -2064,6 +2424,12 @@
     ],
     "screenText": "Discard 1 resource or gain 1 wound.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"What looked useful in the shade smells mean in the sun.\"",
+    "newspaperText": [
+      "Life off the beaten trail produced another notable report: What looked useful in the shade smells mean in the sun.",
+      "A day of living off the land brought an unexpected development: What looked useful in the shade smells mean in the sun.",
+      "News from the wilder parts of the territory reached the Gazette: What looked useful in the shade smells mean in the sun.",
+      "Frontier skill and hard country combined in one story worth repeating: What looked useful in the shade smells mean in the sun."
+    ],
     "audioFile": "audio/oneoffs/spoiled_bundle.mp3",
     "effects": [
       {
@@ -2101,6 +2467,12 @@
     ],
     "screenText": "After crafting, gain $10 or 1 LP.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"That ain’t just useful. That’s work worth remembering.\"",
+    "newspaperText": [
+      "Life off the beaten trail produced another notable report: That ain’t just useful. That’s work worth remembering.",
+      "A day of living off the land brought an unexpected development: That ain’t just useful. That’s work worth remembering.",
+      "News from the wilder parts of the territory reached the Gazette: That ain’t just useful. That’s work worth remembering.",
+      "Frontier skill and hard country combined in one story worth repeating: That ain’t just useful. That’s work worth remembering."
+    ],
     "audioFile": "audio/oneoffs/fine_craft.mp3",
     "effects": [
       {
@@ -2138,6 +2510,12 @@
     ],
     "screenText": "Craft normally, then discard 1 additional resource or discard 1 Poker Card.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The tool holds together just long enough to finish the job.\"",
+    "newspaperText": [
+      "Life off the beaten trail produced another notable report: The tool holds together just long enough to finish the job.",
+      "A day of living off the land brought an unexpected development: The tool holds together just long enough to finish the job.",
+      "News from the wilder parts of the territory reached the Gazette: The tool holds together just long enough to finish the job.",
+      "Frontier skill and hard country combined in one story worth repeating: The tool holds together just long enough to finish the job."
+    ],
     "audioFile": "audio/oneoffs/broken_tool.mp3",
     "effects": [
       {
@@ -2176,6 +2554,12 @@
     ],
     "screenText": "If the resource is Wood at any Rail Station, gain $20 and add Railroad Progress +1.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Fresh-cut timbers thump beside the tracks like the bones of a new town.\"",
+    "newspaperText": [
+      "Railroad news carried an unexpected turn: Fresh-cut timbers thump beside the tracks like the bones of a new town.",
+      "Word from the tracks reached the Gazette before the whistle faded: Fresh-cut timbers thump beside the tracks like the bones of a new town.",
+      "Travelers along the rail line brought back a fresh account: Fresh-cut timbers thump beside the tracks like the bones of a new town.",
+      "The day's railroad business produced a story of its own: Fresh-cut timbers thump beside the tracks like the bones of a new town."
+    ],
     "audioFile": "audio/oneoffs/wood_for_station.mp3",
     "effects": [
       {
@@ -2216,6 +2600,12 @@
     ],
     "screenText": "If the resource is Metal at any Rail Station, gain $20 and add Railroad Progress +1.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The foreman runs a thumb along the iron and smiles like a man seeing tomorrow.\"",
+    "newspaperText": [
+      "Railroad news carried an unexpected turn: The foreman runs a thumb along the iron and smiles like a man seeing tomorrow.",
+      "Word from the tracks reached the Gazette before the whistle faded: The foreman runs a thumb along the iron and smiles like a man seeing tomorrow.",
+      "Travelers along the rail line brought back a fresh account: The foreman runs a thumb along the iron and smiles like a man seeing tomorrow.",
+      "The day's railroad business produced a story of its own: The foreman runs a thumb along the iron and smiles like a man seeing tomorrow."
+    ],
     "audioFile": "audio/oneoffs/metal_for_tracks.mp3",
     "effects": [
       {
@@ -2253,6 +2643,12 @@
     ],
     "screenText": "A witness saw the robbery. Pay $20 to keep them quiet, or move the Sheriff up to 3 spaces toward you.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"A curtain twitches across the street. Somebody saw the whole thing, and witnesses have a way of finding the sheriff.\"",
+    "newspaperText": [
+      "Reports reaching the Gazette described the scene plainly: A curtain twitches across the street. Somebody saw the whole thing, and witnesses have a way of finding the sheriff.",
+      "Word traveled quickly across the territory after witnesses gave this account: A curtain twitches across the street. Somebody saw the whole thing, and witnesses have a way of finding the sheriff.",
+      "By sundown, travelers were repeating the same account along the trail: A curtain twitches across the street. Somebody saw the whole thing, and witnesses have a way of finding the sheriff.",
+      "The affair soon became frontier talk, with witnesses recalling one detail above the rest: A curtain twitches across the street. Somebody saw the whole thing, and witnesses have a way of finding the sheriff."
+    ],
     "audioFile": "audio/oneoffs/robbery_hidden_witness.mp3",
     "effects": [
       {
@@ -2288,6 +2684,12 @@
     ],
     "screenText": "Among the stolen goods is another $10. Gain $10.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Something else hits the dust in the scramble: a small purse nobody noticed until now.\"",
+    "newspaperText": [
+      "Reports reaching the Gazette described the scene plainly: Something else hits the dust in the scramble: a small purse nobody noticed until now.",
+      "Word traveled quickly across the territory after witnesses gave this account: Something else hits the dust in the scramble: a small purse nobody noticed until now.",
+      "By sundown, travelers were repeating the same account along the trail: Something else hits the dust in the scramble: a small purse nobody noticed until now.",
+      "The affair soon became frontier talk, with witnesses recalling one detail above the rest: Something else hits the dust in the scramble: a small purse nobody noticed until now."
+    ],
     "audioFile": "audio/oneoffs/robbery_dropped_purse.mp3",
     "effects": [
       {
@@ -2320,6 +2722,12 @@
     ],
     "screenText": "The winner of this fight gains $10 from impressed onlookers.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Boots scrape porches and saloon doors swing open. Folks smell a fight, and wagers start changing hands.\"",
+    "newspaperText": [
+      "Gunplay and law business supplied one of the day's sharper reports: Boots scrape porches and saloon doors swing open. Folks smell a fight, and wagers start changing hands.",
+      "Trouble on the frontier quickly became the talk of nearby settlements: Boots scrape porches and saloon doors swing open. Folks smell a fight, and wagers start changing hands.",
+      "Witnesses to the confrontation carried a vivid account back to town: Boots scrape porches and saloon doors swing open. Folks smell a fight, and wagers start changing hands.",
+      "The encounter earned a place in the Gazette after reports agreed on one striking detail: Boots scrape porches and saloon doors swing open. Folks smell a fight, and wagers start changing hands."
+    ],
     "audioFile": "audio/oneoffs/player_fight_crowd.mp3",
     "effects": [],
     "resultButtons": [
@@ -2346,6 +2754,12 @@
     ],
     "screenText": "Both fighters randomly draw from the other player's hand.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"A hard gust throws grit between the fighters. For half a heartbeat, neither one can see straight.\"",
+    "newspaperText": [
+      "Gunplay and law business supplied one of the day's sharper reports: A hard gust throws grit between the fighters. For half a heartbeat, neither one can see straight.",
+      "Trouble on the frontier quickly became the talk of nearby settlements: A hard gust throws grit between the fighters. For half a heartbeat, neither one can see straight.",
+      "Witnesses to the confrontation carried a vivid account back to town: A hard gust throws grit between the fighters. For half a heartbeat, neither one can see straight.",
+      "The encounter earned a place in the Gazette after reports agreed on one striking detail: A hard gust throws grit between the fighters. For half a heartbeat, neither one can see straight."
+    ],
     "audioFile": "audio/oneoffs/player_fight_dust.mp3",
     "effects": [],
     "resultButtons": [
@@ -2373,6 +2787,12 @@
     ],
     "screenText": "The player causing the arrest draws 1 Poker Card.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The sheriff marches the prisoner through the middle of town where everybody can see how the day ended.\"",
+    "newspaperText": [
+      "Gunplay and law business supplied one of the day's sharper reports: The sheriff marches the prisoner through the middle of town where everybody can see how the day ended.",
+      "Trouble on the frontier quickly became the talk of nearby settlements: The sheriff marches the prisoner through the middle of town where everybody can see how the day ended.",
+      "Witnesses to the confrontation carried a vivid account back to town: The sheriff marches the prisoner through the middle of town where everybody can see how the day ended.",
+      "The encounter earned a place in the Gazette after reports agreed on one striking detail: The sheriff marches the prisoner through the middle of town where everybody can see how the day ended."
+    ],
     "audioFile": "audio/oneoffs/sheriff_arrest_public_example.mp3",
     "effects": [],
     "resultButtons": [
@@ -2400,6 +2820,12 @@
     ],
     "screenText": "The arrested player may discard 1 Poker Card to keep $10 that would otherwise be lost during the arrest.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The sheriff's cuffs have seen better years, and so has the deputy watching the prisoner's pockets.\"",
+    "newspaperText": [
+      "Gunplay and law business supplied one of the day's sharper reports: The sheriff's cuffs have seen better years, and so has the deputy watching the prisoner's pockets.",
+      "Trouble on the frontier quickly became the talk of nearby settlements: The sheriff's cuffs have seen better years, and so has the deputy watching the prisoner's pockets.",
+      "Witnesses to the confrontation carried a vivid account back to town: The sheriff's cuffs have seen better years, and so has the deputy watching the prisoner's pockets.",
+      "The encounter earned a place in the Gazette after reports agreed on one striking detail: The sheriff's cuffs have seen better years, and so has the deputy watching the prisoner's pockets."
+    ],
     "audioFile": "audio/oneoffs/sheriff_arrest_loose_cuffs.mp3",
     "effects": [],
     "resultButtons": [
@@ -2429,6 +2855,12 @@
     ],
     "screenText": "Draw 1 Poker Card.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"The conductor recognizes a familiar face and passes along a useful bit of news before the whistle blows.\"",
+    "newspaperText": [
+      "Railroad news carried an unexpected turn: The conductor recognizes a familiar face and passes along a useful bit of news before the whistle blows.",
+      "Word from the tracks reached the Gazette before the whistle faded: The conductor recognizes a familiar face and passes along a useful bit of news before the whistle blows.",
+      "Travelers along the rail line brought back a fresh account: The conductor recognizes a familiar face and passes along a useful bit of news before the whistle blows.",
+      "The day's railroad business produced a story of its own: The conductor recognizes a familiar face and passes along a useful bit of news before the whistle blows."
+    ],
     "audioFile": "audio/oneoffs/rail_friendly_conductor.mp3",
     "effects": [
       {
@@ -2463,6 +2895,12 @@
     ],
     "screenText": "Gain $10 for helping unload a late freight car.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"A freight car rolls in behind schedule and short on hands.\"",
+    "newspaperText": [
+      "Railroad news carried an unexpected turn: A freight car rolls in behind schedule and short on hands.",
+      "Word from the tracks reached the Gazette before the whistle faded: A freight car rolls in behind schedule and short on hands.",
+      "Travelers along the rail line brought back a fresh account: A freight car rolls in behind schedule and short on hands.",
+      "The day's railroad business produced a story of its own: A freight car rolls in behind schedule and short on hands."
+    ],
     "audioFile": "audio/oneoffs/rail_late_freight.mp3",
     "effects": [
       {
@@ -2497,6 +2935,12 @@
     ],
     "screenText": "Discard 1 Poker Card or gain 1 wound.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Stone cracks loose above the trail and the whole mountain seems to come down at once.\"",
+    "newspaperText": [
+      "Railroad news carried an unexpected turn: Stone cracks loose above the trail and the whole mountain seems to come down at once.",
+      "Word from the tracks reached the Gazette before the whistle faded: Stone cracks loose above the trail and the whole mountain seems to come down at once.",
+      "Travelers along the rail line brought back a fresh account: Stone cracks loose above the trail and the whole mountain seems to come down at once.",
+      "The day's railroad business produced a story of its own: Stone cracks loose above the trail and the whole mountain seems to come down at once."
+    ],
     "audioFile": "audio/oneoffs/mountain_pass_rockslide.mp3",
     "effects": [
       {
@@ -2534,6 +2978,12 @@
     ],
     "screenText": "Find supplies tucked beneath a cairn. Gain $10 or draw 1 Poker Card.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Beneath a stack of trail stones sits a weathered cache left by somebody who never came back for it.\"",
+    "newspaperText": [
+      "Railroad news carried an unexpected turn: Beneath a stack of trail stones sits a weathered cache left by somebody who never came back for it.",
+      "Word from the tracks reached the Gazette before the whistle faded: Beneath a stack of trail stones sits a weathered cache left by somebody who never came back for it.",
+      "Travelers along the rail line brought back a fresh account: Beneath a stack of trail stones sits a weathered cache left by somebody who never came back for it.",
+      "The day's railroad business produced a story of its own: Beneath a stack of trail stones sits a weathered cache left by somebody who never came back for it."
+    ],
     "audioFile": "audio/oneoffs/mountain_pass_abandoned_cache.mp3",
     "effects": [
       {

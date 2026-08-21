@@ -1,0 +1,63 @@
+{
+  "id": "darkrock_gazette_generator",
+  "title": "The Darkrock Gazette",
+  "edition": "",
+  "output": "print-ready-html",
+  "bodyFont": "Times New Roman",
+  "sections": [
+    {
+      "id": "lead_story",
+      "source": "frontierMood + triggeredLog.primaryTrigger",
+      "presentation": "headline-and-deck",
+      "description": "Главная статья на основе настроения плюс краткая сводка преобладающих видов активности во время игры."
+    },
+    {
+      "id": "final_tally",
+      "source": "finalScores + finalWinnerColors",
+      "presentation": "side-callout",
+      "description": "Компактный блок итоговых мест с победителем и значением LP каждого игрока."
+    },
+    {
+      "id": "gazette_ledger",
+      "source": "triggeredLog.primaryTrigger",
+      "presentation": "compact-counts",
+      "description": "Понятный подсчёт категорий действий, которые чаще всего встречались в записанной истории триггеров."
+    },
+    {
+      "id": "player_recaps",
+      "source": "triggeredLog grouped by player color",
+      "presentation": "prose",
+      "description": "Короткие сводки по каждому игроку, основанные только на действиях, сюжетных исходах и разовых встречах, действительно записанных для этого игрока."
+    },
+    {
+      "id": "world_events",
+      "source": "triggeredLog.worldEventStarted + activeWorldEvents",
+      "presentation": "article",
+      "description": "Текстовая сводка событий всей территории, произошедших во время игры, с использованием авторских вариантов newspaperText, когда они доступны."
+    },
+    {
+      "id": "one_off_dispatches",
+      "source": "triggeredLog.oneOffEvent",
+      "presentation": "article",
+      "description": "Текстовая сводка необычных разовых происшествий, сгруппированных вокруг встретивших их всадников, с использованием авторских вариантов newspaperText, когда они доступны."
+    },
+    {
+      "id": "character_arcs",
+      "source": "arcProgress + activeStories",
+      "presentation": "mini-articles",
+      "description": "По одной короткой статье для каждой начавшейся арки персонажа, включая завершённые, пропущенные и ещё незавершённые главы, с использованием авторских вариантов newspaperText, когда они доступны."
+    },
+    {
+      "id": "global_storylines",
+      "source": "arcProgress + activeStories",
+      "presentation": "article",
+      "description": "Краткая сводка всех крупных сюжетных линий по всей территории, которые продвинулись во время игры, с использованием авторских вариантов newspaperText, когда они доступны."
+    },
+    {
+      "id": "final_word",
+      "source": "frontierMood + finalScores + activity + narrative history",
+      "presentation": "closing-editorial",
+      "description": "Динамический заключительный абзац, зависящий от настроения фронтира, преобладающих действий, историй, мировых событий, разовых событий и итогового победителя."
+    }
+  ]
+}

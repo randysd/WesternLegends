@@ -1,0 +1,1763 @@
+{
+  "app": {
+    "language": "de",
+    "title": "Western Legends Begleiter",
+    "description": "Western Legends Frontier Director Begleit-App",
+    "brand": "Western Legends",
+    "companion": "Begleiter",
+    "frontierDirector": "Frontier Director",
+    "locale": "de-DE"
+  },
+  "navigation": {
+    "companionMenu": "Begleitmenü",
+    "home": "Startseite",
+    "game": "Spiel",
+    "newGame": "Neues Spiel",
+    "resumeGame": "Spiel fortsetzen",
+    "reference": "Referenz",
+    "assist": "Hilfe",
+    "settings": "Einstellungen",
+    "endGame": "Spiel beenden",
+    "about": "Über"
+  },
+  "accessibility": {
+    "appHeader": "App-Kopfzeile",
+    "menu": "Menü",
+    "goHome": "Zur Startseite",
+    "mainNavigation": "Hauptnavigation",
+    "bottomNavigation": "Untere Navigation",
+    "close": "Schließen",
+    "replayNarration": "Erzählung erneut abspielen",
+    "playersCurrentGame": "Spieler im aktuellen Spiel",
+    "currentGameSummary": "Zusammenfassung des aktuellen Spiels",
+    "setupSteps": "Aufbauschritte",
+    "primaryActionTriggers": "Primäre Aktionsauslöser",
+    "fightFlow": "Interaktives Ablaufdiagramm zur Kampfabwicklung",
+    "finalScoringReminders": "Hinweise zur Endwertung",
+    "firstPlayerSelector": "Touch-Auswahl des Startspielers",
+    "rollDice": "Würfel werfen"
+  },
+  "dialogs": {
+    "frontierTale": "Grenzlandgeschichte",
+    "trailHelper": "Weghelfer",
+    "assists": "Hilfen",
+    "worldEvent": "Weltereignis",
+    "frontierEvent": "Grenzlandereignis",
+    "resolveAsInstructed": "Handle das Ereignis wie angegeben ab.",
+    "dismiss": "Schließen",
+    "effect": "Effekt"
+  },
+  "about": {
+    "dialogType": "Western Legends Begleiter",
+    "title": "Über",
+    "projectName": "Frontier Director",
+    "intro": "<strong>Frontier Director</strong> ist eine inoffizielle, von Fans erstellte Begleit-App, die Western Legends um dynamische Ereignisse, Story-Begegnungen, Aufbauhilfe, Schnellreferenzen und Helfer für den Spieltisch erweitert.",
+    "creator": "Erstellt und entwickelt von Randy Dykstra für die Western-Legends-Community.",
+    "support": "Wenn die App einen Platz an deinem Spieltisch gefunden hat, hilft ein kleines Trinkgeld dabei, die weitere Entwicklung und künftige Grenzlandgeschichten zu unterstützen.",
+    "disclaimer": "Western Legends und die zugehörigen Erweiterungen gehören ihren jeweiligen Rechteinhabern. Dieses Fanprojekt ist weder mit dem Verlag verbunden noch von ihm unterstützt.",
+    "contactTitle": "Kontakt & Feedback",
+    "contactCopy": "Einen Fehler gefunden, einen Vorschlag oder eine Regelkorrektur entdeckt? Ich freue mich über deine Nachricht.",
+    "boardGameGeek": "BoardGameGeek",
+    "email": "E-Mail",
+    "supportButton": "Dieses Projekt unterstützen"
+  },
+  "home": {
+    "standardStories": "Standardgeschichten",
+    "storiesOff": "Geschichten aus",
+    "customStories": "Benutzerdefinierte Geschichten",
+    "quiet": "Das Grenzland ist ruhig … vorerst.",
+    "trailContinues": "Der Weg geht weiter",
+    "legendAwaits": "Deine Legende wartet",
+    "subtitle": "Versammle deine Posse und hinterlasse deine Spuren im Grenzland.",
+    "continueGame": "Spiel fortsetzen",
+    "startNewGame": "Neues Spiel starten",
+    "playerCount": {
+      "one": "{count} Spieler",
+      "other": "{count} Spieler"
+    },
+    "activeStories": {
+      "one": "{count} aktive Geschichte",
+      "other": "{count} aktive Geschichten"
+    },
+    "worldEffects": {
+      "one": "{count} Welteffekt",
+      "other": "{count} Welteffekte"
+    },
+    "defaultPlayer": "Spieler {number}"
+  },
+  "story": {
+    "frequency": {
+      "rare": "Selten",
+      "standard": "Standard",
+      "frequent": "Häufig"
+    },
+    "track": {
+      "start": {
+        "title": "Start"
+      },
+      "sheriff": {
+        "title": "Sheriff bewegen",
+        "screenText": "Bewege den Sheriff bis zu 3 Felder."
+      },
+      "bandits": {
+        "title": "Banditen platzieren",
+        "screenText": "Platziere Banditen bei Versteck A, B oder C."
+      },
+      "choose": {
+        "title": "Punkt wählen",
+        "screenText": "Erhalte 1 LP, WP, MP oder GP."
+      }
+    },
+    "point": "Story-Punkt",
+    "hideFutureReminders": "Künftige Erinnerungen an Story-Punkte ausblenden",
+    "doNotShowAgain": "Nicht erneut anzeigen",
+    "tapDismiss": "Zum Schließen antippen",
+    "trackPerPlayer": "Story-Punkt-Leiste pro Spieler",
+    "unresolvedSuffix": "ungelöstes Story-Kapitel",
+    "playersUnresolved": "Spieler mit ungelösten Story-Kapiteln",
+    "playerUnresolvedTitle": "{name} hat ein ungelöstes Story-Kapitel",
+    "playerUnresolvedAria": "{name} hat ein ungelöstes Story-Kapitel. Antippen, um es anzusehen.",
+    "tapAddPoint": "{player} — {space} (antippen, um einen Story-Punkt hinzuzufügen){alert}",
+    "eventTypes": {
+      "oneOff": {
+        "title": "Einmalige Ereignisse",
+        "description": "Kurze Begegnungen, die durch Aktionen während des Spiels ausgelöst werden."
+      },
+      "arcs": {
+        "title": "Charakter-Handlungsbögen",
+        "description": "Mehrteilige Geschichten, die sich frühere Entscheidungen und Aktionen der Spieler merken."
+      },
+      "world": {
+        "title": "Weltereignisse",
+        "description": "Gelegentliche Ereignisse im gesamten Grenzland, die unabhängig im Laufe der Zeit auftreten."
+      }
+    },
+    "enabledAria": "{title} aktiviert",
+    "frequencyAria": "Häufigkeit von {title}",
+    "fallbackTitle": "Geschichte",
+    "triggerKeywords": [
+      {
+        "word": "Bandit",
+        "style": "red"
+      },
+      {
+        "word": "Schürfen",
+        "style": "blue"
+      },
+      {
+        "word": "Gold",
+        "style": "gold"
+      },
+      {
+        "word": "Gegenstand",
+        "style": "green"
+      },
+      {
+        "word": "Poker",
+        "style": "purple"
+      },
+      {
+        "word": "Saloon",
+        "style": "purple"
+      },
+      {
+        "word": "Vieh",
+        "style": "orange"
+      },
+      {
+        "word": "Ranch",
+        "style": "orange"
+      },
+      {
+        "word": "Bewegung",
+        "style": "brown"
+      },
+      {
+        "word": "Überfall",
+        "style": "red"
+      },
+      {
+        "word": "Raub",
+        "style": "red"
+      },
+      {
+        "word": "Verhaftung",
+        "style": "blue"
+      },
+      {
+        "word": "Heilen",
+        "style": "green"
+      }
+    ],
+    "markerTitle": "{player} — {space} (antippen, um einen Story-Punkt hinzuzufügen){alert}",
+    "alertTitle": "{player} hat ein ungelöstes Story-Kapitel",
+    "alertAria": "{player} hat ein ungelöstes Story-Kapitel. Antippen, um es anzusehen.",
+    "activeTriggersRemaining": {
+      "one": "Noch {count} primärer Aktionsauslöser",
+      "other": "Noch {count} primäre Aktionsauslöser"
+    },
+    "onlyPlayerMayResolve": "Nur {player} darf dieses Kapitel abhandeln",
+    "settingEnabled": "{title} aktiviert",
+    "settingFrequency": "Häufigkeit von {title}",
+    "triggerPlayerPrefix": "Ein Spieler ",
+    "tapAddStoryPoint": "antippen, um einen Story-Punkt hinzuzufügen",
+    "ongoingCount": {
+      "one": "{count} laufende Geschichte",
+      "other": "{count} laufende Geschichten"
+    }
+  },
+  "setup": {
+    "gameSetup": "Spielaufbau",
+    "newGame": "Neues Spiel",
+    "modules": "Module",
+    "basics": "Grundlagen",
+    "setup": "Aufbau",
+    "next": "Weiter",
+    "back": "Zurück",
+    "startGame": "Spiel starten",
+    "victoryConditions": "Siegbedingungen",
+    "decreaseTargetLP": "Ziel-LP verringern",
+    "increaseTargetLP": "Ziel-LP erhöhen",
+    "targetLPCaption": "Ziel-Legendenpunkte für den Spielsieg",
+    "storyEvents": "Story & Ereignisse",
+    "trackStoryPoints": "Story-Punkte verfolgen",
+    "trackStoryPointsDescription": "Verfolge die Story-Leiste jedes Spielers und zeige kompakte Belohnungserinnerungen.",
+    "players": "Spieler",
+    "name": "Name",
+    "character": "Charakter",
+    "addPlayer": "Spieler hinzufügen",
+    "goals": "Ziele:",
+    "goalsNote": "Nimm nach der Wahl jedes Charakters dessen 4 Zielkarten.",
+    "tapCycleColor": "Antippen, um die Farbe zu wechseln",
+    "cyclePlayerColor": "Farbe von Spieler {number} wechseln",
+    "playerNameAria": "Name von Spieler {number}",
+    "playerCharacterAria": "Charakter von Spieler {number}",
+    "removePlayer": "Spieler {number} entfernen",
+    "manInBlackAutomated": "Automatisierter Spieler „Mann in Schwarz“",
+    "assignColors": "Weise jedem Spieler vor dem Start eine Farbe zu.",
+    "required": "Erforderlich",
+    "enableModule": "{module} aktivieren",
+    "expandModule": "{module} aufklappen",
+    "selectModule": "{module} auswählen",
+    "oneOffs": "Einmalige Ereignisse",
+    "storyArcs": "Story-Handlungsbögen",
+    "worldEvents": "Weltereignisse",
+    "narrativeOff": "Narrative Ereignisse aus",
+    "noSteps": "Für die aktuelle Auswahl sind keine Aufbauschritte erforderlich.",
+    "hideReference": "Referenz ausblenden",
+    "showReference": "Referenz anzeigen",
+    "viewFullSize": "{label} in voller Größe anzeigen",
+    "setupSections": "Aufbaubereiche",
+    "readyPlayers": {
+      "one": "{count} Spieler",
+      "other": "{count} Spieler"
+    },
+    "open": "Öffnen",
+    "playerNumber": "Spieler {number}",
+    "colors": {
+      "white": "Weiß",
+      "red": "Rot",
+      "yellow": "Gelb",
+      "blue": "Blau",
+      "purple": "Lila",
+      "black": "Schwarz"
+    },
+    "colorPlayer": "{color}er Spieler",
+    "playerWithColor": "{name} ({color})",
+    "imageFallback": "Bild"
+  },
+  "modules": {
+    "base": {
+      "name": "Grundspiel",
+      "detail": "Erforderlicher Kerninhalt des Western-Legends-Grundspiels.",
+      "children": {
+        "base_core": {
+          "name": "Grundspielplan & Aktionen",
+          "detail": "Darkrock, Red Falls, Ranches, Minen, Banditen, Poker, Vieh und Grundaktionen."
+        },
+        "base_goals": {
+          "name": "Ziele",
+          "detail": "Fügt Charakter-Zielkarten sowie zusätzliche Herausforderungen und Belohnungen hinzu. Aktiviert automatisch Legendäre Marker."
+        },
+        "base_legendary_tokens": {
+          "name": "Legendäre Marker",
+          "detail": "Verwendet den verdeckten Vorrat Legendärer Marker und die Markerfelder auf den Spielertableaus."
+        }
+      }
+    },
+    "ante_up": {
+      "name": "Ante Up",
+      "detail": "Fügt Charaktere, Gegenstände und Legendäre Gegenstände aus Ante Up sowie die unten gewählten Module hinzu.",
+      "children": {
+        "ante_up_sideboard": {
+          "name": "Buzzard-Gulch-Seitenspielplan",
+          "detail": "Fügt Buzzard Gulch, Bergpässe, Grenzlandfelder, die Orange Ranch, das Outlaw-Lager und den Bahnhof hinzu."
+        },
+        "ante_up_train": {
+          "name": "Zugmodul",
+          "detail": "Verwendet den Zug, den Zugstapel, Zugbewegung und Auslöser für Zugbegegnungen."
+        },
+        "ante_up_events": {
+          "name": "Ereignisstapel",
+          "detail": "Fügt Ereigniskarten/-marker, Aufbauereignisse sowie Inhalte für High-Roller-, Claim-Jumper-, Longhorn- und Outlaw-Marker hinzu."
+        },
+        "ante_up_gambler": {
+          "name": "Glücksspieler-Leiste",
+          "detail": "Verwendet Glücksspieler-Punkte und Story-Gelegenheiten rund ums Glücksspiel."
+        },
+        "ante_up_faro": {
+          "name": "Faro",
+          "detail": "Fügt Faro als alternative Glücksspielaktion in Saloons hinzu."
+        },
+        "ante_up_high_stakes_poker": {
+          "name": "Poker mit hohen Einsätzen",
+          "detail": "Fügt die Mehrspieler-Glücksspieloption „Poker mit hohen Einsätzen“ hinzu."
+        }
+      }
+    },
+    "blood_money": {
+      "name": "Blood Money",
+      "detail": "Fügt Charaktere, Gegenstände und Legendäre Gegenstände aus Blood Money sowie die unten gewählten Module hinzu.",
+      "children": {
+        "blood_money_stories": {
+          "name": "Legendäres Story-System",
+          "detail": "Fügt den Legendären Story-Spielplan und die zugehörigen Karten hinzu und aktiviert Regeln zu Ruinenmarkern wie Reparieren."
+        },
+        "blood_money_risk_die": {
+          "name": "Risikowürfel",
+          "detail": "Aktiviert Herausforderungen mit dem Risikowürfel und Ereignisausgänge mit hohem Risiko."
+        },
+        "blood_money_injuries": {
+          "name": "Verletzungsstapel",
+          "detail": "Aktiviert Verletzungen als anhaltende Nachteile sowie Auslöser rund um Arzt und Heilung."
+        },
+        "blood_money_deeds": {
+          "name": "Urkunden",
+          "detail": "Fügt Urkunden, Claim-Aktionen und grundstücksbezogene Belohnungen hinzu."
+        },
+        "blood_money_traveling_trader": {
+          "name": "Reisender Händler",
+          "detail": "Fügt den Aufsteller des Reisenden Händlers, seinen Bewegungsstapel, seine Figur und den Markt für Legendäre Gegenstände hinzu."
+        }
+      }
+    },
+    "wild_bunch": {
+      "name": "Wild Bunch of Extras",
+      "detail": "Fügt Charaktere, Gegenstände und Legendäre Gegenstände aus Wild Bunch sowie optionale Varianten hinzu.",
+      "children": {
+        "wild_bunch_titles": {
+          "name": "Titel",
+          "detail": "Fügt Titelkarten und Optionen für Wertung und Effekte am Spielende hinzu."
+        },
+        "wild_bunch_gang_posse": {
+          "name": "Gang/Posse",
+          "detail": "Erlaubt Marshal- und Wanted-Spielern, zusätzliche Unterstützung anzuwerben."
+        },
+        "wild_bunch_sheriff": {
+          "name": "Sheriff",
+          "detail": "Fügt Sheriff-Persönlichkeitskarten hinzu, die wechseln, wenn der Sheriff einen Kampf verliert."
+        },
+        "wild_bunch_bandit_variant": {
+          "name": "Banditenvariante",
+          "detail": "Fügt nummerierte Banditenringe sowie Banditen-Persönlichkeitskarten und -effekte hinzu."
+        },
+        "wild_bunch_man_in_black": {
+          "name": "Mann in Schwarz",
+          "detail": "Fügt den automatisierten Spieler „Mann in Schwarz“ mit Stapel, Aufbau, Rundenzug und Wertungsregeln hinzu."
+        },
+        "wild_bunch_unique_events": {
+          "name": "Einzigartige Ereignisse",
+          "detail": "Fügt dem Ereignissystem Karten und Marker für Einzigartige Ereignisse hinzu."
+        }
+      }
+    },
+    "the_good_the_bad_and_the_handsome": {
+      "name": "The Good, the Bad, and the Handsome",
+      "detail": "Fügt die Charaktere, Gegenstände und Legendären Gegenstände dieser Erweiterung hinzu.",
+      "children": {}
+    },
+    "fistful_of_extras": {
+      "name": "Fistful of Extras",
+      "detail": "Fügt die Charaktere und Gegenstände dieser Erweiterung sowie die optionale Joker-Variante hinzu.",
+      "children": {
+        "fistful_jokers": {
+          "name": "Joker-Variante",
+          "detail": "Fügt dem Pokerstapel Jokerkarten hinzu."
+        }
+      }
+    },
+    "promos": {
+      "name": "Promos",
+      "detail": "Optionale Promo- und editionsspezifische Inhalte.",
+      "children": {
+        "big_box": {
+          "name": "Big-Box-Edition",
+          "detail": "Fügt Aaron Ross und den Legendären Gegenstand „Geldkassette“ hinzu."
+        },
+        "promo_carbine": {
+          "name": "Karabiner",
+          "detail": "Fügt den Waffengegenstand „Karabiner“ hinzu."
+        }
+      }
+    },
+    "variants": {
+      "name": "Varianten",
+      "detail": "Optionale Zusatzstapel und von Fans erstellte Spielvarianten.",
+      "children": {
+        "treasure_hunting_rumors": {
+          "name": "Schatzsuche",
+          "detail": "Setze Gerüchtekarten zusammen, um den legendären vergrabenen Schatz zu finden."
+        },
+        "hunting": {
+          "name": "Jagd",
+          "detail": "Jage legendäre Ziele, die durch den Wilden Westen streifen."
+        },
+        "fishing": {
+          "name": "Angeln",
+          "detail": "Angle an Flussfeldern nach Fängen, LP und Erholungsmöglichkeiten."
+        },
+        "foraging_crafting": {
+          "name": "Sammeln/Herstellen",
+          "detail": "Sammle Ressourcen, um einzigartige und mächtige Gegenstände herzustellen."
+        },
+        "theatre": {
+          "name": "Theater",
+          "detail": "Fügt variable Ergebnisse durch Theaterkarten für die Aktion „Feiern“ hinzu."
+        },
+        "prospecting_cards": {
+          "name": "Schürfstapel",
+          "detail": "Fügt einen Schürfstapel und Goldauslöser auf der LP-Leiste hinzu, um die Minenstrategie abwechslungsreicher zu machen."
+        },
+        "dark_knight": {
+          "name": "Dark Knight",
+          "detail": "Fügt den von Fans erstellten Charakter Dark Knight hinzu."
+        }
+      }
+    }
+  },
+  "events": {
+    "whoTriggeredChapter": "Wer hat dieses Kapitel ausgelöst?",
+    "storyArc": "Story-Handlungsbogen",
+    "chooseChapterPlayer": "Wähle den Spieler, der dieses Kapitel erlebt hat.",
+    "whoResolved": "Wer hat dies abgehandelt?",
+    "anyResolve": "Jeder Spieler darf diese Geschichte abhandeln. Tippe auf den Spieler, der sie abgeschlossen hat.",
+    "whoTriggered": "Wer hat dies ausgelöst?",
+    "tapTriggerPlayer": "Tippe auf den Spieler, der dies gerade getan hat.",
+    "tapResolvedPlayer": "Tippe auf den Spieler, der dies abgehandelt hat.",
+    "differentSamePlayer": "Anderes Ergebnis, wenn derselbe Spieler erneut beteiligt ist.",
+    "gainStoryPoint": "Der auslösende Spieler erhält 1 Story-Punkt.",
+    "resetStoryTrack": "Setzt den Story-Punkt-Marker auf Start zurück.",
+    "chooseOutcome": "Wähle eines der aufgeführten Ergebnisse.",
+    "resolveListedEffect": "Aufgeführten Effekt abhandeln",
+    "npc": "NSC",
+    "effects": {
+      "spawnBandits": "Platziere {count} Bandit(en) auf dem aktuellen Feld.",
+      "simultaneousNpcFight": "Kämpfe gleichzeitig gegen {count} {npc}.",
+      "prospectingBonusDie": "Würfle {count} zusätzlichen Schürfwürfel.",
+      "worldTag": "Welt-Tag: {tag}",
+      "duration": "Dauert {count} primäre Auslöser.",
+      "startWorldEvent": "Startet das Weltereignis „{eventId}“.",
+      "sameColor": "Anderes Ergebnis, wenn derselbe Spieler erneut beteiligt ist.",
+      "gainStoryPoint": "Der auslösende Spieler erhält 1 Story-Punkt.",
+      "gainPlayerCounter": "Der auslösende Spieler erhält 1 {counter}.",
+      "point": "Punkt",
+      "resetStoryTrack": "Setzt den Story-Punkt-Marker auf Start zurück.",
+      "gainMoney": "Erhalte ${amount}.",
+      "drawPoker": {
+        "one": "Ziehe {count} Pokerkarte.",
+        "other": "Ziehe {count} Pokerkarten."
+      },
+      "gainWound": {
+        "one": "Erleide {count} Wunde.",
+        "other": "Erleide {count} Wunden."
+      },
+      "gainLP": "Erhalte {amount} LP.",
+      "gainLegendaryToken": {
+        "one": "Erhalte {count} Legendären Marker.",
+        "other": "Erhalte {count} Legendäre Marker."
+      },
+      "npcDraws": {
+        "one": "NSC zieht {count} Kampfkarte{use}.",
+        "other": "NSC zieht {count} Kampfkarten{use}."
+      },
+      "useSuffix": "; verwende {use}",
+      "chooseOne": "Wähle eines der aufgeführten Ergebnisse.",
+      "useValues": {
+        "both": "beide",
+        "lowest": "den niedrigsten Wert",
+        "highest": "den höchsten Wert"
+      },
+      "npcNames": {
+        "bandit": "Bandit",
+        "bank_guard": "Bankwache",
+        "sheriff": "Sheriff",
+        "outlaw": "Outlaw",
+        "claim_jumper": "Claim Jumper",
+        "train_guard": "Zugwache"
+      },
+      "counterNames": {
+        "gambling": "Glücksspiel",
+        "legendary": "Legendär",
+        "marshal": "Marshal",
+        "wanted": "Wanted",
+        "railroad_progress": "Eisenbahnfortschritt"
+      }
+    }
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "audio": "Audio",
+    "music": "Musik",
+    "sounds": "Geräusche",
+    "voice": "Stimme",
+    "done": "Fertig",
+    "changeAudioGame": "Audio- und aktuelle Spieleinstellungen ändern",
+    "changeAudio": "Audioeinstellungen ändern",
+    "wrapGame": "Aktuelles Spiel abschließen",
+    "startBeforeEnd": "Starte ein Spiel, bevor du es beendest",
+    "storyPoints": "Story-Punkte",
+    "trackStoryPoints": "Story-Punkte verfolgen",
+    "trackCurrentDescription": "Zeige und verwalte während dieses Spiels die Story-Punkt-Leiste jedes Spielers.",
+    "rewardReminders": "Erinnerungen an Story-Punkt-Belohnungen",
+    "rewardReminderDescription": "Zeige die kompakte Erinnerung, wenn ein Story-Punkt den Marker eines Spielers weiterbewegt.",
+    "noGame": "Starte ein Spiel, um die Einstellungen für Story & Ereignisse sowie Story-Punkte dieses Spiels zu sehen.",
+    "toggleAria": "{label} ein/aus",
+    "volumeAria": "Lautstärke von {label}",
+    "onOffAria": "{label} ein/aus"
+  },
+  "assist": {
+    "poker": {
+      "exampleAria": "Beispiel für {hand}",
+      "examples": {
+        "fiveKind": [
+          "A♠",
+          "A♣",
+          "A♥",
+          "A♦",
+          "A♠"
+        ],
+        "royalFlush": [
+          "10♠",
+          "J♠",
+          "Q♠",
+          "K♠",
+          "A♠"
+        ],
+        "straightFlush": [
+          "5♥",
+          "6♥",
+          "7♥",
+          "8♥",
+          "9♥"
+        ],
+        "fourKind": [
+          "A♠",
+          "A♣",
+          "A♥",
+          "A♦",
+          "9♣"
+        ],
+        "fullHouse": [
+          "K♠",
+          "K♣",
+          "K♥",
+          "7♠",
+          "7♦"
+        ],
+        "flush": [
+          "A♣",
+          "J♣",
+          "9♣",
+          "6♣",
+          "3♣"
+        ],
+        "straight": [
+          "5♠",
+          "6♣",
+          "7♦",
+          "8♥",
+          "9♠"
+        ],
+        "threeKind": [
+          "Q♠",
+          "Q♣",
+          "Q♦",
+          "8♥",
+          "4♠"
+        ],
+        "twoPair": [
+          "J♠",
+          "J♥",
+          "5♣",
+          "5♦",
+          "A♠"
+        ],
+        "pair": [
+          "8♠",
+          "8♥",
+          "K♣",
+          "10♦",
+          "4♣"
+        ],
+        "highCard": [
+          "A♠",
+          "J♥",
+          "8♣",
+          "5♦",
+          "2♠"
+        ]
+      }
+    },
+    "fight": {
+      "cardAbilities": {
+        "2": "Der andere Spieler erleidet 1 Wunde und verliert 1 LP.",
+        "3": "Der andere Spieler erleidet 2 Wunden.",
+        "4": "Der andere Spieler erleidet 1 Wunde und wirft 1 Pokerkarte ab.",
+        "5": "Der andere Spieler erleidet 1 Wunde.",
+        "6": "Der andere Spieler erleidet 1 Wunde. Diese Wunde kann nicht verhindert werden.",
+        "7": "Der andere Spieler erleidet 1 Wunde oder wirft 1 zufällige Pokerkarte ab.",
+        "8": "Der andere Spieler erleidet 1 Wunde.",
+        "9": "Der andere Spieler wirft 1 Pokerkarte ab oder verliert $10.",
+        "10": "Brich diesen Kampf ab und beginne einen neuen. Mische diese Karten unter den Stapel und ziehe anschließend erneut.",
+        "A": "Der andere Spieler erhält 1 LP, 1 Marshal-Punkt oder 1 Wanted-Punkt.",
+        "K": "Der andere Spieler erhält 1 LP.",
+        "Q": "Der andere Spieler zieht 1 Pokerkarte.",
+        "J": "Der andere Spieler erhält $10."
+      },
+      "groups": {
+        "player": "Spieler",
+        "npc": "NSC"
+      },
+      "activePlayerWins": "Aktiver Spieler gewinnt",
+      "activePlayerLoses": "Aktiver Spieler verliert",
+      "resolveCardConsequences": "Kartenfolgen abhandeln",
+      "chooseCardOrDecline": "Karte wählen oder ablehnen",
+      "chooseNpcFightCard": "NSC-Kampfkarte wählen",
+      "start": "Start",
+      "activePlayerResolvesStart": "Aktiver Spieler handelt Starteffekte ab",
+      "activePlayer": "Aktiver Spieler",
+      "choosePokerCard": "Pokerkarte wählen",
+      "chooseOneFacedown": "Wähle 1 Karte und lege sie verdeckt ab",
+      "revealPhase": "AUFDECKEN",
+      "reveal": "Aufdecken",
+      "revealBothCards": "Beide Karten aufdecken",
+      "turnBothFaceup": "Drehe beide gewählten Karten offen um",
+      "abilities": "Fähigkeiten",
+      "resolveActiveBonuses": "Boni und Fähigkeiten des aktiven Spielers abhandeln",
+      "reactions": "Reaktionen",
+      "comparePhase": "VERGLEICHEN",
+      "compare": "Vergleichen",
+      "resultPhase": "ERGEBNIS",
+      "end": "Ende",
+      "resolveActiveEnd": "Endeffekte des aktiven Spielers abhandeln",
+      "cleanup": "Aufräumen",
+      "cleanUpPlayedCards": "Gespielte Karten aufräumen",
+      "discardBothPoker": "Wirf beide gespielten Pokerkarten ab",
+      "autoDrawNpc": "NSC-Kampfkarte automatisch ziehen",
+      "npcLabels": {
+        "bandit": "Bandit",
+        "bank_guard": "Bankwache",
+        "sheriff": "Sheriff",
+        "other": "Andere"
+      },
+      "drawCards": {
+        "one": "Ziehe {count} Kampfkarte",
+        "other": "Ziehe {count} Kampfkarten"
+      },
+      "resultEyebrow": "Ergebnis",
+      "fightCard": "Kampfkarte",
+      "useCountOnComponent": "Verwende die auf {component} angegebene Anzahl Kampfkarten.",
+      "cardCountSuffix": {
+        "one": " — {count} Karte",
+        "other": " — {count} Karten"
+      },
+      "fullscreenTitle": "Kampfkarte",
+      "cardAlt": "Kampfkarte {rank}",
+      "versus": "GEGEN"
+    },
+    "dice": {
+      "types": {
+        "prospecting": {
+          "label": "Schürfwürfel",
+          "faces": {
+            "gold": "Goldnugget",
+            "money": "Geld",
+            "reroll": "$ + erneut würfeln",
+            "miss": "Fehlschlag"
+          }
+        },
+        "risk": {
+          "label": "Risikowürfel",
+          "faces": {
+            "blank": "Leer",
+            "wound": "1 Wunde erleiden",
+            "doublewound": "2 Wunden erleiden",
+            "storypoint": "1 Story-Punkt erhalten",
+            "woundstorypoint": "1 Wunde erleiden + 1 Story-Punkt erhalten"
+          }
+        }
+      },
+      "dieType": "Würfeltyp"
+    },
+    "firstPlayer": {
+      "selected": "Startspieler ausgewählt — nimm den Startspieler-Marker.",
+      "instruction": "Jeder legt einen Finger auf den Bildschirm. Haltet still, während der Timer herunterzählt.",
+      "aria": "Touch-Auswahl des Startspielers",
+      "startOver": "Neu starten"
+    },
+    "placeholder": "Platzhalter für eine spätere Erweiterung.",
+    "moduleHelper": "Modulhelfer",
+    "groups": {
+      "fight": "Kampf",
+      "gambling": "Glücksspiel",
+      "dice": "Würfel",
+      "randomizers": "Zufallsauswahl",
+      "other": "Andere"
+    },
+    "referenceType": "Referenz",
+    "store": {
+      "types": {
+        "weapon": "Waffe",
+        "mount": "Reittier",
+        "misc": "Sonstiges"
+      },
+      "rerollItem": "{item} neu auswürfeln",
+      "viewItemFullSize": "{item} in voller Größe anzeigen",
+      "viewFullSize": "In voller Größe anzeigen",
+      "reroll": "Neu auswürfeln"
+    },
+    "simple": {
+      "train": {
+        "title": "Zug-Hilfe"
+      },
+      "hunt": {
+        "title": "Jagd-Hilfe"
+      },
+      "fish": {
+        "title": "Angel-Hilfe"
+      },
+      "default": {
+        "title": "Hilfe"
+      }
+    },
+    "gambling": {
+      "flowAria": "Ablaufdiagramm für {game}",
+      "flowLabel": "{game}-Ablauf"
+    }
+  },
+  "finalScoring": {
+    "steps": {
+      "mounts_weapons": {
+        "title": "Verbesserte Ausrüstung",
+        "summary": "Werte die auf verbesserten Reittieren und Waffen angegebenen LP"
+      },
+      "legendary_items": {
+        "title": "Legendäre Gegenstände",
+        "summary": "Werte alle auf Legendären Gegenständen angegebenen LP"
+      },
+      "money": {
+        "title": "Geld",
+        "summary": "+1 LP für je $60"
+      },
+      "wounds": {
+        "title": "Wunden",
+        "summary": "−1 LP für jede Wunde"
+      },
+      "injuries": {
+        "title": "Verletzungen",
+        "summary": "Wende alle Verletzungsabzüge am Spielende an"
+      },
+      "wanted": {
+        "title": "Wanted-Leiste",
+        "summary": "Meiste Wanted-Punkte: +3 LP; andere Wanted: +1 LP"
+      },
+      "marshal": {
+        "title": "Marshal-Leiste",
+        "summary": "Werte die LP deiner Marshal-Reihe"
+      },
+      "gambler": {
+        "title": "Glücksspieler-Leiste",
+        "summary": "Führende(r) Spieler erhält/erhalten +1 LP"
+      },
+      "legendary_tokens": {
+        "title": "Legendäre Marker",
+        "summary": "Addiere den LP-Wert deiner Marker"
+      },
+      "deeds": {
+        "title": "Urkunden",
+        "summary": "Werte gültige Urkunden"
+      },
+      "titles": {
+        "title": "Titelkarte",
+        "summary": "Wende die aufgedeckte Titelkarte an"
+      },
+      "man_in_black": {
+        "title": "Mann in Schwarz",
+        "summary": "Gewinnt Gleichstände am Spielende"
+      }
+    },
+    "defaultTitle": "Wertung",
+    "defaultSummary": "Für die vollständige Wertungsregel antippen",
+    "finalStandings": "Endstand",
+    "finalTally": "Endwertung",
+    "winner": "Sieger",
+    "backToGame": "Zurück zum Spiel",
+    "manInBlackTieRule": "Gleichstandsregel des Mannes in Schwarz",
+    "manInBlackWins": "Der Mann in Schwarz gewinnt den Gleichstand",
+    "highestLP": "Höchste LP",
+    "highestTied": "Gleichstand bei den höchsten LP",
+    "resolveTie": "Gleichstand auflösen",
+    "enterScores": "Gib für jeden Spieler die endgültige LP-Punktzahl ein.",
+    "resolveTieBeforePaper": "Löse den Gleichstand beim Höchstwert, bevor du die Zeitungsvorschau öffnest.",
+    "lpPlaceholder": "LP",
+    "noPlayers": "In diesem Spiel wurden keinen Spielern Farben zugewiesen.",
+    "finalLpAria": "Endgültige LP für {player}"
+  },
+  "newspaper": {
+    "moods": {
+      "quiet": {
+        "headlines": [
+          "Ruhiger Tag im Grenzland",
+          "Nicht viel zu berichten",
+          "Darkrock schläft ruhig"
+        ],
+        "leads": [
+          "Der Staub legte sich sanft über Darkrock und Red Falls, und bevor die Pressen anliefen, gab es nur wenige Geschichten, die Tinte wert waren.",
+          "Ausnahmsweise behielt das Gebiet seine Angelegenheiten für sich, und die Boten der Gazette kehrten mit leeren Notizbüchern zurück."
+        ],
+        "sectionIntro": "Was dennoch über die Leitung kam, ist unten schlicht festgehalten, so viel es auch wert sein mag:",
+        "closings": [
+          "Das Grenzland hielt den Atem an – keine bemerkenswerten Taten fanden ihren Weg in das Register des Begleiters, bevor die Pressen anliefen, und Darkrock schlief ausnahmsweise ruhig.",
+          "Heute kam keine einzige Nachricht aus dem Land. Manche sagen, ein ruhiges Grenzland sei ein glückliches; andere meinen, das bedeute nur, dass der Ärger noch nicht erwischt wurde."
+        ]
+      },
+      "lawless": {
+        "headlines": [
+          "Outlaw-Ärger reitet wieder",
+          "Das Gesetz verliert den Griff",
+          "Die Nacht gehört den Banditen"
+        ],
+        "leads": [
+          "Ehrliche Leute behielten ein Auge auf ihrem Geldbeutel und das andere auf der Straße, während gesetzlose Taten das Gebiet von Sonnenaufgang bis Sonnenuntergang in Unruhe versetzten.",
+          "Die Berichte aus jeder Postkutsche und jedem Saloon stimmen überein: Die Wanted ritten diese Woche dreister, als die Marshals reagieren konnten."
+        ],
+        "sectionIntro": "Die Wanted hinterließen von einem Ende des Gebiets bis zum anderen ihre Spuren:",
+        "closings": [
+          "Diesmal ritten die Outlaws wilder, als das Gesetz antworten konnte – Goldsucher schürften nervös und Händler zählten ihre Kassen doppelt, denn die Wanted hatten im ganzen Gebiet die Oberhand.",
+          "Das Wanted-Register wurde dicker und die Marshals dünner beim Versuch mitzuhalten – nach jedem ehrlichen Bericht war es eine gesetzlose Zeit hier draußen."
+        ]
+      },
+      "orderly": {
+        "headlines": [
+          "Marshals setzen das Gesetz durch",
+          "Eine feste Hand über dem Gebiet",
+          "Ordnung herrscht in Darkrock"
+        ],
+        "leads": [
+          "Diese Woche waren die Gesetzessterne den Banditen auf Schritt und Tritt überlegen, und das Gebiet war dadurch umso ruhiger.",
+          "Vom Sheriffbüro bis zur entlegensten Ranch heißt es, das Gesetz sitze hoch im Sattel und die Wanted ritten vorsichtig."
+        ],
+        "sectionIntro": "Die Marshals führten diese Woche ihr ganz eigenes, gut gefülltes Register:",
+        "closings": [
+          "Die Marshals hielten das Gebiet fest im Griff – gesuchte Männer ritten vorsichtig und leise, während ehrliche Goldsucher und Ladenbesitzer unter einem wachsamen, geordneten Himmel guten Gewinn machten.",
+          "Recht und Ordnung bestimmten den Tag von Anfang bis Ende – die Gesetzessterne waren den Banditen stets voraus, und das Gebiet gedieh dadurch."
+        ]
+      },
+      "tense": {
+        "headlines": [
+          "Ein Gebiet am Abgrund",
+          "Outlaw und Gesetzeshüter gleichauf",
+          "Die Pattsituation hält an"
+        ],
+        "leads": [
+          "Für jeden Raub, auf den eine Verhaftung folgte, entstand neuer Ärger, und das Gebiet blieb genau so angespannt, wie es die alten Hasen mögen.",
+          "Weder Gesetzesstern noch Bandit konnte diese Woche die Oberhand gewinnen – ein Auf und Ab von Ärger und Ordnung, das jedes Gespräch im Saloon lebendig hielt."
+        ],
+        "sectionIntro": "Beide Seiten des Gesetzes kamen diese Woche zu Wort:",
+        "closings": [
+          "Es war die ganze Zeit ein ausgeglichener Kampf zwischen Outlaw und Gesetzeshüter – für jeden Raub, auf den eine Verhaftung folgte, entstand neuer Ärger, und das Gebiet blieb genau so angespannt, wie es die alten Hasen mögen.",
+          "Weder die Wanted noch die Marshals gewannen je ganz die Oberhand – ein Auf und Ab von Ärger und Ordnung, das jedes Gespräch im Saloon lebendig hielt."
+        ]
+      },
+      "opportunity": {
+        "headlines": [
+          "Das offene Land ruft",
+          "Gold, Mut und gutes Glück",
+          "Die Gelegenheit klopft im ganzen Gebiet an"
+        ],
+        "leads": [
+          "Von staubigen Minen bis zu vollen Kartentischen bot das Grenzland jedem Chancen, der kühn genug war, danach zu greifen.",
+          "Goldsucher, Spieler und Ladenbesitzer fanden das Gebiet diese Woche gleichermaßen großzügig, denn das Glück bevorzugte die Fleißigen vor den Berüchtigten."
+        ],
+        "sectionIntro": "Unternehmungsgeist, nicht Gesetzlosigkeit, prägte das Gebiet diese Woche:",
+        "closings": [
+          "Das Gebiet erlebte sowohl Ärger als auch Ordnung, doch vor allem bot es Chancen – Gold wurde gewaschen, Karten wurden gespielt und Geschäfte unter einem freundlichen Grenzlandhimmel abgeschlossen.",
+          "Ein wenig Gesetzlosigkeit, ein wenig Gerechtigkeit und eine ganze Menge ehrlicher Geschäftigkeit füllten den Tag – so läuft es hier draußen eben, wenn das Land großzügig ist."
+        ]
+      },
+      "bloodshed": {
+        "headlines": [
+          "Waffen feuern im ganzen Gebiet",
+          "Eine Zeit des Pulverdampfs",
+          "Blut im Grenzland"
+        ],
+        "leads": [
+          "Fäuste und Feuerwaffen entschieden diese Woche mehr Streitigkeiten als Worte, und die Gazette hatte Mühe, den Überblick über aufgeplatzte Lippen und verschossene Patronen zu behalten.",
+          "Was auch immer sonst draußen geschah, das Gebiet wird sich an diese Woche als jene erinnern, in der jeder Streit in einem Kampf zu enden schien."
+        ],
+        "sectionIntro": "Berichte über Kämpfe – gewonnen, verloren und alles dazwischen – strömten in die Redaktion der Gazette:",
+        "closings": [
+          "Ob wegen Karten, Vieh oder schlicht altem Groll – das Gebiet regelte seine Angelegenheiten diese Woche häufiger mit Fäusten und Kampfkarten als mit Worten.",
+          "In manchen Wochen redet sich das Grenzland durch den Ärger. Diese gehörte nicht dazu – stattdessen übernahmen die Kampfkarten den Großteil des Redens."
+        ]
+      }
+    },
+    "frontierGazette": "Grenzland-Gazette",
+    "gazetteLedger": "Register der Gazette",
+    "recordedReports": "Aufgezeichnete Aktionsberichte",
+    "ridersLeaveMark": "Reiter hinterlassen ihre Spuren",
+    "dispatches": "Meldungen aus dem Grenzland",
+    "worldEventsTitle": "Weltereignisse prägen das Gebiet",
+    "livesLegends": "Leben und Legenden",
+    "livesDeck": "Die Gazette verfolgte diese wiederkehrenden Gestalten des Grenzlands, während sich ihr Schicksal von Kapitel zu Kapitel wandelte.",
+    "territoryTales": "Geschichten aus dem ganzen Gebiet",
+    "finalWord": "Schlusswort",
+    "unidentifiedRider": "ein unbekannter Reiter",
+    "passingRider": "ein vorbeiziehender Reiter",
+    "territory": "das Gebiet",
+    "rider": "der Reiter",
+    "riderPossessive": "des Reiters",
+    "tableRiders": "eine Runde von Grenzlandreitern",
+    "unnamedEvent": "Ein unbenanntes Grenzlandereignis",
+    "activity": {
+      "fight": {
+        "label": "Kämpfe & Schießereien",
+        "phrase": "Kämpfe und Schießereien"
+      },
+      "outlaw": {
+        "label": "Outlaw-Taten",
+        "phrase": "Outlaw-Geschäfte"
+      },
+      "law": {
+        "label": "Gesetzesarbeit",
+        "phrase": "Gesetzesarbeit"
+      },
+      "gambling": {
+        "label": "Glücksspiel & Feiern",
+        "phrase": "Poker, Glücksspiel und Feiern"
+      },
+      "gold": {
+        "label": "Schürfen & Gold",
+        "phrase": "Schürfen und Gold"
+      },
+      "cattle": {
+        "label": "Vieh & Rancharbeit",
+        "phrase": "Vieh- und Ranchgeschäfte"
+      },
+      "travel": {
+        "label": "Reisen & Eisenbahn",
+        "phrase": "Reisen durch das Gebiet"
+      },
+      "wilderness": {
+        "label": "Jagd & Wildnis",
+        "phrase": "Jagd und Reisen durch die Wildnis"
+      },
+      "commerce": {
+        "label": "Handel & Arbeit",
+        "phrase": "Handel, Arbeit und Ausrüstung"
+      },
+      "other": {
+        "label": "Andere Grenzlandgeschäfte",
+        "phrase": "andere Grenzlandgeschäfte"
+      }
+    },
+    "flavors": {
+      "gambling": "in den Spielhallen florierte das Geschäft, und mehr als ein Vermögen wechselte bei einer Kartenrunde den Besitzer",
+      "legendary": "Gerede über legendäre Taten und Legendäre Gegenstände wanderte schneller von Veranda zu Veranda, als der Telegraf es tragen konnte",
+      "stories": "im ganzen Gebiet entfaltete sich Geschichte um Geschichte, und jede fügte der Erinnerung des Grenzlands ein wenig mehr Farbe hinzu"
+    },
+    "moodLabels": {
+      "quiet": "Ruhig",
+      "bloodshed": "Blutvergießen",
+      "lawless": "Gesetzlos",
+      "orderly": "Geordnet",
+      "tense": "Angespannt",
+      "opportunity": "Gelegenheit"
+    },
+    "subject": {
+      "passingRider": "ein vorbeiziehender Reiter",
+      "territory": "das Gebiet"
+    },
+    "flavorLead": "Unterdessen {flavor}.",
+    "overall": {
+      "leaders": "{activities} machten einen großen Teil dessen aus, was auf dem Schreibtisch der Gazette landete",
+      "oneOff": {
+        "one": "{count} ungewöhnlicher Grenzlandvorfall unterbrach das gewöhnliche Tagesgeschäft",
+        "other": "{count} ungewöhnliche Grenzlandvorfälle unterbrachen das gewöhnliche Tagesgeschäft"
+      },
+      "world": {
+        "one": "{count} gebietsweite Bedingung veränderte das Leben im Grenzland",
+        "other": "{count} gebietsweite Bedingungen veränderten das Leben im Grenzland"
+      },
+      "arcs": {
+        "one": "{count} fortlaufende Charaktergeschichte hinterließ ihre eigenen Spuren",
+        "other": "{count} fortlaufende Charaktergeschichten hinterließen ihre eigenen Spuren"
+      }
+    },
+    "arc": {
+      "active": "Bei Redaktionsschluss war {actor} noch immer in die Angelegenheit verwickelt.",
+      "expired": "{actor} ließ die Gelegenheit verstreichen, und die Geschichte nahm eine andere Richtung.",
+      "resolved": [
+        "{actor} brachte die Angelegenheit zu Ende.",
+        "{actor} stellte sich dem Augenblick und führte die Geschichte weiter.",
+        "{actor} folgte der Spur bis zur nächsten Wendung."
+      ],
+      "drawnIn": "{actor} wurde in die nächste Wendung der Geschichte hineingezogen."
+    },
+    "score": {
+      "winner": "{winner} gewinnt mit {score} LP",
+      "shared": "{winners} teilen sich den Sieg mit {score} LP"
+    },
+    "final": {
+      "leading": "Mehr als alles andere kehrte das Register der Gazette immer wieder zu {activity} zurück.",
+      "worldCount": {
+        "one": "{count} Weltereignis",
+        "other": "{count} Weltereignisse"
+      },
+      "arcCount": {
+        "one": "{count} fortlaufende Charaktergeschichte",
+        "other": "{count} fortlaufende Charaktergeschichten"
+      },
+      "oneOffCount": {
+        "one": "{count} unerwarteter Vorfall",
+        "other": "{count} unerwartete Vorfälle"
+      },
+      "texture": "{texture} gab diesem besonderen Tag seine eigene Form.",
+      "soloWinner": "Als die Bücher schließlich geschlossen wurden, stand {winner} an der Spitze der Endwertung.",
+      "sharedWinner": "Als die Bücher schließlich geschlossen wurden, teilten sich {winners} die Spitze der Endwertung."
+    },
+    "lead": {
+      "recorded": {
+        "one": "{participants} durchquerten das Land, während der Begleiter {count} bemerkenswerten Grenzlandmoment aufzeichnete. {summary}",
+        "other": "{participants} durchquerten das Land, während der Begleiter {count} bemerkenswerte Grenzlandmomente aufzeichnete. {summary}"
+      }
+    },
+    "worldPhrases": {
+      "weather": "{title} machte selbst das Wetter zu einem Teil der Tagesgeschäfte",
+      "gold": "{title} ließ neue Goldgerüchte durch Lager und Minen ziehen",
+      "sheriff": "{title} verstärkte den Griff des Gesetzes um Wanted-Reiter",
+      "bandit": "{title} brachte mehr Waffen und Gefahr auf die Straßen",
+      "poker": "{title} heizte die Stimmung an den Kartentischen an",
+      "cattle": "{title} veränderte das Glück von Ranchern und Viehdieben gleichermaßen",
+      "doctor": "{title} machte jede Wunde ein wenig schwerer zu ignorieren",
+      "rail": "{title} rückte die Eisenbahn in den Mittelpunkt der Aufmerksamkeit im Grenzland",
+      "mine": "{title} machte die Minen zu einem gefährlicheren Ort, um einen Dollar zu verdienen",
+      "trader": "{title} wirbelte den reisenden Markt und die Preise seltener Waren auf",
+      "saloon": "{title} veränderte die Stimmung in Saloons und an Spieltischen",
+      "ranch": "{title} brachte neuen Ärger ins Ranchland",
+      "hunting": "{title} veränderte das Glück der Jäger im offenen Land",
+      "town": "{title} brachte eine seltene Phase von Trubel und Gelegenheit in die Stadt",
+      "default": "{title} hinterließ seine Spuren im Gebiet, bevor es der nächsten Wendung der Ereignisse Platz machte"
+    },
+    "player": {
+      "defaultIncident": "Eine unerwartete Wendung bei {activity} zog noch vor Tagesende Aufmerksamkeit auf sich.",
+      "activity": "War am häufigsten im Zusammenhang mit {activity} zu sehen.",
+      "arcForward": "führte eine fortlaufende Geschichte weiter",
+      "arcExpired": "ließ eine Gelegenheit ungenutzt verstreichen",
+      "oneOff": "überstand unterwegs einen unerwarteten Vorfall",
+      "resolvedTales": {
+        "one": "führte {count} fortlaufende Geschichte weiter",
+        "other": "führte {count} fortlaufende Geschichten weiter"
+      },
+      "expired": {
+        "one": "ließ {count} Gelegenheit ungenutzt verstreichen",
+        "other": "ließ {count} Gelegenheiten ungenutzt verstreichen"
+      },
+      "oneOffs": {
+        "one": "überstand unterwegs {count} unerwarteten Vorfall",
+        "other": "überstand unterwegs {count} unerwartete Vorfälle"
+      }
+    },
+    "oneOff": {
+      "intro": "{actor} begegnete auf dem Weg mehr als nur gewöhnlichen Grenzlandgeschäften.",
+      "tail": "Noch vor Tagesende folgte eine weitere ungewöhnliche Begegnung.",
+      "personIntro": "{person} begegnete auf dem Weg mehr als nur gewöhnlichen Grenzlandgeschäften.",
+      "remaining": {
+        "one": "Noch vor Tagesende folgte {count} weitere ungewöhnliche Begegnung.",
+        "other": "Noch vor Tagesende folgten {count} weitere ungewöhnliche Begegnungen."
+      }
+    },
+    "mastheadAlt": "Zeitungskopf von {title}"
+  },
+  "install": {
+    "ios": "Zum Installieren: Tippe auf „Teilen“ und wähle anschließend „Zum Home-Bildschirm“.",
+    "browser": "Dein Browser bietet hier keine Installationsaufforderung an. Öffne das Browsermenü und wähle „App installieren“ oder „Zum Home-Bildschirm“.",
+    "canceled": "Die Installation wurde abgebrochen. Du kannst Frontier Director später über diese Schaltfläche oder das Browsermenü installieren."
+  },
+  "errors": {
+    "unableStart": "Start nicht möglich",
+    "localServer": "Starte diese App über einen lokalen Webserver, damit die JSON-Dateien geladen werden können.",
+    "unableLoad": "{url} konnte nicht geladen werden"
+  },
+  "strings": {
+    "man_in_black": "Mann in Schwarz",
+    "arc_global_active": "Bei Redaktionsschluss entwickelte sich die Angelegenheit im ganzen Gebiet noch weiter.",
+    "arc_global_expired": "Die Gelegenheit verstrich, bevor jemand sie weiterverfolgen konnte.",
+    "arc_global_started": "Diese Entwicklung setzte die größere Geschichte in Gang.",
+    "arc_global_progress": "Diese Entwicklung brachte die gebietsweite Geschichte einen weiteren Schritt voran.",
+    "arc_global_deeper": "Eine weitere Entwicklung zog das Gebiet tiefer in die sich entfaltende Geschichte hinein.",
+    "arc_complete": "Als die Pressen anliefen, hatte diese Spur ihr Ende erreicht.",
+    "arc_global_unfinished": "Die Gazette ging in Druck, während die größere Geschichte noch unvollendet war.",
+    "arc_unwritten": "Was als Nächstes kommt, bleibt ungeschrieben.",
+    "unresolved_story_chapter": " — ungelöstes Story-Kapitel",
+    "has_story_alert": " has-story-alert",
+    "assign_a_color_to_every_player_before_starting": "Weise jedem Spieler vor dem Start eine Farbe zu.",
+    "plus": " plus ",
+    "oneoff": "oneOff",
+    "world_events": "Weltereignisse",
+    "trigger_title_line": " trigger-title-line",
+    "a_player": "EIN SPIELER",
+    "story_row_personal": " story-row-personal",
+    "story_heading_personal": " story-heading-personal",
+    "5_of_a_kind": "Fünfling",
+    "five_cards_of_the_same_rank": "Fünf Karten desselben Rangs.",
+    "royal_flush": "Royal Flush",
+    "10_jack_queen_king_and_ace_all_in_the_same_suit": "10, Bube, Dame, König und Ass, alle in derselben Farbe.",
+    "straight_flush": "Straight Flush",
+    "five_consecutive_cards_all_in_the_same_suit": "Fünf aufeinanderfolgende Karten, alle in derselben Farbe.",
+    "4_of_a_kind": "Vierling",
+    "four_cards_of_the_same_rank_plus_any_other_card": "Vier Karten desselben Rangs plus eine beliebige weitere Karte.",
+    "full_house": "Full House",
+    "three_cards_of_one_rank_plus_two_cards_of_another_rank": "Drei Karten eines Rangs plus zwei Karten eines anderen Rangs.",
+    "flush": "Flush",
+    "five_cards_in_the_same_suit_that_are_not_consecutive": "Fünf Karten derselben Farbe, die nicht aufeinanderfolgen.",
+    "straight": "Straße",
+    "five_consecutive_cards_in_any_suits_an_ace_may_be_high_or_low": "Fünf aufeinanderfolgende Karten beliebiger Farben. Ein Ass kann hoch oder niedrig zählen.",
+    "3_of_a_kind": "Drilling",
+    "three_cards_of_the_same_rank_plus_two_unmatched_cards": "Drei Karten desselben Rangs plus zwei nicht passende Karten.",
+    "two_pair": "Zwei Paare",
+    "two_cards_of_one_rank_and_two_cards_of_another_rank": "Zwei Karten eines Rangs und zwei Karten eines anderen Rangs.",
+    "pair": "Paar",
+    "two_cards_of_the_same_rank_plus_three_unmatched_cards": "Zwei Karten desselben Rangs plus drei nicht passende Karten.",
+    "high_card": "Höchste Karte",
+    "when_no_other_hand_is_made_the_highest_card_determines_the_hand": "Wenn keine andere Kombination gebildet wird, bestimmt die höchste Karte die Hand.",
+    "winner": " Sieger",
+    "arrest": "Verhaftung",
+    "duel": "Duell",
+    "rob": "Raub",
+    "bandit": "Bandit",
+    "bank_guard": "Bankwache",
+    "sheriff": "Sheriff",
+    "outlaw": "Outlaw",
+    "the_outlaw_token": "der Outlaw-Marker",
+    "claim_jumper": "Claim Jumper",
+    "the_claim_jumper_token": "der Claim-Jumper-Marker",
+    "train_guard": "Zugwache",
+    "the_train_encounter_card": "die Zugbegegnungskarte",
+    "use_count_shown_on_token_card": "Verwende die auf Marker/Karte angegebene Anzahl",
+    "arrest_the_target": "Ziel verhaften",
+    "target_avoids_capture": "Ziel entgeht der Verhaftung",
+    "gain_2_lp": "2 LP erhalten",
+    "take_1_wound": "1 Wunde erleiden",
+    "steal_from_the_target": "Vom Ziel stehlen",
+    "robbery_fails": "Raub scheitert",
+    "gain_1_mp_or_1_lp": "1 MP oder 1 LP erhalten",
+    "gain_3_wp_80": "3 WP & $80 erhalten",
+    "1_wound_gain_1_wp": "1 Wunde & 1 WP erhalten",
+    "return_sheriff_reveal_new_sheriff": "Sheriff zurückstellen & neuen Sheriff aufdecken",
+    "return_sheriff_to_office": "Sheriff ins Büro zurückstellen",
+    "you_are_arrested": "Du wirst verhaftet",
+    "gain_printed_reward": "Aufgedruckte Belohnung erhalten",
+    "resolve_the_win_result": "Siegergebnis abhandeln",
+    "resolve_the_loss_result": "Niederlagenergebnis abhandeln",
+    "target_player": "Zielspieler",
+    "1_poker_card_facedown_or_decline_and_lose_immediately": "1 Pokerkarte verdeckt — oder ablehnen und sofort verlieren",
+    "alternate_until_both_players_pass": "Abwechseln, bis beide Spieler passen",
+    "active_player_reactions_then_npc_card_effect": "Reaktionen des aktiven Spielers, dann NSC-Karteneffekt",
+    "highest_value_wins_active_player_wins_ties": "Höchster Wert gewinnt — aktiver Spieler gewinnt Gleichstände",
+    "highest_value_wins_npc_wins_ties": "Höchster Wert gewinnt — NSC gewinnt Gleichstände",
+    "start_of_fight": "KAMPFBEGINN",
+    "resolve_start_effects": "Starteffekte abhandeln",
+    "bandit_variant": "Banditenvariante",
+    "reveal_bandit_effect": "Banditeneffekt aufdecken",
+    "reveal_top_bandit_card_mini_ring_number": "Oberste Banditenkarte & Ringnummer der Figur aufdecken",
+    "apply_bonuses_abilities": "Boni & Fähigkeiten anwenden",
+    "active_player_then_target_player": "Aktiver Spieler, dann Zielspieler",
+    "play_reaction_effects": "Reaktionseffekte spielen",
+    "reactions_fight_card_effect": "Reaktionen & Kampfkarteeffekt",
+    "compare_final_values": "Endwerte vergleichen",
+    "end_of_fight": "KAMPFENDE",
+    "resolve_end_effects": "Endeffekte abhandeln",
+    "return_fight_cards_discard_played_poker_card": "Kampfkarten zurücklegen, gespielte Pokerkarte abwerfen",
+    "all_cattle_and_longhorn_tokens": " alle Vieh- und Longhorn-Marker,",
+    "all_cattle_tokens": " alle Viehmarker,",
+    "plus_1_cattle_or_longhorn_token": " plus 1 Vieh- oder Longhorn-Marker.",
+    "plus_1_cattle_token": " plus 1 Viehmarker.",
+    "the_npc_component": "die NSC-Komponente",
+    "start_of_fight_2": "Kampfbeginn",
+    "card_selection": "Kartenauswahl",
+    "active_player_chooses": "Aktiver Spieler wählt",
+    "reveal": "Aufdecken",
+    "reveal_both_cards": "Beide Karten aufdecken",
+    "compare": "Vergleichen",
+    "active_player_wins": "Aktiver Spieler gewinnt",
+    "active_player_loses": "Aktiver Spieler verliert",
+    "end_of_fight_2": "Kampfende",
+    "clean_up_played_cards": "Gespielte Karten aufräumen",
+    "fight_flow": "Kampfablauf",
+    "fight_helper": "Kampfhelfer",
+    "turn_actions": "Zug/Aktionen",
+    "fight": "Kampf",
+    "gambling": "Glücksspiel",
+    "points": "Punkte",
+    "start": "Start",
+    "choose_2_10_1_card": "Wähle 2: $10, 1 Karte",
+    "actions": "Aktionen",
+    "take_up_to_3_actions": "Führe bis zu 3 Aktionen aus",
+    "end": "Ende",
+    "discard_to_hand_size": "Auf Handkartenlimit abwerfen",
+    "end_of_round": "Rundenende",
+    "man_in_black_turn": "Zug des Mannes in Schwarz",
+    "track_trigger": "Auslöser verfolgen",
+    "prospecting_deck": "Schürfstapel",
+    "high_stakes_poker": "Poker mit hohen Einsätzen",
+    "acquire": "Erwerben",
+    "take_a_facedown_cattle_token_at_a_ranch": "Nimm einen verdeckten Viehmarker auf einer Ranch",
+    "acquire_rumor": "Gerücht erwerben",
+    "buy_rumor_cards_in_town_for_30_each": "Kaufe Gerüchtekarten in der Stadt für je $30",
+    "challenge": "Herausfordern",
+    "challenge_the_high_roller_to_poker": "Fordere den High Roller zum Poker heraus",
+    "claim": "Beanspruchen",
+    "purchase_a_deed_at_its_location": "Kaufe eine Urkunde an ihrem Ort",
+    "deposit": "Einzahlen",
+    "sell_gold_nuggets_at_the_bank": "Verkaufe Goldnuggets bei der Bank",
+    "dig_up_treasure": "Schatz ausgraben",
+    "turn_3_matching_rumors_into_buried_treasure": "Verwandle 3 passende Gerüchte in einen vergrabenen Schatz",
+    "fishing": "Angeln",
+    "fish_while_on_a_river_space": "Angle auf einem Flussfeld",
+    "frontier": "Grenzland",
+    "complete_a_frontier_token_challenge": "Schließe eine Herausforderung eines Grenzlandmarkers ab",
+    "gamble": "Glücksspiel",
+    "gambling_flow": "Glücksspielablauf",
+    "heal": "Heilen",
+    "remove_wounds_and_injuries_at_the_doctor": "Entferne Wunden und Verletzungen beim Arzt",
+    "heist": "Überfall",
+    "or_train": " oder Zug",
+    "hunt": "Jagen",
+    "use_a_hunt_action_marker_to_hunt_an_animal": "Verwende einen Jagdaktionsmarker, um ein Tier zu jagen",
+    "prospect": "Schürfen",
+    "roll_prospecting_dice_at_a_mine": "Würfle Schürfwürfel in einer Mine",
+    "dice_roller": "Würfelroller",
+    "purchase_upgrade": "Kaufen/Verbessern",
+    "or_trading_post": " oder Handelsposten",
+    "recruit": "Anwerben",
+    "recruit_a_posse_or_gang_for_20": "Wirb eine Posse oder Gang für $20 an",
+    "repair": "Reparieren",
+    "remove_a_ruin_token_for_2_sp": "Entferne einen Ruinenmarker für 2 SP",
+    "revel": "Feiern",
+    "pay_30_at_the_cabaret_for_1_lp": "Zahle $30 im Cabaret für 1 LP",
+    "trail": "Pfad",
+    "move_between_matching_trail_heads": "Bewege dich zwischen passenden Pfadköpfen",
+    "trader": "Händler",
+    "buy_an_item_from_the_traveling_trader": "Kaufe einen Gegenstand beim Reisenden Händler",
+    "travel_by_rail": "Mit der Eisenbahn reisen",
+    "pay_10_to_travel_between_rail_stations": "Zahle $10, um zwischen Bahnhöfen zu reisen",
+    "work": "Arbeiten",
+    "gain_10_at_any_location": "Erhalte $10 an einem beliebigen Ort",
+    "without_a_ruin_token": " ohne Ruinenmarker",
+    "move": "Bewegung",
+    "move_up_to_your_movement_value_2_default": "Bewege dich bis zu deinem Bewegungswert (Standard 2)",
+    "initiate_a_fight_with_a_player_in_your_space": "Beginne einen Kampf mit einem Spieler auf deinem Feld",
+    "card": "Karte",
+    "play_a_poker_card_action": "Spiele eine Aktion einer Pokerkarte",
+    "free_deliveries": "Kostenlose Lieferungen",
+    "rustle_or_wrangle_after_movement": "Nach der Bewegung Vieh stehlen oder treiben",
+    "location": "Ort",
+    "actions_available_at_specific_locations": "Aktionen, die an bestimmten Orten verfügbar sind",
+    "quick_reference": "Schnellreferenz",
+    "start_faro": "Faro starten",
+    "gamble_beside_a_saloon_same_town_players_may_join": "Spiele neben einem Saloon; Spieler in derselben Stadt dürfen teilnehmen",
+    "take_a_gamble_action_while_adjacent_to_a_saloon_any_other_player_in_the_": "Führe eine Glücksspielaktion aus, während du an einen Saloon angrenzst. Jeder andere Spieler in derselben Stadt darf teilnehmen. Nimmt mindestens ein weiterer Spieler teil, erhält der aktive Spieler $10. Der Geber ist der nächstgelegene nicht teilnehmende Spieler rechts vom aktiven Spieler; nehmen alle teil, ist der aktive Spieler der Geber.",
+    "draw_4_fight_cards_show_3_and_keep_1_facedown": "Ziehe 4 Kampfkarten; zeige 3 und behalte 1 verdeckt",
+    "the_dealer_draws_the_top_4_fight_cards_reveal_the_first_3_to_all_players": "Der Geber zieht die obersten 4 Kampfkarten. Decke die ersten 3 für alle Spieler auf und lasse die vierte Karte verdeckt.",
+    "bet": "Setzen",
+    "place_up_to_2_bets_of_10_or_20_active_player_bets_last": "Platziere bis zu 2 Einsätze zu $10 oder $20; der aktive Spieler setzt zuletzt",
+    "in_clockwise_order_with_the_active_player_placing_the_last_bet_each_play": "Im Uhrzeigersinn, wobei der aktive Spieler zuletzt setzt, darf jeder Spieler bis zu 2 Einsatzmarker auf dem Faro-Spielplan platzieren. Jeder Marker entspricht $10 oder $20. Deine beiden Marker dürfen nicht auf demselben Kartenwert liegen, und deine Gesamteinsätze dürfen dein aktuelles Geld nicht überschreiten.",
+    "loser": "Verlierer",
+    "shuffle_the_4_cards_first_reveal_loses": "Mische die 4 Karten; die zuerst aufgedeckte verliert",
+    "the_dealer_shuffles_all_4_cards_facedown_and_offers_the_active_player_a_": "Der Geber mischt alle 4 Karten verdeckt und bietet dem aktiven Spieler das Abheben an. Decke die oberste Karte als Verlierer auf. Jeder Einsatz auf diesen Kartenwert verliert: Zahle den Betrag des Markers in den Vorrat und nimm den Marker zurück.",
+    "winner_2": "Sieger",
+    "second_reveal_pays_1_1_1_gp_decide_whether_to_press_on": "Die zweite aufgedeckte Karte zahlt 1:1 + 1 GP; entscheide, ob du weitermachst",
+    "reveal_the_next_card_as_the_winner_matching_bets_pay_1_1_gain_money_equa": "Decke die nächste Karte als Gewinner auf. Passende Einsätze zahlen 1:1: Erhalte Geld in Höhe des Markers und 1 Glücksspieler-Punkt und nimm anschließend den Marker zurück. Beginnend links vom aktiven Spieler muss jeder, der noch einen Marker auf dem Spielplan hat, ihn entweder zurücknehmen und aussteigen oder für die Jackpot-Runde liegen lassen.",
+    "jackpot": "Jackpot",
+    "third_reveal_pays_3_1_1_gp_all_other_remaining_bets_lose": "Die dritte aufgedeckte Karte zahlt 3:1 + 1 GP; alle anderen verbleibenden Einsätze verlieren",
+    "reveal_the_next_card_as_the_jackpot_matching_bets_gain_3_times_the_marke": "Decke die nächste Karte als Jackpot auf. Passende Einsätze erhalten das Dreifache des Markerwerts und 1 Glücksspieler-Punkt; nimm anschließend den Marker zurück. Jeder andere noch auf dem Spielplan liegende Marker verliert: Zahle seinen Wert in den Vorrat und nimm ihn zurück. Mische alle bei Faro verwendeten Kampfkarten und lege sie unter den Kampfstapel.",
+    "qualify_ante": "Voraussetzung & Ante",
+    "need_at_least_30_1_poker_card_ante_10_and_draw_1": "Benötigt mindestens $30 + 1 Pokerkarte; zahle $10 Ante und ziehe 1",
+    "to_initiate_high_stakes_poker_the_active_player_must_have_at_least_30_an": "Um Poker mit hohen Einsätzen zu beginnen, muss der aktive Spieler mindestens $30 und 1 Pokerkarte besitzen. Führe eine Glücksspielaktion aus, während du an einen Saloon angrenzst, zahle $10 in den Pot und ziehe 1 Pokerkarte.",
+    "invite_players": "Spieler einladen",
+    "same_town_players_may_join_in_clockwise_order": "Spieler derselben Stadt dürfen im Uhrzeigersinn teilnehmen",
+    "each_other_player_in_the_same_town_decides_in_clockwise_order_whether_to": "Jeder andere Spieler in derselben Stadt entscheidet im Uhrzeigersinn, ob er teilnimmt. Um teilzunehmen, muss ein Spieler mindestens $30 und 1 Pokerkarte besitzen; er zahlt $10 in den Pot und zieht 1 Pokerkarte.",
+    "build_pot_set_dealer": "Pot bilden / Geber bestimmen",
+    "saloon_adds_40_if_solo_dealer_draws_5_cards": "Der Saloon legt $40 dazu; bei Solo-Spiel zieht der Geber 5 Karten",
+    "the_saloon_adds_40_to_the_pot_if_no_other_player_joined_the_player_to_th": "Der Saloon legt $40 in den Pot. Hat kein anderer Spieler teilgenommen, wird der Spieler rechts vom aktiven Spieler zum Geber, legt seine normale Hand beiseite und zieht für dieses Spiel 5 Pokerkarten.",
+    "deal_the_flop": "Flop geben",
+    "reveal_3_communal_poker_cards": "3 Gemeinschafts-Pokerkarten aufdecken",
+    "reveal_3_communal_poker_cards_faceup_these_are_the_flop": "Decke 3 Gemeinschafts-Pokerkarten offen auf. Dies ist der Flop.",
+    "add_20_or_fold": "$20 hinzufügen oder passen",
+    "players_act_clockwise_from_the_active_player_s_left_dealer_never_folds": "Die Spieler handeln im Uhrzeigersinn links vom aktiven Spieler; der Geber passt nie",
+    "starting_with_the_player_to_the_left_of_the_active_player_and_proceeding": "Beginnend mit dem Spieler links vom aktiven Spieler und dann im Uhrzeigersinn legt jeder Spieler entweder $20 in den Pot oder passt. Ein Spieler, der passt, verliert seinen $10-Ante, verliert das Spiel und zieht 1 Pokerkarte. Spielt ein Geber mit, legt dieser immer $20 aus dem Vorrat hinzu und passt nie.",
+    "check_for_early_end": "Auf vorzeitiges Ende prüfen",
+    "all_fold_clear_pot_lone_player_may_win_immediately": "Alle passen: Pot leeren; alleiniger Spieler kann sofort gewinnen",
+    "if_all_players_fold_return_all_money_in_the_pot_to_the_supply_if_only_1_": "Wenn alle Spieler passen, gib das gesamte Geld im Pot in den Vorrat zurück. Bleibt nur 1 Spieler übrig und es spielt kein Geber mit, nimmt dieser Spieler sofort den Pot und erhält 1 Legendenpunkt und 1 Glücksspieler-Punkt.",
+    "turn_river": "Turn & River",
+    "if_play_continues_reveal_2_more_communal_cards": "Wenn das Spiel weitergeht, decke 2 weitere Gemeinschaftskarten auf",
+    "if_the_hand_continues_and_no_dealer_is_playing_the_saloon_adds_another_2": "Wird die Hand fortgesetzt und spielt kein Geber mit, legt der Saloon weitere $20 in den Pot. Decke anschließend 2 weitere Gemeinschafts-Pokerkarten auf: Turn und River.",
+    "make_the_best_hand": "Beste Hand bilden",
+    "reveal_2_hand_cards_use_any_3_communal_cards": "2 Handkarten aufdecken + beliebige 3 Gemeinschaftskarten verwenden",
+    "starting_to_the_left_of_the_active_player_and_proceeding_clockwise_each_": "Beginnend links vom aktiven Spieler und dann im Uhrzeigersinn deckt jeder verbleibende Spieler 2 Karten aus seiner Hand auf und kombiniert sie mit 3 der 5 Gemeinschaftskarten, um die bestmögliche Pokerhand zu bilden. Der Geber macht dasselbe, wenn er mitspielt. Handle Poker-/Glücksspielfähigkeiten wie beim normalen Poker ab.",
+    "winner_ties_rewards": "Sieger, Gleichstände & Belohnungen",
+    "best_hand_wins_winner_gets_pot_1_lp_1_gp": "Beste Hand gewinnt; Sieger erhält Pot + 1 LP + 1 GP",
+    "the_best_hand_wins_the_dealer_wins_ties_the_active_player_wins_ties_agai": "Die beste Hand gewinnt. Der Geber gewinnt Gleichstände; der aktive Spieler gewinnt Gleichstände gegen andere Spieler. Haben mehrere nicht aktive Spieler Gleichstand, erhält jeder 1 LP und 1 GP, und sie teilen den Pot gleichmäßig (abrunden); einen Rest gibst du in den Vorrat zurück. Gewinnt der Geber, gib den Pot in den Vorrat zurück. Andernfalls nimmt ein siegreicher Spieler den Pot und erhält 1 LP und 1 GP. Alle Verlierer ziehen 1 Pokerkarte, und alle Spieler werfen ihre aufgedeckten Karten ab.",
+    "ante_draw": "Ante & Ziehen",
+    "gamble_beside_a_saloon_pay_10_and_draw_1_poker_card": "Spiele neben einem Saloon; zahle $10 und ziehe 1 Pokerkarte",
+    "take_a_gamble_action_while_adjacent_to_a_saloon_the_active_player_pays_1": "Führe eine Glücksspielaktion aus, während du an einen Saloon angrenzst. Der aktive Spieler zahlt $10 in den Pot und zieht 1 Pokerkarte.",
+    "any_player_in_the_same_town_may_buy_in_for_10": "Jeder Spieler in derselben Stadt darf für $10 einsteigen",
+    "each_other_player_in_the_same_town_may_join_a_joining_player_pays_10_to_": "Jeder andere Spieler in derselben Stadt darf teilnehmen. Ein teilnehmender Spieler zahlt $10 in den Pot und zieht 1 Pokerkarte. Nachdem alle teilgenommen oder gepasst haben, legt das Haus $50 in den Pot.",
+    "set_dealer_if_solo": "Geber bestimmen, wenn solo",
+    "if_nobody_joins_the_player_to_the_right_deals_against_you": "Nimmt niemand teil, spielt der Spieler rechts von dir als Geber gegen dich",
+    "if_no_other_player_joined_the_player_to_the_right_of_the_active_player_b": "Hat kein anderer Spieler teilgenommen, wird der Spieler rechts vom aktiven Spieler zum Geber. Der Geber legt seine normale Pokerhand beiseite und zieht für dieses Spiel 4 Pokerkarten als Hand.",
+    "reveal_the_top_3_poker_cards": "Die obersten 3 Pokerkarten aufdecken",
+    "reveal_the_top_3_poker_cards_faceup_these_communal_cards_are_the_flop": "Decke die obersten 3 Pokerkarten offen auf. Diese Gemeinschaftskarten sind der Flop.",
+    "build_your_hand": "Deine Hand bilden",
+    "use_2_hand_cards_the_3_flop_cards": "2 Handkarten + die 3 Flopkarten verwenden",
+    "make_the_best_5_card_hand_using_the_3_flop_cards_and_exactly_2_poker_car": "Bilde, wenn möglich, die beste 5-Karten-Hand aus den 3 Flopkarten und genau 2 Pokerkarten aus deiner Hand. Hast du nur 1 Pokerkarte, verwende sie für die bestmögliche 4-Karten-Hand. Asse können in einer Straße oder einem Straight Flush niedrig oder hoch zählen.",
+    "reveal_break_ties": "Aufdecken & Gleichstände auflösen",
+    "best_hand_wins_dealer_and_active_player_have_tie_priority": "Beste Hand gewinnt; Geber und aktiver Spieler haben Vorrang bei Gleichstand",
+    "reveal_chosen_cards_simultaneously_and_announce_each_hand_the_best_hand_": "Deckt die gewählten Karten gleichzeitig auf und nennt jede Hand. Die beste Hand gewinnt. Bei Händen desselben Rangs vergleicht zunächst die Kartenwerte und bei Bedarf die Kicker. Ein Geber gewinnt Gleichstände. Haben Spieler Gleichstand und ist der aktive Spieler darunter, gewinnt der aktive Spieler. Andernfalls teilen die beteiligten Spieler den Pot gleichmäßig; einen Rest gibst du in den Vorrat zurück.",
+    "award_the_pot": "Pot vergeben",
+    "winner_takes_pot_losers_draw_1_poker_card": "Sieger nimmt den Pot; Verlierer ziehen 1 Pokerkarte",
+    "the_winner_takes_the_pot_and_any_additional_item_or_ability_rewards_if_t": "Der Gewinner nimmt den Pot sowie alle zusätzlichen Belohnungen durch Gegenstände oder Fähigkeiten. Gewinnt der aktive Spieler, darf er entweder 1 Glücksspieler-Punkt oder 1 Legendenpunkt erhalten. Ein siegreicher nicht aktiver Spieler erhält 1 Glücksspieler-Punkt. Jeder Verlierer zieht 1 Pokerkarte.",
+    "poker": "Poker",
+    "faro": "Faro",
+    "poker_hands": "Pokerhände",
+    "gambling_reference": "Glücksspielreferenz",
+    "legendary_points_lp": "Legendenpunkte (LP)",
+    "deposit_gold": "Gold einzahlen",
+    "at_the_bank_gain_20_and_1_lp_for_each_gold_nugget_sold": "Erhalte bei der Bank für jedes verkaufte Goldnugget $20 und 1 LP.",
+    "at_the_cabaret_pay_30_to_gain_1_lp_you_may_repeat_during_the_same_revel_": "Zahle im Cabaret $30, um 1 LP zu erhalten; du darfst dies während derselben Feiern-Aktion wiederholen.",
+    "win_fights": "Kämpfe gewinnen",
+    "defeat_bandits_or_story_npcs_when_the_fight_reward_allows_lp": "Besiege Banditen oder Story-NSCs, wenn die Kampfbelohnung LP erlaubt.",
+    "complete_stories": "Geschichten abschließen",
+    "story_cards_legendary_stories_event_triggers_and_app_story_objectives_ma": "Storykarten, Legendäre Geschichten, Ereignisauslöser und Story-Ziele der App können LP vergeben.",
+    "use_deeds": "Urkunden nutzen",
+    "claim_or_use_deeds_when_a_property_reward_grants_lp": "Beanspruche oder nutze Urkunden, wenn eine Grundstücksbelohnung LP gewährt.",
+    "expansion_rewards": "Erweiterungsbelohnungen",
+    "hunting_fishing_crafting_and_other_expansion_content_may_award_lp_throug": "Jagd, Angeln, Herstellen und andere Erweiterungsinhalte können durch eigene Regeln oder Geschichten LP vergeben.",
+    "marshal_points_mp": "Marshal-Punkte (MP)",
+    "wrangle_cattle": "Vieh treiben",
+    "deliver_cattle_tokens_to_a_rail_station": "Liefere Viehmarker an einen Bahnhof.",
+    "arrest_outlaws": "Outlaws verhaften",
+    "arrest_wanted_players_or_resolve_lawman_rewards_that_grant_marshal_point": "Verhafte Wanted-Spieler oder handle Belohnungen von Gesetzeshütern ab, die Marshal-Punkte gewähren.",
+    "defeat_bandits": "Banditen besiegen",
+    "choose_marshal_points_when_the_bandit_reward_allows_mp_instead_of_lp": "Wähle Marshal-Punkte, wenn die Banditenbelohnung MP statt LP erlaubt.",
+    "serve_the_law": "Dem Gesetz dienen",
+    "complete_sheriff_marshal_posse_or_law_themed_story_events_that_award_mp": "Schließe Story-Ereignisse rund um Sheriff, Marshal, Posse oder das Gesetz ab, die MP vergeben.",
+    "wanted_points_wp": "Wanted-Punkte (WP)",
+    "rustle_cattle": "Vieh stehlen",
+    "deliver_cattle_to_the_wrong_ranch_color": "Liefere Vieh an eine Ranch der falschen Farbe.",
+    "rob_heist": "Raub / Überfall",
+    "rob_another_player_rob_the_bank_or_commit_heist_outlaw_actions_that_awar": "Raube einen anderen Spieler oder die Bank aus oder führe Überfall-/Outlaw-Aktionen aus, die Wanted-Punkte vergeben.",
+    "fight_the_law": "Gegen das Gesetz kämpfen",
+    "attack_or_interfere_with_lawmen_when_a_rule_or_story_says_to_gain_wp": "Greife Gesetzeshüter an oder behindere sie, wenn eine Regel oder Geschichte dafür WP vergibt.",
+    "outlaw_events": "Outlaw-Ereignisse",
+    "resolve_outlaw_gang_train_heist_or_bandit_story_events_that_grant_wp": "Handle Story-Ereignisse zu Outlaws, Gangs, Zugüberfällen oder Banditen ab, die WP gewähren.",
+    "gambler_points_gp": "Glücksspieler-Punkte (GP)",
+    "gambling_rewards": "Glücksspielbelohnungen",
+    "win_or_resolve_ante_up_gambling_activities_when_the_gambler_track_module": "Gewinne oder handle Glücksspielaktivitäten aus Ante Up ab, wenn die Glücksspieler-Leiste bzw. das Modul aktiviert ist.",
+    "poker_faro": "Poker / Faro",
+    "play_poker_or_faro_events_that_award_gambler_points": "Spiele Poker- oder Faro-Ereignisse, die Glücksspieler-Punkte vergeben.",
+    "gambling_stories": "Glücksspielgeschichten",
+    "complete_saloon_cabaret_card_shark_or_traveling_showman_story_events_tha": "Schließe Story-Ereignisse zu Saloon, Cabaret, Kartenhai oder reisendem Schausteller ab, die GP vergeben.",
+    "story_points_sp": "Story-Punkte (SP)",
+    "legendary_stories": "Legendäre Geschichten",
+    "gain_story_points_from_blood_money_legendary_story_content_when_instruct": "Erhalte Story-Punkte aus Legendären Story-Inhalten von Blood Money, wenn angegeben.",
+    "risk_die_effects": "Risikowürfel-Effekte",
+    "gain_story_points_from_the_risk_die_or_other_module_effects_when_instruc": "Erhalte Story-Punkte durch den Risikowürfel oder andere Moduleffekte, wenn angegeben.",
+    "story_objectives": "Story-Ziele",
+    "complete_story_objectives_major_storyline_chapters_or_app_events_that_ex": "Schließe Story-Ziele, Kapitel großer Handlungsstränge oder App-Ereignisse ab, die ausdrücklich Story-Punkte vergeben.",
+    "game_assist": "Spielhilfe",
+    "quick_helpers": "Schnellhelfer",
+    "draw": "Ziehen",
+    "step_by_step_fight_guide": "Schritt-für-Schritt-Kampfanleitung",
+    "which_hand_beats_which": "Welche Hand welche schlägt.",
+    "step_by_step_poker_guide": "Schritt-für-Schritt-Pokeranleitung.",
+    "step_by_step_faro_guide": "Schritt-für-Schritt-Faro-Anleitung.",
+    "step_by_step_high_stakes_guide": "Schritt-für-Schritt-Anleitung für hohe Einsätze.",
+    "dice": "Würfel",
+    "prospecting_dice": "Schürfwürfel",
+    "roll_prospecting_dice": "Schürfwürfel werfen",
+    "risk_die": "Risikowürfel",
+    "roll_the_risk_die": "Risikowürfel werfen.",
+    "randomizers": "Zufallsauswahl",
+    "first_player": "Startspieler",
+    "choose_first_player": "Startspieler wählen",
+    "random_player": "Zufälliger Spieler",
+    "pick_a_random_player_color": "Wähle zufällig eine Spielerfarbe.",
+    "store_randomizer": "Laden-Zufallsauswahl",
+    "fill_general_store_trading_post": "Gemischtwarenladen/Handelsposten füllen",
+    "fill_general_store": "Gemischtwarenladen füllen",
+    "other": "Andere",
+    "trail_helper": "Weghelfer",
+    "use_the_fight_card_count_shown_on_the_train_encounter_card": "Verwende die auf der Zugbegegnungskarte angegebene Anzahl Kampfkarten.",
+    "draw_fight_cards": "Kampfkarten ziehen",
+    "tap_a_face_down_card_to_peek_at_it_tap_any_revealed_card_to_view_it_full": "Tippe auf eine verdeckte Karte, um sie anzusehen. Tippe auf eine aufgedeckte Karte, um sie in voller Größe anzuzeigen.",
+    "tap_draw_to_draw_this_many_fight_cards_and_reveal_the_npc_s_best_play": "Tippe auf „Ziehen“, um so viele Kampfkarten zu ziehen und den besten Zug des NSC aufzudecken.",
+    "gambling_helper": "Glücksspielhelfer",
+    "draw_a_different_item": "Anderen Gegenstand ziehen",
+    "setup_helper": "Aufbauhelfer",
+    "general_store": "Gemischtwarenladen",
+    "trading_post": "Handelsposten",
+    "tap_randomize_to_reveal_the_store": "Tippe auf „Zufällig bestimmen“, um den Laden aufzudecken.",
+    "tap_a_card_to_view_it_full_size_or_tap_to_draw_a_different_item_the_firs": "Tippe auf eine Karte, um sie in voller Größe anzusehen, oder auf ⟲, um einen anderen Gegenstand zu ziehen. Die zuerst gezogene Waffe und das zuerst gezogene Reittier werden automatisch im Gemischtwarenladen festgelegt.",
+    "randomizer": "Zufallsauswahl",
+    "touch_randomizer": "Touch-Zufallsauswahl",
+    "use_this_for_train_movement_train_heists_and_train_encounter_reminders": "Verwende dies für Zugbewegung, Zugüberfälle und Erinnerungen an Zugbegegnungen.",
+    "use_this_for_hunt_markers_animal_draws_strength_checks_and_harvest_rewar": "Verwende dies für Jagdmarker, Tierziehungen, Stärkeprüfungen und Erntebelohnungen.",
+    "use_this_for_fish_draws_bait_lure_checks_and_fish_delivery_hooks": "Verwende dies für Fischziehungen, Köder-/Lockmittelprüfungen und Auslöser für Fischlieferungen.",
+    "foraging_crafting_assist": "Sammel- & Herstellungs-Hilfe",
+    "use_this_for_resource_draws_craft_costs_and_delivery_story_hooks": "Verwende dies für Ressourcenziehungen, Herstellungskosten und Story-Auslöser bei Lieferungen.",
+    "this_assist_can_be_expanded_later": "Diese Hilfe kann später erweitert werden.",
+    "frontier_gazette": "Grenzland-Gazette",
+    "finish_this_game_and_clear_its_saved_data_print_or_save_the_newspaper_fi": "Dieses Spiel beenden und seine gespeicherten Daten löschen? Drucke oder speichere zuerst die Zeitung, wenn du sie behalten möchtest.",
+    "law_and_order": "Recht und Ordnung",
+    "tense_standoff": "Angespannte Pattsituation",
+    "the_gambling_halls_did_a_brisk_trade_and_more_than_one_fortune_changed_h": "in den Spielhallen florierte das Geschäft, und mehr als ein Vermögen wechselte bei einer Kartenrunde den Besitzer",
+    "story_after_story_unfolded_across_the_territory_each_one_adding_a_little": "im ganzen Gebiet entfaltete sich Geschichte um Geschichte, und jede fügte der Erinnerung des Grenzlands ein wenig mehr Farbe hinzu",
+    "a_passing_rider": "ein vorbeiziehender Reiter",
+    "other_frontier_business": "Andere Grenzlandgeschäfte",
+    "other_frontier_business_2": "andere Grenzlandgeschäfte",
+    "the_day_left_only_a_light_trail_in_the_companion_s_record_before_the_pre": "Der Tag hinterließ nur eine schwache Spur im Register des Begleiters, bevor die Pressen anliefen.",
+    "the_rider": "der Reiter",
+    "the_rider_s": "des Reiters",
+    "kept_a_varied_trail_across_the_territory": "Hinterließ eine abwechslungsreiche Spur durch das Gebiet.",
+    "other_reports_reached_the_gazette_from_across_the_territory": "Weitere Berichte aus dem gesamten Gebiet erreichten die Gazette.",
+    "the_territory": "das Gebiet",
+    "tap_to_dismiss": "Zum Schließen antippen",
+    "hide_future_story_point_reminder_messages": "Künftige Erinnerungen an Story-Punkte ausblenden",
+    "story_point": "Story-Punkt",
+    "do_not_show_again": "Nicht erneut anzeigen",
+    "story_point_track_per_player": "Story-Punkt-Leiste pro Spieler",
+    "players_with_unresolved_story_chapters": "Spieler mit ungelösten Story-Kapiteln",
+    "tap_to_cycle_color": "Antippen, um die Farbe zu wechseln",
+    "name": "Name",
+    "reward": "Belohnung:",
+    "effect": "Effekt:",
+    "the_trail_continues": "Der Weg geht weiter",
+    "current_game_summary": "Zusammenfassung des aktuellen Spiels",
+    "lp": "LP",
+    "continue_game": "Spiel fortsetzen",
+    "players_in_the_current_game": "Spieler im aktuellen Spiel",
+    "close": "Schließen",
+    "setup_steps": "Aufbauschritte",
+    "game_setup": "Spielaufbau",
+    "new_game": "Neues Spiel",
+    "modules": "Module",
+    "basics": "Grundlagen",
+    "setup": "Aufbau",
+    "next": "Weiter",
+    "decrease_target_lp": "Ziel-LP verringern",
+    "victory_conditions": "Siegbedingungen",
+    "increase_target_lp": "Ziel-LP erhöhen",
+    "target_legend_points_to_win_the_game": "Ziel-Legendenpunkte für den Spielsieg",
+    "story_amp_events": "Story &amp; Ereignisse",
+    "track_story_points": "Story-Punkte verfolgen",
+    "track_each_player_s_story_track_and_show_compact_reward_reminders": "Verfolge die Story-Leiste jedes Spielers und zeige kompakte Belohnungserinnerungen.",
+    "players": "Spieler",
+    "start_game": "Spiel starten",
+    "current_game": "Aktuelles Spiel",
+    "game_settings": "Spieleinstellungen",
+    "adjust_story_features_without_changing_the_modules_used_to_start_this_ga": "Passe Story-Funktionen an, ohne die Module zu ändern, mit denen dieses Spiel gestartet wurde. Änderungen gelten für künftige Ereignisse; laufende Kapitel und aktuelle Welteffekte bleiben aktiv.",
+    "story_points": "Story-Punkte",
+    "show_and_maintain_each_player_s_story_point_track_during_this_game": "Zeige und verwalte während dieses Spiels die Story-Punkt-Leiste jedes Spielers.",
+    "story_point_reward_reminders": "Erinnerungen an Story-Punkt-Belohnungen",
+    "show_the_compact_reminder_when_a_story_point_advances_a_player_s_marker": "Zeige die kompakte Erinnerung, wenn ein Story-Punkt den Marker eines Spielers weiterbewegt.",
+    "done": "Fertig",
+    "player": "Spieler",
+    "setup_sections": "Aufbaubereiche",
+    "setup_step": "Aufbauschritt",
+    "back": "Zurück",
+    "primary_actions": "Primäre Aktionen",
+    "perform_one_of_these_actions_to_see_what_happens": "Führe eine dieser Aktionen aus und sieh, was geschieht.",
+    "primary_action_triggers": "Primäre Aktionsauslöser",
+    "ongoing_stories": "Laufende Geschichten",
+    "current_world_event": "Aktuelles Weltereignis",
+    "tap_when_it_happens": "Antippen, wenn es geschieht",
+    "resolved": "Erledigt",
+    "resolve": "Abhandeln",
+    "strongest": "STÄRKSTE",
+    "higher_hands_beat_every_hand_below_them_tap_a_hand_for_a_quick_definitio": "Höhere Hände schlagen jede darunter. Tippe auf eine Hand für eine kurze Erklärung.",
+    "weakest": "SCHWÄCHSTE",
+    "fight_type": "Kampftyp",
+    "choose_fight_type": "Kampftyp wählen …",
+    "i": "i",
+    "win": "SIEG",
+    "lose": "NIEDERLAGE",
+    "interactive_fight_resolution_flowchart": "Interaktives Ablaufdiagramm zur Kampfabwicklung",
+    "select_a_fight_type_to_begin": "Wähle einen Kampftyp, um zu beginnen",
+    "the_rest_of_the_flow_adapts_to_player_or_npc_fights_and_the_modules_enab": "Der weitere Ablauf passt sich Kämpfen gegen Spieler oder NSCs sowie den für dieses Spiel aktivierten Modulen an.",
+    "active_player": "Aktiver Spieler:",
+    "gain_1_marshal_point": "Erhalte 1 Marshal-Punkt.",
+    "target_player_2": "Zielspieler:",
+    "gain_1_wound_and_draw_1_poker_card_place_the_target_miniature_at_the_she": "Erleide 1 Wunde und ziehe 1 Pokerkarte. Stelle die Figur des Zielspielers mit dem Sheriff in das Sheriff-/Marshalbüro. Der Zielspieler verliert alle Wanted-Punkte,",
+    "half_of_their_gold_nuggets_rounded_up_and_half_of_their_money_rounded_up": "die Hälfte seiner Goldnuggets (aufgerundet) und die Hälfte seines Geldes (aufgerundet).",
+    "gain_1_wanted_point_steal_half_of_the_target_s_money": "Erhalte 1 Wanted-Punkt. Stiehl die Hälfte des Geldes des Zielspielers",
+    "or": "oder",
+    "half_of_their_gold_nuggets_rounded_up": "die Hälfte seiner Goldnuggets, aufgerundet,",
+    "gain_1_wound_and_draw_1_poker_card": "Erleide 1 Wunde und ziehe 1 Pokerkarte.",
+    "place_the_sheriff_at_the": "Stelle den Sheriff in das",
+    "sheriff_marshal_office": "Sheriff-/Marshalbüro",
+    "another_player_draws": "Ein anderer Spieler zieht",
+    "chooses_1_and_places_it_facedown": ", wählt 1 davon und legt sie verdeckt ab.",
+    "another_player_draws_the_number_of_fight_cards_shown_on": "Ein anderer Spieler zieht die Anzahl Kampfkarten, die angegeben ist auf",
+    "the_active_player_s_poker_card_and_the_chosen_npc_fight_card_remain_face": "Die Pokerkarte des aktiven Spielers und die gewählte NSC-Kampfkarte bleiben bis zum Schritt „Aufdecken“ verdeckt.",
+    "tap_anywhere_to_close": "Zum Schließen irgendwo tippen",
+    "turn_summary": "Zugzusammenfassung",
+    "rules_reminders": "Regeln & Hinweise",
+    "if_lp_is_at_least": "Wenn LP mindestens",
+    "trigger_the_end_finish_the_current_round_then_play_1_final_full_round": ", löse das Spielende aus: Beende die aktuelle Runde und spiele anschließend 1 letzte vollständige Runde.",
+    "while_adjacent_to_a_saloon_choose_to_play": "Wenn du an einen Saloon angrenzst, wähle",
+    "once_per_turn": "Einmal pro Zug:",
+    "while_at_the_bank": "während du bei der Bank bist",
+    "fight_the_guard": ", kämpfe gegen die Wache.",
+    "while_at_a_mine_roll_the_mining_dice_and_gain_the_results": "Wenn du bei einer Mine bist, würfle die Minenwürfel und erhalte die Ergebnisse.",
+    "while_adjacent_to_the_store": "Wenn du an den Laden angrenzst",
+    "purchase_an_item_from_the_rack_or_pay_to_upgrade_an_owned_item": ", kaufe einen Gegenstand aus der Auslage oder zahle, um einen Gegenstand in deinem Besitz zu verbessern.",
+    "initiate_a_fight_in_your_space_with_another_player_arrest_duel_or_rob": "Beginne einen Kampf auf deinem Feld mit einem anderen Spieler: Verhaften, Duell oder Rauben.",
+    "game": "Spiel",
+    "step": "Schritt",
+    "frontier_director": "Frontier Director",
+    "settings": "Einstellungen",
+    "audio": "Audio",
+    "npc": "NSC",
+    "advanced_refine_the_npc_s_decision": "Fortgeschritten: Entscheidung des NSC verfeinern",
+    "opponent_has_a_card_reducing_weapon": "Gegner hat eine Waffe, die Karten reduziert",
+    "opponent_already_has_3_wounds_the_max": "Gegner hat bereits 3 Wunden (Maximum)",
+    "this_npc_u2019s_defeat_reward_is_especially_valuable_bank_guard_sheriff_": "Die Niederlagenbelohnung dieses NSC ist besonders wertvoll (Bankwache, Sheriff usw.)",
+    "opponent_has_no_poker_cards_to_discard": "Gegner hat keine Pokerkarten zum Abwerfen",
+    "draw_one_fewer_fight_card": "Ziehe eine Kampfkarte weniger",
+    "fight_cards": "Kampfkarten",
+    "draw_one_more_fight_card": "Ziehe eine Kampfkarte mehr",
+    "npc_plays_the": "NSC spielt die",
+    "roll_dice": "Würfel werfen",
+    "roll_all_dice": "Alle Würfel werfen",
+    "empty": "Leer",
+    "pick_again": "Erneut wählen",
+    "placeholder_ready_for_the_next_build_out": "Platzhalter für eine spätere Erweiterung.",
+    "final_scoring_reminders": "Hinweise zur Endwertung",
+    "final_scoring": "Endwertung",
+    "tie_breakers": "Gleichstandsregeln",
+    "back_to_game": "Zurück zum Spiel",
+    "end_game": "Spiel beenden",
+    "final_tally": "Endwertung",
+    "newspaper": "Zeitung",
+    "highest_lp": "Höchste LP",
+    "wins": "gewinnt",
+    "highest_lp_is_tied": "Gleichstand bei den höchsten LP",
+    "resolve_the_tie": "Gleichstand auflösen",
+    "use_the_normal_tie_breakers_then_choose_the_winner_if_the_tie_remains_ch": "Verwende die normalen Gleichstandsregeln und wähle anschließend den Sieger. Bleibt der Gleichstand bestehen, wähle „Geteilter Sieg“.",
+    "shared_victory": "Geteilter Sieg",
+    "save": "Speichern",
+    "finish_game": "Spiel beenden",
+    "gazette_ledger": "Register der Gazette",
+    "recorded_action_reports": "Aufgezeichnete Aktionsberichte",
+    "the_companion_recorded_a_quieter_trail_for_this_rider_with_no_dominant_l": "Der Begleiter zeichnete für diesen Reiter eine ruhigere Spur auf, ohne eine vorherrschende Aktionsart vor der Endwertung.",
+    "riders_leave_their_mark": "Reiter hinterlassen ihre Spuren",
+    "dispatches_from_the_range": "Meldungen aus dem Grenzland",
+    "world_events_shape_the_territory": "Weltereignisse prägen das Gebiet",
+    "lives_and_legends": "Leben und Legenden",
+    "the_gazette_followed_these_recurring_frontier_figures_as_their_fortunes_": "Die Gazette verfolgte diese wiederkehrenden Gestalten des Grenzlands, während sich ihr Schicksal von Kapitel zu Kapitel wandelte.",
+    "territory_wide_tales": "Geschichten aus dem ganzen Gebiet",
+    "final_standings": "Endstand",
+    "final_word": "Schlusswort",
+    "install_app": "App installieren",
+    "version": "Version",
+    "unable_to_start": "Start nicht möglich",
+    "run_this_app_from_a_local_web_server_so_the_json_files_can_load": "Starte diese App über einen lokalen Webserver, damit die JSON-Dateien geladen werden können.",
+    "display_mode_standalone": "(Anzeigemodus: eigenständig)",
+    "man_in_black_2": "<div class=\"player-setup-row man-in-black-setup-row\" aria-label=\"Automatisierter Spieler Mann in Schwarz\">\n    <span class=\"player-color-swatch swatch-man-in-black\" aria-hidden=\"true\"></span>\n    <strong class=\"man-in-black-setup-label\">Mann in Schwarz</strong>\n  </div>",
+    "goals_after_choosing_each_character_take_that_character_s_4_goal_cards": "<p class=\"player-goals-note\"><strong>Ziele:</strong> Nimm nach der Wahl jedes Charakters dessen 4 Zielkarten.</p>",
+    "add_player": "<button type=\"button\" class=\"secondary-btn add-player-btn\" id=\"addPlayerBtn\">Spieler hinzufügen</button>",
+    "effect_2": "<strong>Effekt:</strong><ul>",
+    "your_legend_awaits_gather_your_posse_and_make_your_mark_on_the_frontie": "\n          <p class=\"home-kicker\">Deine Legende wartet</p>\n          <p class=\"home-subtitle\">Versammle deine Posse und hinterlasse deine Spuren im Grenzland.</p>",
+    "start_new_game": "\n          <button class=\"secondary-btn home-major-btn home-leather-btn home-leather-btn-secondary\" id=\"newGameBtn\">\n            <span class=\"home-btn-mark\" aria-hidden=\"true\">◇</span>\n            <span class=\"home-btn-label\">Neues Spiel starten</span>\n            <span class=\"home-btn-arrow\" aria-hidden=\"true\">›</span>\n          </button>",
+    "start_new_game_2": "\n          <button class=\"primary-btn home-major-btn home-leather-btn home-leather-btn-primary\" id=\"newGameBtn\">\n            <span class=\"home-btn-mark\" aria-hidden=\"true\">◆</span>\n            <span class=\"home-btn-label\">Neues Spiel starten</span>\n            <span class=\"home-btn-arrow\" aria-hidden=\"true\">›</span>\n          </button>",
+    "show_reference": "<button type=\"button\" class=\"step-image-toggle\" aria-expanded=\"false\">Referenz anzeigen</button>",
+    "no_ongoing_stories_keep_watching_the_three_primary_action_cards": "<p>Keine laufenden Geschichten. Behalte die drei primären Aktionskarten im Auge.</p>",
+    "no_current_world_event": "<p>Kein aktuelles Weltereignis.</p>",
+    "active_player_gain_1_wound_and_draw_1_poker_card_target_player_avoids_": "<p><strong>Aktiver Spieler:</strong> Erleide 1 Wunde und ziehe 1 Pokerkarte.</p><p><strong>Zielspieler:</strong> Entgeht der Verhaftung.</p>",
+    "active_player_gain_2_legendary_points_target_player_gain_1_wound_and_d": "<p><strong>Aktiver Spieler:</strong> Erhalte 2 Legendenpunkte.</p><p><strong>Zielspieler:</strong> Erleide 1 Wunde und ziehe 1 Pokerkarte.</p>",
+    "active_player_gain_1_wound_and_draw_1_poker_card_target_player_no_addi": "<p><strong>Aktiver Spieler:</strong> Erleide 1 Wunde und ziehe 1 Pokerkarte.</p><p><strong>Zielspieler:</strong> Kein zusätzlicher Effekt.</p>",
+    "active_player_gain_1_wound_and_draw_1_poker_card_target_player_avoids__2": "<p><strong>Aktiver Spieler:</strong> Erleide 1 Wunde und ziehe 1 Pokerkarte.</p><p><strong>Zielspieler:</strong> Entgeht dem Raub.</p>",
+    "gain_1_marshal_point_or_1_legendary_point_then_remove_the_bandit_from_": "<p>Erhalte <strong>1 Marshal-Punkt oder 1 Legendenpunkt</strong> und entferne anschließend den Banditen aus dem Spiel.</p>",
+    "gain_1_wound_draw_1_poker_card_then_remove_the_bandit_from_play": "<p>Erleide <strong>1 Wunde</strong>, ziehe 1 Pokerkarte und entferne anschließend den Banditen aus dem Spiel.</p>",
+    "gain_3_wanted_points_and_80": "<p>Erhalte <strong>3 Wanted-Punkte und $80</strong>.</p>",
+    "gain_1_wound_draw_1_poker_card_and_gain_1_wanted_point": "<p>Erleide <strong>1 Wunde</strong>, ziehe 1 Pokerkarte und erhalte <strong>1 Wanted-Punkt</strong>.</p>",
+    "sheriff_variant_the_sheriff_lost_the_fight_so_discard_replace_the_curr": "<p><strong>Sheriff-Variante:</strong> Der Sheriff hat den Kampf verloren. Wirf daher die aktuelle Sheriffkarte ab/ersetze sie und decke die nächste Sheriffkarte auf.</p>",
+    "the_player_is_arrested_gains_1_wound_and_draws_1_poker_card": "<p>Der Spieler wird <strong>verhaftet</strong>, erleidet 1 Wunde und zieht 1 Pokerkarte.</p>",
+    "gain_the_reward_printed_on_the_outlaw_token_then_remove_the_token_from": "<p>Erhalte die <strong>auf dem Outlaw-Marker aufgedruckte Belohnung</strong> und entferne anschließend den Marker aus dem Spiel.</p>",
+    "gain_1_wound_draw_1_poker_card_then_remove_the_outlaw_token_from_play": "<p>Erleide <strong>1 Wunde</strong>, ziehe 1 Pokerkarte und entferne anschließend den Outlaw-Marker aus dem Spiel.</p>",
+    "gain_the_reward_printed_on_the_claim_jumper_token_then_remove_the_toke": "<p>Erhalte die <strong>auf dem Claim-Jumper-Marker aufgedruckte Belohnung</strong> und entferne anschließend den Marker aus dem Spiel.</p>",
+    "gain_1_wound_draw_1_poker_card_then_remove_the_claim_jumper_token_from": "<p>Erleide <strong>1 Wunde</strong>, ziehe 1 Pokerkarte und entferne anschließend den Claim-Jumper-Marker aus dem Spiel.</p>",
+    "gain_the_reward_printed_on_the_train_encounter_card": "<p>Erhalte die <strong>auf der Zugbegegnungskarte aufgedruckte Belohnung</strong>.</p>",
+    "gain_1_wound_draw_1_poker_card_and_resolve_the_additional_consequences": "<p>Erleide <strong>1 Wunde</strong>, ziehe 1 Pokerkarte und handle die zusätzlichen Folgen ab, die auf der Zugbegegnungskarte aufgedruckt sind.</p>",
+    "resolve_the_result_listed_by_the_fight_or_encounter": "<p>Handle das beim Kampf oder der Begegnung aufgeführte Ergebnis ab.</p>",
+    "the_active_player_resolves_a_start_of_fight_effect_then_the_target_pla": "<p>Der <strong>aktive Spieler</strong> handelt einen Effekt zum Kampfbeginn ab, anschließend darf der <strong>Zielspieler</strong> einen abhandeln. Wechselt euch weiter ab, bis beide Spieler passen.</p>",
+    "the_active_player_resolves_all_applicable_start_of_fight_effects_befor": "<p>Der <strong>aktive Spieler</strong> handelt alle zutreffenden Effekte zum Kampfbeginn ab, bevor Karten gewählt werden.</p>",
+    "reveal_the_top_bandit_card_then_reveal_the_number_on_the_bottom_of_the": "<p>Decke die <strong>oberste Banditenkarte</strong> auf und anschließend die Nummer auf der Unterseite des grauen Rings der Banditenfigur. Lies den passenden Banditeneffekt laut vor und wende ihn auf diesen Kampf an.</p>",
+    "the_active_player_chooses_1_poker_card_from_hand_and_places_it_facedow": "<p>Der aktive Spieler wählt <strong>1 Pokerkarte aus seiner Hand</strong> und legt sie verdeckt ab.</p>",
+    "the_target_player_chooses_1_poker_card_from_hand_and_places_it_facedow": "<p>Der Zielspieler wählt <strong>1 Pokerkarte aus seiner Hand</strong> und legt sie verdeckt ab.</p><p>Stattdessen darf der Zielspieler den <strong>Kampf ablehnen</strong>. Lehnt er ab, verliert er sofort — überspringe Aufdecken und Vergleichen und handle das Siegergebnis des aktiven Spielers ab.</p>",
+    "reveal_the_active_player_s_poker_card_and_the_opposing_poker_fight_car": "<p>Decke die Pokerkarte des aktiven Spielers und die gegnerische Poker-/Kampfkarte gleichzeitig auf.</p>",
+    "the_active_player_resolves_any_bonus_character_ability_or_item_ability": "<p>Der <strong>aktive Spieler</strong> handelt alle Boni, Charakterfähigkeiten oder Gegenstandsfähigkeiten ab, die die aufgedeckte Karte beeinflussen. Anschließend handelt der <strong>Zielspieler</strong> seine zutreffenden Boni und Fähigkeiten ab.</p>",
+    "the_active_player_resolves_any_bonus_character_ability_or_item_ability_2": "<p>Der <strong>aktive Spieler</strong> handelt alle Boni, Charakterfähigkeiten oder Gegenstandsfähigkeiten ab, die seine aufgedeckte Karte beeinflussen.</p>",
+    "the_active_player_may_play_a_reaction_effect_then_the_target_player_ma": "<p>Der aktive Spieler darf einen Reaktionseffekt spielen, anschließend darf der Zielspieler einen spielen. <strong>Wechselt euch ab, bis beide Spieler passen.</strong></p>",
+    "the_active_player_resolves_applicable_reaction_effects_then_apply_the_": "<p>Der aktive Spieler handelt zutreffende Reaktionseffekte ab. Wende anschließend den auf der gewählten <strong>NSC-Kampfkarte</strong> aufgedruckten Effekt an.</p>",
+    "after_all_modifiers_and_effects_the_highest_final_value_wins_if_the_va": "<p>Nach allen Modifikatoren und Effekten <strong>gewinnt der höchste Endwert</strong>. Bei Gleichstand <strong>gewinnt der aktive Spieler</strong>.</p>",
+    "after_all_modifiers_and_effects_the_highest_final_value_wins_if_the_va_2": "<p>Nach allen Modifikatoren und Effekten <strong>gewinnt der höchste Endwert</strong>. Bei Gleichstand <strong>gewinnt der NSC</strong>.</p>",
+    "the_active_player_resolves_all_applicable_end_of_fight_effects_then_th": "<p>Der <strong>aktive Spieler</strong> handelt alle zutreffenden Effekte zum Kampfende ab. Anschließend handelt der <strong>Zielspieler</strong> seine zutreffenden Effekte zum Kampfende ab.</p>",
+    "the_active_player_resolves_all_applicable_end_of_fight_effects": "<p>Der <strong>aktive Spieler</strong> handelt alle zutreffenden Effekte zum Kampfende ab.</p>",
+    "discard_all_poker_cards_played_in_this_fight": "<p>Wirf alle in diesem Kampf gespielten Pokerkarten ab.</p>",
+    "shuffle_the_fight_cards_drawn_for_this_fight_and_place_them_on_the_bot": "<p>Mische die für diesen Kampf gezogenen Kampfkarten und lege sie <strong>unter den Kampfstapel</strong>. Wirf alle im Kampf gespielten Pokerkarten ab.</p>",
+    "auto_select_fight_card": "<button type=\"button\" class=\"primary-btn fight-flow-auto-btn\" data-fight-auto-select>Kampfkarte automatisch wählen</button>",
+    "move_the_train": "<li>Bewege den Zug.</li>",
+    "resolve_start_of_turn_effects": "<li>Handle Effekte zu Beginn des Zuges ab.</li>",
+    "choose_income": "<li>Wähle Einkommen.</li>",
+    "choose_active_weapon_mount": "<li>Wähle aktive Waffe/aktives Reittier.</li>",
+    "move_move_up_to_your_movement_value_2_default": "<li><strong>Bewegen:</strong> Bewege dich bis zu deinem Bewegungswert (Standard 2).</li>",
+    "card_play_a_poker_card_action_as_written": "<li><strong>Karte:</strong> Spiele eine Pokerkartenaktion wie angegeben.</li>",
+    "fight_another_player_initiate_a_fight_in_your_space": "<li><strong>Anderen Spieler bekämpfen:</strong> Beginne einen Kampf auf deinem Feld.</li>",
+    "free_deliveries_rustle_after_ending_movement_at_ranch_wrangle_after_en": "<li><strong>Kostenlose Lieferungen:</strong> Vieh stehlen nach dem Ende der Bewegung auf einer Ranch; Vieh treiben nach dem Ende der Bewegung an einem Bahnhof.</li>",
+    "location_use_the_available_location_module_actions_view_actions": "<li class=\"turn-location-action\"><strong>Ort:</strong> Verwende die verfügbaren Orts-/Modulaktionen. <button type=\"button\" class=\"small-btn inline-reference-btn\" data-open-actions-reference>Aktionen anzeigen</button></li>",
+    "risk_die_once_per_turn_roll_at_no_action_cost_to_draw_1_poker_card_gai": "<li><strong>Risikowürfel:</strong> Einmal pro Zug ohne Aktionskosten würfeln, um 1 Pokerkarte zu ziehen, $10 zu erhalten oder sich 1 Feld zu bewegen (keine Bewegungsaktion).</li>",
+    "resolve_end_of_turn_effects": "<li>Handle Effekte am Ende des Zuges ab.</li>",
+    "resolve_legendary_story_card_conditions": "<li>Handle Bedingungen der Legendären Storykarte ab.</li>",
+    "discard_down_to_hand_size_5_1_per_wound": "<li>Wirf auf das Handkartenlimit ab: <strong>5 - 1 pro Wunde.</strong></li>",
+    "if_wanted_gain_lp_from_the_wanted_track": "<li>Wenn Wanted, erhalte LP von der Wanted-Leiste.</li>",
+    "draw_and_resolve_top_to_bottom_1_card_from_the_man_in_black_deck": "<li>Ziehe 1 Karte vom Stapel des Mannes in Schwarz und handle sie von oben nach unten ab.</li>",
+    "he_is_considered_a_player_for_gameplay_effects": "<li>Für Spieleffekte gilt er als Spieler.</li>",
+    "he_cannot_gain_mp_wp_gp_sp_or_wounds": "<li>Er kann keine MP, WP, GP, SP oder Wunden erhalten.</li>",
+    "he_always_has_120_and_4_gold_nuggets": "<li>Er besitzt immer $120 und 4 Goldnuggets.</li>",
+    "he_draws_3_fight_cards_in_fights_and_resolves_the_highest_value_card": "<li>In Kämpfen zieht er 3 Kampfkarten und handelt die Karte mit dem höchsten Wert ab.</li>",
+    "he_decreases_the_value_of_poker_cards_played_against_him_by_1": "<li>Er verringert den Wert von gegen ihn gespielten Pokerkarten um 1.</li>",
+    "he_wins_all_ties": "<li>Er gewinnt alle Gleichstände.</li>",
+    "when_a_player_lands_on_or_passes_a_gold_nugget_on_the_lp_track_return_": "<li>Wenn ein Spieler auf der LP-Leiste auf einem Goldnugget landet oder daran vorbeizieht, gib dieses Nugget in den Vorrat zurück.</li>",
+    "reveal_the_next_prospecting_card_and_add_the_designated_gold_nuggets_t": "<li>Decke die nächste Schürfkarte auf und lege die angegebenen Goldnuggets auf die bezeichneten Minen.</li>",
+    "while_at_a_ranch_space_gain_1_facedown_cattle_token_if_you_are_not_alr": "<p>Wenn du dich auf einem Ranchfeld befindest, nimm 1 verdeckten Viehmarker, sofern du nicht bereits einen trägst.</p>",
+    "while_inside_town_buy_any_number_of_rumor_cards_for_30_each_rumor_card": "<p>Wenn du dich in einer Stadt befindest, kaufe beliebig viele Gerüchtekarten für je $30. Gerüchtekarten gelten in deinem Besitz als $10.</p>",
+    "while_adjacent_to_a_saloon_where_the_high_roller_token_is_present_init": "<p>Wenn du an einen Saloon mit High-Roller-Marker angrenzst, beginne ein Pokerspiel.</p>",
+    "while_at_any_location_with_a_deed_card_pay_its_cost_and_take_the_deed_": "<p>Wenn du dich an einem Ort mit Urkundenkarte befindest, zahle deren Kosten und nimm die Urkundenkarte.</p>",
+    "while_at_the_bank_space_sell_gold_nuggets_gain_20_1_lp_per_nugget": "<p>Wenn du dich auf dem Bankfeld befindest, verkaufe Goldnuggets. Erhalte <strong>$20 + 1 LP pro Nugget</strong>.</p>",
+    "when_your_miniature_is_on_the_board_space_indicated_by_3_rumor_cards_d": "<p>Wenn deine Figur auf dem durch 3 Gerüchtekarten bezeichneten Spielplanfeld steht, wirf diese Gerüchtekarten ab und erhalte <strong>3 LP</strong>, 1 zufälligen Legendären Gegenstand und das Ergebnis von 2 Schürfwürfelwürfen.</p>",
+    "while_on_a_river_space_discard_1_poker_card_j_q_k_10_a_11_plus_any_fis": "<p>Wenn du dich auf einem Flussfeld befindest, wirf 1 Pokerkarte (J, Q, K = 10; A = 11) sowie beliebige Fischkarten (je 1 pro Karte) ab, um den Angelaufwand zu bestimmen. Decke Fischkarten auf, bis ihr Gesamtwert mindestens dem Angelaufwand entspricht, und wirf einen Überschuss ab. Erhalte 1 LP, wenn der Gesamtwert genau dem Angelaufwand entspricht und du mindestens 1 Fisch gefangen hast.</p>",
+    "while_on_a_space_with_a_frontier_token_discard_poker_cards_from_your_h": "<p>Wenn du dich auf einem Feld mit Grenzlandmarker befindest, wirf Pokerkarten aus deiner Hand mit einem Gesamtwert ab, der mindestens dem Wert von Grenzlandmarker + Feld entspricht. Erhalte die auf der Rückseite aufgedruckte Belohnung. J, Q, K = 10; A = 11.</p>",
+    "while_at_the_doctor_s_office_pay_10_to_lose_all_wounds_injuries_then_d": "<p>Wenn du dich in der Arztpraxis befindest, zahle $10, um alle Wunden/Verletzungen zu entfernen, und ziehe anschließend 1 Pokerkarte pro Wunde.</p>",
+    "while_on_a_space_with_a_hunt_action_marker_remove_the_marker_and_draw_": "<p>Wenn du dich auf einem Feld mit Jagdaktionsmarker befindest, entferne den Marker und ziehe Tierkarten, bis ein Tier der passenden Markergröße oder ein Vogel aufgedeckt wird. Wirf entweder die gewählte Tierkarte ab und beende die Aktion oder wirf Pokerkarte(n) mit einem Gesamtwert (J, Q, K = 10; A = 11) mindestens in Höhe der Stärke des Tiers ab. Das Gewehr verändert die Prüfung um +/-1; die Schrotflinte gibt +2. Lege den Jagdaktionsmarker anschließend auf ein neues unbesetztes Feld.</p>",
+    "prospecting_deck_whenever_your_lp_marker_lands_on_or_passes_a_gold_nug": "<p><strong>Schürfstapel:</strong> Immer wenn dein LP-Marker auf der LP-Leiste auf einem Goldnugget landet oder daran vorbeizieht, gib es in den Vorrat zurück und decke die nächste Schürfkarte auf. Lege die angegebenen Goldnuggets auf die bezeichneten Minen.</p>",
+    "pay_20_at_the_sheriff_marshal_office_with_marshal_points_recruit_a_pos": "<p>Zahle $20. Wirb im Sheriff-/Marshalbüro mit Marshal-Punkten eine Posse an; wirb im Outlaw-Lager mit Wanted-Punkten eine Gang an.</p>",
+    "while_at_a_space_with_a_ruin_token_discard_1_poker_card_to_gain_2_sp_a": "<p>Wenn du dich auf einem Feld mit Ruinenmarker befindest, wirf 1 Pokerkarte ab, um 2 SP zu erhalten und den Ruinenmarker zu entfernen.</p>",
+    "while_at_the_cabaret_buy_any_number_of_faceup_theatre_cards_and_gain_t": "<p>Wenn du dich im Cabaret befindest, kaufe beliebig viele offene Theaterkarten und erhalte die darauf angegebenen LP. Decke neue Karten auf, bis wieder 3 Theaterkarten offen liegen.</p>",
+    "while_at_the_cabaret_pay_30_to_gain_1_lp": "<p>Wenn du dich im Cabaret befindest, zahle $30, um 1 LP zu erhalten.</p>",
+    "use_a_move_action_from_one_trail_head_location_to_the_matching_trail_h": "<p>Verwende eine Bewegungsaktion von einem Pfadkopf-Ort zum passenden Pfadkopf-Ort auf dem gegenüberliegenden Spielplan.</p>",
+    "while_in_the_same_region_as_the_traveling_trader_pay_40_to_gain_an_ite": "<p>Wenn du dich in derselben Region wie der Reisende Händler befindest, zahle $40, um einen Gegenstand vom Händleraufsteller zu erhalten. Bewege den Händler anhand der gezogenen Karte an einen neuen Ort.</p>",
+    "pay_10_to_place_your_miniature_on_the_opposite_rail_station_then_conti": "<p>Zahle $10, um deine Figur auf den gegenüberliegenden Bahnhof zu stellen, und setze anschließend die Bewegungsaktion bis zu deinem maximalen Bewegungswert fort.</p>",
+    "move_up_to_your_movement_value_the_default_movement_value_is_2": "<p>Bewege dich bis zu deinem Bewegungswert. Der Standard-Bewegungswert ist 2.</p>",
+    "play_a_poker_card_action_as_written_on_the_card": "<p>Spiele eine Pokerkartenaktion wie auf der Karte angegeben.</p>",
+    "rustle_after_ending_movement_at_a_ranch_wrangle_after_ending_movement_": "<p><strong>Vieh stehlen:</strong> nachdem du die Bewegung auf einer Ranch beendet hast.</p><p><strong>Vieh treiben:</strong> nachdem du die Bewegung an einem Bahnhof beendet hast.</p>",
+    "game_poker": "<div class=\"gambling-flow-game-chip\"><span>Spiel</span><strong>Poker</strong></div>",
+    "poker_hands_2": "<button type=\"button\" class=\"small-btn gambling-poker-hands-btn\" data-open-poker-hands>Pokerhände</button>",
+    "start_a_game_to_see_the_story_events_and_story_point_settings_for_that": "\n      <p class=\"settings-no-game-note\">Starte ein Spiel, um die Einstellungen für Story &amp; Ereignisse sowie Story-Punkte dieses Spiels zu sehen.</p>",
+    "trading_post_is_inactive_for_this_setup_enable_the_buzzard_gulch_sideb": "<p class=\"assist-hint\">Der Handelsposten ist bei diesem Aufbau inaktiv — aktiviere das Modul „Buzzard-Gulch-Seitenspielplan“, um ihn einzubeziehen.</p>",
+    "3_everyone_place_one_finger_on_the_screen_hold_steady_while_the_timer_": "<div class=\"first-player-stage\" id=\"firstPlayerStage\">\n    <canvas id=\"firstPlayerCanvas\" class=\"first-player-canvas\" aria-label=\"Touch-Auswahl des Startspielers\"></canvas>\n    <div class=\"first-player-timer\" id=\"firstPlayerTimer\">3</div>\n    <p class=\"first-player-instructions\" id=\"firstPlayerHint\">Jeder legt einen Finger auf den Bildschirm. Haltet still, während der Timer herunterzählt.</p>\n  </div>\n  <div class=\"first-player-footer\"><button type=\"button\" class=\"primary-btn first-player-reset-btn\" data-first-player-reset>Neu starten</button></div>",
+    "no_players_were_assigned_colors_this_game": "<p>In diesem Spiel wurden keinen Spielern Farben zugewiesen.</p>",
+    "man_in_black_tie_rule_man_in_black_wins_the_tie": "<div class=\"auto-winner-note\"><span class=\"sheriff-star\" aria-hidden=\"true\">★</span><span><small>Gleichstandsregel des Mannes in Schwarz</small><strong>Der Mann in Schwarz gewinnt den Gleichstand</strong></span></div>",
+    "update_available_tap_to_update": "<button type=\"button\" class=\"primary-btn app-update-btn\" id=\"applyUpdateBtn\">Update verfügbar — zum Aktualisieren antippen</button>",
+    "check_for_updates": "<button type=\"button\" class=\"secondary-btn app-update-btn\" id=\"checkUpdateBtn\">Nach Updates suchen</button>"
+  },
+  "reference": {
+    "fightFlow": "Kampfablauf",
+    "autoSelectFightCard": "Kampfkarte automatisch wählen",
+    "poker": "Poker",
+    "faro": "Faro",
+    "pokerHands": "Pokerhände",
+    "game": "Spiel",
+    "firstPlayer": "Startspieler",
+    "fightCardBack": "Rückseite der Kampfkarte",
+    "draw": "Ziehen",
+    "redraw": "Neu ziehen",
+    "weapon": "Waffe",
+    "mount": "Reittier",
+    "misc": "Sonstiges",
+    "itemCardBack": "Rückseite der Gegenstandskarte",
+    "randomize": "Zufällig bestimmen",
+    "rerandomize": "Neu zufällig bestimmen",
+    "open": "Öffnen",
+    "actions": {
+      "playAtSaloon": "In einem Saloon spielen",
+      "bankGuard": "Einmal pro Zug: gegen die Wache der Bank kämpfen",
+      "store": "Gegenstände im Laden kaufen oder verbessern",
+      "theatre": "Offene Theaterkarten im Cabaret kaufen",
+      "orOneDollar": " oder $1"
+    },
+    "gambleSummary": "Spiele {games} in einem Saloon",
+    "gambleBody": "<p>Wenn du an einen Saloon angrenzst, wähle {games}.</p>",
+    "heistSummary": "Einmal pro Zug: Kämpfe gegen die Wache der Bank{train}",
+    "purchaseSummary": "Kaufe oder verbessere Gegenstände im Laden{tradingPost}"
+  },
+  "fight": {
+    "step": {
+      "npcDraw": "Ein anderer Spieler zieht {count} Kampf-{cardWord}{plural}, wählt 1 davon und legt sie verdeckt ab",
+      "cardWord": "Karte"
+    },
+    "resultLabel": "Ergebnis: {target}"
+  },
+  "languageSelector": {
+    "title": "Sprache",
+    "choose": "Sprache wählen",
+    "change": "Ändern",
+    "current": "Aktuelle Sprache",
+    "prompt": "Wähle die Sprache, die du für den Begleiter verwenden möchtest.",
+    "selectAria": "Sprache wählen. Aktuelle Sprache: {language}",
+    "options": [
+      {
+        "code": "en",
+        "nativeName": "English",
+        "region": "Englisch",
+        "dir": "ltr"
+      },
+      {
+        "code": "de",
+        "nativeName": "Deutsch",
+        "region": "Deutsch",
+        "dir": "ltr"
+      },
+      {
+        "code": "es",
+        "nativeName": "Español",
+        "region": "Spanisch",
+        "dir": "ltr"
+      },
+      {
+        "code": "it",
+        "nativeName": "Italiano",
+        "region": "Italienisch",
+        "dir": "ltr"
+      },
+      {
+        "code": "ru",
+        "nativeName": "Русский",
+        "region": "Russisch",
+        "dir": "ltr"
+      }
+    ]
+  }
+}

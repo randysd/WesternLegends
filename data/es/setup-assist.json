@@ -1,0 +1,683 @@
+{
+  "sections": [
+    {
+      "id": "play_area",
+      "title": "Preparar el Área de Juego",
+      "summary": "Coloca tableros, superposiciones y soportes.",
+      "steps": [
+        {
+          "text": "Coloca el tablero principal en el centro de la mesa.",
+          "images": [
+            {
+              "src": "assets/images/boards/main-board.png",
+              "alt": "Tablero Principal",
+              "caption": "Tablero Principal",
+              "fullWidth": true
+            }
+          ]
+        },
+        {
+          "text": "Coloca el Tablero de la Frontera de Buzzard Gulch junto al tablero principal.",
+          "requiredModules": [
+            "ante_up_sideboard"
+          ],
+          "images": [
+            {
+              "src": "assets/images/boards/full.png",
+              "alt": "Buzzard Gulch y Medidor de Gambler",
+              "caption": "Buzzard Gulch y Medidor de Gambler",
+              "fullWidth": true
+            }
+          ]
+        },
+        {
+          "text": "Coloca el Medidor de Gambler encima del tablero principal.",
+          "requiredModules": [
+            "ante_up_gambler"
+          ]
+        },
+        {
+          "text": "Coloca la superposición del Tablero de Historia Legendaria sobre el área de Cartas de Historia del juego base.",
+          "requiredModules": [
+            "blood_money_stories"
+          ],
+          "images": [
+            {
+              "src": "assets/images/boards/story.png",
+              "alt": "Superposición del Tablero de Historia Legendaria",
+              "caption": "Tablero de Historia Legendaria",
+              "fullWidth": true
+            }
+          ]
+        },
+        {
+          "text": "Monta el soporte de la Tienda General si es necesario."
+        },
+        {
+          "text": "Monta el soporte del Puesto Comercial.",
+          "requiredModules": [
+            "ante_up_sideboard"
+          ]
+        },
+        {
+          "text": "Monta el soporte del Comerciante Ambulante.",
+          "requiredModules": [
+            "blood_money_traveling_trader"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stores",
+      "title": "Preparar Tiendas",
+      "summary": "Prepara los mercados de objetos y el inventario del comerciante.",
+      "steps": [
+        {
+          "text": "Rellena automáticamente las Tiendas con la ayuda, o sáltalo y sigue la preparación manual de tiendas que aparece a continuación.",
+          "actionButtons": [
+            {
+              "label": "Rellenar Tiendas Automáticamente",
+              "opens": "storeRandomizer"
+            }
+          ],
+          "choiceGroup": "stores_fill"
+        },
+        {
+          "text": "Rellenar Tiendas Manualmente",
+          "summary": "Usa estos pasos solo si no vas a usar Rellenar Tiendas Automáticamente.",
+          "substeps": [
+            {
+              "text": "Retira las cartas del aleatorizador de tiendas correspondientes a objetos que no se utilicen."
+            },
+            {
+              "text": "Aparta la carta de preparación estándar como referencia rápida para las tiendas."
+            },
+            {
+              "text": "Baraja boca abajo las cartas restantes del aleatorizador de tiendas."
+            },
+            {
+              "text": "Reparte 1 carta de aleatorizador a cada espacio de la Tienda General."
+            },
+            {
+              "text": "Reparte 1 carta de aleatorizador a cada espacio del Puesto Comercial.",
+              "requiredModules": [
+                "ante_up_sideboard"
+              ]
+            },
+            {
+              "text": "Coloca la primera Arma revelada y la primera Montura revelada en la Tienda General."
+            },
+            {
+              "text": "Coloca la segunda Arma revelada y la segunda Montura revelada en el Puesto Comercial.",
+              "requiredModules": [
+                "ante_up_sideboard"
+              ]
+            },
+            {
+              "text": "Si usas la preparación estándar, asegúrate de que cada tienda tenga al menos 1 Arma y 1 Montura. Sustituye objetos al azar si es necesario.",
+              "requiredModules": [
+                "ante_up_sideboard"
+              ]
+            },
+            {
+              "text": "Coloca cada mazo de objetos en el espacio que corresponda a su carta de aleatorizador."
+            }
+          ],
+          "checkable": false,
+          "choiceGroup": "stores_fill"
+        },
+        {
+          "text": "Baraja juntos los Objetos Legendarios de las expansiones seleccionadas y coloca la carta de bloqueo en la parte inferior.",
+          "requiredModules": [
+            "blood_money_traveling_trader"
+          ]
+        },
+        {
+          "text": "Coloca el mazo de Objetos Legendarios boca abajo en el espacio superior izquierdo del Comerciante Ambulante.",
+          "requiredModules": [
+            "blood_money_traveling_trader"
+          ]
+        },
+        {
+          "text": "Revela 3 Objetos Legendarios en la fila inferior del soporte del Comerciante Ambulante.",
+          "requiredModules": [
+            "blood_money_traveling_trader"
+          ]
+        },
+        {
+          "text": "Coloca todos los mazos de objetos restantes en los 2 espacios vacíos del Comerciante Ambulante. Mantén cerca sus cartas de aleatorizador.",
+          "requiredModules": [
+            "blood_money_traveling_trader"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "decks",
+      "title": "Preparar Mazos",
+      "summary": "Baraja solo los mazos que se utilicen en esta partida.",
+      "steps": [
+        {
+          "text": "Separa el dinero en mazos de $10 y $20.",
+          "images": [
+            {
+              "src": "assets/images/cards/money-10.png",
+              "alt": "Billetes de $10",
+              "caption": "$10"
+            },
+            {
+              "src": "assets/images/cards/money-20.png",
+              "alt": "Billetes de $20",
+              "caption": "$20"
+            }
+          ]
+        },
+        {
+          "text": "Prepara el mazo de Poker. Si utilizas Cartas de Poker de expansiones, cámbialas por las cartas equivalentes del juego base del mismo palo y valor.",
+          "images": [
+            {
+              "src": "assets/images/cards/poker-back.png",
+              "alt": "Mazo de Poker",
+              "caption": "Mazo de Poker"
+            }
+          ]
+        },
+        {
+          "text": "Baraja las cartas de Joker en el mazo de Poker.",
+          "requiredModules": [
+            "fistful_jokers"
+          ]
+        },
+        {
+          "text": "Baraja y coloca los pequeños mazos principales junto al tablero.",
+          "images": [
+            {
+              "src": "assets/images/cards/fight-back.png",
+              "alt": "Mazo de Pelea",
+              "caption": "Pelea"
+            },
+            {
+              "src": "assets/images/cards/events-back.png",
+              "alt": "Mazo de Eventos",
+              "caption": "Eventos",
+              "requiredModules": [
+                "ante_up_events"
+              ]
+            },
+            {
+              "src": "assets/images/cards/train-back.png",
+              "alt": "Mazo del Tren",
+              "caption": "Tren",
+              "requiredModules": [
+                "ante_up_train"
+              ]
+            },
+            {
+              "src": "assets/images/cards/injury-back.png",
+              "alt": "Mazo de Heridas",
+              "caption": "Lesiones",
+              "requiredModules": [
+                "blood_money_injuries"
+              ]
+            },
+            {
+              "src": "assets/images/cards/travelingtrader-back.png",
+              "alt": "Mazo del Comerciante Ambulante",
+              "caption": "Comerciante",
+              "requiredModules": [
+                "blood_money_traveling_trader"
+              ]
+            },
+            {
+              "src": "assets/images/cards/treasurehunting-back.png",
+              "alt": "Mazo de Búsqueda de Tesoros",
+              "caption": "Búsqueda de Tesoros",
+              "requiredModules": [
+                "treasure_hunting_rumors"
+              ]
+            },
+            {
+              "src": "assets/images/cards/hunting-back.png",
+              "alt": "Mazo de Caza",
+              "caption": "Caza",
+              "requiredModules": [
+                "hunting_animals"
+              ]
+            },
+            {
+              "src": "assets/images/cards/fishing-back.png",
+              "alt": "Mazo de Pesca",
+              "caption": "Pesca",
+              "requiredModules": [
+                "fishing_fish_deck"
+              ]
+            },
+            {
+              "src": "assets/images/cards/foraging-back.png",
+              "alt": "Mazo de Recolección",
+              "caption": "Recolección",
+              "requiredModules": [
+                "foraging_resources"
+              ]
+            },
+            {
+              "src": "assets/images/cards/prospecting-back.png",
+              "alt": "Mazo de Prospección",
+              "caption": "Prospección",
+              "requiredModules": [
+                "prospecting_cards"
+              ]
+            }
+          ]
+        },
+        {
+          "text": "Baraja las Cartas de Historia principales, coloca el mazo en su espacio designado del tablero, revela 1 Carta de Historia principal y colócala en el lugar indicado.",
+          "blockedModules": [
+            "blood_money_stories"
+          ]
+        },
+        {
+          "text": "Baraja las Cartas de Historia Legendaria, coloca el mazo en el Tablero de Historia Legendaria y después revela 1 Carta de Historia Legendaria al azar sobre el tablero.",
+          "requiredModules": [
+            "blood_money_stories"
+          ]
+        },
+        {
+          "text": "Añade las cartas de Evento Único al mazo de Eventos.",
+          "requiredModules": [
+            "ante_up_events",
+            "wild_bunch_unique_events"
+          ]
+        },
+        {
+          "text": "Baraja el mazo de Eventos y colócalo cerca del tablero.",
+          "requiredModules": [
+            "ante_up_events"
+          ]
+        },
+        {
+          "text": "Baraja las cartas de Título y revela al azar 1 Título para esta partida.",
+          "requiredModules": [
+            "wild_bunch_titles"
+          ]
+        },
+        {
+          "text": "Baraja las cartas de Sheriff y revela la carta superior de Sheriff. Sustitúyela cada vez que el Sheriff pierda una pelea.",
+          "requiredModules": [
+            "wild_bunch_sheriff"
+          ]
+        },
+        {
+          "text": "Baraja las cartas de Bandido y coloca el mazo boca abajo cerca del mazo de Pelea.",
+          "requiredModules": [
+            "wild_bunch_bandit_variant"
+          ]
+        },
+        {
+          "text": "Baraja juntas todas las cartas de Man in Black para formar el mazo y colócalo cerca del tablero.",
+          "requiredModules": [
+            "wild_bunch_man_in_black"
+          ],
+          "maxPlayers": 2,
+          "images": [
+            {
+              "src": "assets/images/cards/mib.png",
+              "alt": "Mazo de Man in Black",
+              "caption": "Man in Black"
+            }
+          ]
+        },
+        {
+          "text": "Baraja juntas las cartas de Man in Black, excluyendo P-01, P-04, P-05, P-08, P-09, P-10 y P-15. Coloca el mazo cerca del tablero.",
+          "requiredModules": [
+            "wild_bunch_man_in_black"
+          ],
+          "minPlayers": 3,
+          "images": [
+            {
+              "src": "assets/images/cards/mib.png",
+              "alt": "Mazo de Man in Black",
+              "caption": "Man in Black"
+            }
+          ]
+        },
+        {
+          "text": "Baraja las cartas de Rumor y coloca el mazo cerca del tablero.",
+          "requiredModules": [
+            "treasure_hunting_rumors"
+          ]
+        },
+        {
+          "text": "Baraja el mazo de Animales y colócalo junto al tablero de juego.",
+          "requiredModules": [
+            "hunting"
+          ]
+        },
+        {
+          "text": "Baraja el mazo de Peces y colócalo junto al tablero de juego.",
+          "requiredModules": [
+            "fishing"
+          ]
+        },
+        {
+          "text": "Baraja el mazo de Teatro, colócalo cerca del tablero y revela 3 cartas de Teatro boca arriba.",
+          "requiredModules": [
+            "theatre"
+          ]
+        },
+        {
+          "text": "Baraja el mazo de Prospección con 2 eventos al azar.",
+          "requiredModules": [
+            "prospecting_cards"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tokens",
+      "title": "Preparar Fichas",
+      "summary": "Separa, baraja y coloca las reservas de fichas.",
+      "steps": [
+        {
+          "text": "Baraja boca abajo las fichas de Ganado y colócalas en sus ranchos.",
+          "images": [
+            {
+              "src": "assets/images/tokens/ranch-blue.png",
+              "alt": "Ficha de ganado azul",
+              "caption": "Azul"
+            },
+            {
+              "src": "assets/images/tokens/ranch-green.png",
+              "alt": "Ficha de ganado verde",
+              "caption": "Verde"
+            },
+            {
+              "src": "assets/images/tokens/ranch-orange.png",
+              "alt": "Ficha de ganado naranja",
+              "caption": "Orange",
+              "requiredModules": [
+                "ante_up_sideboard"
+              ]
+            }
+          ]
+        },
+        {
+          "text": "Baraja boca abajo las fichas de Longhorn, Outlaw, High Roller y Claim Jumper.",
+          "requiredModules": [
+            "ante_up_events"
+          ],
+          "images": [
+            {
+              "src": "assets/images/tokens/longhorn.png",
+              "alt": "Ficha de Longhorn",
+              "caption": "Longhorn"
+            },
+            {
+              "src": "assets/images/tokens/outlaw.png",
+              "alt": "Ficha de Outlaw",
+              "caption": "Outlaw"
+            },
+            {
+              "src": "assets/images/tokens/highroller.png",
+              "alt": "Ficha de High Roller",
+              "caption": "High Roller"
+            },
+            {
+              "src": "assets/images/tokens/gold.png",
+              "alt": "Ficha de Claim Jumper",
+              "caption": "Claim Jumper"
+            }
+          ]
+        },
+        {
+          "text": "Baraja boca abajo las Fichas Legendarias o colócalas en una bolsa de fichas.",
+          "requiredModules": [
+            "base_legendary_tokens"
+          ],
+          "images": [
+            {
+              "src": "assets/images/tokens/legend.png",
+              "alt": "Ficha Legendaria",
+              "caption": "Legendario"
+            }
+          ]
+        },
+        {
+          "text": "Separa las Escrituras por tipo y coloca una ficha de Escritura en cada ubicación de Escritura.",
+          "requiredModules": [
+            "blood_money_deeds"
+          ],
+          "images": [
+            {
+              "src": "assets/images/setup/tokens/deed-token.png",
+              "alt": "Ficha de Escritura",
+              "caption": "Escritura"
+            }
+          ]
+        },
+        {
+          "text": "Mantén las fichas de Evento Único en una reserva cerca del tablero.",
+          "requiredModules": [
+            "wild_bunch_unique_events"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "board_setup",
+      "title": "Preparar Efectos del Tablero",
+      "summary": "Coloca marcadores y resuelve los efectos de preparación.",
+      "steps": [
+        {
+          "text": "Coloca el marcador de final de partida en {targetLP} LP.",
+          "images": [
+            {
+              "src": "assets/images/tokens/watch.png",
+              "alt": "Ficha de reloj de bolsillo del marcador de final de partida",
+              "caption": "Marcador de Final de Partida"
+            }
+          ]
+        },
+        {
+          "text": "Coloca marcadores de Evento en el 5.º espacio de los medidores de Gambler, Marshal y Wanted, y en cada 5.º espacio de LP antes del marcador de final de partida.",
+          "requiredModules": [
+            "ante_up_events"
+          ],
+          "images": [
+            {
+              "src": "assets/images/tokens/event-token.png",
+              "alt": "Ficha de marcador de Evento",
+              "caption": "Marcador de Evento"
+            }
+          ]
+        },
+        {
+          "text": "Resuelve 1 carta de Evento por cada 2 jugadores, redondeando hacia arriba. Ignora el movimiento del Sheriff porque todavía no se ha colocado.",
+          "requiredModules": [
+            "ante_up_events"
+          ]
+        },
+        {
+          "text": "Coloca al azar 1 ficha de Frontera boca arriba en cada espacio de Frontera. Mantén cerca las fichas de Frontera no utilizadas.",
+          "requiredModules": [
+            "ante_up_sideboard"
+          ],
+          "images": [
+            {
+              "src": "assets/images/tokens/action-frontier.png",
+              "alt": "Ficha de Frontera",
+              "caption": "Ficha de Frontera"
+            }
+          ]
+        },
+        {
+          "text": "Revela la carta superior de Movimiento del Comerciante y coloca la miniatura del Comerciante Ambulante en cualquier espacio vacío de esa región.",
+          "requiredModules": [
+            "blood_money_traveling_trader"
+          ],
+          "images": [
+            {
+              "src": "assets/images/cards/travelingtrader-back.png",
+              "alt": "Reverso de carta de Movimiento del Comerciante",
+              "caption": "Carta de Movimiento del Comerciante"
+            },
+            {
+              "src": "assets/images/tokens/trader.png",
+              "alt": "Ficha del Comerciante Ambulante",
+              "caption": "Comerciante Ambulante"
+            }
+          ]
+        },
+        {
+          "text": "Coloca 2 Pepitas de Oro en cada ubicación minera. Coloca 1 Pepita de Oro en los espacios del medidor de LP indicados por las reglas de Prospección para {playerCount} jugadores y una partida a {targetLP} LP.",
+          "requiredModules": [
+            "prospecting_cards"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "players",
+      "title": "Preparar Jugadores",
+      "summary": "Da a cada jugador sus componentes iniciales.",
+      "steps": [
+        {
+          "text": "Cada jugador toma un tablero de jugador, cubos de puntuación, aro de color y ficha de herida."
+        },
+        {
+          "text": "Usa el lado del tablero de jugador con espacios para Fichas Legendarias.",
+          "requiredModules": [
+            "base_legendary_tokens"
+          ]
+        },
+        {
+          "text": "Cada jugador toma sus fichas de Faro.",
+          "requiredModules": [
+            "ante_up_faro"
+          ]
+        },
+        {
+          "text": "Cada jugador toma sus discos de Historia.",
+          "requiredModules": [
+            "blood_money_stories"
+          ]
+        },
+        {
+          "text": "Coloca 1 cubo de puntuación por jugador a la izquierda del espacio 1 del medidor de LP."
+        },
+        {
+          "text": "Coloca 1 cubo de puntuación por jugador en el espacio inicial del medidor de Historia.",
+          "requiredModules": [
+            "blood_money_stories"
+          ]
+        },
+        {
+          "text": "Coloca junto al tablero los cubos de puntuación y discos de Historia restantes de cada jugador.",
+          "requiredModules": [
+            "blood_money_stories"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "characters",
+      "title": "Elegir Personajes",
+      "summary": "Selecciona personajes y recibe recompensas iniciales.",
+      "steps": [
+        {
+          "text": "Cada jugador elige un personaje entre los disponibles en las expansiones seleccionadas."
+        },
+        {
+          "text": "Por cada personaje elegido, toma las 4 cartas de Objetivo de ese personaje.",
+          "requiredModules": [
+            "base_goals"
+          ]
+        },
+        {
+          "text": "Cada jugador recibe los objetos iniciales, dinero, Cartas de Poker, heridas y puntos indicados en su personaje."
+        },
+        {
+          "text": "Si un personaje comienza con Puntos de Gambler, Legendarios, de Marshal, de Historia o Wanted, coloca un cubo en el medidor correspondiente."
+        },
+        {
+          "text": "Resuelve cualquier habilidad de objeto inicial, como Gazette, Provisiones o efectos similares."
+        }
+      ]
+    },
+    {
+      "id": "miniatures",
+      "title": "Colocar Miniaturas",
+      "summary": "Coloca jugadores, Sheriff y Bandidos.",
+      "steps": [
+        {
+          "text": "El jugador con más Wanted toma la ficha de Primer Jugador. Si hay empate o nadie tiene Wanted, elige otro método.",
+          "actionButtons": [
+            {
+              "label": "Elegir Primer Jugador",
+              "opens": "firstPlayer"
+            }
+          ]
+        },
+        {
+          "text": "Empezando por el primer jugador, cada jugador elige una miniatura y le coloca su aro de color."
+        },
+        {
+          "text": "Cada jugador coloca su miniatura en la Ubicación Inicial de su carta de personaje."
+        },
+        {
+          "text": "Si una Ubicación Inicial es una Tienda General, Puesto Comercial o Saloon, coloca la miniatura en cualquier espacio adyacente."
+        },
+        {
+          "text": "Retira cualquier ficha de Evento, Claim Jumper, High Roller, Longhorn, Outlaw o Evento Único de un espacio donde empiece un jugador.",
+          "anyModules": [
+            "ante_up_events",
+            "wild_bunch_unique_events"
+          ]
+        },
+        {
+          "text": "Coloca el aro marrón en la miniatura del Sheriff y coloca al Sheriff en la Oficina del Sheriff/Marshal de Darkrock."
+        },
+        {
+          "text": "Pega las pegatinas numeradas de Bandido en la parte inferior de los aros grises de Bandido.",
+          "requiredModules": [
+            "wild_bunch_bandit_variant"
+          ]
+        },
+        {
+          "text": "Coloca aros grises en 6 miniaturas de Bandido. Coloca 1 Bandido en cada Guarida de Bandidos que no contenga un jugador."
+        },
+        {
+          "text": "Elige una miniatura para representar al Man in Black. Colócala en la Estación de Tren o en una ubicación elegida por el primer jugador, y coloca el cubo de puntuación que coincida con el color del aro de su base a la izquierda del medidor de LP junto a los cubos de puntuación de los jugadores.",
+          "requiredModules": [
+            "wild_bunch_man_in_black"
+          ]
+        },
+        {
+          "text": "Después de colocar todas las miniaturas de los jugadores, el último jugador del orden de turno coloca los 3 marcadores de Acción de Caza en 3 espacios distintos desocupados.",
+          "requiredModules": [
+            "hunting"
+          ]
+        },
+        {
+          "text": "Da a cada jugador una ayuda de jugador."
+        }
+      ]
+    },
+    {
+      "id": "ready",
+      "title": "Listos para Jugar",
+      "summary": "Comprobación final antes de empezar.",
+      "steps": [
+        {
+          "text": "Confirma que todos los módulos seleccionados estén preparados."
+        },
+        {
+          "text": "Confirma que el marcador de final de partida esté en {targetLP} LP."
+        },
+        {
+          "text": "Pulsa Iniciar Partida cuando todos estén listos."
+        }
+      ]
+    }
+  ]
+}

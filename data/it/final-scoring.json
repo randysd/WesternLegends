@@ -1,0 +1,98 @@
+{
+  "scoringSteps": [
+    {
+      "id": "mounts_weapons",
+      "text": "Ottieni LP per ogni cavalcatura migliorata e ogni arma migliorata posseduta (il valore è nell'angolo in alto a sinistra della carta).",
+      "requiredModules": []
+    },
+    {
+      "id": "legendary_items",
+      "text": "Ottieni LP da qualsiasi Oggetto Leggendario posseduto che ne fornisca (il valore è nell'angolo in alto a sinistra della carta).",
+      "requiredModules": []
+    },
+    {
+      "id": "money",
+      "text": "Ottieni 1 LP ogni $60 posseduti (arrotonda per difetto).",
+      "requiredModules": []
+    },
+    {
+      "id": "wounds",
+      "text": "Perdi 1 LP per ogni ferita.",
+      "requiredModules": []
+    },
+    {
+      "id": "injuries",
+      "text": "Perdi LP da qualsiasi carta Lesione che causi una perdita a fine partita (il valore è in fondo alla carta).",
+      "requiredModules": [
+        "blood_money_injuries"
+      ]
+    },
+    {
+      "id": "wanted",
+      "text": "Il giocatore più Wanted ottiene 3 LP e ogni altro giocatore Wanted ottiene 1 LP. Se c'è una parità per il più Wanted, tutti i giocatori Wanted ottengono invece 1 LP.",
+      "requiredModules": []
+    },
+    {
+      "id": "marshal",
+      "text": "I giocatori Marshal ottengono LP in base alla riga occupata dal loro cubo punteggio sul tracciato Marshal.",
+      "requiredModules": []
+    },
+    {
+      "id": "gambler",
+      "text": "Il giocatore più avanzato sul tracciato Giocatore d'Azzardo ottiene 1 LP. In caso di parità, tutti i giocatori in parità ottengono 1 LP.",
+      "requiredModules": [
+        "ante_up_gambler"
+      ]
+    },
+    {
+      "id": "legendary_tokens",
+      "text": "Ottieni LP pari al valore totale di tutti i Segnalini Leggendari ottenuti.",
+      "requiredModules": [
+        "base_legendary_tokens"
+      ]
+    },
+    {
+      "id": "deeds",
+      "text": "Ottieni LP dagli Atti come indicato sul lato punteggio di ogni Atto posseduto. I luoghi distrutti (con un segnalino Rovina) non contano mai per il punteggio.",
+      "requiredModules": [
+        "blood_money_deeds"
+      ]
+    },
+    {
+      "id": "titles",
+      "text": "Applica qualsiasi punteggio o effetto di fine partita della carta Titolo rivelata.",
+      "requiredModules": [
+        "wild_bunch_titles"
+      ]
+    },
+    {
+      "id": "man_in_black",
+      "text": "Includi il Man In Black nel Conteggio Finale. Se pareggia per gli LP più alti, il Man In Black vince il pareggio.",
+      "requiredModules": [
+        "wild_bunch_man_in_black"
+      ]
+    }
+  ],
+  "tiebreakers": [
+    {
+      "id": "most_lp",
+      "text": "Vince il giocatore con più LP."
+    },
+    {
+      "id": "marshal_wanted",
+      "text": "Ancora in parità? Vince il giocatore in parità con più Punti Marshal o Wanted."
+    },
+    {
+      "id": "gold",
+      "text": "Ancora in parità? Vince il giocatore in parità con più pepite d'oro."
+    },
+    {
+      "id": "wounds",
+      "text": "Ancora in parità? Vince il giocatore in parità con meno ferite."
+    },
+    {
+      "id": "share",
+      "text": "Ancora in parità? I giocatori in parità condividono la vittoria."
+    }
+  ]
+}

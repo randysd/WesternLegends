@@ -1,0 +1,98 @@
+{
+  "scoringSteps": [
+    {
+      "id": "mounts_weapons",
+      "text": "Obtén LP por cada montura mejorada y arma mejorada que poseas (el valor aparece en la esquina superior izquierda de la carta).",
+      "requiredModules": []
+    },
+    {
+      "id": "legendary_items",
+      "text": "Obtén LP de cualquier Objeto Legendario que poseas y que los proporcione (el valor aparece en la esquina superior izquierda de la carta).",
+      "requiredModules": []
+    },
+    {
+      "id": "money",
+      "text": "Obtén 1 LP por cada $60 que poseas (redondea hacia abajo).",
+      "requiredModules": []
+    },
+    {
+      "id": "wounds",
+      "text": "Pierde 1 LP por cada herida.",
+      "requiredModules": []
+    },
+    {
+      "id": "injuries",
+      "text": "Pierde LP por cualquier carta de Herida que cause una pérdida al final de la partida (el valor aparece en la parte inferior de la carta).",
+      "requiredModules": [
+        "blood_money_injuries"
+      ]
+    },
+    {
+      "id": "wanted",
+      "text": "El jugador con más Wanted obtiene 3 LP y cada otro jugador Wanted obtiene 1 LP. Si hay empate por ser el más Wanted, todos los jugadores Wanted obtienen 1 LP en su lugar.",
+      "requiredModules": []
+    },
+    {
+      "id": "marshal",
+      "text": "Los jugadores Marshal obtienen LP según la fila que ocupe su cubo de puntuación en el medidor de Marshal.",
+      "requiredModules": []
+    },
+    {
+      "id": "gambler",
+      "text": "El jugador más avanzado en el medidor de Gambler obtiene 1 LP. En caso de empate, todos los jugadores empatados obtienen 1 LP.",
+      "requiredModules": [
+        "ante_up_gambler"
+      ]
+    },
+    {
+      "id": "legendary_tokens",
+      "text": "Obtén LP igual al valor total de todas las Fichas Legendarias obtenidas.",
+      "requiredModules": [
+        "base_legendary_tokens"
+      ]
+    },
+    {
+      "id": "deeds",
+      "text": "Obtén LP de las Escrituras según indique el lado de puntuación de cada Escritura que poseas. Las ubicaciones destruidas (con una ficha de Ruina) nunca cuentan para la puntuación.",
+      "requiredModules": [
+        "blood_money_deeds"
+      ]
+    },
+    {
+      "id": "titles",
+      "text": "Aplica cualquier puntuación o efecto de final de partida de la carta de Título revelada.",
+      "requiredModules": [
+        "wild_bunch_titles"
+      ]
+    },
+    {
+      "id": "man_in_black",
+      "text": "Incluye al Man In Black en el Recuento Final. Si empata por la mayor cantidad de LP, el Man In Black gana el desempate.",
+      "requiredModules": [
+        "wild_bunch_man_in_black"
+      ]
+    }
+  ],
+  "tiebreakers": [
+    {
+      "id": "most_lp",
+      "text": "Gana el jugador con más LP."
+    },
+    {
+      "id": "marshal_wanted",
+      "text": "¿Sigue el empate? Gana, entre los empatados, el jugador con más puntos de Marshal o Wanted."
+    },
+    {
+      "id": "gold",
+      "text": "¿Sigue el empate? Gana, entre los empatados, el jugador con más pepitas de oro."
+    },
+    {
+      "id": "wounds",
+      "text": "¿Sigue el empate? Gana, entre los empatados, el jugador con menos heridas."
+    },
+    {
+      "id": "share",
+      "text": "¿Sigue el empate? Los jugadores empatados comparten la victoria."
+    }
+  ]
+}

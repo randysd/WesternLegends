@@ -2,6 +2,12 @@
   {
     "id": "arc_starving_prospector",
     "title": "The Starving Prospector",
+    "newspaperText": [
+      "A personal frontier tale known as The Starving Prospector followed one rider through a series of connected encounters.",
+      "The continuing story of The Starving Prospector wound through the day's events and left a lasting mark on the rider involved.",
+      "Several connected incidents formed the tale of The Starving Prospector, giving one rider a story all their own.",
+      "What began as a single encounter grew into the continuing frontier story of The Starving Prospector."
+    ],
     "tags": [
       "prospector",
       "mine",
@@ -20,6 +26,12 @@
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"A half-starved prospector stumbles from the sagebrush, clutching a leather poke. He offers twenty dollars for a drink and a ride to town.\"",
+        "newspaperText": [
+          "The continuing tale took another turn, and reports described the scene this way: A half-starved prospector stumbles from the sagebrush, clutching a leather poke. He offers twenty dollars for a drink and a ride to town.",
+          "Another chapter in the unfolding story reached the Gazette with a vivid detail: A half-starved prospector stumbles from the sagebrush, clutching a leather poke. He offers twenty dollars for a drink and a ride to town.",
+          "The trail of the larger story led to a fresh development: A half-starved prospector stumbles from the sagebrush, clutching a leather poke. He offers twenty dollars for a drink and a ride to town.",
+          "Witnesses tied the latest turn in the story to one memorable scene: A half-starved prospector stumbles from the sagebrush, clutching a leather poke. He offers twenty dollars for a drink and a ride to town."
+        ],
         "audioFile": "audio/arcs/prospector_intro.mp3",
         "requiresWorldTags": [],
         "onResolved": [
@@ -52,6 +64,12 @@
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"The old prospector steps from the corner and lays coins on the counter. I told ya I would repay kindness.\"",
+        "newspaperText": [
+          "The continuing tale took another turn, and reports described the scene this way: The old prospector steps from the corner and lays coins on the counter. I told ya I would repay kindness.",
+          "Another chapter in the unfolding story reached the Gazette with a vivid detail: The old prospector steps from the corner and lays coins on the counter. I told ya I would repay kindness.",
+          "The trail of the larger story led to a fresh development: The old prospector steps from the corner and lays coins on the counter. I told ya I would repay kindness.",
+          "Witnesses tied the latest turn in the story to one memorable scene: The old prospector steps from the corner and lays coins on the counter. I told ya I would repay kindness."
+        ],
         "audioFile": "audio/arcs/prospector_debt_repaid.mp3",
         "requiresWorldTags": [
           "prospector_helped"
@@ -82,13 +100,25 @@
             "title": "Debt Repaid",
             "screenText": "The prospector recognizes you immediately and finally gets to repay the kindness you showed him. After purchasing/upgrading an Item, gain $30.",
             "audioFile": "audio/arcs/prospector_debt_repaid2.mp3",
-            "narrationScript": "[western storyteller][old cowboy][raspy] \"The old prospector grins when he sees you. I ain't forgot what you did for me. Let me square that debt proper.\""
+            "narrationScript": "[western storyteller][old cowboy][raspy] \"The old prospector grins when he sees you. I ain't forgot what you did for me. Let me square that debt proper.\"",
+            "newspaperText": [
+              "The continuing tale took another turn, and reports described the scene this way: The old prospector grins when he sees you. I ain't forgot what you did for me. Let me square that debt proper.",
+              "Another chapter in the unfolding story reached the Gazette with a vivid detail: The old prospector grins when he sees you. I ain't forgot what you did for me. Let me square that debt proper.",
+              "The trail of the larger story led to a fresh development: The old prospector grins when he sees you. I ain't forgot what you did for me. Let me square that debt proper.",
+              "Witnesses tied the latest turn in the story to one memorable scene: The old prospector grins when he sees you. I ain't forgot what you did for me. Let me square that debt proper."
+            ]
           },
           "differentPlayer": {
             "title": "Kindness Passed On",
             "screenText": "The prospector tells you a stranger once saved his life when he had nothing. He decides to pass that kindness along. After purchasing/upgrading an Item, gain $20.",
             "audioFile": "audio/arcs/prospector_kindness_passed_on.mp3",
-            "narrationScript": "[western storyteller][old cowboy][raspy] \"The old prospector tells you some stranger once saved his hide. Says a kindness like that ought not stop with one man.\""
+            "narrationScript": "[western storyteller][old cowboy][raspy] \"The old prospector tells you some stranger once saved his hide. Says a kindness like that ought not stop with one man.\"",
+            "newspaperText": [
+              "The continuing tale took another turn, and reports described the scene this way: The old prospector tells you some stranger once saved his hide. Says a kindness like that ought not stop with one man.",
+              "Another chapter in the unfolding story reached the Gazette with a vivid detail: The old prospector tells you some stranger once saved his hide. Says a kindness like that ought not stop with one man.",
+              "The trail of the larger story led to a fresh development: The old prospector tells you some stranger once saved his hide. Says a kindness like that ought not stop with one man.",
+              "Witnesses tied the latest turn in the story to one memorable scene: The old prospector tells you some stranger once saved his hide. Says a kindness like that ought not stop with one man."
+            ]
           },
           "default": {
             "screenText": "After purchasing/upgrading an Item, gain $20."
@@ -105,6 +135,12 @@
           "prospector_abandoned"
         ],
         "narrationScript": "[western storyteller][old cowboy][raspy] \"The outlaw falls and removes his hat. Beneath the grime you recognize the prospector you left in the dust. He whistles, and two more bandits crawl from the rocks.\"",
+        "newspaperText": [
+          "The continuing tale took another turn, and reports described the scene this way: The outlaw falls and removes his hat. Beneath the grime you recognize the prospector you left in the dust. He whistles, and two more bandits crawl from the rocks.",
+          "Another chapter in the unfolding story reached the Gazette with a vivid detail: The outlaw falls and removes his hat. Beneath the grime you recognize the prospector you left in the dust. He whistles, and two more bandits crawl from the rocks.",
+          "The trail of the larger story led to a fresh development: The outlaw falls and removes his hat. Beneath the grime you recognize the prospector you left in the dust. He whistles, and two more bandits crawl from the rocks.",
+          "Witnesses tied the latest turn in the story to one memorable scene: The outlaw falls and removes his hat. Beneath the grime you recognize the prospector you left in the dust. He whistles, and two more bandits crawl from the rocks."
+        ],
         "audioFile": "audio/arcs/prospector_bandit_reveal.mp3",
         "effects": [],
         "resultButtons": [
@@ -123,6 +159,12 @@
           "samePlayer": {
             "title": "The Man You Left Behind",
             "screenText": "The outlaw pulls off his hat: it is the prospector you left to fend for himself. He demands $20 for the life you nearly cost him. Pay $20 to settle the grudge, or refuse and place 2 Bandits in your space; fight both simultaneously. If you lose, gain 1 wound.",
+            "newspaperText": [
+              "The events surrounding The Man You Left Behind became part of the day's talk across the territory.",
+              "Reports concerning The Man You Left Behind reached the Gazette before the presses began to roll.",
+              "Frontier witnesses carried word of The Man You Left Behind from one settlement to the next.",
+              "By day's end, The Man You Left Behind had earned a place among the territory's notable happenings."
+            ],
             "audioFile": null,
             "effects": [],
             "resultButtons": [
@@ -149,6 +191,12 @@
           "differentPlayer": {
             "title": "The Man Someone Left Behind",
             "screenText": "A starving prospector tells you another traveler abandoned him in the hills. He has fallen in with outlaws and offers you a cut for helping him slip away. Help him escape to gain $20, then move the Sheriff up to 2 spaces toward you; or refuse and let him ride on with no reward.",
+            "newspaperText": [
+              "The events surrounding The Man You Left Behind became part of the day's talk across the territory.",
+              "Reports concerning The Man You Left Behind reached the Gazette before the presses began to roll.",
+              "Frontier witnesses carried word of The Man You Left Behind from one settlement to the next.",
+              "By day's end, The Man You Left Behind had earned a place among the territory's notable happenings."
+            ],
             "audioFile": null,
             "effects": [],
             "resultButtons": [
@@ -183,6 +231,12 @@
   {
     "id": "arc_widow_mccall",
     "title": "Widow McCall’s Ranch",
+    "newspaperText": [
+      "A personal frontier tale known as Widow McCall’s Ranch followed one rider through a series of connected encounters.",
+      "The continuing story of Widow McCall’s Ranch wound through the day's events and left a lasting mark on the rider involved.",
+      "Several connected incidents formed the tale of Widow McCall’s Ranch, giving one rider a story all their own.",
+      "What began as a single encounter grew into the continuing frontier story of Widow McCall’s Ranch."
+    ],
     "tags": [
       "widow",
       "ranch",
@@ -200,6 +254,12 @@
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"A widow in black asks for help mending a fence before rustlers find the gap.\"",
+        "newspaperText": [
+          "The continuing tale took another turn, and reports described the scene this way: A widow in black asks for help mending a fence before rustlers find the gap.",
+          "Another chapter in the unfolding story reached the Gazette with a vivid detail: A widow in black asks for help mending a fence before rustlers find the gap.",
+          "The trail of the larger story led to a fresh development: A widow in black asks for help mending a fence before rustlers find the gap.",
+          "Witnesses tied the latest turn in the story to one memorable scene: A widow in black asks for help mending a fence before rustlers find the gap."
+        ],
         "audioFile": "audio/arcs/widow_fence_down.mp3",
         "requiresWorldTags": [],
         "onResolved": [
@@ -232,6 +292,12 @@
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"The widow’s brand rides among the herd, and every honest mile helps save her land.\"",
+        "newspaperText": [
+          "The continuing tale took another turn, and reports described the scene this way: The widow’s brand rides among the herd, and every honest mile helps save her land.",
+          "Another chapter in the unfolding story reached the Gazette with a vivid detail: The widow’s brand rides among the herd, and every honest mile helps save her land.",
+          "The trail of the larger story led to a fresh development: The widow’s brand rides among the herd, and every honest mile helps save her land.",
+          "Witnesses tied the latest turn in the story to one memorable scene: The widow’s brand rides among the herd, and every honest mile helps save her land."
+        ],
         "audioFile": "audio/arcs/widow_cattle_drive.mp3",
         "requiresWorldTags": [
           "widow_helped"
@@ -260,10 +326,22 @@
           "compareToNodeId": "widow_fence_down",
           "samePlayer": {
             "screenText": "Widow McCall remembers that you helped save her ranch when the fence came down. She trusts you with her best cattle drive. Wrangle cattle to gain +$30.",
+            "newspaperText": [
+              "The events surrounding A Safe Drive became part of the day's talk across the territory.",
+              "Reports concerning A Safe Drive reached the Gazette before the presses began to roll.",
+              "Frontier witnesses carried word of A Safe Drive from one settlement to the next.",
+              "By day's end, A Safe Drive had earned a place among the territory's notable happenings."
+            ],
             "audioFile": null
           },
           "differentPlayer": {
             "screenText": "Widow McCall tells you another traveler helped save her ranch when she needed it most. She offers you honest work on the next drive. Wrangle cattle to gain +$20.",
+            "newspaperText": [
+              "The events surrounding A Safe Drive became part of the day's talk across the territory.",
+              "Reports concerning A Safe Drive reached the Gazette before the presses began to roll.",
+              "Frontier witnesses carried word of A Safe Drive from one settlement to the next.",
+              "By day's end, A Safe Drive had earned a place among the territory's notable happenings."
+            ],
             "audioFile": null
           },
           "default": {
@@ -280,6 +358,12 @@
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"A veiled rider joins the rustlers. Grief has sharpened her into something dangerous.\"",
+        "newspaperText": [
+          "The continuing tale took another turn, and reports described the scene this way: A veiled rider joins the rustlers. Grief has sharpened her into something dangerous.",
+          "Another chapter in the unfolding story reached the Gazette with a vivid detail: A veiled rider joins the rustlers. Grief has sharpened her into something dangerous.",
+          "The trail of the larger story led to a fresh development: A veiled rider joins the rustlers. Grief has sharpened her into something dangerous.",
+          "Witnesses tied the latest turn in the story to one memorable scene: A veiled rider joins the rustlers. Grief has sharpened her into something dangerous."
+        ],
         "audioFile": "audio/arcs/widow_black_veil.mp3",
         "requiresWorldTags": [
           "widow_ignored"
@@ -310,13 +394,25 @@
             "title": "Black Veil Reckoning",
             "screenText": "The veiled rustler is Widow McCall, and she recognizes the traveler who left her ranch to fail. She wants payment, not partnership. Pay her $20 to settle the debt, or refuse and draw a Fight Card: on 8+, you drive her riders off; on 7 or less, gain 1 wound. You do not gain the Black Veil rustling bonus.",
             "audioFile": "audio/arcs/widow_black_veil_reckoning.mp3",
-            "narrationScript": "[western storyteller][old cowboy][raspy] \"The widow lifts her veil and fixes you with a stare. Funny seeing you now, she says. Could have used you before I had to become this.\""
+            "narrationScript": "[western storyteller][old cowboy][raspy] \"The widow lifts her veil and fixes you with a stare. Funny seeing you now, she says. Could have used you before I had to become this.\"",
+            "newspaperText": [
+              "The continuing tale took another turn, and reports described the scene this way: The widow lifts her veil and fixes you with a stare. Funny seeing you now, she says. Could have used you before I had to become this.",
+              "Another chapter in the unfolding story reached the Gazette with a vivid detail: The widow lifts her veil and fixes you with a stare. Funny seeing you now, she says. Could have used you before I had to become this.",
+              "The trail of the larger story led to a fresh development: The widow lifts her veil and fixes you with a stare. Funny seeing you now, she says. Could have used you before I had to become this.",
+              "Witnesses tied the latest turn in the story to one memorable scene: The widow lifts her veil and fixes you with a stare. Funny seeing you now, she says. Could have used you before I had to become this."
+            ]
           },
           "differentPlayer": {
             "title": "Black Veil Bandit",
             "screenText": "Widow McCall tells you another traveler left her ranch to die, and hard times drove her onto the outlaw trail. She offers to ride with you. After rustling, gain +$30 and +1 WP, then move the Sheriff up to 2 spaces toward you.",
             "audioFile": "audio/arcs/widow_black_veil_bandit.mp3",
-            "narrationScript": "[western storyteller][old cowboy][raspy] \"The veiled rider calls herself McCall. Says nobody came when the ranch was dying, so she learned to take what the frontier would not give.\""
+            "narrationScript": "[western storyteller][old cowboy][raspy] \"The veiled rider calls herself McCall. Says nobody came when the ranch was dying, so she learned to take what the frontier would not give.\"",
+            "newspaperText": [
+              "The continuing tale took another turn, and reports described the scene this way: The veiled rider calls herself McCall. Says nobody came when the ranch was dying, so she learned to take what the frontier would not give.",
+              "Another chapter in the unfolding story reached the Gazette with a vivid detail: The veiled rider calls herself McCall. Says nobody came when the ranch was dying, so she learned to take what the frontier would not give.",
+              "The trail of the larger story led to a fresh development: The veiled rider calls herself McCall. Says nobody came when the ranch was dying, so she learned to take what the frontier would not give.",
+              "Witnesses tied the latest turn in the story to one memorable scene: The veiled rider calls herself McCall. Says nobody came when the ranch was dying, so she learned to take what the frontier would not give."
+            ]
           },
           "default": {
             "screenText": "After rustling, gain +$30 and +1 WP, then move the Sheriff up to 2 spaces toward you."
@@ -329,6 +425,12 @@
   {
     "id": "arc_marshal_reeves",
     "title": "Marshal Gideon Reeves",
+    "newspaperText": [
+      "A personal frontier tale known as Marshal Gideon Reeves followed one rider through a series of connected encounters.",
+      "The continuing story of Marshal Gideon Reeves wound through the day's events and left a lasting mark on the rider involved.",
+      "Several connected incidents formed the tale of Marshal Gideon Reeves, giving one rider a story all their own.",
+      "What began as a single encounter grew into the continuing frontier story of Marshal Gideon Reeves."
+    ],
     "tags": [
       "marshal",
       "sheriff",
@@ -347,6 +449,12 @@
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Marshal Reeves needs a steady hand and a steadier conscience.\"",
+        "newspaperText": [
+          "The continuing tale took another turn, and reports described the scene this way: Marshal Reeves needs a steady hand and a steadier conscience.",
+          "Another chapter in the unfolding story reached the Gazette with a vivid detail: Marshal Reeves needs a steady hand and a steadier conscience.",
+          "The trail of the larger story led to a fresh development: Marshal Reeves needs a steady hand and a steadier conscience.",
+          "Witnesses tied the latest turn in the story to one memorable scene: Marshal Reeves needs a steady hand and a steadier conscience."
+        ],
         "audioFile": "audio/arcs/reeves_deputy_call.mp3",
         "requiresWorldTags": [],
         "onResolved": [
@@ -379,6 +487,12 @@
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Reeves has warrants stacked like firewood and enough rope for every name on them.\"",
+        "newspaperText": [
+          "The continuing tale took another turn, and reports described the scene this way: Reeves has warrants stacked like firewood and enough rope for every name on them.",
+          "Another chapter in the unfolding story reached the Gazette with a vivid detail: Reeves has warrants stacked like firewood and enough rope for every name on them.",
+          "The trail of the larger story led to a fresh development: Reeves has warrants stacked like firewood and enough rope for every name on them.",
+          "Witnesses tied the latest turn in the story to one memorable scene: Reeves has warrants stacked like firewood and enough rope for every name on them."
+        ],
         "audioFile": "audio/arcs/reeves_crackdown.mp3",
         "requiresWorldTags": [
           "reeves_supported"
@@ -407,10 +521,22 @@
           "compareToNodeId": "reeves_deputy_call",
           "samePlayer": {
             "screenText": "Marshal Reeves remembers that you answered his call when he needed a deputy. He gives you one of his priority warrants. After defeating a Bandit, gain +$20 and +1 MP.",
+            "newspaperText": [
+              "The events surrounding Crackdown Warrant became part of the day's talk across the territory.",
+              "Reports concerning Crackdown Warrant reached the Gazette before the presses began to roll.",
+              "Frontier witnesses carried word of Crackdown Warrant from one settlement to the next.",
+              "By day's end, Crackdown Warrant had earned a place among the territory's notable happenings."
+            ],
             "audioFile": null
           },
           "differentPlayer": {
             "screenText": "Marshal Reeves tells you another traveler stood beside him when trouble first started. The crackdown is working, and he gives you a warrant of your own. After defeating a Bandit, gain +$20.",
+            "newspaperText": [
+              "The events surrounding Crackdown Warrant became part of the day's talk across the territory.",
+              "Reports concerning Crackdown Warrant reached the Gazette before the presses began to roll.",
+              "Frontier witnesses carried word of Crackdown Warrant from one settlement to the next.",
+              "By day's end, Crackdown Warrant had earned a place among the territory's notable happenings."
+            ],
             "audioFile": null
           },
           "default": {
@@ -427,6 +553,12 @@
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Reeves pins your name below the lantern and rides into the dark.\"",
+        "newspaperText": [
+          "The continuing tale took another turn, and reports described the scene this way: Reeves pins your name below the lantern and rides into the dark.",
+          "Another chapter in the unfolding story reached the Gazette with a vivid detail: Reeves pins your name below the lantern and rides into the dark.",
+          "The trail of the larger story led to a fresh development: Reeves pins your name below the lantern and rides into the dark.",
+          "Witnesses tied the latest turn in the story to one memorable scene: Reeves pins your name below the lantern and rides into the dark."
+        ],
         "audioFile": "audio/arcs/reeves_hunted.mp3",
         "requiresWorldTags": [
           "reeves_ignored"
@@ -456,11 +588,23 @@
           "samePlayer": {
             "title": "Reeves Has Your Name",
             "screenText": "Marshal Reeves remembers that you refused his earlier call for help. Now your Wanted reputation has put your name at the top of his list. Move the Sheriff up to 3 spaces directly toward you. If the Sheriff reaches your space, discard 2 Poker Cards.",
+            "newspaperText": [
+              "The events surrounding Marshal on Your Trail became part of the day's talk across the territory.",
+              "Reports concerning Marshal on Your Trail reached the Gazette before the presses began to roll.",
+              "Frontier witnesses carried word of Marshal on Your Trail from one settlement to the next.",
+              "By day's end, Marshal on Your Trail had earned a place among the territory's notable happenings."
+            ],
             "audioFile": null
           },
           "differentPlayer": {
             "title": "Marshal on Your Trail",
             "screenText": "Reeves says someone refused his call when the trouble first started, and now the frontier is paying for it. Your new Wanted reputation draws his attention. Move the Sheriff up to 2 spaces toward you; if the Sheriff reaches your space, discard 1 Poker Card.",
+            "newspaperText": [
+              "The events surrounding Marshal on Your Trail became part of the day's talk across the territory.",
+              "Reports concerning Marshal on Your Trail reached the Gazette before the presses began to roll.",
+              "Frontier witnesses carried word of Marshal on Your Trail from one settlement to the next.",
+              "By day's end, Marshal on Your Trail had earned a place among the territory's notable happenings."
+            ],
             "audioFile": null
           },
           "default": {
@@ -474,6 +618,12 @@
   {
     "id": "arc_silas_bell_showman",
     "title": "Silas Bell’s Traveling Show",
+    "newspaperText": [
+      "A personal frontier tale known as Silas Bell’s Traveling Show followed one rider through a series of connected encounters.",
+      "The continuing story of Silas Bell’s Traveling Show wound through the day's events and left a lasting mark on the rider involved.",
+      "Several connected incidents formed the tale of Silas Bell’s Traveling Show, giving one rider a story all their own.",
+      "What began as a single encounter grew into the continuing frontier story of Silas Bell’s Traveling Show."
+    ],
     "tags": [
       "showman",
       "poker",
@@ -492,6 +642,12 @@
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"A painted wagon rolls into Red Falls, promising wonders, music, and lies in equal measure.\"",
+        "newspaperText": [
+          "The continuing tale took another turn, and reports described the scene this way: A painted wagon rolls into Red Falls, promising wonders, music, and lies in equal measure.",
+          "Another chapter in the unfolding story reached the Gazette with a vivid detail: A painted wagon rolls into Red Falls, promising wonders, music, and lies in equal measure.",
+          "The trail of the larger story led to a fresh development: A painted wagon rolls into Red Falls, promising wonders, music, and lies in equal measure.",
+          "Witnesses tied the latest turn in the story to one memorable scene: A painted wagon rolls into Red Falls, promising wonders, music, and lies in equal measure."
+        ],
         "audioFile": "audio/arcs/showman_arrives.mp3",
         "requiresWorldTags": [],
         "onResolved": [
@@ -524,6 +680,12 @@
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Silas Bell calls your hand a miracle and sells tickets before the cards cool.\"",
+        "newspaperText": [
+          "The continuing tale took another turn, and reports described the scene this way: Silas Bell calls your hand a miracle and sells tickets before the cards cool.",
+          "Another chapter in the unfolding story reached the Gazette with a vivid detail: Silas Bell calls your hand a miracle and sells tickets before the cards cool.",
+          "The trail of the larger story led to a fresh development: Silas Bell calls your hand a miracle and sells tickets before the cards cool.",
+          "Witnesses tied the latest turn in the story to one memorable scene: Silas Bell calls your hand a miracle and sells tickets before the cards cool."
+        ],
         "audioFile": "audio/arcs/showman_grand_show.mp3",
         "requiresWorldTags": [
           "showman_supported"
@@ -552,10 +714,22 @@
           "compareToNodeId": "showman_arrives",
           "samePlayer": {
             "screenText": "Silas Bell recognizes the person who helped get his painted wagon show on its feet. He turns your Poker victory into his star attraction. Gain +1 LP and +$30.",
+            "newspaperText": [
+              "The events surrounding Grand Frontier Show became part of the day's talk across the territory.",
+              "Reports concerning Grand Frontier Show reached the Gazette before the presses began to roll.",
+              "Frontier witnesses carried word of Grand Frontier Show from one settlement to the next.",
+              "By day's end, Grand Frontier Show had earned a place among the territory's notable happenings."
+            ],
             "audioFile": null
           },
           "differentPlayer": {
             "screenText": "Silas boasts that another traveler helped get his show started, then turns your Poker victory into tonight’s headline act. Gain +1 LP and +$20.",
+            "newspaperText": [
+              "The events surrounding Grand Frontier Show became part of the day's talk across the territory.",
+              "Reports concerning Grand Frontier Show reached the Gazette before the presses began to roll.",
+              "Frontier witnesses carried word of Grand Frontier Show from one settlement to the next.",
+              "By day's end, Grand Frontier Show had earned a place among the territory's notable happenings."
+            ],
             "audioFile": null
           },
           "default": {
@@ -572,6 +746,12 @@
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"The label says genuine. The showman’s smile says otherwise.\"",
+        "newspaperText": [
+          "The continuing tale took another turn, and reports described the scene this way: The label says genuine. The showman’s smile says otherwise.",
+          "Another chapter in the unfolding story reached the Gazette with a vivid detail: The label says genuine. The showman’s smile says otherwise.",
+          "The trail of the larger story led to a fresh development: The label says genuine. The showman’s smile says otherwise.",
+          "Witnesses tied the latest turn in the story to one memorable scene: The label says genuine. The showman’s smile says otherwise."
+        ],
         "audioFile": "audio/arcs/showman_swindle.mp3",
         "requiresWorldTags": [
           "showman_ignored"
@@ -601,11 +781,23 @@
           "samePlayer": {
             "title": "A Swindle With Your Name On It",
             "screenText": "Silas Bell remembers that you passed him by when his show needed help, and this “bargain” was prepared especially for you. After purchasing, pay an additional $20 or discard 2 Poker Cards.",
+            "newspaperText": [
+              "The events surrounding The Great Swindle became part of the day's talk across the territory.",
+              "Reports concerning The Great Swindle reached the Gazette before the presses began to roll.",
+              "Frontier witnesses carried word of The Great Swindle from one settlement to the next.",
+              "By day's end, The Great Swindle had earned a place among the territory's notable happenings."
+            ],
             "audioFile": null
           },
           "differentPlayer": {
             "title": "The Great Swindle",
             "screenText": "Silas complains that another traveler left his show in the dust. He has since learned less honest ways to make ends meet, but he has no particular grudge against you. After purchasing, discard $10 or 1 Poker Card.",
+            "newspaperText": [
+              "The events surrounding The Great Swindle became part of the day's talk across the territory.",
+              "Reports concerning The Great Swindle reached the Gazette before the presses began to roll.",
+              "Frontier witnesses carried word of The Great Swindle from one settlement to the next.",
+              "By day's end, The Great Swindle had earned a place among the territory's notable happenings."
+            ],
             "audioFile": null
           },
           "default": {
@@ -619,6 +811,12 @@
   {
     "id": "arc_jeremiah_pike",
     "title": "Jeremiah Pike, Legendary Trapper",
+    "newspaperText": [
+      "A personal frontier tale known as Jeremiah Pike, Legendary Trapper followed one rider through a series of connected encounters.",
+      "The continuing story of Jeremiah Pike, Legendary Trapper wound through the day's events and left a lasting mark on the rider involved.",
+      "Several connected incidents formed the tale of Jeremiah Pike, Legendary Trapper, giving one rider a story all their own.",
+      "What began as a single encounter grew into the continuing frontier story of Jeremiah Pike, Legendary Trapper."
+    ],
     "tags": [
       "trapper",
       "hunt",
@@ -639,6 +837,12 @@
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Old Jeremiah Pike studies the tracks and grunts like the animal owed him money.\"",
+        "newspaperText": [
+          "The continuing tale took another turn, and reports described the scene this way: Old Jeremiah Pike studies the tracks and grunts like the animal owed him money.",
+          "Another chapter in the unfolding story reached the Gazette with a vivid detail: Old Jeremiah Pike studies the tracks and grunts like the animal owed him money.",
+          "The trail of the larger story led to a fresh development: Old Jeremiah Pike studies the tracks and grunts like the animal owed him money.",
+          "Witnesses tied the latest turn in the story to one memorable scene: Old Jeremiah Pike studies the tracks and grunts like the animal owed him money."
+        ],
         "audioFile": "audio/arcs/pike_tracks.mp3",
         "requiresWorldTags": [],
         "onResolved": [
@@ -671,6 +875,12 @@
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Pike points with a shaking finger. That trail belongs to something too big for ordinary fear.\"",
+        "newspaperText": [
+          "The continuing tale took another turn, and reports described the scene this way: Pike points with a shaking finger. That trail belongs to something too big for ordinary fear.",
+          "Another chapter in the unfolding story reached the Gazette with a vivid detail: Pike points with a shaking finger. That trail belongs to something too big for ordinary fear.",
+          "The trail of the larger story led to a fresh development: Pike points with a shaking finger. That trail belongs to something too big for ordinary fear.",
+          "Witnesses tied the latest turn in the story to one memorable scene: Pike points with a shaking finger. That trail belongs to something too big for ordinary fear."
+        ],
         "audioFile": "audio/arcs/pike_white_bear.mp3",
         "requiresWorldTags": [
           "pike_helped"
@@ -699,10 +909,22 @@
           "compareToNodeId": "pike_tracks",
           "samePlayer": {
             "screenText": "Old Pike recognizes the hunter who earned his trust before. He gives you his best reading of the White Bear trail. Draw two animals and choose one to encounter. If successful, gain +1 LP and $10.",
+            "newspaperText": [
+              "The events surrounding The White Bear Trail became part of the day's talk across the territory.",
+              "Reports concerning The White Bear Trail reached the Gazette before the presses began to roll.",
+              "Frontier witnesses carried word of The White Bear Trail from one settlement to the next.",
+              "By day's end, The White Bear Trail had earned a place among the territory's notable happenings."
+            ],
             "audioFile": null
           },
           "differentPlayer": {
             "screenText": "Old Pike tells you another hunter earned his trust and helped him pick up the White Bear trail. He lets you follow it now. Draw two animals and choose one to encounter. If successful, gain +1 LP.",
+            "newspaperText": [
+              "The events surrounding The White Bear Trail became part of the day's talk across the territory.",
+              "Reports concerning The White Bear Trail reached the Gazette before the presses began to roll.",
+              "Frontier witnesses carried word of The White Bear Trail from one settlement to the next.",
+              "By day's end, The White Bear Trail had earned a place among the territory's notable happenings."
+            ],
             "audioFile": null
           },
           "default": {
@@ -719,6 +941,12 @@
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"A hidden trap snaps shut. Pike does not forgive being ignored.\"",
+        "newspaperText": [
+          "The continuing tale took another turn, and reports described the scene this way: A hidden trap snaps shut. Pike does not forgive being ignored.",
+          "Another chapter in the unfolding story reached the Gazette with a vivid detail: A hidden trap snaps shut. Pike does not forgive being ignored.",
+          "The trail of the larger story led to a fresh development: A hidden trap snaps shut. Pike does not forgive being ignored.",
+          "Witnesses tied the latest turn in the story to one memorable scene: A hidden trap snaps shut. Pike does not forgive being ignored."
+        ],
         "audioFile": "audio/arcs/pike_trap_line.mp3",
         "requiresWorldTags": [
           "pike_ignored"
@@ -748,11 +976,23 @@
           "samePlayer": {
             "title": "A Trap Meant for You",
             "screenText": "You recognize Pike’s mark beside the trap, and this one was laid for the traveler who ignored him. Gain 1 wound unless you discard 1 Poker Card.",
+            "newspaperText": [
+              "The events surrounding Sprung Trap became part of the day's talk across the territory.",
+              "Reports concerning Sprung Trap reached the Gazette before the presses began to roll.",
+              "Frontier witnesses carried word of Sprung Trap from one settlement to the next.",
+              "By day's end, Sprung Trap had earned a place among the territory's notable happenings."
+            ],
             "audioFile": null
           },
           "differentPlayer": {
             "title": "Someone Else’s Trap",
             "screenText": "You spot Pike’s trap before stepping into it. He mutters that it was meant for the traveler who ignored him earlier. Disarm it and salvage what you can: gain $10 or draw 1 Poker Card.",
+            "newspaperText": [
+              "The events surrounding Sprung Trap became part of the day's talk across the territory.",
+              "Reports concerning Sprung Trap reached the Gazette before the presses began to roll.",
+              "Frontier witnesses carried word of Sprung Trap from one settlement to the next.",
+              "By day's end, Sprung Trap had earned a place among the territory's notable happenings."
+            ],
             "audioFile": null
           },
           "default": {
@@ -766,6 +1006,12 @@
   {
     "id": "arc_card_shark",
     "title": "The Red Falls Card Shark",
+    "newspaperText": [
+      "A personal frontier tale known as The Red Falls Card Shark followed one rider through a series of connected encounters.",
+      "The continuing story of The Red Falls Card Shark wound through the day's events and left a lasting mark on the rider involved.",
+      "Several connected incidents formed the tale of The Red Falls Card Shark, giving one rider a story all their own.",
+      "What began as a single encounter grew into the continuing frontier story of The Red Falls Card Shark."
+    ],
     "tags": [
       "poker",
       "saloon",
@@ -783,6 +1029,12 @@
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"A stranger with pale gloves sits down without asking and smiles without warmth.\"",
+        "newspaperText": [
+          "The continuing tale took another turn, and reports described the scene this way: A stranger with pale gloves sits down without asking and smiles without warmth.",
+          "Another chapter in the unfolding story reached the Gazette with a vivid detail: A stranger with pale gloves sits down without asking and smiles without warmth.",
+          "The trail of the larger story led to a fresh development: A stranger with pale gloves sits down without asking and smiles without warmth.",
+          "Witnesses tied the latest turn in the story to one memorable scene: A stranger with pale gloves sits down without asking and smiles without warmth."
+        ],
         "audioFile": "audio/arcs/cardshark_first_hand.mp3",
         "requiresWorldTags": [],
         "onResolved": [
@@ -815,6 +1067,12 @@
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"For the first time all night, the stranger’s smile breaks.\"",
+        "newspaperText": [
+          "The continuing tale took another turn, and reports described the scene this way: For the first time all night, the stranger’s smile breaks.",
+          "Another chapter in the unfolding story reached the Gazette with a vivid detail: For the first time all night, the stranger’s smile breaks.",
+          "The trail of the larger story led to a fresh development: For the first time all night, the stranger’s smile breaks.",
+          "Witnesses tied the latest turn in the story to one memorable scene: For the first time all night, the stranger’s smile breaks."
+        ],
         "audioFile": "audio/arcs/cardshark_beaten.mp3",
         "requiresWorldTags": [
           "cardshark_met"
@@ -843,10 +1101,22 @@
           "compareToNodeId": "cardshark_first_hand",
           "samePlayer": {
             "screenText": "The card shark recognizes you from the earlier table and raises the stakes for the rematch. Your win finally cracks his smile. Gain +$40 and 1 GP.",
+            "newspaperText": [
+              "The events surrounding Beating the Shark became part of the day's talk across the territory.",
+              "Reports concerning Beating the Shark reached the Gazette before the presses began to roll.",
+              "Frontier witnesses carried word of Beating the Shark from one settlement to the next.",
+              "By day's end, Beating the Shark had earned a place among the territory's notable happenings."
+            ],
             "audioFile": null
           },
           "differentPlayer": {
             "screenText": "The card shark tells you another gambler crossed cards with him earlier. You are the fresh challenger who finally beats him. Gain +$30 and 1 GP.",
+            "newspaperText": [
+              "The events surrounding Beating the Shark became part of the day's talk across the territory.",
+              "Reports concerning Beating the Shark reached the Gazette before the presses began to roll.",
+              "Frontier witnesses carried word of Beating the Shark from one settlement to the next.",
+              "By day's end, Beating the Shark had earned a place among the territory's notable happenings."
+            ],
             "audioFile": null
           },
           "default": {
@@ -863,6 +1133,12 @@
         "assignPlayerColor": "optional",
         "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"A debt collector steps from the alley, quoting numbers no honest man remembers.\"",
+        "newspaperText": [
+          "The continuing tale took another turn, and reports described the scene this way: A debt collector steps from the alley, quoting numbers no honest man remembers.",
+          "Another chapter in the unfolding story reached the Gazette with a vivid detail: A debt collector steps from the alley, quoting numbers no honest man remembers.",
+          "The trail of the larger story led to a fresh development: A debt collector steps from the alley, quoting numbers no honest man remembers.",
+          "Witnesses tied the latest turn in the story to one memorable scene: A debt collector steps from the alley, quoting numbers no honest man remembers."
+        ],
         "audioFile": "audio/arcs/cardshark_debt.mp3",
         "requiresWorldTags": [
           "cardshark_unbeaten"
@@ -892,11 +1168,23 @@
           "samePlayer": {
             "title": "Your Debt Comes Due",
             "screenText": "The card shark remembers that you left his challenge unfinished, and his collector steps into your path before the fight. Pay $20 to settle the debt and fight normally, or refuse: if you lose this fight, gain 1 wound and discard 1 Poker Card.",
+            "newspaperText": [
+              "The events surrounding Debt Collector became part of the day's talk across the territory.",
+              "Reports concerning Debt Collector reached the Gazette before the presses began to roll.",
+              "Frontier witnesses carried word of Debt Collector from one settlement to the next.",
+              "By day's end, Debt Collector had earned a place among the territory's notable happenings."
+            ],
             "audioFile": null
           },
           "differentPlayer": {
             "title": "Hired Muscle",
             "screenText": "The card shark’s collector says another gambler left unfinished business behind. He offers you $20 to make an example of your opponent. If you win this player fight, gain +$20. If you lose, gain nothing extra.",
+            "newspaperText": [
+              "The events surrounding Debt Collector became part of the day's talk across the territory.",
+              "Reports concerning Debt Collector reached the Gazette before the presses began to roll.",
+              "Frontier witnesses carried word of Debt Collector from one settlement to the next.",
+              "By day's end, Debt Collector had earned a place among the territory's notable happenings."
+            ],
             "audioFile": null
           },
           "default": {

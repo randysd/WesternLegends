@@ -1,0 +1,63 @@
+{
+  "id": "darkrock_gazette_generator",
+  "title": "La Gazette di Darkrock",
+  "edition": "",
+  "output": "print-ready-html",
+  "bodyFont": "Times New Roman",
+  "sections": [
+    {
+      "id": "lead_story",
+      "source": "frontierMood + triggeredLog.primaryTrigger",
+      "presentation": "headline-and-deck",
+      "description": "Articolo di apertura basato sull'atmosfera più un riepilogo conciso dei tipi di attività predominanti durante la partita."
+    },
+    {
+      "id": "final_tally",
+      "source": "finalScores + finalWinnerColors",
+      "presentation": "side-callout",
+      "description": "Riquadro compatto della classifica finale con il vincitore e il punteggio LP di ogni giocatore."
+    },
+    {
+      "id": "gazette_ledger",
+      "source": "triggeredLog.primaryTrigger",
+      "presentation": "compact-counts",
+      "description": "Conteggi intuitivi delle categorie di azioni apparse più spesso nella cronologia dei trigger registrati."
+    },
+    {
+      "id": "player_recaps",
+      "source": "triggeredLog grouped by player color",
+      "presentation": "prose",
+      "description": "Brevi riepiloghi giocatore per giocatore basati soltanto sulle azioni, sugli esiti narrativi e sugli incontri singoli realmente registrati per quel giocatore."
+    },
+    {
+      "id": "world_events",
+      "source": "triggeredLog.worldEventStarted + activeWorldEvents",
+      "presentation": "article",
+      "description": "Una rassegna in prosa degli eventi che hanno interessato l'intero territorio durante la partita, usando le varianti newspaperText scritte appositamente quando disponibili."
+    },
+    {
+      "id": "one_off_dispatches",
+      "source": "triggeredLog.oneOffEvent",
+      "presentation": "article",
+      "description": "Una rassegna in prosa di insoliti incidenti singoli, raggruppati attorno ai cavalieri che li hanno incontrati, usando le varianti newspaperText scritte appositamente quando disponibili."
+    },
+    {
+      "id": "character_arcs",
+      "source": "arcProgress + activeStories",
+      "presentation": "mini-articles",
+      "description": "Un breve articolo per ogni Arco del Personaggio iniziato, inclusi capitoli completati, mancati e ancora incompiuti, usando le varianti newspaperText scritte appositamente quando disponibili."
+    },
+    {
+      "id": "global_storylines",
+      "source": "arcProgress + activeStories",
+      "presentation": "article",
+      "description": "Una rassegna concisa di eventuali trame principali estese a tutto il territorio che sono progredite durante la partita, usando le varianti newspaperText scritte appositamente quando disponibili."
+    },
+    {
+      "id": "final_word",
+      "source": "frontierMood + finalScores + activity + narrative history",
+      "presentation": "closing-editorial",
+      "description": "Un paragrafo finale dinamico modellato dall'atmosfera della frontiera, dall'attività dominante, dalle storie, dagli eventi mondiali, dagli eventi singoli e dal vincitore finale."
+    }
+  ]
+}

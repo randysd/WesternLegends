@@ -1,0 +1,62 @@
+{
+  "towns": [
+    "Darkrock",
+    "Red Falls",
+    "Buzzard Gulch"
+  ],
+  "regions": [
+    "Mesito’s Point",
+    "Sunny Hills",
+    "Spike’s View",
+    "Cliff Junction",
+    "Dixon Creek",
+    "Buzzard Gulch Frontier"
+  ],
+  "locations": {
+    "Darkrock": [
+      "Офис Шерифа",
+      "Универсальный магазин",
+      "Saloon",
+      "Bank"
+    ],
+    "Red Falls": [
+      "Кабинет Доктора",
+      "Saloon",
+      "Универсальный магазин",
+      "Cabaret"
+    ],
+    "Buzzard Gulch": [
+      "Офис Маршала",
+      "Торговый пост",
+      "Saloon"
+    ],
+    "Mesito’s Point": [
+      "Укрытие бандитов A",
+      "Зелёное ранчо"
+    ],
+    "Sunny Hills": [
+      "Укрытие бандитов A",
+      "Mine",
+      "Синее ранчо"
+    ],
+    "Spike’s View": [
+      "Укрытие бандитов C",
+      "Mine",
+      "Железнодорожная станция"
+    ],
+    "Cliff Junction": [
+      "Укрытие бандитов C",
+      "Mine"
+    ],
+    "Dixon Creek": [
+      "Укрытие бандитов B"
+    ],
+    "Buzzard Gulch Frontier": [
+      "Orange Ranch",
+      "Лагерь преступников",
+      "Станция поезда",
+      "Горный перевал A",
+      "Горный перевал C"
+    ]
+  }
+}
