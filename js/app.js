@@ -3601,13 +3601,14 @@ function fightFlowResultSummary(type, outcome) {
 function renderFightFlowInlineDetail(stepKey, type, cls = '') {
   const info = fightFlowStepDetail(stepKey, type);
   if (!info) return '';
+  const showInlineAutoSelect = info.autoSelect && !fightFlowHasClickableAutoFan(type);
   return `<section class="fight-flow-inline-detail ${cls}">
     <div class="fight-flow-inline-heading">
       ${info.eyebrow ? `<small>${escapeHtml(info.eyebrow)}</small>` : ''}
       <strong>${escapeHtml(info.title || '')}</strong>
     </div>
     <div class="fight-flow-inline-copy">${info.html || ''}</div>
-    ${info.autoSelect ? t('strings.auto_select_fight_card') : ''}
+    ${showInlineAutoSelect ? t('strings.auto_select_fight_card') : ''}
   </section>`;
 }
 
@@ -3624,6 +3625,10 @@ function renderFightFlowStage(number, stageKey, eyebrow, title, summary, content
     </summary>
     <div class="fight-flow-stage-body">${content}</div>
   </details>`;
+}
+
+function fightFlowHasClickableAutoFan(type) {
+  return type?.kind === 'npc' && Number.isFinite(type.cards) && type.cards >= 2;
 }
 
 function renderFightFlowMiniCardFan(kind = 'fight', count = 1) {
@@ -3654,7 +3659,14 @@ function renderFightFlowCardDuel(type) {
   const opponentVisual = playerFight
     ? renderFightFlowMiniCardFan('poker', 1)
     : renderFightFlowMiniCardFan('fight', type.cards || 1);
-  return `<div class="fight-flow-card-duel" aria-hidden="true">
+  const autoSelectLabel = t('reference.autoSelectFightCard');
+  const opponentControl = fightFlowHasClickableAutoFan(type)
+    ? `<button type="button" class="fight-flow-mini-fan-button" data-fight-auto-select aria-label="${escapeHtml(autoSelectLabel)}" title="${escapeHtml(autoSelectLabel)}">
+        ${opponentVisual}
+        <span class="fight-flow-mini-fan-action-label">${escapeHtml(t('assist.fight.autoSelectShort'))}</span>
+      </button>`
+    : opponentVisual;
+  return `<div class="fight-flow-card-duel">
     <div class="fight-flow-card-side">
       ${playerVisual}
       <strong>${escapeHtml(t('assist.fight.activePlayer'))}</strong>
@@ -3662,7 +3674,7 @@ function renderFightFlowCardDuel(type) {
     </div>
     <span class="fight-flow-versus">${escapeHtml(t('assist.fight.versus'))}</span>
     <div class="fight-flow-card-side">
-      ${opponentVisual}
+      ${opponentControl}
       <strong>${escapeHtml(opponentLabel)}</strong>
       <small>${escapeHtml(opponentCaption)}</small>
     </div>
@@ -4407,7 +4419,7 @@ function renderGamblingFlowBrief(game) {
 }
 
 function renderGamblingFlowDetail(step) {
-  const handsButton = step.pokerHands ? `<button type="button" class="action-btn action-btn-secondary fight-flow-auto-btn gambling-inline-btn" data-open-poker-hands>${escapeHtml(t('strings.poker_hands'))}</button>` : '';
+  const handsButton = step.pokerHands ? `<button type="button" class="secondary-btn fight-flow-auto-btn gambling-inline-btn" data-open-poker-hands>${escapeHtml(t('strings.poker_hands'))}</button>` : '';
   return `<div class="fight-flow-inline-detail gambling-flow-inline-detail${handsButton ? ' gambling-flow-inline-tool' : ''}">
     <p>${escapeHtml(step.detail)}</p>
     ${handsButton}
@@ -4582,7 +4594,7 @@ function renderSettingsOverlay(returnTarget = null) {
     <section class="panel modal-screen-card settings-dialog-card">
       <button type="button" class="dialog-close-x" data-settings-close aria-label="${t('strings.close')}">&#10005;</button>
       <div class="modal-title-header settings-dialog-title-block">
-        <p class="eyebrow">${t('strings.frontier_director')}</p>
+        <p class="eyebrow">${t('strings.product_name')}</p>
         <h1 class="section-title">${t('strings.settings')}</h1>
       </div>
 
@@ -5516,23 +5528,22 @@ const DICE_TYPES = {
       miss: 'assets/images/dice/face-null.png'
     },
     labelKeys: { gold: 'gold', money: 'money', reroll: 'reroll', miss: 'miss' },
-    slotMap: { front: 'gold', back: 'gold', right: 'gold', left: 'money', top: 'reroll', bottom: 'miss' }
+    slotMap: { front: 'gold', back: 'miss', right: 'money', left: 'gold', top: 'reroll', bottom: 'gold' }
   },
   risk: {
     labelKey: 'assist.dice.types.risk.label',
     requiredModule: 'blood_money_risk_die',
-    outcomes: ['blank', 'wound', 'wound', 'doublewound', 'storypoint', 'woundstorypoint'],
+    outcomes: ['woundstorypoint', 'wound', 'wound', 'doublewound', 'storypoint', 'storypoint'],
     // Use the supplied per-face Risk Die artwork when available. The die
     // renderer falls back to readable text if any face image is unavailable.
     images: {
-      blank: 'assets/images/dice/risk-blank.png',
       wound: 'assets/images/dice/risk-wound.png',
       doublewound: 'assets/images/dice/risk-woundwound.png',
       storypoint: 'assets/images/dice/risk-sp.png',
       woundstorypoint: 'assets/images/dice/risk-woundsp.png'
     },
-    labelKeys: { blank: 'blank', wound: 'wound', doublewound: 'doublewound', storypoint: 'storypoint', woundstorypoint: 'woundstorypoint' },
-    slotMap: { front: 'woundstorypoint', back: 'blank', right: 'wound', left: 'wound', top: 'storypoint', bottom: 'doublewound' }
+    labelKeys: { wound: 'wound', doublewound: 'doublewound', storypoint: 'storypoint', woundstorypoint: 'woundstorypoint' },
+    slotMap: { front: 'woundstorypoint', back: 'doublewound', right: 'wound', left: 'wound', top: 'storypoint', bottom: 'storypoint' }
   }
 };
 const PROSPECT_DICE_SFX = 'audio/sfx/sfx_dice.mp3';
@@ -7368,7 +7379,7 @@ function generateNewspaperArticle() {
     <div class="newspaper-clear" aria-hidden="true"></div>`;
 }
 
-const APP_VERSION = '1.1.0-beta';
+const APP_VERSION = '1.2.0-beta';
 let swRegistration = null;
 let appUpdateAvailable = false;
 let deferredInstallPrompt = null;
