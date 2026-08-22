@@ -18,7 +18,7 @@
   "enabledModulesDefault": [
     "base"
   ],
-  "weightingNotes": "Разовые события разыгрываются от нажатого триггера; продолжения активных сюжетных арок происходят гарантированно, когда выполнены их условия по триггеру и игроку; Мировые события используют сохранённый случайный таймер реального времени и лёгкую периодическую проверку, чтобы появляться в срок даже без нажатия игрового триггера.",
+  "weightingNotes": "Les événements ponctuels sont tirés à partir du déclencheur touché ; les suites d’Arcs d’Histoire actifs sont déterministes lorsque leurs conditions de déclencheur/joueur sont remplies ; les Événements Mondiaux utilisent une horloge en temps réel aléatoire sauvegardée et un léger signal périodique afin d’apparaître au moment prévu, même si aucun déclencheur de jeu n’est touché.",
   "storyEvents": {
     "defaults": {
       "oneOff": {

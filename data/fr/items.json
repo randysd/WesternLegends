@@ -1,0 +1,515 @@
+{
+  "storeLayout": {
+    "generalStore": {
+      "slots": 12
+    },
+    "tradingPost": {
+      "slots": 6,
+      "requiredModules": [
+        "ante_up_sideboard"
+      ]
+    }
+  },
+  "items": [
+    {
+      "id": "bedroll",
+      "name": "Rouleau de couchage",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "wild_bunch_of_extras"
+      ]
+    },
+    {
+      "id": "boot_knife",
+      "name": "Couteau de botte",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "bullwhip",
+      "name": "Fouet",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "burro",
+      "name": "Âne",
+      "type": "mount",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "carbine",
+      "name": "Carabine",
+      "type": "weapon",
+      "icon": "",
+      "requiredModules": [
+        "promo_carbine"
+      ]
+    },
+    {
+      "id": "derringer",
+      "name": "Derringer",
+      "type": "weapon",
+      "icon": "",
+      "requiredModules": [
+        "ante_up"
+      ]
+    },
+    {
+      "id": "gazette",
+      "name": "Gazette",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "ante_up"
+      ]
+    },
+    {
+      "id": "holster",
+      "name": "Holster",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "fistful_of_extras"
+      ]
+    },
+    {
+      "id": "medicine_pouch",
+      "name": "Trousse de médecine",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "miners_map",
+      "name": "Carte du mineur",
+      "type": "misc",
+      "icon": ""
+    },
+    {
+      "id": "mule",
+      "name": "Mule",
+      "type": "mount",
+      "icon": ""
+    },
+    {
+      "id": "mustang",
+      "name": "Mustang",
+      "type": "mount",
+      "icon": ""
+    },
+    {
+      "id": "peacekeeper",
+      "name": "Pacificateur",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "fistful_of_extras"
+      ]
+    },
+    {
+      "id": "pocket_watch",
+      "name": "Montre de poche",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "provisions",
+      "name": "Provisions",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "fistful_of_extras"
+      ]
+    },
+    {
+      "id": "quarter_horse",
+      "name": "Quarter Horse",
+      "type": "mount",
+      "icon": "",
+      "requiredModules": [
+        "ante_up"
+      ]
+    },
+    {
+      "id": "repeating_shotgun",
+      "name": "Fusil à pompe à répétition",
+      "type": "weapon",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "revolver",
+      "name": "Revolver",
+      "type": "weapon",
+      "icon": ""
+    },
+    {
+      "id": "rifle",
+      "name": "Fusil",
+      "type": "weapon",
+      "icon": ""
+    },
+    {
+      "id": "saddle_bags",
+      "name": "Sacoches de selle",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "wild_bunch_of_extras"
+      ]
+    },
+    {
+      "id": "shotgun",
+      "name": "Fusil à pompe",
+      "type": "weapon",
+      "icon": ""
+    },
+    {
+      "id": "snake_oil",
+      "name": "Huile de serpent",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "ante_up"
+      ]
+    },
+    {
+      "id": "ten_gallon",
+      "name": "Dix Gallons",
+      "type": "misc",
+      "icon": ""
+    },
+    {
+      "id": "whiskey",
+      "name": "Whiskey",
+      "type": "misc",
+      "icon": ""
+    },
+    {
+      "id": "work_horse",
+      "name": "Cheval de trait",
+      "type": "mount",
+      "icon": "",
+      "requiredModules": [
+        "fistful_of_extras"
+      ]
+    }
+  ],
+  "legendary_items": [
+    {
+      "id": "bandolier",
+      "name": "Cartouchière",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "wild_bunch_of_extras"
+      ]
+    },
+    {
+      "id": "black_coat",
+      "name": "Manteau noir",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "the_good_the_bad_and_the_handsome"
+      ]
+    },
+    {
+      "id": "bowie_knife",
+      "name": "Couteau Bowie",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "the_good_the_bad_and_the_handsome"
+      ]
+    },
+    {
+      "id": "canteen",
+      "name": "Gourde",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "cattle_brand",
+      "name": "Fer à marquer le bétail",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "companion",
+      "name": "Compagnon",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "the_good_the_bad_and_the_handsome"
+      ]
+    },
+    {
+      "id": "dime_western",
+      "name": "Roman de gare western",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "dragoons",
+      "name": "Dragons",
+      "type": "weapon",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "dynamite",
+      "name": "Dynamite",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "the_good_the_bad_and_the_handsome"
+      ]
+    },
+    {
+      "id": "fiddle",
+      "name": "Violon",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "lasso",
+      "name": "Lasso",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "the_good_the_bad_and_the_handsome"
+      ]
+    },
+    {
+      "id": "lightning",
+      "name": "Éclair",
+      "type": "mount",
+      "icon": "",
+      "requiredModules": [
+        "the_good_the_bad_and_the_handsome"
+      ]
+    },
+    {
+      "id": "lucky_coin",
+      "name": "Pièce porte-bonheur",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "wild_bunch_of_extras"
+      ]
+    },
+    {
+      "id": "marked_cards",
+      "name": "Cartes marquées",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "wild_bunch_of_extras"
+      ]
+    },
+    {
+      "id": "marshals_badge",
+      "name": "Insigne de Marshal",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "the_good_the_bad_and_the_handsome"
+      ]
+    },
+    {
+      "id": "mesa_deed",
+      "name": "Acte de propriété de la Mesa",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "the_good_the_bad_and_the_handsome"
+      ]
+    },
+    {
+      "id": "molasses",
+      "name": "Mélasse",
+      "type": "mount",
+      "icon": "",
+      "requiredModules": [
+        "wild_bunch_of_extras"
+      ]
+    },
+    {
+      "id": "outlaws_mask",
+      "name": "Masque de hors-la-loi",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "the_good_the_bad_and_the_handsome"
+      ]
+    },
+    {
+      "id": "portrait",
+      "name": "Portrait",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "pump_trolley",
+      "name": "Draisine",
+      "type": "mount",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "saber",
+      "name": "Sabre",
+      "type": "weapon",
+      "icon": "",
+      "requiredModules": [
+        "wild_bunch_of_extras"
+      ]
+    },
+    {
+      "id": "serape",
+      "name": "Serape",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "wild_bunch_of_extras"
+      ]
+    },
+    {
+      "id": "short_cut",
+      "name": "Raccourci",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "shot_glass",
+      "name": "Verre à shot",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "silver_flask",
+      "name": "Flasque en argent",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "the_good_the_bad_and_the_handsome"
+      ]
+    },
+    {
+      "id": "snakeskin_boots",
+      "name": "Bottes en peau de serpent",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "spurs",
+      "name": "Éperons",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "spyglass",
+      "name": "Longue-vue",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "wild_bunch_of_extras"
+      ]
+    },
+    {
+      "id": "strongbox",
+      "name": "Coffre-fort",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "big_box"
+      ]
+    },
+    {
+      "id": "telegram",
+      "name": "Télégramme",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "blood_money"
+      ]
+    },
+    {
+      "id": "thunder",
+      "name": "Tonnerre",
+      "type": "weapon",
+      "icon": "",
+      "requiredModules": [
+        "the_good_the_bad_and_the_handsome"
+      ]
+    },
+    {
+      "id": "tomahawk",
+      "name": "Tomahawk",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "the_good_the_bad_and_the_handsome"
+      ]
+    },
+    {
+      "id": "treasure_map",
+      "name": "Carte au trésor",
+      "type": "misc",
+      "icon": "",
+      "requiredModules": [
+        "wild_bunch_of_extras"
+      ]
+    }
+  ]
+}

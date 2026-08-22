@@ -1,0 +1,98 @@
+{
+  "scoringSteps": [
+    {
+      "id": "mounts_weapons",
+      "text": "Gagnez des LP pour chaque monture améliorée et chaque arme améliorée possédée (la valeur figure dans le coin supérieur gauche de la carte).",
+      "requiredModules": []
+    },
+    {
+      "id": "legendary_items",
+      "text": "Gagnez les LP indiqués par les Objets Légendaires possédés qui en rapportent (la valeur figure dans le coin supérieur gauche de la carte).",
+      "requiredModules": []
+    },
+    {
+      "id": "money",
+      "text": "Gagnez 1 LP pour chaque tranche de 60 $ possédée (arrondissez à l’inférieur).",
+      "requiredModules": []
+    },
+    {
+      "id": "wounds",
+      "text": "Perdez 1 LP pour chaque blessure.",
+      "requiredModules": []
+    },
+    {
+      "id": "injuries",
+      "text": "Perdez les LP indiqués par les cartes Blessure qui infligent une perte en fin de partie (la valeur figure en bas de la carte).",
+      "requiredModules": [
+        "blood_money_injuries"
+      ]
+    },
+    {
+      "id": "wanted",
+      "text": "Le joueur le plus Wanted gagne 3 LP, et chaque autre joueur Wanted gagne 1 LP. En cas d’égalité pour le plus Wanted, tous les joueurs Wanted gagnent 1 LP à la place.",
+      "requiredModules": []
+    },
+    {
+      "id": "marshal",
+      "text": "Les joueurs Marshal gagnent des LP selon la ligne occupée par leur cube de score sur la piste Marshal.",
+      "requiredModules": []
+    },
+    {
+      "id": "gambler",
+      "text": "Le joueur le plus avancé sur la piste Joueur gagne 1 LP. En cas d’égalité, tous les joueurs à égalité gagnent 1 LP.",
+      "requiredModules": [
+        "ante_up_gambler"
+      ]
+    },
+    {
+      "id": "legendary_tokens",
+      "text": "Gagnez des LP égaux à la valeur totale de tous les Jetons Légendaires obtenus.",
+      "requiredModules": [
+        "base_legendary_tokens"
+      ]
+    },
+    {
+      "id": "deeds",
+      "text": "Gagnez des LP grâce aux Actes selon les instructions du côté score de chaque Acte possédé. Les lieux détruits (avec un jeton Ruine) ne comptent jamais pour le score.",
+      "requiredModules": [
+        "blood_money_deeds"
+      ]
+    },
+    {
+      "id": "titles",
+      "text": "Appliquez tout score ou effet de fin de partie de la carte Titre révélée.",
+      "requiredModules": [
+        "wild_bunch_titles"
+      ]
+    },
+    {
+      "id": "man_in_black",
+      "text": "Incluez l’Homme en Noir dans le Décompte Final. S’il est à égalité pour le plus grand nombre de LP, l’Homme en Noir remporte l’égalité.",
+      "requiredModules": [
+        "wild_bunch_man_in_black"
+      ]
+    }
+  ],
+  "tiebreakers": [
+    {
+      "id": "most_lp",
+      "text": "Le joueur qui possède le plus de LP gagne."
+    },
+    {
+      "id": "marshal_wanted",
+      "text": "Toujours à égalité ? Parmi les joueurs à égalité, celui qui possède le plus de points Marshal ou Wanted gagne."
+    },
+    {
+      "id": "gold",
+      "text": "Toujours à égalité ? Parmi les joueurs à égalité, celui qui possède le plus de pépites d’or gagne."
+    },
+    {
+      "id": "wounds",
+      "text": "Toujours à égalité ? Parmi les joueurs à égalité, celui qui possède le moins de blessures gagne."
+    },
+    {
+      "id": "share",
+      "text": "Toujours à égalité ? Les joueurs à égalité se partagent la victoire."
+    }
+  ]
+}

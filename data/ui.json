@@ -2,10 +2,10 @@
   "app": {
     "language": "en",
     "title": "Western Legends Companion",
-    "description": "Western Legends Frontier Director companion app",
+    "description": "Companion app for Western Legends",
     "brand": "Western Legends",
     "companion": "Companion",
-    "frontierDirector": "Frontier Director",
+    "productName": "Western Legends Companion",
     "locale": "en-US"
   },
   "navigation": {
@@ -50,11 +50,11 @@
   "about": {
     "dialogType": "Western Legends Companion",
     "title": "About",
-    "projectName": "Frontier Director",
-    "intro": "<strong>Frontier Director</strong> is an unofficial fan-made companion that adds dynamic events, story encounters, setup guidance, quick references, and table-side helpers to Western Legends.",
+    "projectName": "Western Legends Companion",
+    "intro": "<strong>Western Legends Companion</strong> is an unofficial, fan-made companion app created to add dynamic events, story encounters, setup guidance, quick references, and table-side tools to Western Legends.",
     "creator": "Created and developed by Randy Dykstra for the Western Legends community.",
-    "support": "If it has earned a place at your table, a small tip helps support continued development and future frontier tales.",
-    "disclaimer": "Western Legends and its related expansions belong to their respective owners. This fan project is not affiliated with or endorsed by the publisher.",
+    "support": "If it has earned a place at your table, a small tip helps support continued development, new features, and future frontier tales.",
+    "disclaimer": "Western Legends and its related expansions belong to their respective owners. Western Legends Companion is an independent fan project and is not an official product of the publisher.",
     "contactTitle": "Contact & Feedback",
     "contactCopy": "Found a bug, have a suggestion, or spotted a rules correction? I’d be glad to hear from you.",
     "boardGameGeek": "BoardGameGeek",
@@ -673,7 +673,8 @@
       },
       "fullscreenTitle": "Fight Card",
       "cardAlt": "Fight card {rank}",
-      "versus": "VS"
+      "versus": "VS",
+      "autoSelectShort": "Auto-Select"
     },
     "dice": {
       "types": {
@@ -1092,7 +1093,7 @@
   "install": {
     "ios": "To install: tap Share, then choose Add to Home Screen.",
     "browser": "Your browser does not offer the install prompt here. Open the browser menu and choose Install app or Add to Home screen.",
-    "canceled": "Installation was canceled. You can install Frontier Director later from this button or your browser menu."
+    "canceled": "Installation was canceled. You can install Western Legends Companion later from this button or your browser menu."
   },
   "errors": {
     "unableStart": "Unable to Start",
@@ -1536,7 +1537,7 @@
     "initiate_a_fight_in_your_space_with_another_player_arrest_duel_or_rob": "Initiate a fight in your space with another player: Arrest, Duel, or Rob.",
     "game": "Game",
     "step": "Step",
-    "frontier_director": "Frontier Director",
+    "product_name": "Western Legends Companion",
     "settings": "Settings",
     "audio": "Audio",
     "npc": "NPC",
@@ -1744,6 +1745,12 @@
         "code": "es",
         "nativeName": "Español",
         "region": "Spanish",
+        "dir": "ltr"
+      },
+      {
+        "code": "fr",
+        "nativeName": "Français",
+        "region": "French",
         "dir": "ltr"
       },
       {

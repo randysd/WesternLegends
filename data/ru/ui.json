@@ -2,10 +2,10 @@
   "app": {
     "language": "ru",
     "title": "Western Legends Companion",
-    "description": "Приложение-компаньон Western Legends Frontier Director",
+    "description": "Приложение-компаньон для Western Legends",
     "brand": "Western Legends",
     "companion": "Компаньон",
-    "frontierDirector": "Frontier Director",
+    "productName": "Western Legends Companion",
     "locale": "ru-RU"
   },
   "navigation": {
@@ -50,11 +50,11 @@
   "about": {
     "dialogType": "Western Legends Companion",
     "title": "О приложении",
-    "projectName": "Frontier Director",
-    "intro": "<strong>Frontier Director</strong> — неофициальное фанатское приложение-компаньон, которое добавляет в Western Legends динамические события, сюжетные встречи, помощь в подготовке, быстрые справочники и игровые помощники за столом.",
+    "projectName": "Western Legends Companion",
+    "intro": "<strong>Western Legends Companion</strong> — неофициальное фанатское приложение-компаньон, созданное для того, чтобы добавить в Western Legends динамические события, сюжетные встречи, помощь в подготовке, быстрые справочники и удобные инструменты для игры за столом.",
     "creator": "Создано и разработано Рэнди Дайкстрой для сообщества Western Legends.",
-    "support": "Если приложение заслужило место за вашим игровым столом, небольшой чаевой взнос поможет поддержать дальнейшую разработку и будущие истории фронтира.",
-    "disclaimer": "Western Legends и связанные с ней дополнения принадлежат их соответствующим правообладателям. Этот фанатский проект не связан с издателем и не одобрен им.",
+    "support": "Если приложение заслужило место за вашим игровым столом, небольшое пожертвование помогает поддерживать дальнейшую разработку, новые функции и будущие истории фронтира.",
+    "disclaimer": "Western Legends и связанные с ней дополнения принадлежат их соответствующим правообладателям. Western Legends Companion — независимый фанатский проект и не является официальным продуктом издателя.",
     "contactTitle": "Контакты и обратная связь",
     "contactCopy": "Нашли ошибку, есть предложение или заметили неточность в правилах? Буду рад вашему сообщению.",
     "boardGameGeek": "BoardGameGeek",
@@ -673,7 +673,8 @@
       },
       "fullscreenTitle": "Карта боя",
       "cardAlt": "Карта боя {rank}",
-      "versus": "ПРОТИВ"
+      "versus": "ПРОТИВ",
+      "autoSelectShort": "Автовыбор"
     },
     "dice": {
       "types": {
@@ -1092,7 +1093,7 @@
   "install": {
     "ios": "Чтобы установить: нажмите «Поделиться», затем выберите «Добавить на экран Домой».",
     "browser": "В этом браузере здесь нет запроса на установку. Откройте меню браузера и выберите «Установить приложение» или «Добавить на главный экран».",
-    "canceled": "Установка отменена. Frontier Director можно установить позже этой кнопкой или через меню браузера."
+    "canceled": "Установка отменена. Western Legends Companion можно установить позже этой кнопкой или через меню браузера."
   },
   "errors": {
     "unableStart": "Не удалось запустить",
@@ -1536,7 +1537,7 @@
     "initiate_a_fight_in_your_space_with_another_player_arrest_duel_or_rob": "Начните бой с другим игроком на вашей клетке: Арест, Дуэль или Грабёж.",
     "game": "Игра",
     "step": "Шаг",
-    "frontier_director": "Frontier Director",
+    "product_name": "Western Legends Companion",
     "settings": "Настройки",
     "audio": "Audio",
     "npc": "NPC",
@@ -1744,6 +1745,12 @@
         "code": "es",
         "nativeName": "Español",
         "region": "Испанский",
+        "dir": "ltr"
+      },
+      {
+        "code": "fr",
+        "nativeName": "Français",
+        "region": "Французский",
         "dir": "ltr"
       },
       {

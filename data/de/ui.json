@@ -1,11 +1,11 @@
 {
   "app": {
     "language": "de",
-    "title": "Western Legends Begleiter",
-    "description": "Western Legends Frontier Director Begleit-App",
+    "title": "Western Legends Companion",
+    "description": "Begleit-App für Western Legends",
     "brand": "Western Legends",
     "companion": "Begleiter",
-    "frontierDirector": "Frontier Director",
+    "productName": "Western Legends Companion",
     "locale": "de-DE"
   },
   "navigation": {
@@ -50,11 +50,11 @@
   "about": {
     "dialogType": "Western Legends Begleiter",
     "title": "Über",
-    "projectName": "Frontier Director",
-    "intro": "<strong>Frontier Director</strong> ist eine inoffizielle, von Fans erstellte Begleit-App, die Western Legends um dynamische Ereignisse, Story-Begegnungen, Aufbauhilfe, Schnellreferenzen und Helfer für den Spieltisch erweitert.",
+    "projectName": "Western Legends Companion",
+    "intro": "<strong>Western Legends Companion</strong> ist eine inoffizielle, von Fans entwickelte Begleit-App, die Western Legends um dynamische Ereignisse, Story-Begegnungen, Aufbauhilfe, Schnellreferenzen und praktische Hilfsmittel für den Spieltisch erweitert.",
     "creator": "Erstellt und entwickelt von Randy Dykstra für die Western-Legends-Community.",
-    "support": "Wenn die App einen Platz an deinem Spieltisch gefunden hat, hilft ein kleines Trinkgeld dabei, die weitere Entwicklung und künftige Grenzlandgeschichten zu unterstützen.",
-    "disclaimer": "Western Legends und die zugehörigen Erweiterungen gehören ihren jeweiligen Rechteinhabern. Dieses Fanprojekt ist weder mit dem Verlag verbunden noch von ihm unterstützt.",
+    "support": "Wenn die App einen Platz an deinem Spieltisch gefunden hat, hilft ein kleiner Beitrag dabei, die weitere Entwicklung, neue Funktionen und künftige Grenzlandgeschichten zu unterstützen.",
+    "disclaimer": "Western Legends und die zugehörigen Erweiterungen gehören ihren jeweiligen Rechteinhabern. Western Legends Companion ist ein unabhängiges Fanprojekt und kein offizielles Produkt des Verlags.",
     "contactTitle": "Kontakt & Feedback",
     "contactCopy": "Einen Fehler gefunden, einen Vorschlag oder eine Regelkorrektur entdeckt? Ich freue mich über deine Nachricht.",
     "boardGameGeek": "BoardGameGeek",
@@ -673,7 +673,8 @@
       },
       "fullscreenTitle": "Kampfkarte",
       "cardAlt": "Kampfkarte {rank}",
-      "versus": "GEGEN"
+      "versus": "GEGEN",
+      "autoSelectShort": "Automatisch wählen"
     },
     "dice": {
       "types": {
@@ -1092,7 +1093,7 @@
   "install": {
     "ios": "Zum Installieren: Tippe auf „Teilen“ und wähle anschließend „Zum Home-Bildschirm“.",
     "browser": "Dein Browser bietet hier keine Installationsaufforderung an. Öffne das Browsermenü und wähle „App installieren“ oder „Zum Home-Bildschirm“.",
-    "canceled": "Die Installation wurde abgebrochen. Du kannst Frontier Director später über diese Schaltfläche oder das Browsermenü installieren."
+    "canceled": "Die Installation wurde abgebrochen. Du kannst Western Legends Companion später über diese Schaltfläche oder das Browsermenü installieren."
   },
   "errors": {
     "unableStart": "Start nicht möglich",
@@ -1536,7 +1537,7 @@
     "initiate_a_fight_in_your_space_with_another_player_arrest_duel_or_rob": "Beginne einen Kampf auf deinem Feld mit einem anderen Spieler: Verhaften, Duell oder Rauben.",
     "game": "Spiel",
     "step": "Schritt",
-    "frontier_director": "Frontier Director",
+    "product_name": "Western Legends Companion",
     "settings": "Einstellungen",
     "audio": "Audio",
     "npc": "NSC",
@@ -1744,6 +1745,12 @@
         "code": "es",
         "nativeName": "Español",
         "region": "Spanisch",
+        "dir": "ltr"
+      },
+      {
+        "code": "fr",
+        "nativeName": "Français",
+        "region": "Französisch",
         "dir": "ltr"
       },
       {

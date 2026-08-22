@@ -1,0 +1,683 @@
+{
+  "sections": [
+    {
+      "id": "play_area",
+      "title": "Préparer la zone de jeu",
+      "summary": "Placez les plateaux, superpositions et présentoirs.",
+      "steps": [
+        {
+          "text": "Placez le plateau principal au centre de la table.",
+          "images": [
+            {
+              "src": "assets/images/boards/main-board.png",
+              "alt": "Plateau principal",
+              "caption": "Plateau principal",
+              "fullWidth": true
+            }
+          ]
+        },
+        {
+          "text": "Placez le Plateau Frontière de Buzzard Gulch à côté du plateau principal.",
+          "requiredModules": [
+            "ante_up_sideboard"
+          ],
+          "images": [
+            {
+              "src": "assets/images/boards/full.png",
+              "alt": "Buzzard Gulch & piste Joueur",
+              "caption": "Buzzard Gulch & piste Joueur",
+              "fullWidth": true
+            }
+          ]
+        },
+        {
+          "text": "Placez la piste Joueur au-dessus du plateau principal.",
+          "requiredModules": [
+            "ante_up_gambler"
+          ]
+        },
+        {
+          "text": "Placez la superposition Plateau d’Histoire Légendaire sur la zone des Cartes d’Histoire de base.",
+          "requiredModules": [
+            "blood_money_stories"
+          ],
+          "images": [
+            {
+              "src": "assets/images/boards/story.png",
+              "alt": "Superposition Plateau d’Histoire Légendaire",
+              "caption": "Plateau d’Histoire Légendaire",
+              "fullWidth": true
+            }
+          ]
+        },
+        {
+          "text": "Assemblez le présentoir du Magasin général si nécessaire."
+        },
+        {
+          "text": "Assemblez le présentoir du Comptoir commercial.",
+          "requiredModules": [
+            "ante_up_sideboard"
+          ]
+        },
+        {
+          "text": "Assemblez le présentoir du Marchand ambulant.",
+          "requiredModules": [
+            "blood_money_traveling_trader"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stores",
+      "title": "Préparer les magasins",
+      "summary": "Mettez en place les marchés d’objets et l’inventaire du marchand.",
+      "steps": [
+        {
+          "text": "Remplissez automatiquement les magasins avec l’assistant, ou ignorez cette option et suivez la mise en place manuelle ci-dessous.",
+          "actionButtons": [
+            {
+              "label": "Remplir automatiquement les magasins",
+              "opens": "storeRandomizer"
+            }
+          ],
+          "choiceGroup": "stores_fill"
+        },
+        {
+          "text": "Remplir les magasins manuellement",
+          "summary": "Utilisez ces étapes uniquement si vous n’utilisez pas le remplissage automatique des magasins.",
+          "substeps": [
+            {
+              "text": "Retirez les cartes de randomisation des magasins correspondant aux objets non utilisés."
+            },
+            {
+              "text": "Mettez de côté la carte de mise en place standard comme référence rapide des magasins."
+            },
+            {
+              "text": "Mélangez face cachée les cartes de randomisation restantes des magasins."
+            },
+            {
+              "text": "Distribuez 1 carte de randomisation dans chaque emplacement du Magasin général."
+            },
+            {
+              "text": "Distribuez 1 carte de randomisation dans chaque emplacement du Comptoir commercial.",
+              "requiredModules": [
+                "ante_up_sideboard"
+              ]
+            },
+            {
+              "text": "Placez la première Arme révélée et la première Monture révélée dans le Magasin général."
+            },
+            {
+              "text": "Placez la deuxième Arme révélée et la deuxième Monture révélée dans le Comptoir commercial.",
+              "requiredModules": [
+                "ante_up_sideboard"
+              ]
+            },
+            {
+              "text": "Si vous utilisez la mise en place standard, assurez-vous que chaque magasin contient au moins 1 Arme et 1 Monture. Remplacez aléatoirement des objets si nécessaire.",
+              "requiredModules": [
+                "ante_up_sideboard"
+              ]
+            },
+            {
+              "text": "Placez chaque paquet d’objets dans l’emplacement correspondant à sa carte de randomisation."
+            }
+          ],
+          "checkable": false,
+          "choiceGroup": "stores_fill"
+        },
+        {
+          "text": "Mélangez ensemble les Objets Légendaires des extensions sélectionnées et placez la carte bloqueuse au-dessous du paquet.",
+          "requiredModules": [
+            "blood_money_traveling_trader"
+          ]
+        },
+        {
+          "text": "Placez le paquet d’Objets Légendaires face cachée dans l’emplacement supérieur gauche du Marchand ambulant.",
+          "requiredModules": [
+            "blood_money_traveling_trader"
+          ]
+        },
+        {
+          "text": "Révélez 3 Objets Légendaires dans la rangée inférieure du présentoir du Marchand ambulant.",
+          "requiredModules": [
+            "blood_money_traveling_trader"
+          ]
+        },
+        {
+          "text": "Placez tous les paquets d’objets restants dans les 2 emplacements vides du Marchand ambulant. Gardez leurs cartes de randomisation à proximité.",
+          "requiredModules": [
+            "blood_money_traveling_trader"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "decks",
+      "title": "Préparer les paquets",
+      "summary": "Mélangez uniquement les paquets utilisés dans cette partie.",
+      "steps": [
+        {
+          "text": "Séparez l’argent en paquets de billets de 10 $ et de 20 $.",
+          "images": [
+            {
+              "src": "assets/images/cards/money-10.png",
+              "alt": "Billets de 10 $",
+              "caption": "$10"
+            },
+            {
+              "src": "assets/images/cards/money-20.png",
+              "alt": "Billets de 20 $",
+              "caption": "$20"
+            }
+          ]
+        },
+        {
+          "text": "Préparez le paquet de Poker. Si vous utilisez des Cartes de Poker d’extension, remplacez les cartes de base correspondantes selon leur couleur et leur valeur.",
+          "images": [
+            {
+              "src": "assets/images/cards/poker-back.png",
+              "alt": "Paquet de Poker",
+              "caption": "Paquet de Poker"
+            }
+          ]
+        },
+        {
+          "text": "Mélangez les cartes Joker dans le paquet de Poker.",
+          "requiredModules": [
+            "fistful_jokers"
+          ]
+        },
+        {
+          "text": "Mélangez et placez les petits paquets de base à côté du plateau.",
+          "images": [
+            {
+              "src": "assets/images/cards/fight-back.png",
+              "alt": "Paquet de Combat",
+              "caption": "Combat"
+            },
+            {
+              "src": "assets/images/cards/events-back.png",
+              "alt": "Paquet d’Événements",
+              "caption": "Événements",
+              "requiredModules": [
+                "ante_up_events"
+              ]
+            },
+            {
+              "src": "assets/images/cards/train-back.png",
+              "alt": "Paquet du Train",
+              "caption": "Train",
+              "requiredModules": [
+                "ante_up_train"
+              ]
+            },
+            {
+              "src": "assets/images/cards/injury-back.png",
+              "alt": "Paquet de Blessures",
+              "caption": "Blessures",
+              "requiredModules": [
+                "blood_money_injuries"
+              ]
+            },
+            {
+              "src": "assets/images/cards/travelingtrader-back.png",
+              "alt": "Paquet du Marchand ambulant",
+              "caption": "Marchand",
+              "requiredModules": [
+                "blood_money_traveling_trader"
+              ]
+            },
+            {
+              "src": "assets/images/cards/treasurehunting-back.png",
+              "alt": "Paquet de Chasse au trésor",
+              "caption": "Chasse au trésor",
+              "requiredModules": [
+                "treasure_hunting_rumors"
+              ]
+            },
+            {
+              "src": "assets/images/cards/hunting-back.png",
+              "alt": "Paquet de Chasse",
+              "caption": "Chasse",
+              "requiredModules": [
+                "hunting_animals"
+              ]
+            },
+            {
+              "src": "assets/images/cards/fishing-back.png",
+              "alt": "Paquet de Pêche",
+              "caption": "Pêche",
+              "requiredModules": [
+                "fishing_fish_deck"
+              ]
+            },
+            {
+              "src": "assets/images/cards/foraging-back.png",
+              "alt": "Paquet de Cueillette",
+              "caption": "Cueillette",
+              "requiredModules": [
+                "foraging_resources"
+              ]
+            },
+            {
+              "src": "assets/images/cards/prospecting-back.png",
+              "alt": "Paquet de Prospection",
+              "caption": "Prospection",
+              "requiredModules": [
+                "prospecting_cards"
+              ]
+            }
+          ]
+        },
+        {
+          "text": "Mélangez les Cartes d’Histoire de base, placez le paquet sur son emplacement prévu du plateau, révélez 1 Carte d’Histoire de base et placez-la à l’emplacement indiqué.",
+          "blockedModules": [
+            "blood_money_stories"
+          ]
+        },
+        {
+          "text": "Mélangez les Cartes d’Histoire Légendaire, placez le paquet sur le Plateau d’Histoire Légendaire, puis révélez 1 Carte d’Histoire Légendaire aléatoire sur le plateau.",
+          "requiredModules": [
+            "blood_money_stories"
+          ]
+        },
+        {
+          "text": "Ajoutez les cartes Événement Unique au paquet d’Événements.",
+          "requiredModules": [
+            "ante_up_events",
+            "wild_bunch_unique_events"
+          ]
+        },
+        {
+          "text": "Mélangez le paquet d’Événements et placez-le près du plateau.",
+          "requiredModules": [
+            "ante_up_events"
+          ]
+        },
+        {
+          "text": "Mélangez les cartes Titre et révélez aléatoirement 1 Titre pour cette partie.",
+          "requiredModules": [
+            "wild_bunch_titles"
+          ]
+        },
+        {
+          "text": "Mélangez les cartes Shérif et révélez la carte Shérif du dessus. Remplacez-la chaque fois que le Shérif perd un combat.",
+          "requiredModules": [
+            "wild_bunch_sheriff"
+          ]
+        },
+        {
+          "text": "Mélangez les cartes Bandit et placez le paquet face cachée près du paquet de Combat.",
+          "requiredModules": [
+            "wild_bunch_bandit_variant"
+          ]
+        },
+        {
+          "text": "Mélangez toutes les cartes Homme en Noir pour former le paquet et placez-le près du plateau.",
+          "requiredModules": [
+            "wild_bunch_man_in_black"
+          ],
+          "maxPlayers": 2,
+          "images": [
+            {
+              "src": "assets/images/cards/mib.png",
+              "alt": "Paquet de l’Homme en Noir",
+              "caption": "Homme en Noir"
+            }
+          ]
+        },
+        {
+          "text": "Mélangez les cartes Homme en Noir en excluant P-01, P-04, P-05, P-08, P-09, P-10 et P-15. Placez le paquet près du plateau.",
+          "requiredModules": [
+            "wild_bunch_man_in_black"
+          ],
+          "minPlayers": 3,
+          "images": [
+            {
+              "src": "assets/images/cards/mib.png",
+              "alt": "Paquet de l’Homme en Noir",
+              "caption": "Homme en Noir"
+            }
+          ]
+        },
+        {
+          "text": "Mélangez les cartes Rumeur et placez le paquet près du plateau.",
+          "requiredModules": [
+            "treasure_hunting_rumors"
+          ]
+        },
+        {
+          "text": "Mélangez le paquet d’Animaux et placez-le à côté du plateau de jeu.",
+          "requiredModules": [
+            "hunting"
+          ]
+        },
+        {
+          "text": "Mélangez le paquet de Poissons et placez-le à côté du plateau de jeu.",
+          "requiredModules": [
+            "fishing"
+          ]
+        },
+        {
+          "text": "Mélangez le paquet Théâtre, placez-le près du plateau et révélez 3 cartes Théâtre face visible.",
+          "requiredModules": [
+            "theatre"
+          ]
+        },
+        {
+          "text": "Mélangez le paquet de Prospection avec 2 événements aléatoires.",
+          "requiredModules": [
+            "prospecting_cards"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tokens",
+      "title": "Préparer les jetons",
+      "summary": "Séparez, mélangez et placez les réserves de jetons.",
+      "steps": [
+        {
+          "text": "Mélangez les jetons Bétail face cachée et placez-les dans leurs ranchs.",
+          "images": [
+            {
+              "src": "assets/images/tokens/ranch-blue.png",
+              "alt": "Jeton Bétail bleu",
+              "caption": "Bleu"
+            },
+            {
+              "src": "assets/images/tokens/ranch-green.png",
+              "alt": "Jeton Bétail vert",
+              "caption": "Vert"
+            },
+            {
+              "src": "assets/images/tokens/ranch-orange.png",
+              "alt": "Jeton Bétail orange",
+              "caption": "Orange",
+              "requiredModules": [
+                "ante_up_sideboard"
+              ]
+            }
+          ]
+        },
+        {
+          "text": "Mélangez face cachée les jetons Longhorn, Hors-la-loi, Gros Joueur et Voleur de concession.",
+          "requiredModules": [
+            "ante_up_events"
+          ],
+          "images": [
+            {
+              "src": "assets/images/tokens/longhorn.png",
+              "alt": "Jeton Longhorn",
+              "caption": "Longhorn"
+            },
+            {
+              "src": "assets/images/tokens/outlaw.png",
+              "alt": "Jeton Hors-la-loi",
+              "caption": "Outlaw"
+            },
+            {
+              "src": "assets/images/tokens/highroller.png",
+              "alt": "Jeton Gros Joueur",
+              "caption": "High Roller"
+            },
+            {
+              "src": "assets/images/tokens/gold.png",
+              "alt": "Jeton Voleur de concession",
+              "caption": "Claim Jumper"
+            }
+          ]
+        },
+        {
+          "text": "Mélangez les Jetons Légendaires face cachée ou placez-les dans un sac à jetons.",
+          "requiredModules": [
+            "base_legendary_tokens"
+          ],
+          "images": [
+            {
+              "src": "assets/images/tokens/legend.png",
+              "alt": "Jeton Légendaire",
+              "caption": "Légendaire"
+            }
+          ]
+        },
+        {
+          "text": "Séparez les Actes par type et placez un jeton Acte sur chaque lieu d’Acte.",
+          "requiredModules": [
+            "blood_money_deeds"
+          ],
+          "images": [
+            {
+              "src": "assets/images/setup/tokens/deed-token.png",
+              "alt": "Jeton Acte",
+              "caption": "Acte"
+            }
+          ]
+        },
+        {
+          "text": "Gardez les jetons Événement Unique dans une réserve près du plateau.",
+          "requiredModules": [
+            "wild_bunch_unique_events"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "board_setup",
+      "title": "Préparer les effets du plateau",
+      "summary": "Placez les marqueurs et résolvez les effets de mise en place.",
+      "steps": [
+        {
+          "text": "Placez le marqueur de fin de partie sur {targetLP} LP.",
+          "images": [
+            {
+              "src": "assets/images/tokens/watch.png",
+              "alt": "Jeton montre de poche du marqueur de fin de partie",
+              "caption": "Marqueur de fin de partie"
+            }
+          ]
+        },
+        {
+          "text": "Placez des marqueurs Événement sur la 5e case des pistes Joueur, Marshal et Wanted, ainsi que sur chaque 5e case LP avant le marqueur de fin de partie.",
+          "requiredModules": [
+            "ante_up_events"
+          ],
+          "images": [
+            {
+              "src": "assets/images/tokens/event-token.png",
+              "alt": "Jeton marqueur Événement",
+              "caption": "Marqueur Événement"
+            }
+          ]
+        },
+        {
+          "text": "Résolvez 1 carte Événement pour 2 joueurs, en arrondissant au supérieur. Ignorez le déplacement du Shérif car il n’est pas encore placé.",
+          "requiredModules": [
+            "ante_up_events"
+          ]
+        },
+        {
+          "text": "Placez aléatoirement 1 jeton Frontière face visible sur chaque case Frontière. Gardez les jetons Frontière inutilisés à proximité.",
+          "requiredModules": [
+            "ante_up_sideboard"
+          ],
+          "images": [
+            {
+              "src": "assets/images/tokens/action-frontier.png",
+              "alt": "Jeton Frontière",
+              "caption": "Jeton Frontière"
+            }
+          ]
+        },
+        {
+          "text": "Révélez la carte Mouvement du Marchand du dessus et placez la figurine du Marchand ambulant sur n’importe quelle case vide de cette région.",
+          "requiredModules": [
+            "blood_money_traveling_trader"
+          ],
+          "images": [
+            {
+              "src": "assets/images/cards/travelingtrader-back.png",
+              "alt": "Dos de carte Mouvement du Marchand",
+              "caption": "Carte Mouvement du Marchand"
+            },
+            {
+              "src": "assets/images/tokens/trader.png",
+              "alt": "Jeton Marchand ambulant",
+              "caption": "Marchand ambulant"
+            }
+          ]
+        },
+        {
+          "text": "Placez 2 Pépites d’Or sur chaque lieu minier. Placez 1 Pépite d’Or sur les cases de la piste LP indiquées par les règles de Prospection pour {playerCount} joueurs et une partie à {targetLP} LP.",
+          "requiredModules": [
+            "prospecting_cards"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "players",
+      "title": "Préparer les joueurs",
+      "summary": "Donnez à chaque joueur ses éléments de départ.",
+      "steps": [
+        {
+          "text": "Chaque joueur prend un plateau de joueur, des cubes de score, un anneau de couleur et un jeton Blessure."
+        },
+        {
+          "text": "Utilisez le côté du plateau de joueur avec les emplacements pour Jetons Légendaires.",
+          "requiredModules": [
+            "base_legendary_tokens"
+          ]
+        },
+        {
+          "text": "Chaque joueur prend ses jetons de Faro.",
+          "requiredModules": [
+            "ante_up_faro"
+          ]
+        },
+        {
+          "text": "Chaque joueur prend ses disques d’Histoire.",
+          "requiredModules": [
+            "blood_money_stories"
+          ]
+        },
+        {
+          "text": "Placez 1 cube de score pour chaque joueur à gauche de la case 1 de la piste LP."
+        },
+        {
+          "text": "Placez 1 cube de score pour chaque joueur sur la case de départ de la piste d’Histoire.",
+          "requiredModules": [
+            "blood_money_stories"
+          ]
+        },
+        {
+          "text": "Placez les cubes de score restants et les disques d’Histoire de chaque joueur à côté du plateau.",
+          "requiredModules": [
+            "blood_money_stories"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "characters",
+      "title": "Choisir les personnages",
+      "summary": "Sélectionnez les personnages et recevez les récompenses de départ.",
+      "steps": [
+        {
+          "text": "Chaque joueur choisit un personnage parmi ceux disponibles dans les extensions sélectionnées."
+        },
+        {
+          "text": "Pour chaque personnage choisi, prenez les 4 cartes Objectif de ce personnage.",
+          "requiredModules": [
+            "base_goals"
+          ]
+        },
+        {
+          "text": "Chaque joueur reçoit les objets, l’argent, les Cartes de Poker, les blessures et les points de départ indiqués sur son personnage."
+        },
+        {
+          "text": "Si un personnage commence avec des Points de Joueur, Légendaires, Marshal, d’Histoire ou Wanted, placez un cube sur la piste correspondante."
+        },
+        {
+          "text": "Résolvez les capacités de départ des objets, comme Gazette, Provisions ou effets similaires."
+        }
+      ]
+    },
+    {
+      "id": "miniatures",
+      "title": "Placer les figurines",
+      "summary": "Placez les joueurs, le Shérif et les Bandits.",
+      "steps": [
+        {
+          "text": "Le joueur le plus Wanted prend le jeton Premier Joueur. En cas d’égalité ou si personne n’est Wanted, choisissez une autre méthode.",
+          "actionButtons": [
+            {
+              "label": "Choisir le Premier Joueur",
+              "opens": "firstPlayer"
+            }
+          ]
+        },
+        {
+          "text": "En commençant par le premier joueur, chaque joueur choisit une figurine et y fixe son anneau de couleur."
+        },
+        {
+          "text": "Chaque joueur place sa figurine au Lieu de départ indiqué sur sa carte Personnage."
+        },
+        {
+          "text": "Si le Lieu de départ est un Magasin général, un Comptoir commercial ou un Saloon, placez la figurine sur n’importe quelle case adjacente."
+        },
+        {
+          "text": "Retirez tout jeton Événement, Voleur de concession, Gros Joueur, Longhorn, Hors-la-loi ou Événement Unique d’une case où un joueur commence.",
+          "anyModules": [
+            "ante_up_events",
+            "wild_bunch_unique_events"
+          ]
+        },
+        {
+          "text": "Fixez l’anneau marron à la figurine du Shérif et placez le Shérif au Bureau du Shérif/Marshal à Darkrock."
+        },
+        {
+          "text": "Collez les autocollants numérotés des Bandits sous les anneaux gris des Bandits.",
+          "requiredModules": [
+            "wild_bunch_bandit_variant"
+          ]
+        },
+        {
+          "text": "Fixez des anneaux gris à 6 figurines de Bandit. Placez 1 Bandit dans chaque Repaire de Bandits qui ne contient pas de joueur."
+        },
+        {
+          "text": "Choisissez une figurine pour représenter l’Homme en Noir. Placez-la à la Gare ferroviaire ou dans un lieu choisi par le premier joueur, puis placez le cube de score correspondant à la couleur de son anneau de base à gauche de la piste LP avec les cubes de score des joueurs.",
+          "requiredModules": [
+            "wild_bunch_man_in_black"
+          ]
+        },
+        {
+          "text": "Après avoir placé toutes les figurines des joueurs, le dernier joueur dans l’ordre du tour place les 3 marqueurs Action Chasse sur 3 cases différentes inoccupées.",
+          "requiredModules": [
+            "hunting"
+          ]
+        },
+        {
+          "text": "Donnez une aide de jeu à chaque joueur."
+        }
+      ]
+    },
+    {
+      "id": "ready",
+      "title": "Prêt à jouer",
+      "summary": "Dernière vérification avant de commencer.",
+      "steps": [
+        {
+          "text": "Confirmez que tous les modules sélectionnés ont été mis en place."
+        },
+        {
+          "text": "Confirmez que le marqueur de fin de partie est sur {targetLP} LP."
+        },
+        {
+          "text": "Appuyez sur Commencer la partie lorsque tout le monde est prêt."
+        }
+      ]
+    }
+  ]
+}

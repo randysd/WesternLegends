@@ -1,0 +1,467 @@
+[
+  {
+    "id": "story_railroad_rising",
+    "title": "La Route de Fer",
+    "newspaperText": [
+      "L’histoire à l’échelle du territoire de La Route de Fer s’est déroulée à travers une série de développements ressentis dans toute la frontière.",
+      "Plusieurs événements se sont réunis pour former la grande histoire de la frontière connue sous le nom de La Route de Fer.",
+      "L’histoire continue de La Route de Fer a dépassé le destin d’un seul cavalier et a commencé à façonner le territoire lui-même.",
+      "Au moment où la Gazette est partie sous presse, La Route de Fer était devenue l’une des grandes histoires en cours de la frontière."
+    ],
+    "tags": [
+      "railroad",
+      "train",
+      "construction"
+    ],
+    "requiredModules": [
+      "ante_up"
+    ],
+    "chapters": [
+      {
+        "id": "rail_surveyors",
+        "type": "storyTrigger",
+        "trigger": "trig_travel_rail",
+        "title": "Arrivée des arpenteurs",
+        "screenText": "Terminez votre tour dans n’importe quelle Gare ferroviaire pour gagner 20 $ et Progression du chemin de fer +1.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Des arpenteurs arrivent avec chaînes, piquets et la dangereuse idée que demain peut se mesurer.\"",
+        "newspaperText": [
+          "L’histoire a pris un nouveau tournant, et les rapports ont décrit la scène ainsi : des arpenteurs arrivent avec chaînes, piquets et la dangereuse idée que demain peut se mesurer.",
+          "Un nouveau chapitre de cette histoire en cours est parvenu à la Gazette avec un détail saisissant : des arpenteurs arrivent avec chaînes, piquets et la dangereuse idée que demain peut se mesurer.",
+          "Le fil de cette grande histoire a mené à un nouveau rebondissement : des arpenteurs arrivent avec chaînes, piquets et la dangereuse idée que demain peut se mesurer.",
+          "Des témoins ont associé le dernier tournant de l’histoire à une scène mémorable : des arpenteurs arrivent avec chaînes, piquets et la dangereuse idée que demain peut se mesurer."
+        ],
+        "audioFile": "audio/arcs/rail_surveyors.mp3",
+        "requiresWorldTags": [],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_surveyed"
+          },
+          {
+            "type": "incrementCounter",
+            "counter": "railroad_progress",
+            "amount": 1
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Arrivée des arpenteurs a été résolue."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_survey_ignored"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Arrivée des arpenteurs a été ignorée."
+          }
+        ]
+      },
+      {
+        "id": "rail_lumber",
+        "type": "storyTrigger",
+        "trigger": "trig_deliver_resource_location",
+        "title": "Bois pour le dépôt",
+        "screenText": "Livrez du Bois à une Gare ferroviaire. Gagnez 20 $ et Progression du chemin de fer +1.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Des poutres fraîchement coupées s’abattent près des rails comme les os d’une ville nouvelle.\"",
+        "newspaperText": [
+          "L’histoire a pris un nouveau tournant, et les rapports ont décrit la scène ainsi : des poutres fraîchement coupées s’abattent près des rails comme les os d’une ville nouvelle.",
+          "Un nouveau chapitre de cette histoire en cours est parvenu à la Gazette avec un détail saisissant : des poutres fraîchement coupées s’abattent près des rails comme les os d’une ville nouvelle.",
+          "Le fil de cette grande histoire a mené à un nouveau rebondissement : des poutres fraîchement coupées s’abattent près des rails comme les os d’une ville nouvelle.",
+          "Des témoins ont associé le dernier tournant de l’histoire à une scène mémorable : des poutres fraîchement coupées s’abattent près des rails comme les os d’une ville nouvelle."
+        ],
+        "audioFile": "audio/arcs/rail_lumber.mp3",
+        "requiresWorldTags": [
+          "rail_surveyed"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_wood_delivered"
+          },
+          {
+            "type": "incrementCounter",
+            "counter": "railroad_progress",
+            "amount": 1
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Bois pour le dépôt a été résolu."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_wood_missing"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Bois pour le dépôt a été ignoré."
+          }
+        ]
+      },
+      {
+        "id": "rail_iron",
+        "type": "storyTrigger",
+        "trigger": "trig_deliver_resource_location",
+        "title": "Fer pour la ligne",
+        "screenText": "Livrez du Métal à une Gare ferroviaire. Gagnez 20 $ et Progression du chemin de fer +1.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Le contremaître passe un pouce sur le fer et y voit demain.\"",
+        "newspaperText": [
+          "L’histoire a pris un nouveau tournant, et les rapports ont décrit la scène ainsi : le contremaître passe un pouce sur le fer et y voit demain.",
+          "Un nouveau chapitre de cette histoire en cours est parvenu à la Gazette avec un détail saisissant : le contremaître passe un pouce sur le fer et y voit demain.",
+          "Le fil de cette grande histoire a mené à un nouveau rebondissement : le contremaître passe un pouce sur le fer et y voit demain.",
+          "Des témoins ont associé le dernier tournant de l’histoire à une scène mémorable : le contremaître passe un pouce sur le fer et y voit demain."
+        ],
+        "audioFile": "audio/arcs/rail_iron.mp3",
+        "requiresWorldTags": [
+          "rail_surveyed"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_metal_delivered"
+          },
+          {
+            "type": "incrementCounter",
+            "counter": "railroad_progress",
+            "amount": 1
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Fer pour la ligne a été résolu."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "rail_metal_missing"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Fer pour la ligne a été ignoré."
+          }
+        ]
+      },
+      {
+        "id": "rail_grand_opening",
+        "type": "worldEvent",
+        "title": "Grande ouverture",
+        "requiresCounters": [
+          {
+            "counter": "railroad_progress",
+            "gte": 3
+          }
+        ],
+        "screenText": "Voyager en train coûte 0 $.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Le dernier crampon enfoncé, la locomotive siffle comme si la frontière elle-même venait de se réveiller.\"",
+        "newspaperText": [
+          "L’histoire a pris un nouveau tournant, et les rapports ont décrit la scène ainsi : le dernier crampon enfoncé, la locomotive siffle comme si la frontière elle-même venait de se réveiller.",
+          "Un nouveau chapitre de cette histoire en cours est parvenu à la Gazette avec un détail saisissant : le dernier crampon enfoncé, la locomotive siffle comme si la frontière elle-même venait de se réveiller.",
+          "Le fil de cette grande histoire a mené à un nouveau rebondissement : le dernier crampon enfoncé, la locomotive siffle comme si la frontière elle-même venait de se réveiller.",
+          "Des témoins ont associé le dernier tournant de l’histoire à une scène mémorable : le dernier crampon enfoncé, la locomotive siffle comme si la frontière elle-même venait de se réveiller."
+        ],
+        "audioFile": "audio/storylines/rail_grand_opening.mp3",
+        "effects": [
+          {
+            "type": "start_world_event",
+            "eventId": "world_free_rail"
+          }
+        ]
+      }
+    ],
+    "scope": "global"
+  },
+  {
+    "id": "story_lost_spanish_gold",
+    "title": "L’Or espagnol perdu",
+    "newspaperText": [
+      "L’histoire à l’échelle du territoire de L’Or espagnol perdu s’est déroulée à travers une série de développements ressentis dans toute la frontière.",
+      "Plusieurs événements se sont réunis pour former la grande histoire de la frontière connue sous le nom de L’Or espagnol perdu.",
+      "L’histoire continue de L’Or espagnol perdu a dépassé le destin d’un seul cavalier et a commencé à façonner le territoire lui-même.",
+      "Au moment où la Gazette est partie sous presse, L’Or espagnol perdu était devenu l’une des grandes histoires en cours de la frontière."
+    ],
+    "tags": [
+      "treasure",
+      "mine",
+      "map"
+    ],
+    "chapters": [
+      {
+        "id": "spanish_journal",
+        "type": "storyTrigger",
+        "trigger": "trig_gain_gold_prospect",
+        "title": "Journal déchiré",
+        "screenText": "Terminez votre tour à la Mine de Cliff Junction pour gagner 1 Jeton Légendaire.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Un journal déchiré parle d’or espagnol caché là où les falaises projettent leurs ombres à midi.\"",
+        "newspaperText": [
+          "L’histoire a pris un nouveau tournant, et les rapports ont décrit la scène ainsi : un journal déchiré parle d’or espagnol caché là où les falaises projettent leurs ombres à midi.",
+          "Un nouveau chapitre de cette histoire en cours est parvenu à la Gazette avec un détail saisissant : un journal déchiré parle d’or espagnol caché là où les falaises projettent leurs ombres à midi.",
+          "Le fil de cette grande histoire a mené à un nouveau rebondissement : un journal déchiré parle d’or espagnol caché là où les falaises projettent leurs ombres à midi.",
+          "Des témoins ont associé le dernier tournant de l’histoire à une scène mémorable : un journal déchiré parle d’or espagnol caché là où les falaises projettent leurs ombres à midi."
+        ],
+        "audioFile": "audio/arcs/spanish_journal.mp3",
+        "requiresWorldTags": [],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_clue_1"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Journal déchiré a été résolu."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_journal_lost"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Journal déchiré a été ignoré."
+          }
+        ]
+      },
+      {
+        "id": "spanish_marker",
+        "type": "storyTrigger",
+        "trigger": "trig_enter_cliff_junction",
+        "title": "La borne de pierre",
+        "screenText": "Piochez 1 Carte de Combat. Sur 8+, gagnez 2 Or ; sinon, gagnez 1 blessure.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[raspy][old cowboy][western][fast][low key][emotionless][quick]Une croix de pierre penche dans la poussière, plus ancienne que n’importe quelle ville de cette carte.",
+        "newspaperText": [
+          "L’histoire a pris un nouveau tournant, et les rapports ont décrit la scène ainsi : une croix de pierre penche dans la poussière, plus ancienne que n’importe quelle ville de cette carte.",
+          "Un nouveau chapitre de cette histoire en cours est parvenu à la Gazette avec un détail saisissant : une croix de pierre penche dans la poussière, plus ancienne que n’importe quelle ville de cette carte.",
+          "Le fil de cette grande histoire a mené à un nouveau rebondissement : une croix de pierre penche dans la poussière, plus ancienne que n’importe quelle ville de cette carte.",
+          "Des témoins ont associé le dernier tournant de l’histoire à une scène mémorable : une croix de pierre penche dans la poussière, plus ancienne que n’importe quelle ville de cette carte."
+        ],
+        "audioFile": "audio/arcs/spanish_marker.mp3",
+        "requiresWorldTags": [
+          "spanish_clue_1"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_clue_2"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "La borne de pierre a été résolue."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_marker_missed"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "La borne de pierre a été ignorée."
+          }
+        ]
+      },
+      {
+        "id": "spanish_cache",
+        "type": "storyTrigger",
+        "trigger": "trig_deposit_gold",
+        "title": "La cache enfouie",
+        "screenText": "Gagnez 40 $ et 2 LP. Ajoutez L’Or espagnol perdu au journal.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Sous la pierre rouge attend une cache de pièces frappées pour un roi qui n’a jamais vu ce pays.\"",
+        "newspaperText": [
+          "L’histoire a pris un nouveau tournant, et les rapports ont décrit la scène ainsi : sous la pierre rouge attend une cache de pièces frappées pour un roi qui n’a jamais vu ce pays.",
+          "Un nouveau chapitre de cette histoire en cours est parvenu à la Gazette avec un détail saisissant : sous la pierre rouge attend une cache de pièces frappées pour un roi qui n’a jamais vu ce pays.",
+          "Le fil de cette grande histoire a mené à un nouveau rebondissement : sous la pierre rouge attend une cache de pièces frappées pour un roi qui n’a jamais vu ce pays.",
+          "Des témoins ont associé le dernier tournant de l’histoire à une scène mémorable : sous la pierre rouge attend une cache de pièces frappées pour un roi qui n’a jamais vu ce pays."
+        ],
+        "audioFile": "audio/arcs/spanish_cache.mp3",
+        "requiresWorldTags": [
+          "spanish_clue_2"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_gold_found"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "La cache enfouie a été résolue."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "spanish_gold_lost"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "La cache enfouie a été ignorée."
+          }
+        ]
+      }
+    ],
+    "scope": "global"
+  },
+  {
+    "id": "story_white_buffalo",
+    "title": "Le Bison blanc",
+    "newspaperText": [
+      "L’histoire à l’échelle du territoire du Bison blanc s’est déroulée à travers une série de développements ressentis dans toute la frontière.",
+      "Plusieurs événements se sont réunis pour former la grande histoire de la frontière connue sous le nom du Bison blanc.",
+      "L’histoire continue du Bison blanc a dépassé le destin d’un seul cavalier et a commencé à façonner le territoire lui-même.",
+      "Au moment où la Gazette est partie sous presse, Le Bison blanc était devenu l’une des grandes histoires en cours de la frontière."
+    ],
+    "tags": [
+      "legendary",
+      "hunt",
+      "sacred"
+    ],
+    "requiredModules": [
+      "hunting"
+    ],
+    "chapters": [
+      {
+        "id": "buffalo_tracks",
+        "type": "storyTrigger",
+        "trigger": "trig_hunt_success",
+        "title": "Traces étranges",
+        "screenText": "Après une Chasse, gagnez 1 Indice du Bison blanc.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Des traces larges comme des assiettes traversent la prairie, et tous les oiseaux se sont tus.\"",
+        "newspaperText": [
+          "L’histoire a pris un nouveau tournant, et les rapports ont décrit la scène ainsi : des traces larges comme des assiettes traversent la prairie, et tous les oiseaux se sont tus.",
+          "Un nouveau chapitre de cette histoire en cours est parvenu à la Gazette avec un détail saisissant : des traces larges comme des assiettes traversent la prairie, et tous les oiseaux se sont tus.",
+          "Le fil de cette grande histoire a mené à un nouveau rebondissement : des traces larges comme des assiettes traversent la prairie, et tous les oiseaux se sont tus.",
+          "Des témoins ont associé le dernier tournant de l’histoire à une scène mémorable : des traces larges comme des assiettes traversent la prairie, et tous les oiseaux se sont tus."
+        ],
+        "audioFile": "audio/arcs/buffalo_tracks.mp3",
+        "requiresWorldTags": [],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "buffalo_clue_1"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Traces étranges a été résolu."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "buffalo_tracks_lost"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "Traces étranges a été ignoré."
+          }
+        ]
+      },
+      {
+        "id": "buffalo_warning",
+        "type": "storyTrigger",
+        "trigger": "trig_enter_sunny_hills",
+        "title": "L’avertissement",
+        "screenText": "Terminez votre tour à Sunny Hills pour gagner 1 LP ou piocher 2 Cartes de Poker.",
+        "assignPlayerColor": "optional",
+        "expiresAfterPrimaryTriggers": 6,
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Un vieux pisteur avertit que certains animaux ne sont pas des trophées. Ce sont des épreuves.\"",
+        "newspaperText": [
+          "L’histoire a pris un nouveau tournant, et les rapports ont décrit la scène ainsi : un vieux pisteur avertit que certains animaux ne sont pas des trophées. Ce sont des épreuves.",
+          "Un nouveau chapitre de cette histoire en cours est parvenu à la Gazette avec un détail saisissant : un vieux pisteur avertit que certains animaux ne sont pas des trophées. Ce sont des épreuves.",
+          "Le fil de cette grande histoire a mené à un nouveau rebondissement : un vieux pisteur avertit que certains animaux ne sont pas des trophées. Ce sont des épreuves.",
+          "Des témoins ont associé le dernier tournant de l’histoire à une scène mémorable : un vieux pisteur avertit que certains animaux ne sont pas des trophées. Ce sont des épreuves."
+        ],
+        "audioFile": "audio/arcs/buffalo_warning.mp3",
+        "requiresWorldTags": [
+          "buffalo_clue_1"
+        ],
+        "onResolved": [
+          {
+            "type": "addWorldTag",
+            "tag": "buffalo_warning_heard"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "L’avertissement a été résolu."
+          }
+        ],
+        "onExpired": [
+          {
+            "type": "addWorldTag",
+            "tag": "buffalo_warning_ignored"
+          },
+          {
+            "type": "newspaperNote",
+            "text": "L’avertissement a été ignoré."
+          }
+        ]
+      },
+      {
+        "id": "buffalo_appears",
+        "type": "storyTrigger",
+        "trigger": "trig_hunt_success",
+        "title": "Le Bison blanc apparaît",
+        "screenText": "Chasse spéciale : piochez 1 Carte de Combat. Défaussez des Cartes de Poker dont la valeur totale est égale ou supérieure. En cas de réussite, choisissez Protéger ou Chasser.",
+        "requiresWorldTags": [
+          "buffalo_warning_heard"
+        ],
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Le bison blanc sort de la brume du matin, lumineux comme un fantôme et plus lourd que la légende.\"",
+        "newspaperText": [
+          "L’histoire a pris un nouveau tournant, et les rapports ont décrit la scène ainsi : le bison blanc sort de la brume du matin, lumineux comme un fantôme et plus lourd que la légende.",
+          "Un nouveau chapitre de cette histoire en cours est parvenu à la Gazette avec un détail saisissant : le bison blanc sort de la brume du matin, lumineux comme un fantôme et plus lourd que la légende.",
+          "Le fil de cette grande histoire a mené à un nouveau rebondissement : le bison blanc sort de la brume du matin, lumineux comme un fantôme et plus lourd que la légende.",
+          "Des témoins ont associé le dernier tournant de l’histoire à une scène mémorable : le bison blanc sort de la brume du matin, lumineux comme un fantôme et plus lourd que la légende."
+        ],
+        "audioFile": "audio/storylines/buffalo_appears.mp3",
+        "resultButtons": [
+          {
+            "label": "Le protéger",
+            "effects": [
+              {
+                "type": "gain_lp",
+                "amount": 3
+              },
+              {
+                "type": "addWorldTag",
+                "tag": "white_buffalo_protected"
+              }
+            ]
+          },
+          {
+            "label": "Le chasser",
+            "effects": [
+              {
+                "type": "gain_money",
+                "amount": 80
+              },
+              {
+                "type": "gain_lp",
+                "amount": 1
+              },
+              {
+                "type": "addWorldTag",
+                "tag": "white_buffalo_hunted"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "scope": "global"
+  }
+]
