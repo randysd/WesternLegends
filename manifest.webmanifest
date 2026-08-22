@@ -1,6 +1,6 @@
 {
-  "name": "Western Legends Frontier Director",
-  "short_name": "Frontier Director",
+  "name": "Western Legends Companion",
+  "short_name": "WL Companion",
   "description": "A lightweight Western Legends companion app with setup assist, event triggers, story narration, references, and end-game newspaper summaries.",
   "start_url": "./index.html",
   "scope": "./",
