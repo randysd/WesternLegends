@@ -6382,6 +6382,60 @@ body.home-screen .home-launcher {
 .fight-flow-mini-fan-fight .fight-flow-mini-fan-card:nth-child(3) { translate: 0 0; }
 .fight-flow-mini-fan-fight .fight-flow-mini-fan-card:nth-child(4) { translate: 0 2px; }
 .fight-flow-mini-fan-poker .fight-flow-mini-fan-card { margin-left: 0; }
+.fight-flow-mini-fan-button {
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  max-width: 112px;
+  padding: 0 3px 5px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: inherit;
+  box-shadow: none;
+  overflow: visible;
+  cursor: pointer;
+}
+.fight-flow-mini-fan-button .fight-flow-mini-fan { pointer-events: none; }
+.fight-flow-mini-fan-action-label {
+  position: absolute;
+  left: 50%;
+  bottom: 2px;
+  z-index: 12;
+  width: max-content;
+  max-width: 94px;
+  transform: translateX(-50%);
+  padding: 3px 7px;
+  border: 1px solid rgba(104,67,36,.52);
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255,248,232,.97), rgba(231,200,142,.95));
+  color: var(--brown);
+  box-shadow: 0 2px 5px rgba(49,29,14,.22), inset 0 1px 0 rgba(255,255,255,.58);
+  font-family: var(--wl-fell-font);
+  font-size: .52rem;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: .035em;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: normal;
+  pointer-events: none;
+}
+.fight-flow-mini-fan-button:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+}
+.fight-flow-mini-fan-button:active .fight-flow-mini-fan { transform: translateY(1px); }
+.fight-flow-mini-fan-button:active .fight-flow-mini-fan-action-label { transform: translate(-50%, 1px); }
+@media (hover: hover) {
+  .fight-flow-mini-fan-button:hover .fight-flow-mini-fan-action-label {
+    border-color: rgba(164,74,50,.62);
+    background: linear-gradient(180deg, #fff8e8, #e7c88e);
+  }
+}
 .fight-flow-versus { color: var(--red); font-family: 'Rye',Georgia,serif; font-size: .66rem; letter-spacing: .08em; }
 
 .fight-flow-stage-compare-emphasis .fight-flow-stage-summary { background: rgba(173,122,40,.06); border-radius: 13px; }
