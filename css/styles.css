@@ -2070,6 +2070,14 @@ ol.ref-card li div{
 html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
 .app-shell { width: 100%; max-width: 480px; }
 .page, .panel, .ref-card { width: 100%; max-width: 100%; }
+/* Keep modal-screen overlays comfortably sized on wide desktop displays.
+   This selector is intentionally more specific than the generic .panel rule
+   above so Setup, Quick Reference, Settings, etc. stay phone-friendly without
+   stretching across an entire laptop/desktop browser window. */
+.panel.modal-screen-card {
+  width: min(420px, calc(100vw - 28px));
+  max-width: 420px;
+}
 button:disabled { opacity: .48; cursor: not-allowed; }
 .target-lp-value {
   display: grid;
