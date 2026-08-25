@@ -1,0 +1,769 @@
+{
+  "characters": [
+    {
+      "id": "annie_oakley",
+      "name": "Annie Oakley",
+      "starting": {
+        "location": "Qualsiasi spazio dell’emporio di Darkrock"
+      },
+      "ability": "All’inizio di un combattimento con un altro giocatore, quel giocatore deve scartare 1 carta Poker oppure subire 1 Ferita.",
+      "playstyle": {
+        "tags": [
+          "Combattimento",
+          "Duelli",
+          "Pressione sulla mano"
+        ],
+        "strength": "Mette subito pressione su un altro giocatore ancora prima che inizi il combattimento.",
+        "focus": "Cerca combattimenti quando gli avversari hanno poche carte Poker o non possono permettersi un’altra Ferita."
+      }
+    },
+    {
+      "id": "bass_reeves",
+      "name": "Bass Reeves",
+      "starting": {
+        "location": "Ufficio dello Sheriff di Darkrock"
+      },
+      "ability": "All’inizio del tuo turno, pesca 1 carta Poker.",
+      "playstyle": {
+        "tags": [
+          "Vantaggio di carte",
+          "Poker",
+          "Versatile"
+        ],
+        "strength": "Genera con regolarità una carta Poker aggiuntiva all’inizio di ogni turno.",
+        "focus": "Sfrutta la mano più ampia per restare pronto a combattimenti, Poker e azioni basate sulle carte."
+      }
+    },
+    {
+      "id": "billy_the_kid",
+      "name": "Billy the Kid",
+      "starting": {
+        "location": "Uno dei nascondigli dei Banditi A"
+      },
+      "ability": "Dopo aver terminato un’azione Movimento in uno spazio con uno o più giocatori, un giocatore a tua scelta in quello spazio deve darti $10 oppure 1 carta Poker.",
+      "playstyle": {
+        "tags": [
+          "Interazione tra giocatori",
+          "Movimento",
+          "Economia"
+        ],
+        "strength": "Ottiene denaro o carte semplicemente terminando il movimento insieme ad altri giocatori.",
+        "focus": "Cerca spazi occupati e fai pressione sui giocatori ricchi o con poche carte Poker."
+      }
+    },
+    {
+      "id": "bloody_knife",
+      "name": "Bloody Knife",
+      "starting": {
+        "location": "Miniera di Spike's View"
+      },
+      "ability": "Puoi attraversare una Mesa come se fosse un singolo spazio. Non puoi terminare un’azione Movimento in una Mesa. Dopo aver attraversato una Mesa, perdi 1 Ferita.",
+      "playstyle": {
+        "tags": [
+          "Movimento",
+          "Frontiera",
+          "Scorciatoie"
+        ],
+        "strength": "Può attraversare le Mesa come singoli spazi e usare percorsi non disponibili agli altri personaggi.",
+        "focus": "Usa le scorciatoie attraverso le Mesa per risparmiare movimento, gestendo però il costo in Ferite."
+      }
+    },
+    {
+      "id": "calamity_jane",
+      "name": "Calamity Jane",
+      "starting": {
+        "location": "Qualsiasi spazio dell’emporio di Red Falls"
+      },
+      "ability": "Il tuo limite di mano aumenta di 1. Dopo aver contribuito a una carta Storia, pesca 1 carta Poker.",
+      "playstyle": {
+        "tags": [
+          "Vantaggio di carte",
+          "Storia",
+          "Mano ampia"
+        ],
+        "strength": "Può tenere una carta aggiuntiva e guadagna altre carte contribuendo alle carte Storia.",
+        "focus": "Cerca occasioni per contribuire alle Storie e usa la mano più ampia per restare flessibile."
+      }
+    },
+    {
+      "id": "doc_holliday",
+      "name": "Doc Holliday",
+      "starting": {
+        "location": "Studio del Dottore di Red Falls"
+      },
+      "ability": "Dopo aver subito un qualsiasi numero di Ferite, pesca 1 carta Poker. Le Ferite non riducono il tuo limite di mano.",
+      "playstyle": {
+        "tags": [
+          "Ferite",
+          "Vantaggio di carte",
+          "Resilienza"
+        ],
+        "strength": "Trasforma le Ferite subite in carte Poker e ignora la normale riduzione del limite di mano causata dalle Ferite.",
+        "focus": "Non temere di subire un po’ di danno quando le carte extra possono rendere più forte il turno."
+      }
+    },
+    {
+      "id": "jesse_james",
+      "name": "Jesse James",
+      "starting": {
+        "location": "Uno dei nascondigli dei Banditi B"
+      },
+      "ability": "In un combattimento fuori da una città, riduci di 1 il valore di una carta giocata contro di te. In un combattimento contro un altro giocatore, vinci tutti i pareggi.",
+      "playstyle": {
+        "tags": [
+          "Combattimento",
+          "Frontiera",
+          "Duelli"
+        ],
+        "strength": "È particolarmente difficile da battere fuori dalle città e vince i pareggi contro gli altri giocatori.",
+        "focus": "Scegli con cura dove combattere e favorisci gli scontri nella frontiera."
+      }
+    },
+    {
+      "id": "kit_carson",
+      "name": "Kit Carson",
+      "starting": {
+        "location": "Miniera di Sunny Hill's"
+      },
+      "ability": "Alla fine di un’azione Movimento, puoi muoverti di 1 spazio aggiuntivo. In un combattimento fuori da una città, riduci di 1 il valore di una carta giocata contro di te.",
+      "playstyle": {
+        "tags": [
+          "Movimento",
+          "Frontiera",
+          "Combattimento"
+        ],
+        "strength": "Combina movimento extra con una difesa migliore nei combattimenti fuori dalle città.",
+        "focus": "Rimani mobile nella frontiera e usa lo spazio bonus per raggiungere posizioni redditizie o tattiche."
+      }
+    },
+    {
+      "id": "stagecoach_mary_fields",
+      "name": "Stagecoach Mary Fields",
+      "starting": {
+        "location": "Qualsiasi spazio Saloon di Darkrock"
+      },
+      "ability": "All’inizio del tuo turno, guadagna $10. Dopo aver contribuito a una carta Storia, guadagna $10.",
+      "playstyle": {
+        "tags": [
+          "Economia",
+          "Storia",
+          "Entrate"
+        ],
+        "strength": "Produce denaro in modo affidabile ogni turno e ne guadagna ancora di più contribuendo alle carte Storia.",
+        "focus": "Mantieni costante il flusso di denaro e cerca contributi alle Storie che ti paghino una seconda volta."
+      }
+    },
+    {
+      "id": "wild_bill_hickok",
+      "name": "Wild Bill Hickok",
+      "starting": {
+        "location": "Cabaret di Red Falls"
+      },
+      "ability": "Dopo aver vinto una partita di Poker, guadagna $20. Dopo aver perso una partita di Poker, puoi tenere 1 carta Poker casuale che hai giocato.",
+      "playstyle": {
+        "tags": [
+          "Poker",
+          "Economia",
+          "Recupero carte"
+        ],
+        "strength": "Rende il Poker più redditizio e attenua il costo di una sconfitta.",
+        "focus": "Gioca spesso a Poker, soprattutto quando la tua mano ha buone probabilità di trasformare la partita in denaro."
+      }
+    },
+    {
+      "id": "wyatt_earp",
+      "name": "Wyatt Earp",
+      "starting": {
+        "location": "Qualsiasi Nascondiglio dei Banditi disponibile"
+      },
+      "ability": "La prima volta che vinci un combattimento contro un Bandito in ogni turno, ottieni 1 azione aggiuntiva.",
+      "playstyle": {
+        "tags": [
+          "Banditi",
+          "Azioni",
+          "Combattimento"
+        ],
+        "strength": "Trasforma la prima vittoria contro un Bandito di ogni turno in un’azione aggiuntiva.",
+        "focus": "Trova un Bandito presto nel turno, così l’azione bonus può estendere tutto ciò che fai dopo."
+      }
+    },
+    {
+      "id": "y_b_rowdy",
+      "name": "Y. B. Rowdy",
+      "starting": {
+        "location": "Miniera di Cliff Junction"
+      },
+      "ability": "Se inizi il tuo turno fuori da una città, puoi scartare 1 carta Poker per muoverti fino a 3 spazi.",
+      "playstyle": {
+        "tags": [
+          "Movimento",
+          "Carte Poker",
+          "Frontiera"
+        ],
+        "strength": "Può scambiare una carta Poker con un improvviso aumento di movimento quando inizia fuori da una città.",
+        "focus": "Tieni carte di scorta e sfrutta le partenze nella frontiera per riposizionarti rapidamente."
+      }
+    },
+    {
+      "id": "judge_roy_bean",
+      "name": "Judge Roy Bean",
+      "starting": {
+        "location": "Qualsiasi spazio Saloon di Red Falls"
+      },
+      "ability": "In un combattimento contro un Bandito, una Guardia o lo Sheriff, questi deve scegliere e rivelare per primo la propria carta. In un combattimento contro un Bandito, una Guardia o lo Sheriff, vinci tutti i pareggi.",
+      "playstyle": {
+        "tags": [
+          "Combattimento contro PNG",
+          "Banditi",
+          "Vantaggio in combattimento"
+        ],
+        "strength": "Ottiene informazioni extra e vince i pareggi contro Banditi, Guardie e Sheriff.",
+        "focus": "Cerca combattimenti contro PNG in cui vedere prima la loro carta ti permette di spendere solo la forza necessaria."
+      }
+    },
+    {
+      "id": "butch_cassity",
+      "name": "Butch Cassity",
+      "starting": {
+        "location": "Uno dei nascondigli dei Banditi C"
+      },
+      "ability": "Dopo aver rapinato un altro giocatore, puoi rubare 1 oggetto vario che non possiedi già invece della metà del suo denaro o delle sue Pepite d’Oro. Dopo aver arrestato un altro giocatore, puoi rubare metà del denaro o delle Pepite d’Oro di quel giocatore.",
+      "playstyle": {
+        "tags": [
+          "Interazione tra giocatori",
+          "Furto",
+          "Allineamento flessibile"
+        ],
+        "strength": "Può sottrarre risorse preziose agli avversari sia agendo da rapinatore sia come uomo di legge che effettua un arresto.",
+        "focus": "Prendi di mira i giocatori con oggetti, denaro o Pepite d’Oro che rendono più redditizio il tuo allineamento attuale."
+      }
+    },
+    {
+      "id": "joaquin_murrieta",
+      "name": "Joaquin Murrieta",
+      "starting": {
+        "location": "Qualsiasi spazio dell’emporio di Darkrock"
+      },
+      "ability": "Se sei un giocatore Wanted, guadagna 1 LP dopo aver combattuto contro un giocatore Marshal. Se sei un giocatore Marshal, guadagna 1 LP dopo aver combattuto contro un giocatore Wanted.",
+      "playstyle": {
+        "tags": [
+          "Marshal / Wanted",
+          "Combattimento",
+          "LP"
+        ],
+        "strength": "Guadagna LP combattendo contro giocatori sul lato opposto della legge.",
+        "focus": "Impegnati su un tracciato e cerca scontri con giocatori sul tracciato opposto."
+      }
+    },
+    {
+      "id": "belle_starr",
+      "name": "Belle Starr",
+      "starting": {
+        "location": "Qualsiasi spazio dell’emporio di Red Falls"
+      },
+      "ability": "In un combattimento contro un Bandito, una Guardia o lo Sheriff, riduci di 2 il valore della carta Combattimento giocata contro di te. Dopo aver vinto un combattimento contro un Bandito, puoi scegliere di guadagnare invece 1 Punto Wanted.",
+      "playstyle": {
+        "tags": [
+          "Combattimento contro PNG",
+          "Banditi",
+          "Wanted"
+        ],
+        "strength": "È molto forte contro gli avversari PNG e può trasformare le vittorie sui Banditi in progresso Wanted.",
+        "focus": "Caccia Banditi e altri PNG, poi valuta quando una vittoria su un Bandito vale un ulteriore avanzamento sul tracciato Wanted."
+      }
+    },
+    {
+      "id": "isom_dart",
+      "name": "Isom Dart",
+      "starting": {
+        "location": "Ranch di Sunny Hills"
+      },
+      "ability": "Se inizi il tuo turno con almeno 1 segnalino Bestiame, puoi ottenere 1 azione aggiuntiva. Se lo fai, devi scartare tutti i segnalini Bestiame alla fine del tuo turno.",
+      "playstyle": {
+        "tags": [
+          "Bestiame",
+          "Azioni",
+          "Allevamento"
+        ],
+        "strength": "Può convertire un segnalino Bestiame trasportato in un’azione aggiuntiva per il turno.",
+        "focus": "Organizza i turni importanti in modo da iniziare con Bestiame quando l’azione extra vale la perdita dei segnalini."
+      }
+    },
+    {
+      "id": "allan_pinkerton",
+      "name": "Allan Pinkerton",
+      "starting": {
+        "location": "Banca di Darkrock"
+      },
+      "ability": "Azione: scegli un giocatore entro 1 spazio affinché ti mostri le sue carte Poker. Quel giocatore deve scartare tutte le carte di un valore a tua scelta.",
+      "playstyle": {
+        "tags": [
+          "Controllo della mano",
+          "Interazione tra giocatori",
+          "Carte Poker"
+        ],
+        "strength": "Può ispezionare la mano di un giocatore vicino e rimuovere tutte le carte di un valore scelto.",
+        "focus": "Avvicinati agli avversari importanti e disturba la loro mano prima di un combattimento o di un’altra azione contesa."
+      }
+    },
+    {
+      "id": "buffalo_bill_cody",
+      "name": "Buffalo Bill Cody",
+      "starting": {
+        "location": "Ranch di Mesito's Point"
+      },
+      "ability": "Se inizi il tuo turno fuori da una città, guadagna 1 Pepita d’Oro.",
+      "playstyle": {
+        "tags": [
+          "Oro",
+          "Frontiera",
+          "Economia"
+        ],
+        "strength": "Genera gratuitamente una Pepita d’Oro ogni volta che inizia un turno fuori da una città.",
+        "focus": "Pianifica percorsi che terminino nella frontiera e sfrutta l’oro accumulato quando è più conveniente."
+      }
+    },
+    {
+      "id": "bat_masterson",
+      "name": "Bat Masterson",
+      "starting": {
+        "location": "Dixon Creek"
+      },
+      "ability": "All’inizio del tuo turno, puoi aggiungere o rimuovere 1 Bandito da un qualsiasi Nascondiglio dei Banditi per muoverti fino a 2 spazi. (Un Bandito può essere aggiunto solo a un Nascondiglio dei Banditi non occupato.)",
+      "playstyle": {
+        "tags": [
+          "Banditi",
+          "Movimento",
+          "Controllo del tabellone"
+        ],
+        "strength": "Manipola i Nascondigli dei Banditi ottenendo allo stesso tempo movimento gratuito.",
+        "focus": "Usa il piazzamento e la rimozione dei Banditi per migliorare la situazione sul tabellone mentre ti riposizioni."
+      }
+    },
+    {
+      "id": "pearl_hart",
+      "name": "Pearl Hart",
+      "starting": {
+        "location": "Dixon Creek"
+      },
+      "ability": "Dopo aver guadagnato un qualsiasi numero di Punti Marshal o Wanted nel tuo turno, pesca 1 carta Poker e muoviti fino a 2 spazi.",
+      "playstyle": {
+        "tags": [
+          "Marshal / Wanted",
+          "Vantaggio di carte",
+          "Movimento"
+        ],
+        "strength": "Qualsiasi progresso Marshal o Wanted può produrre immediatamente sia una carta sia movimento extra.",
+        "focus": "Innesca spesso guadagni sui tracciati e usa il movimento bonus per concatenarti al prossimo obiettivo."
+      }
+    },
+    {
+      "id": "ada_curnutt",
+      "name": "Ada Curnutt",
+      "starting": {
+        "location": "Qualsiasi spazio Saloon di Buzzard Gulch"
+      },
+      "ability": "All’inizio del tuo turno, muoviti di un numero di spazi fino al tuo livello sul tracciato Marshal o Wanted. (Il livello è determinato dalla riga in cui si trova il tuo cubo.)",
+      "playstyle": {
+        "tags": [
+          "Movimento",
+          "Marshal / Wanted",
+          "Posizionamento sul tracciato"
+        ],
+        "strength": "Il suo potenziale di movimento cresce con il livello sul tracciato Marshal o Wanted.",
+        "focus": "Costruisci presto una buona posizione sul tracciato, così nei turni successivi otterrai più movimento gratuito."
+      }
+    },
+    {
+      "id": "dave_rudabaugh",
+      "name": "Dave Rudabaugh",
+      "starting": {
+        "location": "Piazzalo per ultimo in uno spazio con un altro giocatore"
+      },
+      "ability": "Alla fine di un’azione Movimento, puoi muoverti di 1 spazio aggiuntivo. La prima volta che termini un’azione Movimento nello stesso spazio di un altro giocatore in questo turno, pesca 1 carta Poker.",
+      "playstyle": {
+        "tags": [
+          "Movimento",
+          "Interazione tra giocatori",
+          "Vantaggio di carte"
+        ],
+        "strength": "Si muove più del normale e pesca una carta una volta per turno terminando il movimento con un altro giocatore.",
+        "focus": "Pianifica percorsi verso destinazioni utili che ti permettano anche di finire accanto a un altro giocatore."
+      }
+    },
+    {
+      "id": "johnny_ringo",
+      "name": "Johnny Ringo",
+      "starting": {
+        "location": "Ranch di Buzzard Gulch"
+      },
+      "ability": "Alla fine di un combattimento, perdi 1 Ferita. Alla fine di un combattimento contro un altro giocatore, quel giocatore subisce 1 Ferita.",
+      "playstyle": {
+        "tags": [
+          "Combattimento",
+          "Ferite",
+          "Aggressività"
+        ],
+        "strength": "Recupera 1 Ferita dopo ogni combattimento e infligge poi 1 Ferita agli avversari giocatori.",
+        "focus": "Combatti spesso, soprattutto contro giocatori, per trasformare gli scontri ripetuti in logoramento duraturo."
+      }
+    },
+    {
+      "id": "tiburcio_vasquez",
+      "name": "Tiburcio Vasquez",
+      "starting": {
+        "location": "Mountain Pass C"
+      },
+      "ability": "Azione: sposta il tuo cubo sullo spazio numerato corrispondente del tracciato Marshal o Wanted senza ottenere le ricompense.",
+      "playstyle": {
+        "tags": [
+          "Marshal / Wanted",
+          "Controllo tracciato",
+          "Flessibilità"
+        ],
+        "strength": "Può riposizionarsi direttamente sul tracciato Marshal o Wanted senza dover guadagnare ogni spazio intermedio.",
+        "focus": "Usa l’azione per preparare la posizione sul tracciato che supporta meglio il tuo prossimo piano tattico o di punteggio."
+      }
+    },
+    {
+      "id": "fee_lee_wong",
+      "name": "Fee Lee Wong",
+      "starting": {
+        "location": "Spazio di frontiera di valore 8"
+      },
+      "ability": "Il tuo limite di mano aumenta di 1. Puoi trasportare al massimo $180.",
+      "playstyle": {
+        "tags": [
+          "Mano ampia",
+          "Economia",
+          "Capacità"
+        ],
+        "strength": "Può tenere più carte Poker e molto più denaro di un personaggio normale.",
+        "focus": "Sfrutta i limiti maggiori accumulando risorse per acquisti costosi e mani potenti."
+      }
+    },
+    {
+      "id": "maria_gertrudis_barcelo",
+      "name": "Maria Gertrudis Barceló",
+      "starting": {
+        "location": "Qualsiasi spazio del Trading Post di Buzzard Gulch"
+      },
+      "ability": "Se inizi il tuo turno in una città, guadagna $10 oppure pesca 1 carta Poker.",
+      "playstyle": {
+        "tags": [
+          "Città",
+          "Economia",
+          "Vantaggio di carte"
+        ],
+        "strength": "Iniziare il turno in città offre una scelta flessibile tra denaro e una carta Poker.",
+        "focus": "Termina i turni in città quando è pratico e prendi la risorsa che serve di più al turno successivo."
+      }
+    },
+    {
+      "id": "pat_garrett",
+      "name": "Pat Garrett",
+      "starting": {
+        "location": "Ufficio del Marshal di Buzzard Gulch"
+      },
+      "ability": "Azione: una volta per turno, puoi muovere lo Sheriff fino a 6 spazi. Guadagna 1 LP se questo provoca un arresto.",
+      "playstyle": {
+        "tags": [
+          "Sheriff",
+          "Marshal",
+          "LP"
+        ],
+        "strength": "Può riposizionare drasticamente lo Sheriff e guadagna LP quando quel movimento causa un arresto.",
+        "focus": "Controlla la posizione dei giocatori Wanted e prepara movimenti dello Sheriff che si trasformino direttamente in arresti."
+      }
+    },
+    {
+      "id": "poker_alice",
+      "name": "Poker Alice",
+      "starting": {
+        "location": "Stazione ferroviaria di Buzzard Gulch"
+      },
+      "ability": "Azione: una volta per turno, pesca 1 carta Poker e avvia una partita di Poker. Qualsiasi giocatore può partecipare indipendentemente dalla propria posizione.",
+      "playstyle": {
+        "tags": [
+          "Poker",
+          "Vantaggio di carte",
+          "Interazione tra giocatori"
+        ],
+        "strength": "Può iniziare una partita di Poker da qualsiasi luogo pescando anche una carta extra per partecipare.",
+        "focus": "Avvia il Poker quando la tua mano è favorevole invece di aspettare di trovarti nella posizione giusta."
+      }
+    },
+    {
+      "id": "seth_bullock",
+      "name": "Seth Bullock",
+      "starting": {
+        "location": "Qualsiasi spazio del Trading Post di Buzzard Gulch"
+      },
+      "ability": "La prima volta che vinci un combattimento contro un Bandito in ogni turno, pesca 2 carte Poker.",
+      "playstyle": {
+        "tags": [
+          "Banditi",
+          "Vantaggio di carte",
+          "Combattimento"
+        ],
+        "strength": "La prima vittoria contro un Bandito di ogni turno produce due carte Poker aggiuntive.",
+        "focus": "Prova a sconfiggere un Bandito nei turni produttivi per mantenere la mano ben fornita."
+      }
+    },
+    {
+      "id": "soapy_smith",
+      "name": "“Soapy” Smith",
+      "starting": {
+        "location": "Qualsiasi spazio del Trading Post di Buzzard Gulch"
+      },
+      "ability": "Dopo aver guadagnato un Punto Giocatore d’Azzardo, tira 1 dado Prospezione e ottieni il risultato. Se ottieni Ghiaia, riempi la tua mano.",
+      "playstyle": {
+        "tags": [
+          "Gioco d’azzardo",
+          "Prospezione",
+          "Risorse bonus"
+        ],
+        "strength": "I Punti Giocatore d’Azzardo producono anche una ricompensa dal dado Prospezione e possono a volte riempire la tua mano.",
+        "focus": "Cerca il progresso nel gioco d’azzardo affinché ogni Punto Giocatore d’Azzardo possa generare risorse aggiuntive."
+      }
+    },
+    {
+      "id": "sundance_kid",
+      "name": "Sundance Kid",
+      "starting": {
+        "location": "Mountain Pass A"
+      },
+      "ability": "Azione: una volta per turno, puoi muoverti nello spazio in cui si trova attualmente il Treno. (Questo è considerato un’azione Movimento.)",
+      "playstyle": {
+        "tags": [
+          "Treno",
+          "Movimento",
+          "Mobilità"
+        ],
+        "strength": "Può muoversi direttamente fino al Treno una volta per turno indipendentemente dalla normale distanza.",
+        "focus": "Usa il Treno come destinazione mobile per riposizionarti rapidamente, affrontare incontri o preparare rapine."
+      }
+    },
+    {
+      "id": "william_curly_bill_brocius",
+      "name": "William “Curly Bill” Brocius",
+      "starting": {
+        "location": "Campo dei Fuorilegge di Buzzard Gulch"
+      },
+      "ability": "Se inizi il tuo turno fuori da una città, pesca 2 carte Poker, poi scarta 1 carta Poker dalla tua mano.",
+      "playstyle": {
+        "tags": [
+          "Frontiera",
+          "Selezione delle carte",
+          "Carte Poker"
+        ],
+        "strength": "Iniziare fuori città gli permette di vedere due nuove carte Poker e conservare quella più adatta.",
+        "focus": "Termina i turni fuori dalle città e usa il pescare/scartare extra per migliorare continuamente la mano."
+      }
+    },
+    {
+      "id": "al_swearengen",
+      "name": "Al Swearengen",
+      "starting": {
+        "location": "Uno spazio Saloon corrispondente all’Atto di proprietà scelto"
+      },
+      "ability": "Gli Atti di proprietà ti costano $10 in meno da acquistare. Una volta per turno, puoi scartare 1 carta Poker per usare l’abilità Azione di 1 dei tuoi Atti di proprietà.",
+      "playstyle": {
+        "tags": [
+          "Atti di proprietà",
+          "Economia",
+          "Efficienza delle azioni"
+        ],
+        "strength": "Ottiene un valore insolitamente alto dagli Atti di proprietà e dalle azioni che forniscono.",
+        "focus": "Ottieni presto Atti di proprietà utili e costruisci i turni intorno al loro uso ripetuto."
+      }
+    },
+    {
+      "id": "ben_hodges",
+      "name": "Ben Hodges",
+      "starting": {
+        "location": "Qualsiasi spazio di frontiera non occupato di valore 6"
+      },
+      "ability": "La prima volta che usi un’azione su un oggetto o una carta Poker in ogni turno, guadagna $20.",
+      "playstyle": {
+        "tags": [
+          "Oggetti",
+          "Carte Poker",
+          "Economia"
+        ],
+        "strength": "La prima azione di oggetto o carta Poker usata ogni turno paga anche $20.",
+        "focus": "Pianifica di usare almeno un’azione valida di carta o oggetto ogni turno, così il reddito bonus non va mai sprecato."
+      }
+    },
+    {
+      "id": "buckshot_roberts",
+      "name": "Buckshot Roberts",
+      "starting": {
+        "location": "Stazione ferroviaria di Spike's View"
+      },
+      "ability": "Se inizi il tuo turno con una Ferita grave, pesca 1 carta Poker e ottieni 1 azione.",
+      "playstyle": {
+        "tags": [
+          "Ferite gravi",
+          "Vantaggio di carte",
+          "Azioni"
+        ],
+        "strength": "Iniziare il turno ferito fornisce sia una carta Poker sia un’azione aggiuntiva.",
+        "focus": "Valuta il beneficio di restare ferito rispetto al rischio e sfrutta il ritmo extra nei turni importanti."
+      }
+    },
+    {
+      "id": "charley_parkhurst",
+      "name": "Charley Parkhurst",
+      "starting": {
+        "location": "Spazio dell’emporio di Red Falls"
+      },
+      "ability": "Una volta nel tuo turno, puoi rilanciare 1 dado qualsiasi. Dopo aver ottenuto il risultato del dado Rischio, guadagna 1 Punto Storia.",
+      "playstyle": {
+        "tags": [
+          "Dado Rischio",
+          "Rilanci",
+          "Storia"
+        ],
+        "strength": "Può correggere un tiro di dado per turno e trasforma i risultati del dado Rischio in Punti Storia.",
+        "focus": "Sfrutta le opportunità del dado Rischio e conserva il rilancio per i risultati che contano di più."
+      }
+    },
+    {
+      "id": "elfego_baca",
+      "name": "Elfego Baca",
+      "starting": {
+        "location": "Qualsiasi spazio di frontiera non occupato di valore 7"
+      },
+      "ability": "Finché possiedi un’arma migliorata, riduci di 1 il valore di una carta giocata contro di te in combattimento. La prima volta che dovresti subire un qualsiasi numero di Ferite nel tuo turno, annulla 1 di quelle Ferite.",
+      "playstyle": {
+        "tags": [
+          "Armi migliorate",
+          "Combattimento",
+          "Difesa"
+        ],
+        "strength": "Un’arma migliorata potenzia la sua difesa in combattimento e può annullare la prima Ferita subita nel turno.",
+        "focus": "Migliora presto un’arma e usa la protezione aggiuntiva per affrontare i combattimenti con maggiore sicurezza."
+      }
+    },
+    {
+      "id": "james_bloody_arm_beckwourth",
+      "name": "James “Bloody Arm” Beckwourth",
+      "starting": {
+        "location": "Qualsiasi spazio di frontiera non occupato di valore 7"
+      },
+      "ability": "Dopo aver tirato il dado Rischio, pesca 1 carta Poker. La prima volta che vinci un combattimento nel tuo turno, guadagna 1 Punto Storia.",
+      "playstyle": {
+        "tags": [
+          "Dado Rischio",
+          "Combattimento",
+          "Storia"
+        ],
+        "strength": "I tiri del dado Rischio generano carte, mentre la prima vittoria in combattimento del turno genera un Punto Storia.",
+        "focus": "Cerca turni che combinino un tiro del dado Rischio con un combattimento vincibile per attivare entrambi i vantaggi."
+      }
+    },
+    {
+      "id": "lottie_deno",
+      "name": "Lottie Deno",
+      "starting": {
+        "location": "Qualsiasi spazio Saloon non occupato"
+      },
+      "ability": "Dopo aver usato un effetto bonus su una carta Poker, guadagna 1 Punto Storia.",
+      "playstyle": {
+        "tags": [
+          "Carte Poker",
+          "Storia",
+          "Effetti bonus"
+        ],
+        "strength": "Trasforma gli effetti bonus delle carte Poker in Punti Storia aggiuntivi.",
+        "focus": "Favorisci le occasioni di usare gli effetti bonus delle carte Poker invece di trattare le carte solo come valori di combattimento."
+      }
+    },
+    {
+      "id": "lozen",
+      "name": "Lozen",
+      "starting": {
+        "location": "Qualsiasi spazio di frontiera non occupato di valore 7"
+      },
+      "ability": "All’inizio del tuo turno, puoi guardare la prima carta del mazzo Combattimento, del mazzo Poker o del mazzo Incontri del Treno. Puoi scegliere di mettere quella carta in fondo al mazzo.",
+      "playstyle": {
+        "tags": [
+          "Controllo del mazzo",
+          "Informazioni",
+          "Flessibilità"
+        ],
+        "strength": "Può vedere e rifiutare la prima carta di diversi mazzi importanti prima di impegnarsi in ciò che verrà dopo.",
+        "focus": "Usa queste informazioni prima di combattimenti, pescate Poker o incontri del Treno per evitare esiti deboli e prepararne di migliori."
+      }
+    },
+    {
+      "id": "texas_john_slaughter",
+      "name": "Texas John Slaughter",
+      "starting": {
+        "location": "Qualsiasi spazio di frontiera non occupato di valore 6"
+      },
+      "ability": "Azione: scegli 2: pesca 1 carta Poker, guadagna $10, perdi 1 Ferita, muoviti di 1 spazio oppure genera 1 Bandito in un qualsiasi Nascondiglio dei Banditi.",
+      "playstyle": {
+        "tags": [
+          "Flessibilità",
+          "Azioni",
+          "Banditi"
+        ],
+        "strength": "La sua azione può combinare due tra diversi effetti utili, adattandosi alla situazione immediata.",
+        "focus": "Scegli i due effetti che risolvono le necessità maggiori del turno invece di ripetere sempre la stessa combinazione."
+      }
+    },
+    {
+      "id": "tom_tobin",
+      "name": "Tom Tobin",
+      "starting": {
+        "location": "Qualsiasi spazio nella stessa regione del Mercante Itinerante"
+      },
+      "ability": "Gli Oggetti leggendari ti costano $10 in meno da acquistare. Se termini il tuo turno nella stessa regione del Mercante Itinerante, puoi acquistare un Oggetto leggendario.",
+      "playstyle": {
+        "tags": [
+          "Oggetti leggendari",
+          "Economia",
+          "Mercante Itinerante"
+        ],
+        "strength": "Compra Oggetti leggendari a prezzo ridotto e può commerciare col Mercante Itinerante terminando il turno nelle vicinanze.",
+        "focus": "Segui il Mercante Itinerante e trasforma lo sconto in una collezione precoce di potenti Oggetti leggendari."
+      }
+    },
+    {
+      "id": "aaron_ross",
+      "name": "Aaron Ross",
+      "starting": {
+        "location": "Qualsiasi punto di controllo del treno non occupato"
+      },
+      "ability": "All’inizio del tuo turno, scegli 1: se hai almeno $60, pesca 1 carta Poker; se hai almeno $120, guadagna 1 LP.",
+      "playstyle": {
+        "tags": [
+          "Ricchezza",
+          "Economia",
+          "LP"
+        ],
+        "strength": "Grandi riserve di denaro si trasformano in vantaggio di carte ricorrente o persino in LP all’inizio del turno.",
+        "focus": "Accumula e proteggi il tuo denaro, con $120 come soglia chiave per generare LP passivamente."
+      }
+    },
+    {
+      "id": "dark_knight",
+      "name": "Dark Knight",
+      "starting": {
+        "location": "Miniera di Spike's View (grotta)"
+      },
+      "ability": "Quando entri in uno spazio con un Bandito o un giocatore Wanted, puoi farlo fuggire in uno spazio adiacente oppure fargli scartare casualmente 1 delle sue carte Combattimento/Poker.",
+      "playstyle": {
+        "tags": [
+          "Controllo del tabellone",
+          "Cacciatori di Wanted",
+          "Disturbo"
+        ],
+        "strength": "Può disturbare immediatamente un Bandito o un giocatore Wanted entrando nel suo spazio.",
+        "focus": "Insegui bersagli pericolosi e usa il movimento forzato o lo scarto casuale per indebolirli prima del prossimo scontro."
+      }
+    }
+  ]
+}

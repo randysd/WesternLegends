@@ -8,23 +8,11 @@
       "Mehrere miteinander verbundene Vorfälle formten die Geschichte von Der verhungernde Goldsucher und gaben einem Reiter eine ganz eigene Erzählung.",
       "Was als einzelne Begegnung begann, wuchs zur fortlaufenden Grenzlandgeschichte von Der verhungernde Goldsucher heran."
     ],
-    "tags": [
-      "prospector",
-      "mine",
-      "saloon",
-      "bandit"
-    ],
-    "startTrigger": "trig_begin_prospect",
-    "baseWeight": 10,
     "nodes": [
       {
         "id": "prospector_intro",
-        "type": "storyTrigger",
-        "trigger": "trig_begin_prospect",
         "title": "Ein Mann dem Tod nahe",
         "screenText": "Beende deinen Zug in einem beliebigen Saloon, um $20 zu erhalten.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Ein halb verhungerter Goldsucher taumelt aus dem Salbeigestrüpp und umklammert einen Lederbeutel. Für einen Drink und eine Fahrt in die Stadt bietet er zwanzig Dollar.\"",
         "newspaperText": [
           "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Ein halb verhungerter Goldsucher taumelt aus dem Salbeigestrüpp und umklammert einen Lederbeutel. Für einen Drink und eine Fahrt in die Stadt bietet er zwanzig Dollar.",
@@ -32,37 +20,23 @@
           "Die Spur der größeren Geschichte führte zu einer neuen Entwicklung: Ein halb verhungerter Goldsucher taumelt aus dem Salbeigestrüpp und umklammert einen Lederbeutel. Für einen Drink und eine Fahrt in die Stadt bietet er zwanzig Dollar.",
           "Zeugen verbanden die jüngste Wendung der Geschichte mit einer besonders einprägsamen Szene: Ein halb verhungerter Goldsucher taumelt aus dem Salbeigestrüpp und umklammert einen Lederbeutel. Für einen Drink und eine Fahrt in die Stadt bietet er zwanzig Dollar."
         ],
-        "audioFile": "audio/arcs/prospector_intro.mp3",
-        "requiresWorldTags": [],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "prospector_helped"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Ein Mann dem Tod nahe wurde abgehandelt."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "prospector_abandoned"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Ein Mann dem Tod nahe wurde ignoriert."
           }
         ]
       },
       {
         "id": "prospector_debt_repaid",
-        "type": "storyTrigger",
-        "trigger": "trig_purchase_item",
         "title": "Schuld beglichen",
         "screenText": "Der Goldsucher gibt die Freundlichkeit weiter, die ihm das Leben gerettet hat. Erhalte nach dem Kauf oder Verbessern eines Gegenstands $20.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Der alte Goldsucher tritt aus der Ecke und legt Münzen auf den Tresen. Hab doch gesagt, dass ich mich für Freundlichkeit revanchiere.\"",
         "newspaperText": [
           "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Der alte Goldsucher tritt aus der Ecke und legt Münzen auf den Tresen. Hab doch gesagt, dass ich mich für Freundlichkeit revanchiere.",
@@ -70,36 +44,22 @@
           "Die Spur der größeren Geschichte führte zu einer neuen Entwicklung: Der alte Goldsucher tritt aus der Ecke und legt Münzen auf den Tresen. Hab doch gesagt, dass ich mich für Freundlichkeit revanchiere.",
           "Zeugen verbanden die jüngste Wendung der Geschichte mit einer besonders einprägsamen Szene: Der alte Goldsucher tritt aus der Ecke und legt Münzen auf den Tresen. Hab doch gesagt, dass ich mich für Freundlichkeit revanchiere."
         ],
-        "audioFile": "audio/arcs/prospector_debt_repaid.mp3",
-        "requiresWorldTags": [
-          "prospector_helped"
-        ],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "prospector_repaid"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Schuld beglichen wurde abgehandelt."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "prospector_missed_repay"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Schuld beglichen wurde ignoriert."
           }
         ],
         "playerAwareText": {
-          "compareToNodeId": "prospector_intro",
           "samePlayer": {
             "title": "Schuld beglichen",
             "screenText": "Der Goldsucher erkennt dich sofort und kann sich endlich für deine Freundlichkeit revanchieren. Erhalte nach dem Kauf oder Verbessern eines Gegenstands $30.",
-            "audioFile": "audio/arcs/prospector_debt_repaid2.mp3",
             "narrationScript": "[western storyteller][old cowboy][raspy] \"Der alte Goldsucher grinst, als er dich sieht. Ich hab nicht vergessen, was du für mich getan hast. Lass mich die Schuld ordentlich begleichen.\"",
             "newspaperText": [
               "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Der alte Goldsucher grinst, als er dich sieht. Ich hab nicht vergessen, was du für mich getan hast. Lass mich die Schuld ordentlich begleichen.",
@@ -111,7 +71,6 @@
           "differentPlayer": {
             "title": "Freundlichkeit weitergegeben",
             "screenText": "Der Goldsucher erzählt dir, dass einst ein Fremder sein Leben rettete, als er nichts hatte. Er beschließt, diese Freundlichkeit weiterzugeben. Erhalte nach dem Kauf oder Verbessern eines Gegenstands $20.",
-            "audioFile": "audio/arcs/prospector_kindness_passed_on.mp3",
             "narrationScript": "[western storyteller][old cowboy][raspy] \"Der alte Goldsucher erzählt dir, irgendein Fremder habe ihm einst den Hals gerettet. So eine Freundlichkeit, sagt er, sollte nicht bei einem Mann enden.\"",
             "newspaperText": [
               "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Der alte Goldsucher erzählt dir, irgendein Fremder habe ihm einst den Hals gerettet. So eine Freundlichkeit, sagt er, sollte nicht bei einem Mann enden.",
@@ -127,13 +86,8 @@
       },
       {
         "id": "prospector_bandit_reveal",
-        "type": "instantEvent",
-        "trigger": "trig_defeat_bandit",
         "title": "Der Mann, den du zurückgelassen hast",
         "screenText": "Der verhungernde Goldsucher ist bei Outlaws gelandet. Wie er dich behandelt, hängt davon ab, ob du der Reisende warst, der ihn zurückließ.",
-        "requiresWorldTags": [
-          "prospector_abandoned"
-        ],
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Der Outlaw fällt und nimmt den Hut ab. Unter dem Schmutz erkennst du den Goldsucher, den du im Staub zurückgelassen hast. Er pfeift, und zwei weitere Banditen kriechen zwischen den Felsen hervor.\"",
         "newspaperText": [
           "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Der Outlaw fällt und nimmt den Hut ab. Unter dem Schmutz erkennst du den Goldsucher, den du im Staub zurückgelassen hast. Er pfeift, und zwei weitere Banditen kriechen zwischen den Felsen hervor.",
@@ -141,21 +95,13 @@
           "Die Spur der größeren Geschichte führte zu einer neuen Entwicklung: Der Outlaw fällt und nimmt den Hut ab. Unter dem Schmutz erkennst du den Goldsucher, den du im Staub zurückgelassen hast. Er pfeift, und zwei weitere Banditen kriechen zwischen den Felsen hervor.",
           "Zeugen verbanden die jüngste Wendung der Geschichte mit einer besonders einprägsamen Szene: Der Outlaw fällt und nimmt den Hut ab. Unter dem Schmutz erkennst du den Goldsucher, den du im Staub zurückgelassen hast. Er pfeift, und zwei weitere Banditen kriechen zwischen den Felsen hervor."
         ],
-        "audioFile": "audio/arcs/prospector_bandit_reveal.mp3",
-        "effects": [],
         "resultButtons": [
           {
-            "label": "Weiter",
-            "effects": [
-              {
-                "type": "addWorldTag",
-                "tag": "prospector_encountered_again"
-              }
-            ]
+            "_index": 0,
+            "label": "Weiter"
           }
         ],
         "playerAwareText": {
-          "compareToNodeId": "prospector_intro",
           "samePlayer": {
             "title": "Der Mann, den du zurückgelassen hast",
             "screenText": "Der Outlaw reißt den Hut herunter: Es ist der Goldsucher, den du sich selbst überlassen hast. Für das Leben, das du ihn beinahe gekostet hättest, verlangt er $20. Zahle $20, um den Groll beizulegen, oder lehne ab und stelle 2 Banditen auf dein Feld; kämpfe gegen beide gleichzeitig. Wenn du verlierst, erleidest du 1 Wunde.",
@@ -165,26 +111,14 @@
               "Zeugen aus dem Grenzland trugen die Nachricht von Der Mann, den du zurückgelassen hast von einer Siedlung zur nächsten.",
               "Bis zum Ende des Tages hatte Der Mann, den du zurückgelassen hast einen Platz unter den bemerkenswerten Ereignissen des Gebiets gefunden."
             ],
-            "audioFile": null,
-            "effects": [],
             "resultButtons": [
               {
-                "label": "Ihm $20 gezahlt",
-                "effects": [
-                  {
-                    "type": "addWorldTag",
-                    "tag": "prospector_paid_off"
-                  }
-                ]
+                "_index": 0,
+                "label": "Ihm $20 gezahlt"
               },
               {
-                "label": "Dem Hinterhalt gestellt",
-                "effects": [
-                  {
-                    "type": "addWorldTag",
-                    "tag": "prospector_grudge_fought"
-                  }
-                ]
+                "_index": 1,
+                "label": "Dem Hinterhalt gestellt"
               }
             ]
           },
@@ -197,26 +131,14 @@
               "Zeugen aus dem Grenzland trugen die Nachricht von Der Mann, den du zurückgelassen hast von einer Siedlung zur nächsten.",
               "Bis zum Ende des Tages hatte Der Mann, den du zurückgelassen hast einen Platz unter den bemerkenswerten Ereignissen des Gebiets gefunden."
             ],
-            "audioFile": null,
-            "effects": [],
             "resultButtons": [
               {
-                "label": "Bei der Flucht geholfen",
-                "effects": [
-                  {
-                    "type": "addWorldTag",
-                    "tag": "prospector_helped_escape"
-                  }
-                ]
+                "_index": 0,
+                "label": "Bei der Flucht geholfen"
               },
               {
-                "label": "Abgelehnt",
-                "effects": [
-                  {
-                    "type": "addWorldTag",
-                    "tag": "prospector_refused_again"
-                  }
-                ]
+                "_index": 1,
+                "label": "Abgelehnt"
               }
             ]
           },
@@ -225,8 +147,7 @@
           }
         }
       }
-    ],
-    "scope": "shared"
+    ]
   },
   {
     "id": "arc_widow_mccall",
@@ -237,22 +158,11 @@
       "Mehrere miteinander verbundene Vorfälle formten die Geschichte von Witwe McCalls Ranch und gaben einem Reiter eine ganz eigene Erzählung.",
       "Was als einzelne Begegnung begann, wuchs zur fortlaufenden Grenzlandgeschichte von Witwe McCalls Ranch heran."
     ],
-    "tags": [
-      "widow",
-      "ranch",
-      "cattle"
-    ],
-    "startTrigger": "trig_acquire_cattle",
-    "baseWeight": 8,
     "nodes": [
       {
         "id": "widow_fence_down",
-        "type": "storyTrigger",
-        "trigger": "trig_acquire_cattle",
         "title": "Zaunlinie niedergerissen",
         "screenText": "Beende deinen Zug auf der Grünen Ranch oder der Blauen Ranch. Erhalte $20 und 1 Pokerkarte.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Eine Witwe in Schwarz bittet um Hilfe beim Flicken eines Zauns, bevor Viehdiebe die Lücke entdecken.\"",
         "newspaperText": [
           "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Eine Witwe in Schwarz bittet um Hilfe beim Flicken eines Zauns, bevor Viehdiebe die Lücke entdecken.",
@@ -260,37 +170,23 @@
           "Die Spur der größeren Geschichte führte zu einer neuen Entwicklung: Eine Witwe in Schwarz bittet um Hilfe beim Flicken eines Zauns, bevor Viehdiebe die Lücke entdecken.",
           "Zeugen verbanden die jüngste Wendung der Geschichte mit einer besonders einprägsamen Szene: Eine Witwe in Schwarz bittet um Hilfe beim Flicken eines Zauns, bevor Viehdiebe die Lücke entdecken."
         ],
-        "audioFile": "audio/arcs/widow_fence_down.mp3",
-        "requiresWorldTags": [],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "widow_helped"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Zaunlinie niedergerissen wurde abgehandelt."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "widow_ignored"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Zaunlinie niedergerissen wurde ignoriert."
           }
         ]
       },
       {
         "id": "widow_cattle_drive",
-        "type": "storyTrigger",
-        "trigger": "trig_wrangle_cattle",
         "title": "Ein sicherer Viehtrieb",
         "screenText": "Treibe Vieh für Witwe McCall, um +$20 zu erhalten.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Das Brandzeichen der Witwe zieht mit der Herde, und jede ehrliche Meile hilft, ihr Land zu retten.\"",
         "newspaperText": [
           "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Das Brandzeichen der Witwe zieht mit der Herde, und jede ehrliche Meile hilft, ihr Land zu retten.",
@@ -298,32 +194,19 @@
           "Die Spur der größeren Geschichte führte zu einer neuen Entwicklung: Das Brandzeichen der Witwe zieht mit der Herde, und jede ehrliche Meile hilft, ihr Land zu retten.",
           "Zeugen verbanden die jüngste Wendung der Geschichte mit einer besonders einprägsamen Szene: Das Brandzeichen der Witwe zieht mit der Herde, und jede ehrliche Meile hilft, ihr Land zu retten."
         ],
-        "audioFile": "audio/arcs/widow_cattle_drive.mp3",
-        "requiresWorldTags": [
-          "widow_helped"
-        ],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "widow_drive_done"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Ein sicherer Viehtrieb wurde abgehandelt."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "widow_drive_missed"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Ein sicherer Viehtrieb wurde ignoriert."
           }
         ],
         "playerAwareText": {
-          "compareToNodeId": "widow_fence_down",
           "samePlayer": {
             "screenText": "Witwe McCall erinnert sich daran, dass du geholfen hast, ihre Ranch zu retten, als der Zaun niedergerissen war. Sie vertraut dir ihren besten Viehtrieb an. Treibe Vieh, um +$30 zu erhalten.",
             "newspaperText": [
@@ -331,8 +214,7 @@
               "Berichte über Ein sicherer Viehtrieb erreichten die Gazette, bevor die Druckpressen anliefen.",
               "Zeugen aus dem Grenzland trugen die Nachricht von Ein sicherer Viehtrieb von einer Siedlung zur nächsten.",
               "Bis zum Ende des Tages hatte Ein sicherer Viehtrieb einen Platz unter den bemerkenswerten Ereignissen des Gebiets gefunden."
-            ],
-            "audioFile": null
+            ]
           },
           "differentPlayer": {
             "screenText": "Witwe McCall erzählt dir, dass ein anderer Reisender ihre Ranch rettete, als sie Hilfe am dringendsten brauchte. Sie bietet dir ehrliche Arbeit beim nächsten Viehtrieb an. Treibe Vieh, um +$20 zu erhalten.",
@@ -341,8 +223,7 @@
               "Berichte über Ein sicherer Viehtrieb erreichten die Gazette, bevor die Druckpressen anliefen.",
               "Zeugen aus dem Grenzland trugen die Nachricht von Ein sicherer Viehtrieb von einer Siedlung zur nächsten.",
               "Bis zum Ende des Tages hatte Ein sicherer Viehtrieb einen Platz unter den bemerkenswerten Ereignissen des Gebiets gefunden."
-            ],
-            "audioFile": null
+            ]
           },
           "default": {
             "screenText": "Treibe Vieh für Witwe McCall, um +$20 zu erhalten."
@@ -351,12 +232,8 @@
       },
       {
         "id": "widow_black_veil",
-        "type": "storyTrigger",
-        "trigger": "trig_rustle_cattle",
         "title": "Banditin mit schwarzem Schleier",
         "screenText": "Witwe McCall ist zur Outlaw geworden. Erhalte nach dem Viehdiebstahl +$30 und +1 WP und bewege anschließend den Sheriff bis zu 2 Felder auf dich zu.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Eine verschleierte Reiterin schließt sich den Viehdieben an. Die Trauer hat sie zu etwas Gefährlichem geschärft.\"",
         "newspaperText": [
           "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Eine verschleierte Reiterin schließt sich den Viehdieben an. Die Trauer hat sie zu etwas Gefährlichem geschärft.",
@@ -364,36 +241,22 @@
           "Die Spur der größeren Geschichte führte zu einer neuen Entwicklung: Eine verschleierte Reiterin schließt sich den Viehdieben an. Die Trauer hat sie zu etwas Gefährlichem geschärft.",
           "Zeugen verbanden die jüngste Wendung der Geschichte mit einer besonders einprägsamen Szene: Eine verschleierte Reiterin schließt sich den Viehdieben an. Die Trauer hat sie zu etwas Gefährlichem geschärft."
         ],
-        "audioFile": "audio/arcs/widow_black_veil.mp3",
-        "requiresWorldTags": [
-          "widow_ignored"
-        ],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "widow_outlaw_seen"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Banditin mit schwarzem Schleier wurde abgehandelt."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "widow_outlaw_vanishes"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Banditin mit schwarzem Schleier wurde ignoriert."
           }
         ],
         "playerAwareText": {
-          "compareToNodeId": "widow_fence_down",
           "samePlayer": {
             "title": "Abrechnung unter schwarzem Schleier",
             "screenText": "Die verschleierte Viehdiebin ist Witwe McCall, und sie erkennt den Reisenden, der ihre Ranch dem Untergang überließ. Sie will Bezahlung, keine Partnerschaft. Zahle ihr $20, um die Schuld zu begleichen, oder lehne ab und ziehe 1 Kampfkarte: Bei 8+ vertreibst du ihre Reiter; bei 7 oder weniger erleidest du 1 Wunde. Du erhältst den Viehdiebstahl-Bonus des Schwarzen Schleiers nicht.",
-            "audioFile": "audio/arcs/widow_black_veil_reckoning.mp3",
             "narrationScript": "[western storyteller][old cowboy][raspy] \"Die Witwe hebt ihren Schleier und fixiert dich mit einem Blick. Komisch, dich jetzt zu sehen, sagt sie. Ich hätte dich brauchen können, bevor ich dazu werden musste.\"",
             "newspaperText": [
               "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Die Witwe hebt ihren Schleier und fixiert dich mit einem Blick. Komisch, dich jetzt zu sehen, sagt sie. Ich hätte dich brauchen können, bevor ich dazu werden musste.",
@@ -405,7 +268,6 @@
           "differentPlayer": {
             "title": "Banditin mit schwarzem Schleier",
             "screenText": "Witwe McCall erzählt dir, ein anderer Reisender habe ihre Ranch sterben lassen, und harte Zeiten hätten sie auf den Outlaw-Pfad getrieben. Sie bietet an, mit dir zu reiten. Erhalte nach dem Viehdiebstahl +$30 und +1 WP und bewege anschließend den Sheriff bis zu 2 Felder auf dich zu.",
-            "audioFile": "audio/arcs/widow_black_veil_bandit.mp3",
             "narrationScript": "[western storyteller][old cowboy][raspy] \"Die verschleierte Reiterin nennt sich McCall. Niemand sei gekommen, als die Ranch starb, sagt sie, also habe sie gelernt, sich zu nehmen, was das Grenzland nicht geben wollte.\"",
             "newspaperText": [
               "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Die verschleierte Reiterin nennt sich McCall. Niemand sei gekommen, als die Ranch starb, sagt sie, also habe sie gelernt, sich zu nehmen, was das Grenzland nicht geben wollte.",
@@ -419,8 +281,7 @@
           }
         }
       }
-    ],
-    "scope": "shared"
+    ]
   },
   {
     "id": "arc_marshal_reeves",
@@ -431,23 +292,11 @@
       "Mehrere miteinander verbundene Vorfälle formten die Geschichte von Marshal Gideon Reeves und gaben einem Reiter eine ganz eigene Erzählung.",
       "Was als einzelne Begegnung begann, wuchs zur fortlaufenden Grenzlandgeschichte von Marshal Gideon Reeves heran."
     ],
-    "tags": [
-      "marshal",
-      "sheriff",
-      "bandit",
-      "law"
-    ],
-    "startTrigger": "trig_gain_mp",
-    "baseWeight": 8,
     "nodes": [
       {
         "id": "reeves_deputy_call",
-        "type": "storyTrigger",
-        "trigger": "trig_gain_mp",
         "title": "Deputy für einen Tag",
         "screenText": "Beende deinen Zug im Sheriffbüro von Darkrock oder im Marshalbüro von Buzzard Gulch, um $20 und 1 MP zu erhalten.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Marshal Reeves braucht eine ruhige Hand und ein noch ruhigeres Gewissen.\"",
         "newspaperText": [
           "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Marshal Reeves braucht eine ruhige Hand und ein noch ruhigeres Gewissen.",
@@ -455,37 +304,23 @@
           "Die Spur der größeren Geschichte führte zu einer neuen Entwicklung: Marshal Reeves braucht eine ruhige Hand und ein noch ruhigeres Gewissen.",
           "Zeugen verbanden die jüngste Wendung der Geschichte mit einer besonders einprägsamen Szene: Marshal Reeves braucht eine ruhige Hand und ein noch ruhigeres Gewissen."
         ],
-        "audioFile": "audio/arcs/reeves_deputy_call.mp3",
-        "requiresWorldTags": [],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "reeves_supported"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Deputy für einen Tag wurde abgehandelt."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "reeves_ignored"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Deputy für einen Tag wurde ignoriert."
           }
         ]
       },
       {
         "id": "reeves_crackdown",
-        "type": "storyTrigger",
-        "trigger": "trig_defeat_bandit",
         "title": "Haftbefehl beim Durchgreifen",
         "screenText": "Erhalte +$20, nachdem du beim Vollstrecken von Reeves’ Haftbefehl einen Banditen besiegt hast.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Bei Reeves stapeln sich die Haftbefehle wie Feuerholz, und er hat genug Strick für jeden Namen darauf.\"",
         "newspaperText": [
           "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Bei Reeves stapeln sich die Haftbefehle wie Feuerholz, und er hat genug Strick für jeden Namen darauf.",
@@ -493,32 +328,19 @@
           "Die Spur der größeren Geschichte führte zu einer neuen Entwicklung: Bei Reeves stapeln sich die Haftbefehle wie Feuerholz, und er hat genug Strick für jeden Namen darauf.",
           "Zeugen verbanden die jüngste Wendung der Geschichte mit einer besonders einprägsamen Szene: Bei Reeves stapeln sich die Haftbefehle wie Feuerholz, und er hat genug Strick für jeden Namen darauf."
         ],
-        "audioFile": "audio/arcs/reeves_crackdown.mp3",
-        "requiresWorldTags": [
-          "reeves_supported"
-        ],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "reeves_warrants_served"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Haftbefehl beim Durchgreifen wurde abgehandelt."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "reeves_warrants_missed"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Haftbefehl beim Durchgreifen wurde ignoriert."
           }
         ],
         "playerAwareText": {
-          "compareToNodeId": "reeves_deputy_call",
           "samePlayer": {
             "screenText": "Marshal Reeves erinnert sich daran, dass du seinem Ruf gefolgt bist, als er einen Deputy brauchte. Er gibt dir einen seiner wichtigsten Haftbefehle. Erhalte nach dem Besiegen eines Banditen +$20 und +1 MP.",
             "newspaperText": [
@@ -526,8 +348,7 @@
               "Berichte über Haftbefehl beim Durchgreifen erreichten die Gazette, bevor die Druckpressen anliefen.",
               "Zeugen aus dem Grenzland trugen die Nachricht von Haftbefehl beim Durchgreifen von einer Siedlung zur nächsten.",
               "Bis zum Ende des Tages hatte Haftbefehl beim Durchgreifen einen Platz unter den bemerkenswerten Ereignissen des Gebiets gefunden."
-            ],
-            "audioFile": null
+            ]
           },
           "differentPlayer": {
             "screenText": "Marshal Reeves erzählt dir, dass ein anderer Reisender ihm zur Seite stand, als der Ärger begann. Das Durchgreifen wirkt, und er gibt dir einen eigenen Haftbefehl. Erhalte nach dem Besiegen eines Banditen +$20.",
@@ -536,8 +357,7 @@
               "Berichte über Haftbefehl beim Durchgreifen erreichten die Gazette, bevor die Druckpressen anliefen.",
               "Zeugen aus dem Grenzland trugen die Nachricht von Haftbefehl beim Durchgreifen von einer Siedlung zur nächsten.",
               "Bis zum Ende des Tages hatte Haftbefehl beim Durchgreifen einen Platz unter den bemerkenswerten Ereignissen des Gebiets gefunden."
-            ],
-            "audioFile": null
+            ]
           },
           "default": {
             "screenText": "Erhalte nach dem Besiegen eines Banditen +$20."
@@ -546,12 +366,8 @@
       },
       {
         "id": "reeves_hunted",
-        "type": "storyTrigger",
-        "trigger": "trig_gain_wp",
         "title": "Marshal auf deiner Spur",
         "screenText": "Marshal Reeves geht hart gegen das wachsende Outlaw-Problem vor. Bewege den Sheriff bis zu 2 Felder auf den auslösenden Spieler zu; erreicht der Sheriff diesen Spieler, wirf 1 Pokerkarte ab.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Reeves heftet deinen Namen unter die Laterne und reitet in die Dunkelheit.\"",
         "newspaperText": [
           "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Reeves heftet deinen Namen unter die Laterne und reitet in die Dunkelheit.",
@@ -559,32 +375,19 @@
           "Die Spur der größeren Geschichte führte zu einer neuen Entwicklung: Reeves heftet deinen Namen unter die Laterne und reitet in die Dunkelheit.",
           "Zeugen verbanden die jüngste Wendung der Geschichte mit einer besonders einprägsamen Szene: Reeves heftet deinen Namen unter die Laterne und reitet in die Dunkelheit."
         ],
-        "audioFile": "audio/arcs/reeves_hunted.mp3",
-        "requiresWorldTags": [
-          "reeves_ignored"
-        ],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "reeves_hunted_player"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Marshal auf deiner Spur wurde abgehandelt."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "reeves_lost_trail"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Marshal auf deiner Spur wurde ignoriert."
           }
         ],
         "playerAwareText": {
-          "compareToNodeId": "reeves_deputy_call",
           "samePlayer": {
             "title": "Reeves hat deinen Namen",
             "screenText": "Marshal Reeves erinnert sich daran, dass du seinen früheren Hilferuf abgelehnt hast. Dein Wanted-Ruf hat deinen Namen nun ganz oben auf seine Liste gesetzt. Bewege den Sheriff bis zu 3 Felder direkt auf dich zu. Erreicht der Sheriff dein Feld, wirf 2 Pokerkarten ab.",
@@ -593,8 +396,7 @@
               "Berichte über Marshal auf deiner Spur erreichten die Gazette, bevor die Druckpressen anliefen.",
               "Zeugen aus dem Grenzland trugen die Nachricht von Marshal auf deiner Spur von einer Siedlung zur nächsten.",
               "Bis zum Ende des Tages hatte Marshal auf deiner Spur einen Platz unter den bemerkenswerten Ereignissen des Gebiets gefunden."
-            ],
-            "audioFile": null
+            ]
           },
           "differentPlayer": {
             "title": "Marshal auf deiner Spur",
@@ -604,16 +406,14 @@
               "Berichte über Marshal auf deiner Spur erreichten die Gazette, bevor die Druckpressen anliefen.",
               "Zeugen aus dem Grenzland trugen die Nachricht von Marshal auf deiner Spur von einer Siedlung zur nächsten.",
               "Bis zum Ende des Tages hatte Marshal auf deiner Spur einen Platz unter den bemerkenswerten Ereignissen des Gebiets gefunden."
-            ],
-            "audioFile": null
+            ]
           },
           "default": {
             "screenText": "Bewege den Sheriff bis zu 2 Felder auf den auslösenden Spieler zu; erreicht der Sheriff diesen Spieler, wirf 1 Pokerkarte ab."
           }
         }
       }
-    ],
-    "scope": "shared"
+    ]
   },
   {
     "id": "arc_silas_bell_showman",
@@ -624,23 +424,11 @@
       "Mehrere miteinander verbundene Vorfälle formten die Geschichte von Silas Bells Wandershow und gaben einem Reiter eine ganz eigene Erzählung.",
       "Was als einzelne Begegnung begann, wuchs zur fortlaufenden Grenzlandgeschichte von Silas Bells Wandershow heran."
     ],
-    "tags": [
-      "showman",
-      "poker",
-      "cabaret",
-      "saloon"
-    ],
-    "startTrigger": "trig_revel_cabaret",
-    "baseWeight": 7,
     "nodes": [
       {
         "id": "showman_arrives",
-        "type": "storyTrigger",
-        "trigger": "trig_revel_cabaret",
         "title": "Der bemalte Wagen",
         "screenText": "Beende deinen Zug im Cabaret von Red Falls, um 2 Pokerkarten zu ziehen.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Ein bemalter Wagen rollt nach Red Falls und verspricht zu gleichen Teilen Wunder, Musik und Lügen.\"",
         "newspaperText": [
           "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Ein bemalter Wagen rollt nach Red Falls und verspricht zu gleichen Teilen Wunder, Musik und Lügen.",
@@ -648,37 +436,23 @@
           "Die Spur der größeren Geschichte führte zu einer neuen Entwicklung: Ein bemalter Wagen rollt nach Red Falls und verspricht zu gleichen Teilen Wunder, Musik und Lügen.",
           "Zeugen verbanden die jüngste Wendung der Geschichte mit einer besonders einprägsamen Szene: Ein bemalter Wagen rollt nach Red Falls und verspricht zu gleichen Teilen Wunder, Musik und Lügen."
         ],
-        "audioFile": "audio/arcs/showman_arrives.mp3",
-        "requiresWorldTags": [],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "showman_supported"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Der bemalte Wagen wurde abgehandelt."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "showman_ignored"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Der bemalte Wagen wurde ignoriert."
           }
         ]
       },
       {
         "id": "showman_grand_show",
-        "type": "storyTrigger",
-        "trigger": "trig_win_poker",
         "title": "Große Grenzlandshow",
         "screenText": "Silas macht deinen Pokersieg zum Mittelpunkt seiner Großen Grenzlandshow. Erhalte +1 LP und +$20.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Silas Bell nennt deine Hand ein Wunder und verkauft Eintrittskarten, bevor die Karten kalt sind.\"",
         "newspaperText": [
           "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Silas Bell nennt deine Hand ein Wunder und verkauft Eintrittskarten, bevor die Karten kalt sind.",
@@ -686,32 +460,19 @@
           "Die Spur der größeren Geschichte führte zu einer neuen Entwicklung: Silas Bell nennt deine Hand ein Wunder und verkauft Eintrittskarten, bevor die Karten kalt sind.",
           "Zeugen verbanden die jüngste Wendung der Geschichte mit einer besonders einprägsamen Szene: Silas Bell nennt deine Hand ein Wunder und verkauft Eintrittskarten, bevor die Karten kalt sind."
         ],
-        "audioFile": "audio/arcs/showman_grand_show.mp3",
-        "requiresWorldTags": [
-          "showman_supported"
-        ],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "showman_famous"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Große Grenzlandshow wurde abgehandelt."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "showman_flops"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Große Grenzlandshow wurde ignoriert."
           }
         ],
         "playerAwareText": {
-          "compareToNodeId": "showman_arrives",
           "samePlayer": {
             "screenText": "Silas Bell erkennt die Person wieder, die seiner bemalten Wagenshow auf die Beine geholfen hat. Er macht deinen Pokersieg zu seiner Hauptattraktion. Erhalte +1 LP und +$30.",
             "newspaperText": [
@@ -719,8 +480,7 @@
               "Berichte über Große Grenzlandshow erreichten die Gazette, bevor die Druckpressen anliefen.",
               "Zeugen aus dem Grenzland trugen die Nachricht von Große Grenzlandshow von einer Siedlung zur nächsten.",
               "Bis zum Ende des Tages hatte Große Grenzlandshow einen Platz unter den bemerkenswerten Ereignissen des Gebiets gefunden."
-            ],
-            "audioFile": null
+            ]
           },
           "differentPlayer": {
             "screenText": "Silas prahlt damit, dass ein anderer Reisender seine Show ins Rollen brachte, und macht deinen Pokersieg dann zur Hauptnummer des Abends. Erhalte +1 LP und +$20.",
@@ -729,8 +489,7 @@
               "Berichte über Große Grenzlandshow erreichten die Gazette, bevor die Druckpressen anliefen.",
               "Zeugen aus dem Grenzland trugen die Nachricht von Große Grenzlandshow von einer Siedlung zur nächsten.",
               "Bis zum Ende des Tages hatte Große Grenzlandshow einen Platz unter den bemerkenswerten Ereignissen des Gebiets gefunden."
-            ],
-            "audioFile": null
+            ]
           },
           "default": {
             "screenText": "Silas macht deinen Pokersieg zum Mittelpunkt seiner Großen Grenzlandshow. Erhalte +1 LP und +$20."
@@ -739,12 +498,8 @@
       },
       {
         "id": "showman_swindle",
-        "type": "storyTrigger",
-        "trigger": "trig_purchase_item",
         "title": "Der große Schwindel",
         "screenText": "Silas hat sich weniger ehrlichen Geschäften zugewandt. Wirf nach dem Kauf $10 oder 1 Pokerkarte ab.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Das Etikett sagt echt. Das Lächeln des Schaustellers sagt etwas anderes.\"",
         "newspaperText": [
           "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Das Etikett sagt echt. Das Lächeln des Schaustellers sagt etwas anderes.",
@@ -752,32 +507,19 @@
           "Die Spur der größeren Geschichte führte zu einer neuen Entwicklung: Das Etikett sagt echt. Das Lächeln des Schaustellers sagt etwas anderes.",
           "Zeugen verbanden die jüngste Wendung der Geschichte mit einer besonders einprägsamen Szene: Das Etikett sagt echt. Das Lächeln des Schaustellers sagt etwas anderes."
         ],
-        "audioFile": "audio/arcs/showman_swindle.mp3",
-        "requiresWorldTags": [
-          "showman_ignored"
-        ],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "showman_swindled"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Der große Schwindel wurde abgehandelt."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "showman_swindle_failed"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Der große Schwindel wurde ignoriert."
           }
         ],
         "playerAwareText": {
-          "compareToNodeId": "showman_arrives",
           "samePlayer": {
             "title": "Ein Schwindel mit deinem Namen darauf",
             "screenText": "Silas Bell erinnert sich daran, dass du ihn links liegen ließest, als seine Show Hilfe brauchte, und dieses „Schnäppchen“ wurde eigens für dich vorbereitet. Zahle nach dem Kauf zusätzlich $20 oder wirf 2 Pokerkarten ab.",
@@ -786,8 +528,7 @@
               "Berichte über Der große Schwindel erreichten die Gazette, bevor die Druckpressen anliefen.",
               "Zeugen aus dem Grenzland trugen die Nachricht von Der große Schwindel von einer Siedlung zur nächsten.",
               "Bis zum Ende des Tages hatte Der große Schwindel einen Platz unter den bemerkenswerten Ereignissen des Gebiets gefunden."
-            ],
-            "audioFile": null
+            ]
           },
           "differentPlayer": {
             "title": "Der große Schwindel",
@@ -797,16 +538,14 @@
               "Berichte über Der große Schwindel erreichten die Gazette, bevor die Druckpressen anliefen.",
               "Zeugen aus dem Grenzland trugen die Nachricht von Der große Schwindel von einer Siedlung zur nächsten.",
               "Bis zum Ende des Tages hatte Der große Schwindel einen Platz unter den bemerkenswerten Ereignissen des Gebiets gefunden."
-            ],
-            "audioFile": null
+            ]
           },
           "default": {
             "screenText": "Wirf nach dem Kauf $10 oder 1 Pokerkarte ab."
           }
         }
       }
-    ],
-    "scope": "shared"
+    ]
   },
   {
     "id": "arc_jeremiah_pike",
@@ -817,25 +556,11 @@
       "Mehrere miteinander verbundene Vorfälle formten die Geschichte von Jeremiah Pike, legendärer Trapper und gaben einem Reiter eine ganz eigene Erzählung.",
       "Was als einzelne Begegnung begann, wuchs zur fortlaufenden Grenzlandgeschichte von Jeremiah Pike, legendärer Trapper heran."
     ],
-    "tags": [
-      "trapper",
-      "hunt",
-      "wilderness"
-    ],
-    "requiredModules": [
-      "hunting"
-    ],
-    "startTrigger": "trig_hunt_success",
-    "baseWeight": 8,
     "nodes": [
       {
         "id": "pike_tracks",
-        "type": "storyTrigger",
-        "trigger": "trig_hunt_success",
         "title": "Old Pikes Spuren",
         "screenText": "Erhalte nach einer erfolgreichen Jagd, wenn möglich, 1 zusätzliche Tierressource; andernfalls erhalte $10.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Der alte Jeremiah Pike studiert die Spuren und grunzt, als schulde ihm das Tier Geld.\"",
         "newspaperText": [
           "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Der alte Jeremiah Pike studiert die Spuren und grunzt, als schulde ihm das Tier Geld.",
@@ -843,37 +568,23 @@
           "Die Spur der größeren Geschichte führte zu einer neuen Entwicklung: Der alte Jeremiah Pike studiert die Spuren und grunzt, als schulde ihm das Tier Geld.",
           "Zeugen verbanden die jüngste Wendung der Geschichte mit einer besonders einprägsamen Szene: Der alte Jeremiah Pike studiert die Spuren und grunzt, als schulde ihm das Tier Geld."
         ],
-        "audioFile": "audio/arcs/pike_tracks.mp3",
-        "requiresWorldTags": [],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "pike_helped"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Old Pikes Spuren wurde abgehandelt."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "pike_ignored"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Old Pikes Spuren wurde ignoriert."
           }
         ]
       },
       {
         "id": "pike_white_bear",
-        "type": "storyTrigger",
-        "trigger": "trig_hunt_success",
         "title": "Die Spur des weißen Bären",
         "screenText": "Pike bietet dir die Spur des weißen Bären an. Ziehe zwei Tiere und wähle eines für eine Begegnung. Bei Erfolg erhältst du +1 LP.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Pike zeigt mit zitterndem Finger. Diese Spur gehört zu etwas, das zu groß für gewöhnliche Angst ist.\"",
         "newspaperText": [
           "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Pike zeigt mit zitterndem Finger. Diese Spur gehört zu etwas, das zu groß für gewöhnliche Angst ist.",
@@ -881,32 +592,19 @@
           "Die Spur der größeren Geschichte führte zu einer neuen Entwicklung: Pike zeigt mit zitterndem Finger. Diese Spur gehört zu etwas, das zu groß für gewöhnliche Angst ist.",
           "Zeugen verbanden die jüngste Wendung der Geschichte mit einer besonders einprägsamen Szene: Pike zeigt mit zitterndem Finger. Diese Spur gehört zu etwas, das zu groß für gewöhnliche Angst ist."
         ],
-        "audioFile": "audio/arcs/pike_white_bear.mp3",
-        "requiresWorldTags": [
-          "pike_helped"
-        ],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "pike_bear_trail"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Die Spur des weißen Bären wurde abgehandelt."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "pike_bear_lost"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Die Spur des weißen Bären wurde ignoriert."
           }
         ],
         "playerAwareText": {
-          "compareToNodeId": "pike_tracks",
           "samePlayer": {
             "screenText": "Old Pike erkennt den Jäger wieder, der sich zuvor sein Vertrauen verdient hat. Er gibt dir seine beste Einschätzung der Spur des weißen Bären. Ziehe zwei Tiere und wähle eines für eine Begegnung. Bei Erfolg erhältst du +1 LP und $10.",
             "newspaperText": [
@@ -914,8 +612,7 @@
               "Berichte über Die Spur des weißen Bären erreichten die Gazette, bevor die Druckpressen anliefen.",
               "Zeugen aus dem Grenzland trugen die Nachricht von Die Spur des weißen Bären von einer Siedlung zur nächsten.",
               "Bis zum Ende des Tages hatte Die Spur des weißen Bären einen Platz unter den bemerkenswerten Ereignissen des Gebiets gefunden."
-            ],
-            "audioFile": null
+            ]
           },
           "differentPlayer": {
             "screenText": "Old Pike erzählt dir, ein anderer Jäger habe sich sein Vertrauen verdient und ihm geholfen, die Spur des weißen Bären aufzunehmen. Nun lässt er dich ihr folgen. Ziehe zwei Tiere und wähle eines für eine Begegnung. Bei Erfolg erhältst du +1 LP.",
@@ -924,8 +621,7 @@
               "Berichte über Die Spur des weißen Bären erreichten die Gazette, bevor die Druckpressen anliefen.",
               "Zeugen aus dem Grenzland trugen die Nachricht von Die Spur des weißen Bären von einer Siedlung zur nächsten.",
               "Bis zum Ende des Tages hatte Die Spur des weißen Bären einen Platz unter den bemerkenswerten Ereignissen des Gebiets gefunden."
-            ],
-            "audioFile": null
+            ]
           },
           "default": {
             "screenText": "Ziehe zwei Tiere und wähle eines für eine Begegnung. Bei Erfolg erhältst du +1 LP."
@@ -934,12 +630,8 @@
       },
       {
         "id": "pike_trap_line",
-        "type": "storyTrigger",
-        "trigger": "trig_end_outside_town",
         "title": "Ausgelöste Falle",
         "screenText": "Nachdem er ignoriert wurde, hat Pike begonnen, aus Bosheit Fallen zu stellen.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Eine versteckte Falle schnappt zu. Pike verzeiht es nicht, ignoriert zu werden.\"",
         "newspaperText": [
           "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Eine versteckte Falle schnappt zu. Pike verzeiht es nicht, ignoriert zu werden.",
@@ -947,32 +639,19 @@
           "Die Spur der größeren Geschichte führte zu einer neuen Entwicklung: Eine versteckte Falle schnappt zu. Pike verzeiht es nicht, ignoriert zu werden.",
           "Zeugen verbanden die jüngste Wendung der Geschichte mit einer besonders einprägsamen Szene: Eine versteckte Falle schnappt zu. Pike verzeiht es nicht, ignoriert zu werden."
         ],
-        "audioFile": "audio/arcs/pike_trap_line.mp3",
-        "requiresWorldTags": [
-          "pike_ignored"
-        ],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "pike_revenge"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Ausgelöste Falle wurde abgehandelt."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "pike_revenge_missed"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Ausgelöste Falle wurde ignoriert."
           }
         ],
         "playerAwareText": {
-          "compareToNodeId": "pike_tracks",
           "samePlayer": {
             "title": "Eine Falle nur für dich",
             "screenText": "Du erkennst Pikes Zeichen neben der Falle, und diese wurde für den Reisenden gestellt, der ihn ignoriert hat. Erleide 1 Wunde, sofern du nicht 1 Pokerkarte abwirfst.",
@@ -981,8 +660,7 @@
               "Berichte über Ausgelöste Falle erreichten die Gazette, bevor die Druckpressen anliefen.",
               "Zeugen aus dem Grenzland trugen die Nachricht von Ausgelöste Falle von einer Siedlung zur nächsten.",
               "Bis zum Ende des Tages hatte Ausgelöste Falle einen Platz unter den bemerkenswerten Ereignissen des Gebiets gefunden."
-            ],
-            "audioFile": null
+            ]
           },
           "differentPlayer": {
             "title": "Die Falle eines anderen",
@@ -992,16 +670,14 @@
               "Berichte über Ausgelöste Falle erreichten die Gazette, bevor die Druckpressen anliefen.",
               "Zeugen aus dem Grenzland trugen die Nachricht von Ausgelöste Falle von einer Siedlung zur nächsten.",
               "Bis zum Ende des Tages hatte Ausgelöste Falle einen Platz unter den bemerkenswerten Ereignissen des Gebiets gefunden."
-            ],
-            "audioFile": null
+            ]
           },
           "default": {
             "screenText": "Erleide 1 Wunde, sofern du nicht 1 Pokerkarte abwirfst."
           }
         }
       }
-    ],
-    "scope": "shared"
+    ]
   },
   {
     "id": "arc_card_shark",
@@ -1012,22 +688,11 @@
       "Mehrere miteinander verbundene Vorfälle formten die Geschichte von Der Kartenhai von Red Falls und gaben einem Reiter eine ganz eigene Erzählung.",
       "Was als einzelne Begegnung begann, wuchs zur fortlaufenden Grenzlandgeschichte von Der Kartenhai von Red Falls heran."
     ],
-    "tags": [
-      "poker",
-      "saloon",
-      "rival"
-    ],
-    "startTrigger": "trig_begin_poker",
-    "baseWeight": 8,
     "nodes": [
       {
         "id": "cardshark_first_hand",
-        "type": "storyTrigger",
-        "trigger": "trig_begin_poker",
         "title": "Ein Fremder am Tisch",
         "screenText": "Während dieses Pokerspiels zieht der aktive Spieler 1 zusätzliche Pokerkarte und wirft danach 1 ab.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Ein Fremder mit hellen Handschuhen setzt sich ungefragt dazu und lächelt ohne jede Wärme.\"",
         "newspaperText": [
           "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Ein Fremder mit hellen Handschuhen setzt sich ungefragt dazu und lächelt ohne jede Wärme.",
@@ -1035,37 +700,23 @@
           "Die Spur der größeren Geschichte führte zu einer neuen Entwicklung: Ein Fremder mit hellen Handschuhen setzt sich ungefragt dazu und lächelt ohne jede Wärme.",
           "Zeugen verbanden die jüngste Wendung der Geschichte mit einer besonders einprägsamen Szene: Ein Fremder mit hellen Handschuhen setzt sich ungefragt dazu und lächelt ohne jede Wärme."
         ],
-        "audioFile": "audio/arcs/cardshark_first_hand.mp3",
-        "requiresWorldTags": [],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "cardshark_met"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Ein Fremder am Tisch wurde abgehandelt."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "cardshark_ignored"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Ein Fremder am Tisch wurde ignoriert."
           }
         ]
       },
       {
         "id": "cardshark_beaten",
-        "type": "storyTrigger",
-        "trigger": "trig_win_poker",
         "title": "Den Hai schlagen",
         "screenText": "Erhalte nach einem Pokersieg gegen den Kartenhai von Red Falls +$30 und 1 GP.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Zum ersten Mal in dieser Nacht zerbricht das Lächeln des Fremden.\"",
         "newspaperText": [
           "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Zum ersten Mal in dieser Nacht zerbricht das Lächeln des Fremden.",
@@ -1073,32 +724,19 @@
           "Die Spur der größeren Geschichte führte zu einer neuen Entwicklung: Zum ersten Mal in dieser Nacht zerbricht das Lächeln des Fremden.",
           "Zeugen verbanden die jüngste Wendung der Geschichte mit einer besonders einprägsamen Szene: Zum ersten Mal in dieser Nacht zerbricht das Lächeln des Fremden."
         ],
-        "audioFile": "audio/arcs/cardshark_beaten.mp3",
-        "requiresWorldTags": [
-          "cardshark_met"
-        ],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "cardshark_beaten"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Den Hai schlagen wurde abgehandelt."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "cardshark_unbeaten"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Den Hai schlagen wurde ignoriert."
           }
         ],
         "playerAwareText": {
-          "compareToNodeId": "cardshark_first_hand",
           "samePlayer": {
             "screenText": "Der Kartenhai erkennt dich vom früheren Tisch wieder und erhöht die Einsätze für die Revanche. Dein Sieg bringt sein Lächeln endlich zum Brechen. Erhalte +$40 und 1 GP.",
             "newspaperText": [
@@ -1106,8 +744,7 @@
               "Berichte über Den Hai schlagen erreichten die Gazette, bevor die Druckpressen anliefen.",
               "Zeugen aus dem Grenzland trugen die Nachricht von Den Hai schlagen von einer Siedlung zur nächsten.",
               "Bis zum Ende des Tages hatte Den Hai schlagen einen Platz unter den bemerkenswerten Ereignissen des Gebiets gefunden."
-            ],
-            "audioFile": null
+            ]
           },
           "differentPlayer": {
             "screenText": "Der Kartenhai erzählt dir, dass sich zuvor ein anderer Spieler mit ihm an den Karten gemessen hat. Du bist der neue Herausforderer, der ihn schließlich schlägt. Erhalte +$30 und 1 GP.",
@@ -1116,8 +753,7 @@
               "Berichte über Den Hai schlagen erreichten die Gazette, bevor die Druckpressen anliefen.",
               "Zeugen aus dem Grenzland trugen die Nachricht von Den Hai schlagen von einer Siedlung zur nächsten.",
               "Bis zum Ende des Tages hatte Den Hai schlagen einen Platz unter den bemerkenswerten Ereignissen des Gebiets gefunden."
-            ],
-            "audioFile": null
+            ]
           },
           "default": {
             "screenText": "Erhalte nach einem Pokersieg +$30 und 1 GP."
@@ -1126,12 +762,8 @@
       },
       {
         "id": "cardshark_debt",
-        "type": "storyTrigger",
-        "trigger": "trig_start_player_fight",
         "title": "Schuldeneintreiber",
         "screenText": "Die unerledigten Geschäfte des Kartenhais greifen auf deinen Kampf über.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Ein Schuldeneintreiber tritt aus der Gasse und nennt Zahlen, an die sich kein ehrlicher Mann erinnert.\"",
         "newspaperText": [
           "Die fortlaufende Geschichte nahm eine weitere Wendung, und Berichte beschrieben die Szene so: Ein Schuldeneintreiber tritt aus der Gasse und nennt Zahlen, an die sich kein ehrlicher Mann erinnert.",
@@ -1139,32 +771,19 @@
           "Die Spur der größeren Geschichte führte zu einer neuen Entwicklung: Ein Schuldeneintreiber tritt aus der Gasse und nennt Zahlen, an die sich kein ehrlicher Mann erinnert.",
           "Zeugen verbanden die jüngste Wendung der Geschichte mit einer besonders einprägsamen Szene: Ein Schuldeneintreiber tritt aus der Gasse und nennt Zahlen, an die sich kein ehrlicher Mann erinnert."
         ],
-        "audioFile": "audio/arcs/cardshark_debt.mp3",
-        "requiresWorldTags": [
-          "cardshark_unbeaten"
-        ],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "cardshark_debt_paid"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Schuldeneintreiber wurde abgehandelt."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "cardshark_debt_grows"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Schuldeneintreiber wurde ignoriert."
           }
         ],
         "playerAwareText": {
-          "compareToNodeId": "cardshark_beaten",
           "samePlayer": {
             "title": "Deine Schuld wird fällig",
             "screenText": "Der Kartenhai erinnert sich daran, dass du seine Herausforderung unvollendet ließest, und sein Eintreiber stellt sich dir vor dem Kampf in den Weg. Zahle $20, um die Schuld zu begleichen und normal zu kämpfen, oder lehne ab: Verlierst du diesen Kampf, erleidest du 1 Wunde und wirfst 1 Pokerkarte ab.",
@@ -1173,8 +792,7 @@
               "Berichte über Schuldeneintreiber erreichten die Gazette, bevor die Druckpressen anliefen.",
               "Zeugen aus dem Grenzland trugen die Nachricht von Schuldeneintreiber von einer Siedlung zur nächsten.",
               "Bis zum Ende des Tages hatte Schuldeneintreiber einen Platz unter den bemerkenswerten Ereignissen des Gebiets gefunden."
-            ],
-            "audioFile": null
+            ]
           },
           "differentPlayer": {
             "title": "Angeheuerte Muskeln",
@@ -1184,15 +802,13 @@
               "Berichte über Schuldeneintreiber erreichten die Gazette, bevor die Druckpressen anliefen.",
               "Zeugen aus dem Grenzland trugen die Nachricht von Schuldeneintreiber von einer Siedlung zur nächsten.",
               "Bis zum Ende des Tages hatte Schuldeneintreiber einen Platz unter den bemerkenswerten Ereignissen des Gebiets gefunden."
-            ],
-            "audioFile": null
+            ]
           },
           "default": {
             "screenText": "Wenn du diesen Spielerkampf gewinnst, erhältst du +$20."
           }
         }
       }
-    ],
-    "scope": "shared"
+    ]
   }
 ]

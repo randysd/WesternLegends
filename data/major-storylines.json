@@ -58,7 +58,10 @@
             "type": "newspaperNote",
             "text": "Surveyors Arrive was ignored."
           }
-        ]
+        ],
+        "changes": {
+          "money": 20
+        }
       },
       {
         "id": "rail_lumber",
@@ -103,7 +106,10 @@
             "type": "newspaperNote",
             "text": "Timbers for the Depot was ignored."
           }
-        ]
+        ],
+        "changes": {
+          "money": 20
+        }
       },
       {
         "id": "rail_iron",
@@ -148,7 +154,10 @@
             "type": "newspaperNote",
             "text": "Iron for the Line was ignored."
           }
-        ]
+        ],
+        "changes": {
+          "money": 20
+        }
       },
       {
         "id": "rail_grand_opening",
@@ -230,7 +239,10 @@
             "type": "newspaperNote",
             "text": "Torn Journal was ignored."
           }
-        ]
+        ],
+        "changes": {
+          "legendaryTokens": 1
+        }
       },
       {
         "id": "spanish_marker",
@@ -310,7 +322,11 @@
             "type": "newspaperNote",
             "text": "The Buried Cache was ignored."
           }
-        ]
+        ],
+        "changes": {
+          "money": 40,
+          "legendary": 2
+        }
       }
     ],
     "scope": "global"
@@ -369,7 +385,10 @@
             "type": "newspaperNote",
             "text": "Strange Tracks was ignored."
           }
-        ]
+        ],
+        "changes": {
+          "whiteBuffaloClues": 1
+        }
       },
       {
         "id": "buffalo_warning",
@@ -440,7 +459,10 @@
                 "type": "addWorldTag",
                 "tag": "white_buffalo_protected"
               }
-            ]
+            ],
+            "changes": {
+              "legendary": 3
+            }
           },
           {
             "label": "Hunt It",
@@ -457,7 +479,11 @@
                 "type": "addWorldTag",
                 "tag": "white_buffalo_hunted"
               }
-            ]
+            ],
+            "changes": {
+              "money": 80,
+              "legendary": 1
+            }
           }
         ]
       }

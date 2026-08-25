@@ -1,0 +1,2523 @@
+{
+  "characters": [
+    {
+      "id": "annie_oakley",
+      "name": "Annie Oakley",
+      "thumbnail": {
+        "scale": 2.2,
+        "centerX": 62,
+        "centerY": 7
+      },
+      "browseGroups": [
+        "fighting"
+      ],
+      "sourceModule": "base",
+      "frontImage": "assets/images/cards/character-annie-oakley-front.png",
+      "backImage": "assets/images/cards/character-annie-oakley-back.png",
+      "starting": {
+        "location": "Any Darkrock general store space",
+        "bonuses": [
+          {
+            "type": "poker_cards",
+            "amount": 1
+          },
+          {
+            "type": "item",
+            "itemId": "rifle"
+          }
+        ],
+        "mapLocationIds": [
+          "darkrock-general-store"
+        ]
+      },
+      "ability": "At the start of a fight with another player, that player must discard 1 Poker card or gain 1 Wound.",
+      "playstyle": {
+        "tags": [
+          "Fighting",
+          "Dueling",
+          "Hand Pressure"
+        ],
+        "strength": "Puts immediate pressure on another player before a fight even begins.",
+        "focus": "Pick fights when opponents are low on Poker cards or cannot afford another Wound."
+      }
+    },
+    {
+      "id": "bass_reeves",
+      "name": "Bass Reeves",
+      "thumbnail": {
+        "scale": 2.2,
+        "centerX": 62,
+        "centerY": 2
+      },
+      "browseGroups": [
+        "poker"
+      ],
+      "sourceModule": "base",
+      "frontImage": "assets/images/cards/character-bass-reeves-front.png",
+      "backImage": "assets/images/cards/character-bass-reeves-back.png",
+      "starting": {
+        "location": "Darkrock Sheriff's office",
+        "bonuses": [
+          {
+            "type": "money",
+            "amount": 10
+          },
+          {
+            "type": "poker_cards",
+            "amount": 1
+          },
+          {
+            "type": "item",
+            "itemId": "revolver",
+            "upgraded": true
+          },
+          {
+            "type": "marshal_point",
+            "amount": 1,
+            "gainReward": false
+          }
+        ],
+        "mapLocationIds": [
+          "darkrock-sheriff"
+        ]
+      },
+      "ability": "At the start of your turn, draw 1 Poker card.",
+      "playstyle": {
+        "tags": [
+          "Card Advantage",
+          "Poker",
+          "Versatile"
+        ],
+        "strength": "Generates a steady extra Poker card at the start of every turn.",
+        "focus": "Use the larger hand to stay prepared for fights, Poker, and card-driven actions."
+      }
+    },
+    {
+      "id": "billy_the_kid",
+      "name": "Billy the Kid",
+      "thumbnail": {
+        "scale": 2,
+        "centerX": 20,
+        "centerY": 5
+      },
+      "browseGroups": [
+        "outlaw",
+        "movement",
+        "economy"
+      ],
+      "sourceModule": "base",
+      "frontImage": "assets/images/cards/character-billy-the-kid-front.png",
+      "backImage": "assets/images/cards/character-billy-the-kid-back.png",
+      "starting": {
+        "location": "Either bandit hideout A",
+        "bonuses": [
+          {
+            "type": "poker_cards",
+            "amount": 2
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          },
+          {
+            "type": "wanted_point",
+            "amount": 2,
+            "gainReward": false
+          }
+        ],
+        "mapLocationIds": [
+          "bandit-hideout-a"
+        ]
+      },
+      "ability": "After you end a Move action in a space with one or more players, a player of your choice in that space must give you $10 or 1 Poker card.",
+      "playstyle": {
+        "tags": [
+          "Player Interaction",
+          "Movement",
+          "Economy"
+        ],
+        "strength": "Extracts money or cards simply by ending movement with other players.",
+        "focus": "Seek occupied spaces and pressure players who are rich or short on Poker cards."
+      }
+    },
+    {
+      "id": "bloody_knife",
+      "name": "Bloody Knife",
+      "thumbnail": {
+        "scale": 2.5,
+        "centerX": 65,
+        "centerY": 5
+      },
+      "browseGroups": [
+        "movement",
+        "frontier"
+      ],
+      "sourceModule": "base",
+      "frontImage": "assets/images/cards/character-bloody-knife-front.png",
+      "backImage": "assets/images/cards/character-bloody-knife-back.png",
+      "starting": {
+        "location": "Spike's View Mine",
+        "bonuses": [
+          {
+            "type": "money",
+            "amount": 20
+          },
+          {
+            "type": "poker_cards",
+            "amount": 2
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          }
+        ],
+        "mapLocationIds": [
+          "spikes-view-mine"
+        ]
+      },
+      "ability": "You may move through a Mesa as though it is a single space. You cannot end a Move action in a Mesa. After you move through a Mesa, lose 1 Wound.",
+      "playstyle": {
+        "tags": [
+          "Movement",
+          "Frontier",
+          "Shortcuts"
+        ],
+        "strength": "Can cut through Mesas as single spaces to take routes other characters cannot.",
+        "focus": "Use Mesa shortcuts to save movement, while managing the Wounds those shortcuts cost."
+      }
+    },
+    {
+      "id": "calamity_jane",
+      "name": "Calamity Jane",
+      "thumbnail": {
+        "scale": 2.2,
+        "centerX": 90,
+        "centerY": 10
+      },
+      "browseGroups": [
+        "story",
+        "poker"
+      ],
+      "sourceModule": "base",
+      "frontImage": "assets/images/cards/character-calamity-jane-front.png",
+      "backImage": "assets/images/cards/character-calamity-jane-back.png",
+      "starting": {
+        "location": "Any Red Falls general store space",
+        "bonuses": [
+          {
+            "type": "money",
+            "amount": 20
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          },
+          {
+            "type": "item",
+            "itemId": "provisions",
+            "note": "Draw 1 Poker Card."
+          }
+        ],
+        "mapLocationIds": [
+          "red-falls-general-store"
+        ]
+      },
+      "ability": "Your hand size is increased by 1. After you contribute to a Story card, draw 1 Poker card.",
+      "playstyle": {
+        "tags": [
+          "Card Advantage",
+          "Story",
+          "Large Hand"
+        ],
+        "strength": "Carries an extra card and gains more cards by contributing to Story cards.",
+        "focus": "Look for Story contributions while using the larger hand to stay flexible."
+      }
+    },
+    {
+      "id": "doc_holliday",
+      "name": "Doc Holliday",
+      "legacyNames": [
+        "“Doc” Holliday",
+        "\"Doc\" Holliday"
+      ],
+      "thumbnail": {
+        "scale": 2.2,
+        "centerX": 20,
+        "centerY": 5
+      },
+      "browseGroups": [
+        "fighting",
+        "poker"
+      ],
+      "sourceModule": "base",
+      "frontImage": "assets/images/cards/character-doc-holliday-front.png",
+      "backImage": "assets/images/cards/character-doc-holliday-back.png",
+      "starting": {
+        "location": "Red Falls Doctor's office",
+        "bonuses": [
+          {
+            "type": "money",
+            "amount": 40
+          },
+          {
+            "type": "poker_cards",
+            "amount": 2
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          },
+          {
+            "type": "wound",
+            "amount": 1
+          }
+        ],
+        "mapLocationIds": [
+          "red-falls-doctor"
+        ]
+      },
+      "ability": "After you gain any number of Wounds, draw 1 Poker card. Wounds do not reduce your hand size.",
+      "playstyle": {
+        "tags": [
+          "Wounds",
+          "Card Advantage",
+          "Resilience"
+        ],
+        "strength": "Turns incoming Wounds into Poker cards and ignores the normal hand-size penalty from Wounds.",
+        "focus": "Do not be afraid of taking some damage when the extra cards can create a stronger turn."
+      }
+    },
+    {
+      "id": "jesse_james",
+      "name": "Jesse James",
+      "thumbnail": {
+        "scale": 2.5,
+        "centerX": 55,
+        "centerY": 5
+      },
+      "browseGroups": [
+        "fighting",
+        "outlaw",
+        "frontier"
+      ],
+      "sourceModule": "base",
+      "frontImage": "assets/images/cards/character-jesse-james-front.png",
+      "backImage": "assets/images/cards/character-jesse-james-back.png",
+      "starting": {
+        "location": "Either bandit hideout B",
+        "bonuses": [
+          {
+            "type": "money",
+            "amount": 10
+          },
+          {
+            "type": "poker_cards",
+            "amount": 1
+          },
+          {
+            "type": "item",
+            "itemId": "revolver",
+            "upgraded": true
+          },
+          {
+            "type": "wanted_point",
+            "amount": 1,
+            "gainReward": false
+          }
+        ],
+        "mapLocationIds": [
+          "bandit-hideout-b"
+        ]
+      },
+      "ability": "In a fight outside of a town, decrease the value of a card played against you by 1. In a fight against another player, you win all ties.",
+      "playstyle": {
+        "tags": [
+          "Fighting",
+          "Frontier",
+          "Dueling"
+        ],
+        "strength": "Is especially difficult to beat in fights outside towns and wins ties against players.",
+        "focus": "Choose fight locations carefully and favor confrontations in the frontier."
+      }
+    },
+    {
+      "id": "kit_carson",
+      "name": "Kit Carson",
+      "thumbnail": {
+        "scale": 2,
+        "centerX": 60,
+        "centerY": 5
+      },
+      "browseGroups": [
+        "movement",
+        "frontier",
+        "fighting"
+      ],
+      "sourceModule": "base",
+      "frontImage": "assets/images/cards/character-kit-carson-front.png",
+      "backImage": "assets/images/cards/character-kit-carson-back.png",
+      "starting": {
+        "location": "Sunny Hill's mine",
+        "bonuses": [
+          {
+            "type": "item",
+            "itemId": "miners_map"
+          },
+          {
+            "type": "poker_cards",
+            "amount": 2
+          },
+          {
+            "type": "item",
+            "itemId": "revolver",
+            "upgraded": true
+          }
+        ],
+        "mapLocationIds": [
+          "sunny-hills-mine"
+        ]
+      },
+      "ability": "At the end of a Move action, you may move 1 additional space. In a fight outside of a town, decrease the value of a card played against you by 1.",
+      "playstyle": {
+        "tags": [
+          "Movement",
+          "Frontier",
+          "Fighting"
+        ],
+        "strength": "Combines extra movement with better defense in fights outside towns.",
+        "focus": "Stay mobile in the frontier and use the bonus space to reach profitable or tactical positions."
+      }
+    },
+    {
+      "id": "stagecoach_mary_fields",
+      "name": "Stagecoach Mary Fields",
+      "legacyNames": [
+        "“Stagecoach” Mary Fields",
+        "\"Stagecoach\" Mary Fields",
+        "\"Stagecoach Mary\" Fields"
+      ],
+      "thumbnail": {
+        "scale": 2.5,
+        "centerX": 55,
+        "centerY": 3
+      },
+      "browseGroups": [
+        "economy",
+        "story"
+      ],
+      "sourceModule": "base",
+      "frontImage": "assets/images/cards/character-stagecoach-mary-fields-front.png",
+      "backImage": "assets/images/cards/character-stagecoach-mary-fields-back.png",
+      "starting": {
+        "location": "Any Darkrock Saloon Space",
+        "bonuses": [
+          {
+            "type": "money",
+            "amount": 10
+          },
+          {
+            "type": "poker_cards",
+            "amount": 1
+          },
+          {
+            "type": "item",
+            "itemId": "shotgun"
+          }
+        ],
+        "mapLocationIds": [
+          "darkrock-saloon"
+        ]
+      },
+      "ability": "At the start of your turn, gain $10. After you contribute to a Story card, gain $10.",
+      "playstyle": {
+        "tags": [
+          "Economy",
+          "Story",
+          "Income"
+        ],
+        "strength": "Produces reliable cash every turn and earns even more by contributing to Story cards.",
+        "focus": "Keep the steady income flowing and look for Story contributions that pay you twice."
+      }
+    },
+    {
+      "id": "wild_bill_hickok",
+      "name": "Wild Bill Hickok",
+      "thumbnail": {
+        "scale": 2,
+        "centerX": 15,
+        "centerY": 2
+      },
+      "browseGroups": [
+        "poker",
+        "economy"
+      ],
+      "sourceModule": "base",
+      "frontImage": "assets/images/cards/character-wild-bill-hickok-front.png",
+      "backImage": "assets/images/cards/character-wild-bill-hickok-back.png",
+      "starting": {
+        "location": "Red Falls Cabaret",
+        "bonuses": [
+          {
+            "type": "money",
+            "amount": 10
+          },
+          {
+            "type": "poker_cards",
+            "amount": 3
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          }
+        ],
+        "mapLocationIds": [
+          "red-falls-cabaret"
+        ]
+      },
+      "ability": "After you win a game of Poker, gain $20. After you lose a game of Poker, you may keep 1 random Poker card you played.",
+      "playstyle": {
+        "tags": [
+          "Poker",
+          "Economy",
+          "Card Recovery"
+        ],
+        "strength": "Makes Poker more profitable while softening the cost of losing a game.",
+        "focus": "Play Poker often, especially when your hand gives you a good chance to turn games into cash."
+      }
+    },
+    {
+      "id": "wyatt_earp",
+      "name": "Wyatt Earp",
+      "thumbnail": {
+        "scale": 2.5,
+        "centerX": 80,
+        "centerY": 5
+      },
+      "browseGroups": [
+        "marshal",
+        "fighting"
+      ],
+      "sourceModule": "base",
+      "frontImage": "assets/images/cards/character-wyatt-earp-front.png",
+      "backImage": "assets/images/cards/character-wyatt-earp-back.png",
+      "starting": {
+        "location": "Any available Bandit Hideout",
+        "bonuses": [
+          {
+            "type": "money",
+            "amount": 10
+          },
+          {
+            "type": "poker_cards",
+            "amount": 2
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          },
+          {
+            "type": "marshal_point",
+            "amount": 1,
+            "gainReward": false
+          }
+        ],
+        "mapLocationIds": [
+          "bandit-hideout-any"
+        ]
+      },
+      "ability": "The first time you win a fight against a Bandit each turn, gain 1 additional action.",
+      "playstyle": {
+        "tags": [
+          "Bandits",
+          "Actions",
+          "Fighting"
+        ],
+        "strength": "Turns the first Bandit victory each turn into an additional action.",
+        "focus": "Find a Bandit early in the turn so the bonus action can extend everything else you do."
+      }
+    },
+    {
+      "id": "y_b_rowdy",
+      "name": "Y. B. Rowdy",
+      "thumbnail": {
+        "scale": 2.8,
+        "centerX": 63,
+        "centerY": 13
+      },
+      "browseGroups": [
+        "movement",
+        "frontier",
+        "poker"
+      ],
+      "sourceModule": "base",
+      "frontImage": "assets/images/cards/character-y-b-rowdy-front.png",
+      "backImage": "assets/images/cards/character-y-b-rowdy-back.png",
+      "starting": {
+        "location": "Cliff Junction Mine",
+        "bonuses": [
+          {
+            "type": "poker_cards",
+            "amount": 3
+          },
+          {
+            "type": "item",
+            "itemId": "revolver",
+            "upgraded": true
+          }
+        ],
+        "mapLocationIds": [
+          "cliff-junction-mine"
+        ]
+      },
+      "ability": "After you start your turn outside of a town, you may discard 1 Poker card to move up to 3 spaces.",
+      "playstyle": {
+        "tags": [
+          "Movement",
+          "Poker Cards",
+          "Frontier"
+        ],
+        "strength": "Can trade a Poker card for a burst of movement when starting outside a town.",
+        "focus": "Keep spare cards available and use frontier starts to reposition quickly."
+      }
+    },
+    {
+      "id": "judge_roy_bean",
+      "name": "Judge Roy Bean",
+      "thumbnail": {
+        "scale": 2.2,
+        "centerX": 80,
+        "centerY": 10
+      },
+      "browseGroups": [
+        "marshal",
+        "fighting"
+      ],
+      "sourceModule": "the_good_the_bad_and_the_handsome",
+      "frontImage": "assets/images/cards/character-judge-roy-bean-front.png",
+      "backImage": "assets/images/cards/character-judge-roy-bean-back.png",
+      "starting": {
+        "location": "Any Red Falls saloon space",
+        "bonuses": [
+          {
+            "type": "money",
+            "amount": 10
+          },
+          {
+            "type": "poker_cards",
+            "amount": 1
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          },
+          {
+            "type": "item",
+            "itemId": "whiskey"
+          },
+          {
+            "type": "marshal_point",
+            "amount": 1,
+            "gainReward": false
+          }
+        ],
+        "mapLocationIds": [
+          "red-falls-saloon"
+        ]
+      },
+      "ability": "In a fight against a Bandit, Guard, or the Sheriff, they must choose and reveal their card first. In a fight against a Bandit, Guard, or the Sheriff, you win all ties.",
+      "playstyle": {
+        "tags": [
+          "NPC Fighting",
+          "Bandits",
+          "Fight Advantage"
+        ],
+        "strength": "Gets extra information and wins ties against Bandits, Guards, and the Sheriff.",
+        "focus": "Seek NPC fights where seeing their card first lets you spend only as much strength as needed."
+      }
+    },
+    {
+      "id": "butch_cassity",
+      "name": "Butch Cassity",
+      "legacyNames": [
+        "Butch Cassidy"
+      ],
+      "thumbnail": {
+        "scale": 2,
+        "centerX": 90,
+        "centerY": 3
+      },
+      "browseGroups": [
+        "outlaw",
+        "marshal",
+        "economy"
+      ],
+      "sourceModule": "the_good_the_bad_and_the_handsome",
+      "frontImage": "assets/images/cards/character-butch-cassity-front.png",
+      "backImage": "assets/images/cards/character-butch-cassity-back.png",
+      "starting": {
+        "location": "Either Bandit hideout C",
+        "bonuses": [
+          {
+            "type": "poker_cards",
+            "amount": 2
+          },
+          {
+            "type": "item",
+            "itemId": "revolver",
+            "upgraded": true
+          },
+          {
+            "type": "wanted_point",
+            "amount": 1,
+            "gainReward": false
+          }
+        ],
+        "mapLocationIds": [
+          "bandit-hideout-c"
+        ]
+      },
+      "ability": "After you rob another player, you may steal 1 miscellaneous item that you do not already own instead of half of their money or Gold Nuggets. After you arrest another player, you may steal half of that player's money or Gold Nuggets.",
+      "playstyle": {
+        "tags": [
+          "Player Interaction",
+          "Theft",
+          "Flexible Alignment"
+        ],
+        "strength": "Can take valuable resources from opponents whether acting as a robber or an arresting lawman.",
+        "focus": "Target players with the items, money, or Gold Nuggets that make your current alignment most rewarding."
+      }
+    },
+    {
+      "id": "joaquin_murrieta",
+      "name": "Joaquin Murrieta",
+      "thumbnail": {
+        "scale": 2.3,
+        "centerX": 70,
+        "centerY": 5
+      },
+      "browseGroups": [
+        "marshal",
+        "outlaw",
+        "fighting"
+      ],
+      "sourceModule": "the_good_the_bad_and_the_handsome",
+      "frontImage": "assets/images/cards/character-joaquin-murrieta-front.png",
+      "backImage": "assets/images/cards/character-joaquin-murrieta-back.png",
+      "starting": {
+        "location": "Any Darkrock general store space",
+        "bonuses": [
+          {
+            "type": "money",
+            "amount": 10
+          },
+          {
+            "type": "gold_nugget",
+            "amount": 1
+          },
+          {
+            "type": "poker_cards",
+            "amount": 1
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          }
+        ],
+        "mapLocationIds": [
+          "darkrock-general-store"
+        ]
+      },
+      "ability": "If you are a Wanted player, gain 1 LP after you fight a Marshal player. If you are a Marshal player, gain 1 LP after you fight a Wanted player.",
+      "playstyle": {
+        "tags": [
+          "Marshal / Wanted",
+          "Fighting",
+          "LP"
+        ],
+        "strength": "Earns LP for fighting players on the opposite side of the law.",
+        "focus": "Commit to a track and seek confrontations with players on the opposing track."
+      }
+    },
+    {
+      "id": "belle_starr",
+      "name": "Belle Starr",
+      "thumbnail": {
+        "scale": 2,
+        "centerX": 60,
+        "centerY": 8
+      },
+      "browseGroups": [
+        "outlaw",
+        "fighting"
+      ],
+      "sourceModule": "fistful_of_extras",
+      "frontImage": "assets/images/cards/character-belle-starr-front.png",
+      "backImage": "assets/images/cards/character-belle-starr-back.png",
+      "starting": {
+        "location": "Any Red Falls general store space",
+        "bonuses": [
+          {
+            "type": "money",
+            "amount": 30
+          },
+          {
+            "type": "poker_cards",
+            "amount": 1
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          }
+        ],
+        "mapLocationIds": [
+          "red-falls-general-store"
+        ]
+      },
+      "ability": "In a fight against a Bandit, Guard, or the Sheriff, decrease the value of the fight card played against you by 2. After you win a fight against a Bandit, you may choose to gain 1 Wanted Point instead.",
+      "playstyle": {
+        "tags": [
+          "NPC Fighting",
+          "Bandits",
+          "Wanted"
+        ],
+        "strength": "Is very strong against NPC opponents and can turn Bandit victories into Wanted progress.",
+        "focus": "Hunt Bandits and other NPCs, then decide when a Bandit win is worth pushing farther onto the Wanted Track."
+      }
+    },
+    {
+      "id": "isom_dart",
+      "name": "Isom Dart",
+      "thumbnail": {
+        "scale": 2.2,
+        "centerX": 85,
+        "centerY": 15
+      },
+      "browseGroups": [
+        "frontier",
+        "economy"
+      ],
+      "sourceModule": "fistful_of_extras",
+      "frontImage": "assets/images/cards/character-isom-dart-front.png",
+      "backImage": "assets/images/cards/character-isom-dart-back.png",
+      "starting": {
+        "location": "Sunny Hills Ranch",
+        "bonuses": [
+          {
+            "type": "poker_cards",
+            "amount": 1
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          },
+          {
+            "type": "item",
+            "itemId": "work_horse"
+          }
+        ],
+        "mapLocationIds": [
+          "sunny-hills-ranch"
+        ]
+      },
+      "ability": "If you start your turn with at least 1 Cattle token, you may gain 1 additional action. If you do, you must discard all Cattle tokens at the end of your turn.",
+      "playstyle": {
+        "tags": [
+          "Cattle",
+          "Actions",
+          "Ranching"
+        ],
+        "strength": "Can convert a carried Cattle token into an additional action for the turn.",
+        "focus": "Arrange to start key turns with Cattle when the extra action is worth giving those tokens up."
+      }
+    },
+    {
+      "id": "allan_pinkerton",
+      "name": "Allan Pinkerton",
+      "thumbnail": {
+        "scale": 2,
+        "centerX": 80,
+        "centerY": 1
+      },
+      "browseGroups": [
+        "poker",
+        "fighting"
+      ],
+      "sourceModule": "fistful_of_extras",
+      "frontImage": "assets/images/cards/character-allan-pinkerton-front.png",
+      "backImage": "assets/images/cards/character-allan-pinkerton-back.png",
+      "starting": {
+        "location": "Darkrock bank",
+        "bonuses": [
+          {
+            "type": "item",
+            "itemId": "holster"
+          },
+          {
+            "type": "poker_cards",
+            "amount": 1
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          }
+        ],
+        "mapLocationIds": [
+          "darkrock-bank"
+        ]
+      },
+      "ability": "Action: Choose a player within 1 space to show you their Poker cards. That player must discard all cards of a value of your choice.",
+      "playstyle": {
+        "tags": [
+          "Hand Control",
+          "Player Interaction",
+          "Poker Cards"
+        ],
+        "strength": "Can inspect a nearby player’s hand and strip every card of a chosen value.",
+        "focus": "Get close to important opponents and disrupt their hand before a fight or other contested play."
+      }
+    },
+    {
+      "id": "buffalo_bill_cody",
+      "name": "Buffalo Bill Cody",
+      "thumbnail": {
+        "scale": 2,
+        "centerX": 20,
+        "centerY": 5
+      },
+      "browseGroups": [
+        "economy",
+        "frontier"
+      ],
+      "sourceModule": "fistful_of_extras",
+      "frontImage": "assets/images/cards/character-buffalo-bill-cody-front.png",
+      "backImage": "assets/images/cards/character-buffalo-bill-cody-back.png",
+      "starting": {
+        "location": "Mesito's Point Ranch",
+        "bonuses": [
+          {
+            "type": "item",
+            "itemId": "mule"
+          },
+          {
+            "type": "poker_cards",
+            "amount": 1
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          }
+        ],
+        "mapLocationIds": [
+          "mesitos-point-ranch"
+        ]
+      },
+      "ability": "If you start your turn outside of a town, gain 1 Gold Nugget.",
+      "playstyle": {
+        "tags": [
+          "Gold",
+          "Frontier",
+          "Economy"
+        ],
+        "strength": "Generates a free Gold Nugget whenever he starts a turn outside a town.",
+        "focus": "Plan routes that end in the frontier and cash in the accumulating gold when the timing is efficient."
+      }
+    },
+    {
+      "id": "bat_masterson",
+      "name": "Bat Masterson",
+      "thumbnail": {
+        "scale": 2,
+        "centerX": 65,
+        "centerY": 1
+      },
+      "browseGroups": [
+        "movement",
+        "frontier"
+      ],
+      "sourceModule": "fistful_of_extras",
+      "frontImage": "assets/images/cards/character-bat-masterson-front.png",
+      "backImage": "assets/images/cards/character-bat-masterson-back.png",
+      "starting": {
+        "location": "Dixon Creek",
+        "bonuses": [
+          {
+            "type": "money",
+            "amount": 10
+          },
+          {
+            "type": "poker_cards",
+            "amount": 2
+          },
+          {
+            "type": "item",
+            "itemId": "revolver",
+            "upgraded": true
+          }
+        ],
+        "mapLocationIds": [
+          "dixon-creek"
+        ]
+      },
+      "ability": "At the start of your turn, you may add or remove 1 Bandit from any Bandit Hideout to move up to 2 spaces. (A Bandit can only be added to an unoccupied Bandit Hideout.)",
+      "playstyle": {
+        "tags": [
+          "Bandits",
+          "Movement",
+          "Board Control"
+        ],
+        "strength": "Manipulates Bandit Hideouts while gaining free movement.",
+        "focus": "Use Bandit placement and removal to improve the board state while repositioning yourself."
+      }
+    },
+    {
+      "id": "pearl_hart",
+      "name": "Pearl Hart",
+      "thumbnail": {
+        "scale": 2.2,
+        "centerX": 70,
+        "centerY": 10
+      },
+      "browseGroups": [
+        "marshal",
+        "outlaw",
+        "movement"
+      ],
+      "sourceModule": "fistful_of_extras",
+      "frontImage": "assets/images/cards/character-pearl-hart-front.png",
+      "backImage": "assets/images/cards/character-pearl-hart-back.png",
+      "starting": {
+        "location": "Dixon Creek",
+        "bonuses": [
+          {
+            "type": "cattle_token",
+            "amount": 1,
+            "choice": "ranch of your choice"
+          },
+          {
+            "type": "poker_cards",
+            "amount": 2
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          }
+        ],
+        "mapLocationIds": [
+          "dixon-creek"
+        ]
+      },
+      "ability": "After you gain any number of Marshal or Wanted Points on your turn, draw 1 Poker card and move up to 2 spaces.",
+      "playstyle": {
+        "tags": [
+          "Marshal / Wanted",
+          "Card Advantage",
+          "Movement"
+        ],
+        "strength": "Any Marshal or Wanted progress can immediately produce both a card and extra movement.",
+        "focus": "Trigger track gains frequently and use the bonus movement to chain into your next objective."
+      }
+    },
+    {
+      "id": "ada_curnutt",
+      "name": "Ada Curnutt",
+      "thumbnail": {
+        "scale": 1.7,
+        "centerX": 1,
+        "centerY": 1
+      },
+      "browseGroups": [
+        "marshal",
+        "outlaw",
+        "movement"
+      ],
+      "sourceModule": "wild_bunch",
+      "frontImage": "assets/images/cards/character-ada-curnutt-front.png",
+      "backImage": "assets/images/cards/character-ada-curnutt-back.png",
+      "starting": {
+        "location": "Any Buzzard Gulch Saloon Space",
+        "bonuses": [
+          {
+            "type": "poker_cards",
+            "amount": 2
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          },
+          {
+            "type": "marshal_point",
+            "amount": 1,
+            "gainReward": false
+          }
+        ],
+        "mapLocationIds": [
+          "buzzard-gulch-saloon"
+        ]
+      },
+      "ability": "At the start of your turn, move a number of spaces up to your level on the Marshal or Wanted Track. (Level is determined by the row your cube is on.)",
+      "playstyle": {
+        "tags": [
+          "Movement",
+          "Marshal / Wanted",
+          "Track Positioning"
+        ],
+        "strength": "Her movement potential grows with her level on either the Marshal or Wanted Track.",
+        "focus": "Build track position early so later turns gain stronger free movement."
+      }
+    },
+    {
+      "id": "dave_rudabaugh",
+      "name": "Dave Rudabaugh",
+      "thumbnail": {
+        "scale": 2.2,
+        "centerX": 72,
+        "centerY": 10
+      },
+      "browseGroups": [
+        "movement",
+        "outlaw"
+      ],
+      "sourceModule": "wild_bunch",
+      "frontImage": "assets/images/cards/character-dave-rudabaugh-front.png",
+      "backImage": "assets/images/cards/character-dave-rudabaugh-back.png",
+      "starting": {
+        "location": "Place last in a space with another player",
+        "bonuses": [
+          {
+            "type": "poker_cards",
+            "amount": 1
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          },
+          {
+            "type": "wanted_point",
+            "amount": 1,
+            "gainReward": false
+          }
+        ]
+      },
+      "ability": "At the end of a Move action, you may move 1 additional space. The first time you end a Move action in the same space as another player this turn, draw 1 Poker card.",
+      "playstyle": {
+        "tags": [
+          "Movement",
+          "Player Interaction",
+          "Card Advantage"
+        ],
+        "strength": "Moves farther than normal and draws a card for ending movement with another player once per turn.",
+        "focus": "Route movement through useful destinations that also let you finish beside another player."
+      }
+    },
+    {
+      "id": "johnny_ringo",
+      "name": "Johnny Ringo",
+      "thumbnail": {
+        "scale": 2,
+        "centerX": 70,
+        "centerY": 10
+      },
+      "browseGroups": [
+        "fighting"
+      ],
+      "sourceModule": "wild_bunch",
+      "frontImage": "assets/images/cards/character-johnny-ringo-front.png",
+      "backImage": "assets/images/cards/character-johnny-ringo-back.png",
+      "starting": {
+        "location": "Buzzard Gulch Ranch",
+        "bonuses": [
+          {
+            "type": "money",
+            "amount": 20
+          },
+          {
+            "type": "poker_cards",
+            "amount": 1
+          },
+          {
+            "type": "item",
+            "itemId": "revolver",
+            "upgraded": true
+          }
+        ],
+        "mapLocationIds": [
+          "buzzard-gulch-ranch"
+        ]
+      },
+      "ability": "At the end of a fight, lose 1 Wound. At the end of a fight against another player, that player gains 1 Wound.",
+      "playstyle": {
+        "tags": [
+          "Fighting",
+          "Wounds",
+          "Aggression"
+        ],
+        "strength": "Recovers a Wound after every fight while inflicting a Wound on player opponents afterward.",
+        "focus": "Fight often, especially against players, to turn repeated confrontations into lasting attrition."
+      }
+    },
+    {
+      "id": "tiburcio_vasquez",
+      "name": "Tiburcio Vasquez",
+      "thumbnail": {
+        "scale": 2.4,
+        "centerX": 30,
+        "centerY": 5
+      },
+      "browseGroups": [
+        "marshal",
+        "outlaw"
+      ],
+      "sourceModule": "wild_bunch",
+      "frontImage": "assets/images/cards/character-tiburcio-vasquez-front.png",
+      "backImage": "assets/images/cards/character-tiburcio-vasquez-back.png",
+      "starting": {
+        "location": "Mountain Pass C",
+        "bonuses": [
+          {
+            "type": "poker_cards",
+            "amount": 3
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          },
+          {
+            "type": "track_point_choice",
+            "amount": 1,
+            "options": [
+              "marshal_point",
+              "wanted_point"
+            ],
+            "gainReward": false
+          }
+        ],
+        "mapLocationIds": [
+          "mountain-pass-c"
+        ]
+      },
+      "ability": "Action: Move your cube to the corresponding numbered space of the Marshal or Wanted Track without gaining the rewards.",
+      "playstyle": {
+        "tags": [
+          "Marshal / Wanted",
+          "Track Control",
+          "Flexibility"
+        ],
+        "strength": "Can reposition directly on the Marshal or Wanted Track without having to earn each intermediate space.",
+        "focus": "Use the action to set up the track position that best supports your next scoring or tactical plan."
+      }
+    },
+    {
+      "id": "fee_lee_wong",
+      "name": "Fee Lee Wong",
+      "thumbnail": {
+        "scale": 2,
+        "centerX": 65,
+        "centerY": 5
+      },
+      "browseGroups": [
+        "economy",
+        "poker"
+      ],
+      "sourceModule": "ante_up",
+      "frontImage": "assets/images/cards/character-fee-lee-wong-front.png",
+      "backImage": "assets/images/cards/character-fee-lee-wong-back.png",
+      "starting": {
+        "location": "8 value frontier space",
+        "bonuses": [
+          {
+            "type": "money",
+            "amount": 30
+          },
+          {
+            "type": "poker_cards",
+            "amount": 1
+          },
+          {
+            "type": "item",
+            "itemId": "gazette"
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          }
+        ],
+        "mapLocationIds": [
+          "frontier-value-8"
+        ]
+      },
+      "ability": "Your hand size is increased by 1. You can carry a maximum of $180.",
+      "playstyle": {
+        "tags": [
+          "Large Hand",
+          "Economy",
+          "Capacity"
+        ],
+        "strength": "Can hold more Poker cards and far more money than a normal character.",
+        "focus": "Take advantage of the larger limits by stockpiling resources for expensive purchases and powerful hands."
+      }
+    },
+    {
+      "id": "maria_gertrudis_barcelo",
+      "name": "Maria Gertrudis Barceló",
+      "legacyNames": [
+        "Maria Gertrudis Barcelo"
+      ],
+      "thumbnail": {
+        "scale": 2,
+        "centerX": 30,
+        "centerY": 5
+      },
+      "browseGroups": [
+        "economy",
+        "poker"
+      ],
+      "sourceModule": "ante_up",
+      "frontImage": "assets/images/cards/character-maria-gertrudis-barcelo-front.png",
+      "backImage": "assets/images/cards/character-maria-gertrudis-barcelo-back.png",
+      "starting": {
+        "location": "Any Buzzard Gulch trading post space",
+        "bonuses": [
+          {
+            "type": "money",
+            "amount": 10
+          },
+          {
+            "type": "item",
+            "itemId": "derringer"
+          },
+          {
+            "type": "poker_cards",
+            "amount": 1
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          }
+        ],
+        "mapLocationIds": [
+          "buzzard-gulch-trading-post"
+        ]
+      },
+      "ability": "If you start your turn in a town, gain $10 or draw 1 Poker card.",
+      "playstyle": {
+        "tags": [
+          "Town",
+          "Economy",
+          "Card Advantage"
+        ],
+        "strength": "Starting a turn in town provides a flexible choice between cash and a Poker card.",
+        "focus": "End turns in towns when practical and take whichever resource your next turn needs most."
+      }
+    },
+    {
+      "id": "pat_garrett",
+      "name": "Pat Garrett",
+      "thumbnail": {
+        "scale": 2.2,
+        "centerX": 20,
+        "centerY": 1
+      },
+      "browseGroups": [
+        "marshal"
+      ],
+      "sourceModule": "ante_up",
+      "frontImage": "assets/images/cards/character-pat-garrett-front.png",
+      "backImage": "assets/images/cards/character-pat-garrett-back.png",
+      "starting": {
+        "location": "Buzzard Gulch marshal's office",
+        "bonuses": [
+          {
+            "type": "money",
+            "amount": 10
+          },
+          {
+            "type": "poker_cards",
+            "amount": 1
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          },
+          {
+            "type": "marshal_point",
+            "amount": 1,
+            "gainReward": false
+          }
+        ],
+        "mapLocationIds": [
+          "buzzard-gulch-marshal"
+        ]
+      },
+      "ability": "Action: Once per turn, you may move the Sheriff up to 6 spaces. Gain 1 LP if this results in an arrest.",
+      "playstyle": {
+        "tags": [
+          "Sheriff",
+          "Marshal",
+          "LP"
+        ],
+        "strength": "Can reposition the Sheriff dramatically and earns LP when that movement causes an arrest.",
+        "focus": "Watch Wanted-player positions and line up Sheriff moves that convert directly into arrests."
+      }
+    },
+    {
+      "id": "poker_alice",
+      "name": "Poker Alice",
+      "thumbnail": {
+        "scale": 2,
+        "centerX": 75,
+        "centerY": 15
+      },
+      "browseGroups": [
+        "poker"
+      ],
+      "sourceModule": "ante_up",
+      "frontImage": "assets/images/cards/character-poker-alice-front.png",
+      "backImage": "assets/images/cards/character-poker-alice-back.png",
+      "starting": {
+        "location": "Buzzard Gulch rail station",
+        "bonuses": [
+          {
+            "type": "money",
+            "amount": 10
+          },
+          {
+            "type": "poker_cards",
+            "amount": 3
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          }
+        ],
+        "mapLocationIds": [
+          "buzzard-gulch-rail"
+        ]
+      },
+      "ability": "Action: Once per turn, draw 1 Poker card and initiate a game of Poker. Any player may join regardless of their location.",
+      "playstyle": {
+        "tags": [
+          "Poker",
+          "Card Advantage",
+          "Player Interaction"
+        ],
+        "strength": "Can start a Poker game from anywhere while drawing an extra card to help enter it.",
+        "focus": "Initiate Poker when your hand is favorable rather than waiting to be in the right location."
+      }
+    },
+    {
+      "id": "seth_bullock",
+      "name": "Seth Bullock",
+      "thumbnail": {
+        "scale": 2.2,
+        "centerX": 75,
+        "centerY": 3
+      },
+      "browseGroups": [
+        "marshal",
+        "fighting"
+      ],
+      "sourceModule": "ante_up",
+      "frontImage": "assets/images/cards/character-seth-bullock-front.png",
+      "backImage": "assets/images/cards/character-seth-bullock-back.png",
+      "starting": {
+        "location": "Any Buzzard Gulch trading post space",
+        "bonuses": [
+          {
+            "type": "money",
+            "amount": 20
+          },
+          {
+            "type": "poker_cards",
+            "amount": 1
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          },
+          {
+            "type": "marshal_point",
+            "amount": 1,
+            "gainReward": false
+          }
+        ],
+        "mapLocationIds": [
+          "buzzard-gulch-trading-post"
+        ]
+      },
+      "ability": "The first time you win a fight against a Bandit each turn, draw 2 Poker cards.",
+      "playstyle": {
+        "tags": [
+          "Bandits",
+          "Card Advantage",
+          "Fighting"
+        ],
+        "strength": "The first Bandit victory each turn produces two additional Poker cards.",
+        "focus": "Try to defeat one Bandit on productive turns to keep your hand well stocked."
+      }
+    },
+    {
+      "id": "soapy_smith",
+      "name": "“Soapy” Smith",
+      "legacyNames": [
+        "Jefferson “Soapy” Smith",
+        "Jefferson \"Soapy\" Smith",
+        "\"Soapy\" Smith"
+      ],
+      "thumbnail": {
+        "scale": 2,
+        "centerX": 70,
+        "centerY": 12
+      },
+      "browseGroups": [
+        "poker",
+        "economy"
+      ],
+      "sourceModule": "ante_up",
+      "frontImage": "assets/images/cards/character-soapy-smith-front.png",
+      "backImage": "assets/images/cards/character-soapy-smith-back.png",
+      "starting": {
+        "location": "Any Buzzard Gulch Trading Post Space",
+        "bonuses": [
+          {
+            "type": "money",
+            "amount": 10
+          },
+          {
+            "type": "poker_cards",
+            "amount": 1
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          },
+          {
+            "type": "item",
+            "itemId": "snake_oil"
+          },
+          {
+            "type": "gambler_point",
+            "amount": 1,
+            "gainReward": true
+          }
+        ],
+        "mapLocationIds": [
+          "buzzard-gulch-trading-post"
+        ]
+      },
+      "ability": "After you gain a Gambler Point, roll 1 Prospecting die and gain the result. If you roll Gravel, refill your hand.",
+      "playstyle": {
+        "tags": [
+          "Gambling",
+          "Prospecting",
+          "Bonus Resources"
+        ],
+        "strength": "Gambler Point gains also produce a Prospecting-die reward and can sometimes refill your hand.",
+        "focus": "Pursue gambling progress so each Gambler Point has a chance to generate additional resources."
+      }
+    },
+    {
+      "id": "sundance_kid",
+      "name": "Sundance Kid",
+      "thumbnail": {
+        "scale": 2,
+        "centerX": 10,
+        "centerY": 5
+      },
+      "browseGroups": [
+        "outlaw",
+        "movement"
+      ],
+      "sourceModule": "ante_up",
+      "frontImage": "assets/images/cards/character-sundance-kid-front.png",
+      "backImage": "assets/images/cards/character-sundance-kid-back.png",
+      "starting": {
+        "location": "Mountain Pass A",
+        "bonuses": [
+          {
+            "type": "poker_cards",
+            "amount": 1
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          },
+          {
+            "type": "wanted_point",
+            "amount": 1,
+            "gainReward": false
+          }
+        ],
+        "mapLocationIds": [
+          "mountain-pass-a"
+        ]
+      },
+      "ability": "Action: Once per turn, you may move to the space where the Train is currently located. (This is considered a Move action.)",
+      "playstyle": {
+        "tags": [
+          "Train",
+          "Movement",
+          "Mobility"
+        ],
+        "strength": "Can move directly to the Train once per turn regardless of normal travel distance.",
+        "focus": "Use the Train as a mobile destination for fast repositioning, encounters, or heist opportunities."
+      }
+    },
+    {
+      "id": "william_curly_bill_brocius",
+      "name": "William “Curly Bill” Brocius",
+      "thumbnail": {
+        "scale": 2.5,
+        "centerX": 70,
+        "centerY": 12
+      },
+      "browseGroups": [
+        "outlaw",
+        "poker",
+        "frontier"
+      ],
+      "sourceModule": "ante_up",
+      "frontImage": "assets/images/cards/character-william-curly-bill-brocius-front.png",
+      "backImage": "assets/images/cards/character-william-curly-bill-brocius-back.png",
+      "starting": {
+        "location": "Buzzard Gulch outlaw camp",
+        "bonuses": [
+          {
+            "type": "poker_cards",
+            "amount": 2
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          },
+          {
+            "type": "wanted_point",
+            "amount": 1,
+            "gainReward": false
+          }
+        ],
+        "mapLocationIds": [
+          "buzzard-gulch-outlaw-camp"
+        ]
+      },
+      "ability": "If you start your turn outside of a town, draw 2 Poker cards then discard 1 Poker card from your hand.",
+      "playstyle": {
+        "tags": [
+          "Frontier",
+          "Card Filtering",
+          "Poker Cards"
+        ],
+        "strength": "Starting outside town lets him see two fresh Poker cards and keep the better fit.",
+        "focus": "End turns outside towns and use the extra draw/discard to continually improve your hand."
+      }
+    },
+    {
+      "id": "al_swearengen",
+      "name": "Al Swearengen",
+      "thumbnail": {
+        "scale": 2.5,
+        "centerX": 17,
+        "centerY": 3
+      },
+      "browseGroups": [
+        "economy"
+      ],
+      "sourceModule": "blood_money",
+      "frontImage": "assets/images/cards/character-al-swearengen-front.png",
+      "backImage": "assets/images/cards/character-al-swearengen-back.png",
+      "starting": {
+        "location": "A saloon space matching the chosen deed",
+        "bonuses": [
+          {
+            "type": "deed",
+            "amount": 1,
+            "choice": "any saloon"
+          },
+          {
+            "type": "poker_cards",
+            "amount": 1
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          }
+        ],
+        "mapLocationIds": [
+          "darkrock-saloon",
+          "red-falls-saloon",
+          "buzzard-gulch-saloon"
+        ]
+      },
+      "ability": "Deeds cost you $10 less to purchase. Once per turn, you may discard a Poker card to use the Action ability of 1 of your Deeds.",
+      "playstyle": {
+        "tags": [
+          "Deeds",
+          "Economy",
+          "Action Efficiency"
+        ],
+        "strength": "Gets unusually strong value from Deeds and the actions they provide.",
+        "focus": "Acquire useful Deeds early and build turns around repeatedly extracting value from them."
+      }
+    },
+    {
+      "id": "ben_hodges",
+      "name": "Ben Hodges",
+      "thumbnail": {
+        "scale": 2.5,
+        "centerX": 1,
+        "centerY": 1
+      },
+      "browseGroups": [
+        "economy",
+        "poker"
+      ],
+      "sourceModule": "blood_money",
+      "frontImage": "assets/images/cards/character-ben-hodges-front.png",
+      "backImage": "assets/images/cards/character-ben-hodges-back.png",
+      "starting": {
+        "location": "Any unoccupied 6 value frontier space",
+        "bonuses": [
+          {
+            "type": "poker_cards",
+            "amount": 3
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          },
+          {
+            "type": "wanted_point",
+            "amount": 1,
+            "gainReward": false
+          }
+        ],
+        "mapLocationIds": [
+          "frontier-value-6"
+        ]
+      },
+      "ability": "The first time you use an action on an item or a Poker card each turn, gain $20.",
+      "playstyle": {
+        "tags": [
+          "Items",
+          "Poker Cards",
+          "Economy"
+        ],
+        "strength": "The first item or Poker-card action used each turn also pays $20.",
+        "focus": "Plan to use at least one qualifying card or item action every turn so the bonus income never goes to waste."
+      }
+    },
+    {
+      "id": "buckshot_roberts",
+      "name": "Buckshot Roberts",
+      "thumbnail": {
+        "scale": 2,
+        "centerX": 90,
+        "centerY": 5
+      },
+      "browseGroups": [
+        "fighting"
+      ],
+      "sourceModule": "blood_money",
+      "frontImage": "assets/images/cards/character-buckshot-roberts-front.png",
+      "backImage": "assets/images/cards/character-buckshot-roberts-back.png",
+      "starting": {
+        "location": "Spike's View Rail Station",
+        "bonuses": [
+          {
+            "type": "poker_cards",
+            "amount": 1
+          },
+          {
+            "type": "item_choice",
+            "amount": 1,
+            "itemType": "weapon",
+            "source": "general_store"
+          },
+          {
+            "type": "wound",
+            "amount": 1
+          }
+        ],
+        "mapLocationIds": [
+          "spikes-view-rail"
+        ]
+      },
+      "ability": "If you start your turn with an Injury, draw 1 Poker card, and gain 1 action.",
+      "playstyle": {
+        "tags": [
+          "Injuries",
+          "Card Advantage",
+          "Actions"
+        ],
+        "strength": "Starting the turn injured provides both a Poker card and an additional action.",
+        "focus": "Weigh the benefit of remaining injured against the risk, and exploit the extra tempo on important turns."
+      }
+    },
+    {
+      "id": "charley_parkhurst",
+      "name": "Charley Parkhurst",
+      "legacyNames": [
+        "Charlie Parkhurst"
+      ],
+      "thumbnail": {
+        "scale": 2.5,
+        "centerX": 80,
+        "centerY": 15
+      },
+      "browseGroups": [
+        "story"
+      ],
+      "sourceModule": "blood_money",
+      "frontImage": "assets/images/cards/character-charley-parkhurst-front.png",
+      "backImage": "assets/images/cards/character-charley-parkhurst-back.png",
+      "starting": {
+        "location": "Red Falls general store space",
+        "bonuses": [
+          {
+            "type": "money",
+            "amount": 20
+          },
+          {
+            "type": "poker_cards",
+            "amount": 2
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          },
+          {
+            "type": "story_point",
+            "amount": 1,
+            "gainReward": false
+          }
+        ],
+        "mapLocationIds": [
+          "red-falls-general-store"
+        ]
+      },
+      "ability": "Once on your turn, you may reroll any 1 die. After you gain the result of rolling the Risk die, gain 1 Story Point.",
+      "playstyle": {
+        "tags": [
+          "Risk Die",
+          "Rerolls",
+          "Story"
+        ],
+        "strength": "Can correct one die roll each turn and turns successful Risk-die results into Story Points.",
+        "focus": "Take advantage of Risk-die opportunities and save the reroll for results that matter most."
+      }
+    },
+    {
+      "id": "elfego_baca",
+      "name": "Elfego Baca",
+      "thumbnail": {
+        "scale": 3,
+        "centerX": 33,
+        "centerY": 3
+      },
+      "browseGroups": [
+        "marshal",
+        "fighting"
+      ],
+      "sourceModule": "blood_money",
+      "frontImage": "assets/images/cards/character-elfego-baca-front.png",
+      "backImage": "assets/images/cards/character-elfego-baca-back.png",
+      "starting": {
+        "location": "Any unoccupied 7 value frontier space",
+        "bonuses": [
+          {
+            "type": "poker_cards",
+            "amount": 2
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          },
+          {
+            "type": "marshal_point",
+            "amount": 2,
+            "gainReward": false
+          }
+        ],
+        "mapLocationIds": [
+          "frontier-value-7"
+        ]
+      },
+      "ability": "While you have an upgraded weapon, decrease the value of a card played against you in a fight by 1. The first time you would gain any number of Wounds on your turn, cancel 1 of those Wounds.",
+      "playstyle": {
+        "tags": [
+          "Upgraded Weapons",
+          "Fighting",
+          "Defense"
+        ],
+        "strength": "An upgraded weapon improves his fight defense, and he can cancel the first Wound gained on his turn.",
+        "focus": "Upgrade a weapon early and use the added protection to take fights more confidently."
+      }
+    },
+    {
+      "id": "james_bloody_arm_beckwourth",
+      "name": "James “Bloody Arm” Beckwourth",
+      "legacyNames": [
+        "James “Bloody Arm” Beckworth",
+        "James \"Bloody Arm\" Beckworth"
+      ],
+      "thumbnail": {
+        "scale": 2.4,
+        "centerX": 80,
+        "centerY": 1
+      },
+      "browseGroups": [
+        "story",
+        "fighting"
+      ],
+      "sourceModule": "blood_money",
+      "frontImage": "assets/images/cards/character-james-bloody-arm-beckwourth-front.png",
+      "backImage": "assets/images/cards/character-james-bloody-arm-beckwourth-back.png",
+      "starting": {
+        "location": "Any unoccupied 7 value frontier space",
+        "bonuses": [
+          {
+            "type": "poker_cards",
+            "amount": 3
+          },
+          {
+            "type": "item",
+            "itemId": "revolver",
+            "upgraded": true
+          }
+        ],
+        "mapLocationIds": [
+          "frontier-value-7"
+        ]
+      },
+      "ability": "After you roll the Risk die, draw 1 Poker card. The first time you win a fight on your turn, gain 1 Story Point.",
+      "playstyle": {
+        "tags": [
+          "Risk Die",
+          "Fighting",
+          "Story"
+        ],
+        "strength": "Risk-die rolls generate cards, while the first fight victory on his turn generates a Story Point.",
+        "focus": "Look for turns that combine a Risk-die roll with a winnable fight to trigger both benefits."
+      }
+    },
+    {
+      "id": "lottie_deno",
+      "name": "Lottie Deno",
+      "thumbnail": {
+        "scale": 2,
+        "centerX": 60,
+        "centerY": 15
+      },
+      "browseGroups": [
+        "story",
+        "poker"
+      ],
+      "sourceModule": "blood_money",
+      "frontImage": "assets/images/cards/character-lottie-deno-front.png",
+      "backImage": "assets/images/cards/character-lottie-deno-back.png",
+      "starting": {
+        "location": "Any unoccupied saloon space",
+        "bonuses": [
+          {
+            "type": "money",
+            "amount": 10
+          },
+          {
+            "type": "poker_cards",
+            "amount": 2
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          },
+          {
+            "type": "gambler_point",
+            "amount": 1,
+            "gainReward": false
+          }
+        ],
+        "mapLocationIds": [
+          "darkrock-saloon",
+          "red-falls-saloon",
+          "buzzard-gulch-saloon"
+        ]
+      },
+      "ability": "After you use a bonus effect on a Poker card, gain 1 Story Point.",
+      "playstyle": {
+        "tags": [
+          "Poker Cards",
+          "Story",
+          "Bonus Effects"
+        ],
+        "strength": "Turns the bonus effects on Poker cards into additional Story Points.",
+        "focus": "Favor opportunities to use Poker-card bonus effects instead of treating cards only as fight values."
+      }
+    },
+    {
+      "id": "lozen",
+      "name": "Lozen",
+      "thumbnail": {
+        "scale": 2,
+        "centerX": 70,
+        "centerY": 1
+      },
+      "browseGroups": [
+        "poker"
+      ],
+      "sourceModule": "blood_money",
+      "frontImage": "assets/images/cards/character-lozen-front.png",
+      "backImage": "assets/images/cards/character-lozen-back.png",
+      "starting": {
+        "location": "Any unoccupied 7 value frontier space",
+        "bonuses": [
+          {
+            "type": "poker_cards",
+            "amount": 3
+          },
+          {
+            "type": "legendary_point",
+            "amount": 1
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          },
+          {
+            "type": "wanted_point",
+            "amount": 1,
+            "gainReward": false
+          }
+        ],
+        "mapLocationIds": [
+          "frontier-value-7"
+        ]
+      },
+      "ability": "At the start of your turn, you may look at the top card of the Fight deck, Poker deck, or Train Encounter deck. You may choose to put that card on the bottom of the deck.",
+      "playstyle": {
+        "tags": [
+          "Deck Control",
+          "Information",
+          "Flexibility"
+        ],
+        "strength": "Can preview and reject the top card of several important decks before committing to what comes next.",
+        "focus": "Use the information before fights, Poker draws, or Train encounters to avoid weak outcomes and set up better ones."
+      }
+    },
+    {
+      "id": "texas_john_slaughter",
+      "name": "Texas John Slaughter",
+      "thumbnail": {
+        "scale": 2.6,
+        "centerX": 70,
+        "centerY": 1
+      },
+      "browseGroups": [
+        "marshal",
+        "movement"
+      ],
+      "sourceModule": "blood_money",
+      "frontImage": "assets/images/cards/character-texas-john-slaughter-front.png",
+      "backImage": "assets/images/cards/character-texas-john-slaughter-back.png",
+      "starting": {
+        "location": "Any unoccupied 6 value frontier space",
+        "bonuses": [
+          {
+            "type": "money",
+            "amount": 10
+          },
+          {
+            "type": "poker_cards",
+            "amount": 1
+          },
+          {
+            "type": "item",
+            "itemId": "repeating_shotgun"
+          },
+          {
+            "type": "marshal_point",
+            "amount": 1,
+            "gainReward": false
+          }
+        ],
+        "mapLocationIds": [
+          "frontier-value-6"
+        ]
+      },
+      "ability": "Action: Choose 2: draw 1 Poker card, gain $10, lose 1 Wound, move 1 space, or spawn 1 Bandit at any Bandit Hideout.",
+      "playstyle": {
+        "tags": [
+          "Flexibility",
+          "Actions",
+          "Bandits"
+        ],
+        "strength": "His action can combine any two of several useful effects, adapting to the immediate situation.",
+        "focus": "Choose the two effects that solve the current turn’s biggest needs rather than repeating the same combination."
+      }
+    },
+    {
+      "id": "tom_tobin",
+      "name": "Tom Tobin",
+      "thumbnail": {
+        "scale": 2.4,
+        "centerX": 80,
+        "centerY": 1
+      },
+      "browseGroups": [
+        "economy",
+        "frontier"
+      ],
+      "sourceModule": "blood_money",
+      "frontImage": "assets/images/cards/character-tom-tobin-front.png",
+      "backImage": "assets/images/cards/character-tom-tobin-back.png",
+      "starting": {
+        "location": "Any space in same region as traveling trader",
+        "bonuses": [
+          {
+            "type": "poker_cards",
+            "amount": 1
+          },
+          {
+            "type": "legendary_item",
+            "amount": 1,
+            "random": true
+          },
+          {
+            "type": "item",
+            "itemId": "revolver"
+          }
+        ]
+      },
+      "ability": "Legendary Items cost you $10 less to purchase. If you end your turn in the same region as the Traveling Trader, you may purchase a Legendary Item.",
+      "playstyle": {
+        "tags": [
+          "Legendary Items",
+          "Economy",
+          "Traveling Trader"
+        ],
+        "strength": "Buys Legendary Items more cheaply and can shop from the Traveling Trader by ending nearby.",
+        "focus": "Track the Traveling Trader and turn the discount into an early collection of powerful Legendary Items."
+      }
+    },
+    {
+      "id": "aaron_ross",
+      "name": "Aaron Ross",
+      "thumbnail": {
+        "scale": 2.5,
+        "centerX": 68,
+        "centerY": 3
+      },
+      "browseGroups": [
+        "economy"
+      ],
+      "sourceModule": "big_box",
+      "frontImage": "assets/images/cards/character-aaron-ross-front.png",
+      "backImage": "assets/images/cards/character-aaron-ross-back.png",
+      "starting": {
+        "location": "Any unoccupied train checkpoint",
+        "bonuses": [
+          {
+            "type": "money",
+            "amount": 10
+          },
+          {
+            "type": "poker_cards",
+            "amount": 2
+          },
+          {
+            "type": "item",
+            "itemId": "shotgun"
+          }
+        ],
+        "mapLocationIds": [
+          "train-checkpoints-main",
+          "train-checkpoints-frontier"
+        ]
+      },
+      "ability": "At the start of your turn, choose 1: if you have at least $60, draw 1 Poker card; if you have at least $120, gain 1 LP.",
+      "playstyle": {
+        "tags": [
+          "Wealth",
+          "Economy",
+          "LP"
+        ],
+        "strength": "Large cash reserves turn into recurring card advantage or even LP at the start of a turn.",
+        "focus": "Build and protect your money total, with $120 as the key threshold for passive LP generation."
+      }
+    },
+    {
+      "id": "dark_knight",
+      "name": "Dark Knight",
+      "thumbnail": {
+        "scale": 3.5,
+        "centerX": 40,
+        "centerY": 12
+      },
+      "browseGroups": [
+        "marshal",
+        "fighting"
+      ],
+      "sourceModule": "dark_knight",
+      "frontImage": "assets/images/cards/character-dark-knight-front.png",
+      "backImage": "assets/images/cards/character-dark-knight-back.png",
+      "starting": {
+        "location": "Spike's View Mine (cave)",
+        "bonuses": [
+          {
+            "type": "money",
+            "amount": 40
+          },
+          {
+            "type": "poker_cards",
+            "amount": 1
+          },
+          {
+            "type": "item",
+            "itemId": "saddle_bags"
+          }
+        ],
+        "mapLocationIds": [
+          "spikes-view-mine"
+        ]
+      },
+      "ability": "When entering a space with a Bandit or Wanted player, you may cause them to flee to an adjacent space or discard 1 of their Fight/Poker cards randomly.",
+      "playstyle": {
+        "tags": [
+          "Board Control",
+          "Wanted Hunters",
+          "Disruption"
+        ],
+        "strength": "Can disrupt a Bandit or Wanted player immediately when entering their space.",
+        "focus": "Chase dangerous targets and use the forced movement or random discard to weaken them before the next confrontation."
+      }
+    }
+  ],
+  "mapLocations": {
+    "darkrock-general-store": {
+      "board": "main",
+      "points": [
+        {
+          "x": 23,
+          "y": 54
+        }
+      ]
+    },
+    "darkrock-sheriff": {
+      "board": "main",
+      "points": [
+        {
+          "x": 36,
+          "y": 43
+        }
+      ]
+    },
+    "darkrock-saloon": {
+      "board": "main",
+      "points": [
+        {
+          "x": 31,
+          "y": 48
+        }
+      ]
+    },
+    "darkrock-bank": {
+      "board": "main",
+      "points": [
+        {
+          "x": 42,
+          "y": 55
+        }
+      ]
+    },
+    "red-falls-general-store": {
+      "board": "main",
+      "points": [
+        {
+          "x": 78,
+          "y": 43
+        }
+      ]
+    },
+    "red-falls-doctor": {
+      "board": "main",
+      "points": [
+        {
+          "x": 81,
+          "y": 34
+        }
+      ]
+    },
+    "red-falls-cabaret": {
+      "board": "main",
+      "points": [
+        {
+          "x": 76,
+          "y": 51
+        }
+      ]
+    },
+    "red-falls-saloon": {
+      "board": "main",
+      "points": [
+        {
+          "x": 84,
+          "y": 47
+        }
+      ]
+    },
+    "spikes-view-mine": {
+      "board": "main",
+      "points": [
+        {
+          "x": 12,
+          "y": 84
+        }
+      ]
+    },
+    "spikes-view-rail": {
+      "board": "main",
+      "points": [
+        {
+          "x": 49,
+          "y": 84
+        }
+      ]
+    },
+    "sunny-hills-mine": {
+      "board": "main",
+      "points": [
+        {
+          "x": 67,
+          "y": 19
+        }
+      ]
+    },
+    "sunny-hills-ranch": {
+      "board": "main",
+      "points": [
+        {
+          "x": 89,
+          "y": 17
+        }
+      ]
+    },
+    "cliff-junction-mine": {
+      "board": "main",
+      "points": [
+        {
+          "x": 90,
+          "y": 72
+        }
+      ]
+    },
+    "mesitos-point-ranch": {
+      "board": "main",
+      "points": [
+        {
+          "x": 15,
+          "y": 20
+        }
+      ]
+    },
+    "dixon-creek": {
+      "board": "main",
+      "points": [
+        {
+          "x": 53,
+          "y": 48
+        }
+      ]
+    },
+    "bandit-hideout-a": {
+      "board": "main",
+      "points": [
+        {
+          "x": 91,
+          "y": 18
+        }
+      ]
+    },
+    "bandit-hideout-b": {
+      "board": "main",
+      "points": [
+        {
+          "x": 54,
+          "y": 46
+        }
+      ]
+    },
+    "bandit-hideout-c": {
+      "board": "main",
+      "points": [
+        {
+          "x": 91,
+          "y": 72
+        }
+      ]
+    },
+    "bandit-hideout-any": {
+      "board": "main",
+      "points": [
+        {
+          "x": 91,
+          "y": 18
+        },
+        {
+          "x": 54,
+          "y": 46
+        },
+        {
+          "x": 91,
+          "y": 72
+        }
+      ]
+    },
+    "train-checkpoints-main": {
+      "board": "main",
+      "points": [
+        {
+          "x": 49,
+          "y": 84
+        },
+        {
+          "x": 91,
+          "y": 18
+        },
+        {
+          "x": 91,
+          "y": 72
+        }
+      ]
+    },
+    "buzzard-gulch-saloon": {
+      "board": "frontier",
+      "points": [
+        {
+          "x": 48,
+          "y": 36
+        }
+      ]
+    },
+    "buzzard-gulch-trading-post": {
+      "board": "frontier",
+      "points": [
+        {
+          "x": 61,
+          "y": 39
+        }
+      ]
+    },
+    "buzzard-gulch-marshal": {
+      "board": "frontier",
+      "points": [
+        {
+          "x": 38,
+          "y": 38
+        }
+      ]
+    },
+    "buzzard-gulch-rail": {
+      "board": "frontier",
+      "points": [
+        {
+          "x": 55,
+          "y": 86
+        }
+      ]
+    },
+    "buzzard-gulch-ranch": {
+      "board": "frontier",
+      "points": [
+        {
+          "x": 79,
+          "y": 66
+        }
+      ]
+    },
+    "buzzard-gulch-outlaw-camp": {
+      "board": "frontier",
+      "points": [
+        {
+          "x": 24,
+          "y": 66
+        }
+      ]
+    },
+    "mountain-pass-a": {
+      "board": "frontier",
+      "points": [
+        {
+          "x": 10,
+          "y": 16
+        }
+      ]
+    },
+    "mountain-pass-c": {
+      "board": "frontier",
+      "points": [
+        {
+          "x": 10,
+          "y": 84
+        }
+      ]
+    },
+    "frontier-value-6": {
+      "board": "frontier",
+      "points": [
+        {
+          "x": 29,
+          "y": 25
+        },
+        {
+          "x": 71,
+          "y": 27
+        },
+        {
+          "x": 72,
+          "y": 69
+        }
+      ]
+    },
+    "frontier-value-7": {
+      "board": "frontier",
+      "points": [
+        {
+          "x": 35,
+          "y": 18
+        },
+        {
+          "x": 82,
+          "y": 36
+        },
+        {
+          "x": 62,
+          "y": 75
+        }
+      ]
+    },
+    "frontier-value-8": {
+      "board": "frontier",
+      "points": [
+        {
+          "x": 54,
+          "y": 62
+        }
+      ]
+    },
+    "train-checkpoints-frontier": {
+      "board": "frontier",
+      "points": [
+        {
+          "x": 55,
+          "y": 86
+        },
+        {
+          "x": 10,
+          "y": 16
+        },
+        {
+          "x": 10,
+          "y": 84
+        }
+      ]
+    }
+  }
+}

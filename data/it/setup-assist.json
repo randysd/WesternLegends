@@ -6,64 +6,53 @@
       "summary": "Colloca tabelloni, sovrapposizioni e supporti.",
       "steps": [
         {
+          "_index": 0,
           "text": "Colloca il tabellone principale al centro del tavolo.",
           "images": [
             {
-              "src": "assets/images/boards/main-board.png",
+              "_index": 0,
               "alt": "Tabellone Principale",
-              "caption": "Tabellone Principale",
-              "fullWidth": true
+              "caption": "Tabellone Principale"
             }
           ]
         },
         {
+          "_index": 1,
           "text": "Colloca il Tabellone Frontiera di Buzzard Gulch accanto al tabellone principale.",
-          "requiredModules": [
-            "ante_up_sideboard"
-          ],
           "images": [
             {
-              "src": "assets/images/boards/full.png",
+              "_index": 0,
               "alt": "Buzzard Gulch e Tracciato del Giocatore d'Azzardo",
-              "caption": "Buzzard Gulch e Tracciato del Giocatore d'Azzardo",
-              "fullWidth": true
+              "caption": "Buzzard Gulch e Tracciato del Giocatore d'Azzardo"
             }
           ]
         },
         {
-          "text": "Colloca il Tracciato del Giocatore d'Azzardo sopra il tabellone principale.",
-          "requiredModules": [
-            "ante_up_gambler"
-          ]
+          "_index": 2,
+          "text": "Colloca il Tracciato del Giocatore d'Azzardo sopra il tabellone principale."
         },
         {
+          "_index": 3,
           "text": "Colloca la sovrapposizione del Tabellone Storia Leggendaria sopra l'area delle Carte Storia base.",
-          "requiredModules": [
-            "blood_money_stories"
-          ],
           "images": [
             {
-              "src": "assets/images/boards/story.png",
+              "_index": 0,
               "alt": "Sovrapposizione del Tabellone Storia Leggendaria",
-              "caption": "Tabellone Storia Leggendaria",
-              "fullWidth": true
+              "caption": "Tabellone Storia Leggendaria"
             }
           ]
         },
         {
+          "_index": 4,
           "text": "Monta il supporto del Negozio Generale se necessario."
         },
         {
-          "text": "Monta il supporto dell'Emporio.",
-          "requiredModules": [
-            "ante_up_sideboard"
-          ]
+          "_index": 5,
+          "text": "Monta il supporto dell'Emporio."
         },
         {
-          "text": "Monta il supporto del Mercante Itinerante.",
-          "requiredModules": [
-            "blood_money_traveling_trader"
-          ]
+          "_index": 6,
+          "text": "Monta il supporto del Mercante Itinerante."
         }
       ]
     },
@@ -73,82 +62,73 @@
       "summary": "Prepara i mercati degli oggetti e l'inventario del mercante.",
       "steps": [
         {
+          "_index": 0,
           "text": "Riempi Automaticamente i Negozi con l'aiuto, oppure saltalo e segui la preparazione manuale dei negozi qui sotto.",
           "actionButtons": [
             {
-              "label": "Riempi Automaticamente i Negozi",
-              "opens": "storeRandomizer"
+              "_index": 0,
+              "label": "Riempi Automaticamente i Negozi"
             }
-          ],
-          "choiceGroup": "stores_fill"
+          ]
         },
         {
+          "_index": 1,
           "text": "Riempi Manualmente i Negozi",
           "summary": "Usa questi passaggi soltanto se non stai usando Riempi Automaticamente i Negozi.",
           "substeps": [
             {
+              "_index": 0,
               "text": "Rimuovi le carte randomizzatore del negozio per gli oggetti non utilizzati."
             },
             {
+              "_index": 1,
               "text": "Metti da parte la carta di preparazione standard come rapido riferimento per il negozio."
             },
             {
+              "_index": 2,
               "text": "Mescola coperte le carte randomizzatore del negozio rimanenti."
             },
             {
+              "_index": 3,
               "text": "Distribuisci 1 carta randomizzatore a ogni spazio del Negozio Generale."
             },
             {
-              "text": "Distribuisci 1 carta randomizzatore a ogni spazio dell'Emporio.",
-              "requiredModules": [
-                "ante_up_sideboard"
-              ]
+              "_index": 4,
+              "text": "Distribuisci 1 carta randomizzatore a ogni spazio dell'Emporio."
             },
             {
+              "_index": 5,
               "text": "Colloca la prima Arma e la prima Cavalcatura rivelate nel Negozio Generale."
             },
             {
-              "text": "Colloca la seconda Arma e la seconda Cavalcatura rivelate nell'Emporio.",
-              "requiredModules": [
-                "ante_up_sideboard"
-              ]
+              "_index": 6,
+              "text": "Colloca la seconda Arma e la seconda Cavalcatura rivelate nell'Emporio."
             },
             {
-              "text": "Se usi la preparazione standard, assicurati che ogni negozio abbia almeno 1 Arma e 1 Cavalcatura. Sostituisci casualmente gli oggetti se necessario.",
-              "requiredModules": [
-                "ante_up_sideboard"
-              ]
+              "_index": 7,
+              "text": "Se usi la preparazione standard, assicurati che ogni negozio abbia almeno 1 Arma e 1 Cavalcatura. Sostituisci casualmente gli oggetti se necessario."
             },
             {
+              "_index": 8,
               "text": "Colloca ogni mazzo Oggetto nello spazio corrispondente alla sua carta randomizzatore."
             }
-          ],
-          "checkable": false,
-          "choiceGroup": "stores_fill"
-        },
-        {
-          "text": "Mescola insieme gli Oggetti Leggendari delle espansioni selezionate e colloca la carta blocco in fondo.",
-          "requiredModules": [
-            "blood_money_traveling_trader"
           ]
         },
         {
-          "text": "Colloca il mazzo Oggetti Leggendari coperto nello spazio in alto a sinistra del Mercante Itinerante.",
-          "requiredModules": [
-            "blood_money_traveling_trader"
-          ]
+          "_index": 2,
+          "text": "Mescola insieme gli Oggetti Leggendari delle espansioni selezionate e colloca la carta blocco in fondo."
         },
         {
-          "text": "Rivela 3 Oggetti Leggendari nella riga inferiore del supporto del Mercante Itinerante.",
-          "requiredModules": [
-            "blood_money_traveling_trader"
-          ]
+          "_index": 3,
+          "text": "Colloca il mazzo Oggetti Leggendari coperto nello spazio in alto a sinistra del Mercante Itinerante."
         },
         {
-          "text": "Colloca tutti i mazzi Oggetto rimanenti nei 2 spazi vuoti del Mercante Itinerante. Tieni vicine le loro carte randomizzatore.",
-          "requiredModules": [
-            "blood_money_traveling_trader"
-          ]
+          "_index": 4,
+          "text": "Rivela 3 Oggetti Leggendari nella riga inferiore del supporto del Mercante Itinerante."
+        },
+        {
+          "_index": 5,
+          "text": "Colloca tutti i mazzi Oggetto rimanenti nei 2 spazi vuoti del Mercante Itinerante. Tieni vicine le loro carte randomizzatore."
         }
       ]
     },
@@ -158,218 +138,161 @@
       "summary": "Mescola soltanto i mazzi usati in questa partita.",
       "steps": [
         {
+          "_index": 0,
           "text": "Separa il denaro nei mazzi da $10 e $20.",
           "images": [
             {
-              "src": "assets/images/cards/money-10.png",
+              "_index": 0,
               "alt": "Banconote da $10",
               "caption": "$10"
             },
             {
-              "src": "assets/images/cards/money-20.png",
+              "_index": 1,
               "alt": "Banconote da $20",
               "caption": "$20"
             }
           ]
         },
         {
+          "_index": 1,
           "text": "Prepara il mazzo Poker. Se usi Carte Poker delle espansioni, sostituiscile alle carte base corrispondenti per seme e valore.",
           "images": [
             {
-              "src": "assets/images/cards/poker-back.png",
+              "_index": 0,
               "alt": "Mazzo Poker",
               "caption": "Mazzo Poker"
             }
           ]
         },
         {
-          "text": "Mescola le carte Joker nel mazzo Poker.",
-          "requiredModules": [
-            "fistful_jokers"
-          ]
+          "_index": 2,
+          "text": "Mescola le carte Joker nel mazzo Poker."
         },
         {
+          "_index": 3,
           "text": "Mescola e colloca i piccoli mazzi base accanto al tabellone.",
           "images": [
             {
-              "src": "assets/images/cards/fight-back.png",
+              "_index": 0,
               "alt": "Mazzo Scontro",
               "caption": "Scontro"
             },
             {
-              "src": "assets/images/cards/events-back.png",
+              "_index": 1,
               "alt": "Mazzo Evento",
-              "caption": "Eventi",
-              "requiredModules": [
-                "ante_up_events"
-              ]
+              "caption": "Eventi"
             },
             {
-              "src": "assets/images/cards/train-back.png",
+              "_index": 2,
               "alt": "Mazzo Treno",
-              "caption": "Treno",
-              "requiredModules": [
-                "ante_up_train"
-              ]
+              "caption": "Treno"
             },
             {
-              "src": "assets/images/cards/injury-back.png",
+              "_index": 3,
               "alt": "Mazzo Lesioni",
-              "caption": "Lesioni",
-              "requiredModules": [
-                "blood_money_injuries"
-              ]
+              "caption": "Lesioni"
             },
             {
-              "src": "assets/images/cards/travelingtrader-back.png",
+              "_index": 4,
               "alt": "Mazzo Mercante Itinerante",
-              "caption": "Mercante",
-              "requiredModules": [
-                "blood_money_traveling_trader"
-              ]
+              "caption": "Mercante"
             },
             {
-              "src": "assets/images/cards/treasurehunting-back.png",
+              "_index": 5,
               "alt": "Mazzo Caccia al Tesoro",
-              "caption": "Caccia al Tesoro",
-              "requiredModules": [
-                "treasure_hunting_rumors"
-              ]
+              "caption": "Caccia al Tesoro"
             },
             {
-              "src": "assets/images/cards/hunting-back.png",
+              "_index": 6,
               "alt": "Mazzo Caccia",
-              "caption": "Caccia",
-              "requiredModules": [
-                "hunting_animals"
-              ]
+              "caption": "Caccia"
             },
             {
-              "src": "assets/images/cards/fishing-back.png",
+              "_index": 7,
               "alt": "Mazzo Pesca",
-              "caption": "Pesca",
-              "requiredModules": [
-                "fishing_fish_deck"
-              ]
+              "caption": "Pesca"
             },
             {
-              "src": "assets/images/cards/foraging-back.png",
+              "_index": 8,
               "alt": "Mazzo Raccolta",
-              "caption": "Raccolta",
-              "requiredModules": [
-                "foraging_resources"
-              ]
+              "caption": "Raccolta"
             },
             {
-              "src": "assets/images/cards/prospecting-back.png",
+              "_index": 9,
               "alt": "Mazzo Prospezione",
-              "caption": "Prospezione",
-              "requiredModules": [
-                "prospecting_cards"
-              ]
+              "caption": "Prospezione"
             }
           ]
         },
         {
-          "text": "Mescola le Carte Storia Base, colloca il mazzo nello spazio designato sul tabellone, rivela 1 Carta Storia Base e mettila nel punto indicato.",
-          "blockedModules": [
-            "blood_money_stories"
-          ]
+          "_index": 4,
+          "text": "Mescola le Carte Storia Base, colloca il mazzo nello spazio designato sul tabellone, rivela 1 Carta Storia Base e mettila nel punto indicato."
         },
         {
-          "text": "Mescola le Carte Storia Leggendaria, colloca il mazzo sul Tabellone Storia Leggendaria, poi rivela 1 Carta Storia Leggendaria casuale sul tabellone.",
-          "requiredModules": [
-            "blood_money_stories"
-          ]
+          "_index": 5,
+          "text": "Mescola le Carte Storia Leggendaria, colloca il mazzo sul Tabellone Storia Leggendaria, poi rivela 1 Carta Storia Leggendaria casuale sul tabellone."
         },
         {
-          "text": "Aggiungi le carte Evento Unico al mazzo Evento.",
-          "requiredModules": [
-            "ante_up_events",
-            "wild_bunch_unique_events"
-          ]
+          "_index": 6,
+          "text": "Aggiungi le carte Evento Unico al mazzo Evento."
         },
         {
-          "text": "Mescola il mazzo Evento e collocalo vicino al tabellone.",
-          "requiredModules": [
-            "ante_up_events"
-          ]
+          "_index": 7,
+          "text": "Mescola il mazzo Evento e collocalo vicino al tabellone."
         },
         {
-          "text": "Mescola le carte Titolo e rivela casualmente 1 Titolo per questa partita.",
-          "requiredModules": [
-            "wild_bunch_titles"
-          ]
+          "_index": 8,
+          "text": "Mescola le carte Titolo e rivela casualmente 1 Titolo per questa partita."
         },
         {
-          "text": "Mescola le carte Sheriff e rivela la carta Sheriff in cima. Sostituiscila ogni volta che lo Sheriff perde uno scontro.",
-          "requiredModules": [
-            "wild_bunch_sheriff"
-          ]
+          "_index": 9,
+          "text": "Mescola le carte Sheriff e rivela la carta Sheriff in cima. Sostituiscila ogni volta che lo Sheriff perde uno scontro."
         },
         {
-          "text": "Mescola le carte Bandito e colloca il mazzo coperto vicino al mazzo Scontro.",
-          "requiredModules": [
-            "wild_bunch_bandit_variant"
-          ]
+          "_index": 10,
+          "text": "Mescola le carte Bandito e colloca il mazzo coperto vicino al mazzo Scontro."
         },
         {
+          "_index": 11,
           "text": "Mescola insieme tutte le carte Man in Black per formare il mazzo e collocalo vicino al tabellone.",
-          "requiredModules": [
-            "wild_bunch_man_in_black"
-          ],
-          "maxPlayers": 2,
           "images": [
             {
-              "src": "assets/images/cards/mib.png",
+              "_index": 0,
               "alt": "Mazzo Man in Black",
               "caption": "Uomo in Nero"
             }
           ]
         },
         {
+          "_index": 12,
           "text": "Mescola insieme le carte Man in Black, escludendo P-01, P-04, P-05, P-08, P-09, P-10 e P-15. Colloca il mazzo vicino al tabellone.",
-          "requiredModules": [
-            "wild_bunch_man_in_black"
-          ],
-          "minPlayers": 3,
           "images": [
             {
-              "src": "assets/images/cards/mib.png",
+              "_index": 0,
               "alt": "Mazzo Man in Black",
               "caption": "Uomo in Nero"
             }
           ]
         },
         {
-          "text": "Mescola le carte Voce e colloca il mazzo vicino al tabellone.",
-          "requiredModules": [
-            "treasure_hunting_rumors"
-          ]
+          "_index": 13,
+          "text": "Mescola le carte Voce e colloca il mazzo vicino al tabellone."
         },
         {
-          "text": "Mescola il mazzo Animali e collocalo accanto al tabellone di gioco.",
-          "requiredModules": [
-            "hunting"
-          ]
+          "_index": 14,
+          "text": "Mescola il mazzo Animali e collocalo accanto al tabellone di gioco."
         },
         {
-          "text": "Mescola il mazzo Pesci e collocalo accanto al tabellone di gioco.",
-          "requiredModules": [
-            "fishing"
-          ]
+          "_index": 15,
+          "text": "Mescola il mazzo Pesci e collocalo accanto al tabellone di gioco."
         },
         {
-          "text": "Mescola il mazzo Teatro, collocalo vicino al tabellone e rivela 3 carte Teatro a faccia in su.",
-          "requiredModules": [
-            "theatre"
-          ]
+          "_index": 16,
+          "text": "Mescola il mazzo Teatro, collocalo vicino al tabellone e rivela 3 carte Teatro a faccia in su."
         },
         {
-          "text": "Mescola il mazzo Prospezione con 2 eventi casuali.",
-          "requiredModules": [
-            "prospecting_cards"
-          ]
+          "_index": 17,
+          "text": "Mescola il mazzo Prospezione con 2 eventi casuali."
         }
       ]
     },
@@ -379,87 +302,77 @@
       "summary": "Separa, mescola e colloca le riserve dei segnalini.",
       "steps": [
         {
+          "_index": 0,
           "text": "Mescola coperti i segnalini Bestiame e collocali presso i rispettivi ranch.",
           "images": [
             {
-              "src": "assets/images/tokens/ranch-blue.png",
+              "_index": 0,
               "alt": "Segnalino bestiame blu",
               "caption": "Blu"
             },
             {
-              "src": "assets/images/tokens/ranch-green.png",
+              "_index": 1,
               "alt": "Segnalino bestiame verde",
               "caption": "Verde"
             },
             {
-              "src": "assets/images/tokens/ranch-orange.png",
+              "_index": 2,
               "alt": "Segnalino bestiame arancione",
-              "caption": "Orange",
-              "requiredModules": [
-                "ante_up_sideboard"
-              ]
+              "caption": "Orange"
             }
           ]
         },
         {
+          "_index": 1,
           "text": "Mescola coperti i segnalini Longhorn, Outlaw, High Roller e Claim Jumper.",
-          "requiredModules": [
-            "ante_up_events"
-          ],
           "images": [
             {
-              "src": "assets/images/tokens/longhorn.png",
+              "_index": 0,
               "alt": "Segnalino Longhorn",
               "caption": "Longhorn"
             },
             {
-              "src": "assets/images/tokens/outlaw.png",
+              "_index": 1,
               "alt": "Segnalino Fuorilegge",
               "caption": "Outlaw"
             },
             {
-              "src": "assets/images/tokens/highroller.png",
+              "_index": 2,
               "alt": "Segnalino High Roller",
               "caption": "High Roller"
             },
             {
-              "src": "assets/images/tokens/gold.png",
+              "_index": 3,
               "alt": "Segnalino Claim Jumper",
               "caption": "Claim Jumper"
             }
           ]
         },
         {
+          "_index": 2,
           "text": "Mescola coperti i segnalini Leggendari oppure mettili in un sacchetto.",
-          "requiredModules": [
-            "base_legendary_tokens"
-          ],
           "images": [
             {
-              "src": "assets/images/tokens/legend.png",
+              "_index": 0,
               "alt": "Segnalino Leggendario",
               "caption": "Leggendario"
             }
           ]
         },
         {
+          "_index": 3,
           "text": "Separa gli Atti per tipo e colloca un segnalino Atto su ogni luogo Atto.",
-          "requiredModules": [
-            "blood_money_deeds"
-          ],
           "images": [
             {
-              "src": "assets/images/setup/tokens/deed-token.png",
+              "_index": 0,
               "alt": "Segnalino Atto",
               "caption": "Atto"
             }
           ]
         },
         {
-          "text": "Tieni i segnalini Evento Unico in una riserva vicino al tabellone.",
-          "requiredModules": [
-            "wild_bunch_unique_events"
-          ]
+          "_index": 4,
+          "text": "Tieni i segnalini Evento Unico in una riserva vicino al tabellone."
         }
       ]
     },
@@ -469,70 +382,61 @@
       "summary": "Colloca i segnalini e risolvi gli effetti di preparazione.",
       "steps": [
         {
+          "_index": 0,
           "text": "Colloca il segnalino di fine partita su {targetLP} LP.",
           "images": [
             {
-              "src": "assets/images/tokens/watch.png",
+              "_index": 0,
               "alt": "Segnalino orologio da tasca di fine partita",
               "caption": "Segnalino di Fine Partita"
             }
           ]
         },
         {
+          "_index": 1,
           "text": "Colloca segnalini Evento sul 5º spazio dei tracciati Giocatore d'Azzardo, Marshal e Wanted, e su ogni 5º spazio LP prima del segnalino di fine partita.",
-          "requiredModules": [
-            "ante_up_events"
-          ],
           "images": [
             {
-              "src": "assets/images/tokens/event-token.png",
+              "_index": 0,
               "alt": "Segnalino Evento",
               "caption": "Segnalino Evento"
             }
           ]
         },
         {
-          "text": "Risolvi 1 carta Evento ogni 2 giocatori, arrotondando per eccesso. Ignora il movimento dello Sheriff perché lo Sheriff non è ancora stato collocato.",
-          "requiredModules": [
-            "ante_up_events"
-          ]
+          "_index": 2,
+          "text": "Risolvi 1 carta Evento ogni 2 giocatori, arrotondando per eccesso. Ignora il movimento dello Sheriff perché lo Sheriff non è ancora stato collocato."
         },
         {
+          "_index": 3,
           "text": "Colloca casualmente 1 segnalino Frontiera a faccia in su su ogni spazio Frontiera. Tieni vicini i segnalini Frontiera inutilizzati.",
-          "requiredModules": [
-            "ante_up_sideboard"
-          ],
           "images": [
             {
-              "src": "assets/images/tokens/action-frontier.png",
+              "_index": 0,
               "alt": "Segnalino Frontiera",
               "caption": "Segnalino Frontiera"
             }
           ]
         },
         {
+          "_index": 4,
           "text": "Rivela la carta Movimento del Mercante in cima e colloca la miniatura del Mercante Itinerante su un qualsiasi spazio libero di quella regione.",
-          "requiredModules": [
-            "blood_money_traveling_trader"
-          ],
           "images": [
             {
-              "src": "assets/images/cards/travelingtrader-back.png",
+              "_index": 0,
               "alt": "Retro della carta Movimento del Mercante",
               "caption": "Carta Movimento del Mercante"
             },
             {
-              "src": "assets/images/tokens/trader.png",
+              "_index": 1,
               "alt": "Segnalino Mercante Itinerante",
               "caption": "Mercante Itinerante"
             }
           ]
         },
         {
-          "text": "Colloca 2 Pepite d'Oro in ogni luogo minerario. Colloca 1 Pepita d'Oro sugli spazi del tracciato LP indicati dalle regole di Prospezione per {playerCount} giocatori e una partita da {targetLP} LP.",
-          "requiredModules": [
-            "prospecting_cards"
-          ]
+          "_index": 5,
+          "text": "Colloca 2 Pepite d'Oro in ogni luogo minerario. Colloca 1 Pepita d'Oro sugli spazi del tracciato LP indicati dalle regole di Prospezione per {playerCount} giocatori e una partita da {targetLP} LP."
         }
       ]
     },
@@ -542,64 +446,62 @@
       "summary": "Dai a ogni giocatore i propri componenti iniziali.",
       "steps": [
         {
+          "_index": 0,
           "text": "Ogni giocatore prende una plancia giocatore, cubi punteggio, anello colorato e segnalino ferita."
         },
         {
-          "text": "Usa il lato della plancia giocatore con gli spazi per i Segnalini Leggendari.",
-          "requiredModules": [
-            "base_legendary_tokens"
-          ]
+          "_index": 1,
+          "text": "Usa il lato della plancia giocatore con gli spazi per i Segnalini Leggendari."
         },
         {
-          "text": "Ogni giocatore prende le proprie fiches Faro.",
-          "requiredModules": [
-            "ante_up_faro"
-          ]
+          "_index": 2,
+          "text": "Ogni giocatore prende le proprie fiches Faro."
         },
         {
-          "text": "Ogni giocatore prende i propri dischi Storia.",
-          "requiredModules": [
-            "blood_money_stories"
-          ]
+          "_index": 3,
+          "text": "Ogni giocatore prende i propri dischi Storia."
         },
         {
+          "_index": 4,
           "text": "Colloca 1 cubo punteggio per ogni giocatore a sinistra dello spazio 1 sul tracciato LP."
         },
         {
-          "text": "Colloca 1 cubo punteggio per ogni giocatore sullo spazio iniziale del tracciato Storia.",
-          "requiredModules": [
-            "blood_money_stories"
-          ]
+          "_index": 5,
+          "text": "Colloca 1 cubo punteggio per ogni giocatore sullo spazio iniziale del tracciato Storia."
         },
         {
-          "text": "Colloca i cubi punteggio e i dischi Storia rimanenti di ogni giocatore accanto al tabellone.",
-          "requiredModules": [
-            "blood_money_stories"
-          ]
+          "_index": 6,
+          "text": "Colloca i cubi punteggio e i dischi Storia rimanenti di ogni giocatore accanto al tabellone."
         }
       ]
     },
     {
       "id": "characters",
-      "title": "Scegli i Personaggi",
-      "summary": "Seleziona i personaggi e ottieni le ricompense iniziali.",
+      "title": "Prepara i personaggi",
+      "summary": "Prepara per la partita il personaggio scelto da ogni giocatore.",
       "steps": [
         {
-          "text": "Ogni giocatore sceglie un personaggio tra quelli disponibili nelle espansioni selezionate."
+          "_index": 0,
+          "text": "Ogni giocatore sceglie un personaggio tra quelli disponibili nelle espansioni selezionate.",
+          "autoComplete": "all_players_have_characters"
         },
         {
+          "_index": 1,
           "text": "Per ogni personaggio scelto, prendi le 4 carte Obiettivo di quel personaggio.",
           "requiredModules": [
             "base_goals"
           ]
         },
         {
+          "_index": 2,
           "text": "Ogni giocatore ottiene gli oggetti iniziali, il denaro, le Carte Poker, le ferite e i punti indicati sul proprio personaggio."
         },
         {
+          "_index": 3,
           "text": "Se un personaggio inizia con Punti Giocatore d'Azzardo, Leggendari, Marshal, Storia o Wanted, colloca un cubo sul tracciato corrispondente."
         },
         {
+          "_index": 4,
           "text": "Risolvi eventuali abilità degli oggetti iniziali, come Gazette, Provviste o effetti simili."
         }
       ]
@@ -610,55 +512,53 @@
       "summary": "Colloca giocatori, Sheriff e Banditi.",
       "steps": [
         {
+          "_index": 0,
           "text": "Il giocatore più Wanted prende il segnalino Primo Giocatore. In caso di parità o se nessuno è Wanted, scegli un altro metodo.",
           "actionButtons": [
             {
-              "label": "Scegli il Primo Giocatore",
-              "opens": "firstPlayer"
+              "_index": 0,
+              "label": "Scegli il Primo Giocatore"
             }
           ]
         },
         {
+          "_index": 1,
           "text": "A partire dal primo giocatore, ogni giocatore sceglie una miniatura e applica il proprio anello colorato."
         },
         {
+          "_index": 2,
           "text": "Ogni giocatore colloca la propria miniatura nel Luogo di Partenza indicato sulla carta Personaggio."
         },
         {
+          "_index": 3,
           "text": "Se un Luogo di Partenza è un Negozio Generale, un Emporio o un Saloon, colloca la miniatura su un qualsiasi spazio adiacente."
         },
         {
-          "text": "Rimuovi qualsiasi segnalino Evento, Claim Jumper, High Roller, Longhorn, Fuorilegge o Evento Unico da uno spazio in cui inizia un giocatore.",
-          "anyModules": [
-            "ante_up_events",
-            "wild_bunch_unique_events"
-          ]
+          "_index": 4,
+          "text": "Rimuovi qualsiasi segnalino Evento, Claim Jumper, High Roller, Longhorn, Fuorilegge o Evento Unico da uno spazio in cui inizia un giocatore."
         },
         {
+          "_index": 5,
           "text": "Applica l'anello marrone alla miniatura dello Sheriff e colloca lo Sheriff all'Ufficio Sheriff/Marshal di Darkrock."
         },
         {
-          "text": "Applica gli adesivi Bandito numerati sul fondo degli anelli grigi dei Banditi.",
-          "requiredModules": [
-            "wild_bunch_bandit_variant"
-          ]
+          "_index": 6,
+          "text": "Applica gli adesivi Bandito numerati sul fondo degli anelli grigi dei Banditi."
         },
         {
+          "_index": 7,
           "text": "Applica anelli grigi a 6 miniature Bandito. Colloca 1 Bandito in ogni Nascondiglio dei Banditi che non contenga un giocatore."
         },
         {
-          "text": "Scegli una miniatura per rappresentare il Man in Black. Collocala alla Stazione Ferroviaria o in un luogo scelto dal primo giocatore, e colloca il cubo punteggio corrispondente al colore dell'anello della sua base a sinistra del tracciato LP insieme ai cubi punteggio dei giocatori.",
-          "requiredModules": [
-            "wild_bunch_man_in_black"
-          ]
+          "_index": 8,
+          "text": "Scegli una miniatura per rappresentare il Man in Black. Collocala alla Stazione Ferroviaria o in un luogo scelto dal primo giocatore, e colloca il cubo punteggio corrispondente al colore dell'anello della sua base a sinistra del tracciato LP insieme ai cubi punteggio dei giocatori."
         },
         {
-          "text": "Dopo aver collocato tutte le miniature dei giocatori, l'ultimo giocatore nell'ordine di turno colloca i 3 segnalini Azione Caccia su 3 diversi spazi non occupati.",
-          "requiredModules": [
-            "hunting"
-          ]
+          "_index": 9,
+          "text": "Dopo aver collocato tutte le miniature dei giocatori, l'ultimo giocatore nell'ordine di turno colloca i 3 segnalini Azione Caccia su 3 diversi spazi non occupati."
         },
         {
+          "_index": 10,
           "text": "Dai a ogni giocatore un aiuto giocatore."
         }
       ]
@@ -669,12 +569,15 @@
       "summary": "Controllo finale prima di iniziare.",
       "steps": [
         {
+          "_index": 0,
           "text": "Conferma che tutti i moduli selezionati siano stati preparati."
         },
         {
+          "_index": 1,
           "text": "Conferma che il segnalino di fine partita sia su {targetLP} LP."
         },
         {
+          "_index": 2,
           "text": "Premi Inizia Partita quando tutti sono pronti."
         }
       ]

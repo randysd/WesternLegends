@@ -2,75 +2,51 @@
   "scoringSteps": [
     {
       "id": "mounts_weapons",
-      "text": "Erhalte LP für jedes verbesserte Reittier und jede verbesserte Waffe in deinem Besitz (der Wert steht oben links auf der Karte).",
-      "requiredModules": []
+      "text": "Erhalte LP für jedes verbesserte Reittier und jede verbesserte Waffe in deinem Besitz (der Wert steht oben links auf der Karte)."
     },
     {
       "id": "legendary_items",
-      "text": "Erhalte LP von allen Legendären Gegenständen in deinem Besitz, die LP gewähren (der Wert steht oben links auf der Karte).",
-      "requiredModules": []
+      "text": "Erhalte LP von allen Legendären Gegenständen in deinem Besitz, die LP gewähren (der Wert steht oben links auf der Karte)."
     },
     {
       "id": "money",
-      "text": "Erhalte 1 LP für je $60 in deinem Besitz (abrunden).",
-      "requiredModules": []
+      "text": "Erhalte 1 LP für je $60 in deinem Besitz (abrunden)."
     },
     {
       "id": "wounds",
-      "text": "Verliere 1 LP für jede Wunde.",
-      "requiredModules": []
+      "text": "Verliere 1 LP für jede Wunde."
     },
     {
       "id": "injuries",
-      "text": "Verliere LP durch alle Verletzungskarten, die am Spielende einen Verlust verursachen (der Wert steht unten auf der Karte).",
-      "requiredModules": [
-        "blood_money_injuries"
-      ]
+      "text": "Verliere LP durch alle Verletzungskarten, die am Spielende einen Verlust verursachen (der Wert steht unten auf der Karte)."
     },
     {
       "id": "wanted",
-      "text": "Der Spieler mit den meisten Wanted-Punkten erhält 3 LP, jeder andere Wanted-Spieler erhält 1 LP. Bei Gleichstand um die meisten Wanted-Punkte erhalten stattdessen alle Wanted-Spieler 1 LP.",
-      "requiredModules": []
+      "text": "Der Spieler mit den meisten Wanted-Punkten erhält 3 LP, jeder andere Wanted-Spieler erhält 1 LP. Bei Gleichstand um die meisten Wanted-Punkte erhalten stattdessen alle Wanted-Spieler 1 LP."
     },
     {
       "id": "marshal",
-      "text": "Marshal-Spieler erhalten LP entsprechend der Reihe, in der sich ihr Wertungswürfel auf der Marshal-Leiste befindet.",
-      "requiredModules": []
+      "text": "Marshal-Spieler erhalten LP entsprechend der Reihe, in der sich ihr Wertungswürfel auf der Marshal-Leiste befindet."
     },
     {
       "id": "gambler",
-      "text": "Der Spieler, der auf der Glücksspieler-Leiste am weitesten vorangekommen ist, erhält 1 LP. Bei Gleichstand erhalten alle beteiligten Spieler 1 LP.",
-      "requiredModules": [
-        "ante_up_gambler"
-      ]
+      "text": "Der Spieler, der auf der Glücksspieler-Leiste am weitesten vorangekommen ist, erhält 1 LP. Bei Gleichstand erhalten alle beteiligten Spieler 1 LP."
     },
     {
       "id": "legendary_tokens",
-      "text": "Erhalte LP in Höhe des Gesamtwerts aller erhaltenen Legendären Marker.",
-      "requiredModules": [
-        "base_legendary_tokens"
-      ]
+      "text": "Erhalte LP in Höhe des Gesamtwerts aller erhaltenen Legendären Marker."
     },
     {
       "id": "deeds",
-      "text": "Erhalte LP aus Urkunden gemäß der Wertungsseite jeder Urkunde in deinem Besitz. Zerstörte Orte (mit einem Ruinenmarker) zählen niemals für die Wertung.",
-      "requiredModules": [
-        "blood_money_deeds"
-      ]
+      "text": "Erhalte LP aus Urkunden gemäß der Wertungsseite jeder Urkunde in deinem Besitz. Zerstörte Orte (mit einem Ruinenmarker) zählen niemals für die Wertung."
     },
     {
       "id": "titles",
-      "text": "Wende alle Spielendwertungen oder Effekte der aufgedeckten Titelkarte an.",
-      "requiredModules": [
-        "wild_bunch_titles"
-      ]
+      "text": "Wende alle Spielendwertungen oder Effekte der aufgedeckten Titelkarte an."
     },
     {
       "id": "man_in_black",
-      "text": "Beziehe den Mann in Schwarz in die Endwertung ein. Bei Gleichstand um die meisten LP gewinnt der Mann in Schwarz den Gleichstand.",
-      "requiredModules": [
-        "wild_bunch_man_in_black"
-      ]
+      "text": "Beziehe den Mann in Schwarz in die Endwertung ein. Bei Gleichstand um die meisten LP gewinnt der Mann in Schwarz den Gleichstand."
     }
   ],
   "tiebreakers": [

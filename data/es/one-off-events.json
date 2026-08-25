@@ -2,14 +2,6 @@
   {
     "id": "bandit_reinforcements",
     "title": "Más entre las rocas",
-    "type": "oneOffEvent",
-    "trigger": "trig_start_bandit_fight",
-    "baseWeight": 8,
-    "requiredModules": [],
-    "tags": [
-      "bandit",
-      "fight"
-    ],
     "screenText": "Coloca otro Bandido en el espacio actual. Lucha contra ambos simultáneamente; juega 1 carta de Poker contra cada Carta de Pelea.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Otro bandido salta desde detrás de las rocas\"",
     "newspaperText": [
@@ -18,41 +10,16 @@
       "Los testigos del enfrentamiento llevaron a la ciudad un relato vívido: Otro bandido salta desde detrás de las rocas.",
       "El encuentro se ganó un lugar en la Gazette después de que los informes coincidieran en un detalle llamativo: Otro bandido salta desde detrás de las rocas."
     ],
-    "audioFile": "audio/oneoffs/bandit_reinforcements.mp3",
-    "effects": [
-      {
-        "type": "spawn_bandits_current_space",
-        "count": 2
-      },
-      {
-        "type": "simultaneous_npc_fight",
-        "npc": "bandit",
-        "count": 2
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "bandit_reinforcements"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "twin_pistol_rogue",
     "title": "Pistolero de dos pistolas",
-    "type": "oneOffEvent",
-    "trigger": "trig_start_bandit_fight",
-    "baseWeight": 7,
-    "requiredModules": [],
-    "tags": [
-      "bandit",
-      "fight"
-    ],
     "screenText": "Roba 2 Cartas de Pelea. El jugador debe superar ambas con 2 cartas de Poker o perder la pelea.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Un segundo disparo resuena desde la cresta.\"",
     "newspaperText": [
@@ -61,37 +28,16 @@
       "Los testigos del enfrentamiento llevaron a la ciudad un relato vívido: Un segundo disparo resuena desde la cresta.",
       "El encuentro se ganó un lugar en la Gazette después de que los informes coincidieran en un detalle llamativo: Un segundo disparo resuena desde la cresta."
     ],
-    "audioFile": "audio/oneoffs/twin_pistol_rogue.mp3",
-    "effects": [
-      {
-        "type": "npc_draws",
-        "cards": 2,
-        "use": "both"
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "twin_pistol_rogue"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "drunken_bandit",
     "title": "Bandido borracho",
-    "type": "oneOffEvent",
-    "trigger": "trig_start_bandit_fight",
-    "baseWeight": 6,
-    "requiredModules": [],
-    "tags": [
-      "bandit",
-      "fight"
-    ],
     "screenText": "Roba 2 Cartas de Pelea y usa el valor más bajo.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Se tambalea hacia el camino con más whiskey que juicio.\"",
     "newspaperText": [
@@ -100,37 +46,16 @@
       "Los testigos del enfrentamiento llevaron a la ciudad un relato vívido: Se tambalea hacia el camino con más whiskey que juicio.",
       "El encuentro se ganó un lugar en la Gazette después de que los informes coincidieran en un detalle llamativo: Se tambalea hacia el camino con más whiskey que juicio."
     ],
-    "audioFile": "audio/oneoffs/drunken_bandit.mp3",
-    "effects": [
-      {
-        "type": "npc_draws",
-        "cards": 2,
-        "use": "lowest"
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "drunken_bandit"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "veteran_bandit",
     "title": "Bandido veterano",
-    "type": "oneOffEvent",
-    "trigger": "trig_start_bandit_fight",
-    "baseWeight": 7,
-    "requiredModules": [],
-    "tags": [
-      "bandit",
-      "fight"
-    ],
     "screenText": "Roba 3 Cartas de Pelea y usa el valor más alto.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Este ha sobrevivido a demasiados tiroteos como para ser solo suerte.\"",
     "newspaperText": [
@@ -139,37 +64,16 @@
       "Los testigos del enfrentamiento llevaron a la ciudad un relato vívido: Este ha sobrevivido a demasiados tiroteos como para ser solo suerte.",
       "El encuentro se ganó un lugar en la Gazette después de que los informes coincidieran en un detalle llamativo: Este ha sobrevivido a demasiados tiroteos como para ser solo suerte."
     ],
-    "audioFile": "audio/oneoffs/veteran_bandit.mp3",
-    "effects": [
-      {
-        "type": "npc_draws",
-        "cards": 3,
-        "use": "highest"
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "veteran_bandit"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "bandit_last_words",
     "title": "Últimas palabras del bandido",
-    "type": "oneOffEvent",
-    "trigger": "trig_defeat_bandit",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "bandit",
-      "rumor"
-    ],
     "screenText": "Gana $10 y roba 1 carta de Poker.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Con su último aliento, el bandido menciona un alijo bajo un cedro partido.\"",
     "newspaperText": [
@@ -178,40 +82,16 @@
       "Los testigos del enfrentamiento llevaron a la ciudad un relato vívido: Con su último aliento, el bandido menciona un alijo bajo un cedro partido.",
       "El encuentro se ganó un lugar en la Gazette después de que los informes coincidieran en un detalle llamativo: Con su último aliento, el bandido menciona un alijo bajo un cedro partido."
     ],
-    "audioFile": "audio/oneoffs/bandit_last_words.mp3",
-    "effects": [
-      {
-        "type": "gain_money",
-        "amount": 10
-      },
-      {
-        "type": "draw_poker",
-        "count": 1
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "bandit_last_words"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "hidden_sniper",
     "title": "Francotirador oculto",
-    "type": "oneOffEvent",
-    "trigger": "trig_defeat_bandit",
-    "baseWeight": 6,
-    "requiredModules": [],
-    "tags": [
-      "bandit",
-      "wound"
-    ],
     "screenText": "Después de la pelea, recibe 1 herida a menos que descartes 1 carta de Poker.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Un segundo disparo resuena desde la cresta.\"",
     "newspaperText": [
@@ -220,38 +100,16 @@
       "Los testigos del enfrentamiento llevaron a la ciudad un relato vívido: Un segundo disparo resuena desde la cresta.",
       "El encuentro se ganó un lugar en la Gazette después de que los informes coincidieran en un detalle llamativo: Un segundo disparo resuena desde la cresta."
     ],
-    "audioFile": "audio/oneoffs/hidden_sniper.mp3",
-    "effects": [
-      {
-        "type": "choice",
-        "options": [
-          "gain_1_wound",
-          "discard_1_poker"
-        ]
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "hidden_sniper"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "posse_cheers",
     "title": "La posse vitorea",
-    "type": "oneOffEvent",
-    "trigger": "trig_gain_mp",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "marshal"
-    ],
     "screenText": "Gana $20 o roba 2 cartas de Poker.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"La gente de la ciudad se toca el sombrero al pasar. La ley todavía significa algo por aquí.\"",
     "newspaperText": [
@@ -260,39 +118,16 @@
       "Los testigos del enfrentamiento llevaron a la ciudad un relato vívido: La gente de la ciudad se toca el sombrero al pasar. La ley todavía significa algo por aquí.",
       "El encuentro se ganó un lugar en la Gazette después de que los informes coincidieran en un detalle llamativo: La gente de la ciudad se toca el sombrero al pasar. La ley todavía significa algo por aquí."
     ],
-    "audioFile": "audio/oneoffs/posse_cheers.mp3",
-    "effects": [
-      {
-        "type": "choose_one",
-        "options": [
-          "gain_20",
-          "draw_2_poker"
-        ]
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "posse_cheers"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "false_badge",
     "title": "Placa falsa",
-    "type": "oneOffEvent",
-    "trigger": "trig_arrest_player",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "marshal",
-      "arrest"
-    ],
     "screenText": "El jugador que realiza el arresto recibe 1 herida y después roba 1 carta de Poker.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"La placa parece auténtica desde lejos, pero de cerca huele a problemas.\"",
     "newspaperText": [
@@ -301,40 +136,16 @@
       "Los testigos del enfrentamiento llevaron a la ciudad un relato vívido: La placa parece auténtica desde lejos, pero de cerca huele a problemas.",
       "El encuentro se ganó un lugar en la Gazette después de que los informes coincidieran en un detalle llamativo: La placa parece auténtica desde lejos, pero de cerca huele a problemas."
     ],
-    "audioFile": "audio/oneoffs/false_badge.mp3",
-    "effects": [
-      {
-        "type": "gain_wound",
-        "count": 1
-      },
-      {
-        "type": "draw_poker",
-        "count": 1
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "false_badge"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "sheriffs_notice",
     "title": "Aviso del Sheriff",
-    "type": "oneOffEvent",
-    "trigger": "trig_gain_wp",
-    "baseWeight": 7,
-    "requiredModules": [],
-    "tags": [
-      "wanted",
-      "sheriff"
-    ],
     "screenText": "Mueve al Sheriff hasta 3 espacios hacia el jugador que activó esto.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Un cartel de Se Busca se curva en la pared y el Sheriff ya está ensillando.\"",
     "newspaperText": [
@@ -343,36 +154,16 @@
       "Los testigos del enfrentamiento llevaron a la ciudad un relato vívido: Un cartel de Se Busca se curva en la pared y el Sheriff ya está ensillando.",
       "El encuentro se ganó un lugar en la Gazette después de que los informes coincidieran en un detalle llamativo: Un cartel de Se Busca se curva en la pared y el Sheriff ya está ensillando."
     ],
-    "audioFile": "audio/oneoffs/sheriffs_notice.mp3",
-    "effects": [
-      {
-        "type": "move_sheriff",
-        "spaces": 3
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "sheriffs_notice"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "inside_man",
     "title": "Cómplice interno",
-    "type": "oneOffEvent",
-    "trigger": "trig_bank_heist",
-    "baseWeight": 6,
-    "requiredModules": [],
-    "tags": [
-      "bank",
-      "heist"
-    ],
     "screenText": "Si el atraco tiene éxito, gana +$20. Si fracasa, el golpe fallido atrae a la ley: mueve al Sheriff hasta 3 espacios hacia ti.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Un cajero nervioso deja flojo el pestillo de la caja fuerte.\"",
     "newspaperText": [
@@ -381,37 +172,16 @@
       "La noticia del asunto en el banco se extendió rápidamente por la ciudad: Un cajero nervioso deja flojo el pestillo de la caja fuerte.",
       "La Gazette recibió un animado relato de los últimos problemas relacionados con el banco: Un cajero nervioso deja flojo el pestillo de la caja fuerte."
     ],
-    "audioFile": "audio/oneoffs/inside_man.mp3",
-    "effects": [
-      {
-        "type": "heist_modifier",
-        "success_bonus_money": 20,
-        "failure_wp": 1
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "inside_man"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "locked_vault",
     "title": "Caja fuerte cerrada",
-    "type": "oneOffEvent",
-    "trigger": "trig_bank_heist",
-    "baseWeight": 6,
-    "requiredModules": [],
-    "tags": [
-      "bank",
-      "heist"
-    ],
     "screenText": "El Guardia del Banco roba 1 Carta de Pelea adicional.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"La puerta de la caja fuerte se cierra con un gemido. Este trabajo acaba de hacerse más ruidoso.\"",
     "newspaperText": [
@@ -420,37 +190,16 @@
       "La noticia del asunto en el banco se extendió rápidamente por la ciudad: La puerta de la caja fuerte se cierra con un gemido. Este trabajo acaba de hacerse más ruidoso.",
       "La Gazette recibió un animado relato de los últimos problemas relacionados con el banco: La puerta de la caja fuerte se cierra con un gemido. Este trabajo acaba de hacerse más ruidoso."
     ],
-    "audioFile": "audio/oneoffs/locked_vault.mp3",
-    "effects": [
-      {
-        "type": "npc_extra_fight_card",
-        "npc": "bank_guard",
-        "count": 1
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "locked_vault"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "dusty_getaway",
     "title": "Huida polvorienta",
-    "type": "oneOffEvent",
-    "trigger": "trig_bank_heist",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "bank",
-      "move"
-    ],
     "screenText": "Después de resolver el atraco, muévete hasta 2 espacios.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Se levanta una tormenta de polvo, lo bastante fea como para ocultar una huida desesperada.\"",
     "newspaperText": [
@@ -459,39 +208,16 @@
       "La noticia del asunto en el banco se extendió rápidamente por la ciudad: Se levanta una tormenta de polvo, lo bastante fea como para ocultar una huida desesperada.",
       "La Gazette recibió un animado relato de los últimos problemas relacionados con el banco: Se levanta una tormenta de polvo, lo bastante fea como para ocultar una huida desesperada."
     ],
-    "audioFile": "audio/oneoffs/dusty_getaway.mp3",
-    "effects": [
-      {
-        "type": "move_bonus_after_action",
-        "spaces": 2
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "dusty_getaway"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "train_payroll",
     "title": "Vagón de nóminas",
-    "type": "oneOffEvent",
-    "trigger": "trig_train_heist",
-    "baseWeight": 7,
-    "requiredModules": [
-      "ante_up"
-    ],
-    "tags": [
-      "train",
-      "heist",
-      "ante_up"
-    ],
     "screenText": "Si el Atraco al Tren tiene éxito, gana +$30. Si fracasa, recibe 1 herida.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Esta noche el tren lleva la nómina, y todos los forajidos pueden olerla.\"",
     "newspaperText": [
@@ -500,40 +226,16 @@
       "Los viajeros de la línea ferroviaria trajeron un nuevo relato: Esta noche el tren lleva la nómina, y todos los forajidos pueden olerla.",
       "Los asuntos ferroviarios del día produjeron una historia propia: Esta noche el tren lleva la nómina, y todos los forajidos pueden olerla."
     ],
-    "audioFile": "audio/oneoffs/train_payroll.mp3",
-    "effects": [
-      {
-        "type": "train_heist_modifier",
-        "success_money": 30,
-        "failure_wound": 1
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "train_payroll"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "railroad_guard",
     "title": "Guardia del ferrocarril",
-    "type": "oneOffEvent",
-    "trigger": "trig_train_heist",
-    "baseWeight": 5,
-    "requiredModules": [
-      "ante_up"
-    ],
-    "tags": [
-      "train",
-      "marshal",
-      "ante_up"
-    ],
     "screenText": "Un Marshal puede cancelar el atraco para ganar 1 MP. De lo contrario, resuelve el atraco con normalidad.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Un guardia uniformado reconoce un rostro respetuoso con la ley y pide ayuda.\"",
     "newspaperText": [
@@ -542,37 +244,16 @@
       "Los viajeros de la línea ferroviaria trajeron un nuevo relato: Un guardia uniformado reconoce un rostro respetuoso con la ley y pide ayuda.",
       "Los asuntos ferroviarios del día produjeron una historia propia: Un guardia uniformado reconoce un rostro respetuoso con la ley y pide ayuda."
     ],
-    "audioFile": "audio/oneoffs/railroad_guard.mp3",
-    "effects": [
-      {
-        "type": "conditional_choice",
-        "condition": "marshal",
-        "option": "gain_1_mp_cancel_heist"
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "railroad_guard"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "rich_vein",
     "title": "Veta rica",
-    "type": "oneOffEvent",
-    "trigger": "trig_begin_prospect",
-    "baseWeight": 9,
-    "requiredModules": [],
-    "tags": [
-      "prospect",
-      "gold"
-    ],
     "screenText": "Tira 1 Dado de Prospección adicional durante esta acción de Prospección.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"El polvo de oro se derrama como luz de sol embotellada.\"",
     "newspaperText": [
@@ -581,36 +262,16 @@
       "Los rumores de oro y mala suerte viajaron juntos tras un nuevo informe: El polvo de oro se derrama como luz de sol embotellada.",
       "Los prospectores llevaron un nuevo relato desde las concesiones: El polvo de oro se derrama como luz de sol embotellada."
     ],
-    "audioFile": "audio/oneoffs/rich_vein.mp3",
-    "effects": [
-      {
-        "type": "prospecting_bonus_die",
-        "count": 1
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "rich_vein"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "cave_in",
     "title": "Derrumbe",
-    "type": "oneOffEvent",
-    "trigger": "trig_begin_prospect",
-    "baseWeight": 7,
-    "requiredModules": [],
-    "tags": [
-      "prospect",
-      "wound"
-    ],
     "screenText": "Resuelve la Prospección y después recibe 1 herida.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Las vigas crujen sobre tu cabeza. Hoy la mina quiere cobrar en sangre.\"",
     "newspaperText": [
@@ -619,36 +280,16 @@
       "Los rumores de oro y mala suerte viajaron juntos tras un nuevo informe: Las vigas crujen sobre tu cabeza. Hoy la mina quiere cobrar en sangre.",
       "Los prospectores llevaron un nuevo relato desde las concesiones: Las vigas crujen sobre tu cabeza. Hoy la mina quiere cobrar en sangre."
     ],
-    "audioFile": "audio/oneoffs/cave_in.mp3",
-    "effects": [
-      {
-        "type": "after_action_gain_wound",
-        "count": 1
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "cave_in"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "claim_jumper_shadow",
     "title": "La sombra del Claim Jumper",
-    "type": "oneOffEvent",
-    "trigger": "trig_gain_gold_prospect",
-    "baseWeight": 6,
-    "requiredModules": [],
-    "tags": [
-      "prospect",
-      "claim_jumper"
-    ],
     "screenText": "Coloca una ficha de Claim Jumper en esa Mina si está disponible; de lo contrario, gana $10.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Alguien te vio encontrar oro, y no parece de los que comparten.\"",
     "newspaperText": [
@@ -657,36 +298,16 @@
       "Los rumores de oro y mala suerte viajaron juntos tras un nuevo informe: Alguien te vio encontrar oro, y no parece de los que comparten.",
       "Los prospectores llevaron un nuevo relato desde las concesiones: Alguien te vio encontrar oro, y no parece de los que comparten."
     ],
-    "audioFile": "audio/oneoffs/claim_jumper_shadow.mp3",
-    "effects": [
-      {
-        "type": "spawn_claim_jumper_current_mine",
-        "fallback": "gain_10"
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "claim_jumper_shadow"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "lost_map_tube",
     "title": "Mapa en un tubo",
-    "type": "oneOffEvent",
-    "trigger": "trig_gain_gold_prospect",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "prospect",
-      "treasure"
-    ],
     "screenText": "Obtén 1 Ficha Legendaria. Mantenla boca abajo como de costumbre.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Envuelto en tela encerada espera un mapa más antiguo que la propia ciudad.\"",
     "newspaperText": [
@@ -695,36 +316,16 @@
       "Los rumores de oro y mala suerte viajaron juntos tras un nuevo informe: Envuelto en tela encerada espera un mapa más antiguo que la propia ciudad.",
       "Los prospectores llevaron un nuevo relato desde las concesiones: Envuelto en tela encerada espera un mapa más antiguo que la propia ciudad."
     ],
-    "audioFile": "audio/oneoffs/lost_map_tube.mp3",
-    "effects": [
-      {
-        "type": "gain_legendary_token",
-        "count": 1
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "lost_map_tube"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "fools_gold",
     "title": "Oro de los tontos",
-    "type": "oneOffEvent",
-    "trigger": "trig_gain_gold_prospect",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "prospect",
-      "gold"
-    ],
     "screenText": "Pierde 1 Pepita de Oro que acabas de obtener y después roba 2 cartas de Poker.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Ese brillo en tu batea es bonito, pero lo bonito no siempre paga.\"",
     "newspaperText": [
@@ -733,40 +334,16 @@
       "Los rumores de oro y mala suerte viajaron juntos tras un nuevo informe: Ese brillo en tu batea es bonito, pero lo bonito no siempre paga.",
       "Los prospectores llevaron un nuevo relato desde las concesiones: Ese brillo en tu batea es bonito, pero lo bonito no siempre paga."
     ],
-    "audioFile": "audio/oneoffs/fools_gold.mp3",
-    "effects": [
-      {
-        "type": "lose_gold",
-        "count": 1
-      },
-      {
-        "type": "draw_poker",
-        "count": 2
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "fools_gold"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "bankers_smile",
     "title": "La sonrisa del banquero",
-    "type": "oneOffEvent",
-    "trigger": "trig_deposit_gold",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "bank",
-      "gold"
-    ],
     "screenText": "Gana +$10 por cada Pepita de Oro depositada en esta acción.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"El banquero sonríe tanto que enseña todos los dientes que tiene.\"",
     "newspaperText": [
@@ -775,36 +352,16 @@
       "La noticia del asunto en el banco se extendió rápidamente por la ciudad: El banquero sonríe tanto que enseña todos los dientes que tiene.",
       "La Gazette recibió un animado relato de los últimos problemas relacionados con el banco: El banquero sonríe tanto que enseña todos los dientes que tiene."
     ],
-    "audioFile": "audio/oneoffs/bankers_smile.mp3",
-    "effects": [
-      {
-        "type": "deposit_bonus_per_gold",
-        "money": 10
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "bankers_smile"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "assayer_dispute",
     "title": "Disputa con el tasador",
-    "type": "oneOffEvent",
-    "trigger": "trig_deposit_gold",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "bank",
-      "gold"
-    ],
     "screenText": "Antes de depositar, descarta 1 carta de Poker o recibe $10 menos en total.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"El tasador entrecierra los ojos ante tu oro y dice que pesa poco.\"",
     "newspaperText": [
@@ -813,39 +370,16 @@
       "La noticia del asunto en el banco se extendió rápidamente por el pueblo: El ensayador entrecierra los ojos ante tu oro y dice que pesa poco.",
       "La Gazette recibió un animado relato del último problema relacionado con el banco: El ensayador entrecierra los ojos ante tu oro y dice que pesa poco."
     ],
-    "audioFile": "audio/oneoffs/assayer_dispute.mp3",
-    "effects": [
-      {
-        "type": "choice",
-        "options": [
-          "discard_1_poker",
-          "reduce_reward_10"
-        ]
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "assayer_dispute"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "free_spurs",
     "title": "Espuelas Gratis",
-    "type": "oneOffEvent",
-    "trigger": "trig_purchase_item",
-    "baseWeight": 6,
-    "requiredModules": [],
-    "tags": [
-      "store",
-      "mount"
-    ],
     "screenText": "Después de comprar, muévete hasta 1 espacio. Esto no es una acción de Movimiento.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"El tendero añade unas espuelas que pertenecieron a un hombre veloz.\"",
     "newspaperText": [
@@ -854,36 +388,16 @@
       "Una compra en el pueblo proporcionó una noticia inesperada para la Gazette: El tendero añade unas espuelas que pertenecieron a un hombre veloz.",
       "Desde las tiendas llegó un detalle memorable: El tendero añade unas espuelas que pertenecieron a un hombre veloz."
     ],
-    "audioFile": "audio/oneoffs/free_spurs.mp3",
-    "effects": [
-      {
-        "type": "free_move",
-        "spaces": 1
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "free_spurs"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "gunsmith_discount",
     "title": "Favor del Armero",
-    "type": "oneOffEvent",
-    "trigger": "trig_purchase_item",
-    "baseWeight": 6,
-    "requiredModules": [],
-    "tags": [
-      "store",
-      "weapon"
-    ],
     "screenText": "Recupera inmediatamente $10 del coste de compra o mejora.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"El armero examina tu hierro y rebaja diez dólares del precio.\"",
     "newspaperText": [
@@ -892,36 +406,16 @@
       "Una compra en el pueblo proporcionó una noticia inesperada para la Gazette: El armero examina tu hierro y rebaja diez dólares del precio.",
       "Desde las tiendas llegó un detalle memorable: El armero examina tu hierro y rebaja diez dólares del precio."
     ],
-    "audioFile": "audio/oneoffs/gunsmith_discount.mp3",
-    "effects": [
-      {
-        "type": "gain_money",
-        "amount": 10
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "gunsmith_discount"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "counterfeit_goods",
     "title": "Mercancía Falsificada",
-    "type": "oneOffEvent",
-    "trigger": "trig_purchase_item",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "store",
-      "penalty"
-    ],
     "screenText": "Roba 1 Carta de Poker. Si su valor es 6 o menos, sufre 1 herida por la mercancía defectuosa.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"La ganga parecía estupenda bajo la luz de la tienda. Entonces empieza a echar humo.\"",
     "newspaperText": [
@@ -930,37 +424,16 @@
       "Una compra en el pueblo proporcionó una noticia inesperada para la Gazette: La ganga parecía estupenda bajo la luz de la tienda. Entonces empieza a echar humo.",
       "Desde las tiendas llegó un detalle memorable: La ganga parecía estupenda bajo la luz de la tienda. Entonces empieza a echar humo."
     ],
-    "audioFile": "audio/oneoffs/counterfeit_goods.mp3",
-    "effects": [
-      {
-        "type": "draw_poker_value_check",
-        "threshold": 6,
-        "fail": "gain_1_wound"
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "counterfeit_goods"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "rare_shipment",
     "title": "Cargamento Raro",
-    "type": "oneOffEvent",
-    "trigger": "trig_purchase_item",
-    "baseWeight": 4,
-    "requiredModules": [],
-    "tags": [
-      "store",
-      "legendary"
-    ],
     "screenText": "Revela 1 Objeto Legendario. El jugador que activó el evento puede comprarlo por $30.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Una caja llegada del Este aterriza sobre el mostrador, sellada de promesas.\"",
     "newspaperText": [
@@ -969,36 +442,16 @@
       "Una compra en el pueblo proporcionó una noticia inesperada para la Gazette: Una caja llegada del Este aterriza sobre el mostrador, sellada de promesas.",
       "Desde las tiendas llegó un detalle memorable: Una caja llegada del Este aterriza sobre el mostrador, sellada de promesas."
     ],
-    "audioFile": "audio/oneoffs/rare_shipment.mp3",
-    "effects": [
-      {
-        "type": "reveal_legendary_item_offer",
-        "cost": 30
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "rare_shipment"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "doctor_secret",
     "title": "Tónico Secreto del Doctor",
-    "type": "oneOffEvent",
-    "trigger": "trig_heal_doctor",
-    "baseWeight": 6,
-    "requiredModules": [],
-    "tags": [
-      "doctor",
-      "heal"
-    ],
     "screenText": "Cúrate normalmente. Después roba 1 Carta de Poker adicional.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"El doctor sirve algo oscuro y dice que no preguntes qué lleva.\"",
     "newspaperText": [
@@ -1007,36 +460,16 @@
       "Un duro día en la frontera terminó con un relato médico memorable: El doctor sirve algo oscuro y dice que no preguntes qué lleva.",
       "En el pueblo siguieron hablando de un extraño giro relacionado con heridas y medicina: El doctor sirve algo oscuro y dice que no preguntes qué lleva."
     ],
-    "audioFile": "audio/oneoffs/doctor_secret.mp3",
-    "effects": [
-      {
-        "type": "draw_poker",
-        "count": 1
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "doctor_secret"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "bad_medicine",
     "title": "Mala Medicina",
-    "type": "oneOffEvent",
-    "trigger": "trig_heal_doctor",
-    "baseWeight": 4,
-    "requiredModules": [],
-    "tags": [
-      "doctor",
-      "heal"
-    ],
     "screenText": "Cúrate normalmente, pero tu próxima acción de Movimiento tiene -1 espacio.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"La medicina funciona, pero la habitación insiste en quedarse de lado.\"",
     "newspaperText": [
@@ -1045,36 +478,16 @@
       "Un duro día en la frontera terminó con un relato médico memorable: La medicina funciona, pero la habitación insiste en quedarse de lado.",
       "En el pueblo siguieron hablando de un extraño giro relacionado con heridas y medicina: La medicina funciona, pero la habitación insiste en quedarse de lado."
     ],
-    "audioFile": "audio/oneoffs/bad_medicine.mp3",
-    "effects": [
-      {
-        "type": "temporary_status",
-        "status": "next_move_minus_1"
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "bad_medicine"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "cabaret_ovation",
     "title": "Ovación de Pie",
-    "type": "oneOffEvent",
-    "trigger": "trig_revel_cabaret",
-    "baseWeight": 6,
-    "requiredModules": [],
-    "tags": [
-      "cabaret",
-      "lp"
-    ],
     "screenText": "Después de Divertirte, roba 1 Carta de Poker por cada LP obtenido con esta acción.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"La multitud golpea las mesas hasta hacer temblar las vigas.\"",
     "newspaperText": [
@@ -1083,35 +496,16 @@
       "Las mesas y los saloons ofrecieron algo más que diversión corriente: La multitud golpea las mesas hasta hacer temblar las vigas.",
       "A la hora de cerrar, un relato corría de boca en boca por el pueblo: La multitud golpea las mesas hasta hacer temblar las vigas."
     ],
-    "audioFile": "audio/oneoffs/cabaret_ovation.mp3",
-    "effects": [
-      {
-        "type": "draw_poker_per_lp_reveled"
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "cabaret_ovation"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "cabaret_scandal",
     "title": "Escándalo en el Cabaret",
-    "type": "oneOffEvent",
-    "trigger": "trig_revel_cabaret",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "cabaret",
-      "wanted"
-    ],
     "screenText": "Después de Divertirte, elige: gana 1 WP o descarta 1 Carta de Poker.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Al amanecer, la mitad de Red Falls ya lo sabe y la otra mitad ha inventado algo peor.\"",
     "newspaperText": [
@@ -1120,39 +514,16 @@
       "Los testigos del enfrentamiento llevaron al pueblo un relato vívido: Al amanecer, la mitad de Red Falls ya lo sabe y la otra mitad ha inventado algo peor.",
       "El encuentro se ganó un lugar en la Gazette después de que los informes coincidieran en un detalle llamativo: Al amanecer, la mitad de Red Falls ya lo sabe y la otra mitad ha inventado algo peor."
     ],
-    "audioFile": "audio/oneoffs/cabaret_scandal.mp3",
-    "effects": [
-      {
-        "type": "choose_one",
-        "options": [
-          "gain_1_wp",
-          "discard_1_poker"
-        ]
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "cabaret_scandal"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "card_shark",
     "title": "Tiburón de las Cartas",
-    "type": "oneOffEvent",
-    "trigger": "trig_begin_poker",
-    "baseWeight": 7,
-    "requiredModules": [],
-    "tags": [
-      "poker",
-      "saloon"
-    ],
     "screenText": "Antes de la mano, el jugador activo puede robar 1 Carta de Poker y después debe descartar 1 Carta de Poker.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Un tahúr se desliza en la partida con los puños de la camisa limpios y la mirada sucia.\"",
     "newspaperText": [
@@ -1161,36 +532,16 @@
       "Las mesas y los saloons ofrecieron algo más que diversión corriente: Un tahúr se desliza en la partida con los puños de la camisa limpios y la mirada sucia.",
       "A la hora de cerrar, un relato corría de boca en boca por el pueblo: Un tahúr se desliza en la partida con los puños de la camisa limpios y la mirada sucia."
     ],
-    "audioFile": "audio/oneoffs/card_shark.mp3",
-    "effects": [
-      {
-        "type": "draw_then_discard",
-        "count": 1
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "card_shark"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "lucky_table",
     "title": "Mesa de la Suerte",
-    "type": "oneOffEvent",
-    "trigger": "trig_win_poker",
-    "baseWeight": 7,
-    "requiredModules": [],
-    "tags": [
-      "poker",
-      "gambler"
-    ],
     "screenText": "El ganador obtiene +$20 de la reserva.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Esa mesa da suerte desde que taparon con plata el agujero de bala.\"",
     "newspaperText": [
@@ -1199,36 +550,16 @@
       "Las mesas y los saloons ofrecieron algo más que diversión corriente: Esa mesa da suerte desde que taparon con plata el agujero de bala.",
       "A la hora de cerrar, un relato corría de boca en boca por el pueblo: Esa mesa da suerte desde que taparon con plata el agujero de bala."
     ],
-    "audioFile": "audio/oneoffs/lucky_table.mp3",
-    "effects": [
-      {
-        "type": "gain_money",
-        "amount": 20
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "lucky_table"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "saloon_brawl",
     "title": "Pelea de Saloon",
-    "type": "oneOffEvent",
-    "trigger": "trig_begin_poker",
-    "baseWeight": 6,
-    "requiredModules": [],
-    "tags": [
-      "poker",
-      "fight"
-    ],
     "screenText": "Antes de resolver el Poker, el jugador activo pelea contra un Bandido. Si gana, continúa el Poker y obtiene 1 LP.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Se rompe una silla, vuela una botella y las cartas no son el único problema.\"",
     "newspaperText": [
@@ -1237,35 +568,16 @@
       "Los testigos del enfrentamiento llevaron al pueblo un relato vívido: Se rompe una silla, vuela una botella y las cartas no son el único problema.",
       "El encuentro se ganó un lugar en la Gazette después de que los informes coincidieran en un detalle llamativo: Se rompe una silla, vuela una botella y las cartas no son el único problema."
     ],
-    "audioFile": "audio/oneoffs/saloon_brawl.mp3",
-    "effects": [
-      {
-        "type": "interrupt_with_bandit_fight",
-        "success": "gain_1_lp_continue"
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "saloon_brawl"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "work_honest_pay",
     "title": "Paga Honrada",
-    "type": "oneOffEvent",
-    "trigger": "trig_work_action",
-    "baseWeight": 6,
-    "requiredModules": [],
-    "tags": [
-      "work"
-    ],
     "screenText": "Obtén $20 en lugar de $10 por esta acción de Trabajo.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"El sudor honrado se gasta igual de bien.\"",
     "newspaperText": [
@@ -1274,36 +586,16 @@
       "Al ponerse el sol, los viajeros repetían el mismo relato por el camino: El sudor honrado se gasta igual de bien.",
       "El asunto pronto se convirtió en tema de conversación en la frontera, y los testigos recordaban un detalle por encima de los demás: El sudor honrado se gasta igual de bien."
     ],
-    "audioFile": "audio/oneoffs/work_honest_pay.mp3",
-    "effects": [
-      {
-        "type": "work_reward_override",
-        "money": 20
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "work_honest_pay"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "work_splintered_hand",
     "title": "Mano Astillada",
-    "type": "oneOffEvent",
-    "trigger": "trig_work_action",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "work",
-      "wound"
-    ],
     "screenText": "Obtén $10 normalmente y después sufre 1 herida a menos que descartes 1 Carta de Poker.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"El mango se parte y te clava una astilla lo bastante hondo como para no olvidarla.\"",
     "newspaperText": [
@@ -1312,39 +604,16 @@
       "Un duro día en la frontera terminó con un relato médico memorable: El mango se parte y te clava una astilla lo bastante hondo como para no olvidarla.",
       "En el pueblo siguieron hablando de un extraño giro relacionado con heridas y medicina: El mango se parte y te clava una astilla lo bastante hondo como para no olvidarla."
     ],
-    "audioFile": "audio/oneoffs/work_splintered_hand.mp3",
-    "effects": [
-      {
-        "type": "choice",
-        "options": [
-          "gain_1_wound",
-          "discard_1_poker"
-        ]
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "work_splintered_hand"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "stampede",
     "title": "Stampede",
-    "type": "oneOffEvent",
-    "trigger": "trig_acquire_cattle",
-    "baseWeight": 7,
-    "requiredModules": [],
-    "tags": [
-      "ranch",
-      "cattle"
-    ],
     "screenText": "Después de adquirir ganado, muévete inmediatamente 1 espacio alejándote del Rancho.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"La manada sale disparada, con los cascos tronando como el día del juicio.\"",
     "newspaperText": [
@@ -1353,37 +622,16 @@
       "Los asuntos del rancho dieron un giro inesperado durante el día: La manada sale disparada, con los cascos tronando como el día del juicio.",
       "Los jinetes que regresaban de los ranchos traían una historia en particular: La manada sale disparada, con los cascos tronando como el día del juicio."
     ],
-    "audioFile": "audio/oneoffs/stampede.mp3",
-    "effects": [
-      {
-        "type": "forced_move",
-        "spaces": 1,
-        "away_from": "ranch"
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "stampede"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "prize_steer",
     "title": "Novillo de Premio",
-    "type": "oneOffEvent",
-    "trigger": "trig_acquire_cattle",
-    "baseWeight": 6,
-    "requiredModules": [],
-    "tags": [
-      "ranch",
-      "cattle"
-    ],
     "screenText": "Mira 2 fichas de ganado de ese Rancho. Quédate 1 y devuelve la otra boca abajo.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"El peón del rancho señala el novillo más gordo del corral.\"",
     "newspaperText": [
@@ -1392,37 +640,16 @@
       "Los asuntos del rancho dieron un giro inesperado durante el día: El peón del rancho señala el novillo más gordo del corral.",
       "Los jinetes que regresaban de los ranchos traían una historia en particular: El peón del rancho señala el novillo más gordo del corral."
     ],
-    "audioFile": "audio/oneoffs/prize_steer.mp3",
-    "effects": [
-      {
-        "type": "draw_cattle_choose",
-        "count": 2,
-        "keep": 1
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "prize_steer"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "rustler_brand",
     "title": "Marca de Cuatrero",
-    "type": "oneOffEvent",
-    "trigger": "trig_rustle_cattle",
-    "baseWeight": 7,
-    "requiredModules": [],
-    "tags": [
-      "rustle",
-      "wanted"
-    ],
     "screenText": "Obtén +$20 al robar ganado. Tu atrevida marca atrae atención: mueve al Sheriff hasta 3 espacios hacia ti.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"La marca está fresca, y cualquier hombre de la ley podrá olerla.\"",
     "newspaperText": [
@@ -1431,37 +658,16 @@
       "Los testigos del enfrentamiento llevaron al pueblo un relato vívido: La marca está fresca, y cualquier hombre de la ley podrá olerla.",
       "El encuentro se ganó un lugar en la Gazette después de que los informes coincidieran en un detalle llamativo: La marca está fresca, y cualquier hombre de la ley podrá olerla."
     ],
-    "audioFile": "audio/oneoffs/rustler_brand.mp3",
-    "effects": [
-      {
-        "type": "rustle_modifier",
-        "money": 20,
-        "wp": 1
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "rustler_brand"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "clean_drive",
     "title": "Arreo Impecable",
-    "type": "oneOffEvent",
-    "trigger": "trig_wrangle_cattle",
-    "baseWeight": 6,
-    "requiredModules": [],
-    "tags": [
-      "wrangle",
-      "marshal"
-    ],
     "screenText": "Obtén +$10 al arrear ganado.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Ni un solo novillo se desvía. Un trabajo así se gana el respeto.\"",
     "newspaperText": [
@@ -1470,36 +676,16 @@
       "Los testigos del enfrentamiento llevaron al pueblo un relato vívido: Ni un solo novillo se desvía. Un trabajo así se gana el respeto.",
       "El encuentro se ganó un lugar en la Gazette después de que los informes coincidieran en un detalle llamativo: Ni un solo novillo se desvía. Un trabajo así se gana el respeto."
     ],
-    "audioFile": "audio/oneoffs/clean_drive.mp3",
-    "effects": [
-      {
-        "type": "wrangle_bonus_money",
-        "amount": 10
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "clean_drive"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "broken_bridge",
     "title": "Puente Roto",
-    "type": "oneOffEvent",
-    "trigger": "trig_move_3_plus",
-    "baseWeight": 6,
-    "requiredModules": [],
-    "tags": [
-      "move",
-      "travel"
-    ],
     "screenText": "Termina inmediatamente la acción de Movimiento. Roba 1 Carta de Poker.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"El puente de delante tiene más de recuerdo que de madera.\"",
     "newspaperText": [
@@ -1508,39 +694,16 @@
       "La noticia desde la llanura llegó al pueblo antes que el siguiente jinete: El puente de delante tiene más de recuerdo que de madera.",
       "Otro viaje por la frontera produjo una historia digna de imprimirse: El puente de delante tiene más de recuerdo que de madera."
     ],
-    "audioFile": "audio/oneoffs/broken_bridge.mp3",
-    "effects": [
-      {
-        "type": "end_move_now"
-      },
-      {
-        "type": "draw_poker",
-        "count": 1
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "broken_bridge"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "runaway_stage",
     "title": "Diligencia Desbocada",
-    "type": "oneOffEvent",
-    "trigger": "trig_move_3_plus",
-    "baseWeight": 7,
-    "requiredModules": [],
-    "tags": [
-      "move",
-      "stagecoach"
-    ],
     "screenText": "Muévete hasta 2 espacios adicionales. Después sufre 1 herida a menos que descartes 1 Carta de Poker.",
     "narrationScript": "[raspy][old cowboy][western][fast][low key][emotionless][quick]¡Una diligencia sin conductor baja a toda velocidad por el camino!",
     "newspaperText": [
@@ -1549,43 +712,16 @@
       "La noticia desde la llanura llegó al pueblo antes que el siguiente jinete: ¡Una diligencia sin conductor baja a toda velocidad por el camino!",
       "Otro viaje por la frontera produjo una historia digna de imprimirse: ¡Una diligencia sin conductor baja a toda velocidad por el camino!"
     ],
-    "audioFile": "audio/oneoffs/runaway_stage.mp3",
-    "effects": [
-      {
-        "type": "move_bonus",
-        "spaces": 2
-      },
-      {
-        "type": "choice",
-        "options": [
-          "gain_1_wound",
-          "discard_1_poker"
-        ]
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "runaway_stage"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "snakebite",
     "title": "Mordedura de Serpiente",
-    "type": "oneOffEvent",
-    "trigger": "trig_end_outside_town",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "wilderness",
-      "wound"
-    ],
     "screenText": "Sufre 1 herida. Después roba 1 Carta de Poker.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Una cascabel ataca desde una sombra no mayor que el tacón de una bota.\"",
     "newspaperText": [
@@ -1594,40 +730,16 @@
       "Un duro día en la frontera terminó con un relato médico memorable: Una cascabel ataca desde una sombra no mayor que el tacón de una bota.",
       "En el pueblo siguieron hablando de un extraño giro relacionado con heridas y medicina: Una cascabel ataca desde una sombra no mayor que el tacón de una bota."
     ],
-    "audioFile": "audio/oneoffs/snakebite.mp3",
-    "effects": [
-      {
-        "type": "gain_wound",
-        "count": 1
-      },
-      {
-        "type": "draw_poker",
-        "count": 1
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "snakebite"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "desert_shortcut",
     "title": "Atajo del Desierto",
-    "type": "oneOffEvent",
-    "trigger": "trig_enter_dixon_creek",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "movement",
-      "dixon_creek"
-    ],
     "screenText": "Muévete inmediatamente hasta 2 espacios. Ignora las mesas solo durante este movimiento si todos los jugadores están de acuerdo con la ruta.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Un viejo sendero atraviesa un terreno que casi todos juran que es infranqueable.\"",
     "newspaperText": [
@@ -1636,37 +748,16 @@
       "La noticia desde la llanura llegó al pueblo antes que el siguiente jinete: Un viejo sendero atraviesa un terreno que casi todos juran que es infranqueable.",
       "Otro viaje por la frontera produjo una historia digna de imprimirse: Un viejo sendero atraviesa un terreno que casi todos juran que es infranqueable."
     ],
-    "audioFile": "audio/oneoffs/desert_shortcut.mp3",
-    "effects": [
-      {
-        "type": "special_move",
-        "spaces": 2,
-        "ignore_mesa_if_agreed": true
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "desert_shortcut"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "dixon_ambush",
     "title": "Emboscada de Dixon Creek",
-    "type": "oneOffEvent",
-    "trigger": "trig_enter_dixon_creek",
-    "baseWeight": 7,
-    "requiredModules": [],
-    "tags": [
-      "dixon_creek",
-      "bandit"
-    ],
     "screenText": "Pelea inmediatamente contra un Bandido. Si ganas, obtén +$10.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Dixon Creek está tranquilo. Demasiado tranquilo para ser tierra de gente honrada.\"",
     "newspaperText": [
@@ -1675,36 +766,16 @@
       "Los testigos del enfrentamiento llevaron al pueblo un relato vívido: Dixon Creek está tranquilo. Demasiado tranquilo para ser tierra de gente honrada.",
       "El encuentro se ganó un lugar en la Gazette después de que los informes coincidieran en un detalle llamativo: Dixon Creek está tranquilo. Demasiado tranquilo para ser tierra de gente honrada."
     ],
-    "audioFile": "audio/oneoffs/dixon_ambush.mp3",
-    "effects": [
-      {
-        "type": "fight_bandit_now",
-        "success_money": 10
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "dixon_ambush"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "mesitos_greenhorn",
     "title": "Novato de Green Ranch",
-    "type": "oneOffEvent",
-    "trigger": "trig_enter_mesitos_point",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "mesitos_point",
-      "ranch"
-    ],
     "screenText": "Si estás en Green Ranch, obtén $20. De lo contrario, roba 1 Carta de Poker.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Un joven peón del rancho te hace señas con pánico en los ojos.\"",
     "newspaperText": [
@@ -1713,38 +784,16 @@
       "Los asuntos del rancho dieron un giro inesperado durante el día: Un joven peón del rancho te hace señas con pánico en los ojos.",
       "Los jinetes que regresaban de los ranchos traían una historia en particular: Un joven peón del rancho te hace señas con pánico en los ojos."
     ],
-    "audioFile": "audio/oneoffs/mesitos_greenhorn.mp3",
-    "effects": [
-      {
-        "type": "conditional_location_reward",
-        "location": "green_ranch",
-        "reward": "gain_20",
-        "else": "draw_1_poker"
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "mesitos_greenhorn"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "sunny_hills_luck",
     "title": "Suerte en Sunny Hills",
-    "type": "oneOffEvent",
-    "trigger": "trig_enter_sunny_hills",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "sunny_hills",
-      "mine"
-    ],
     "screenText": "Si estás en la Mina de Sunny Hills, tira 1 Dado de Prospección sin gastar una acción.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Sunny Hills hace honor a su nombre cuando hasta la piedra empieza a brillar.\"",
     "newspaperText": [
@@ -1753,36 +802,16 @@
       "Las historias de oro y mala suerte viajaron juntas tras un nuevo informe: Sunny Hills hace honor a su nombre cuando hasta la piedra empieza a brillar.",
       "Los prospectores llevaron un nuevo relato desde las concesiones: Sunny Hills hace honor a su nombre cuando hasta la piedra empieza a brillar."
     ],
-    "audioFile": "audio/oneoffs/sunny_hills_luck.mp3",
-    "effects": [
-      {
-        "type": "free_prospect_die_if_at",
-        "location": "sunny_hills_mine"
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "sunny_hills_luck"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "spikes_view_signal",
     "title": "Fuego de Señales",
-    "type": "oneOffEvent",
-    "trigger": "trig_enter_spikes_view",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "spikes_view",
-      "train"
-    ],
     "screenText": "Mueve el Tren a la Estación de Tren de Spike’s View si Ante Up está activado; de lo contrario, roba 1 Carta de Poker.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Un fuego de señales arde en la cresta sobre Spike’s View.\"",
     "newspaperText": [
@@ -1791,37 +820,16 @@
       "Los viajeros de la línea férrea trajeron un nuevo relato: Un fuego de señales arde en la cresta sobre Spike’s View.",
       "Los asuntos ferroviarios del día produjeron una historia propia: Un fuego de señales arde en la cresta sobre Spike’s View."
     ],
-    "audioFile": "audio/oneoffs/spikes_view_signal.mp3",
-    "effects": [
-      {
-        "type": "move_train_to",
-        "location": "spikes_view_rail",
-        "fallback": "draw_1_poker"
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "spikes_view_signal"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "cliff_junction_echo",
     "title": "Eco en los Acantilados",
-    "type": "oneOffEvent",
-    "trigger": "trig_enter_cliff_junction",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "cliff_junction",
-      "risk"
-    ],
     "screenText": "Roba 1 Carta de Pelea. Con 7+, obtén $20. Con 6 o menos, sufre 1 herida.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Algo responde a tus pasos desde lo profundo de la roca.\"",
     "newspaperText": [
@@ -1830,37 +838,16 @@
       "Una apuesta con el peligro pronto se convirtió en parte de la conversación del día: Algo responde a tus pasos desde lo profundo de la roca.",
       "Corrió la voz de otro asunto en el que los nervios importaron tanto como el sentido común: Algo responde a tus pasos desde lo profundo de la roca."
     ],
-    "audioFile": "audio/oneoffs/cliff_junction_echo.mp3",
-    "effects": [
-      {
-        "type": "fight_card_check",
-        "threshold": 7,
-        "success": "gain_20",
-        "fail": "gain_1_wound"
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "cliff_junction_echo"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "legendary_whisper",
     "title": "Susurro Legendario",
-    "type": "oneOffEvent",
-    "trigger": "trig_gain_legendary_item",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "legendary_item"
-    ],
     "screenText": "Roba 1 Carta de Poker. Si es una figura o un As, obtén 1 LP.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Algunos objetos ya traen historias consigo antes siquiera de tocar tu mano.\"",
     "newspaperText": [
@@ -1869,46 +856,16 @@
       "Al ponerse el sol, los viajeros repetían el mismo relato por el camino: Algunos objetos ya traen historias consigo antes siquiera de tocar tu mano.",
       "El asunto pronto se convirtió en tema de conversación en la frontera, y los testigos recordaban un detalle por encima de los demás: Algunos objetos ya traen historias consigo antes siquiera de tocar tu mano."
     ],
-    "audioFile": "audio/oneoffs/legendary_whisper.mp3",
-    "effects": [
-      {
-        "type": "draw_poker_rank_check",
-        "ranks": [
-          "J",
-          "Q",
-          "K",
-          "A"
-        ],
-        "success": "gain_1_lp"
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "legendary_whisper"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "trader_sweetens_deal",
     "title": "Incentivo de Herve",
-    "type": "oneOffEvent",
-    "trigger": "trig_buy_traveling_trader",
-    "baseWeight": 6,
-    "requiredModules": [
-      "blood_money_traveling_trader"
-    ],
-    "tags": [
-      "trader",
-      "purchase",
-      "positive",
-      "blood_money"
-    ],
     "screenText": "El Dr. Herve mejora el trato. Elige: recupera $10 de tu compra o roba 2 Cartas de Poker.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Herve sonríe y da unos golpecitos a un cajón oculto. Los buenos clientes merecen un pequeño extra.\"",
     "newspaperText": [
@@ -1917,44 +874,16 @@
       "Una compra en el pueblo proporcionó una noticia inesperada para la Gazette: Herve sonríe y da unos golpecitos a un cajón oculto. Los buenos clientes merecen un pequeño extra.",
       "Desde las tiendas llegó un detalle memorable: Herve sonríe y da unos golpecitos a un cajón oculto. Los buenos clientes merecen un pequeño extra."
     ],
-    "audioFile": null,
-    "effects": [
-      {
-        "type": "choose_one",
-        "options": [
-          "gain_10",
-          "draw_2_poker"
-        ]
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "trader_sweetens_deal"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "trader_no_questions_asked",
     "title": "Sin Hacer Preguntas",
-    "type": "oneOffEvent",
-    "trigger": "trig_buy_traveling_trader",
-    "baseWeight": 5,
-    "requiredModules": [
-      "blood_money_traveling_trader"
-    ],
-    "tags": [
-      "trader",
-      "purchase",
-      "wanted",
-      "temptation",
-      "blood_money"
-    ],
     "screenText": "El Dr. Herve desliza $20 de vuelta por el mostrador y ofrece una mezcla turbia para el camino. Acepta el trato sin preguntas para obtener $20 y 1 WP, o recházalo sin efecto adicional.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Herve desliza algo de dinero de vuelta por el mostrador y luego saca una botella turbia. No preguntes de dónde salió ninguna de las dos cosas. Solo decide si hoy te sientes con suerte.\"",
     "newspaperText": [
@@ -1963,41 +892,19 @@
       "Los testigos del enfrentamiento llevaron al pueblo un relato vívido: Herve desliza algo de dinero de vuelta por el mostrador y luego saca una botella turbia. No preguntes de dónde salió ninguna de las dos cosas. Solo decide si hoy te sientes con suerte.",
       "El encuentro se ganó un lugar en la Gazette después de que los informes coincidieran en un detalle llamativo: Herve desliza algo de dinero de vuelta por el mostrador y luego saca una botella turbia. No preguntes de dónde salió ninguna de las dos cosas. Solo decide si hoy te sientes con suerte."
     ],
-    "audioFile": null,
-    "effects": [],
     "resultButtons": [
       {
-        "label": "Aceptar $20 + 1 WP",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "trader_no_questions_asked_wanted"
-          }
-        ]
+        "_index": 0,
+        "label": "Aceptar $20 + 1 WP"
       },
       {
-        "label": "Rechazar",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "trader_no_questions_asked_refused"
-          }
-        ]
+        "_index": 1,
+        "label": "Rechazar"
       }
     ],
     "moduleVariants": [
       {
         "id": "gambler_track",
-        "requiredModules": [
-          "ante_up_gambler"
-        ],
-        "tags": [
-          "trader",
-          "purchase",
-          "gambling",
-          "temptation",
-          "blood_money"
-        ],
         "screenText": "El Dr. Herve desliza $20 de vuelta por el mostrador y ofrece una mezcla turbia para el camino. Si te sientes con suerte, acepta el trato sin preguntas para obtener $20 y 1 Punto de Gambler; o recházalo sin efecto adicional.",
         "newspaperText": [
           "El Dr. Herve mejoró discretamente la compra de un cliente viajero con dinero suelto y una apuesta digna de las salas de juego.",
@@ -2007,22 +914,12 @@
         ],
         "resultButtons": [
           {
-            "label": "Aceptar $20 + 1 GP",
-            "effects": [
-              {
-                "type": "log_event",
-                "id": "trader_no_questions_asked_gambler"
-              }
-            ]
+            "_index": 0,
+            "label": "Aceptar $20 + 1 GP"
           },
           {
-            "label": "Rechazar",
-            "effects": [
-              {
-                "type": "log_event",
-                "id": "trader_no_questions_asked_refused"
-              }
-            ]
+            "_index": 1,
+            "label": "Rechazar"
           }
         ]
       }
@@ -2031,14 +928,6 @@
   {
     "id": "famous_deed",
     "title": "Hazaña Famosa",
-    "type": "oneOffEvent",
-    "trigger": "trig_gain_lp_2_plus",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "lp",
-      "newspaper"
-    ],
     "screenText": "Obtén $10 y añade «Hazaña Famosa» al resumen del periódico.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Para cuando se pone el sol, alguien ya está contando mal la historia.\"",
     "newspaperText": [
@@ -2047,42 +936,16 @@
       "Al ponerse el sol, los viajeros repetían el mismo relato por el camino: Para cuando se pone el sol, alguien ya está contando mal la historia.",
       "El asunto pronto se convirtió en tema de conversación en la frontera, y los testigos recordaban un detalle por encima de los demás: Para cuando se pone el sol, alguien ya está contando mal la historia."
     ],
-    "audioFile": "audio/oneoffs/famous_deed.mp3",
-    "effects": [
-      {
-        "type": "gain_money",
-        "amount": 10
-      },
-      {
-        "type": "newspaper_note",
-        "key": "famous_deed"
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "famous_deed"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "risk_pays",
     "title": "El Riesgo Paga",
-    "type": "oneOffEvent",
-    "trigger": "trig_roll_risk_die",
-    "baseWeight": 6,
-    "requiredModules": [
-      "blood_money"
-    ],
-    "tags": [
-      "risk",
-      "blood_money"
-    ],
     "screenText": "Después de resolver el Dado de Riesgo, roba 1 Carta de Poker.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"La fortuna favorece al necio que sabe cuándo salir corriendo.\"",
     "newspaperText": [
@@ -2091,41 +954,16 @@
       "Una apuesta con el peligro pronto se convirtió en parte de la conversación del día: La fortuna favorece al necio que sabe cuándo salir corriendo.",
       "Corrió la voz de otro asunto en el que los nervios importaron tanto como el sentido común: La fortuna favorece al necio que sabe cuándo salir corriendo."
     ],
-    "audioFile": "audio/oneoffs/risk_pays.mp3",
-    "effects": [
-      {
-        "type": "draw_poker",
-        "count": 1
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "risk_pays"
-          },
-          {
-            "type": "gain_story_point"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "risk_bites",
     "title": "El Riesgo Muerde",
-    "type": "oneOffEvent",
-    "trigger": "trig_roll_risk_die",
-    "baseWeight": 5,
-    "requiredModules": [
-      "blood_money"
-    ],
-    "tags": [
-      "risk",
-      "blood_money"
-    ],
     "screenText": "Después de resolver el Dado de Riesgo, descarta 1 Carta de Poker o sufre 1 herida.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"El riesgo tiene dientes, y hoy ha encontrado carne.\"",
     "newspaperText": [
@@ -2134,42 +972,16 @@
       "Una apuesta con el peligro pronto se convirtió en parte de la conversación del día: El riesgo tiene dientes, y hoy ha encontrado carne.",
       "Corrió la voz de otro asunto en el que los nervios importaron tanto como el sentido común: El riesgo tiene dientes, y hoy ha encontrado carne."
     ],
-    "audioFile": "audio/oneoffs/risk_bites.mp3",
-    "effects": [
-      {
-        "type": "choice",
-        "options": [
-          "discard_1_poker",
-          "gain_1_wound"
-        ]
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "risk_bites"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "gang_loyalty",
     "title": "Cuadrilla Leal",
-    "type": "oneOffEvent",
-    "trigger": "trig_recruit_gang_posse",
-    "baseWeight": 5,
-    "requiredModules": [
-      "blood_money"
-    ],
-    "tags": [
-      "gang",
-      "posse",
-      "blood_money"
-    ],
     "screenText": "El coste de Reclutar se reduce en $10.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Unas cuantas caras duras conocen tu nombre y cabalgan por poco dinero.\"",
     "newspaperText": [
@@ -2178,38 +990,16 @@
       "Una apuesta con el peligro pronto se convirtió en parte de la conversación del día: Unas cuantas caras duras conocen tu nombre y cabalgan por poco dinero.",
       "Corrió la voz de otro asunto en el que los nervios importaron tanto como el sentido común: Unas cuantas caras duras conocen tu nombre y cabalgan por poco dinero."
     ],
-    "audioFile": "audio/oneoffs/gang_loyalty.mp3",
-    "effects": [
-      {
-        "type": "recruit_discount",
-        "amount": 10
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "gang_loyalty"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "frontier_cache",
     "title": "Alijo de la Frontera",
-    "type": "oneOffEvent",
-    "trigger": "trig_frontier_action",
-    "baseWeight": 7,
-    "requiredModules": [
-      "ante_up"
-    ],
-    "tags": [
-      "frontier",
-      "ante_up"
-    ],
     "screenText": "Después de resolver la ficha de Frontera, obtén $10 o roba 1 Carta de Poker.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Bajo una piedra plana espera un alijo dejado por alguien que nunca regresó.\"",
     "newspaperText": [
@@ -2218,41 +1008,16 @@
       "Los viajeros de la línea férrea trajeron un nuevo relato: Bajo una piedra plana espera un alijo dejado por alguien que nunca regresó.",
       "Los asuntos ferroviarios del día produjeron una historia propia: Bajo una piedra plana espera un alijo dejado por alguien que nunca regresó."
     ],
-    "audioFile": "audio/oneoffs/frontier_cache.mp3",
-    "effects": [
-      {
-        "type": "choose_one",
-        "options": [
-          "gain_10",
-          "draw_1_poker"
-        ]
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "frontier_cache"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "frontier_deadfall",
     "title": "Trampa de la Frontera",
-    "type": "oneOffEvent",
-    "trigger": "trig_frontier_action",
-    "baseWeight": 5,
-    "requiredModules": [
-      "ante_up"
-    ],
-    "tags": [
-      "frontier",
-      "ante_up"
-    ],
     "screenText": "Después de resolver la ficha de Frontera, sufre 1 herida.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"La frontera da con una mano y te deja caer un tronco encima con la otra.\"",
     "newspaperText": [
@@ -2261,38 +1026,16 @@
       "Los viajeros de la línea férrea trajeron un nuevo relato: La frontera da con una mano y te deja caer un tronco encima con la otra.",
       "Los asuntos ferroviarios del día produjeron una historia propia: La frontera da con una mano y te deja caer un tronco encima con la otra."
     ],
-    "audioFile": "audio/oneoffs/frontier_deadfall.mp3",
-    "effects": [
-      {
-        "type": "gain_wound",
-        "count": 1
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "frontier_deadfall"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "hunters_mark",
     "title": "Marca del Cazador",
-    "type": "oneOffEvent",
-    "trigger": "trig_hunt_success",
-    "baseWeight": 7,
-    "requiredModules": [
-      "hunting"
-    ],
-    "tags": [
-      "hunt",
-      "hunting"
-    ],
     "screenText": "Ignora todas las consecuencias.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Buen trabajo. Hasta los viejos tramperos asentirían ante ese disparo.\"",
     "newspaperText": [
@@ -2301,39 +1044,16 @@
       "Las noticias de las partes más salvajes del territorio llegaron a la Gazette: Buen trabajo. Hasta los viejos tramperos asentirían ante ese disparo.",
       "La habilidad fronteriza y una tierra dura se combinaron en una historia digna de repetirse: Buen trabajo. Hasta los viejos tramperos asentirían ante ese disparo."
     ],
-    "audioFile": "audio/oneoffs/hunters_mark.mp3",
-    "effects": [
-      {
-        "type": "gain_extra_hunt_resource",
-        "fallback": "gain_10"
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "hunters_mark"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "wounded_predator",
     "title": "Depredador Herido",
-    "type": "oneOffEvent",
-    "trigger": "trig_hunt_success",
-    "baseWeight": 5,
-    "requiredModules": [
-      "hunting"
-    ],
-    "tags": [
-      "hunt",
-      "hunting",
-      "wound"
-    ],
     "screenText": "Después de la Caza, sufre 1 herida y después obtén 1 LP.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"La bestia cae, pero no sin antes dejar su marca.\"",
     "newspaperText": [
@@ -2342,42 +1062,16 @@
       "Un duro día en la frontera terminó con un relato médico memorable: La bestia cae, pero no sin antes dejar su marca.",
       "En el pueblo siguieron hablando de un extraño giro relacionado con heridas y medicina: La bestia cae, pero no sin antes dejar su marca."
     ],
-    "audioFile": "audio/oneoffs/wounded_predator.mp3",
-    "effects": [
-      {
-        "type": "gain_wound",
-        "count": 1
-      },
-      {
-        "type": "gain_lp",
-        "amount": 1
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "wounded_predator"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "forager_cache",
     "title": "Alijo del Recolector",
-    "type": "oneOffEvent",
-    "trigger": "trig_forage_resource",
-    "baseWeight": 7,
-    "requiredModules": [
-      "foraging"
-    ],
-    "tags": [
-      "forage",
-      "foraging"
-    ],
     "screenText": "Roba 1 carta de Recolección adicional y después descarta 1 carta de Recolección.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"El lecho de un arroyo seco esconde algo más que polvo.\"",
     "newspaperText": [
@@ -2386,42 +1080,16 @@
       "Las noticias de las partes más salvajes del territorio llegaron a la Gazette: El lecho de un arroyo seco esconde algo más que polvo.",
       "La habilidad fronteriza y una tierra dura se combinaron en una historia digna de repetirse: El lecho de un arroyo seco esconde algo más que polvo."
     ],
-    "audioFile": "audio/oneoffs/forager_cache.mp3",
-    "effects": [
-      {
-        "type": "draw_forage",
-        "count": 1
-      },
-      {
-        "type": "discard_forage",
-        "count": 1
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "forager_cache"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "spoiled_bundle",
     "title": "Fardo Echado a Perder",
-    "type": "oneOffEvent",
-    "trigger": "trig_forage_resource",
-    "baseWeight": 5,
-    "requiredModules": [
-      "foraging"
-    ],
-    "tags": [
-      "forage",
-      "foraging"
-    ],
     "screenText": "Descarta 1 recurso o sufre 1 herida.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Lo que parecía útil a la sombra huele bastante peor al sol.\"",
     "newspaperText": [
@@ -2430,41 +1098,16 @@
       "Las noticias de las partes más salvajes del territorio llegaron a la Gazette: Lo que parecía útil a la sombra huele bastante peor al sol.",
       "La habilidad fronteriza y una tierra dura se combinaron en una historia digna de repetirse: Lo que parecía útil a la sombra huele bastante peor al sol."
     ],
-    "audioFile": "audio/oneoffs/spoiled_bundle.mp3",
-    "effects": [
-      {
-        "type": "choice",
-        "options": [
-          "discard_1_resource",
-          "gain_1_wound"
-        ]
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "spoiled_bundle"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "fine_craft",
     "title": "Artesanía Exquisita",
-    "type": "oneOffEvent",
-    "trigger": "trig_craft_item",
-    "baseWeight": 7,
-    "requiredModules": [
-      "crafting"
-    ],
-    "tags": [
-      "craft",
-      "crafting"
-    ],
     "screenText": "Después de Fabricar, obtén $10 o 1 LP.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Eso no solo es útil. Es un trabajo que merece ser recordado.\"",
     "newspaperText": [
@@ -2473,41 +1116,16 @@
       "Las noticias de las partes más salvajes del territorio llegaron a la Gazette: Eso no solo es útil. Es un trabajo que merece ser recordado.",
       "La habilidad fronteriza y una tierra dura se combinaron en una historia digna de repetirse: Eso no solo es útil. Es un trabajo que merece ser recordado."
     ],
-    "audioFile": "audio/oneoffs/fine_craft.mp3",
-    "effects": [
-      {
-        "type": "choose_one",
-        "options": [
-          "gain_10",
-          "gain_1_lp"
-        ]
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "fine_craft"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "broken_tool",
     "title": "Herramienta Rota",
-    "type": "oneOffEvent",
-    "trigger": "trig_craft_item",
-    "baseWeight": 5,
-    "requiredModules": [
-      "crafting"
-    ],
-    "tags": [
-      "craft",
-      "crafting"
-    ],
     "screenText": "Fabrica normalmente y después descarta 1 recurso adicional o descarta 1 Carta de Poker.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"La herramienta aguanta justo lo suficiente para terminar el trabajo.\"",
     "newspaperText": [
@@ -2516,42 +1134,16 @@
       "Las noticias de las partes más salvajes del territorio llegaron a la Gazette: La herramienta aguanta justo lo suficiente para terminar el trabajo.",
       "La habilidad fronteriza y una tierra dura se combinaron en una historia digna de repetirse: La herramienta aguanta justo lo suficiente para terminar el trabajo."
     ],
-    "audioFile": "audio/oneoffs/broken_tool.mp3",
-    "effects": [
-      {
-        "type": "choice",
-        "options": [
-          "discard_1_resource",
-          "discard_1_poker"
-        ]
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "broken_tool"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "wood_for_station",
     "title": "Madera para la Estación",
-    "type": "oneOffEvent",
-    "trigger": "trig_deliver_resource_location",
-    "baseWeight": 6,
-    "requiredModules": [
-      "foraging"
-    ],
-    "tags": [
-      "wood",
-      "railroad",
-      "foraging"
-    ],
     "screenText": "Si el recurso es Madera en cualquier Estación de Tren, obtén $20 y añade Progreso del Ferrocarril +1.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Los troncos recién cortados golpean junto a las vías como los huesos de un pueblo nuevo.\"",
     "newspaperText": [
@@ -2560,44 +1152,16 @@
       "Los viajeros de la línea férrea trajeron un nuevo relato: Los troncos recién cortados golpean junto a las vías como los huesos de un pueblo nuevo.",
       "Los asuntos ferroviarios del día produjeron una historia propia: Los troncos recién cortados golpean junto a las vías como los huesos de un pueblo nuevo."
     ],
-    "audioFile": "audio/oneoffs/wood_for_station.mp3",
-    "effects": [
-      {
-        "type": "conditional_resource_delivery",
-        "resource": "wood",
-        "location_type": "rail_station",
-        "reward": [
-          "gain_20",
-          "railroad_progress_1"
-        ]
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "wood_for_station"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "metal_for_tracks",
     "title": "Hierro para la línea",
-    "type": "oneOffEvent",
-    "trigger": "trig_deliver_resource_location",
-    "baseWeight": 6,
-    "requiredModules": [
-      "foraging"
-    ],
-    "tags": [
-      "metal",
-      "railroad",
-      "foraging"
-    ],
     "screenText": "Si el recurso es Metal en cualquier Estación de Tren, obtén $20 y añade Progreso del Ferrocarril +1.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"El capataz pasa el pulgar por el hierro y sonríe como un hombre que contempla el mañana.\"",
     "newspaperText": [
@@ -2606,41 +1170,16 @@
       "Los viajeros de la línea férrea trajeron un nuevo relato: El capataz pasa el pulgar por el hierro y sonríe como un hombre que contempla el mañana.",
       "Los asuntos ferroviarios del día produjeron una historia propia: El capataz pasa el pulgar por el hierro y sonríe como un hombre que contempla el mañana."
     ],
-    "audioFile": "audio/oneoffs/metal_for_tracks.mp3",
-    "effects": [
-      {
-        "type": "conditional_resource_delivery",
-        "resource": "metal",
-        "location_type": "rail_station",
-        "reward": [
-          "gain_20",
-          "railroad_progress_1"
-        ]
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "metal_for_tracks"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "robbery_hidden_witness",
     "title": "Ojos en la Ventana",
-    "type": "oneOffEvent",
-    "trigger": "trig_rob_player",
-    "baseWeight": 7,
-    "requiredModules": [],
-    "tags": [
-      "outlaw",
-      "robbery"
-    ],
     "screenText": "Un testigo vio el robo. Paga $20 para mantenerlo callado o mueve al Sheriff hasta 3 espacios hacia ti.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Una cortina se mueve al otro lado de la calle. Alguien lo vio todo, y los testigos tienen la mala costumbre de acabar encontrando al sheriff.\"",
     "newspaperText": [
@@ -2649,39 +1188,16 @@
       "Al ponerse el sol, los viajeros repetían el mismo relato por el camino: Una cortina se mueve al otro lado de la calle. Alguien lo vio todo, y los testigos tienen la mala costumbre de acabar encontrando al sheriff.",
       "El asunto pronto se convirtió en tema de conversación en la frontera, y los testigos recordaban un detalle por encima de los demás: Una cortina se mueve al otro lado de la calle. Alguien lo vio todo, y los testigos tienen la mala costumbre de acabar encontrando al sheriff."
     ],
-    "audioFile": "audio/oneoffs/robbery_hidden_witness.mp3",
-    "effects": [
-      {
-        "type": "choice",
-        "options": [
-          "gain_1_wp",
-          "pay_20"
-        ]
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "robbery_hidden_witness"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "robbery_dropped_purse",
     "title": "Un Poco Más",
-    "type": "oneOffEvent",
-    "trigger": "trig_rob_player",
-    "baseWeight": 6,
-    "requiredModules": [],
-    "tags": [
-      "outlaw",
-      "robbery"
-    ],
     "screenText": "Entre lo robado hay otros $10. Obtén $10.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Algo más cae al polvo durante el forcejeo: una pequeña bolsa que nadie había visto hasta ahora.\"",
     "newspaperText": [
@@ -2690,36 +1206,16 @@
       "Al ponerse el sol, los viajeros repetían el mismo relato por el camino: Algo más cae al polvo durante el forcejeo: una pequeña bolsa que nadie había visto hasta ahora.",
       "El asunto pronto se convirtió en tema de conversación en la frontera, y los testigos recordaban un detalle por encima de los demás: Algo más cae al polvo durante el forcejeo: una pequeña bolsa que nadie había visto hasta ahora."
     ],
-    "audioFile": "audio/oneoffs/robbery_dropped_purse.mp3",
-    "effects": [
-      {
-        "type": "gain_money",
-        "amount": 10
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "robbery_dropped_purse"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "player_fight_crowd",
     "title": "Se Reúne una Multitud",
-    "type": "oneOffEvent",
-    "trigger": "trig_start_player_fight",
-    "baseWeight": 7,
-    "requiredModules": [],
-    "tags": [
-      "fight",
-      "town"
-    ],
     "screenText": "El ganador de esta pelea obtiene $10 de los espectadores impresionados.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Las botas raspan los porches y se abren las puertas del saloon. La gente huele una pelea y las apuestas empiezan a cambiar de manos.\"",
     "newspaperText": [
@@ -2728,30 +1224,16 @@
       "Los testigos del enfrentamiento llevaron al pueblo un relato vívido: Las botas raspan los porches y se abren las puertas del saloon. La gente huele una pelea y las apuestas empiezan a cambiar de manos.",
       "El encuentro se ganó un lugar en la Gazette después de que los informes coincidieran en un detalle llamativo: Las botas raspan los porches y se abren las puertas del saloon. La gente huele una pelea y las apuestas empiezan a cambiar de manos."
     ],
-    "audioFile": "audio/oneoffs/player_fight_crowd.mp3",
-    "effects": [],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "player_fight_crowd"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "player_fight_dust",
     "title": "Polvo en los Ojos",
-    "type": "oneOffEvent",
-    "trigger": "trig_start_player_fight",
-    "baseWeight": 6,
-    "requiredModules": [],
-    "tags": [
-      "fight"
-    ],
     "screenText": "Ambos luchadores roban al azar de la mano del otro jugador.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Una fuerte ráfaga lanza arena entre los luchadores. Durante medio latido, ninguno de los dos puede ver con claridad.\"",
     "newspaperText": [
@@ -2760,31 +1242,16 @@
       "Los testigos del enfrentamiento llevaron al pueblo un relato vívido: Una fuerte ráfaga lanza arena entre los luchadores. Durante medio latido, ninguno de los dos puede ver con claridad.",
       "El encuentro se ganó un lugar en la Gazette después de que los informes coincidieran en un detalle llamativo: Una fuerte ráfaga lanza arena entre los luchadores. Durante medio latido, ninguno de los dos puede ver con claridad."
     ],
-    "audioFile": "audio/oneoffs/player_fight_dust.mp3",
-    "effects": [],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "player_fight_dust"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "sheriff_arrest_public_example",
     "title": "Ejemplo Público",
-    "type": "oneOffEvent",
-    "trigger": "trig_sheriff_arrests",
-    "baseWeight": 7,
-    "requiredModules": [],
-    "tags": [
-      "law",
-      "arrest"
-    ],
     "screenText": "El jugador que provoca el arresto roba 1 Carta de Poker.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"El sheriff conduce al prisionero por el centro del pueblo para que todos vean cómo terminó el día.\"",
     "newspaperText": [
@@ -2793,31 +1260,16 @@
       "Los testigos del enfrentamiento llevaron al pueblo un relato vívido: El sheriff conduce al prisionero por el centro del pueblo para que todos vean cómo terminó el día.",
       "El encuentro se ganó un lugar en la Gazette después de que los informes coincidieran en un detalle llamativo: El sheriff conduce al prisionero por el centro del pueblo para que todos vean cómo terminó el día."
     ],
-    "audioFile": "audio/oneoffs/sheriff_arrest_public_example.mp3",
-    "effects": [],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "sheriff_arrest_public_example"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "sheriff_arrest_loose_cuffs",
     "title": "Esposas Flojas",
-    "type": "oneOffEvent",
-    "trigger": "trig_sheriff_arrests",
-    "baseWeight": 6,
-    "requiredModules": [],
-    "tags": [
-      "law",
-      "arrest"
-    ],
     "screenText": "El jugador arrestado puede descartar 1 Carta de Poker para conservar $10 que de otro modo perdería durante el arresto.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Las esposas del sheriff han conocido tiempos mejores, igual que el ayudante que vigila los bolsillos del prisionero.\"",
     "newspaperText": [
@@ -2826,33 +1278,16 @@
       "Los testigos del enfrentamiento llevaron al pueblo un relato vívido: Las esposas del sheriff han conocido tiempos mejores, igual que el ayudante que vigila los bolsillos del prisionero.",
       "El encuentro se ganó un lugar en la Gazette después de que los informes coincidieran en un detalle llamativo: Las esposas del sheriff han conocido tiempos mejores, igual que el ayudante que vigila los bolsillos del prisionero."
     ],
-    "audioFile": "audio/oneoffs/sheriff_arrest_loose_cuffs.mp3",
-    "effects": [],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "sheriff_arrest_loose_cuffs"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "rail_friendly_conductor",
     "title": "Revisor Amistoso",
-    "type": "oneOffEvent",
-    "trigger": "trig_travel_rail",
-    "baseWeight": 7,
-    "requiredModules": [
-      "ante_up_train"
-    ],
-    "tags": [
-      "ante_up",
-      "train"
-    ],
     "screenText": "Roba 1 Carta de Poker.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"El revisor reconoce una cara conocida y comparte una noticia útil antes de que suene el silbato.\"",
     "newspaperText": [
@@ -2861,38 +1296,16 @@
       "Los viajeros de la línea férrea trajeron un nuevo relato: El revisor reconoce una cara conocida y comparte una noticia útil antes de que suene el silbato.",
       "Los asuntos ferroviarios del día produjeron una historia propia: El revisor reconoce una cara conocida y comparte una noticia útil antes de que suene el silbato."
     ],
-    "audioFile": "audio/oneoffs/rail_friendly_conductor.mp3",
-    "effects": [
-      {
-        "type": "draw_poker",
-        "count": 1
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "rail_friendly_conductor"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "rail_late_freight",
     "title": "Carga Tardía",
-    "type": "oneOffEvent",
-    "trigger": "trig_travel_rail",
-    "baseWeight": 6,
-    "requiredModules": [
-      "ante_up_train"
-    ],
-    "tags": [
-      "ante_up",
-      "train"
-    ],
     "screenText": "Obtén $10 por ayudar a descargar un vagón de mercancías retrasado.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Un vagón de mercancías llega con retraso y falto de manos.\"",
     "newspaperText": [
@@ -2901,38 +1314,16 @@
       "Los viajeros de la línea férrea trajeron un nuevo relato: Un vagón de mercancías llega con retraso y falto de manos.",
       "Los asuntos ferroviarios del día produjeron una historia propia: Un vagón de mercancías llega con retraso y falto de manos."
     ],
-    "audioFile": "audio/oneoffs/rail_late_freight.mp3",
-    "effects": [
-      {
-        "type": "gain_money",
-        "amount": 10
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "rail_late_freight"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "mountain_pass_rockslide",
     "title": "Desprendimiento",
-    "type": "oneOffEvent",
-    "trigger": "trig_use_mountain_pass",
-    "baseWeight": 7,
-    "requiredModules": [
-      "ante_up_sideboard"
-    ],
-    "tags": [
-      "ante_up",
-      "mountain"
-    ],
     "screenText": "Descarta 1 Carta de Poker o sufre 1 herida.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"La roca se desprende sobre el sendero y parece que toda la montaña cae de golpe.\"",
     "newspaperText": [
@@ -2941,41 +1332,16 @@
       "Los viajeros de la línea férrea trajeron un nuevo relato: La roca se desprende sobre el sendero y parece que toda la montaña cae de golpe.",
       "Los asuntos ferroviarios del día produjeron una historia propia: La roca se desprende sobre el sendero y parece que toda la montaña cae de golpe."
     ],
-    "audioFile": "audio/oneoffs/mountain_pass_rockslide.mp3",
-    "effects": [
-      {
-        "type": "choice",
-        "options": [
-          "discard_1_poker",
-          "gain_1_wound"
-        ]
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "mountain_pass_rockslide"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   },
   {
     "id": "mountain_pass_abandoned_cache",
     "title": "Alijo Abandonado",
-    "type": "oneOffEvent",
-    "trigger": "trig_use_mountain_pass",
-    "baseWeight": 6,
-    "requiredModules": [
-      "ante_up_sideboard"
-    ],
-    "tags": [
-      "ante_up",
-      "mountain"
-    ],
     "screenText": "Encuentra provisiones escondidas bajo un mojón de piedras. Obtén $10 o roba 1 Carta de Poker.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Bajo una pila de piedras del sendero descansa un alijo castigado por el tiempo, dejado por alguien que nunca volvió a buscarlo.\"",
     "newspaperText": [
@@ -2984,25 +1350,10 @@
       "Los viajeros de la línea férrea trajeron un nuevo relato: Bajo una pila de piedras del sendero descansa un alijo castigado por el tiempo, dejado por alguien que nunca volvió a buscarlo.",
       "Los asuntos ferroviarios del día produjeron una historia propia: Bajo una pila de piedras del sendero descansa un alijo castigado por el tiempo, dejado por alguien que nunca volvió a buscarlo."
     ],
-    "audioFile": "audio/oneoffs/mountain_pass_abandoned_cache.mp3",
-    "effects": [
-      {
-        "type": "choose_one",
-        "options": [
-          "gain_10",
-          "draw_1_poker"
-        ]
-      }
-    ],
     "resultButtons": [
       {
-        "label": "Resuelto",
-        "effects": [
-          {
-            "type": "log_event",
-            "id": "mountain_pass_abandoned_cache"
-          }
-        ]
+        "_index": 0,
+        "label": "Resuelto"
       }
     ]
   }

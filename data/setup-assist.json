@@ -572,7 +572,7 @@
           ]
         },
         {
-          "text": "Place each player\u2019s remaining scoring cubes and Story disks beside the board.",
+          "text": "Place each player’s remaining scoring cubes and Story disks beside the board.",
           "requiredModules": [
             "blood_money_stories"
           ]
@@ -581,14 +581,15 @@
     },
     {
       "id": "characters",
-      "title": "Choose Characters",
-      "summary": "Select characters and gain starting rewards.",
+      "title": "Prepare Characters",
+      "summary": "Get each player's selected character ready for play.",
       "steps": [
         {
-          "text": "Each player chooses a character from the characters available in the selected expansions."
+          "text": "Each player chooses a character from the characters available in the selected expansions.",
+          "autoComplete": "all_players_have_characters"
         },
         {
-          "text": "For each chosen character, take that character\u2019s 4 Goal cards.",
+          "text": "For each chosen character, take that character’s 4 Goal cards.",
           "requiredModules": [
             "base_goals"
           ]

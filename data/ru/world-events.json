@@ -2,578 +2,221 @@
   {
     "id": "world_drought",
     "title": "Засуха",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "weather",
-      "wound"
-    ],
     "screenText": "Первый игрок, завершивший ход вне города, получает 1 рану.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Колодцы кашляют грязью, а солнце зло висит в небе.\"",
     "newspaperText": [
       "Изнуряющая засуха накрыла территорию: воды в колодцах стало мало, и путники берегли каждую каплю.",
       "Недели беспощадного солнца высушили фронтир до хрупкости, и вода стала почти так же ценна, как золото.",
       "Сухая погода крепче сжала свои пальцы на землях, и хуже всего пришлось всадникам, застигнутым вне города."
-    ],
-    "audioFile": "audio/world/world_drought.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 5
-      },
-      {
-        "type": "outside_town_wound_first"
-      }
     ]
   },
   {
     "id": "world_gold_rush",
     "title": "Золотая лихорадка",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "gold",
-      "prospect"
-    ],
     "screenText": "Действия Старательства приносят +$10.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Золотая лихорадка распространяется быстрее здравого смысла.\"",
     "newspaperText": [
       "Свежие разговоры о золоте прокатились по лагерям, возвращая старателей к раскопкам с новой горячкой.",
       "Золотая лихорадка снова охватила территорию, когда многообещающие находки заставили шахтёров хвататься за лотки и кирки.",
       "Слухи о богатой земле переходили от участка к участку, и каждая вылазка за золотом казалась чуть более выгодной."
-    ],
-    "audioFile": "audio/world/world_gold_rush.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 5
-      },
-      {
-        "type": "prospect_money_bonus",
-        "amount": 10
-      }
     ]
   },
   {
     "id": "world_sheriff_crackdown",
     "title": "Жёсткие меры Шерифа",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "sheriff",
-      "wanted"
-    ],
     "screenText": "Каждый раз, когда игрок получает WP, переместите Шерифа на 3 клетки к этому игроку.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Закон точит зубы.\"",
     "newspaperText": [
       "Шериф начал суровую кампанию против беззакония, быстро выезжая всякий раз, когда появлялись новые объявления о розыске.",
       "Разыскиваемым всадникам территория внезапно перестала прощать ошибки: Шериф отвечал на новые преступления с необычной быстротой.",
       "Закон крепче сжал фронтир, и Шериф всё ближе подбирался к каждому, кто пополнял свою разыскиваемую репутацию."
-    ],
-    "audioFile": "audio/world/world_sheriff_crackdown.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 5
-      },
-      {
-        "type": "wanted_moves_sheriff",
-        "spaces": 3
-      }
     ]
   },
   {
     "id": "world_bandit_uprising",
     "title": "Восстание бандитов",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "bandit",
-      "fight"
-    ],
     "screenText": "Бандиты берут +1 карту Боя.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Холмы начинают выплёвывать суровых людей с заряженными ружьями.\"",
     "newspaperText": [
       "Активность бандитов резко возросла по всей территории, а путники сообщали о более стойких и лучше вооружённых шайках на дорогах.",
       "Вспышка бандитского насилия сделала земли опаснее, а шайки преступников демонстрировали в бою неожиданную силу.",
       "Вооружённые бандиты осмелели по всему фронтиру, превращая обычные встречи в гораздо более опасные дела."
-    ],
-    "audioFile": "audio/world/world_bandit_uprising.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 5
-      },
-      {
-        "type": "bandits_extra_fight_card",
-        "count": 1
-      }
     ]
   },
   {
     "id": "world_frontier_festival",
     "title": "Праздник фронтира",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "town",
-      "positive"
-    ],
     "screenText": "Первое действие в Городе приносит +$10.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Музыка льётся из города, словно свет фонарей.\"",
     "newspaperText": [
       "Праздник фронтира наполнил город музыкой, торговлей и звоном монет, наградив первую сделку, совершённую среди веселья.",
       "Городские улицы ожили благодаря редкому празднику, который принёс толпы, возможности и немного дополнительных денег местным торговцам.",
       "Празднование охватило город: фестиваль фронтира привлёк поселенцев за многие мили и пустил в оборот свежие деньги."
-    ],
-    "audioFile": "audio/world/world_frontier_festival.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 4
-      },
-      {
-        "type": "first_town_action_bonus_money",
-        "amount": 10
-      }
     ]
   },
   {
     "id": "world_bad_weather",
     "title": "Непогода",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "weather",
-      "move"
-    ],
     "screenText": "Действия Перемещения дают -1 клетку.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Дождь превращает каждую дорогу в коричневую жижу.\"",
     "newspaperText": [
       "Тяжёлая погода превратила дороги в грязь и сделала каждое путешествие по территории медленнее обычного.",
       "Дождь и отвратительные условия на тропах накрыли фронтир, сокращая путь даже самым выносливым всадникам.",
       "Непогода сделала открытые земли тяжёлыми для пути: размытые дороги и глубокая грязь повсюду замедляли движение."
-    ],
-    "audioFile": "audio/world/world_bad_weather.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 4
-      },
-      {
-        "type": "movement_modifier",
-        "amount": -1
-      }
     ]
   },
   {
     "id": "world_clear_skies",
     "title": "Ясное небо",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "weather",
-      "move"
-    ],
     "screenText": "Действия Перемещения дают +1 клетку.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Небо проясняется, и каждая тропа кажется короче.\"",
     "newspaperText": [
       "Ясное небо и твёрдые тропы открыли территорию, позволяя всадникам преодолевать больше земли, чем обычно.",
       "Полоса хорошей погоды сделала дороги необычайно дружелюбными и сократила путешествия по фронтиру.",
       "Светлое небо и сухие тропы благоволили путникам, помогая всадникам продвигаться дальше с каждым перемещением."
-    ],
-    "audioFile": "audio/world/world_clear_skies.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 4
-      },
-      {
-        "type": "movement_modifier",
-        "amount": 1
-      }
     ]
   },
   {
     "id": "world_high_stakes",
     "title": "Ночь высоких ставок",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "poker"
-    ],
     "screenText": "Победители в Покере получают +$20.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Каждый дурак с монетой в кармане хочет занять место за столом.\"",
     "newspaperText": [
       "Покер с высокими ставками захватил салуны: крупные банки ждали каждого, кому хватало мастерства их выиграть.",
       "Карточные столы раскалились, когда азартные игроки с тугими кошельками подняли покерные выигрыши намного выше обычных ставок.",
       "Деньги свободно переходили из рук в руки во время череды игр по высоким ставкам, привлёкшей к столам амбициозных игроков."
-    ],
-    "audioFile": "audio/world/world_high_stakes.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 4
-      },
-      {
-        "type": "poker_win_bonus_money",
-        "amount": 20
-      }
     ]
   },
   {
     "id": "world_cattle_market",
     "title": "Рынок скота",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "cattle"
-    ],
     "screenText": "Награды за Перегон/Угон скота получают +$10.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Цены на говядину поднимаются, как дым.\"",
     "newspaperText": [
       "Сильный рынок скота поднял цены на говядину и сделал успешную работу на ранчо необычайно прибыльной.",
       "Спрос на скот вырос по всей территории, принося дополнительные деньги и честным погонщикам, и дерзким угонщикам.",
       "Цены на скот резко выросли, превращая каждый успешный перегон в более прибыльное дело фронтира."
-    ],
-    "audioFile": "audio/world/world_cattle_market.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 5
-      },
-      {
-        "type": "cattle_delivery_bonus_money",
-        "amount": 10
-      }
     ]
   },
   {
     "id": "world_doctor_shortage",
     "title": "Нехватка врачей",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "doctor"
-    ],
     "screenText": "Лечение стоит на $10 дороже.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"У доктора заканчиваются лауданум и терпение.\"",
     "newspaperText": [
       "Нехватка врачей и лекарств подняла стоимость лечения по всему фронтиру.",
       "Медицинская помощь стала редкостью по всей территории, заставляя раненых всадников дорого платить за внимание доктора.",
       "Когда лекарства начали заканчиваться, цена на то, чтобы тебя подлатали, выросла везде, откуда Gazette получала донесения."
-    ],
-    "audioFile": "audio/world/world_doctor_shortage.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 4
-      },
-      {
-        "type": "heal_cost_modifier",
-        "amount": 10
-      }
     ]
   },
   {
     "id": "world_free_rail",
     "title": "Железнодорожный праздник",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [
-      "ante_up"
-    ],
-    "tags": [
-      "rail",
-      "ante_up"
-    ],
     "screenText": "Путешествие по железной дороге стоит $0.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Локомотив свистит, и каждая станция празднует.\"",
     "newspaperText": [
       "Железнодорожный праздник открыл пути для бесплатных поездок, отправляя пассажиров от станции к станции без платы.",
       "Железная дорога отпраздновала с размахом: отменила плату за проезд и набила вагоны путниками фронтира.",
       "Свистки раздавались на каждой станции, пока железнодорожный праздник делал поездки по рельсам бесплатными по всей территории."
-    ],
-    "audioFile": "audio/world/world_free_rail.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 6
-      },
-      {
-        "type": "rail_cost",
-        "amount": 0
-      }
     ]
   },
   {
     "id": "world_train_security",
     "title": "Вооружённая охрана поезда",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [
-      "ante_up"
-    ],
-    "tags": [
-      "train",
-      "ante_up"
-    ],
     "screenText": "Охранники поезда берут +1 карту Боя.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Железнодорожники нанимают стрелков десятками.\"",
     "newspaperText": [
       "Железнодорожные компании ответили на растущие неприятности, разместив в поездах хорошо вооружённых охранников.",
       "Охрана поездов резко усилилась, когда железная дорога наняла дополнительных стрелков для защиты ценных вагонов.",
       "Желающие ограбить поезд столкнулись с более серьёзным сопротивлением после того, как вооружённая охрана стала ездить по рельсам в большем количестве."
-    ],
-    "audioFile": "audio/world/world_train_security.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 5
-      },
-      {
-        "type": "train_guard_extra_fight_card",
-        "count": 1
-      }
     ]
   },
   {
     "id": "world_mine_collapse",
     "title": "Нестабильные шахты",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "mine"
-    ],
     "screenText": "Старатели получают 1 рану на результате Гравий.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Земля стонет под каждым ударом кирки.\"",
     "newspaperText": [
       "Нестабильная земля сделала шахты коварными: даже обычное старательство теперь несло больший риск травм.",
       "По шахтёрским лагерям разошлись сообщения о подвижках грунта и небезопасных штольнях, делая каждую выработку опаснее.",
       "Шахты территории стали смертельно опасными, поскольку нестабильная земля угрожала старателям, работавшим на гравии."
-    ],
-    "audioFile": "audio/world/world_mine_collapse.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 5
-      },
-      {
-        "type": "prospect_gravel_wound"
-      }
     ]
   },
   {
     "id": "world_trader_boom",
     "title": "Торговый бум",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "trader"
-    ],
     "screenText": "Легендарные предметы стоят на $10 дешевле.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Фургон доктора Эрве тяжело катится, набитый чудесами.\"",
     "newspaperText": [
       "Бум странствующих торговцев сделал редкие товары доступнее и снизил цены на легендарные изделия.",
       "Редкие товары хлынули на рынок фронтира, давая всадникам необычную возможность дешевле покупать легендарные предметы.",
       "Прибытие хорошо снабжённых торговцев всколыхнуло территорию и ненадолго сделало ценные товары дешевле."
-    ],
-    "audioFile": "audio/world/world_trader_boom.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 5
-      },
-      {
-        "type": "legendary_item_discount",
-        "amount": 10
-      }
     ]
   },
   {
     "id": "world_saloons_dry",
     "title": "Сухие салуны",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "saloon"
-    ],
     "screenText": "Покер не может запускать разовые события.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Виски заканчивается, и столы остывают.\"",
     "newspaperText": [
       "Салуны по всей территории остались без выпивки, столы стихли, а обычные покерные сюрпризы прекратились.",
       "Нехватка виски сделала салуны тихими, а партии в покер — странно спокойными по всему фронтиру.",
       "Пустые краны изменили настроение салунов: карточные игры продолжались без привычных неожиданных осложнений."
-    ],
-    "audioFile": "audio/world/world_saloons_dry.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 4
-      },
-      {
-        "type": "suppress_event_tag",
-        "tag": "poker"
-      }
     ]
   },
   {
     "id": "world_ranch_fire",
     "title": "Пожар на ранчо",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "ranch"
-    ],
     "screenText": "Получение скота стоит 1 карту Покера.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Дым поднимается над северным пастбищем.\"",
     "newspaperText": [
       "Пожар на ранчо послал дым над скотоводческими землями и сделал замену скота дороже обычного.",
       "Пламя пронеслось по землям ранчо, осложнив покупку скота и заставив покупателей платить дополнительную цену.",
       "Дым над равниной отметил разрушительный пожар на ранчо, из-за которого приобрести новый скот стало необычайно трудно."
-    ],
-    "audioFile": "audio/world/world_ranch_fire.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 4
-      },
-      {
-        "type": "acquire_cattle_extra_cost",
-        "cost": "discard_1_poker"
-      }
     ]
   },
   {
     "id": "world_resource_boom",
     "title": "Полезные обломки",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [
-      "foraging"
-    ],
-    "tags": [
-      "foraging"
-    ],
     "screenText": "Собирательство берёт +1 карту, затем сбрасывает 1.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Фронтир усеян вещами, полезными для умелых рук.\"",
     "newspaperText": [
       "Полезные обломки и утиль стали часто попадаться по всему фронтиру, давая находчивым собирателям больше материала для работы.",
       "Внезапное изобилие пригодных материалов вознаградило умелые руки, готовые искать припасы по всей территории.",
       "Выброшенные вещи оказались необычайно ценными: ресурсный бум дал собирателям фронтира лучший выбор того, что стоит унести."
-    ],
-    "audioFile": "audio/world/world_resource_boom.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 5
-      },
-      {
-        "type": "forage_draw_then_discard",
-        "draw": 1,
-        "discard": 1
-      }
     ]
   },
   {
     "id": "world_predator_migration",
     "title": "Миграция хищников",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [
-      "hunting"
-    ],
-    "tags": [
-      "hunting"
-    ],
     "screenText": "Успешная Охота приносит +1 LP, но также +1 рану.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Голодные глаза блестят в кустах.\"",
     "newspaperText": [
       "Миграция голодных хищников сделала успешную охоту более выгодной, но и намного опаснее.",
       "Хищники двигались по территории в необычайном количестве, увеличивая и славу, и цену успешной охоты.",
       "Охотники нашли на равнинах больше возможностей и больше острых зубов, когда хищники заполонили регион."
-    ],
-    "audioFile": "audio/world/world_predator_migration.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 5
-      },
-      {
-        "type": "hunt_success_bonus_lp_and_wound"
-      }
     ]
   },
   {
     "id": "world_craft_fair",
     "title": "Ярмарка ремёсел",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [
-      "crafting"
-    ],
-    "tags": [
-      "crafting"
-    ],
     "screenText": "Действие Изготовления приносит +$10.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"На каждую полезную безделушку найдётся покупатель.\"",
     "newspaperText": [
       "Ярмарка ремёсел на фронтире привлекла покупателей к изделиям ручной работы и принесла дополнительные деньги умелым мастерам.",
       "Полезная ручная работа ценилась особенно высоко, поскольку ярмарка привлекла покупателей со всей территории.",
       "Изготовленные вещи быстро находили покупателей на шумной ярмарке, награждая каждого, кто умел превращать материалы фронтира в полезные предметы."
-    ],
-    "audioFile": "audio/world/world_craft_fair.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 5
-      },
-      {
-        "type": "craft_bonus_money",
-        "amount": 10
-      }
     ]
   },
   {
     "id": "world_legendary_weather",
     "title": "Красный закат",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "legendary"
-    ],
     "screenText": "Первый игрок, получивший LP, получает ещё +1 LP.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Закат пылает красным, и даже обычные поступки выглядят легендарными.\"",
     "newspaperText": [
       "Ярко-красный закат залил фронтир легендарным светом, и первый заметный поступок вечера получил особую славу.",
       "Небо пылало красным над территорией, придавая необычный вес первой легенде, родившейся под ним.",
       "Поразительный закат заставил всадников остановиться и словно усилил первый легендарный поступок, совершённый после него."
-    ],
-    "audioFile": "audio/world/world_legendary_weather.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 3
-      },
-      {
-        "type": "first_lp_gain_bonus",
-        "amount": 1
-      }
     ]
   }
 ]

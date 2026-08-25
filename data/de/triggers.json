@@ -8,24 +8,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Reiter in einer einzigen Bewegungsaktion vier oder mehr Felder zurücklegte.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Reiter in einer einzigen Bewegungsaktion vier oder mehr Felder zurücklegte."
     ],
-    "category": "movement",
-    "baseWeight": 12,
-    "requiredModules": [],
-    "tags": [
-      "move",
-      "travel"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/ride.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "In BEWEGUNGSAKTION 4+ Felder ziehen",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-gallop.mp3"
+    ]
   },
   {
     "id": "trig_end_outside_town",
@@ -36,24 +24,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Reiter seine Reise draußen im offenen Grenzland beendete, anstatt sicher in einer Stadt.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Reiter seine Reise draußen im offenen Grenzland beendete, anstatt sicher in einer Stadt."
     ],
-    "category": "movement",
-    "baseWeight": 8,
-    "requiredModules": [],
-    "tags": [
-      "move",
-      "frontier"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/night.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "BEWEGUNG außerhalb einer Stadt beenden",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-wolf.mp3"
+    ]
   },
   {
     "id": "trig_enter_dixon_creek",
@@ -64,24 +40,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Reiter das raue Land um Dixon Creek betrat.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Reiter das raue Land um Dixon Creek betrat."
     ],
-    "category": "movement",
-    "baseWeight": 6,
-    "requiredModules": [],
-    "tags": [
-      "dixon_creek",
-      "ambush"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/canyon.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Dixon Creek betreten",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-water.mp3"
+    ]
   },
   {
     "id": "trig_enter_mesitos_point",
@@ -92,25 +56,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Reiter Mesito’s Point durchquerte.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Reiter Mesito’s Point durchquerte."
     ],
-    "category": "movement",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "mesitos_point",
-      "green_ranch",
-      "bandit_a"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/overlook.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Mesito’s Point betreten",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-water.mp3"
+    ]
   },
   {
     "id": "trig_enter_sunny_hills",
@@ -121,25 +72,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Reiter das Gebiet von Sunny Hills betrat.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Reiter das Gebiet von Sunny Hills betrat."
     ],
-    "category": "movement",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "sunny_hills",
-      "mine",
-      "blue_ranch"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/sunny.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Sunny Hills betreten",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-walk.mp3"
+    ]
   },
   {
     "id": "trig_enter_spikes_view",
@@ -150,25 +88,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Reiter Spike’s View erreichte.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Reiter Spike’s View erreichte."
     ],
-    "category": "movement",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "spikes_view",
-      "mine",
-      "rail_station"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/cliff.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Spike’s View betreten",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-walk.mp3"
+    ]
   },
   {
     "id": "trig_enter_cliff_junction",
@@ -179,25 +104,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Reiter Cliff Junction betrat.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Reiter Cliff Junction betrat."
     ],
-    "category": "movement",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "cliff_junction",
-      "mine",
-      "bandit_c"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/barren.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Cliff Junction betreten",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-walk.mp3"
+    ]
   },
   {
     "id": "trig_bank_heist",
@@ -208,25 +120,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Outlaw einen Banküberfall in Gang setzte.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Outlaw einen Banküberfall in Gang setzte."
     ],
-    "category": "outlaw",
-    "baseWeight": 11,
-    "requiredModules": [],
-    "tags": [
-      "bank",
-      "heist",
-      "wanted"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/bankheist.png",
-    "themeColor": "black",
     "titleParts": [
       {
         "text": "Banküberfall beginnen",
         "style": "red"
       }
-    ],
-    "soundFile": "audio/sfx/short-guncock.mp3"
+    ]
   },
   {
     "id": "trig_gain_wp",
@@ -237,24 +136,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Reiter seinem wachsenden Ruf einen weiteren Wanted-Punkt hinzufügte.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Reiter seinem wachsenden Ruf einen weiteren Wanted-Punkt hinzufügte."
     ],
-    "category": "outlaw",
-    "baseWeight": 11,
-    "requiredModules": [],
-    "tags": [
-      "wanted",
-      "lawless"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/wanted.png",
-    "themeColor": "red",
     "titleParts": [
       {
         "text": "Wanted-Punkt erhalten",
         "style": "red"
       }
-    ],
-    "soundFile": "audio/sfx/short-note.mp3"
+    ]
   },
   {
     "id": "trig_rustle_cattle",
@@ -265,25 +152,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass Vieh von einer Ranch im Grenzland gestohlen wurde.",
       "Zeugen im gesamten Gebiet berichteten, dass Vieh von einer Ranch im Grenzland gestohlen wurde."
     ],
-    "category": "outlaw",
-    "baseWeight": 9,
-    "requiredModules": [],
-    "tags": [
-      "ranch",
-      "cattle",
-      "wanted"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/rustle.png",
-    "themeColor": "red",
     "titleParts": [
       {
         "text": "Vieh stehlen",
         "style": "red"
       }
-    ],
-    "soundFile": "audio/sfx/short-moo.mp3"
+    ]
   },
   {
     "id": "trig_rob_player",
@@ -294,25 +168,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Reiter einen anderen im Grenzland ausraubte.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Reiter einen anderen im Grenzland ausraubte."
     ],
-    "category": "outlaw",
-    "baseWeight": 8,
-    "requiredModules": [],
-    "tags": [
-      "rob",
-      "player_fight",
-      "wanted"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/rob.png",
-    "themeColor": "red",
     "titleParts": [
       {
         "text": "Spieler ausrauben",
         "style": "red"
       }
-    ],
-    "soundFile": "audio/sfx/short-pistol.mp3"
+    ]
   },
   {
     "id": "trig_defeat_bandit",
@@ -323,25 +184,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Bandit in einem Kampf besiegt wurde.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Bandit in einem Kampf besiegt wurde."
     ],
-    "category": "fight",
-    "baseWeight": 13,
-    "requiredModules": [],
-    "tags": [
-      "bandit",
-      "fight",
-      "marshal"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/defeat.png",
-    "themeColor": "blue",
     "titleParts": [
       {
         "text": "Banditen besiegen",
         "style": "blue"
       }
-    ],
-    "soundFile": "audio/sfx/short-pistol.mp3"
+    ]
   },
   {
     "id": "trig_start_bandit_fight",
@@ -352,25 +200,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Reiter einen Kampf mit einem Banditen begann.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Reiter einen Kampf mit einem Banditen begann."
     ],
-    "category": "fight",
-    "baseWeight": 12,
-    "requiredModules": [],
-    "tags": [
-      "bandit",
-      "fight",
-      "npc"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/bandit.png",
-    "themeColor": "blue",
     "titleParts": [
       {
         "text": "Kampf mit Banditen beginnen",
         "style": "blue"
       }
-    ],
-    "soundFile": "audio/sfx/short-holster.mp3"
+    ]
   },
   {
     "id": "trig_start_player_fight",
@@ -381,25 +216,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass zwei Reiter im Grenzland aneinandergerieten.",
       "Zeugen im gesamten Gebiet berichteten, dass zwei Reiter im Grenzland aneinandergerieten."
     ],
-    "category": "fight",
-    "baseWeight": 9,
-    "requiredModules": [],
-    "tags": [
-      "duel",
-      "rob",
-      "arrest"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/duel.png",
-    "themeColor": "black",
     "titleParts": [
       {
         "text": "Kampf mit Spieler beginnen",
         "style": "black"
       }
-    ],
-    "soundFile": "audio/sfx/short-holster.mp3"
+    ]
   },
   {
     "id": "trig_arrest_player",
@@ -410,25 +232,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein gesuchter Reiter mit einem Verhaftungsversuch konfrontiert wurde.",
       "Zeugen im gesamten Gebiet berichteten, dass ein gesuchter Reiter mit einem Verhaftungsversuch konfrontiert wurde."
     ],
-    "category": "law",
-    "baseWeight": 8,
-    "requiredModules": [],
-    "tags": [
-      "arrest",
-      "marshal",
-      "wanted"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/arrest.png",
-    "themeColor": "blue",
     "titleParts": [
       {
         "text": "Wanted-Spieler verhaften",
         "style": "blue"
       }
-    ],
-    "soundFile": "audio/sfx/short-pistol.mp3"
+    ]
   },
   {
     "id": "trig_sheriff_arrests",
@@ -439,25 +248,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass der Sheriff einen gesuchten Reiter verhaftete.",
       "Zeugen im gesamten Gebiet berichteten, dass der Sheriff einen gesuchten Reiter verhaftete."
     ],
-    "category": "law",
-    "baseWeight": 6,
-    "requiredModules": [],
-    "tags": [
-      "sheriff",
-      "arrest",
-      "wanted"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/arrest.png",
-    "themeColor": "blue",
     "titleParts": [
       {
         "text": "Sheriff verhaftet Spieler",
         "style": "blue"
       }
-    ],
-    "soundFile": "audio/sfx/short-pistol.mp3"
+    ]
   },
   {
     "id": "trig_gain_mp",
@@ -468,24 +264,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Reiter durch gesetzestreue Taten einen weiteren Marshal-Punkt verdiente.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Reiter durch gesetzestreue Taten einen weiteren Marshal-Punkt verdiente."
     ],
-    "category": "law",
-    "baseWeight": 9,
-    "requiredModules": [],
-    "tags": [
-      "marshal",
-      "law"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/marshal.png",
-    "themeColor": "blue",
     "titleParts": [
       {
         "text": "Marshal-Punkt erhalten",
         "style": "blue"
       }
-    ],
-    "soundFile": "audio/sfx/short-good.mp3"
+    ]
   },
   {
     "id": "trig_begin_prospect",
@@ -496,25 +280,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Goldsucher sich auf die Suche nach Gold machte.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Goldsucher sich auf die Suche nach Gold machte."
     ],
-    "category": "frontier",
-    "baseWeight": 13,
-    "requiredModules": [],
-    "tags": [
-      "mine",
-      "prospect",
-      "gold"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/prospect.png",
-    "themeColor": "gold",
     "titleParts": [
       {
         "text": "Schürfaktion beginnen",
         "style": "gold"
       }
-    ],
-    "soundFile": "audio/sfx/short-pickaxe.mp3"
+    ]
   },
   {
     "id": "trig_gain_gold_prospect",
@@ -525,25 +296,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Goldsucher Gold aus der Erde holte.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Goldsucher Gold aus der Erde holte."
     ],
-    "category": "frontier",
-    "baseWeight": 12,
-    "requiredModules": [],
-    "tags": [
-      "mine",
-      "gold",
-      "prospect"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/prospect.png",
-    "themeColor": "gold",
     "titleParts": [
       {
         "text": "Beim Schürfen Gold erhalten",
         "style": "gold"
       }
-    ],
-    "soundFile": "audio/sfx/short-pickaxe.mp3"
+    ]
   },
   {
     "id": "trig_deposit_gold",
@@ -554,25 +312,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass frisch geschürftes Gold bei der Bank eingezahlt wurde.",
       "Zeugen im gesamten Gebiet berichteten, dass frisch geschürftes Gold bei der Bank eingezahlt wurde."
     ],
-    "category": "town",
-    "baseWeight": 9,
-    "requiredModules": [],
-    "tags": [
-      "bank",
-      "gold",
-      "lp"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/sellgold.png",
-    "themeColor": "gold",
     "titleParts": [
       {
         "text": "Gold einzahlen",
         "style": "gold"
       }
-    ],
-    "soundFile": "audio/sfx/short-money.mp3"
+    ]
   },
   {
     "id": "trig_acquire_cattle",
@@ -583,24 +328,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Reiter auf einer Ranch Vieh erwarb.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Reiter auf einer Ranch Vieh erwarb."
     ],
-    "category": "ranch",
-    "baseWeight": 9,
-    "requiredModules": [],
-    "tags": [
-      "ranch",
-      "cattle"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/ranch.png",
-    "themeColor": "orange",
     "titleParts": [
       {
         "text": "Vieh auf einer Ranch erwerben",
         "style": "orange"
       }
-    ],
-    "soundFile": "audio/sfx/short-moo.mp3"
+    ]
   },
   {
     "id": "trig_wrangle_cattle",
@@ -611,25 +344,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Reiter erfolgreich Vieh trieb.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Reiter erfolgreich Vieh trieb."
     ],
-    "category": "ranch",
-    "baseWeight": 8,
-    "requiredModules": [],
-    "tags": [
-      "rail",
-      "cattle",
-      "marshal"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/wrangle.png",
-    "themeColor": "orange",
     "titleParts": [
       {
         "text": "Vieh treiben",
         "style": "orange"
       }
-    ],
-    "soundFile": "audio/sfx/short-moo.mp3"
+    ]
   },
   {
     "id": "trig_purchase_item",
@@ -640,25 +360,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Reiter in der Stadt einen neuen Kauf tätigte.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Reiter in der Stadt einen neuen Kauf tätigte."
     ],
-    "category": "town",
-    "baseWeight": 12,
-    "requiredModules": [],
-    "tags": [
-      "store",
-      "item",
-      "money"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/store.png",
-    "themeColor": "green",
     "titleParts": [
       {
         "text": "Gegenstand kaufen",
         "style": "green"
       }
-    ],
-    "soundFile": "audio/sfx/short-money.mp3"
+    ]
   },
   {
     "id": "trig_heal_doctor",
@@ -669,25 +376,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein verletzter Reiter in der Arztpraxis Behandlung suchte.",
       "Zeugen im gesamten Gebiet berichteten, dass ein verletzter Reiter in der Arztpraxis Behandlung suchte."
     ],
-    "category": "town",
-    "baseWeight": 8,
-    "requiredModules": [],
-    "tags": [
-      "doctor",
-      "heal",
-      "wound"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/heal.png",
-    "themeColor": "green",
     "titleParts": [
       {
         "text": "In der Arztpraxis heilen",
         "style": "green"
       }
-    ],
-    "soundFile": "audio/sfx/short-good.mp3"
+    ]
   },
   {
     "id": "trig_revel_cabaret",
@@ -698,25 +392,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Reiter im Cabaret ausgiebig feierte.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Reiter im Cabaret ausgiebig feierte."
     ],
-    "category": "town",
-    "baseWeight": 7,
-    "requiredModules": [],
-    "tags": [
-      "cabaret",
-      "lp",
-      "red_falls"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/revel.png",
-    "themeColor": "purple",
     "titleParts": [
       {
         "text": "Im Cabaret FEIERN",
         "style": "purple"
       }
-    ],
-    "soundFile": "audio/sfx/short-piano.mp3"
+    ]
   },
   {
     "id": "trig_begin_poker",
@@ -727,25 +408,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass im Saloon ein neues Pokerspiel begann.",
       "Zeugen im gesamten Gebiet berichteten, dass im Saloon ein neues Pokerspiel begann."
     ],
-    "category": "gamble",
-    "baseWeight": 12,
-    "requiredModules": [],
-    "tags": [
-      "saloon",
-      "poker",
-      "gambler"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/gamble.png",
-    "themeColor": "purple",
     "titleParts": [
       {
         "text": "POKERSPIEL beginnen",
         "style": "purple"
       }
-    ],
-    "soundFile": "audio/sfx/short-cards.mp3"
+    ]
   },
   {
     "id": "trig_win_poker",
@@ -756,25 +424,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Reiter als Sieger eines Pokerspiels vom Tisch ging.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Reiter als Sieger eines Pokerspiels vom Tisch ging."
     ],
-    "category": "gamble",
-    "baseWeight": 10,
-    "requiredModules": [],
-    "tags": [
-      "saloon",
-      "poker",
-      "gambler"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/gamble.png",
-    "themeColor": "purple",
     "titleParts": [
       {
         "text": "POKERSPIEL gewinnen",
         "style": "purple"
       }
-    ],
-    "soundFile": "audio/sfx/short-money.mp3"
+    ]
   },
   {
     "id": "trig_work_action",
@@ -785,24 +440,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Reiter ehrliche Arbeit im Grenzland verrichtete.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Reiter ehrliche Arbeit im Grenzland verrichtete."
     ],
-    "category": "town",
-    "baseWeight": 7,
-    "requiredModules": [],
-    "tags": [
-      "work",
-      "money"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/work.png",
-    "themeColor": "black",
     "titleParts": [
       {
         "text": "ARBEITSAKTION ausführen",
         "style": "black"
       }
-    ],
-    "soundFile": "audio/sfx/short-hammer.mp3"
+    ]
   },
   {
     "id": "trig_gain_legendary_item",
@@ -813,24 +456,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Reiter in den Besitz eines Legendären Gegenstands gelangte.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Reiter in den Besitz eines Legendären Gegenstands gelangte."
     ],
-    "category": "legendary",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "legendary_item",
-      "trader"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/legend.png",
-    "themeColor": "green",
     "titleParts": [
       {
         "text": "Legendären GEGENSTAND erhalten",
         "style": "green"
       }
-    ],
-    "soundFile": "audio/sfx/short-good.mp3"
+    ]
   },
   {
     "id": "trig_buy_traveling_trader",
@@ -841,28 +472,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Reiter mit dem Reisenden Händler ein Geschäft abschloss.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Reiter mit dem Reisenden Händler ein Geschäft abschloss."
     ],
-    "category": "legendary",
-    "baseWeight": 6,
-    "requiredModules": [
-      "blood_money_traveling_trader"
-    ],
-    "tags": [
-      "trader",
-      "legendary_item",
-      "purchase",
-      "blood_money"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/trader.png",
-    "themeColor": "green",
     "titleParts": [
       {
         "text": "Beim Reisenden Händler kaufen",
         "style": "green"
       }
-    ],
-    "soundFile": "audio/sfx/short-money.mp3"
+    ]
   },
   {
     "id": "trig_gain_lp_2_plus",
@@ -873,24 +488,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass eine einzige Tat zwei oder mehr Legendenpunkte einbrachte.",
       "Zeugen im gesamten Gebiet berichteten, dass eine einzige Tat zwei oder mehr Legendenpunkte einbrachte."
     ],
-    "category": "legendary",
-    "baseWeight": 7,
-    "requiredModules": [],
-    "tags": [
-      "lp",
-      "legendary"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/lp.png",
-    "themeColor": "gold",
     "titleParts": [
       {
         "text": "In EINER AKTION 2+ LP ERHALTEN",
         "style": "normal"
       }
-    ],
-    "soundFile": "audio/sfx/short-good.mp3"
+    ]
   },
   {
     "id": "trig_travel_rail",
@@ -901,27 +504,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Reiter einen Teil des Gebiets mit der Eisenbahn durchquerte.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Reiter einen Teil des Gebiets mit der Eisenbahn durchquerte."
     ],
-    "category": "ante_up",
-    "baseWeight": 7,
-    "requiredModules": [
-      "ante_up"
-    ],
-    "tags": [
-      "railroad",
-      "train",
-      "ante_up"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/train.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Mit der EISENBAHN reisen",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-train.mp3"
+    ]
   },
   {
     "id": "trig_use_mountain_pass",
@@ -932,26 +520,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Reiter den gefährlichen Bergpass nahm.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Reiter den gefährlichen Bergpass nahm."
     ],
-    "category": "ante_up",
-    "baseWeight": 5,
-    "requiredModules": [
-      "ante_up"
-    ],
-    "tags": [
-      "mountain_pass",
-      "ante_up"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/fork.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "BERGPASS benutzen",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-gallop.mp3"
+    ]
   },
   {
     "id": "trig_train_heist",
@@ -962,28 +536,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass Outlaws einen Überfall auf den Zug begannen.",
       "Zeugen im gesamten Gebiet berichteten, dass Outlaws einen Überfall auf den Zug begannen."
     ],
-    "category": "ante_up",
-    "baseWeight": 8,
-    "requiredModules": [
-      "ante_up"
-    ],
-    "tags": [
-      "train",
-      "heist",
-      "wanted",
-      "ante_up"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/trainheist.png",
-    "themeColor": "red",
     "titleParts": [
       {
         "text": "ZUGÜBERFALL beginnen",
         "style": "red"
       }
-    ],
-    "soundFile": "audio/sfx/short-train.mp3"
+    ]
   },
   {
     "id": "trig_frontier_action",
@@ -994,27 +552,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Grenzlandmarker eine neue Entwicklung in Buzzard Gulch auslöste.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Grenzlandmarker eine neue Entwicklung in Buzzard Gulch auslöste."
     ],
-    "category": "ante_up",
-    "baseWeight": 8,
-    "requiredModules": [
-      "ante_up"
-    ],
-    "tags": [
-      "frontier",
-      "buzzard_gulch",
-      "ante_up"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/work.png",
-    "themeColor": "black",
     "titleParts": [
       {
         "text": "GRENZLANDMARKER ABHANDELN",
         "style": "normal"
       }
-    ],
-    "soundFile": "audio/sfx/short-hammer.mp3"
+    ]
   },
   {
     "id": "trig_roll_risk_die",
@@ -1025,27 +568,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Reiter sein Schicksal einem Wurf mit dem Risikowürfel anvertraute.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Reiter sein Schicksal einem Wurf mit dem Risikowürfel anvertraute."
     ],
-    "category": "blood_money",
-    "baseWeight": 8,
-    "requiredModules": [
-      "blood_money"
-    ],
-    "tags": [
-      "risk",
-      "story",
-      "blood_money"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/injury.png",
-    "themeColor": "red",
     "titleParts": [
       {
         "text": "RISIKOWÜRFEL WÜRFELN",
         "style": "red"
       }
-    ],
-    "soundFile": "audio/sfx/sfx_dice.mp3"
+    ]
   },
   {
     "id": "trig_recruit_gang_posse",
@@ -1056,27 +584,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Reiter neue Leute für eine Gang oder Posse anwarb.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Reiter neue Leute für eine Gang oder Posse anwarb."
     ],
-    "category": "blood_money",
-    "baseWeight": 6,
-    "requiredModules": [
-      "blood_money"
-    ],
-    "tags": [
-      "gang",
-      "posse",
-      "blood_money"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/recruit.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "GANG ODER POSSE ANWERBEN",
         "style": "normal"
       }
-    ],
-    "soundFile": "audio/sfx/short-note.mp3"
+    ]
   },
   {
     "id": "trig_hunt_success",
@@ -1087,27 +600,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Jäger von einer erfolgreichen Jagd zurückkehrte.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Jäger von einer erfolgreichen Jagd zurückkehrte."
     ],
-    "category": "hunting",
-    "baseWeight": 8,
-    "requiredModules": [
-      "hunting"
-    ],
-    "tags": [
-      "hunt",
-      "animal",
-      "hunting"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/hunt.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "ERFOLGREICHE JAGD",
         "style": "normal"
       }
-    ],
-    "soundFile": "audio/sfx/short-shotgun.mp3"
+    ]
   },
   {
     "id": "trig_forage_resource",
@@ -1118,27 +616,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass ein Sammler in der Wildnis eine nützliche Ressource fand.",
       "Zeugen im gesamten Gebiet berichteten, dass ein Sammler in der Wildnis eine nützliche Ressource fand."
     ],
-    "category": "foraging",
-    "baseWeight": 8,
-    "requiredModules": [
-      "foraging"
-    ],
-    "tags": [
-      "forage",
-      "resource",
-      "foraging"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/forage.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "SAMMELRESSOURCE ERHALTEN",
         "style": "normal"
       }
-    ],
-    "soundFile": "audio/sfx/short-good.mp3"
+    ]
   },
   {
     "id": "trig_craft_item",
@@ -1149,27 +632,12 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass Materialien aus dem Grenzland zu einem Gegenstand verarbeitet wurden.",
       "Zeugen im gesamten Gebiet berichteten, dass Materialien aus dem Grenzland zu einem Gegenstand verarbeitet wurden."
     ],
-    "category": "crafting",
-    "baseWeight": 7,
-    "requiredModules": [
-      "crafting"
-    ],
-    "tags": [
-      "craft",
-      "resource",
-      "crafting"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/craft.png",
-    "themeColor": "green",
     "titleParts": [
       {
         "text": "GEGENSTAND herstellen",
         "style": "green"
       }
-    ],
-    "soundFile": "audio/sfx/short-hammer.mp3"
+    ]
   },
   {
     "id": "trig_deliver_resource_location",
@@ -1180,26 +648,11 @@
       "Zu den bemerkenswerten Ereignissen des Tages gehörte, dass eine nützliche Ressource dorthin geliefert wurde, wo sie gebraucht wurde.",
       "Zeugen im gesamten Gebiet berichteten, dass eine nützliche Ressource dorthin geliefert wurde, wo sie gebraucht wurde."
     ],
-    "category": "foraging",
-    "baseWeight": 6,
-    "requiredModules": [
-      "foraging"
-    ],
-    "tags": [
-      "resource",
-      "delivery",
-      "foraging"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/sell.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "RESSOURCE LIEFERN",
         "style": "normal"
       }
-    ],
-    "soundFile": "audio/sfx/short-good.mp3"
+    ]
   }
 ]

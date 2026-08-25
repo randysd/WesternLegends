@@ -8,23 +8,11 @@
       "Diversi incidenti collegati formarono il racconto de Il Cercatore Affamato, dando a un cavaliere una storia tutta sua.",
       "Quello che iniziò come un singolo incontro divenne la storia continuativa della frontiera de Il Cercatore Affamato."
     ],
-    "tags": [
-      "prospector",
-      "mine",
-      "saloon",
-      "bandit"
-    ],
-    "startTrigger": "trig_begin_prospect",
-    "baseWeight": 10,
     "nodes": [
       {
         "id": "prospector_intro",
-        "type": "storyTrigger",
-        "trigger": "trig_begin_prospect",
         "title": "Un Uomo in Fin di Vita",
         "screenText": "Termina il tuo turno in un qualsiasi Saloon per ottenere $20.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Un cercatore mezzo morto di fame barcolla fuori dalla salvia, stringendo un sacchetto di cuoio. Offre venti dollari per un bicchiere e un passaggio fino in città.\"",
         "newspaperText": [
           "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: Un cercatore mezzo morto di fame barcolla fuori dalla salvia, stringendo un sacchetto di cuoio. Offre venti dollari per un bicchiere e un passaggio fino in città.",
@@ -32,37 +20,23 @@
           "La pista della storia più ampia portò a un nuovo sviluppo: Un cercatore mezzo morto di fame barcolla fuori dalla salvia, stringendo un sacchetto di cuoio. Offre venti dollari per un bicchiere e un passaggio fino in città.",
           "I testimoni collegarono l'ultima svolta della storia a una scena memorabile: Un cercatore mezzo morto di fame barcolla fuori dalla salvia, stringendo un sacchetto di cuoio. Offre venti dollari per un bicchiere e un passaggio fino in città."
         ],
-        "audioFile": "audio/arcs/prospector_intro.mp3",
-        "requiresWorldTags": [],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "prospector_helped"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Un Uomo in Fin di Vita è stato risolto."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "prospector_abandoned"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Un Uomo in Fin di Vita è stato ignorato."
           }
         ]
       },
       {
         "id": "prospector_debt_repaid",
-        "type": "storyTrigger",
-        "trigger": "trig_purchase_item",
         "title": "Debito Ripagato",
         "screenText": "Il cercatore ripaga la gentilezza che gli ha salvato la vita. Dopo aver acquistato/migliorato un Oggetto, ottieni $20.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Il vecchio cercatore esce dall'angolo e posa delle monete sul bancone. Te l'avevo detto che avrei ricambiato la gentilezza.\"",
         "newspaperText": [
           "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: Il vecchio cercatore esce dall'angolo e posa delle monete sul bancone. Te l'avevo detto che avrei ricambiato la gentilezza.",
@@ -70,36 +44,22 @@
           "La pista della storia più ampia portò a un nuovo sviluppo: Il vecchio cercatore esce dall'angolo e posa delle monete sul bancone. Te l'avevo detto che avrei ricambiato la gentilezza.",
           "I testimoni collegarono l'ultima svolta della storia a una scena memorabile: Il vecchio cercatore esce dall'angolo e posa delle monete sul bancone. Te l'avevo detto che avrei ricambiato la gentilezza."
         ],
-        "audioFile": "audio/arcs/prospector_debt_repaid.mp3",
-        "requiresWorldTags": [
-          "prospector_helped"
-        ],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "prospector_repaid"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Debito Ripagato è stato risolto."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "prospector_missed_repay"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Debito Ripagato è stato ignorato."
           }
         ],
         "playerAwareText": {
-          "compareToNodeId": "prospector_intro",
           "samePlayer": {
             "title": "Debito Ripagato",
             "screenText": "Il cercatore ti riconosce subito e finalmente può ripagare la gentilezza che gli hai mostrato. Dopo aver acquistato/migliorato un Oggetto, ottieni $30.",
-            "audioFile": "audio/arcs/prospector_debt_repaid2.mp3",
             "narrationScript": "[western storyteller][old cowboy][raspy] \"Il vecchio cercatore sorride quando ti vede. Non ho dimenticato quello che hai fatto per me. Lascia che saldi quel debito come si deve.\"",
             "newspaperText": [
               "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: Il vecchio cercatore sorride quando ti vede. Non ho dimenticato quello che hai fatto per me. Lascia che saldi quel debito come si deve.",
@@ -111,7 +71,6 @@
           "differentPlayer": {
             "title": "Gentilezza Tramandata",
             "screenText": "Il cercatore ti racconta che un tempo uno sconosciuto gli salvò la vita quando non aveva nulla. Decide di trasmettere quella gentilezza. Dopo aver acquistato/migliorato un Oggetto, ottieni $20.",
-            "audioFile": "audio/arcs/prospector_kindness_passed_on.mp3",
             "narrationScript": "[western storyteller][old cowboy][raspy] \"Il vecchio cercatore ti racconta che un tempo uno sconosciuto gli salvò la pelle. Dice che una gentilezza così non dovrebbe fermarsi a un solo uomo.\"",
             "newspaperText": [
               "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: Il vecchio cercatore ti racconta che un tempo uno sconosciuto gli salvò la pelle. Dice che una gentilezza così non dovrebbe fermarsi a un solo uomo.",
@@ -127,13 +86,8 @@
       },
       {
         "id": "prospector_bandit_reveal",
-        "type": "instantEvent",
-        "trigger": "trig_defeat_bandit",
         "title": "L'Uomo che Hai Lasciato Indietro",
         "screenText": "Il cercatore affamato si è unito ai fuorilegge. Il modo in cui ti tratta dipende dal fatto che tu sia il viaggiatore che lo abbandonò.",
-        "requiresWorldTags": [
-          "prospector_abandoned"
-        ],
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Il fuorilegge cade e si toglie il cappello. Sotto la sporcizia riconosci il cercatore che hai lasciato nella polvere. Fischia, e altri due banditi sbucano dalle rocce.\"",
         "newspaperText": [
           "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: Il fuorilegge cade e si toglie il cappello. Sotto la sporcizia riconosci il cercatore che hai lasciato nella polvere. Fischia, e altri due banditi sbucano dalle rocce.",
@@ -141,21 +95,13 @@
           "La pista della storia più ampia portò a un nuovo sviluppo: Il fuorilegge cade e si toglie il cappello. Sotto la sporcizia riconosci il cercatore che hai lasciato nella polvere. Fischia, e altri due banditi sbucano dalle rocce.",
           "I testimoni collegarono l'ultima svolta della storia a una scena memorabile: Il fuorilegge cade e si toglie il cappello. Sotto la sporcizia riconosci il cercatore che hai lasciato nella polvere. Fischia, e altri due banditi sbucano dalle rocce."
         ],
-        "audioFile": "audio/arcs/prospector_bandit_reveal.mp3",
-        "effects": [],
         "resultButtons": [
           {
-            "label": "Continua",
-            "effects": [
-              {
-                "type": "addWorldTag",
-                "tag": "prospector_encountered_again"
-              }
-            ]
+            "_index": 0,
+            "label": "Continua"
           }
         ],
         "playerAwareText": {
-          "compareToNodeId": "prospector_intro",
           "samePlayer": {
             "title": "L'Uomo che Hai Lasciato Indietro",
             "screenText": "Il fuorilegge si toglie il cappello: è il cercatore che hai lasciato a cavarsela da solo. Pretende $20 per la vita che quasi gli sei costato. Paga $20 per chiudere il rancore, oppure rifiuta e colloca 2 Banditi nel tuo spazio; affrontali entrambi contemporaneamente. Se perdi, subisci 1 ferita.",
@@ -165,26 +111,14 @@
               "I testimoni della frontiera portarono la notizia de L'Uomo che Hai Lasciato Indietro da un insediamento all'altro.",
               "Alla fine della giornata, L'Uomo che Hai Lasciato Indietro si era guadagnato un posto tra gli avvenimenti degni di nota del territorio."
             ],
-            "audioFile": null,
-            "effects": [],
             "resultButtons": [
               {
-                "label": "Gli Hai Pagato $20",
-                "effects": [
-                  {
-                    "type": "addWorldTag",
-                    "tag": "prospector_paid_off"
-                  }
-                ]
+                "_index": 0,
+                "label": "Gli Hai Pagato $20"
               },
               {
-                "label": "Hai Affrontato l'Imboscata",
-                "effects": [
-                  {
-                    "type": "addWorldTag",
-                    "tag": "prospector_grudge_fought"
-                  }
-                ]
+                "_index": 1,
+                "label": "Hai Affrontato l'Imboscata"
               }
             ]
           },
@@ -197,26 +131,14 @@
               "I testimoni della frontiera portarono la notizia de L'Uomo che Hai Lasciato Indietro da un insediamento all'altro.",
               "Alla fine della giornata, L'Uomo che Hai Lasciato Indietro si era guadagnato un posto tra gli avvenimenti degni di nota del territorio."
             ],
-            "audioFile": null,
-            "effects": [],
             "resultButtons": [
               {
-                "label": "Lo Hai Aiutato a Fuggire",
-                "effects": [
-                  {
-                    "type": "addWorldTag",
-                    "tag": "prospector_helped_escape"
-                  }
-                ]
+                "_index": 0,
+                "label": "Lo Hai Aiutato a Fuggire"
               },
               {
-                "label": "Hai Rifiutato",
-                "effects": [
-                  {
-                    "type": "addWorldTag",
-                    "tag": "prospector_refused_again"
-                  }
-                ]
+                "_index": 1,
+                "label": "Hai Rifiutato"
               }
             ]
           },
@@ -225,8 +147,7 @@
           }
         }
       }
-    ],
-    "scope": "shared"
+    ]
   },
   {
     "id": "arc_widow_mccall",
@@ -237,22 +158,11 @@
       "Diversi incidenti collegati formarono il racconto de Il Ranch della Vedova McCall, dando a un cavaliere una storia tutta sua.",
       "Quello che iniziò come un singolo incontro divenne la storia continuativa della frontiera de Il Ranch della Vedova McCall."
     ],
-    "tags": [
-      "widow",
-      "ranch",
-      "cattle"
-    ],
-    "startTrigger": "trig_acquire_cattle",
-    "baseWeight": 8,
     "nodes": [
       {
         "id": "widow_fence_down",
-        "type": "storyTrigger",
-        "trigger": "trig_acquire_cattle",
         "title": "Recinzione Abbattuta",
         "screenText": "Termina il tuo turno al Green Ranch o al Blue Ranch. Ottieni $20 e 1 Carta Poker.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Una vedova vestita di nero chiede aiuto per riparare una recinzione prima che i ladri di bestiame trovino il varco.\"",
         "newspaperText": [
           "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: Una vedova vestita di nero chiede aiuto per riparare una recinzione prima che i ladri di bestiame trovino il varco.",
@@ -260,37 +170,23 @@
           "La pista della storia più ampia portò a un nuovo sviluppo: Una vedova vestita di nero chiede aiuto per riparare una recinzione prima che i ladri di bestiame trovino il varco.",
           "I testimoni collegarono l'ultima svolta della storia a una scena memorabile: Una vedova vestita di nero chiede aiuto per riparare una recinzione prima che i ladri di bestiame trovino il varco."
         ],
-        "audioFile": "audio/arcs/widow_fence_down.mp3",
-        "requiresWorldTags": [],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "widow_helped"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Recinzione Abbattuta è stato risolto."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "widow_ignored"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Recinzione Abbattuta è stato ignorato."
           }
         ]
       },
       {
         "id": "widow_cattle_drive",
-        "type": "storyTrigger",
-        "trigger": "trig_wrangle_cattle",
         "title": "Una Conduzione Sicura",
         "screenText": "Conduci bestiame per la Vedova McCall per ottenere +$20.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Il marchio della vedova cavalca in mezzo alla mandria, e ogni miglio onesto aiuta a salvare la sua terra.\"",
         "newspaperText": [
           "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: Il marchio della vedova cavalca in mezzo alla mandria, e ogni miglio onesto aiuta a salvare la sua terra.",
@@ -298,32 +194,19 @@
           "La pista della storia più ampia portò a un nuovo sviluppo: Il marchio della vedova cavalca in mezzo alla mandria, e ogni miglio onesto aiuta a salvare la sua terra.",
           "I testimoni collegarono l'ultima svolta della storia a una scena memorabile: Il marchio della vedova cavalca in mezzo alla mandria, e ogni miglio onesto aiuta a salvare la sua terra."
         ],
-        "audioFile": "audio/arcs/widow_cattle_drive.mp3",
-        "requiresWorldTags": [
-          "widow_helped"
-        ],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "widow_drive_done"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Una Conduzione Sicura è stato risolto."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "widow_drive_missed"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Una Conduzione Sicura è stato ignorato."
           }
         ],
         "playerAwareText": {
-          "compareToNodeId": "widow_fence_down",
           "samePlayer": {
             "screenText": "La Vedova McCall ricorda che l'hai aiutata a salvare il ranch quando la recinzione crollò. Ti affida la sua migliore mandria. Conduci bestiame per ottenere +$30.",
             "newspaperText": [
@@ -331,8 +214,7 @@
               "I rapporti su Una Conduzione Sicura giunsero alla Gazette prima che le rotative iniziassero a girare.",
               "I testimoni della frontiera portarono la notizia di Una Conduzione Sicura da un insediamento all'altro.",
               "Alla fine della giornata, Una Conduzione Sicura si era guadagnato un posto tra gli avvenimenti degni di nota del territorio."
-            ],
-            "audioFile": null
+            ]
           },
           "differentPlayer": {
             "screenText": "La Vedova McCall ti racconta che un altro viaggiatore aiutò a salvare il suo ranch quando ne aveva più bisogno. Ti offre un lavoro onesto nella prossima conduzione. Conduci bestiame per ottenere +$20.",
@@ -341,8 +223,7 @@
               "I rapporti su Una Conduzione Sicura giunsero alla Gazette prima che le rotative iniziassero a girare.",
               "I testimoni della frontiera portarono la notizia di Una Conduzione Sicura da un insediamento all'altro.",
               "Alla fine della giornata, Una Conduzione Sicura si era guadagnato un posto tra gli avvenimenti degni di nota del territorio."
-            ],
-            "audioFile": null
+            ]
           },
           "default": {
             "screenText": "Conduci bestiame per la Vedova McCall per ottenere +$20."
@@ -351,12 +232,8 @@
       },
       {
         "id": "widow_black_veil",
-        "type": "storyTrigger",
-        "trigger": "trig_rustle_cattle",
         "title": "Bandita dal Velo Nero",
         "screenText": "La Vedova McCall è diventata una fuorilegge. Dopo aver rubato bestiame, ottieni +$30 e +1 WP, poi muovi lo Sheriff fino a 2 spazi verso di te.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Una cavallerizza velata si unisce ai ladri di bestiame. Il dolore l'ha resa qualcosa di pericoloso.\"",
         "newspaperText": [
           "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: Una cavallerizza velata si unisce ai ladri di bestiame. Il dolore l'ha resa qualcosa di pericoloso.",
@@ -364,36 +241,22 @@
           "La pista della storia più ampia portò a un nuovo sviluppo: Una cavallerizza velata si unisce ai ladri di bestiame. Il dolore l'ha resa qualcosa di pericoloso.",
           "I testimoni collegarono l'ultima svolta della storia a una scena memorabile: Una cavallerizza velata si unisce ai ladri di bestiame. Il dolore l'ha resa qualcosa di pericoloso."
         ],
-        "audioFile": "audio/arcs/widow_black_veil.mp3",
-        "requiresWorldTags": [
-          "widow_ignored"
-        ],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "widow_outlaw_seen"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Bandita dal Velo Nero è stato risolto."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "widow_outlaw_vanishes"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Bandita dal Velo Nero è stato ignorato."
           }
         ],
         "playerAwareText": {
-          "compareToNodeId": "widow_fence_down",
           "samePlayer": {
             "title": "Resa dei Conti del Velo Nero",
             "screenText": "La ladra velata è la Vedova McCall, e riconosce il viaggiatore che lasciò fallire il suo ranch. Vuole essere pagata, non collaborare. Pagale $20 per saldare il debito, oppure rifiuta e pesca una Carta Scontro: con 8+, metti in fuga i suoi cavalieri; con 7 o meno, subisci 1 ferita. Non ottieni il bonus di furto del Velo Nero.",
-            "audioFile": "audio/arcs/widow_black_veil_reckoning.mp3",
             "narrationScript": "[western storyteller][old cowboy][raspy] \"La vedova solleva il velo e ti fissa. Buffo vederti adesso, dice. Avrei potuto usarti prima di dover diventare così.\"",
             "newspaperText": [
               "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: La vedova solleva il velo e ti fissa. Buffo vederti adesso, dice. Avrei potuto usarti prima di dover diventare così.",
@@ -405,7 +268,6 @@
           "differentPlayer": {
             "title": "Bandita dal Velo Nero",
             "screenText": "La Vedova McCall ti racconta che un altro viaggiatore lasciò morire il suo ranch, e i tempi duri la spinsero sulla via dei fuorilegge. Ti offre di cavalcare con te. Dopo aver rubato bestiame, ottieni +$30 e +1 WP, poi muovi lo Sheriff fino a 2 spazi verso di te.",
-            "audioFile": "audio/arcs/widow_black_veil_bandit.mp3",
             "narrationScript": "[western storyteller][old cowboy][raspy] \"La cavallerizza velata dice di chiamarsi McCall. Dice che nessuno arrivò quando il ranch stava morendo, così imparò a prendersi ciò che la frontiera non voleva darle.\"",
             "newspaperText": [
               "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: La cavallerizza velata dice di chiamarsi McCall. Dice che nessuno arrivò quando il ranch stava morendo, così imparò a prendersi ciò che la frontiera non voleva darle.",
@@ -419,8 +281,7 @@
           }
         }
       }
-    ],
-    "scope": "shared"
+    ]
   },
   {
     "id": "arc_marshal_reeves",
@@ -431,23 +292,11 @@
       "Diversi incidenti collegati formarono il racconto di Marshal Gideon Reeves, dando a un cavaliere una storia tutta sua.",
       "Quello che iniziò come un singolo incontro divenne la storia continuativa della frontiera di Marshal Gideon Reeves."
     ],
-    "tags": [
-      "marshal",
-      "sheriff",
-      "bandit",
-      "law"
-    ],
-    "startTrigger": "trig_gain_mp",
-    "baseWeight": 8,
     "nodes": [
       {
         "id": "reeves_deputy_call",
-        "type": "storyTrigger",
-        "trigger": "trig_gain_mp",
         "title": "Vice per un Giorno",
         "screenText": "Termina il tuo turno all'Ufficio dello Sheriff di Darkrock o all'Ufficio del Marshal di Buzzard Gulch per ottenere $20 e 1 MP.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Marshal Reeves ha bisogno di una mano ferma e di una coscienza ancora più ferma.\"",
         "newspaperText": [
           "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: Marshal Reeves ha bisogno di una mano ferma e di una coscienza ancora più ferma.",
@@ -455,37 +304,23 @@
           "La pista della storia più ampia portò a un nuovo sviluppo: Marshal Reeves ha bisogno di una mano ferma e di una coscienza ancora più ferma.",
           "I testimoni collegarono l'ultima svolta della storia a una scena memorabile: Marshal Reeves ha bisogno di una mano ferma e di una coscienza ancora più ferma."
         ],
-        "audioFile": "audio/arcs/reeves_deputy_call.mp3",
-        "requiresWorldTags": [],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "reeves_supported"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Vice per un Giorno è stato risolto."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "reeves_ignored"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Vice per un Giorno è stato ignorato."
           }
         ]
       },
       {
         "id": "reeves_crackdown",
-        "type": "storyTrigger",
-        "trigger": "trig_defeat_bandit",
         "title": "Mandato di Repressione",
         "screenText": "Dopo aver sconfitto un Bandito mentre esegui il mandato di Reeves, ottieni +$20.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Reeves ha mandati impilati come legna da ardere e corda abbastanza per ogni nome scritto sopra.\"",
         "newspaperText": [
           "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: Reeves ha mandati impilati come legna da ardere e corda abbastanza per ogni nome scritto sopra.",
@@ -493,32 +328,19 @@
           "La pista della storia più ampia portò a un nuovo sviluppo: Reeves ha mandati impilati come legna da ardere e corda abbastanza per ogni nome scritto sopra.",
           "I testimoni collegarono l'ultima svolta della storia a una scena memorabile: Reeves ha mandati impilati come legna da ardere e corda abbastanza per ogni nome scritto sopra."
         ],
-        "audioFile": "audio/arcs/reeves_crackdown.mp3",
-        "requiresWorldTags": [
-          "reeves_supported"
-        ],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "reeves_warrants_served"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Mandato di Repressione è stato risolto."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "reeves_warrants_missed"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Mandato di Repressione è stato ignorato."
           }
         ],
         "playerAwareText": {
-          "compareToNodeId": "reeves_deputy_call",
           "samePlayer": {
             "screenText": "Marshal Reeves ricorda che hai risposto alla sua chiamata quando aveva bisogno di un vice. Ti affida uno dei suoi mandati prioritari. Dopo aver sconfitto un Bandito, ottieni +$20 e +1 MP.",
             "newspaperText": [
@@ -526,8 +348,7 @@
               "I rapporti sul Mandato di Repressione giunsero alla Gazette prima che le rotative iniziassero a girare.",
               "I testimoni della frontiera portarono la notizia del Mandato di Repressione da un insediamento all'altro.",
               "Alla fine della giornata, il Mandato di Repressione si era guadagnato un posto tra gli avvenimenti degni di nota del territorio."
-            ],
-            "audioFile": null
+            ]
           },
           "differentPlayer": {
             "screenText": "Marshal Reeves ti racconta che un altro viaggiatore rimase al suo fianco quando iniziarono i guai. La repressione sta funzionando, e ti consegna un mandato tutto tuo. Dopo aver sconfitto un Bandito, ottieni +$20.",
@@ -536,8 +357,7 @@
               "I rapporti sul Mandato di Repressione giunsero alla Gazette prima che le rotative iniziassero a girare.",
               "I testimoni della frontiera portarono la notizia del Mandato di Repressione da un insediamento all'altro.",
               "Alla fine della giornata, il Mandato di Repressione si era guadagnato un posto tra gli avvenimenti degni di nota del territorio."
-            ],
-            "audioFile": null
+            ]
           },
           "default": {
             "screenText": "Dopo aver sconfitto un Bandito, ottieni +$20."
@@ -546,12 +366,8 @@
       },
       {
         "id": "reeves_hunted",
-        "type": "storyTrigger",
-        "trigger": "trig_gain_wp",
         "title": "Marshal sulle Tue Tracce",
         "screenText": "Marshal Reeves sta reprimendo il crescente problema dei fuorilegge. Muovi lo Sheriff fino a 2 spazi verso il giocatore che ha attivato l'evento; se lo Sheriff raggiunge quel giocatore, scarta 1 Carta Poker.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Reeves appunta il tuo nome sotto la lanterna e cavalca nel buio.\"",
         "newspaperText": [
           "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: Reeves appunta il tuo nome sotto la lanterna e cavalca nel buio.",
@@ -559,32 +375,19 @@
           "La pista della storia più ampia portò a un nuovo sviluppo: Reeves appunta il tuo nome sotto la lanterna e cavalca nel buio.",
           "I testimoni collegarono l'ultima svolta della storia a una scena memorabile: Reeves appunta il tuo nome sotto la lanterna e cavalca nel buio."
         ],
-        "audioFile": "audio/arcs/reeves_hunted.mp3",
-        "requiresWorldTags": [
-          "reeves_ignored"
-        ],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "reeves_hunted_player"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Marshal sulle Tue Tracce è stato risolto."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "reeves_lost_trail"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Marshal sulle Tue Tracce è stato ignorato."
           }
         ],
         "playerAwareText": {
-          "compareToNodeId": "reeves_deputy_call",
           "samePlayer": {
             "title": "Reeves Ha il Tuo Nome",
             "screenText": "Marshal Reeves ricorda che hai rifiutato la sua precedente richiesta d'aiuto. Ora la tua reputazione Wanted ha messo il tuo nome in cima alla sua lista. Muovi lo Sheriff fino a 3 spazi direttamente verso di te. Se lo Sheriff raggiunge il tuo spazio, scarta 2 Carte Poker.",
@@ -593,8 +396,7 @@
               "I rapporti su Marshal sulle Tue Tracce giunsero alla Gazette prima che le rotative iniziassero a girare.",
               "I testimoni della frontiera portarono la notizia di Marshal sulle Tue Tracce da un insediamento all'altro.",
               "Alla fine della giornata, Marshal sulle Tue Tracce si era guadagnato un posto tra gli avvenimenti degni di nota del territorio."
-            ],
-            "audioFile": null
+            ]
           },
           "differentPlayer": {
             "title": "Marshal sulle Tue Tracce",
@@ -604,16 +406,14 @@
               "I rapporti su Marshal sulle Tue Tracce giunsero alla Gazette prima che le rotative iniziassero a girare.",
               "I testimoni della frontiera portarono la notizia di Marshal sulle Tue Tracce da un insediamento all'altro.",
               "Alla fine della giornata, Marshal sulle Tue Tracce si era guadagnato un posto tra gli avvenimenti degni di nota del territorio."
-            ],
-            "audioFile": null
+            ]
           },
           "default": {
             "screenText": "Muovi lo Sheriff fino a 2 spazi verso il giocatore che ha attivato l'evento; se lo Sheriff raggiunge quel giocatore, scarta 1 Carta Poker."
           }
         }
       }
-    ],
-    "scope": "shared"
+    ]
   },
   {
     "id": "arc_silas_bell_showman",
@@ -624,23 +424,11 @@
       "Diversi incidenti collegati formarono il racconto de Lo Spettacolo Itinerante di Silas Bell, dando a un cavaliere una storia tutta sua.",
       "Quello che iniziò come un singolo incontro divenne la storia continuativa della frontiera de Lo Spettacolo Itinerante di Silas Bell."
     ],
-    "tags": [
-      "showman",
-      "poker",
-      "cabaret",
-      "saloon"
-    ],
-    "startTrigger": "trig_revel_cabaret",
-    "baseWeight": 7,
     "nodes": [
       {
         "id": "showman_arrives",
-        "type": "storyTrigger",
-        "trigger": "trig_revel_cabaret",
         "title": "Il Carro Dipinto",
         "screenText": "Termina il tuo turno al Cabaret di Red Falls per pescare 2 Carte Poker.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Un carro dipinto entra a Red Falls, promettendo meraviglie, musica e bugie in egual misura.\"",
         "newspaperText": [
           "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: Un carro dipinto entra a Red Falls, promettendo meraviglie, musica e bugie in egual misura.",
@@ -648,37 +436,23 @@
           "La pista della storia più ampia portò a un nuovo sviluppo: Un carro dipinto entra a Red Falls, promettendo meraviglie, musica e bugie in egual misura.",
           "I testimoni collegarono l'ultima svolta della storia a una scena memorabile: Un carro dipinto entra a Red Falls, promettendo meraviglie, musica e bugie in egual misura."
         ],
-        "audioFile": "audio/arcs/showman_arrives.mp3",
-        "requiresWorldTags": [],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "showman_supported"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Il Carro Dipinto è stato risolto."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "showman_ignored"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Il Carro Dipinto è stato ignorato."
           }
         ]
       },
       {
         "id": "showman_grand_show",
-        "type": "storyTrigger",
-        "trigger": "trig_win_poker",
         "title": "Grande Spettacolo della Frontiera",
         "screenText": "Silas trasforma la tua vittoria a Poker nel pezzo forte del suo Grande Spettacolo della Frontiera. Ottieni +1 LP e +$20.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Silas Bell chiama la tua mano un miracolo e vende biglietti prima che le carte si raffreddino.\"",
         "newspaperText": [
           "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: Silas Bell chiama la tua mano un miracolo e vende biglietti prima che le carte si raffreddino.",
@@ -686,32 +460,19 @@
           "La pista della storia più ampia portò a un nuovo sviluppo: Silas Bell chiama la tua mano un miracolo e vende biglietti prima che le carte si raffreddino.",
           "I testimoni collegarono l'ultima svolta della storia a una scena memorabile: Silas Bell chiama la tua mano un miracolo e vende biglietti prima che le carte si raffreddino."
         ],
-        "audioFile": "audio/arcs/showman_grand_show.mp3",
-        "requiresWorldTags": [
-          "showman_supported"
-        ],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "showman_famous"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Grande Spettacolo della Frontiera è stato risolto."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "showman_flops"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Grande Spettacolo della Frontiera è stato ignorato."
           }
         ],
         "playerAwareText": {
-          "compareToNodeId": "showman_arrives",
           "samePlayer": {
             "screenText": "Silas Bell riconosce la persona che lo aiutò a rimettere in piedi il suo spettacolo sul carro dipinto. Trasforma la tua vittoria a Poker nella sua attrazione principale. Ottieni +1 LP e +$30.",
             "newspaperText": [
@@ -719,8 +480,7 @@
               "I rapporti sul Grande Spettacolo della Frontiera giunsero alla Gazette prima che le rotative iniziassero a girare.",
               "I testimoni della frontiera portarono la notizia del Grande Spettacolo della Frontiera da un insediamento all'altro.",
               "Alla fine della giornata, il Grande Spettacolo della Frontiera si era guadagnato un posto tra gli avvenimenti degni di nota del territorio."
-            ],
-            "audioFile": null
+            ]
           },
           "differentPlayer": {
             "screenText": "Silas si vanta che un altro viaggiatore lo aiutò a far partire il suo spettacolo, poi trasforma la tua vittoria a Poker nel numero di punta di stasera. Ottieni +1 LP e +$20.",
@@ -729,8 +489,7 @@
               "I rapporti sul Grande Spettacolo della Frontiera giunsero alla Gazette prima che le rotative iniziassero a girare.",
               "I testimoni della frontiera portarono la notizia del Grande Spettacolo della Frontiera da un insediamento all'altro.",
               "Alla fine della giornata, il Grande Spettacolo della Frontiera si era guadagnato un posto tra gli avvenimenti degni di nota del territorio."
-            ],
-            "audioFile": null
+            ]
           },
           "default": {
             "screenText": "Silas trasforma la tua vittoria a Poker nel pezzo forte del suo Grande Spettacolo della Frontiera. Ottieni +1 LP e +$20."
@@ -739,12 +498,8 @@
       },
       {
         "id": "showman_swindle",
-        "type": "storyTrigger",
-        "trigger": "trig_purchase_item",
         "title": "La Grande Truffa",
         "screenText": "Silas si è dedicato ad affari meno onesti. Dopo un acquisto, scarta $10 oppure 1 Carta Poker.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"L'etichetta dice autentico. Il sorriso dell'imbonitore dice il contrario.\"",
         "newspaperText": [
           "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: L'etichetta dice autentico. Il sorriso dell'imbonitore dice il contrario.",
@@ -752,32 +507,19 @@
           "La pista della storia più ampia portò a un nuovo sviluppo: L'etichetta dice autentico. Il sorriso dell'imbonitore dice il contrario.",
           "I testimoni collegarono l'ultima svolta della storia a una scena memorabile: L'etichetta dice autentico. Il sorriso dell'imbonitore dice il contrario."
         ],
-        "audioFile": "audio/arcs/showman_swindle.mp3",
-        "requiresWorldTags": [
-          "showman_ignored"
-        ],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "showman_swindled"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "La Grande Truffa è stato risolto."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "showman_swindle_failed"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "La Grande Truffa è stato ignorato."
           }
         ],
         "playerAwareText": {
-          "compareToNodeId": "showman_arrives",
           "samePlayer": {
             "title": "Una Truffa con il Tuo Nome",
             "screenText": "Silas Bell ricorda che lo hai ignorato quando il suo spettacolo aveva bisogno d'aiuto, e questo “affare” è stato preparato apposta per te. Dopo un acquisto, paga altri $20 oppure scarta 2 Carte Poker.",
@@ -786,8 +528,7 @@
               "I rapporti su La Grande Truffa giunsero alla Gazette prima che le rotative iniziassero a girare.",
               "I testimoni della frontiera portarono la notizia di La Grande Truffa da un insediamento all'altro.",
               "Alla fine della giornata, La Grande Truffa si era guadagnato un posto tra gli avvenimenti degni di nota del territorio."
-            ],
-            "audioFile": null
+            ]
           },
           "differentPlayer": {
             "title": "La Grande Truffa",
@@ -797,16 +538,14 @@
               "I rapporti su La Grande Truffa giunsero alla Gazette prima che le rotative iniziassero a girare.",
               "I testimoni della frontiera portarono la notizia di La Grande Truffa da un insediamento all'altro.",
               "Alla fine della giornata, La Grande Truffa si era guadagnato un posto tra gli avvenimenti degni di nota del territorio."
-            ],
-            "audioFile": null
+            ]
           },
           "default": {
             "screenText": "Dopo un acquisto, scarta $10 oppure 1 Carta Poker."
           }
         }
       }
-    ],
-    "scope": "shared"
+    ]
   },
   {
     "id": "arc_jeremiah_pike",
@@ -817,25 +556,11 @@
       "Diversi incidenti collegati formarono il racconto di Jeremiah Pike, Trapper Leggendario, dando a un cavaliere una storia tutta sua.",
       "Quello che iniziò come un singolo incontro divenne la storia continuativa della frontiera di Jeremiah Pike, Trapper Leggendario."
     ],
-    "tags": [
-      "trapper",
-      "hunt",
-      "wilderness"
-    ],
-    "requiredModules": [
-      "hunting"
-    ],
-    "startTrigger": "trig_hunt_success",
-    "baseWeight": 8,
     "nodes": [
       {
         "id": "pike_tracks",
-        "type": "storyTrigger",
-        "trigger": "trig_hunt_success",
         "title": "Le Tracce del Vecchio Pike",
         "screenText": "Dopo una Caccia riuscita, ottieni 1 risorsa animale extra se possibile; altrimenti ottieni $10.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Il vecchio Jeremiah Pike studia le tracce e grugnisce come se l'animale gli dovesse dei soldi.\"",
         "newspaperText": [
           "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: Il vecchio Jeremiah Pike studia le tracce e grugnisce come se l'animale gli dovesse dei soldi.",
@@ -843,37 +568,23 @@
           "La pista della storia più ampia portò a un nuovo sviluppo: Il vecchio Jeremiah Pike studia le tracce e grugnisce come se l'animale gli dovesse dei soldi.",
           "I testimoni collegarono l'ultima svolta della storia a una scena memorabile: Il vecchio Jeremiah Pike studia le tracce e grugnisce come se l'animale gli dovesse dei soldi."
         ],
-        "audioFile": "audio/arcs/pike_tracks.mp3",
-        "requiresWorldTags": [],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "pike_helped"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Le Tracce del Vecchio Pike è stato risolto."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "pike_ignored"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Le Tracce del Vecchio Pike è stato ignorato."
           }
         ]
       },
       {
         "id": "pike_white_bear",
-        "type": "storyTrigger",
-        "trigger": "trig_hunt_success",
         "title": "La Pista dell'Orso Bianco",
         "screenText": "Pike ti offre la pista dell'Orso Bianco. Pesca due animali e scegli quale affrontare. Se hai successo, ottieni +1 LP.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Pike indica con un dito tremante. Quella pista appartiene a qualcosa di troppo grande per la paura ordinaria.\"",
         "newspaperText": [
           "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: Pike indica con un dito tremante. Quella pista appartiene a qualcosa di troppo grande per la paura ordinaria.",
@@ -881,32 +592,19 @@
           "La pista della storia più ampia portò a un nuovo sviluppo: Pike indica con un dito tremante. Quella pista appartiene a qualcosa di troppo grande per la paura ordinaria.",
           "I testimoni collegarono l'ultima svolta della storia a una scena memorabile: Pike indica con un dito tremante. Quella pista appartiene a qualcosa di troppo grande per la paura ordinaria."
         ],
-        "audioFile": "audio/arcs/pike_white_bear.mp3",
-        "requiresWorldTags": [
-          "pike_helped"
-        ],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "pike_bear_trail"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "La Pista dell'Orso Bianco è stato risolto."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "pike_bear_lost"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "La Pista dell'Orso Bianco è stato ignorato."
           }
         ],
         "playerAwareText": {
-          "compareToNodeId": "pike_tracks",
           "samePlayer": {
             "screenText": "Il vecchio Pike riconosce il cacciatore che si era già guadagnato la sua fiducia. Ti dà la sua migliore interpretazione della pista dell'Orso Bianco. Pesca due animali e scegli quale affrontare. Se hai successo, ottieni +1 LP e $10.",
             "newspaperText": [
@@ -914,8 +612,7 @@
               "I rapporti su La Pista dell'Orso Bianco giunsero alla Gazette prima che le rotative iniziassero a girare.",
               "I testimoni della frontiera portarono la notizia de La Pista dell'Orso Bianco da un insediamento all'altro.",
               "Alla fine della giornata, La Pista dell'Orso Bianco si era guadagnato un posto tra gli avvenimenti degni di nota del territorio."
-            ],
-            "audioFile": null
+            ]
           },
           "differentPlayer": {
             "screenText": "Il vecchio Pike ti racconta che un altro cacciatore si è guadagnato la sua fiducia e lo ha aiutato a ritrovare la pista dell'Orso Bianco. Ora lascia che tu la segua. Pesca due animali e scegli quale affrontare. Se hai successo, ottieni +1 LP.",
@@ -924,8 +621,7 @@
               "I rapporti su La Pista dell'Orso Bianco giunsero alla Gazette prima che le rotative iniziassero a girare.",
               "I testimoni della frontiera portarono la notizia de La Pista dell'Orso Bianco da un insediamento all'altro.",
               "Alla fine della giornata, La Pista dell'Orso Bianco si era guadagnato un posto tra gli avvenimenti degni di nota del territorio."
-            ],
-            "audioFile": null
+            ]
           },
           "default": {
             "screenText": "Pesca due animali e scegli quale affrontare. Se hai successo, ottieni +1 LP."
@@ -934,12 +630,8 @@
       },
       {
         "id": "pike_trap_line",
-        "type": "storyTrigger",
-        "trigger": "trig_end_outside_town",
         "title": "Trappola Scattata",
         "screenText": "Pike ha iniziato a piazzare trappole per dispetto dopo essere stato ignorato.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Una trappola nascosta scatta. Pike non perdona di essere ignorato.\"",
         "newspaperText": [
           "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: Una trappola nascosta scatta. Pike non perdona di essere ignorato.",
@@ -947,32 +639,19 @@
           "La pista della storia più ampia portò a un nuovo sviluppo: Una trappola nascosta scatta. Pike non perdona di essere ignorato.",
           "I testimoni collegarono l'ultima svolta della storia a una scena memorabile: Una trappola nascosta scatta. Pike non perdona di essere ignorato."
         ],
-        "audioFile": "audio/arcs/pike_trap_line.mp3",
-        "requiresWorldTags": [
-          "pike_ignored"
-        ],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "pike_revenge"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Trappola Scattata è stato risolto."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "pike_revenge_missed"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Trappola Scattata è stato ignorato."
           }
         ],
         "playerAwareText": {
-          "compareToNodeId": "pike_tracks",
           "samePlayer": {
             "title": "Una Trappola Pensata per Te",
             "screenText": "Riconosci il marchio di Pike accanto alla trappola, e questa era stata piazzata per il viaggiatore che lo ignorò. Subisci 1 ferita a meno che tu non scarti 1 Carta Poker.",
@@ -981,8 +660,7 @@
               "I rapporti su Trappola Scattata giunsero alla Gazette prima che le rotative iniziassero a girare.",
               "I testimoni della frontiera portarono la notizia di Trappola Scattata da un insediamento all'altro.",
               "Alla fine della giornata, Trappola Scattata si era guadagnato un posto tra gli avvenimenti degni di nota del territorio."
-            ],
-            "audioFile": null
+            ]
           },
           "differentPlayer": {
             "title": "La Trappola di Qualcun Altro",
@@ -992,16 +670,14 @@
               "I rapporti su Trappola Scattata giunsero alla Gazette prima che le rotative iniziassero a girare.",
               "I testimoni della frontiera portarono la notizia di Trappola Scattata da un insediamento all'altro.",
               "Alla fine della giornata, Trappola Scattata si era guadagnato un posto tra gli avvenimenti degni di nota del territorio."
-            ],
-            "audioFile": null
+            ]
           },
           "default": {
             "screenText": "Subisci 1 ferita a meno che tu non scarti 1 Carta Poker."
           }
         }
       }
-    ],
-    "scope": "shared"
+    ]
   },
   {
     "id": "arc_card_shark",
@@ -1012,22 +688,11 @@
       "Diversi incidenti collegati formarono il racconto de Il Baro di Red Falls, dando a un cavaliere una storia tutta sua.",
       "Quello che iniziò come un singolo incontro divenne la storia continuativa della frontiera de Il Baro di Red Falls."
     ],
-    "tags": [
-      "poker",
-      "saloon",
-      "rival"
-    ],
-    "startTrigger": "trig_begin_poker",
-    "baseWeight": 8,
     "nodes": [
       {
         "id": "cardshark_first_hand",
-        "type": "storyTrigger",
-        "trigger": "trig_begin_poker",
         "title": "Uno Sconosciuto al Tavolo",
         "screenText": "Durante questa partita di Poker, il giocatore attivo pesca 1 Carta Poker extra, poi ne scarta 1.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Uno sconosciuto dai guanti chiari si siede senza chiedere e sorride senza calore.\"",
         "newspaperText": [
           "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: Uno sconosciuto dai guanti chiari si siede senza chiedere e sorride senza calore.",
@@ -1035,37 +700,23 @@
           "La pista della storia più ampia portò a un nuovo sviluppo: Uno sconosciuto dai guanti chiari si siede senza chiedere e sorride senza calore.",
           "I testimoni collegarono l'ultima svolta della storia a una scena memorabile: Uno sconosciuto dai guanti chiari si siede senza chiedere e sorride senza calore."
         ],
-        "audioFile": "audio/arcs/cardshark_first_hand.mp3",
-        "requiresWorldTags": [],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "cardshark_met"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Uno Sconosciuto al Tavolo è stato risolto."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "cardshark_ignored"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Uno Sconosciuto al Tavolo è stato ignorato."
           }
         ]
       },
       {
         "id": "cardshark_beaten",
-        "type": "storyTrigger",
-        "trigger": "trig_win_poker",
         "title": "Battere il Baro",
         "screenText": "Dopo aver vinto a Poker contro il baro di Red Falls, ottieni +$30 e 1 GP.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Per la prima volta in tutta la notte, il sorriso dello sconosciuto si spezza.\"",
         "newspaperText": [
           "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: Per la prima volta in tutta la notte, il sorriso dello sconosciuto si spezza.",
@@ -1073,32 +724,19 @@
           "La pista della storia più ampia portò a un nuovo sviluppo: Per la prima volta in tutta la notte, il sorriso dello sconosciuto si spezza.",
           "I testimoni collegarono l'ultima svolta della storia a una scena memorabile: Per la prima volta in tutta la notte, il sorriso dello sconosciuto si spezza."
         ],
-        "audioFile": "audio/arcs/cardshark_beaten.mp3",
-        "requiresWorldTags": [
-          "cardshark_met"
-        ],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "cardshark_beaten"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Battere il Baro è stato risolto."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "cardshark_unbeaten"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Battere il Baro è stato ignorato."
           }
         ],
         "playerAwareText": {
-          "compareToNodeId": "cardshark_first_hand",
           "samePlayer": {
             "screenText": "Il baro ti riconosce dal tavolo precedente e alza la posta per la rivincita. La tua vittoria finalmente spezza il suo sorriso. Ottieni +$40 e 1 GP.",
             "newspaperText": [
@@ -1106,8 +744,7 @@
               "I rapporti su Battere il Baro giunsero alla Gazette prima che le rotative iniziassero a girare.",
               "I testimoni della frontiera portarono la notizia di Battere il Baro da un insediamento all'altro.",
               "Alla fine della giornata, Battere il Baro si era guadagnato un posto tra gli avvenimenti degni di nota del territorio."
-            ],
-            "audioFile": null
+            ]
           },
           "differentPlayer": {
             "screenText": "Il baro ti racconta che un altro giocatore d'azzardo incrociò le carte con lui in precedenza. Tu sei il nuovo sfidante che finalmente lo batte. Ottieni +$30 e 1 GP.",
@@ -1116,8 +753,7 @@
               "I rapporti su Battere il Baro giunsero alla Gazette prima che le rotative iniziassero a girare.",
               "I testimoni della frontiera portarono la notizia di Battere il Baro da un insediamento all'altro.",
               "Alla fine della giornata, Battere il Baro si era guadagnato un posto tra gli avvenimenti degni di nota del territorio."
-            ],
-            "audioFile": null
+            ]
           },
           "default": {
             "screenText": "Dopo aver vinto a Poker, ottieni +$30 e 1 GP."
@@ -1126,12 +762,8 @@
       },
       {
         "id": "cardshark_debt",
-        "type": "storyTrigger",
-        "trigger": "trig_start_player_fight",
         "title": "Esattore",
         "screenText": "Gli affari in sospeso del baro si riversano nel tuo scontro.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Un esattore esce dal vicolo, snocciolando cifre che nessun uomo onesto ricorderebbe.\"",
         "newspaperText": [
           "La storia continuativa prese un'altra svolta, e i rapporti descrissero la scena così: Un esattore esce dal vicolo, snocciolando cifre che nessun uomo onesto ricorderebbe.",
@@ -1139,32 +771,19 @@
           "La pista della storia più ampia portò a un nuovo sviluppo: Un esattore esce dal vicolo, snocciolando cifre che nessun uomo onesto ricorderebbe.",
           "I testimoni collegarono l'ultima svolta della storia a una scena memorabile: Un esattore esce dal vicolo, snocciolando cifre che nessun uomo onesto ricorderebbe."
         ],
-        "audioFile": "audio/arcs/cardshark_debt.mp3",
-        "requiresWorldTags": [
-          "cardshark_unbeaten"
-        ],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "cardshark_debt_paid"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Esattore è stato risolto."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "cardshark_debt_grows"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "Esattore è stato ignorato."
           }
         ],
         "playerAwareText": {
-          "compareToNodeId": "cardshark_beaten",
           "samePlayer": {
             "title": "Il Tuo Debito È Scaduto",
             "screenText": "Il baro ricorda che hai lasciato incompiuta la sua sfida, e il suo esattore ti sbarra la strada prima dello scontro. Paga $20 per saldare il debito e combatti normalmente, oppure rifiuta: se perdi questo scontro, subisci 1 ferita e scarta 1 Carta Poker.",
@@ -1173,8 +792,7 @@
               "I rapporti sull'Esattore giunsero alla Gazette prima che le rotative iniziassero a girare.",
               "I testimoni della frontiera portarono la notizia dell'Esattore da un insediamento all'altro.",
               "Alla fine della giornata, l'Esattore si era guadagnato un posto tra gli avvenimenti degni di nota del territorio."
-            ],
-            "audioFile": null
+            ]
           },
           "differentPlayer": {
             "title": "Picchiatore a Pagamento",
@@ -1184,15 +802,13 @@
               "I rapporti sull'Esattore giunsero alla Gazette prima che le rotative iniziassero a girare.",
               "I testimoni della frontiera portarono la notizia dell'Esattore da un insediamento all'altro.",
               "Alla fine della giornata, l'Esattore si era guadagnato un posto tra gli avvenimenti degni di nota del territorio."
-            ],
-            "audioFile": null
+            ]
           },
           "default": {
             "screenText": "Se vinci questo scontro tra giocatori, ottieni +$20."
           }
         }
       }
-    ],
-    "scope": "shared"
+    ]
   }
 ]

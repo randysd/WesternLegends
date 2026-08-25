@@ -2,75 +2,51 @@
   "scoringSteps": [
     {
       "id": "mounts_weapons",
-      "text": "Gagnez des LP pour chaque monture améliorée et chaque arme améliorée possédée (la valeur figure dans le coin supérieur gauche de la carte).",
-      "requiredModules": []
+      "text": "Gagnez des LP pour chaque monture améliorée et chaque arme améliorée possédée (la valeur figure dans le coin supérieur gauche de la carte)."
     },
     {
       "id": "legendary_items",
-      "text": "Gagnez les LP indiqués par les Objets Légendaires possédés qui en rapportent (la valeur figure dans le coin supérieur gauche de la carte).",
-      "requiredModules": []
+      "text": "Gagnez les LP indiqués par les Objets Légendaires possédés qui en rapportent (la valeur figure dans le coin supérieur gauche de la carte)."
     },
     {
       "id": "money",
-      "text": "Gagnez 1 LP pour chaque tranche de 60 $ possédée (arrondissez à l’inférieur).",
-      "requiredModules": []
+      "text": "Gagnez 1 LP pour chaque tranche de 60 $ possédée (arrondissez à l’inférieur)."
     },
     {
       "id": "wounds",
-      "text": "Perdez 1 LP pour chaque blessure.",
-      "requiredModules": []
+      "text": "Perdez 1 LP pour chaque blessure."
     },
     {
       "id": "injuries",
-      "text": "Perdez les LP indiqués par les cartes Blessure qui infligent une perte en fin de partie (la valeur figure en bas de la carte).",
-      "requiredModules": [
-        "blood_money_injuries"
-      ]
+      "text": "Perdez les LP indiqués par les cartes Blessure qui infligent une perte en fin de partie (la valeur figure en bas de la carte)."
     },
     {
       "id": "wanted",
-      "text": "Le joueur le plus Wanted gagne 3 LP, et chaque autre joueur Wanted gagne 1 LP. En cas d’égalité pour le plus Wanted, tous les joueurs Wanted gagnent 1 LP à la place.",
-      "requiredModules": []
+      "text": "Le joueur le plus Wanted gagne 3 LP, et chaque autre joueur Wanted gagne 1 LP. En cas d’égalité pour le plus Wanted, tous les joueurs Wanted gagnent 1 LP à la place."
     },
     {
       "id": "marshal",
-      "text": "Les joueurs Marshal gagnent des LP selon la ligne occupée par leur cube de score sur la piste Marshal.",
-      "requiredModules": []
+      "text": "Les joueurs Marshal gagnent des LP selon la ligne occupée par leur cube de score sur la piste Marshal."
     },
     {
       "id": "gambler",
-      "text": "Le joueur le plus avancé sur la piste Joueur gagne 1 LP. En cas d’égalité, tous les joueurs à égalité gagnent 1 LP.",
-      "requiredModules": [
-        "ante_up_gambler"
-      ]
+      "text": "Le joueur le plus avancé sur la piste Joueur gagne 1 LP. En cas d’égalité, tous les joueurs à égalité gagnent 1 LP."
     },
     {
       "id": "legendary_tokens",
-      "text": "Gagnez des LP égaux à la valeur totale de tous les Jetons Légendaires obtenus.",
-      "requiredModules": [
-        "base_legendary_tokens"
-      ]
+      "text": "Gagnez des LP égaux à la valeur totale de tous les Jetons Légendaires obtenus."
     },
     {
       "id": "deeds",
-      "text": "Gagnez des LP grâce aux Actes selon les instructions du côté score de chaque Acte possédé. Les lieux détruits (avec un jeton Ruine) ne comptent jamais pour le score.",
-      "requiredModules": [
-        "blood_money_deeds"
-      ]
+      "text": "Gagnez des LP grâce aux Actes selon les instructions du côté score de chaque Acte possédé. Les lieux détruits (avec un jeton Ruine) ne comptent jamais pour le score."
     },
     {
       "id": "titles",
-      "text": "Appliquez tout score ou effet de fin de partie de la carte Titre révélée.",
-      "requiredModules": [
-        "wild_bunch_titles"
-      ]
+      "text": "Appliquez tout score ou effet de fin de partie de la carte Titre révélée."
     },
     {
       "id": "man_in_black",
-      "text": "Incluez l’Homme en Noir dans le Décompte Final. S’il est à égalité pour le plus grand nombre de LP, l’Homme en Noir remporte l’égalité.",
-      "requiredModules": [
-        "wild_bunch_man_in_black"
-      ]
+      "text": "Incluez l’Homme en Noir dans le Décompte Final. S’il est à égalité pour le plus grand nombre de LP, l’Homme en Noir remporte l’égalité."
     }
   ],
   "tiebreakers": [

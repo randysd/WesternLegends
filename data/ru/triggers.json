@@ -8,24 +8,12 @@
       "Среди примечательных событий дня отмечалось, что всадник преодолел четыре или больше клеток за одно действие «Движение».",
       "Свидетели по всей территории сообщали, что всадник преодолел четыре или больше клеток за одно действие «Движение»."
     ],
-    "category": "movement",
-    "baseWeight": 12,
-    "requiredModules": [],
-    "tags": [
-      "move",
-      "travel"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/ride.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Переместитесь на 4+ клетки за действие «ДВИЖЕНИЕ»",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-gallop.mp3"
+    ]
   },
   {
     "id": "trig_end_outside_town",
@@ -36,24 +24,12 @@
       "Среди примечательных событий дня отмечалось, что всадник завершил путь в открытой прерии, а не в безопасности города.",
       "Свидетели по всей территории сообщали, что всадник завершил путь в открытой прерии, а не в безопасности города."
     ],
-    "category": "movement",
-    "baseWeight": 8,
-    "requiredModules": [],
-    "tags": [
-      "move",
-      "frontier"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/night.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Завершите ДВИЖЕНИЕ вне города",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-wolf.mp3"
+    ]
   },
   {
     "id": "trig_enter_dixon_creek",
@@ -64,24 +40,12 @@
       "Среди примечательных событий дня отмечалось, что всадник въехал в суровые земли вокруг Диксон-Крик.",
       "Свидетели по всей территории сообщали, что всадник въехал в суровые земли вокруг Диксон-Крик."
     ],
-    "category": "movement",
-    "baseWeight": 6,
-    "requiredModules": [],
-    "tags": [
-      "dixon_creek",
-      "ambush"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/canyon.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Войдите в Диксон-Крик",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-water.mp3"
+    ]
   },
   {
     "id": "trig_enter_mesitos_point",
@@ -92,25 +56,12 @@
       "Среди примечательных событий дня отмечалось, что всадник проехал через Месито-Пойнт.",
       "Свидетели по всей территории сообщали, что всадник проехал через Месито-Пойнт."
     ],
-    "category": "movement",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "mesitos_point",
-      "green_ranch",
-      "bandit_a"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/overlook.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Войдите в Месито-Пойнт",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-water.mp3"
+    ]
   },
   {
     "id": "trig_enter_sunny_hills",
@@ -121,25 +72,12 @@
       "Среди примечательных событий дня отмечалось, что всадник въехал в земли Санни-Хиллз.",
       "Свидетели по всей территории сообщали, что всадник въехал в земли Санни-Хиллз."
     ],
-    "category": "movement",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "sunny_hills",
-      "mine",
-      "blue_ranch"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/sunny.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Войдите в Санни-Хиллз",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-walk.mp3"
+    ]
   },
   {
     "id": "trig_enter_spikes_view",
@@ -150,25 +88,12 @@
       "Среди примечательных событий дня отмечалось, что всадник добрался до Спайкс-Вью.",
       "Свидетели по всей территории сообщали, что всадник добрался до Спайкс-Вью."
     ],
-    "category": "movement",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "spikes_view",
-      "mine",
-      "rail_station"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/cliff.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Войдите в Спайкс-Вью",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-walk.mp3"
+    ]
   },
   {
     "id": "trig_enter_cliff_junction",
@@ -179,25 +104,12 @@
       "Среди примечательных событий дня отмечалось, что всадник въехал в Клифф-Джанкшен.",
       "Свидетели по всей территории сообщали, что всадник въехал в Клифф-Джанкшен."
     ],
-    "category": "movement",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "cliff_junction",
-      "mine",
-      "bandit_c"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/barren.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Войдите в Клифф-Джанкшен",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-walk.mp3"
+    ]
   },
   {
     "id": "trig_bank_heist",
@@ -208,25 +120,12 @@
       "Среди примечательных событий дня отмечалось, что преступник затеял ограбление банка.",
       "Свидетели по всей территории сообщали, что преступник затеял ограбление банка."
     ],
-    "category": "outlaw",
-    "baseWeight": 11,
-    "requiredModules": [],
-    "tags": [
-      "bank",
-      "heist",
-      "wanted"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/bankheist.png",
-    "themeColor": "black",
     "titleParts": [
       {
         "text": "Начните ограбление банка",
         "style": "red"
       }
-    ],
-    "soundFile": "audio/sfx/short-guncock.mp3"
+    ]
   },
   {
     "id": "trig_gain_wp",
@@ -237,24 +136,12 @@
       "Среди примечательных событий дня отмечалось, что всадник добавил ещё одно очко Розыска к своей растущей дурной славе.",
       "Свидетели по всей территории сообщали, что всадник добавил ещё одно очко Розыска к своей растущей дурной славе."
     ],
-    "category": "outlaw",
-    "baseWeight": 11,
-    "requiredModules": [],
-    "tags": [
-      "wanted",
-      "lawless"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/wanted.png",
-    "themeColor": "red",
     "titleParts": [
       {
         "text": "Получите очко Розыска",
         "style": "red"
       }
-    ],
-    "soundFile": "audio/sfx/short-note.mp3"
+    ]
   },
   {
     "id": "trig_rustle_cattle",
@@ -265,25 +152,12 @@
       "Среди примечательных событий дня отмечалось, что с приграничного ранчо угнали скот.",
       "Свидетели по всей территории сообщали, что с приграничного ранчо угнали скот."
     ],
-    "category": "outlaw",
-    "baseWeight": 9,
-    "requiredModules": [],
-    "tags": [
-      "ranch",
-      "cattle",
-      "wanted"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/rustle.png",
-    "themeColor": "red",
     "titleParts": [
       {
         "text": "Угоните скот",
         "style": "red"
       }
-    ],
-    "soundFile": "audio/sfx/short-moo.mp3"
+    ]
   },
   {
     "id": "trig_rob_player",
@@ -294,25 +168,12 @@
       "Среди примечательных событий дня отмечалось, что один всадник ограбил другого на фронтире.",
       "Свидетели по всей территории сообщали, что один всадник ограбил другого на фронтире."
     ],
-    "category": "outlaw",
-    "baseWeight": 8,
-    "requiredModules": [],
-    "tags": [
-      "rob",
-      "player_fight",
-      "wanted"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/rob.png",
-    "themeColor": "red",
     "titleParts": [
       {
         "text": "Ограбьте игрока",
         "style": "red"
       }
-    ],
-    "soundFile": "audio/sfx/short-pistol.mp3"
+    ]
   },
   {
     "id": "trig_defeat_bandit",
@@ -323,25 +184,12 @@
       "Среди примечательных событий дня отмечалось, что бандит был побеждён в драке.",
       "Свидетели по всей территории сообщали, что бандит был побеждён в драке."
     ],
-    "category": "fight",
-    "baseWeight": 13,
-    "requiredModules": [],
-    "tags": [
-      "bandit",
-      "fight",
-      "marshal"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/defeat.png",
-    "themeColor": "blue",
     "titleParts": [
       {
         "text": "Победите бандита",
         "style": "blue"
       }
-    ],
-    "soundFile": "audio/sfx/short-pistol.mp3"
+    ]
   },
   {
     "id": "trig_start_bandit_fight",
@@ -352,25 +200,12 @@
       "Среди примечательных событий дня отмечалось, что всадник вступил в бой с бандитом.",
       "Свидетели по всей территории сообщали, что всадник вступил в бой с бандитом."
     ],
-    "category": "fight",
-    "baseWeight": 12,
-    "requiredModules": [],
-    "tags": [
-      "bandit",
-      "fight",
-      "npc"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/bandit.png",
-    "themeColor": "blue",
     "titleParts": [
       {
         "text": "Начните бой с бандитом",
         "style": "blue"
       }
-    ],
-    "soundFile": "audio/sfx/short-holster.mp3"
+    ]
   },
   {
     "id": "trig_start_player_fight",
@@ -381,25 +216,12 @@
       "Среди примечательных событий дня отмечалось, что два всадника фронтира сцепились в драке.",
       "Свидетели по всей территории сообщали, что два всадника фронтира сцепились в драке."
     ],
-    "category": "fight",
-    "baseWeight": 9,
-    "requiredModules": [],
-    "tags": [
-      "duel",
-      "rob",
-      "arrest"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/duel.png",
-    "themeColor": "black",
     "titleParts": [
       {
         "text": "Начните бой с игроком",
         "style": "black"
       }
-    ],
-    "soundFile": "audio/sfx/short-holster.mp3"
+    ]
   },
   {
     "id": "trig_arrest_player",
@@ -410,25 +232,12 @@
       "Среди примечательных событий дня отмечалось, что разыскиваемого всадника попытались арестовать.",
       "Свидетели по всей территории сообщали, что разыскиваемого всадника попытались арестовать."
     ],
-    "category": "law",
-    "baseWeight": 8,
-    "requiredModules": [],
-    "tags": [
-      "arrest",
-      "marshal",
-      "wanted"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/arrest.png",
-    "themeColor": "blue",
     "titleParts": [
       {
         "text": "Арестуйте разыскиваемого игрока",
         "style": "blue"
       }
-    ],
-    "soundFile": "audio/sfx/short-pistol.mp3"
+    ]
   },
   {
     "id": "trig_sheriff_arrests",
@@ -439,25 +248,12 @@
       "Среди примечательных событий дня отмечалось, что шериф арестовал разыскиваемого всадника.",
       "Свидетели по всей территории сообщали, что шериф арестовал разыскиваемого всадника."
     ],
-    "category": "law",
-    "baseWeight": 6,
-    "requiredModules": [],
-    "tags": [
-      "sheriff",
-      "arrest",
-      "wanted"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/arrest.png",
-    "themeColor": "blue",
     "titleParts": [
       {
         "text": "Шериф арестовывает игрока",
         "style": "blue"
       }
-    ],
-    "soundFile": "audio/sfx/short-pistol.mp3"
+    ]
   },
   {
     "id": "trig_gain_mp",
@@ -468,24 +264,12 @@
       "Среди примечательных событий дня отмечалось, что всадник заслужил ещё одно очко Маршала законными делами.",
       "Свидетели по всей территории сообщали, что всадник заслужил ещё одно очко Маршала законными делами."
     ],
-    "category": "law",
-    "baseWeight": 9,
-    "requiredModules": [],
-    "tags": [
-      "marshal",
-      "law"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/marshal.png",
-    "themeColor": "blue",
     "titleParts": [
       {
         "text": "Получите очко Маршала",
         "style": "blue"
       }
-    ],
-    "soundFile": "audio/sfx/short-good.mp3"
+    ]
   },
   {
     "id": "trig_begin_prospect",
@@ -496,25 +280,12 @@
       "Среди примечательных событий дня отмечалось, что старатель принялся искать золото.",
       "Свидетели по всей территории сообщали, что старатель принялся искать золото."
     ],
-    "category": "frontier",
-    "baseWeight": 13,
-    "requiredModules": [],
-    "tags": [
-      "mine",
-      "prospect",
-      "gold"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/prospect.png",
-    "themeColor": "gold",
     "titleParts": [
       {
         "text": "Начните действие «Старательство»",
         "style": "gold"
       }
-    ],
-    "soundFile": "audio/sfx/short-pickaxe.mp3"
+    ]
   },
   {
     "id": "trig_gain_gold_prospect",
@@ -525,25 +296,12 @@
       "Среди примечательных событий дня отмечалось, что старатель извлёк золото из земли.",
       "Свидетели по всей территории сообщали, что старатель извлёк золото из земли."
     ],
-    "category": "frontier",
-    "baseWeight": 12,
-    "requiredModules": [],
-    "tags": [
-      "mine",
-      "gold",
-      "prospect"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/prospect.png",
-    "themeColor": "gold",
     "titleParts": [
       {
         "text": "Получите золото при старательстве",
         "style": "gold"
       }
-    ],
-    "soundFile": "audio/sfx/short-pickaxe.mp3"
+    ]
   },
   {
     "id": "trig_deposit_gold",
@@ -554,25 +312,12 @@
       "Среди примечательных событий дня отмечалось, что только что добытое золото было сдано в банк.",
       "Свидетели по всей территории сообщали, что только что добытое золото было сдано в банк."
     ],
-    "category": "town",
-    "baseWeight": 9,
-    "requiredModules": [],
-    "tags": [
-      "bank",
-      "gold",
-      "lp"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/sellgold.png",
-    "themeColor": "gold",
     "titleParts": [
       {
         "text": "Сдайте золото в банк",
         "style": "gold"
       }
-    ],
-    "soundFile": "audio/sfx/short-money.mp3"
+    ]
   },
   {
     "id": "trig_acquire_cattle",
@@ -583,24 +328,12 @@
       "Среди примечательных событий дня отмечалось, что всадник получил скот на ранчо.",
       "Свидетели по всей территории сообщали, что всадник получил скот на ранчо."
     ],
-    "category": "ranch",
-    "baseWeight": 9,
-    "requiredModules": [],
-    "tags": [
-      "ranch",
-      "cattle"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/ranch.png",
-    "themeColor": "orange",
     "titleParts": [
       {
         "text": "Получите скот на ранчо",
         "style": "orange"
       }
-    ],
-    "soundFile": "audio/sfx/short-moo.mp3"
+    ]
   },
   {
     "id": "trig_wrangle_cattle",
@@ -611,25 +344,12 @@
       "Среди примечательных событий дня отмечалось, что всадник успешно завершил перегон скота.",
       "Свидетели по всей территории сообщали, что всадник успешно завершил перегон скота."
     ],
-    "category": "ranch",
-    "baseWeight": 8,
-    "requiredModules": [],
-    "tags": [
-      "rail",
-      "cattle",
-      "marshal"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/wrangle.png",
-    "themeColor": "orange",
     "titleParts": [
       {
         "text": "Перегоните скот",
         "style": "orange"
       }
-    ],
-    "soundFile": "audio/sfx/short-moo.mp3"
+    ]
   },
   {
     "id": "trig_purchase_item",
@@ -640,25 +360,12 @@
       "Среди примечательных событий дня отмечалось, что всадник сделал новую покупку в городе.",
       "Свидетели по всей территории сообщали, что всадник сделал новую покупку в городе."
     ],
-    "category": "town",
-    "baseWeight": 12,
-    "requiredModules": [],
-    "tags": [
-      "store",
-      "item",
-      "money"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/store.png",
-    "themeColor": "green",
     "titleParts": [
       {
         "text": "Купите предмет",
         "style": "green"
       }
-    ],
-    "soundFile": "audio/sfx/short-money.mp3"
+    ]
   },
   {
     "id": "trig_heal_doctor",
@@ -669,25 +376,12 @@
       "Среди примечательных событий дня отмечалось, что раненый всадник обратился за лечением к доктору.",
       "Свидетели по всей территории сообщали, что раненый всадник обратился за лечением к доктору."
     ],
-    "category": "town",
-    "baseWeight": 8,
-    "requiredModules": [],
-    "tags": [
-      "doctor",
-      "heal",
-      "wound"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/heal.png",
-    "themeColor": "green",
     "titleParts": [
       {
         "text": "Лечитесь в кабинете доктора",
         "style": "green"
       }
-    ],
-    "soundFile": "audio/sfx/short-good.mp3"
+    ]
   },
   {
     "id": "trig_revel_cabaret",
@@ -698,25 +392,12 @@
       "Среди примечательных событий дня отмечалось, что всадник предавался веселью в кабаре.",
       "Свидетели по всей территории сообщали, что всадник предавался веселью в кабаре."
     ],
-    "category": "town",
-    "baseWeight": 7,
-    "requiredModules": [],
-    "tags": [
-      "cabaret",
-      "lp",
-      "red_falls"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/revel.png",
-    "themeColor": "purple",
     "titleParts": [
       {
         "text": "КУТИТЕ в кабаре",
         "style": "purple"
       }
-    ],
-    "soundFile": "audio/sfx/short-piano.mp3"
+    ]
   },
   {
     "id": "trig_begin_poker",
@@ -727,25 +408,12 @@
       "Среди примечательных событий дня отмечалось, что в салуне началась новая партия в покер.",
       "Свидетели по всей территории сообщали, что в салуне началась новая партия в покер."
     ],
-    "category": "gamble",
-    "baseWeight": 12,
-    "requiredModules": [],
-    "tags": [
-      "saloon",
-      "poker",
-      "gambler"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/gamble.png",
-    "themeColor": "purple",
     "titleParts": [
       {
         "text": "Начните партию в ПОКЕР",
         "style": "purple"
       }
-    ],
-    "soundFile": "audio/sfx/short-cards.mp3"
+    ]
   },
   {
     "id": "trig_win_poker",
@@ -756,25 +424,12 @@
       "Среди примечательных событий дня отмечалось, что всадник вышел победителем из партии в покер.",
       "Свидетели по всей территории сообщали, что всадник вышел победителем из партии в покер."
     ],
-    "category": "gamble",
-    "baseWeight": 10,
-    "requiredModules": [],
-    "tags": [
-      "saloon",
-      "poker",
-      "gambler"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/gamble.png",
-    "themeColor": "purple",
     "titleParts": [
       {
         "text": "Выиграйте партию в ПОКЕР",
         "style": "purple"
       }
-    ],
-    "soundFile": "audio/sfx/short-money.mp3"
+    ]
   },
   {
     "id": "trig_work_action",
@@ -785,24 +440,12 @@
       "Среди примечательных событий дня отмечалось, что всадник честно потрудился на фронтире.",
       "Свидетели по всей территории сообщали, что всадник честно потрудился на фронтире."
     ],
-    "category": "town",
-    "baseWeight": 7,
-    "requiredModules": [],
-    "tags": [
-      "work",
-      "money"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/work.png",
-    "themeColor": "black",
     "titleParts": [
       {
         "text": "Выполните ДЕЙСТВИЕ «РАБОТА»",
         "style": "black"
       }
-    ],
-    "soundFile": "audio/sfx/short-hammer.mp3"
+    ]
   },
   {
     "id": "trig_gain_legendary_item",
@@ -813,24 +456,12 @@
       "Среди примечательных событий дня отмечалось, что всадник стал обладателем легендарного предмета.",
       "Свидетели по всей территории сообщали, что всадник стал обладателем легендарного предмета."
     ],
-    "category": "legendary",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "legendary_item",
-      "trader"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/legend.png",
-    "themeColor": "green",
     "titleParts": [
       {
         "text": "Получите легендарный ПРЕДМЕТ",
         "style": "green"
       }
-    ],
-    "soundFile": "audio/sfx/short-good.mp3"
+    ]
   },
   {
     "id": "trig_buy_traveling_trader",
@@ -841,28 +472,12 @@
       "Среди примечательных событий дня отмечалось, что всадник заключил сделку со странствующим торговцем.",
       "Свидетели по всей территории сообщали, что всадник заключил сделку со странствующим торговцем."
     ],
-    "category": "legendary",
-    "baseWeight": 6,
-    "requiredModules": [
-      "blood_money_traveling_trader"
-    ],
-    "tags": [
-      "trader",
-      "legendary_item",
-      "purchase",
-      "blood_money"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/trader.png",
-    "themeColor": "green",
     "titleParts": [
       {
         "text": "Покупка у странствующего торговца",
         "style": "green"
       }
-    ],
-    "soundFile": "audio/sfx/short-money.mp3"
+    ]
   },
   {
     "id": "trig_gain_lp_2_plus",
@@ -873,24 +488,12 @@
       "Среди примечательных событий дня отмечалось, что один поступок принёс два или больше очков Легенды.",
       "Свидетели по всей территории сообщали, что один поступок принёс два или больше очков Легенды."
     ],
-    "category": "legendary",
-    "baseWeight": 7,
-    "requiredModules": [],
-    "tags": [
-      "lp",
-      "legendary"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/lp.png",
-    "themeColor": "gold",
     "titleParts": [
       {
         "text": "ПОЛУЧИТЕ 2+ LP ОДНИМ ДЕЙСТВИЕМ",
         "style": "normal"
       }
-    ],
-    "soundFile": "audio/sfx/short-good.mp3"
+    ]
   },
   {
     "id": "trig_travel_rail",
@@ -901,27 +504,12 @@
       "Среди примечательных событий дня отмечалось, что всадник пересёк часть территории по железной дороге.",
       "Свидетели по всей территории сообщали, что всадник пересёк часть территории по железной дороге."
     ],
-    "category": "ante_up",
-    "baseWeight": 7,
-    "requiredModules": [
-      "ante_up"
-    ],
-    "tags": [
-      "railroad",
-      "train",
-      "ante_up"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/train.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Путешествуйте по ЖЕЛЕЗНОЙ ДОРОГЕ",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-train.mp3"
+    ]
   },
   {
     "id": "trig_use_mountain_pass",
@@ -932,26 +520,12 @@
       "Среди примечательных событий дня отмечалось, что всадник выбрал опасный горный перевал.",
       "Свидетели по всей территории сообщали, что всадник выбрал опасный горный перевал."
     ],
-    "category": "ante_up",
-    "baseWeight": 5,
-    "requiredModules": [
-      "ante_up"
-    ],
-    "tags": [
-      "mountain_pass",
-      "ante_up"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/fork.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Используйте ГОРНЫЙ ПЕРЕВАЛ",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-gallop.mp3"
+    ]
   },
   {
     "id": "trig_train_heist",
@@ -962,28 +536,12 @@
       "Среди примечательных событий дня отмечалось, что преступники начали ограбление поезда.",
       "Свидетели по всей территории сообщали, что преступники начали ограбление поезда."
     ],
-    "category": "ante_up",
-    "baseWeight": 8,
-    "requiredModules": [
-      "ante_up"
-    ],
-    "tags": [
-      "train",
-      "heist",
-      "wanted",
-      "ante_up"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/trainheist.png",
-    "themeColor": "red",
     "titleParts": [
       {
         "text": "Начните ОГРАБЛЕНИЕ ПОЕЗДА",
         "style": "red"
       }
-    ],
-    "soundFile": "audio/sfx/short-train.mp3"
+    ]
   },
   {
     "id": "trig_frontier_action",
@@ -994,27 +552,12 @@
       "Среди примечательных событий дня отмечалось, что жетон фронтира принёс новое событие в Баззард-Галч.",
       "Свидетели по всей территории сообщали, что жетон фронтира принёс новое событие в Баззард-Галч."
     ],
-    "category": "ante_up",
-    "baseWeight": 8,
-    "requiredModules": [
-      "ante_up"
-    ],
-    "tags": [
-      "frontier",
-      "buzzard_gulch",
-      "ante_up"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/work.png",
-    "themeColor": "black",
     "titleParts": [
       {
         "text": "РАЗЫГРАЙТЕ ЖЕТОН ФРОНТИРА",
         "style": "normal"
       }
-    ],
-    "soundFile": "audio/sfx/short-hammer.mp3"
+    ]
   },
   {
     "id": "trig_roll_risk_die",
@@ -1025,27 +568,12 @@
       "Среди примечательных событий дня отмечалось, что всадник доверил судьбу броску кубика Риска.",
       "Свидетели по всей территории сообщали, что всадник доверил судьбу броску кубика Риска."
     ],
-    "category": "blood_money",
-    "baseWeight": 8,
-    "requiredModules": [
-      "blood_money"
-    ],
-    "tags": [
-      "risk",
-      "story",
-      "blood_money"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/injury.png",
-    "themeColor": "red",
     "titleParts": [
       {
         "text": "БРОСЬТЕ КУБИК РИСКА",
         "style": "red"
       }
-    ],
-    "soundFile": "audio/sfx/sfx_dice.mp3"
+    ]
   },
   {
     "id": "trig_recruit_gang_posse",
@@ -1056,27 +584,12 @@
       "Среди примечательных событий дня отмечалось, что всадник набрал новых людей в банду или отряд.",
       "Свидетели по всей территории сообщали, что всадник набрал новых людей в банду или отряд."
     ],
-    "category": "blood_money",
-    "baseWeight": 6,
-    "requiredModules": [
-      "blood_money"
-    ],
-    "tags": [
-      "gang",
-      "posse",
-      "blood_money"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/recruit.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "НАЙМИТЕ БАНДУ ИЛИ ОТРЯД",
         "style": "normal"
       }
-    ],
-    "soundFile": "audio/sfx/short-note.mp3"
+    ]
   },
   {
     "id": "trig_hunt_success",
@@ -1087,27 +600,12 @@
       "Среди примечательных событий дня отмечалось, что охотник вернулся с удачной охоты.",
       "Свидетели по всей территории сообщали, что охотник вернулся с удачной охоты."
     ],
-    "category": "hunting",
-    "baseWeight": 8,
-    "requiredModules": [
-      "hunting"
-    ],
-    "tags": [
-      "hunt",
-      "animal",
-      "hunting"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/hunt.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "УСПЕШНАЯ ОХОТА",
         "style": "normal"
       }
-    ],
-    "soundFile": "audio/sfx/short-shotgun.mp3"
+    ]
   },
   {
     "id": "trig_forage_resource",
@@ -1118,27 +616,12 @@
       "Среди примечательных событий дня отмечалось, что собиратель нашёл в дикой местности полезный ресурс.",
       "Свидетели по всей территории сообщали, что собиратель нашёл в дикой местности полезный ресурс."
     ],
-    "category": "foraging",
-    "baseWeight": 8,
-    "requiredModules": [
-      "foraging"
-    ],
-    "tags": [
-      "forage",
-      "resource",
-      "foraging"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/forage.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "ПОЛУЧИТЕ РЕСУРС СОБИРАТЕЛЬСТВОМ",
         "style": "normal"
       }
-    ],
-    "soundFile": "audio/sfx/short-good.mp3"
+    ]
   },
   {
     "id": "trig_craft_item",
@@ -1149,27 +632,12 @@
       "Среди примечательных событий дня отмечалось, что материалы фронтира превратились в изготовленный предмет.",
       "Свидетели по всей территории сообщали, что материалы фронтира превратились в изготовленный предмет."
     ],
-    "category": "crafting",
-    "baseWeight": 7,
-    "requiredModules": [
-      "crafting"
-    ],
-    "tags": [
-      "craft",
-      "resource",
-      "crafting"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/craft.png",
-    "themeColor": "green",
     "titleParts": [
       {
         "text": "Создайте ПРЕДМЕТ",
         "style": "green"
       }
-    ],
-    "soundFile": "audio/sfx/short-hammer.mp3"
+    ]
   },
   {
     "id": "trig_deliver_resource_location",
@@ -1180,26 +648,11 @@
       "Среди примечательных событий дня отмечалось, что полезный ресурс доставили туда, где он был нужен.",
       "Свидетели по всей территории сообщали, что полезный ресурс доставили туда, где он был нужен."
     ],
-    "category": "foraging",
-    "baseWeight": 6,
-    "requiredModules": [
-      "foraging"
-    ],
-    "tags": [
-      "resource",
-      "delivery",
-      "foraging"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/sell.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "ДОСТАВЬТЕ РЕСУРС",
         "style": "normal"
       }
-    ],
-    "soundFile": "audio/sfx/short-good.mp3"
+    ]
   }
 ]

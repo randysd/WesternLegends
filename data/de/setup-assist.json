@@ -6,64 +6,53 @@
       "summary": "Spielpläne, Auflagen und Aufsteller platzieren.",
       "steps": [
         {
+          "_index": 0,
           "text": "Lege den Hauptspielplan in die Mitte des Tisches.",
           "images": [
             {
-              "src": "assets/images/boards/main-board.png",
+              "_index": 0,
               "alt": "Hauptspielplan",
-              "caption": "Hauptspielplan",
-              "fullWidth": true
+              "caption": "Hauptspielplan"
             }
           ]
         },
         {
+          "_index": 1,
           "text": "Lege den Buzzard-Gulch-Grenzland-Spielplan neben den Hauptspielplan.",
-          "requiredModules": [
-            "ante_up_sideboard"
-          ],
           "images": [
             {
-              "src": "assets/images/boards/full.png",
+              "_index": 0,
               "alt": "Buzzard Gulch & Glücksspieler-Leiste",
-              "caption": "Buzzard Gulch & Glücksspieler-Leiste",
-              "fullWidth": true
+              "caption": "Buzzard Gulch & Glücksspieler-Leiste"
             }
           ]
         },
         {
-          "text": "Lege die Glücksspieler-Leiste oberhalb des Hauptspielplans.",
-          "requiredModules": [
-            "ante_up_gambler"
-          ]
+          "_index": 2,
+          "text": "Lege die Glücksspieler-Leiste oberhalb des Hauptspielplans."
         },
         {
+          "_index": 3,
           "text": "Lege die Auflage für den Legendären Story-Spielplan über den Bereich der Grundspiel-Storykarten.",
-          "requiredModules": [
-            "blood_money_stories"
-          ],
           "images": [
             {
-              "src": "assets/images/boards/story.png",
+              "_index": 0,
               "alt": "Auflage für den Legendären Story-Spielplan",
-              "caption": "Legendärer Story-Spielplan",
-              "fullWidth": true
+              "caption": "Legendärer Story-Spielplan"
             }
           ]
         },
         {
+          "_index": 4,
           "text": "Baue bei Bedarf den Aufsteller des Gemischtwarenladens zusammen."
         },
         {
-          "text": "Baue den Aufsteller des Handelspostens zusammen.",
-          "requiredModules": [
-            "ante_up_sideboard"
-          ]
+          "_index": 5,
+          "text": "Baue den Aufsteller des Handelspostens zusammen."
         },
         {
-          "text": "Baue den Aufsteller des Reisenden Händlers zusammen.",
-          "requiredModules": [
-            "blood_money_traveling_trader"
-          ]
+          "_index": 6,
+          "text": "Baue den Aufsteller des Reisenden Händlers zusammen."
         }
       ]
     },
@@ -73,82 +62,73 @@
       "summary": "Gegenstandsmärkte und Händlerbestand vorbereiten.",
       "steps": [
         {
+          "_index": 0,
           "text": "Fülle die Läden mit dem Helfer automatisch oder überspringe dies und befolge unten den manuellen Ladenaufbau.",
           "actionButtons": [
             {
-              "label": "Läden automatisch füllen",
-              "opens": "storeRandomizer"
+              "_index": 0,
+              "label": "Läden automatisch füllen"
             }
-          ],
-          "choiceGroup": "stores_fill"
+          ]
         },
         {
+          "_index": 1,
           "text": "Läden manuell füllen",
           "summary": "Verwende diese Schritte nur, wenn du die Läden nicht automatisch füllst.",
           "substeps": [
             {
+              "_index": 0,
               "text": "Entferne Laden-Zufallskarten für Gegenstände, die nicht verwendet werden."
             },
             {
+              "_index": 1,
               "text": "Lege die Standard-Aufbaukarte als schnelle Ladenreferenz beiseite."
             },
             {
+              "_index": 2,
               "text": "Mische die übrigen Laden-Zufallskarten verdeckt."
             },
             {
+              "_index": 3,
               "text": "Lege 1 Zufallskarte auf jeden Platz des Gemischtwarenladens."
             },
             {
-              "text": "Lege 1 Zufallskarte auf jeden Platz des Handelspostens.",
-              "requiredModules": [
-                "ante_up_sideboard"
-              ]
+              "_index": 4,
+              "text": "Lege 1 Zufallskarte auf jeden Platz des Handelspostens."
             },
             {
+              "_index": 5,
               "text": "Lege die erste aufgedeckte Waffe und das erste aufgedeckte Reittier in den Gemischtwarenladen."
             },
             {
-              "text": "Lege die zweite aufgedeckte Waffe und das zweite aufgedeckte Reittier in den Handelsposten.",
-              "requiredModules": [
-                "ante_up_sideboard"
-              ]
+              "_index": 6,
+              "text": "Lege die zweite aufgedeckte Waffe und das zweite aufgedeckte Reittier in den Handelsposten."
             },
             {
-              "text": "Stelle beim Standardaufbau sicher, dass jeder Laden mindestens 1 Waffe und 1 Reittier enthält. Ersetze Gegenstände bei Bedarf zufällig.",
-              "requiredModules": [
-                "ante_up_sideboard"
-              ]
+              "_index": 7,
+              "text": "Stelle beim Standardaufbau sicher, dass jeder Laden mindestens 1 Waffe und 1 Reittier enthält. Ersetze Gegenstände bei Bedarf zufällig."
             },
             {
+              "_index": 8,
               "text": "Lege jeden Gegenstandsstapel auf den Platz, der seiner Zufallskarte entspricht."
             }
-          ],
-          "checkable": false,
-          "choiceGroup": "stores_fill"
-        },
-        {
-          "text": "Mische die Legendären Gegenstände der gewählten Erweiterungen zusammen und lege die Sperrkarte ganz nach unten.",
-          "requiredModules": [
-            "blood_money_traveling_trader"
           ]
         },
         {
-          "text": "Lege den Stapel der Legendären Gegenstände verdeckt auf den oberen linken Platz des Reisenden Händlers.",
-          "requiredModules": [
-            "blood_money_traveling_trader"
-          ]
+          "_index": 2,
+          "text": "Mische die Legendären Gegenstände der gewählten Erweiterungen zusammen und lege die Sperrkarte ganz nach unten."
         },
         {
-          "text": "Decke 3 Legendäre Gegenstände in der unteren Reihe des Aufstellers des Reisenden Händlers auf.",
-          "requiredModules": [
-            "blood_money_traveling_trader"
-          ]
+          "_index": 3,
+          "text": "Lege den Stapel der Legendären Gegenstände verdeckt auf den oberen linken Platz des Reisenden Händlers."
         },
         {
-          "text": "Lege alle übrigen Gegenstandsstapel auf die 2 freien Plätze des Reisenden Händlers. Halte die zugehörigen Zufallskarten bereit.",
-          "requiredModules": [
-            "blood_money_traveling_trader"
-          ]
+          "_index": 4,
+          "text": "Decke 3 Legendäre Gegenstände in der unteren Reihe des Aufstellers des Reisenden Händlers auf."
+        },
+        {
+          "_index": 5,
+          "text": "Lege alle übrigen Gegenstandsstapel auf die 2 freien Plätze des Reisenden Händlers. Halte die zugehörigen Zufallskarten bereit."
         }
       ]
     },
@@ -158,218 +138,161 @@
       "summary": "Mische nur die Kartenstapel, die in diesem Spiel verwendet werden.",
       "steps": [
         {
+          "_index": 0,
           "text": "Teile das Geld in Stapel mit $10- und $20-Scheinen.",
           "images": [
             {
-              "src": "assets/images/cards/money-10.png",
+              "_index": 0,
               "alt": "$10-Scheine",
               "caption": "$10"
             },
             {
-              "src": "assets/images/cards/money-20.png",
+              "_index": 1,
               "alt": "$20-Scheine",
               "caption": "$20"
             }
           ]
         },
         {
+          "_index": 1,
           "text": "Bereite den Pokerstapel vor. Wenn du Pokerkarten aus Erweiterungen verwendest, tausche sie nach Farbe und Wert gegen entsprechende Grundspielkarten aus.",
           "images": [
             {
-              "src": "assets/images/cards/poker-back.png",
+              "_index": 0,
               "alt": "Pokerstapel",
               "caption": "Pokerstapel"
             }
           ]
         },
         {
-          "text": "Mische die Jokerkarten in den Pokerstapel.",
-          "requiredModules": [
-            "fistful_jokers"
-          ]
+          "_index": 2,
+          "text": "Mische die Jokerkarten in den Pokerstapel."
         },
         {
+          "_index": 3,
           "text": "Mische die kleinen Grundspielstapel und lege sie neben den Spielplan.",
           "images": [
             {
-              "src": "assets/images/cards/fight-back.png",
+              "_index": 0,
               "alt": "Kampfstapel",
               "caption": "Kampf"
             },
             {
-              "src": "assets/images/cards/events-back.png",
+              "_index": 1,
               "alt": "Ereignisstapel",
-              "caption": "Ereignisse",
-              "requiredModules": [
-                "ante_up_events"
-              ]
+              "caption": "Ereignisse"
             },
             {
-              "src": "assets/images/cards/train-back.png",
+              "_index": 2,
               "alt": "Zugstapel",
-              "caption": "Zug",
-              "requiredModules": [
-                "ante_up_train"
-              ]
+              "caption": "Zug"
             },
             {
-              "src": "assets/images/cards/injury-back.png",
+              "_index": 3,
               "alt": "Verletzungsstapel",
-              "caption": "Verletzungen",
-              "requiredModules": [
-                "blood_money_injuries"
-              ]
+              "caption": "Verletzungen"
             },
             {
-              "src": "assets/images/cards/travelingtrader-back.png",
+              "_index": 4,
               "alt": "Stapel des Reisenden Händlers",
-              "caption": "Händler",
-              "requiredModules": [
-                "blood_money_traveling_trader"
-              ]
+              "caption": "Händler"
             },
             {
-              "src": "assets/images/cards/treasurehunting-back.png",
+              "_index": 5,
               "alt": "Schatzsuche-Stapel",
-              "caption": "Schatzsuche",
-              "requiredModules": [
-                "treasure_hunting_rumors"
-              ]
+              "caption": "Schatzsuche"
             },
             {
-              "src": "assets/images/cards/hunting-back.png",
+              "_index": 6,
               "alt": "Jagd-Stapel",
-              "caption": "Jagd",
-              "requiredModules": [
-                "hunting_animals"
-              ]
+              "caption": "Jagd"
             },
             {
-              "src": "assets/images/cards/fishing-back.png",
+              "_index": 7,
               "alt": "Angel-Stapel",
-              "caption": "Angeln",
-              "requiredModules": [
-                "fishing_fish_deck"
-              ]
+              "caption": "Angeln"
             },
             {
-              "src": "assets/images/cards/foraging-back.png",
+              "_index": 8,
               "alt": "Sammel-Stapel",
-              "caption": "Sammeln",
-              "requiredModules": [
-                "foraging_resources"
-              ]
+              "caption": "Sammeln"
             },
             {
-              "src": "assets/images/cards/prospecting-back.png",
+              "_index": 9,
               "alt": "Schürf-Stapel",
-              "caption": "Schürfen",
-              "requiredModules": [
-                "prospecting_cards"
-              ]
+              "caption": "Schürfen"
             }
           ]
         },
         {
-          "text": "Mische die Grundspiel-Storykarten, lege den Stapel auf das vorgesehene Feld des Spielplans, decke 1 Grundspiel-Storykarte auf und lege sie auf den vorgesehenen Platz.",
-          "blockedModules": [
-            "blood_money_stories"
-          ]
+          "_index": 4,
+          "text": "Mische die Grundspiel-Storykarten, lege den Stapel auf das vorgesehene Feld des Spielplans, decke 1 Grundspiel-Storykarte auf und lege sie auf den vorgesehenen Platz."
         },
         {
-          "text": "Mische die Legendären Storykarten, lege den Stapel auf den Legendären Story-Spielplan und decke anschließend 1 zufällige Legendäre Storykarte auf dem Spielplan auf.",
-          "requiredModules": [
-            "blood_money_stories"
-          ]
+          "_index": 5,
+          "text": "Mische die Legendären Storykarten, lege den Stapel auf den Legendären Story-Spielplan und decke anschließend 1 zufällige Legendäre Storykarte auf dem Spielplan auf."
         },
         {
-          "text": "Füge die Karten „Einzigartiges Ereignis“ dem Ereignisstapel hinzu.",
-          "requiredModules": [
-            "ante_up_events",
-            "wild_bunch_unique_events"
-          ]
+          "_index": 6,
+          "text": "Füge die Karten „Einzigartiges Ereignis“ dem Ereignisstapel hinzu."
         },
         {
-          "text": "Mische den Ereignisstapel und lege ihn neben den Spielplan.",
-          "requiredModules": [
-            "ante_up_events"
-          ]
+          "_index": 7,
+          "text": "Mische den Ereignisstapel und lege ihn neben den Spielplan."
         },
         {
-          "text": "Mische die Titelkarten und decke zufällig 1 Titel für dieses Spiel auf.",
-          "requiredModules": [
-            "wild_bunch_titles"
-          ]
+          "_index": 8,
+          "text": "Mische die Titelkarten und decke zufällig 1 Titel für dieses Spiel auf."
         },
         {
-          "text": "Mische die Sheriffkarten und decke die oberste Sheriffkarte auf. Ersetze sie jedes Mal, wenn der Sheriff einen Kampf verliert.",
-          "requiredModules": [
-            "wild_bunch_sheriff"
-          ]
+          "_index": 9,
+          "text": "Mische die Sheriffkarten und decke die oberste Sheriffkarte auf. Ersetze sie jedes Mal, wenn der Sheriff einen Kampf verliert."
         },
         {
-          "text": "Mische die Banditenkarten und lege den Stapel verdeckt neben den Kampfstapel.",
-          "requiredModules": [
-            "wild_bunch_bandit_variant"
-          ]
+          "_index": 10,
+          "text": "Mische die Banditenkarten und lege den Stapel verdeckt neben den Kampfstapel."
         },
         {
+          "_index": 11,
           "text": "Mische alle Karten des Mannes in Schwarz zu einem Stapel und lege ihn neben den Spielplan.",
-          "requiredModules": [
-            "wild_bunch_man_in_black"
-          ],
-          "maxPlayers": 2,
           "images": [
             {
-              "src": "assets/images/cards/mib.png",
+              "_index": 0,
               "alt": "Stapel des Mannes in Schwarz",
               "caption": "Mann in Schwarz"
             }
           ]
         },
         {
+          "_index": 12,
           "text": "Mische die Karten des Mannes in Schwarz, außer P-01, P-04, P-05, P-08, P-09, P-10 und P-15. Lege den Stapel neben den Spielplan.",
-          "requiredModules": [
-            "wild_bunch_man_in_black"
-          ],
-          "minPlayers": 3,
           "images": [
             {
-              "src": "assets/images/cards/mib.png",
+              "_index": 0,
               "alt": "Stapel des Mannes in Schwarz",
               "caption": "Mann in Schwarz"
             }
           ]
         },
         {
-          "text": "Mische die Gerüchtekarten und lege den Stapel neben den Spielplan.",
-          "requiredModules": [
-            "treasure_hunting_rumors"
-          ]
+          "_index": 13,
+          "text": "Mische die Gerüchtekarten und lege den Stapel neben den Spielplan."
         },
         {
-          "text": "Mische den Tierstapel und lege ihn neben den Spielplan.",
-          "requiredModules": [
-            "hunting"
-          ]
+          "_index": 14,
+          "text": "Mische den Tierstapel und lege ihn neben den Spielplan."
         },
         {
-          "text": "Mische den Fischstapel und lege ihn neben den Spielplan.",
-          "requiredModules": [
-            "fishing"
-          ]
+          "_index": 15,
+          "text": "Mische den Fischstapel und lege ihn neben den Spielplan."
         },
         {
-          "text": "Mische den Theaterstapel, lege ihn neben den Spielplan und decke 3 Theaterkarten offen auf.",
-          "requiredModules": [
-            "theatre"
-          ]
+          "_index": 16,
+          "text": "Mische den Theaterstapel, lege ihn neben den Spielplan und decke 3 Theaterkarten offen auf."
         },
         {
-          "text": "Mische den Schürfstapel mit 2 zufälligen Ereignissen.",
-          "requiredModules": [
-            "prospecting_cards"
-          ]
+          "_index": 17,
+          "text": "Mische den Schürfstapel mit 2 zufälligen Ereignissen."
         }
       ]
     },
@@ -379,87 +302,77 @@
       "summary": "Marker-Vorräte trennen, mischen und auslegen.",
       "steps": [
         {
+          "_index": 0,
           "text": "Mische die Viehmarker verdeckt und lege sie bei den zugehörigen Ranches aus.",
           "images": [
             {
-              "src": "assets/images/tokens/ranch-blue.png",
+              "_index": 0,
               "alt": "Blauer Viehmarker",
               "caption": "Blau"
             },
             {
-              "src": "assets/images/tokens/ranch-green.png",
+              "_index": 1,
               "alt": "Grüner Viehmarker",
               "caption": "Grün"
             },
             {
-              "src": "assets/images/tokens/ranch-orange.png",
+              "_index": 2,
               "alt": "Oranger Viehmarker",
-              "caption": "Orange",
-              "requiredModules": [
-                "ante_up_sideboard"
-              ]
+              "caption": "Orange"
             }
           ]
         },
         {
+          "_index": 1,
           "text": "Mische Longhorn-, Outlaw-, High-Roller- und Claim-Jumper-Marker verdeckt.",
-          "requiredModules": [
-            "ante_up_events"
-          ],
           "images": [
             {
-              "src": "assets/images/tokens/longhorn.png",
+              "_index": 0,
               "alt": "Longhorn-Marker",
               "caption": "Longhorn"
             },
             {
-              "src": "assets/images/tokens/outlaw.png",
+              "_index": 1,
               "alt": "Outlaw-Marker",
               "caption": "Outlaw"
             },
             {
-              "src": "assets/images/tokens/highroller.png",
+              "_index": 2,
               "alt": "High-Roller-Marker",
               "caption": "High Roller"
             },
             {
-              "src": "assets/images/tokens/gold.png",
+              "_index": 3,
               "alt": "Claim-Jumper-Marker",
               "caption": "Claim Jumper"
             }
           ]
         },
         {
+          "_index": 2,
           "text": "Mische die Legendären Marker verdeckt oder lege sie in einen Markerbeutel.",
-          "requiredModules": [
-            "base_legendary_tokens"
-          ],
           "images": [
             {
-              "src": "assets/images/tokens/legend.png",
+              "_index": 0,
               "alt": "Legendärer Marker",
               "caption": "Legendär"
             }
           ]
         },
         {
+          "_index": 3,
           "text": "Sortiere die Urkunden nach Typ und lege auf jeden Urkundenort einen Urkundenmarker.",
-          "requiredModules": [
-            "blood_money_deeds"
-          ],
           "images": [
             {
-              "src": "assets/images/setup/tokens/deed-token.png",
+              "_index": 0,
               "alt": "Urkundenmarker",
               "caption": "Urkunde"
             }
           ]
         },
         {
-          "text": "Halte die Marker für Einzigartige Ereignisse als Vorrat neben dem Spielplan bereit.",
-          "requiredModules": [
-            "wild_bunch_unique_events"
-          ]
+          "_index": 4,
+          "text": "Halte die Marker für Einzigartige Ereignisse als Vorrat neben dem Spielplan bereit."
         }
       ]
     },
@@ -469,70 +382,61 @@
       "summary": "Marker platzieren und Aufbaueffekte abhandeln.",
       "steps": [
         {
+          "_index": 0,
           "text": "Lege den Spielendmarker auf {targetLP} LP.",
           "images": [
             {
-              "src": "assets/images/tokens/watch.png",
+              "_index": 0,
               "alt": "Taschenuhr-Spielendmarker",
               "caption": "Spielendmarker"
             }
           ]
         },
         {
+          "_index": 1,
           "text": "Lege Ereignismarker auf das 5. Feld der Glücksspieler-, Marshal- und Wanted-Leiste sowie auf jedes 5. LP-Feld vor dem Spielendmarker.",
-          "requiredModules": [
-            "ante_up_events"
-          ],
           "images": [
             {
-              "src": "assets/images/tokens/event-token.png",
+              "_index": 0,
               "alt": "Ereignismarker",
               "caption": "Ereignismarker"
             }
           ]
         },
         {
-          "text": "Handle je 2 Spieler 1 Ereigniskarte ab (aufrunden). Ignoriere die Bewegung des Sheriffs, da der Sheriff noch nicht platziert wurde.",
-          "requiredModules": [
-            "ante_up_events"
-          ]
+          "_index": 2,
+          "text": "Handle je 2 Spieler 1 Ereigniskarte ab (aufrunden). Ignoriere die Bewegung des Sheriffs, da der Sheriff noch nicht platziert wurde."
         },
         {
+          "_index": 3,
           "text": "Lege zufällig 1 offenen Grenzlandmarker auf jedes Grenzlandfeld. Halte unbenutzte Grenzlandmarker bereit.",
-          "requiredModules": [
-            "ante_up_sideboard"
-          ],
           "images": [
             {
-              "src": "assets/images/tokens/action-frontier.png",
+              "_index": 0,
               "alt": "Grenzlandmarker",
               "caption": "Grenzlandmarker"
             }
           ]
         },
         {
+          "_index": 4,
           "text": "Decke die oberste Händler-Bewegungskarte auf und stelle die Figur des Reisenden Händlers auf ein beliebiges freies Feld in dieser Region.",
-          "requiredModules": [
-            "blood_money_traveling_trader"
-          ],
           "images": [
             {
-              "src": "assets/images/cards/travelingtrader-back.png",
+              "_index": 0,
               "alt": "Rückseite der Händler-Bewegungskarte",
               "caption": "Händler-Bewegungskarte"
             },
             {
-              "src": "assets/images/tokens/trader.png",
+              "_index": 1,
               "alt": "Marker des Reisenden Händlers",
               "caption": "Reisender Händler"
             }
           ]
         },
         {
-          "text": "Lege an jedem Minenort 2 Goldnuggets aus. Lege 1 Goldnugget auf die LP-Felder, die laut Schürfregeln für {playerCount} Spieler und ein Spiel bis {targetLP} LP vorgesehen sind.",
-          "requiredModules": [
-            "prospecting_cards"
-          ]
+          "_index": 5,
+          "text": "Lege an jedem Minenort 2 Goldnuggets aus. Lege 1 Goldnugget auf die LP-Felder, die laut Schürfregeln für {playerCount} Spieler und ein Spiel bis {targetLP} LP vorgesehen sind."
         }
       ]
     },
@@ -542,64 +446,62 @@
       "summary": "Gib jedem Spieler seine Startkomponenten.",
       "steps": [
         {
+          "_index": 0,
           "text": "Jeder Spieler nimmt ein Spielertableau, Wertungswürfel, einen Farbring und einen Wundenmarker."
         },
         {
-          "text": "Verwende die Seite des Spielertableaus mit Feldern für Legendäre Marker.",
-          "requiredModules": [
-            "base_legendary_tokens"
-          ]
+          "_index": 1,
+          "text": "Verwende die Seite des Spielertableaus mit Feldern für Legendäre Marker."
         },
         {
-          "text": "Jeder Spieler nimmt seine Faro-Chips.",
-          "requiredModules": [
-            "ante_up_faro"
-          ]
+          "_index": 2,
+          "text": "Jeder Spieler nimmt seine Faro-Chips."
         },
         {
-          "text": "Jeder Spieler nimmt seine Story-Scheiben.",
-          "requiredModules": [
-            "blood_money_stories"
-          ]
+          "_index": 3,
+          "text": "Jeder Spieler nimmt seine Story-Scheiben."
         },
         {
+          "_index": 4,
           "text": "Lege für jeden Spieler 1 Wertungswürfel links neben das Feld 1 der LP-Leiste."
         },
         {
-          "text": "Lege für jeden Spieler 1 Wertungswürfel auf das Startfeld der Story-Leiste.",
-          "requiredModules": [
-            "blood_money_stories"
-          ]
+          "_index": 5,
+          "text": "Lege für jeden Spieler 1 Wertungswürfel auf das Startfeld der Story-Leiste."
         },
         {
-          "text": "Lege die übrigen Wertungswürfel und Story-Scheiben jedes Spielers neben den Spielplan.",
-          "requiredModules": [
-            "blood_money_stories"
-          ]
+          "_index": 6,
+          "text": "Lege die übrigen Wertungswürfel und Story-Scheiben jedes Spielers neben den Spielplan."
         }
       ]
     },
     {
       "id": "characters",
-      "title": "Charaktere wählen",
-      "summary": "Charaktere wählen und Startbelohnungen erhalten.",
+      "title": "Charaktere vorbereiten",
+      "summary": "Bereite die ausgewählten Charaktere aller Spieler für das Spiel vor.",
       "steps": [
         {
-          "text": "Jeder Spieler wählt einen Charakter aus den in den gewählten Erweiterungen verfügbaren Charakteren."
+          "_index": 0,
+          "text": "Jeder Spieler wählt einen Charakter aus den in den gewählten Erweiterungen verfügbaren Charakteren.",
+          "autoComplete": "all_players_have_characters"
         },
         {
+          "_index": 1,
           "text": "Nimm für jeden gewählten Charakter dessen 4 Zielkarten.",
           "requiredModules": [
             "base_goals"
           ]
         },
         {
+          "_index": 2,
           "text": "Jeder Spieler erhält die auf seinem Charakter angegebenen Startgegenstände, das Geld, die Pokerkarten, Wunden und Punkte."
         },
         {
+          "_index": 3,
           "text": "Beginnt ein Charakter mit Glücksspieler-, Legendären, Marshal-, Story- oder Wanted-Punkten, lege einen Würfel auf die entsprechende Leiste."
         },
         {
+          "_index": 4,
           "text": "Handle alle Fähigkeiten von Startgegenständen ab, etwa Gazette, Proviant oder ähnliche Effekte."
         }
       ]
@@ -610,55 +512,53 @@
       "summary": "Spieler, Sheriff und Banditen platzieren.",
       "steps": [
         {
+          "_index": 0,
           "text": "Der Spieler mit den meisten Wanted-Punkten nimmt den Startspieler-Marker. Bei Gleichstand oder wenn niemand Wanted ist, wählt eine andere Methode.",
           "actionButtons": [
             {
-              "label": "Startspieler bestimmen",
-              "opens": "firstPlayer"
+              "_index": 0,
+              "label": "Startspieler bestimmen"
             }
           ]
         },
         {
+          "_index": 1,
           "text": "Beginnend mit dem Startspieler wählt jeder Spieler eine Figur und befestigt seinen Farbring."
         },
         {
+          "_index": 2,
           "text": "Jeder Spieler stellt seine Figur an den auf seiner Charakterkarte angegebenen Startort."
         },
         {
+          "_index": 3,
           "text": "Ist der Startort ein Gemischtwarenladen, Handelsposten oder Saloon, stelle die Figur auf ein beliebiges angrenzendes Feld."
         },
         {
-          "text": "Entferne alle Ereignis-, Claim-Jumper-, High-Roller-, Longhorn-, Outlaw- oder Einzigartiges-Ereignis-Marker von einem Feld, auf dem ein Spieler startet.",
-          "anyModules": [
-            "ante_up_events",
-            "wild_bunch_unique_events"
-          ]
+          "_index": 4,
+          "text": "Entferne alle Ereignis-, Claim-Jumper-, High-Roller-, Longhorn-, Outlaw- oder Einzigartiges-Ereignis-Marker von einem Feld, auf dem ein Spieler startet."
         },
         {
+          "_index": 5,
           "text": "Befestige den braunen Ring an der Sheriff-Figur und stelle den Sheriff in das Sheriff-/Marshalbüro in Darkrock."
         },
         {
-          "text": "Klebe die nummerierten Banditenaufkleber auf die Unterseiten der grauen Banditenringe.",
-          "requiredModules": [
-            "wild_bunch_bandit_variant"
-          ]
+          "_index": 6,
+          "text": "Klebe die nummerierten Banditenaufkleber auf die Unterseiten der grauen Banditenringe."
         },
         {
+          "_index": 7,
           "text": "Befestige graue Ringe an 6 Banditenfiguren. Stelle 1 Banditen an jedes Banditenversteck, in dem sich kein Spieler befindet."
         },
         {
-          "text": "Wähle eine Figur für den Mann in Schwarz. Stelle sie am Bahnhof oder an einem vom Startspieler gewählten Ort auf und lege den zur Farbe ihres Basisrings passenden Wertungswürfel links neben die LP-Leiste zu den Wertungswürfeln der Spieler.",
-          "requiredModules": [
-            "wild_bunch_man_in_black"
-          ]
+          "_index": 8,
+          "text": "Wähle eine Figur für den Mann in Schwarz. Stelle sie am Bahnhof oder an einem vom Startspieler gewählten Ort auf und lege den zur Farbe ihres Basisrings passenden Wertungswürfel links neben die LP-Leiste zu den Wertungswürfeln der Spieler."
         },
         {
-          "text": "Nachdem alle Spielerfiguren platziert wurden, legt der in der Zugreihenfolge letzte Spieler die 3 Jagdaktionsmarker auf 3 verschiedene unbesetzte Felder.",
-          "requiredModules": [
-            "hunting"
-          ]
+          "_index": 9,
+          "text": "Nachdem alle Spielerfiguren platziert wurden, legt der in der Zugreihenfolge letzte Spieler die 3 Jagdaktionsmarker auf 3 verschiedene unbesetzte Felder."
         },
         {
+          "_index": 10,
           "text": "Gib jedem Spieler eine Spielerhilfe."
         }
       ]
@@ -669,12 +569,15 @@
       "summary": "Letzte Kontrolle vor dem Start.",
       "steps": [
         {
+          "_index": 0,
           "text": "Bestätige, dass alle gewählten Module aufgebaut wurden."
         },
         {
+          "_index": 1,
           "text": "Bestätige, dass der Spielendmarker auf {targetLP} LP liegt."
         },
         {
+          "_index": 2,
           "text": "Drücke „Spiel starten“, sobald alle bereit sind."
         }
       ]

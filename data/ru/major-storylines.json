@@ -8,23 +8,11 @@
       "Продолжающаяся история «Железная дорога» вышла за пределы судьбы одного всадника и начала менять саму территорию.",
       "К моменту выхода «Газетт» «Железная дорога» стала одной из крупных разворачивающихся историй фронтира."
     ],
-    "tags": [
-      "railroad",
-      "train",
-      "construction"
-    ],
-    "requiredModules": [
-      "ante_up"
-    ],
     "chapters": [
       {
         "id": "rail_surveyors",
-        "type": "storyTrigger",
-        "trigger": "trig_travel_rail",
         "title": "Прибывают землемеры",
         "screenText": "Завершите ход на любой железнодорожной станции, чтобы получить $20 и +1 к прогрессу железной дороги.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Землемеры прибывают с цепями, кольями и опасной мыслью, что завтрашний день можно измерить.\"",
         "newspaperText": [
           "Продолжающаяся история сделала новый поворот, и в сообщениях сцену описывали так: землемеры прибывают с цепями, кольями и опасной мыслью, что завтрашний день можно измерить.",
@@ -32,42 +20,23 @@
           "Тропа большой истории привела к новому развитию: землемеры прибывают с цепями, кольями и опасной мыслью, что завтрашний день можно измерить.",
           "Свидетели связали последний поворот истории с одной запоминающейся сценой: землемеры прибывают с цепями, кольями и опасной мыслью, что завтрашний день можно измерить."
         ],
-        "audioFile": "audio/arcs/rail_surveyors.mp3",
-        "requiresWorldTags": [],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "rail_surveyed"
-          },
-          {
-            "type": "incrementCounter",
-            "counter": "railroad_progress",
-            "amount": 1
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 2,
             "text": "«Прибывают землемеры» было разрешено."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "rail_survey_ignored"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "«Прибывают землемеры» было проигнорировано."
           }
         ]
       },
       {
         "id": "rail_lumber",
-        "type": "storyTrigger",
-        "trigger": "trig_deliver_resource_location",
         "title": "Брёвна для депо",
         "screenText": "Доставьте древесину на железнодорожную станцию. Получите $20 и +1 к прогрессу железной дороги.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Свежие брёвна глухо падают у путей, словно кости нового города.\"",
         "newspaperText": [
           "Продолжающаяся история сделала новый поворот, и в сообщениях сцену описывали так: свежие брёвна глухо падают у путей, словно кости нового города.",
@@ -75,44 +44,23 @@
           "Тропа большой истории привела к новому развитию: свежие брёвна глухо падают у путей, словно кости нового города.",
           "Свидетели связали последний поворот истории с одной запоминающейся сценой: свежие брёвна глухо падают у путей, словно кости нового города."
         ],
-        "audioFile": "audio/arcs/rail_lumber.mp3",
-        "requiresWorldTags": [
-          "rail_surveyed"
-        ],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "rail_wood_delivered"
-          },
-          {
-            "type": "incrementCounter",
-            "counter": "railroad_progress",
-            "amount": 1
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 2,
             "text": "«Брёвна для депо» было разрешено."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "rail_wood_missing"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "«Брёвна для депо» было проигнорировано."
           }
         ]
       },
       {
         "id": "rail_iron",
-        "type": "storyTrigger",
-        "trigger": "trig_deliver_resource_location",
         "title": "Железо для линии",
         "screenText": "Доставьте металл на железнодорожную станцию. Получите $20 и +1 к прогрессу железной дороги.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Бригадир проводит большим пальцем по железу и видит завтрашний день.\"",
         "newspaperText": [
           "Продолжающаяся история сделала новый поворот, и в сообщениях сцену описывали так: бригадир проводит большим пальцем по железу и видит завтрашний день.",
@@ -120,46 +68,22 @@
           "Тропа большой истории привела к новому развитию: бригадир проводит большим пальцем по железу и видит завтрашний день.",
           "Свидетели связали последний поворот истории с одной запоминающейся сценой: бригадир проводит большим пальцем по железу и видит завтрашний день."
         ],
-        "audioFile": "audio/arcs/rail_iron.mp3",
-        "requiresWorldTags": [
-          "rail_surveyed"
-        ],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "rail_metal_delivered"
-          },
-          {
-            "type": "incrementCounter",
-            "counter": "railroad_progress",
-            "amount": 1
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 2,
             "text": "«Железо для линии» было разрешено."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "rail_metal_missing"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "«Железо для линии» было проигнорировано."
           }
         ]
       },
       {
         "id": "rail_grand_opening",
-        "type": "worldEvent",
         "title": "Торжественное открытие",
-        "requiresCounters": [
-          {
-            "counter": "railroad_progress",
-            "gte": 3
-          }
-        ],
         "screenText": "Путешествие по железной дороге стоит $0.",
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Когда забит последний костыль, локомотив свистит так, будто сам фронтир только что проснулся.\"",
         "newspaperText": [
@@ -167,17 +91,9 @@
           "Ещё одна глава разворачивающейся истории дошла до «Газетт» с яркой подробностью: когда забит последний костыль, локомотив свистит так, будто сам фронтир только что проснулся.",
           "Тропа большой истории привела к новому развитию: когда забит последний костыль, локомотив свистит так, будто сам фронтир только что проснулся.",
           "Свидетели связали последний поворот истории с одной запоминающейся сценой: когда забит последний костыль, локомотив свистит так, будто сам фронтир только что проснулся."
-        ],
-        "audioFile": "audio/storylines/rail_grand_opening.mp3",
-        "effects": [
-          {
-            "type": "start_world_event",
-            "eventId": "world_free_rail"
-          }
         ]
       }
-    ],
-    "scope": "global"
+    ]
   },
   {
     "id": "story_lost_spanish_gold",
@@ -188,20 +104,11 @@
       "Продолжающаяся история «Потерянное испанское золото» вышла за пределы судьбы одного всадника и начала менять саму территорию.",
       "К моменту выхода «Газетт» «Потерянное испанское золото» стало одной из крупных разворачивающихся историй фронтира."
     ],
-    "tags": [
-      "treasure",
-      "mine",
-      "map"
-    ],
     "chapters": [
       {
         "id": "spanish_journal",
-        "type": "storyTrigger",
-        "trigger": "trig_gain_gold_prospect",
         "title": "Разорванный дневник",
         "screenText": "Завершите ход в шахте Клифф-Джанкшен, чтобы получить 1 легендарный жетон.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Разорванный дневник рассказывает об испанском золоте, спрятанном там, где в полдень скалы отбрасывают тени.\"",
         "newspaperText": [
           "Продолжающаяся история сделала новый поворот, и в сообщениях сцену описывали так: разорванный дневник рассказывает об испанском золоте, спрятанном там, где в полдень скалы отбрасывают тени.",
@@ -209,37 +116,23 @@
           "Тропа большой истории привела к новому развитию: разорванный дневник рассказывает об испанском золоте, спрятанном там, где в полдень скалы отбрасывают тени.",
           "Свидетели связали последний поворот истории с одной запоминающейся сценой: разорванный дневник рассказывает об испанском золоте, спрятанном там, где в полдень скалы отбрасывают тени."
         ],
-        "audioFile": "audio/arcs/spanish_journal.mp3",
-        "requiresWorldTags": [],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "spanish_clue_1"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "«Разорванный дневник» был разрешён."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "spanish_journal_lost"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "«Разорванный дневник» был проигнорирован."
           }
         ]
       },
       {
         "id": "spanish_marker",
-        "type": "storyTrigger",
-        "trigger": "trig_enter_cliff_junction",
         "title": "Каменный знак",
         "screenText": "Возьмите 1 карту боя. На 8+ получите 2 золота; иначе получите 1 рану.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[raspy][old cowboy][western][fast][low key][emotionless][quick]Из пыли торчит накренившийся каменный крест, старше любого города на этой карте.",
         "newspaperText": [
           "Продолжающаяся история сделала новый поворот, и в сообщениях сцену описывали так: из пыли торчит накренившийся каменный крест, старше любого города на этой карте.",
@@ -247,39 +140,23 @@
           "Тропа большой истории привела к новому развитию: из пыли торчит накренившийся каменный крест, старше любого города на этой карте.",
           "Свидетели связали последний поворот истории с одной запоминающейся сценой: из пыли торчит накренившийся каменный крест, старше любого города на этой карте."
         ],
-        "audioFile": "audio/arcs/spanish_marker.mp3",
-        "requiresWorldTags": [
-          "spanish_clue_1"
-        ],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "spanish_clue_2"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "«Каменный знак» был разрешён."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "spanish_marker_missed"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "«Каменный знак» был проигнорирован."
           }
         ]
       },
       {
         "id": "spanish_cache",
-        "type": "storyTrigger",
-        "trigger": "trig_deposit_gold",
         "title": "Зарытый тайник",
         "screenText": "Получите $40 и 2 LP. Добавьте «Потерянное испанское золото» в газету.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Под красным камнем лежит тайник с монетами, отчеканенными для короля, который никогда не видел этих земель.\"",
         "newspaperText": [
           "Продолжающаяся история сделала новый поворот, и в сообщениях сцену описывали так: под красным камнем лежит тайник с монетами, отчеканенными для короля, который никогда не видел этих земель.",
@@ -287,33 +164,20 @@
           "Тропа большой истории привела к новому развитию: под красным камнем лежит тайник с монетами, отчеканенными для короля, который никогда не видел этих земель.",
           "Свидетели связали последний поворот истории с одной запоминающейся сценой: под красным камнем лежит тайник с монетами, отчеканенными для короля, который никогда не видел этих земель."
         ],
-        "audioFile": "audio/arcs/spanish_cache.mp3",
-        "requiresWorldTags": [
-          "spanish_clue_2"
-        ],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "spanish_gold_found"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "«Зарытый тайник» был разрешён."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "spanish_gold_lost"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "«Зарытый тайник» был проигнорирован."
           }
         ]
       }
-    ],
-    "scope": "global"
+    ]
   },
   {
     "id": "story_white_buffalo",
@@ -324,23 +188,11 @@
       "Продолжающаяся история «Белый бизон» вышла за пределы судьбы одного всадника и начала менять саму территорию.",
       "К моменту выхода «Газетт» «Белый бизон» стал одной из крупных разворачивающихся историй фронтира."
     ],
-    "tags": [
-      "legendary",
-      "hunt",
-      "sacred"
-    ],
-    "requiredModules": [
-      "hunting"
-    ],
     "chapters": [
       {
         "id": "buffalo_tracks",
-        "type": "storyTrigger",
-        "trigger": "trig_hunt_success",
         "title": "Странные следы",
         "screenText": "После охоты получите 1 улику Белого бизона.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Следы шириной с обеденные тарелки пересекают прерию, и все птицы вдруг замолкли.\"",
         "newspaperText": [
           "Продолжающаяся история сделала новый поворот, и в сообщениях сцену описывали так: следы шириной с обеденные тарелки пересекают прерию, и все птицы вдруг замолкли.",
@@ -348,37 +200,23 @@
           "Тропа большой истории привела к новому развитию: следы шириной с обеденные тарелки пересекают прерию, и все птицы вдруг замолкли.",
           "Свидетели связали последний поворот истории с одной запоминающейся сценой: следы шириной с обеденные тарелки пересекают прерию, и все птицы вдруг замолкли."
         ],
-        "audioFile": "audio/arcs/buffalo_tracks.mp3",
-        "requiresWorldTags": [],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "buffalo_clue_1"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "«Странные следы» были разрешены."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "buffalo_tracks_lost"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "«Странные следы» были проигнорированы."
           }
         ]
       },
       {
         "id": "buffalo_warning",
-        "type": "storyTrigger",
-        "trigger": "trig_enter_sunny_hills",
         "title": "Предупреждение",
         "screenText": "Завершите ход в Санни-Хиллз, чтобы получить 1 LP или взять 2 карты покера.",
-        "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Старый разведчик предупреждает: некоторые звери — не трофеи. Они — испытания.\"",
         "newspaperText": [
           "Продолжающаяся история сделала новый поворот, и в сообщениях сцену описывали так: старый разведчик предупреждает: некоторые звери — не трофеи. Они — испытания.",
@@ -386,40 +224,23 @@
           "Тропа большой истории привела к новому развитию: старый разведчик предупреждает: некоторые звери — не трофеи. Они — испытания.",
           "Свидетели связали последний поворот истории с одной запоминающейся сценой: старый разведчик предупреждает: некоторые звери — не трофеи. Они — испытания."
         ],
-        "audioFile": "audio/arcs/buffalo_warning.mp3",
-        "requiresWorldTags": [
-          "buffalo_clue_1"
-        ],
         "onResolved": [
           {
-            "type": "addWorldTag",
-            "tag": "buffalo_warning_heard"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "«Предупреждение» было разрешено."
           }
         ],
         "onExpired": [
           {
-            "type": "addWorldTag",
-            "tag": "buffalo_warning_ignored"
-          },
-          {
-            "type": "newspaperNote",
+            "_index": 1,
             "text": "«Предупреждение» было проигнорировано."
           }
         ]
       },
       {
         "id": "buffalo_appears",
-        "type": "storyTrigger",
-        "trigger": "trig_hunt_success",
         "title": "Появляется Белый бизон",
         "screenText": "Особая охота: возьмите 1 карту боя. Сбросьте карты покера с суммарным значением не меньше её значения. При успехе выберите «Защитить» или «Охотиться».",
-        "requiresWorldTags": [
-          "buffalo_warning_heard"
-        ],
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Белый бизон выходит из утренней дымки, яркий как призрак и тяжёлый как сама легенда.\"",
         "newspaperText": [
           "Продолжающаяся история сделала новый поворот, и в сообщениях сцену описывали так: Белый бизон выходит из утренней дымки, яркий как призрак и тяжёлый как сама легенда.",
@@ -427,41 +248,17 @@
           "Тропа большой истории привела к новому развитию: Белый бизон выходит из утренней дымки, яркий как призрак и тяжёлый как сама легенда.",
           "Свидетели связали последний поворот истории с одной запоминающейся сценой: Белый бизон выходит из утренней дымки, яркий как призрак и тяжёлый как сама легенда."
         ],
-        "audioFile": "audio/storylines/buffalo_appears.mp3",
         "resultButtons": [
           {
-            "label": "Защитить его",
-            "effects": [
-              {
-                "type": "gain_lp",
-                "amount": 3
-              },
-              {
-                "type": "addWorldTag",
-                "tag": "white_buffalo_protected"
-              }
-            ]
+            "_index": 0,
+            "label": "Защитить его"
           },
           {
-            "label": "Охотиться на него",
-            "effects": [
-              {
-                "type": "gain_money",
-                "amount": 80
-              },
-              {
-                "type": "gain_lp",
-                "amount": 1
-              },
-              {
-                "type": "addWorldTag",
-                "tag": "white_buffalo_hunted"
-              }
-            ]
+            "_index": 1,
+            "label": "Охотиться на него"
           }
         ]
       }
-    ],
-    "scope": "global"
+    ]
   }
 ]

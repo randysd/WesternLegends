@@ -1,0 +1,238 @@
+{
+  "items": [
+    {
+      "id": "bedroll",
+      "name": "Ρολό Ύπνου"
+    },
+    {
+      "id": "boot_knife",
+      "name": "Μαχαίρι Μπότας"
+    },
+    {
+      "id": "bullwhip",
+      "name": "Μαστίγιο"
+    },
+    {
+      "id": "burro",
+      "name": "Γαϊδουράκι"
+    },
+    {
+      "id": "carbine",
+      "name": "Καραμπίνα"
+    },
+    {
+      "id": "derringer",
+      "name": "Derringer"
+    },
+    {
+      "id": "gazette",
+      "name": "Εφημερίδα"
+    },
+    {
+      "id": "holster",
+      "name": "Θήκη Όπλου"
+    },
+    {
+      "id": "medicine_pouch",
+      "name": "Θήκη Φαρμάκων"
+    },
+    {
+      "id": "miners_map",
+      "name": "Χάρτης Μεταλλωρύχου"
+    },
+    {
+      "id": "mule",
+      "name": "Μουλάρι"
+    },
+    {
+      "id": "mustang",
+      "name": "Mustang"
+    },
+    {
+      "id": "peacekeeper",
+      "name": "Peacekeeper"
+    },
+    {
+      "id": "pocket_watch",
+      "name": "Ρολόι Τσέπης"
+    },
+    {
+      "id": "provisions",
+      "name": "Προμήθειες"
+    },
+    {
+      "id": "quarter_horse",
+      "name": "Quarter Horse"
+    },
+    {
+      "id": "repeating_shotgun",
+      "name": "Επαναληπτική Καραμπίνα"
+    },
+    {
+      "id": "revolver",
+      "name": "Περίστροφο"
+    },
+    {
+      "id": "rifle",
+      "name": "Τουφέκι"
+    },
+    {
+      "id": "saddle_bags",
+      "name": "Σαμάρια"
+    },
+    {
+      "id": "shotgun",
+      "name": "Καραμπίνα"
+    },
+    {
+      "id": "snake_oil",
+      "name": "Φιδέλαιο"
+    },
+    {
+      "id": "ten_gallon",
+      "name": "Καπέλο Ten Gallon"
+    },
+    {
+      "id": "whiskey",
+      "name": "Ουίσκι"
+    },
+    {
+      "id": "work_horse",
+      "name": "Άλογο Εργασίας"
+    }
+  ],
+  "legendary_items": [
+    {
+      "id": "bandolier",
+      "name": "Φυσιγγιοθήκη"
+    },
+    {
+      "id": "black_coat",
+      "name": "Μαύρο Παλτό"
+    },
+    {
+      "id": "bowie_knife",
+      "name": "Μαχαίρι Bowie"
+    },
+    {
+      "id": "canteen",
+      "name": "Παγούρι"
+    },
+    {
+      "id": "cattle_brand",
+      "name": "Σίδερο Μαρκάρισματος"
+    },
+    {
+      "id": "companion",
+      "name": "Σύντροφος"
+    },
+    {
+      "id": "dime_western",
+      "name": "Φτηνό Γουέστερν Μυθιστόρημα"
+    },
+    {
+      "id": "dragoons",
+      "name": "Dragoons"
+    },
+    {
+      "id": "dynamite",
+      "name": "Δυναμίτης"
+    },
+    {
+      "id": "fiddle",
+      "name": "Βιολί"
+    },
+    {
+      "id": "lasso",
+      "name": "Λάσο"
+    },
+    {
+      "id": "lightning",
+      "name": "Αστραπή"
+    },
+    {
+      "id": "lucky_coin",
+      "name": "Τυχερό Νόμισμα"
+    },
+    {
+      "id": "marked_cards",
+      "name": "Σημαδεμένες Κάρτες"
+    },
+    {
+      "id": "marshals_badge",
+      "name": "Σήμα Μάρσαλ"
+    },
+    {
+      "id": "mesa_deed",
+      "name": "Τίτλος Ιδιοκτησίας Mesa"
+    },
+    {
+      "id": "molasses",
+      "name": "Μελάσα"
+    },
+    {
+      "id": "outlaws_mask",
+      "name": "Μάσκα Παρανόμου"
+    },
+    {
+      "id": "portrait",
+      "name": "Πορτρέτο"
+    },
+    {
+      "id": "pump_trolley",
+      "name": "Χειροκίνητη Δρεζίνα"
+    },
+    {
+      "id": "saber",
+      "name": "Σπάθη"
+    },
+    {
+      "id": "serape",
+      "name": "Σεράπε"
+    },
+    {
+      "id": "short_cut",
+      "name": "Συντόμευση"
+    },
+    {
+      "id": "shot_glass",
+      "name": "Ποτηράκι Σφηνάκι"
+    },
+    {
+      "id": "silver_flask",
+      "name": "Ασημένιο Φλασκί"
+    },
+    {
+      "id": "snakeskin_boots",
+      "name": "Μπότες από Δέρμα Φιδιού"
+    },
+    {
+      "id": "spurs",
+      "name": "Σπιρούνια"
+    },
+    {
+      "id": "spyglass",
+      "name": "Κιάλια"
+    },
+    {
+      "id": "strongbox",
+      "name": "Χρηματοκιβώτιο"
+    },
+    {
+      "id": "telegram",
+      "name": "Τηλεγράφημα"
+    },
+    {
+      "id": "thunder",
+      "name": "Βροντή"
+    },
+    {
+      "id": "tomahawk",
+      "name": "Τομαχόκ"
+    },
+    {
+      "id": "treasure_map",
+      "name": "Χάρτης Θησαυρού"
+    }
+  ]
+}

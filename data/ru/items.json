@@ -1,515 +1,238 @@
 {
-  "storeLayout": {
-    "generalStore": {
-      "slots": 12
-    },
-    "tradingPost": {
-      "slots": 6,
-      "requiredModules": [
-        "ante_up_sideboard"
-      ]
-    }
-  },
   "items": [
     {
       "id": "bedroll",
-      "name": "Спальный рулон",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "wild_bunch_of_extras"
-      ]
+      "name": "Спальный рулон"
     },
     {
       "id": "boot_knife",
-      "name": "Сапожный нож",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Сапожный нож"
     },
     {
       "id": "bullwhip",
-      "name": "Кнут",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Кнут"
     },
     {
       "id": "burro",
-      "name": "Ослик",
-      "type": "mount",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Ослик"
     },
     {
       "id": "carbine",
-      "name": "Карабин",
-      "type": "weapon",
-      "icon": "",
-      "requiredModules": [
-        "promo_carbine"
-      ]
+      "name": "Карабин"
     },
     {
       "id": "derringer",
-      "name": "Derringer",
-      "type": "weapon",
-      "icon": "",
-      "requiredModules": [
-        "ante_up"
-      ]
+      "name": "Derringer"
     },
     {
       "id": "gazette",
-      "name": "Gazette",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "ante_up"
-      ]
+      "name": "Gazette"
     },
     {
       "id": "holster",
-      "name": "Holster",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "fistful_of_extras"
-      ]
+      "name": "Holster"
     },
     {
       "id": "medicine_pouch",
-      "name": "Сумка с лекарствами",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Сумка с лекарствами"
     },
     {
       "id": "miners_map",
-      "name": "Карта шахтёра",
-      "type": "misc",
-      "icon": ""
+      "name": "Карта шахтёра"
     },
     {
       "id": "mule",
-      "name": "Мул",
-      "type": "mount",
-      "icon": ""
+      "name": "Мул"
     },
     {
       "id": "mustang",
-      "name": "Mustang",
-      "type": "mount",
-      "icon": ""
+      "name": "Mustang"
     },
     {
       "id": "peacekeeper",
-      "name": "Миротворец",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "fistful_of_extras"
-      ]
+      "name": "Миротворец"
     },
     {
       "id": "pocket_watch",
-      "name": "Карманные часы",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Карманные часы"
     },
     {
       "id": "provisions",
-      "name": "Припасы",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "fistful_of_extras"
-      ]
+      "name": "Припасы"
     },
     {
       "id": "quarter_horse",
-      "name": "Quarter Horse",
-      "type": "mount",
-      "icon": "",
-      "requiredModules": [
-        "ante_up"
-      ]
+      "name": "Quarter Horse"
     },
     {
       "id": "repeating_shotgun",
-      "name": "Многозарядный дробовик",
-      "type": "weapon",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Многозарядный дробовик"
     },
     {
       "id": "revolver",
-      "name": "Revolver",
-      "type": "weapon",
-      "icon": ""
+      "name": "Revolver"
     },
     {
       "id": "rifle",
-      "name": "Винтовка",
-      "type": "weapon",
-      "icon": ""
+      "name": "Винтовка"
     },
     {
       "id": "saddle_bags",
-      "name": "Седельные сумки",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "wild_bunch_of_extras"
-      ]
+      "name": "Седельные сумки"
     },
     {
       "id": "shotgun",
-      "name": "Дробовик",
-      "type": "weapon",
-      "icon": ""
+      "name": "Дробовик"
     },
     {
       "id": "snake_oil",
-      "name": "Змеиное масло",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "ante_up"
-      ]
+      "name": "Змеиное масло"
     },
     {
       "id": "ten_gallon",
-      "name": "Десятигаллонная шляпа",
-      "type": "misc",
-      "icon": ""
+      "name": "Десятигаллонная шляпа"
     },
     {
       "id": "whiskey",
-      "name": "Whiskey",
-      "type": "misc",
-      "icon": ""
+      "name": "Whiskey"
     },
     {
       "id": "work_horse",
-      "name": "Рабочая лошадь",
-      "type": "mount",
-      "icon": "",
-      "requiredModules": [
-        "fistful_of_extras"
-      ]
+      "name": "Рабочая лошадь"
     }
   ],
   "legendary_items": [
     {
       "id": "bandolier",
-      "name": "Патронташ",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "wild_bunch_of_extras"
-      ]
+      "name": "Патронташ"
     },
     {
       "id": "black_coat",
-      "name": "Чёрное пальто",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "the_good_the_bad_and_the_handsome"
-      ]
+      "name": "Чёрное пальто"
     },
     {
       "id": "bowie_knife",
-      "name": "Нож Боуи",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "the_good_the_bad_and_the_handsome"
-      ]
+      "name": "Нож Боуи"
     },
     {
       "id": "canteen",
-      "name": "Фляга",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Фляга"
     },
     {
       "id": "cattle_brand",
-      "name": "Клеймо для скота",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Клеймо для скота"
     },
     {
       "id": "companion",
-      "name": "Компаньон",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "the_good_the_bad_and_the_handsome"
-      ]
+      "name": "Компаньон"
     },
     {
       "id": "dime_western",
-      "name": "Бульварный вестерн",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Бульварный вестерн"
     },
     {
       "id": "dragoons",
-      "name": "Драгунские пистолеты",
-      "type": "weapon",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Драгунские пистолеты"
     },
     {
       "id": "dynamite",
-      "name": "Динамит",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "the_good_the_bad_and_the_handsome"
-      ]
+      "name": "Динамит"
     },
     {
       "id": "fiddle",
-      "name": "Скрипка",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Скрипка"
     },
     {
       "id": "lasso",
-      "name": "Lasso",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "the_good_the_bad_and_the_handsome"
-      ]
+      "name": "Lasso"
     },
     {
       "id": "lightning",
-      "name": "Молния",
-      "type": "mount",
-      "icon": "",
-      "requiredModules": [
-        "the_good_the_bad_and_the_handsome"
-      ]
+      "name": "Молния"
     },
     {
       "id": "lucky_coin",
-      "name": "Счастливая монета",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "wild_bunch_of_extras"
-      ]
+      "name": "Счастливая монета"
     },
     {
       "id": "marked_cards",
-      "name": "Краплёные карты",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "wild_bunch_of_extras"
-      ]
+      "name": "Краплёные карты"
     },
     {
       "id": "marshals_badge",
-      "name": "Значок Маршала",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "the_good_the_bad_and_the_handsome"
-      ]
+      "name": "Значок Маршала"
     },
     {
       "id": "mesa_deed",
-      "name": "Документ на Месу",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "the_good_the_bad_and_the_handsome"
-      ]
+      "name": "Документ на Месу"
     },
     {
       "id": "molasses",
-      "name": "Патока",
-      "type": "mount",
-      "icon": "",
-      "requiredModules": [
-        "wild_bunch_of_extras"
-      ]
+      "name": "Патока"
     },
     {
       "id": "outlaws_mask",
-      "name": "Маска преступника",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "the_good_the_bad_and_the_handsome"
-      ]
+      "name": "Маска преступника"
     },
     {
       "id": "portrait",
-      "name": "Портрет",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Портрет"
     },
     {
       "id": "pump_trolley",
-      "name": "Ручная дрезина",
-      "type": "mount",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Ручная дрезина"
     },
     {
       "id": "saber",
-      "name": "Сабля",
-      "type": "weapon",
-      "icon": "",
-      "requiredModules": [
-        "wild_bunch_of_extras"
-      ]
+      "name": "Сабля"
     },
     {
       "id": "serape",
-      "name": "Serape",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "wild_bunch_of_extras"
-      ]
+      "name": "Serape"
     },
     {
       "id": "short_cut",
-      "name": "Срез пути",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Срез пути"
     },
     {
       "id": "shot_glass",
-      "name": "Рюмка",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Рюмка"
     },
     {
       "id": "silver_flask",
-      "name": "Серебряная фляга",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "the_good_the_bad_and_the_handsome"
-      ]
+      "name": "Серебряная фляга"
     },
     {
       "id": "snakeskin_boots",
-      "name": "Сапоги из змеиной кожи",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Сапоги из змеиной кожи"
     },
     {
       "id": "spurs",
-      "name": "Шпоры",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Шпоры"
     },
     {
       "id": "spyglass",
-      "name": "Подзорная труба",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "wild_bunch_of_extras"
-      ]
+      "name": "Подзорная труба"
     },
     {
       "id": "strongbox",
-      "name": "Сейф",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "big_box"
-      ]
+      "name": "Сейф"
     },
     {
       "id": "telegram",
-      "name": "Телеграмма",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Телеграмма"
     },
     {
       "id": "thunder",
-      "name": "Гром",
-      "type": "weapon",
-      "icon": "",
-      "requiredModules": [
-        "the_good_the_bad_and_the_handsome"
-      ]
+      "name": "Гром"
     },
     {
       "id": "tomahawk",
-      "name": "Tomahawk",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "the_good_the_bad_and_the_handsome"
-      ]
+      "name": "Tomahawk"
     },
     {
       "id": "treasure_map",
-      "name": "Карта сокровищ",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "wild_bunch_of_extras"
-      ]
+      "name": "Карта сокровищ"
     }
   ]
 }

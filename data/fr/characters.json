@@ -1,0 +1,769 @@
+{
+  "characters": [
+    {
+      "id": "annie_oakley",
+      "name": "Annie Oakley",
+      "starting": {
+        "location": "N'importe quelle case du magasin général de Darkrock"
+      },
+      "ability": "Au début d’un combat contre un autre joueur, ce joueur doit défausser 1 carte de Poker ou subir 1 Blessure.",
+      "playstyle": {
+        "tags": [
+          "Combat",
+          "Duels",
+          "Pression sur la main"
+        ],
+        "strength": "Met immédiatement un autre joueur sous pression avant même le début du combat.",
+        "focus": "Cherchez les combats lorsque vos adversaires ont peu de cartes de Poker ou ne peuvent pas se permettre une Blessure supplémentaire."
+      }
+    },
+    {
+      "id": "bass_reeves",
+      "name": "Bass Reeves",
+      "starting": {
+        "location": "Bureau du Sheriff de Darkrock"
+      },
+      "ability": "Au début de votre tour, piochez 1 carte de Poker.",
+      "playstyle": {
+        "tags": [
+          "Avantage de cartes",
+          "Poker",
+          "Polyvalent"
+        ],
+        "strength": "Génère régulièrement une carte de Poker supplémentaire au début de chaque tour.",
+        "focus": "Profitez de votre main plus grande pour rester prêt aux combats, au Poker et aux actions dépendant des cartes."
+      }
+    },
+    {
+      "id": "billy_the_kid",
+      "name": "Billy the Kid",
+      "starting": {
+        "location": "L'un des repaires de Bandits A"
+      },
+      "ability": "Après avoir terminé une action Déplacement sur une case avec un ou plusieurs joueurs, un joueur de votre choix sur cette case doit vous donner 10 $ ou 1 carte de Poker.",
+      "playstyle": {
+        "tags": [
+          "Interaction entre joueurs",
+          "Déplacement",
+          "Économie"
+        ],
+        "strength": "Obtient de l’argent ou des cartes simplement en terminant son déplacement avec d’autres joueurs.",
+        "focus": "Cherchez les cases occupées et mettez la pression sur les joueurs riches ou à court de cartes de Poker."
+      }
+    },
+    {
+      "id": "bloody_knife",
+      "name": "Bloody Knife",
+      "starting": {
+        "location": "Mine de Spike's View"
+      },
+      "ability": "Vous pouvez traverser une Mesa comme si elle ne constituait qu’une seule case. Vous ne pouvez pas terminer une action Déplacement dans une Mesa. Après avoir traversé une Mesa, perdez 1 Blessure.",
+      "playstyle": {
+        "tags": [
+          "Déplacement",
+          "Frontière",
+          "Raccourcis"
+        ],
+        "strength": "Peut traverser les Mesas comme une seule case et emprunter des itinéraires inaccessibles aux autres personnages.",
+        "focus": "Utilisez les raccourcis des Mesas pour économiser du déplacement tout en gérant le coût en Blessures."
+      }
+    },
+    {
+      "id": "calamity_jane",
+      "name": "Calamity Jane",
+      "starting": {
+        "location": "N'importe quelle case du magasin général de Red Falls"
+      },
+      "ability": "Votre limite de main est augmentée de 1. Après avoir contribué à une carte Histoire, piochez 1 carte de Poker.",
+      "playstyle": {
+        "tags": [
+          "Avantage de cartes",
+          "Histoire",
+          "Grande main"
+        ],
+        "strength": "Conserve une carte supplémentaire et gagne davantage de cartes en contribuant aux cartes Histoire.",
+        "focus": "Cherchez les occasions de contribuer aux Histoires tout en exploitant votre plus grande main pour rester flexible."
+      }
+    },
+    {
+      "id": "doc_holliday",
+      "name": "Doc Holliday",
+      "starting": {
+        "location": "Cabinet du Docteur de Red Falls"
+      },
+      "ability": "Après avoir subi n’importe quel nombre de Blessures, piochez 1 carte de Poker. Les Blessures ne réduisent pas votre limite de main.",
+      "playstyle": {
+        "tags": [
+          "Blessures",
+          "Avantage de cartes",
+          "Résilience"
+        ],
+        "strength": "Transforme les Blessures subies en cartes de Poker et ignore la réduction normale de limite de main causée par les Blessures.",
+        "focus": "N’ayez pas peur de subir quelques dégâts si les cartes supplémentaires peuvent renforcer votre tour."
+      }
+    },
+    {
+      "id": "jesse_james",
+      "name": "Jesse James",
+      "starting": {
+        "location": "L'un des repaires de Bandits B"
+      },
+      "ability": "Lors d’un combat hors d’une ville, réduisez de 1 la valeur d’une carte jouée contre vous. Lors d’un combat contre un autre joueur, vous remportez toutes les égalités.",
+      "playstyle": {
+        "tags": [
+          "Combat",
+          "Frontière",
+          "Duels"
+        ],
+        "strength": "Est particulièrement difficile à battre hors des villes et remporte les égalités contre les joueurs.",
+        "focus": "Choisissez soigneusement vos lieux de combat et privilégiez les affrontements sur la frontière."
+      }
+    },
+    {
+      "id": "kit_carson",
+      "name": "Kit Carson",
+      "starting": {
+        "location": "Mine de Sunny Hill's"
+      },
+      "ability": "À la fin d’une action Déplacement, vous pouvez vous déplacer de 1 case supplémentaire. Lors d’un combat hors d’une ville, réduisez de 1 la valeur d’une carte jouée contre vous.",
+      "playstyle": {
+        "tags": [
+          "Déplacement",
+          "Frontière",
+          "Combat"
+        ],
+        "strength": "Associe un déplacement supplémentaire à une meilleure défense lors des combats hors des villes.",
+        "focus": "Restez mobile sur la frontière et utilisez la case bonus pour atteindre des positions rentables ou tactiques."
+      }
+    },
+    {
+      "id": "stagecoach_mary_fields",
+      "name": "Stagecoach Mary Fields",
+      "starting": {
+        "location": "N'importe quelle case de Saloon de Darkrock"
+      },
+      "ability": "Au début de votre tour, gagnez 10 $. Après avoir contribué à une carte Histoire, gagnez 10 $.",
+      "playstyle": {
+        "tags": [
+          "Économie",
+          "Histoire",
+          "Revenus"
+        ],
+        "strength": "Produit des revenus fiables à chaque tour et gagne encore plus en contribuant aux cartes Histoire.",
+        "focus": "Maintenez ce revenu régulier et cherchez les contributions aux Histoires qui vous rapportent une seconde fois."
+      }
+    },
+    {
+      "id": "wild_bill_hickok",
+      "name": "Wild Bill Hickok",
+      "starting": {
+        "location": "Cabaret de Red Falls"
+      },
+      "ability": "Après avoir gagné une partie de Poker, gagnez 20 $. Après avoir perdu une partie de Poker, vous pouvez conserver 1 carte de Poker aléatoire que vous avez jouée.",
+      "playstyle": {
+        "tags": [
+          "Poker",
+          "Économie",
+          "Récupération de cartes"
+        ],
+        "strength": "Rend le Poker plus rentable tout en atténuant le coût d’une défaite.",
+        "focus": "Jouez souvent au Poker, surtout lorsque votre main a de bonnes chances de transformer la partie en argent."
+      }
+    },
+    {
+      "id": "wyatt_earp",
+      "name": "Wyatt Earp",
+      "starting": {
+        "location": "N'importe quel Repaire de Bandits disponible"
+      },
+      "ability": "La première fois que vous remportez un combat contre un Bandit à chaque tour, gagnez 1 action supplémentaire.",
+      "playstyle": {
+        "tags": [
+          "Bandits",
+          "Actions",
+          "Combat"
+        ],
+        "strength": "Transforme la première victoire contre un Bandit de chaque tour en action supplémentaire.",
+        "focus": "Trouvez un Bandit tôt dans le tour afin que l’action bonus puisse prolonger tout ce que vous faites ensuite."
+      }
+    },
+    {
+      "id": "y_b_rowdy",
+      "name": "Y. B. Rowdy",
+      "starting": {
+        "location": "Mine de Cliff Junction"
+      },
+      "ability": "Si vous commencez votre tour hors d’une ville, vous pouvez défausser 1 carte de Poker pour vous déplacer jusqu’à 3 cases.",
+      "playstyle": {
+        "tags": [
+          "Déplacement",
+          "Cartes de Poker",
+          "Frontière"
+        ],
+        "strength": "Peut échanger une carte de Poker contre une poussée de déplacement lorsqu’il commence hors d’une ville.",
+        "focus": "Gardez des cartes de réserve et profitez des départs sur la frontière pour vous repositionner rapidement."
+      }
+    },
+    {
+      "id": "judge_roy_bean",
+      "name": "Judge Roy Bean",
+      "starting": {
+        "location": "N'importe quelle case de Saloon de Red Falls"
+      },
+      "ability": "Lors d’un combat contre un Bandit, un Garde ou le Sheriff, celui-ci doit choisir et révéler sa carte en premier. Lors d’un combat contre un Bandit, un Garde ou le Sheriff, vous remportez toutes les égalités.",
+      "playstyle": {
+        "tags": [
+          "Combat contre PNJ",
+          "Bandits",
+          "Avantage au combat"
+        ],
+        "strength": "Obtient des informations supplémentaires et remporte les égalités contre les Bandits, les Gardes et le Sheriff.",
+        "focus": "Recherchez les combats contre PNJ où voir leur carte d’abord vous permet de ne dépenser que la force nécessaire."
+      }
+    },
+    {
+      "id": "butch_cassity",
+      "name": "Butch Cassity",
+      "starting": {
+        "location": "L'un des repaires de Bandits C"
+      },
+      "ability": "Après avoir volé un autre joueur, vous pouvez voler 1 objet divers que vous ne possédez pas déjà au lieu de la moitié de son argent ou de ses Pépites d’Or. Après avoir arrêté un autre joueur, vous pouvez voler la moitié de son argent ou de ses Pépites d’Or.",
+      "playstyle": {
+        "tags": [
+          "Interaction entre joueurs",
+          "Vol",
+          "Alignement flexible"
+        ],
+        "strength": "Peut prendre de précieuses ressources aux adversaires aussi bien comme voleur que comme représentant de la loi procédant à une arrestation.",
+        "focus": "Ciblez les joueurs dont les objets, l’argent ou les Pépites d’Or rendent votre alignement actuel le plus profitable."
+      }
+    },
+    {
+      "id": "joaquin_murrieta",
+      "name": "Joaquin Murrieta",
+      "starting": {
+        "location": "N'importe quelle case du magasin général de Darkrock"
+      },
+      "ability": "Si vous êtes un joueur Wanted, gagnez 1 LP après avoir combattu un joueur Marshal. Si vous êtes un joueur Marshal, gagnez 1 LP après avoir combattu un joueur Wanted.",
+      "playstyle": {
+        "tags": [
+          "Marshal / Wanted",
+          "Combat",
+          "LP"
+        ],
+        "strength": "Gagne des LP en combattant les joueurs de l’autre côté de la loi.",
+        "focus": "Engagez-vous sur une piste et cherchez les affrontements avec les joueurs de la piste opposée."
+      }
+    },
+    {
+      "id": "belle_starr",
+      "name": "Belle Starr",
+      "starting": {
+        "location": "N'importe quelle case du magasin général de Red Falls"
+      },
+      "ability": "Lors d’un combat contre un Bandit, un Garde ou le Sheriff, réduisez de 2 la valeur de la carte de combat jouée contre vous. Après avoir remporté un combat contre un Bandit, vous pouvez choisir de gagner 1 Point Wanted à la place.",
+      "playstyle": {
+        "tags": [
+          "Combat contre PNJ",
+          "Bandits",
+          "Wanted"
+        ],
+        "strength": "Est très forte contre les adversaires PNJ et peut transformer les victoires contre les Bandits en progression Wanted.",
+        "focus": "Chassez les Bandits et autres PNJ, puis décidez quand une victoire contre un Bandit mérite d’avancer davantage sur la piste Wanted."
+      }
+    },
+    {
+      "id": "isom_dart",
+      "name": "Isom Dart",
+      "starting": {
+        "location": "Ranch de Sunny Hills"
+      },
+      "ability": "Si vous commencez votre tour avec au moins 1 jeton Bétail, vous pouvez gagner 1 action supplémentaire. Si vous le faites, vous devez défausser tous vos jetons Bétail à la fin de votre tour.",
+      "playstyle": {
+        "tags": [
+          "Bétail",
+          "Actions",
+          "Élevage"
+        ],
+        "strength": "Peut convertir un jeton Bétail transporté en action supplémentaire pour le tour.",
+        "focus": "Organisez vos tours importants pour commencer avec du Bétail lorsque l’action supplémentaire vaut la perte de ces jetons."
+      }
+    },
+    {
+      "id": "allan_pinkerton",
+      "name": "Allan Pinkerton",
+      "starting": {
+        "location": "Banque de Darkrock"
+      },
+      "ability": "Action : choisissez un joueur à 1 case ou moins pour qu’il vous montre ses cartes de Poker. Ce joueur doit défausser toutes les cartes d’une valeur de votre choix.",
+      "playstyle": {
+        "tags": [
+          "Contrôle de main",
+          "Interaction entre joueurs",
+          "Cartes de Poker"
+        ],
+        "strength": "Peut examiner la main d’un joueur proche et lui retirer toutes les cartes d’une valeur choisie.",
+        "focus": "Approchez-vous des adversaires importants et perturbez leur main avant un combat ou une autre action disputée."
+      }
+    },
+    {
+      "id": "buffalo_bill_cody",
+      "name": "Buffalo Bill Cody",
+      "starting": {
+        "location": "Ranch de Mesito's Point"
+      },
+      "ability": "Si vous commencez votre tour hors d’une ville, gagnez 1 Pépite d’Or.",
+      "playstyle": {
+        "tags": [
+          "Or",
+          "Frontière",
+          "Économie"
+        ],
+        "strength": "Génère gratuitement une Pépite d’Or chaque fois qu’il commence son tour hors d’une ville.",
+        "focus": "Planifiez des itinéraires qui se terminent sur la frontière et encaissez l’or accumulé au moment le plus efficace."
+      }
+    },
+    {
+      "id": "bat_masterson",
+      "name": "Bat Masterson",
+      "starting": {
+        "location": "Dixon Creek"
+      },
+      "ability": "Au début de votre tour, vous pouvez ajouter ou retirer 1 Bandit de n’importe quel Repaire de Bandits pour vous déplacer jusqu’à 2 cases. (Un Bandit ne peut être ajouté qu’à un Repaire de Bandits inoccupé.)",
+      "playstyle": {
+        "tags": [
+          "Bandits",
+          "Déplacement",
+          "Contrôle du plateau"
+        ],
+        "strength": "Manipule les Repaires de Bandits tout en obtenant du déplacement gratuit.",
+        "focus": "Utilisez l’ajout et le retrait de Bandits pour améliorer l’état du plateau tout en vous repositionnant."
+      }
+    },
+    {
+      "id": "pearl_hart",
+      "name": "Pearl Hart",
+      "starting": {
+        "location": "Dixon Creek"
+      },
+      "ability": "Après avoir gagné n’importe quel nombre de Points Marshal ou Wanted pendant votre tour, piochez 1 carte de Poker et déplacez-vous jusqu’à 2 cases.",
+      "playstyle": {
+        "tags": [
+          "Marshal / Wanted",
+          "Avantage de cartes",
+          "Déplacement"
+        ],
+        "strength": "Toute progression Marshal ou Wanted peut immédiatement produire à la fois une carte et du déplacement supplémentaire.",
+        "focus": "Déclenchez fréquemment des gains sur les pistes et utilisez le mouvement bonus pour enchaîner sur votre prochain objectif."
+      }
+    },
+    {
+      "id": "ada_curnutt",
+      "name": "Ada Curnutt",
+      "starting": {
+        "location": "N'importe quelle case de Saloon de Buzzard Gulch"
+      },
+      "ability": "Au début de votre tour, déplacez-vous d’un nombre de cases allant jusqu’à votre niveau sur la piste Marshal ou Wanted. (Le niveau est déterminé par la rangée où se trouve votre cube.)",
+      "playstyle": {
+        "tags": [
+          "Déplacement",
+          "Marshal / Wanted",
+          "Positionnement sur piste"
+        ],
+        "strength": "Son potentiel de déplacement augmente avec son niveau sur la piste Marshal ou Wanted.",
+        "focus": "Montez tôt sur une piste afin que les tours suivants bénéficient d’un déplacement gratuit plus puissant."
+      }
+    },
+    {
+      "id": "dave_rudabaugh",
+      "name": "Dave Rudabaugh",
+      "starting": {
+        "location": "Placez-le en dernier sur une case avec un autre joueur"
+      },
+      "ability": "À la fin d’une action Déplacement, vous pouvez vous déplacer de 1 case supplémentaire. La première fois que vous terminez une action Déplacement sur la même case qu’un autre joueur pendant ce tour, piochez 1 carte de Poker.",
+      "playstyle": {
+        "tags": [
+          "Déplacement",
+          "Interaction entre joueurs",
+          "Avantage de cartes"
+        ],
+        "strength": "Se déplace plus loin que la normale et pioche une carte une fois par tour en terminant son déplacement avec un autre joueur.",
+        "focus": "Tracez vos déplacements par des destinations utiles qui vous permettent également de finir à côté d’un autre joueur."
+      }
+    },
+    {
+      "id": "johnny_ringo",
+      "name": "Johnny Ringo",
+      "starting": {
+        "location": "Ranch de Buzzard Gulch"
+      },
+      "ability": "À la fin d’un combat, perdez 1 Blessure. À la fin d’un combat contre un autre joueur, ce joueur subit 1 Blessure.",
+      "playstyle": {
+        "tags": [
+          "Combat",
+          "Blessures",
+          "Agression"
+        ],
+        "strength": "Récupère 1 Blessure après chaque combat tout en infligeant ensuite 1 Blessure aux adversaires joueurs.",
+        "focus": "Combattez souvent, surtout contre des joueurs, pour transformer les affrontements répétés en usure durable."
+      }
+    },
+    {
+      "id": "tiburcio_vasquez",
+      "name": "Tiburcio Vasquez",
+      "starting": {
+        "location": "Mountain Pass C"
+      },
+      "ability": "Action : déplacez votre cube sur la case numérotée correspondante de la piste Marshal ou Wanted sans gagner les récompenses.",
+      "playstyle": {
+        "tags": [
+          "Marshal / Wanted",
+          "Contrôle de piste",
+          "Flexibilité"
+        ],
+        "strength": "Peut se repositionner directement sur la piste Marshal ou Wanted sans devoir gagner chaque case intermédiaire.",
+        "focus": "Utilisez l’action pour préparer la position sur la piste qui sert le mieux votre prochain plan tactique ou de score."
+      }
+    },
+    {
+      "id": "fee_lee_wong",
+      "name": "Fee Lee Wong",
+      "starting": {
+        "location": "Case de frontière de valeur 8"
+      },
+      "ability": "Votre limite de main est augmentée de 1. Vous pouvez transporter au maximum 180 $.",
+      "playstyle": {
+        "tags": [
+          "Grande main",
+          "Économie",
+          "Capacité"
+        ],
+        "strength": "Peut conserver plus de cartes de Poker et beaucoup plus d’argent qu’un personnage normal.",
+        "focus": "Profitez des limites supérieures en accumulant des ressources pour les achats coûteux et les mains puissantes."
+      }
+    },
+    {
+      "id": "maria_gertrudis_barcelo",
+      "name": "Maria Gertrudis Barceló",
+      "starting": {
+        "location": "N'importe quelle case du Trading Post de Buzzard Gulch"
+      },
+      "ability": "Si vous commencez votre tour dans une ville, gagnez 10 $ ou piochez 1 carte de Poker.",
+      "playstyle": {
+        "tags": [
+          "Ville",
+          "Économie",
+          "Avantage de cartes"
+        ],
+        "strength": "Commencer un tour en ville offre un choix flexible entre de l’argent et une carte de Poker.",
+        "focus": "Terminez vos tours dans les villes lorsque c’est pratique et prenez la ressource dont votre prochain tour a le plus besoin."
+      }
+    },
+    {
+      "id": "pat_garrett",
+      "name": "Pat Garrett",
+      "starting": {
+        "location": "Bureau du Marshal de Buzzard Gulch"
+      },
+      "ability": "Action : une fois par tour, vous pouvez déplacer le Sheriff jusqu’à 6 cases. Gagnez 1 LP si cela entraîne une arrestation.",
+      "playstyle": {
+        "tags": [
+          "Sheriff",
+          "Marshal",
+          "LP"
+        ],
+        "strength": "Peut repositionner fortement le Sheriff et gagne des LP lorsque ce déplacement provoque une arrestation.",
+        "focus": "Surveillez les positions des joueurs Wanted et préparez des déplacements du Sheriff qui conduisent directement à des arrestations."
+      }
+    },
+    {
+      "id": "poker_alice",
+      "name": "Poker Alice",
+      "starting": {
+        "location": "Gare de Buzzard Gulch"
+      },
+      "ability": "Action : une fois par tour, piochez 1 carte de Poker et lancez une partie de Poker. N’importe quel joueur peut participer, quel que soit son emplacement.",
+      "playstyle": {
+        "tags": [
+          "Poker",
+          "Avantage de cartes",
+          "Interaction entre joueurs"
+        ],
+        "strength": "Peut lancer une partie de Poker depuis n’importe où tout en piochant une carte supplémentaire pour y participer.",
+        "focus": "Lancez une partie de Poker lorsque votre main est favorable plutôt que d’attendre d’être au bon endroit."
+      }
+    },
+    {
+      "id": "seth_bullock",
+      "name": "Seth Bullock",
+      "starting": {
+        "location": "N'importe quelle case du Trading Post de Buzzard Gulch"
+      },
+      "ability": "La première fois que vous remportez un combat contre un Bandit à chaque tour, piochez 2 cartes de Poker.",
+      "playstyle": {
+        "tags": [
+          "Bandits",
+          "Avantage de cartes",
+          "Combat"
+        ],
+        "strength": "La première victoire contre un Bandit de chaque tour produit deux cartes de Poker supplémentaires.",
+        "focus": "Essayez de vaincre un Bandit pendant les tours productifs pour garder une main bien fournie."
+      }
+    },
+    {
+      "id": "soapy_smith",
+      "name": "“Soapy” Smith",
+      "starting": {
+        "location": "N'importe quelle case du Trading Post de Buzzard Gulch"
+      },
+      "ability": "Après avoir gagné un Point Gambler, lancez 1 dé de Prospection et gagnez le résultat. Si vous obtenez Gravier, complétez votre main.",
+      "playstyle": {
+        "tags": [
+          "Jeu",
+          "Prospection",
+          "Ressources bonus"
+        ],
+        "strength": "Les gains de Gambler Points produisent aussi une récompense du dé de Prospection et peuvent parfois compléter votre main.",
+        "focus": "Recherchez la progression au jeu afin que chaque Point Gambler puisse produire des ressources supplémentaires."
+      }
+    },
+    {
+      "id": "sundance_kid",
+      "name": "Sundance Kid",
+      "starting": {
+        "location": "Mountain Pass A"
+      },
+      "ability": "Action : une fois par tour, vous pouvez vous déplacer sur la case où se trouve actuellement le Train. (Ceci est considéré comme une action Déplacement.)",
+      "playstyle": {
+        "tags": [
+          "Train",
+          "Déplacement",
+          "Mobilité"
+        ],
+        "strength": "Peut se déplacer directement jusqu’au Train une fois par tour, quelle que soit la distance normale.",
+        "focus": "Utilisez le Train comme destination mobile pour vous repositionner rapidement, provoquer des rencontres ou préparer des braquages."
+      }
+    },
+    {
+      "id": "william_curly_bill_brocius",
+      "name": "William “Curly Bill” Brocius",
+      "starting": {
+        "location": "Camp de Hors-la-loi de Buzzard Gulch"
+      },
+      "ability": "Si vous commencez votre tour hors d’une ville, piochez 2 cartes de Poker puis défaussez 1 carte de Poker de votre main.",
+      "playstyle": {
+        "tags": [
+          "Frontière",
+          "Filtrage de cartes",
+          "Cartes de Poker"
+        ],
+        "strength": "Commencer hors de la ville lui permet de voir deux nouvelles cartes de Poker et de conserver celle qui convient le mieux.",
+        "focus": "Terminez vos tours hors des villes et utilisez cette pioche/défausse pour améliorer continuellement votre main."
+      }
+    },
+    {
+      "id": "al_swearengen",
+      "name": "Al Swearengen",
+      "starting": {
+        "location": "Une case de Saloon correspondant au Titre de propriété choisi"
+      },
+      "ability": "Les Titres de propriété vous coûtent 10 $ de moins à acheter. Une fois par tour, vous pouvez défausser 1 carte de Poker pour utiliser la capacité Action de l’un de vos Titres de propriété.",
+      "playstyle": {
+        "tags": [
+          "Titres de propriété",
+          "Économie",
+          "Efficacité des actions"
+        ],
+        "strength": "Tire une valeur exceptionnellement forte des Titres de propriété et des actions qu’ils offrent.",
+        "focus": "Obtenez tôt des Titres de propriété utiles et construisez vos tours autour de leur utilisation répétée."
+      }
+    },
+    {
+      "id": "ben_hodges",
+      "name": "Ben Hodges",
+      "starting": {
+        "location": "N'importe quelle case de frontière inoccupée de valeur 6"
+      },
+      "ability": "La première fois que vous utilisez une action d’un objet ou d’une carte de Poker à chaque tour, gagnez 20 $.",
+      "playstyle": {
+        "tags": [
+          "Objets",
+          "Cartes de Poker",
+          "Économie"
+        ],
+        "strength": "La première action d’objet ou de carte de Poker utilisée à chaque tour rapporte également 20 $.",
+        "focus": "Prévoyez au moins une action admissible de carte ou d’objet à chaque tour afin de ne jamais gaspiller ce revenu bonus."
+      }
+    },
+    {
+      "id": "buckshot_roberts",
+      "name": "Buckshot Roberts",
+      "starting": {
+        "location": "Gare de Spike's View"
+      },
+      "ability": "Si vous commencez votre tour avec une Blessure grave, piochez 1 carte de Poker et gagnez 1 action.",
+      "playstyle": {
+        "tags": [
+          "Blessures graves",
+          "Avantage de cartes",
+          "Actions"
+        ],
+        "strength": "Commencer le tour blessé procure à la fois une carte de Poker et une action supplémentaire.",
+        "focus": "Comparez le bénéfice de rester blessé au risque et exploitez ce tempo supplémentaire lors des tours importants."
+      }
+    },
+    {
+      "id": "charley_parkhurst",
+      "name": "Charley Parkhurst",
+      "starting": {
+        "location": "Case du magasin général de Red Falls"
+      },
+      "ability": "Une fois pendant votre tour, vous pouvez relancer n’importe quel dé. Après avoir obtenu le résultat d’un lancer du dé de Risque, gagnez 1 Point d’Histoire.",
+      "playstyle": {
+        "tags": [
+          "Dé de Risque",
+          "Relances",
+          "Histoire"
+        ],
+        "strength": "Peut corriger un lancer de dé par tour et transforme les résultats du dé de Risque en Points d’Histoire.",
+        "focus": "Profitez des occasions d’utiliser le dé de Risque et gardez la relance pour les résultats qui comptent le plus."
+      }
+    },
+    {
+      "id": "elfego_baca",
+      "name": "Elfego Baca",
+      "starting": {
+        "location": "N'importe quelle case de frontière inoccupée de valeur 7"
+      },
+      "ability": "Tant que vous avez une arme améliorée, réduisez de 1 la valeur d’une carte jouée contre vous lors d’un combat. La première fois que vous devriez subir n’importe quel nombre de Blessures pendant votre tour, annulez-en 1.",
+      "playstyle": {
+        "tags": [
+          "Armes améliorées",
+          "Combat",
+          "Défense"
+        ],
+        "strength": "Une arme améliorée renforce sa défense en combat et il peut annuler la première Blessure subie pendant son tour.",
+        "focus": "Améliorez une arme tôt et utilisez cette protection supplémentaire pour engager les combats avec davantage de confiance."
+      }
+    },
+    {
+      "id": "james_bloody_arm_beckwourth",
+      "name": "James “Bloody Arm” Beckwourth",
+      "starting": {
+        "location": "N'importe quelle case de frontière inoccupée de valeur 7"
+      },
+      "ability": "Après avoir lancé le dé de Risque, piochez 1 carte de Poker. La première fois que vous remportez un combat pendant votre tour, gagnez 1 Point d’Histoire.",
+      "playstyle": {
+        "tags": [
+          "Dé de Risque",
+          "Combat",
+          "Histoire"
+        ],
+        "strength": "Les lancers du dé de Risque génèrent des cartes, tandis que la première victoire en combat de son tour génère un Point d’Histoire.",
+        "focus": "Cherchez des tours combinant un lancer de Risque et un combat gagnable pour déclencher les deux avantages."
+      }
+    },
+    {
+      "id": "lottie_deno",
+      "name": "Lottie Deno",
+      "starting": {
+        "location": "N'importe quelle case de Saloon inoccupée"
+      },
+      "ability": "Après avoir utilisé un effet bonus d’une carte de Poker, gagnez 1 Point d’Histoire.",
+      "playstyle": {
+        "tags": [
+          "Cartes de Poker",
+          "Histoire",
+          "Effets bonus"
+        ],
+        "strength": "Transforme les effets bonus des cartes de Poker en Points d’Histoire supplémentaires.",
+        "focus": "Privilégiez les occasions d’utiliser les effets bonus des cartes de Poker plutôt que de traiter les cartes uniquement comme des valeurs de combat."
+      }
+    },
+    {
+      "id": "lozen",
+      "name": "Lozen",
+      "starting": {
+        "location": "N'importe quelle case de frontière inoccupée de valeur 7"
+      },
+      "ability": "Au début de votre tour, vous pouvez regarder la première carte du deck Combat, du deck Poker ou du deck Rencontre du Train. Vous pouvez choisir de placer cette carte sous le deck.",
+      "playstyle": {
+        "tags": [
+          "Contrôle des decks",
+          "Information",
+          "Flexibilité"
+        ],
+        "strength": "Peut voir et refuser la première carte de plusieurs decks importants avant de s’engager dans ce qui suit.",
+        "focus": "Utilisez ces informations avant les combats, les pioches de Poker ou les rencontres du Train pour éviter les mauvais résultats et en préparer de meilleurs."
+      }
+    },
+    {
+      "id": "texas_john_slaughter",
+      "name": "Texas John Slaughter",
+      "starting": {
+        "location": "N'importe quelle case de frontière inoccupée de valeur 6"
+      },
+      "ability": "Action : choisissez-en 2 : piochez 1 carte de Poker, gagnez 10 $, perdez 1 Blessure, déplacez-vous de 1 case ou faites apparaître 1 Bandit dans n’importe quel Repaire de Bandits.",
+      "playstyle": {
+        "tags": [
+          "Flexibilité",
+          "Actions",
+          "Bandits"
+        ],
+        "strength": "Son action peut combiner deux effets utiles parmi plusieurs et s’adapter à la situation immédiate.",
+        "focus": "Choisissez les deux effets qui répondent aux besoins les plus importants du tour actuel plutôt que de répéter toujours la même combinaison."
+      }
+    },
+    {
+      "id": "tom_tobin",
+      "name": "Tom Tobin",
+      "starting": {
+        "location": "N'importe quelle case de la même région que le Marchand Itinérant"
+      },
+      "ability": "Les Objets légendaires vous coûtent 10 $ de moins à acheter. Si vous terminez votre tour dans la même région que le Marchand Itinérant, vous pouvez acheter un Objet légendaire.",
+      "playstyle": {
+        "tags": [
+          "Objets légendaires",
+          "Économie",
+          "Marchand Itinérant"
+        ],
+        "strength": "Achète les Objets légendaires moins cher et peut commercer avec le Marchand Itinérant en terminant son tour à proximité.",
+        "focus": "Suivez le Marchand Itinérant et transformez la réduction en une collection précoce de puissants Objets légendaires."
+      }
+    },
+    {
+      "id": "aaron_ross",
+      "name": "Aaron Ross",
+      "starting": {
+        "location": "N'importe quel point de contrôle du train inoccupé"
+      },
+      "ability": "Au début de votre tour, choisissez 1 option : si vous avez au moins 60 $, piochez 1 carte de Poker ; si vous avez au moins 120 $, gagnez 1 LP.",
+      "playstyle": {
+        "tags": [
+          "Richesse",
+          "Économie",
+          "LP"
+        ],
+        "strength": "De grosses réserves d’argent deviennent un avantage régulier de cartes, voire des LP au début du tour.",
+        "focus": "Accumulez et protégez votre argent, 120 $ étant le seuil clé pour générer passivement des LP."
+      }
+    },
+    {
+      "id": "dark_knight",
+      "name": "Dark Knight",
+      "starting": {
+        "location": "Mine de Spike's View (grotte)"
+      },
+      "ability": "Lorsque vous entrez sur une case avec un Bandit ou un joueur Wanted, vous pouvez le faire fuir vers une case adjacente ou lui faire défausser au hasard 1 de ses cartes Combat/Poker.",
+      "playstyle": {
+        "tags": [
+          "Contrôle du plateau",
+          "Chasseurs de Wanted",
+          "Perturbation"
+        ],
+        "strength": "Peut perturber immédiatement un Bandit ou un joueur Wanted en entrant sur sa case.",
+        "focus": "Pourchassez les cibles dangereuses et utilisez le déplacement forcé ou la défausse aléatoire pour les affaiblir avant le prochain affrontement."
+      }
+    }
+  ]
+}

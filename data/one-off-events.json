@@ -199,7 +199,11 @@
           }
         ]
       }
-    ]
+    ],
+    "changes": {
+      "money": 10,
+      "pokerCards": 1
+    }
   },
   {
     "id": "hidden_sniper",
@@ -322,7 +326,11 @@
           }
         ]
       }
-    ]
+    ],
+    "changes": {
+      "wounds": 1,
+      "pokerCards": 1
+    }
   },
   {
     "id": "sheriffs_notice",
@@ -636,7 +644,10 @@
           }
         ]
       }
-    ]
+    ],
+    "changes": {
+      "wounds": 1
+    }
   },
   {
     "id": "claim_jumper_shadow",
@@ -712,7 +723,10 @@
           }
         ]
       }
-    ]
+    ],
+    "changes": {
+      "legendaryTokens": 1
+    }
   },
   {
     "id": "fools_gold",
@@ -754,7 +768,11 @@
           }
         ]
       }
-    ]
+    ],
+    "changes": {
+      "gold": -1,
+      "pokerCards": 2
+    }
   },
   {
     "id": "bankers_smile",
@@ -792,7 +810,10 @@
           }
         ]
       }
-    ]
+    ],
+    "changes": {
+      "money": "10PerGoldDeposited"
+    }
   },
   {
     "id": "assayer_dispute",
@@ -909,7 +930,10 @@
           }
         ]
       }
-    ]
+    ],
+    "changes": {
+      "money": 10
+    }
   },
   {
     "id": "counterfeit_goods",
@@ -1024,7 +1048,10 @@
           }
         ]
       }
-    ]
+    ],
+    "changes": {
+      "pokerCards": 1
+    }
   },
   {
     "id": "bad_medicine",
@@ -1099,7 +1126,10 @@
           }
         ]
       }
-    ]
+    ],
+    "changes": {
+      "pokerCards": "perLegendaryGained"
+    }
   },
   {
     "id": "cabaret_scandal",
@@ -1216,7 +1246,10 @@
           }
         ]
       }
-    ]
+    ],
+    "changes": {
+      "money": 20
+    }
   },
   {
     "id": "saloon_brawl",
@@ -1291,7 +1324,10 @@
           }
         ]
       }
-    ]
+    ],
+    "changes": {
+      "money": 10
+    }
   },
   {
     "id": "work_splintered_hand",
@@ -1449,7 +1485,10 @@
           }
         ]
       }
-    ]
+    ],
+    "changes": {
+      "money": 20
+    }
   },
   {
     "id": "clean_drive",
@@ -1487,7 +1526,10 @@
           }
         ]
       }
-    ]
+    ],
+    "changes": {
+      "money": 10
+    }
   },
   {
     "id": "broken_bridge",
@@ -1528,7 +1570,10 @@
           }
         ]
       }
-    ]
+    ],
+    "changes": {
+      "pokerCards": 1
+    }
   },
   {
     "id": "runaway_stage",
@@ -1615,7 +1660,11 @@
           }
         ]
       }
-    ]
+    ],
+    "changes": {
+      "wounds": 1,
+      "pokerCards": 1
+    }
   },
   {
     "id": "desert_shortcut",
@@ -1973,7 +2022,11 @@
             "type": "log_event",
             "id": "trader_no_questions_asked_wanted"
           }
-        ]
+        ],
+        "changes": {
+          "money": 20,
+          "wanted": 1
+        }
       },
       {
         "label": "Refuse",
@@ -2068,7 +2121,10 @@
           }
         ]
       }
-    ]
+    ],
+    "changes": {
+      "money": 10
+    }
   },
   {
     "id": "risk_pays",
@@ -2111,7 +2167,11 @@
           }
         ]
       }
-    ]
+    ],
+    "changes": {
+      "pokerCards": 1,
+      "story": 1
+    }
   },
   {
     "id": "risk_bites",
@@ -2195,7 +2255,10 @@
           }
         ]
       }
-    ]
+    ],
+    "changes": {
+      "money": 10
+    }
   },
   {
     "id": "frontier_cache",
@@ -2278,7 +2341,10 @@
           }
         ]
       }
-    ]
+    ],
+    "changes": {
+      "wounds": 1
+    }
   },
   {
     "id": "hunters_mark",
@@ -2363,7 +2429,11 @@
           }
         ]
       }
-    ]
+    ],
+    "changes": {
+      "wounds": 1,
+      "legendary": 1
+    }
   },
   {
     "id": "forager_cache",
@@ -2707,7 +2777,10 @@
           }
         ]
       }
-    ]
+    ],
+    "changes": {
+      "money": 10
+    }
   },
   {
     "id": "player_fight_crowd",
@@ -2805,7 +2878,10 @@
           }
         ]
       }
-    ]
+    ],
+    "changes": {
+      "pokerCards": 1
+    }
   },
   {
     "id": "sheriff_arrest_loose_cuffs",
@@ -2878,7 +2954,10 @@
           }
         ]
       }
-    ]
+    ],
+    "changes": {
+      "pokerCards": 1
+    }
   },
   {
     "id": "rail_late_freight",
@@ -2918,7 +2997,10 @@
           }
         ]
       }
-    ]
+    ],
+    "changes": {
+      "money": 10
+    }
   },
   {
     "id": "mountain_pass_rockslide",

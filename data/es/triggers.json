@@ -8,24 +8,12 @@
       "Entre los sucesos destacados del día, un jinete recorrió cuatro o más espacios en una sola acción de Movimiento.",
       "Testigos de todo el territorio informaron de que un jinete recorrió cuatro o más espacios en una sola acción de Movimiento."
     ],
-    "category": "movement",
-    "baseWeight": 12,
-    "requiredModules": [],
-    "tags": [
-      "move",
-      "travel"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/ride.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Mover 4+ en una acción de MOVIMIENTO",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-gallop.mp3"
+    ]
   },
   {
     "id": "trig_end_outside_town",
@@ -36,24 +24,12 @@
       "Entre los sucesos destacados del día, un jinete terminó su viaje en la frontera abierta en lugar de ponerse a salvo en la ciudad.",
       "Testigos de todo el territorio informaron de que un jinete terminó su viaje en la frontera abierta en lugar de ponerse a salvo en la ciudad."
     ],
-    "category": "movement",
-    "baseWeight": 8,
-    "requiredModules": [],
-    "tags": [
-      "move",
-      "frontier"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/night.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Terminar el MOVIMIENTO fuera de la ciudad",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-wolf.mp3"
+    ]
   },
   {
     "id": "trig_enter_dixon_creek",
@@ -64,24 +40,12 @@
       "Entre los sucesos destacados del día, un jinete entró en las ásperas tierras de Dixon Creek.",
       "Testigos de todo el territorio informaron de que un jinete entró en las ásperas tierras de Dixon Creek."
     ],
-    "category": "movement",
-    "baseWeight": 6,
-    "requiredModules": [],
-    "tags": [
-      "dixon_creek",
-      "ambush"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/canyon.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Entrar en Dixon Creek",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-water.mp3"
+    ]
   },
   {
     "id": "trig_enter_mesitos_point",
@@ -92,25 +56,12 @@
       "Entre los sucesos destacados del día, un jinete pasó por Mesito’s Point.",
       "Testigos de todo el territorio informaron de que un jinete pasó por Mesito’s Point."
     ],
-    "category": "movement",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "mesitos_point",
-      "green_ranch",
-      "bandit_a"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/overlook.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Entrar en Mesito’s Point",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-water.mp3"
+    ]
   },
   {
     "id": "trig_enter_sunny_hills",
@@ -121,25 +72,12 @@
       "Entre los sucesos destacados del día, un jinete entró en la región de Sunny Hills.",
       "Testigos de todo el territorio informaron de que un jinete entró en la región de Sunny Hills."
     ],
-    "category": "movement",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "sunny_hills",
-      "mine",
-      "blue_ranch"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/sunny.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Entrar en Sunny Hills",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-walk.mp3"
+    ]
   },
   {
     "id": "trig_enter_spikes_view",
@@ -150,25 +88,12 @@
       "Entre los sucesos destacados del día, un jinete llegó a Spike’s View.",
       "Testigos de todo el territorio informaron de que un jinete llegó a Spike’s View."
     ],
-    "category": "movement",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "spikes_view",
-      "mine",
-      "rail_station"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/cliff.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Entrar en Spike’s View",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-walk.mp3"
+    ]
   },
   {
     "id": "trig_enter_cliff_junction",
@@ -179,25 +104,12 @@
       "Entre los sucesos destacados del día, un jinete entró en Cliff Junction.",
       "Testigos de todo el territorio informaron de que un jinete entró en Cliff Junction."
     ],
-    "category": "movement",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "cliff_junction",
-      "mine",
-      "bandit_c"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/barren.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Entrar en Cliff Junction",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-walk.mp3"
+    ]
   },
   {
     "id": "trig_bank_heist",
@@ -208,25 +120,12 @@
       "Entre los sucesos destacados del día, un forajido puso en marcha un atraco al banco.",
       "Testigos de todo el territorio informaron de que un forajido puso en marcha un atraco al banco."
     ],
-    "category": "outlaw",
-    "baseWeight": 11,
-    "requiredModules": [],
-    "tags": [
-      "bank",
-      "heist",
-      "wanted"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/bankheist.png",
-    "themeColor": "black",
     "titleParts": [
       {
         "text": "Iniciar un atraco al banco",
         "style": "red"
       }
-    ],
-    "soundFile": "audio/sfx/short-guncock.mp3"
+    ]
   },
   {
     "id": "trig_gain_wp",
@@ -237,24 +136,12 @@
       "Entre los sucesos destacados del día, un jinete sumó otro Punto Wanted a una reputación cada vez mayor.",
       "Testigos de todo el territorio informaron de que un jinete sumó otro Punto Wanted a una reputación cada vez mayor."
     ],
-    "category": "outlaw",
-    "baseWeight": 11,
-    "requiredModules": [],
-    "tags": [
-      "wanted",
-      "lawless"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/wanted.png",
-    "themeColor": "red",
     "titleParts": [
       {
         "text": "Ganar 1 Punto Wanted",
         "style": "red"
       }
-    ],
-    "soundFile": "audio/sfx/short-note.mp3"
+    ]
   },
   {
     "id": "trig_rustle_cattle",
@@ -265,25 +152,12 @@
       "Entre los sucesos destacados del día, robaron ganado de un rancho fronterizo.",
       "Testigos de todo el territorio informaron de que robaron ganado de un rancho fronterizo."
     ],
-    "category": "outlaw",
-    "baseWeight": 9,
-    "requiredModules": [],
-    "tags": [
-      "ranch",
-      "cattle",
-      "wanted"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/rustle.png",
-    "themeColor": "red",
     "titleParts": [
       {
         "text": "Robar ganado",
         "style": "red"
       }
-    ],
-    "soundFile": "audio/sfx/short-moo.mp3"
+    ]
   },
   {
     "id": "trig_rob_player",
@@ -294,25 +168,12 @@
       "Entre los sucesos destacados del día, un jinete robó a otro en la frontera.",
       "Testigos de todo el territorio informaron de que un jinete robó a otro en la frontera."
     ],
-    "category": "outlaw",
-    "baseWeight": 8,
-    "requiredModules": [],
-    "tags": [
-      "rob",
-      "player_fight",
-      "wanted"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/rob.png",
-    "themeColor": "red",
     "titleParts": [
       {
         "text": "Robar a un jugador",
         "style": "red"
       }
-    ],
-    "soundFile": "audio/sfx/short-pistol.mp3"
+    ]
   },
   {
     "id": "trig_defeat_bandit",
@@ -323,25 +184,12 @@
       "Entre los sucesos destacados del día, un bandido fue derrotado en una pelea.",
       "Testigos de todo el territorio informaron de que un bandido fue derrotado en una pelea."
     ],
-    "category": "fight",
-    "baseWeight": 13,
-    "requiredModules": [],
-    "tags": [
-      "bandit",
-      "fight",
-      "marshal"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/defeat.png",
-    "themeColor": "blue",
     "titleParts": [
       {
         "text": "Derrotar a un bandido",
         "style": "blue"
       }
-    ],
-    "soundFile": "audio/sfx/short-pistol.mp3"
+    ]
   },
   {
     "id": "trig_start_bandit_fight",
@@ -352,25 +200,12 @@
       "Entre los sucesos destacados del día, un jinete se enfrentó a un bandido.",
       "Testigos de todo el territorio informaron de que un jinete se enfrentó a un bandido."
     ],
-    "category": "fight",
-    "baseWeight": 12,
-    "requiredModules": [],
-    "tags": [
-      "bandit",
-      "fight",
-      "npc"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/bandit.png",
-    "themeColor": "blue",
     "titleParts": [
       {
         "text": "Iniciar una pelea con un bandido",
         "style": "blue"
       }
-    ],
-    "soundFile": "audio/sfx/short-holster.mp3"
+    ]
   },
   {
     "id": "trig_start_player_fight",
@@ -381,25 +216,12 @@
       "Entre los sucesos destacados del día, dos jinetes de la frontera llegaron a las manos.",
       "Testigos de todo el territorio informaron de que dos jinetes de la frontera llegaron a las manos."
     ],
-    "category": "fight",
-    "baseWeight": 9,
-    "requiredModules": [],
-    "tags": [
-      "duel",
-      "rob",
-      "arrest"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/duel.png",
-    "themeColor": "black",
     "titleParts": [
       {
         "text": "Iniciar una pelea con un jugador",
         "style": "black"
       }
-    ],
-    "soundFile": "audio/sfx/short-holster.mp3"
+    ]
   },
   {
     "id": "trig_arrest_player",
@@ -410,25 +232,12 @@
       "Entre los sucesos destacados del día, un jinete Wanted se enfrentó a un intento de arresto.",
       "Testigos de todo el territorio informaron de que un jinete Wanted se enfrentó a un intento de arresto."
     ],
-    "category": "law",
-    "baseWeight": 8,
-    "requiredModules": [],
-    "tags": [
-      "arrest",
-      "marshal",
-      "wanted"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/arrest.png",
-    "themeColor": "blue",
     "titleParts": [
       {
         "text": "Arrestar a un jugador Wanted",
         "style": "blue"
       }
-    ],
-    "soundFile": "audio/sfx/short-pistol.mp3"
+    ]
   },
   {
     "id": "trig_sheriff_arrests",
@@ -439,25 +248,12 @@
       "Entre los sucesos destacados del día, el Sheriff arrestó a un jinete Wanted.",
       "Testigos de todo el territorio informaron de que el Sheriff arrestó a un jinete Wanted."
     ],
-    "category": "law",
-    "baseWeight": 6,
-    "requiredModules": [],
-    "tags": [
-      "sheriff",
-      "arrest",
-      "wanted"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/arrest.png",
-    "themeColor": "blue",
     "titleParts": [
       {
         "text": "El Sheriff arresta a un jugador",
         "style": "blue"
       }
-    ],
-    "soundFile": "audio/sfx/short-pistol.mp3"
+    ]
   },
   {
     "id": "trig_gain_mp",
@@ -468,24 +264,12 @@
       "Entre los sucesos destacados del día, un jinete ganó otro Punto de Marshal mediante actos legales.",
       "Testigos de todo el territorio informaron de que un jinete ganó otro Punto de Marshal mediante actos legales."
     ],
-    "category": "law",
-    "baseWeight": 9,
-    "requiredModules": [],
-    "tags": [
-      "marshal",
-      "law"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/marshal.png",
-    "themeColor": "blue",
     "titleParts": [
       {
         "text": "Ganar 1 Punto de Marshal",
         "style": "blue"
       }
-    ],
-    "soundFile": "audio/sfx/short-good.mp3"
+    ]
   },
   {
     "id": "trig_begin_prospect",
@@ -496,25 +280,12 @@
       "Entre los sucesos destacados del día, un prospector se puso a trabajar en busca de oro.",
       "Testigos de todo el territorio informaron de que un prospector se puso a trabajar en busca de oro."
     ],
-    "category": "frontier",
-    "baseWeight": 13,
-    "requiredModules": [],
-    "tags": [
-      "mine",
-      "prospect",
-      "gold"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/prospect.png",
-    "themeColor": "gold",
     "titleParts": [
       {
         "text": "Iniciar una acción de Prospección",
         "style": "gold"
       }
-    ],
-    "soundFile": "audio/sfx/short-pickaxe.mp3"
+    ]
   },
   {
     "id": "trig_gain_gold_prospect",
@@ -525,25 +296,12 @@
       "Entre los sucesos destacados del día, un prospector extrajo oro de la tierra.",
       "Testigos de todo el territorio informaron de que un prospector extrajo oro de la tierra."
     ],
-    "category": "frontier",
-    "baseWeight": 12,
-    "requiredModules": [],
-    "tags": [
-      "mine",
-      "gold",
-      "prospect"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/prospect.png",
-    "themeColor": "gold",
     "titleParts": [
       {
         "text": "Conseguir oro durante una Prospección",
         "style": "gold"
       }
-    ],
-    "soundFile": "audio/sfx/short-pickaxe.mp3"
+    ]
   },
   {
     "id": "trig_deposit_gold",
@@ -554,25 +312,12 @@
       "Entre los sucesos destacados del día, se depositó en el banco oro recién extraído.",
       "Testigos de todo el territorio informaron de que se depositó en el banco oro recién extraído."
     ],
-    "category": "town",
-    "baseWeight": 9,
-    "requiredModules": [],
-    "tags": [
-      "bank",
-      "gold",
-      "lp"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/sellgold.png",
-    "themeColor": "gold",
     "titleParts": [
       {
         "text": "Depositar oro",
         "style": "gold"
       }
-    ],
-    "soundFile": "audio/sfx/short-money.mp3"
+    ]
   },
   {
     "id": "trig_acquire_cattle",
@@ -583,24 +328,12 @@
       "Entre los sucesos destacados del día, un jinete adquirió ganado en un rancho.",
       "Testigos de todo el territorio informaron de que un jinete adquirió ganado en un rancho."
     ],
-    "category": "ranch",
-    "baseWeight": 9,
-    "requiredModules": [],
-    "tags": [
-      "ranch",
-      "cattle"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/ranch.png",
-    "themeColor": "orange",
     "titleParts": [
       {
         "text": "Adquirir ganado en un rancho",
         "style": "orange"
       }
-    ],
-    "soundFile": "audio/sfx/short-moo.mp3"
+    ]
   },
   {
     "id": "trig_wrangle_cattle",
@@ -611,25 +344,12 @@
       "Entre los sucesos destacados del día, un jinete completó una tarea de arreo de ganado.",
       "Testigos de todo el territorio informaron de que un jinete completó una tarea de arreo de ganado."
     ],
-    "category": "ranch",
-    "baseWeight": 8,
-    "requiredModules": [],
-    "tags": [
-      "rail",
-      "cattle",
-      "marshal"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/wrangle.png",
-    "themeColor": "orange",
     "titleParts": [
       {
         "text": "Arrear ganado",
         "style": "orange"
       }
-    ],
-    "soundFile": "audio/sfx/short-moo.mp3"
+    ]
   },
   {
     "id": "trig_purchase_item",
@@ -640,25 +360,12 @@
       "Entre los sucesos destacados del día, un jinete hizo una nueva compra en la ciudad.",
       "Testigos de todo el territorio informaron de que un jinete hizo una nueva compra en la ciudad."
     ],
-    "category": "town",
-    "baseWeight": 12,
-    "requiredModules": [],
-    "tags": [
-      "store",
-      "item",
-      "money"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/store.png",
-    "themeColor": "green",
     "titleParts": [
       {
         "text": "Comprar un objeto",
         "style": "green"
       }
-    ],
-    "soundFile": "audio/sfx/short-money.mp3"
+    ]
   },
   {
     "id": "trig_heal_doctor",
@@ -669,25 +376,12 @@
       "Entre los sucesos destacados del día, un jinete herido buscó tratamiento en la consulta del doctor.",
       "Testigos de todo el territorio informaron de que un jinete herido buscó tratamiento en la consulta del doctor."
     ],
-    "category": "town",
-    "baseWeight": 8,
-    "requiredModules": [],
-    "tags": [
-      "doctor",
-      "heal",
-      "wound"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/heal.png",
-    "themeColor": "green",
     "titleParts": [
       {
         "text": "Curarse en la consulta del doctor",
         "style": "green"
       }
-    ],
-    "soundFile": "audio/sfx/short-good.mp3"
+    ]
   },
   {
     "id": "trig_revel_cabaret",
@@ -698,25 +392,12 @@
       "Entre los sucesos destacados del día, un jinete pasó un rato festejando en el Cabaret.",
       "Testigos de todo el territorio informaron de que un jinete pasó un rato festejando en el Cabaret."
     ],
-    "category": "town",
-    "baseWeight": 7,
-    "requiredModules": [],
-    "tags": [
-      "cabaret",
-      "lp",
-      "red_falls"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/revel.png",
-    "themeColor": "purple",
     "titleParts": [
       {
         "text": "FESTEJAR en el Cabaret",
         "style": "purple"
       }
-    ],
-    "soundFile": "audio/sfx/short-piano.mp3"
+    ]
   },
   {
     "id": "trig_begin_poker",
@@ -727,25 +408,12 @@
       "Entre los sucesos destacados del día, comenzó una nueva partida de Poker en el Saloon.",
       "Testigos de todo el territorio informaron de que comenzó una nueva partida de Poker en el Saloon."
     ],
-    "category": "gamble",
-    "baseWeight": 12,
-    "requiredModules": [],
-    "tags": [
-      "saloon",
-      "poker",
-      "gambler"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/gamble.png",
-    "themeColor": "purple",
     "titleParts": [
       {
         "text": "Iniciar una partida de POKER",
         "style": "purple"
       }
-    ],
-    "soundFile": "audio/sfx/short-cards.mp3"
+    ]
   },
   {
     "id": "trig_win_poker",
@@ -756,25 +424,12 @@
       "Entre los sucesos destacados del día, un jinete se marchó como ganador de una partida de Poker.",
       "Testigos de todo el territorio informaron de que un jinete se marchó como ganador de una partida de Poker."
     ],
-    "category": "gamble",
-    "baseWeight": 10,
-    "requiredModules": [],
-    "tags": [
-      "saloon",
-      "poker",
-      "gambler"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/gamble.png",
-    "themeColor": "purple",
     "titleParts": [
       {
         "text": "Ganar una partida de POKER",
         "style": "purple"
       }
-    ],
-    "soundFile": "audio/sfx/short-money.mp3"
+    ]
   },
   {
     "id": "trig_work_action",
@@ -785,24 +440,12 @@
       "Entre los sucesos destacados del día, un jinete realizó una jornada honrada de trabajo en la frontera.",
       "Testigos de todo el territorio informaron de que un jinete realizó una jornada honrada de trabajo en la frontera."
     ],
-    "category": "town",
-    "baseWeight": 7,
-    "requiredModules": [],
-    "tags": [
-      "work",
-      "money"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/work.png",
-    "themeColor": "black",
     "titleParts": [
       {
         "text": "Realizar una ACCIÓN DE TRABAJO",
         "style": "black"
       }
-    ],
-    "soundFile": "audio/sfx/short-hammer.mp3"
+    ]
   },
   {
     "id": "trig_gain_legendary_item",
@@ -813,24 +456,12 @@
       "Entre los sucesos destacados del día, un jinete obtuvo un objeto legendario.",
       "Testigos de todo el territorio informaron de que un jinete obtuvo un objeto legendario."
     ],
-    "category": "legendary",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "legendary_item",
-      "trader"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/legend.png",
-    "themeColor": "green",
     "titleParts": [
       {
         "text": "Obtener un OBJETO Legendario",
         "style": "green"
       }
-    ],
-    "soundFile": "audio/sfx/short-good.mp3"
+    ]
   },
   {
     "id": "trig_buy_traveling_trader",
@@ -841,28 +472,12 @@
       "Entre los sucesos destacados del día, un jinete cerró un trato con el comerciante ambulante.",
       "Testigos de todo el territorio informaron de que un jinete cerró un trato con el comerciante ambulante."
     ],
-    "category": "legendary",
-    "baseWeight": 6,
-    "requiredModules": [
-      "blood_money_traveling_trader"
-    ],
-    "tags": [
-      "trader",
-      "legendary_item",
-      "purchase",
-      "blood_money"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/trader.png",
-    "themeColor": "green",
     "titleParts": [
       {
         "text": "Comprar al Comerciante Ambulante",
         "style": "green"
       }
-    ],
-    "soundFile": "audio/sfx/short-money.mp3"
+    ]
   },
   {
     "id": "trig_gain_lp_2_plus",
@@ -873,24 +488,12 @@
       "Entre los sucesos destacados del día, una sola hazaña otorgó dos o más Puntos de Leyenda.",
       "Testigos de todo el territorio informaron de que una sola hazaña otorgó dos o más Puntos de Leyenda."
     ],
-    "category": "legendary",
-    "baseWeight": 7,
-    "requiredModules": [],
-    "tags": [
-      "lp",
-      "legendary"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/lp.png",
-    "themeColor": "gold",
     "titleParts": [
       {
         "text": "GANAR 2+ LP en UNA SOLA ACCIÓN",
         "style": "normal"
       }
-    ],
-    "soundFile": "audio/sfx/short-good.mp3"
+    ]
   },
   {
     "id": "trig_travel_rail",
@@ -901,27 +504,12 @@
       "Entre los sucesos destacados del día, un jinete atravesó parte del territorio en tren.",
       "Testigos de todo el territorio informaron de que un jinete atravesó parte del territorio en tren."
     ],
-    "category": "ante_up",
-    "baseWeight": 7,
-    "requiredModules": [
-      "ante_up"
-    ],
-    "tags": [
-      "railroad",
-      "train",
-      "ante_up"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/train.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Viajar en TREN",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-train.mp3"
+    ]
   },
   {
     "id": "trig_use_mountain_pass",
@@ -932,26 +520,12 @@
       "Entre los sucesos destacados del día, un jinete tomó el peligroso paso de montaña.",
       "Testigos de todo el territorio informaron de que un jinete tomó el peligroso paso de montaña."
     ],
-    "category": "ante_up",
-    "baseWeight": 5,
-    "requiredModules": [
-      "ante_up"
-    ],
-    "tags": [
-      "mountain_pass",
-      "ante_up"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/fork.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Usar un PASO DE MONTAÑA",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-gallop.mp3"
+    ]
   },
   {
     "id": "trig_train_heist",
@@ -962,28 +536,12 @@
       "Entre los sucesos destacados del día, unos forajidos iniciaron un atraco contra el tren.",
       "Testigos de todo el territorio informaron de que unos forajidos iniciaron un atraco contra el tren."
     ],
-    "category": "ante_up",
-    "baseWeight": 8,
-    "requiredModules": [
-      "ante_up"
-    ],
-    "tags": [
-      "train",
-      "heist",
-      "wanted",
-      "ante_up"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/trainheist.png",
-    "themeColor": "red",
     "titleParts": [
       {
         "text": "Iniciar un ATRACO AL TREN",
         "style": "red"
       }
-    ],
-    "soundFile": "audio/sfx/short-train.mp3"
+    ]
   },
   {
     "id": "trig_frontier_action",
@@ -994,27 +552,12 @@
       "Entre los sucesos destacados del día, una ficha de Frontera trajo un nuevo acontecimiento a Buzzard Gulch.",
       "Testigos de todo el territorio informaron de que una ficha de Frontera trajo un nuevo acontecimiento a Buzzard Gulch."
     ],
-    "category": "ante_up",
-    "baseWeight": 8,
-    "requiredModules": [
-      "ante_up"
-    ],
-    "tags": [
-      "frontier",
-      "buzzard_gulch",
-      "ante_up"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/work.png",
-    "themeColor": "black",
     "titleParts": [
       {
         "text": "RESOLVER FICHA DE FRONTERA",
         "style": "normal"
       }
-    ],
-    "soundFile": "audio/sfx/short-hammer.mp3"
+    ]
   },
   {
     "id": "trig_roll_risk_die",
@@ -1025,27 +568,12 @@
       "Entre los sucesos destacados del día, un jinete confió su suerte a una tirada del Dado de Riesgo.",
       "Testigos de todo el territorio informaron de que un jinete confió su suerte a una tirada del Dado de Riesgo."
     ],
-    "category": "blood_money",
-    "baseWeight": 8,
-    "requiredModules": [
-      "blood_money"
-    ],
-    "tags": [
-      "risk",
-      "story",
-      "blood_money"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/injury.png",
-    "themeColor": "red",
     "titleParts": [
       {
         "text": "TIRAR EL DADO DE RIESGO",
         "style": "red"
       }
-    ],
-    "soundFile": "audio/sfx/sfx_dice.mp3"
+    ]
   },
   {
     "id": "trig_recruit_gang_posse",
@@ -1056,27 +584,12 @@
       "Entre los sucesos destacados del día, un jinete reclutó nuevas manos para una banda o posse.",
       "Testigos de todo el territorio informaron de que un jinete reclutó nuevas manos para una banda o posse."
     ],
-    "category": "blood_money",
-    "baseWeight": 6,
-    "requiredModules": [
-      "blood_money"
-    ],
-    "tags": [
-      "gang",
-      "posse",
-      "blood_money"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/recruit.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "RECLUTAR BANDA O POSSE",
         "style": "normal"
       }
-    ],
-    "soundFile": "audio/sfx/short-note.mp3"
+    ]
   },
   {
     "id": "trig_hunt_success",
@@ -1087,27 +600,12 @@
       "Entre los sucesos destacados del día, un cazador regresó de una cacería exitosa.",
       "Testigos de todo el territorio informaron de que un cazador regresó de una cacería exitosa."
     ],
-    "category": "hunting",
-    "baseWeight": 8,
-    "requiredModules": [
-      "hunting"
-    ],
-    "tags": [
-      "hunt",
-      "animal",
-      "hunting"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/hunt.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "CACERÍA EXITOSA",
         "style": "normal"
       }
-    ],
-    "soundFile": "audio/sfx/short-shotgun.mp3"
+    ]
   },
   {
     "id": "trig_forage_resource",
@@ -1118,27 +616,12 @@
       "Entre los sucesos destacados del día, un recolector encontró un recurso útil en la naturaleza.",
       "Testigos de todo el territorio informaron de que un recolector encontró un recurso útil en la naturaleza."
     ],
-    "category": "foraging",
-    "baseWeight": 8,
-    "requiredModules": [
-      "foraging"
-    ],
-    "tags": [
-      "forage",
-      "resource",
-      "foraging"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/forage.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "OBTENER RECURSO DE RECOLECCIÓN",
         "style": "normal"
       }
-    ],
-    "soundFile": "audio/sfx/short-good.mp3"
+    ]
   },
   {
     "id": "trig_craft_item",
@@ -1149,27 +632,12 @@
       "Entre los sucesos destacados del día, materiales de la frontera se convirtieron en un objeto fabricado.",
       "Testigos de todo el territorio informaron de que materiales de la frontera se convirtieron en un objeto fabricado."
     ],
-    "category": "crafting",
-    "baseWeight": 7,
-    "requiredModules": [
-      "crafting"
-    ],
-    "tags": [
-      "craft",
-      "resource",
-      "crafting"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/craft.png",
-    "themeColor": "green",
     "titleParts": [
       {
         "text": "Fabricar OBJETO",
         "style": "green"
       }
-    ],
-    "soundFile": "audio/sfx/short-hammer.mp3"
+    ]
   },
   {
     "id": "trig_deliver_resource_location",
@@ -1180,26 +648,11 @@
       "Entre los sucesos destacados del día, un recurso útil fue entregado donde hacía falta.",
       "Testigos de todo el territorio informaron de que un recurso útil fue entregado donde hacía falta."
     ],
-    "category": "foraging",
-    "baseWeight": 6,
-    "requiredModules": [
-      "foraging"
-    ],
-    "tags": [
-      "resource",
-      "delivery",
-      "foraging"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/sell.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "ENTREGAR RECURSO",
         "style": "normal"
       }
-    ],
-    "soundFile": "audio/sfx/short-good.mp3"
+    ]
   }
 ]

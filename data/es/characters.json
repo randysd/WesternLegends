@@ -1,0 +1,769 @@
+{
+  "characters": [
+    {
+      "id": "annie_oakley",
+      "name": "Annie Oakley",
+      "starting": {
+        "location": "Cualquier espacio de la tienda general de Darkrock"
+      },
+      "ability": "Al comienzo de un combate con otro jugador, ese jugador debe descartar 1 carta de Póquer o recibir 1 Herida.",
+      "playstyle": {
+        "tags": [
+          "Combate",
+          "Duelos",
+          "Presión de mano"
+        ],
+        "strength": "Presiona de inmediato a otro jugador incluso antes de que empiece el combate.",
+        "focus": "Busca combates cuando los rivales tengan pocas cartas de Póquer o no puedan permitirse otra Herida."
+      }
+    },
+    {
+      "id": "bass_reeves",
+      "name": "Bass Reeves",
+      "starting": {
+        "location": "Oficina del Sheriff de Darkrock"
+      },
+      "ability": "Al comienzo de tu turno, roba 1 carta de Póquer.",
+      "playstyle": {
+        "tags": [
+          "Ventaja de cartas",
+          "Póquer",
+          "Versátil"
+        ],
+        "strength": "Genera de forma constante una carta de Póquer adicional al comienzo de cada turno.",
+        "focus": "Aprovecha la mano más grande para estar preparado para combates, Póquer y acciones que dependan de cartas."
+      }
+    },
+    {
+      "id": "billy_the_kid",
+      "name": "Billy the Kid",
+      "starting": {
+        "location": "Cualquiera de los escondites de bandidos A"
+      },
+      "ability": "Después de terminar una acción de Movimiento en un espacio con uno o más jugadores, un jugador de tu elección en ese espacio debe darte $10 o 1 carta de Póquer.",
+      "playstyle": {
+        "tags": [
+          "Interacción entre jugadores",
+          "Movimiento",
+          "Economía"
+        ],
+        "strength": "Obtiene dinero o cartas simplemente terminando su movimiento junto a otros jugadores.",
+        "focus": "Busca espacios ocupados y presiona a jugadores con mucho dinero o pocas cartas de Póquer."
+      }
+    },
+    {
+      "id": "bloody_knife",
+      "name": "Bloody Knife",
+      "starting": {
+        "location": "Mina de Spike's View"
+      },
+      "ability": "Puedes atravesar una Mesa como si fuera un solo espacio. No puedes terminar una acción de Movimiento en una Mesa. Después de atravesar una Mesa, pierde 1 Herida.",
+      "playstyle": {
+        "tags": [
+          "Movimiento",
+          "Frontera",
+          "Atajos"
+        ],
+        "strength": "Puede atravesar Mesas como espacios únicos y tomar rutas que otros personajes no pueden usar.",
+        "focus": "Usa los atajos por las Mesas para ahorrar movimiento, controlando las Heridas que cuesta hacerlo."
+      }
+    },
+    {
+      "id": "calamity_jane",
+      "name": "Calamity Jane",
+      "starting": {
+        "location": "Cualquier espacio de la tienda general de Red Falls"
+      },
+      "ability": "Tu límite de mano aumenta en 1. Después de contribuir a una carta de Historia, roba 1 carta de Póquer.",
+      "playstyle": {
+        "tags": [
+          "Ventaja de cartas",
+          "Historia",
+          "Mano grande"
+        ],
+        "strength": "Puede mantener una carta adicional y obtiene más cartas al contribuir a cartas de Historia.",
+        "focus": "Busca oportunidades para contribuir a Historias y usa la mano más grande para mantenerte flexible."
+      }
+    },
+    {
+      "id": "doc_holliday",
+      "name": "Doc Holliday",
+      "starting": {
+        "location": "Consulta del Doctor de Red Falls"
+      },
+      "ability": "Después de recibir cualquier cantidad de Heridas, roba 1 carta de Póquer. Las Heridas no reducen tu límite de mano.",
+      "playstyle": {
+        "tags": [
+          "Heridas",
+          "Ventaja de cartas",
+          "Resistencia"
+        ],
+        "strength": "Convierte las Heridas recibidas en cartas de Póquer e ignora la reducción normal del límite de mano causada por las Heridas.",
+        "focus": "No temas recibir algo de daño cuando las cartas adicionales puedan producir un turno más fuerte."
+      }
+    },
+    {
+      "id": "jesse_james",
+      "name": "Jesse James",
+      "starting": {
+        "location": "Cualquiera de los escondites de bandidos B"
+      },
+      "ability": "En un combate fuera de un pueblo, reduce en 1 el valor de una carta jugada contra ti. En un combate contra otro jugador, ganas todos los empates.",
+      "playstyle": {
+        "tags": [
+          "Combate",
+          "Frontera",
+          "Duelos"
+        ],
+        "strength": "Es especialmente difícil de vencer fuera de los pueblos y gana los empates contra otros jugadores.",
+        "focus": "Elige con cuidado dónde combatir y favorece los enfrentamientos en la frontera."
+      }
+    },
+    {
+      "id": "kit_carson",
+      "name": "Kit Carson",
+      "starting": {
+        "location": "Mina de Sunny Hill's"
+      },
+      "ability": "Al final de una acción de Movimiento, puedes moverte 1 espacio adicional. En un combate fuera de un pueblo, reduce en 1 el valor de una carta jugada contra ti.",
+      "playstyle": {
+        "tags": [
+          "Movimiento",
+          "Frontera",
+          "Combate"
+        ],
+        "strength": "Combina movimiento adicional con una mejor defensa en combates fuera de los pueblos.",
+        "focus": "Mantente móvil en la frontera y usa el espacio extra para alcanzar posiciones rentables o tácticas."
+      }
+    },
+    {
+      "id": "stagecoach_mary_fields",
+      "name": "Stagecoach Mary Fields",
+      "starting": {
+        "location": "Cualquier espacio de Saloon de Darkrock"
+      },
+      "ability": "Al comienzo de tu turno, gana $10. Después de contribuir a una carta de Historia, gana $10.",
+      "playstyle": {
+        "tags": [
+          "Economía",
+          "Historia",
+          "Ingresos"
+        ],
+        "strength": "Produce dinero de forma fiable cada turno y gana aún más al contribuir a cartas de Historia.",
+        "focus": "Mantén los ingresos constantes y busca contribuciones a Historias que te paguen una segunda vez."
+      }
+    },
+    {
+      "id": "wild_bill_hickok",
+      "name": "Wild Bill Hickok",
+      "starting": {
+        "location": "Cabaret de Red Falls"
+      },
+      "ability": "Después de ganar una partida de Póquer, gana $20. Después de perder una partida de Póquer, puedes conservar 1 carta de Póquer al azar que hayas jugado.",
+      "playstyle": {
+        "tags": [
+          "Póquer",
+          "Economía",
+          "Recuperación de cartas"
+        ],
+        "strength": "Hace que el Póquer sea más rentable y reduce el coste de perder una partida.",
+        "focus": "Juega al Póquer con frecuencia, especialmente cuando tu mano tenga buenas posibilidades de convertirse en dinero."
+      }
+    },
+    {
+      "id": "wyatt_earp",
+      "name": "Wyatt Earp",
+      "starting": {
+        "location": "Cualquier Escondite de Bandidos disponible"
+      },
+      "ability": "La primera vez que ganes un combate contra un Bandido en cada turno, obtén 1 acción adicional.",
+      "playstyle": {
+        "tags": [
+          "Bandidos",
+          "Acciones",
+          "Combate"
+        ],
+        "strength": "Convierte la primera victoria contra un Bandido de cada turno en una acción adicional.",
+        "focus": "Encuentra un Bandido al principio del turno para que la acción extra pueda ampliar todo lo demás que hagas."
+      }
+    },
+    {
+      "id": "y_b_rowdy",
+      "name": "Y. B. Rowdy",
+      "starting": {
+        "location": "Mina de Cliff Junction"
+      },
+      "ability": "Si comienzas tu turno fuera de un pueblo, puedes descartar 1 carta de Póquer para moverte hasta 3 espacios.",
+      "playstyle": {
+        "tags": [
+          "Movimiento",
+          "Cartas de Póquer",
+          "Frontera"
+        ],
+        "strength": "Puede cambiar una carta de Póquer por un impulso de movimiento cuando empieza fuera de un pueblo.",
+        "focus": "Mantén cartas de sobra y usa los comienzos en la frontera para recolocarte rápidamente."
+      }
+    },
+    {
+      "id": "judge_roy_bean",
+      "name": "Judge Roy Bean",
+      "starting": {
+        "location": "Cualquier espacio de Saloon de Red Falls"
+      },
+      "ability": "En un combate contra un Bandido, Guardia o el Sheriff, ellos deben elegir y revelar su carta primero. En un combate contra un Bandido, Guardia o el Sheriff, ganas todos los empates.",
+      "playstyle": {
+        "tags": [
+          "Combate contra PNJ",
+          "Bandidos",
+          "Ventaja en combate"
+        ],
+        "strength": "Obtiene información adicional y gana los empates contra Bandidos, Guardias y el Sheriff.",
+        "focus": "Busca combates contra PNJ donde ver primero su carta te permita gastar solo la fuerza necesaria."
+      }
+    },
+    {
+      "id": "butch_cassity",
+      "name": "Butch Cassity",
+      "starting": {
+        "location": "Cualquiera de los escondites de bandidos C"
+      },
+      "ability": "Después de robar a otro jugador, puedes robar 1 objeto misceláneo que no poseas ya en vez de la mitad de su dinero o Pepitas de Oro. Después de arrestar a otro jugador, puedes robar la mitad del dinero o las Pepitas de Oro de ese jugador.",
+      "playstyle": {
+        "tags": [
+          "Interacción entre jugadores",
+          "Robo",
+          "Alineación flexible"
+        ],
+        "strength": "Puede quitar recursos valiosos a los rivales tanto actuando como ladrón como siendo un agente de la ley que arresta.",
+        "focus": "Elige como objetivo a jugadores con los objetos, dinero o Pepitas de Oro que hagan más rentable tu alineación actual."
+      }
+    },
+    {
+      "id": "joaquin_murrieta",
+      "name": "Joaquin Murrieta",
+      "starting": {
+        "location": "Cualquier espacio de la tienda general de Darkrock"
+      },
+      "ability": "Si eres un jugador Wanted, gana 1 LP después de combatir contra un jugador Marshal. Si eres un jugador Marshal, gana 1 LP después de combatir contra un jugador Wanted.",
+      "playstyle": {
+        "tags": [
+          "Marshal / Wanted",
+          "Combate",
+          "LP"
+        ],
+        "strength": "Gana LP por combatir contra jugadores del lado opuesto de la ley.",
+        "focus": "Comprométete con una senda y busca enfrentamientos con jugadores de la senda opuesta."
+      }
+    },
+    {
+      "id": "belle_starr",
+      "name": "Belle Starr",
+      "starting": {
+        "location": "Cualquier espacio de la tienda general de Red Falls"
+      },
+      "ability": "En un combate contra un Bandido, Guardia o el Sheriff, reduce en 2 el valor de la carta de combate jugada contra ti. Después de ganar un combate contra un Bandido, puedes elegir ganar 1 Punto Wanted en su lugar.",
+      "playstyle": {
+        "tags": [
+          "Combate contra PNJ",
+          "Bandidos",
+          "Wanted"
+        ],
+        "strength": "Es muy fuerte contra rivales PNJ y puede convertir victorias contra Bandidos en progreso Wanted.",
+        "focus": "Caza Bandidos y otros PNJ, y decide cuándo una victoria contra un Bandido merece avanzar más en la senda Wanted."
+      }
+    },
+    {
+      "id": "isom_dart",
+      "name": "Isom Dart",
+      "starting": {
+        "location": "Rancho de Sunny Hills"
+      },
+      "ability": "Si comienzas tu turno con al menos 1 ficha de Ganado, puedes obtener 1 acción adicional. Si lo haces, debes descartar todas las fichas de Ganado al final de tu turno.",
+      "playstyle": {
+        "tags": [
+          "Ganado",
+          "Acciones",
+          "Ganadería"
+        ],
+        "strength": "Puede convertir una ficha de Ganado que lleve consigo en una acción adicional para el turno.",
+        "focus": "Procura comenzar los turnos importantes con Ganado cuando la acción extra compense perder esas fichas."
+      }
+    },
+    {
+      "id": "allan_pinkerton",
+      "name": "Allan Pinkerton",
+      "starting": {
+        "location": "Banco de Darkrock"
+      },
+      "ability": "Acción: Elige a un jugador a 1 espacio o menos para que te muestre sus cartas de Póquer. Ese jugador debe descartar todas las cartas de un valor que elijas.",
+      "playstyle": {
+        "tags": [
+          "Control de mano",
+          "Interacción entre jugadores",
+          "Cartas de Póquer"
+        ],
+        "strength": "Puede examinar la mano de un jugador cercano y eliminar todas las cartas de un valor elegido.",
+        "focus": "Acércate a rivales importantes y altera su mano antes de un combate u otra jugada disputada."
+      }
+    },
+    {
+      "id": "buffalo_bill_cody",
+      "name": "Buffalo Bill Cody",
+      "starting": {
+        "location": "Rancho de Mesito's Point"
+      },
+      "ability": "Si comienzas tu turno fuera de un pueblo, gana 1 Pepita de Oro.",
+      "playstyle": {
+        "tags": [
+          "Oro",
+          "Frontera",
+          "Economía"
+        ],
+        "strength": "Genera una Pepita de Oro gratis siempre que empieza el turno fuera de un pueblo.",
+        "focus": "Planea rutas que terminen en la frontera y aprovecha el oro acumulado cuando sea más eficiente."
+      }
+    },
+    {
+      "id": "bat_masterson",
+      "name": "Bat Masterson",
+      "starting": {
+        "location": "Dixon Creek"
+      },
+      "ability": "Al comienzo de tu turno, puedes añadir o retirar 1 Bandido de cualquier Escondite de Bandidos para moverte hasta 2 espacios. (Solo se puede añadir un Bandido a un Escondite de Bandidos desocupado.)",
+      "playstyle": {
+        "tags": [
+          "Bandidos",
+          "Movimiento",
+          "Control del tablero"
+        ],
+        "strength": "Manipula los Escondites de Bandidos mientras obtiene movimiento gratuito.",
+        "focus": "Usa la colocación y retirada de Bandidos para mejorar el estado del tablero mientras te recolocas."
+      }
+    },
+    {
+      "id": "pearl_hart",
+      "name": "Pearl Hart",
+      "starting": {
+        "location": "Dixon Creek"
+      },
+      "ability": "Después de ganar cualquier cantidad de Puntos Marshal o Wanted en tu turno, roba 1 carta de Póquer y muévete hasta 2 espacios.",
+      "playstyle": {
+        "tags": [
+          "Marshal / Wanted",
+          "Ventaja de cartas",
+          "Movimiento"
+        ],
+        "strength": "Cualquier progreso Marshal o Wanted puede producir inmediatamente una carta y movimiento adicional.",
+        "focus": "Provoca ganancias en las sendas con frecuencia y usa el movimiento extra para enlazar con tu siguiente objetivo."
+      }
+    },
+    {
+      "id": "ada_curnutt",
+      "name": "Ada Curnutt",
+      "starting": {
+        "location": "Cualquier espacio de Saloon de Buzzard Gulch"
+      },
+      "ability": "Al comienzo de tu turno, muévete un número de espacios de hasta tu nivel en la senda Marshal o Wanted. (El nivel lo determina la fila en la que está tu cubo.)",
+      "playstyle": {
+        "tags": [
+          "Movimiento",
+          "Marshal / Wanted",
+          "Posición en senda"
+        ],
+        "strength": "Su capacidad de movimiento aumenta con su nivel en la senda Marshal o Wanted.",
+        "focus": "Aumenta pronto tu posición en la senda para obtener un movimiento gratuito más potente en turnos posteriores."
+      }
+    },
+    {
+      "id": "dave_rudabaugh",
+      "name": "Dave Rudabaugh",
+      "starting": {
+        "location": "Colócalo último en un espacio con otro jugador"
+      },
+      "ability": "Al final de una acción de Movimiento, puedes moverte 1 espacio adicional. La primera vez que termines una acción de Movimiento en el mismo espacio que otro jugador durante este turno, roba 1 carta de Póquer.",
+      "playstyle": {
+        "tags": [
+          "Movimiento",
+          "Interacción entre jugadores",
+          "Ventaja de cartas"
+        ],
+        "strength": "Se mueve más de lo normal y roba una carta una vez por turno al terminar el movimiento junto a otro jugador.",
+        "focus": "Traza rutas por destinos útiles que también te permitan acabar junto a otro jugador."
+      }
+    },
+    {
+      "id": "johnny_ringo",
+      "name": "Johnny Ringo",
+      "starting": {
+        "location": "Rancho de Buzzard Gulch"
+      },
+      "ability": "Al final de un combate, pierde 1 Herida. Al final de un combate contra otro jugador, ese jugador recibe 1 Herida.",
+      "playstyle": {
+        "tags": [
+          "Combate",
+          "Heridas",
+          "Agresión"
+        ],
+        "strength": "Se cura 1 Herida después de cada combate e inflige 1 Herida a los rivales jugadores al terminar.",
+        "focus": "Combate con frecuencia, sobre todo contra jugadores, para convertir enfrentamientos repetidos en desgaste duradero."
+      }
+    },
+    {
+      "id": "tiburcio_vasquez",
+      "name": "Tiburcio Vasquez",
+      "starting": {
+        "location": "Mountain Pass C"
+      },
+      "ability": "Acción: Mueve tu cubo al espacio numerado correspondiente de la senda Marshal o Wanted sin obtener las recompensas.",
+      "playstyle": {
+        "tags": [
+          "Marshal / Wanted",
+          "Control de senda",
+          "Flexibilidad"
+        ],
+        "strength": "Puede recolocarse directamente en la senda Marshal o Wanted sin tener que ganar cada espacio intermedio.",
+        "focus": "Usa la acción para preparar la posición en la senda que mejor apoye tu siguiente plan táctico o de puntuación."
+      }
+    },
+    {
+      "id": "fee_lee_wong",
+      "name": "Fee Lee Wong",
+      "starting": {
+        "location": "Espacio de frontera de valor 8"
+      },
+      "ability": "Tu límite de mano aumenta en 1. Puedes llevar un máximo de $180.",
+      "playstyle": {
+        "tags": [
+          "Mano grande",
+          "Economía",
+          "Capacidad"
+        ],
+        "strength": "Puede tener más cartas de Póquer y mucho más dinero que un personaje normal.",
+        "focus": "Aprovecha los límites mayores acumulando recursos para compras caras y manos potentes."
+      }
+    },
+    {
+      "id": "maria_gertrudis_barcelo",
+      "name": "Maria Gertrudis Barceló",
+      "starting": {
+        "location": "Cualquier espacio del Puesto Comercial de Buzzard Gulch"
+      },
+      "ability": "Si comienzas tu turno en un pueblo, gana $10 o roba 1 carta de Póquer.",
+      "playstyle": {
+        "tags": [
+          "Pueblo",
+          "Economía",
+          "Ventaja de cartas"
+        ],
+        "strength": "Empezar un turno en un pueblo ofrece una elección flexible entre dinero y una carta de Póquer.",
+        "focus": "Termina los turnos en pueblos cuando sea práctico y toma el recurso que más necesite tu próximo turno."
+      }
+    },
+    {
+      "id": "pat_garrett",
+      "name": "Pat Garrett",
+      "starting": {
+        "location": "Oficina del Marshal de Buzzard Gulch"
+      },
+      "ability": "Acción: Una vez por turno, puedes mover al Sheriff hasta 6 espacios. Gana 1 LP si esto provoca un arresto.",
+      "playstyle": {
+        "tags": [
+          "Sheriff",
+          "Marshal",
+          "LP"
+        ],
+        "strength": "Puede recolocar al Sheriff de forma drástica y gana LP cuando ese movimiento causa un arresto.",
+        "focus": "Vigila las posiciones de los jugadores Wanted y prepara movimientos del Sheriff que se conviertan directamente en arrestos."
+      }
+    },
+    {
+      "id": "poker_alice",
+      "name": "Poker Alice",
+      "starting": {
+        "location": "Estación de ferrocarril de Buzzard Gulch"
+      },
+      "ability": "Acción: Una vez por turno, roba 1 carta de Póquer e inicia una partida de Póquer. Cualquier jugador puede participar sin importar su ubicación.",
+      "playstyle": {
+        "tags": [
+          "Póquer",
+          "Ventaja de cartas",
+          "Interacción entre jugadores"
+        ],
+        "strength": "Puede iniciar una partida de Póquer desde cualquier lugar mientras roba una carta adicional para ayudarle a entrar.",
+        "focus": "Inicia Póquer cuando tu mano sea favorable en vez de esperar a estar en el lugar adecuado."
+      }
+    },
+    {
+      "id": "seth_bullock",
+      "name": "Seth Bullock",
+      "starting": {
+        "location": "Cualquier espacio del Puesto Comercial de Buzzard Gulch"
+      },
+      "ability": "La primera vez que ganes un combate contra un Bandido en cada turno, roba 2 cartas de Póquer.",
+      "playstyle": {
+        "tags": [
+          "Bandidos",
+          "Ventaja de cartas",
+          "Combate"
+        ],
+        "strength": "La primera victoria contra un Bandido de cada turno produce dos cartas de Póquer adicionales.",
+        "focus": "Intenta derrotar a un Bandido en turnos productivos para mantener bien abastecida tu mano."
+      }
+    },
+    {
+      "id": "soapy_smith",
+      "name": "“Soapy” Smith",
+      "starting": {
+        "location": "Cualquier espacio del Puesto Comercial de Buzzard Gulch"
+      },
+      "ability": "Después de ganar un Punto Gambler, lanza 1 dado de Prospección y obtén el resultado. Si sacas Grava, rellena tu mano.",
+      "playstyle": {
+        "tags": [
+          "Juego",
+          "Prospección",
+          "Recursos extra"
+        ],
+        "strength": "Ganar Puntos de Gambler también produce una recompensa del dado de Prospección y a veces puede rellenar tu mano.",
+        "focus": "Persigue el progreso de juego para que cada Punto Gambler pueda generar recursos adicionales."
+      }
+    },
+    {
+      "id": "sundance_kid",
+      "name": "Sundance Kid",
+      "starting": {
+        "location": "Mountain Pass A"
+      },
+      "ability": "Acción: Una vez por turno, puedes moverte al espacio donde se encuentre actualmente el Tren. (Esto se considera una acción de Movimiento.)",
+      "playstyle": {
+        "tags": [
+          "Tren",
+          "Movimiento",
+          "Movilidad"
+        ],
+        "strength": "Puede moverse directamente al Tren una vez por turno sin importar la distancia normal.",
+        "focus": "Usa el Tren como destino móvil para recolocarte rápidamente, buscar encuentros o preparar atracos."
+      }
+    },
+    {
+      "id": "william_curly_bill_brocius",
+      "name": "William “Curly Bill” Brocius",
+      "starting": {
+        "location": "Campamento de Forajidos de Buzzard Gulch"
+      },
+      "ability": "Si comienzas tu turno fuera de un pueblo, roba 2 cartas de Póquer y después descarta 1 carta de Póquer de tu mano.",
+      "playstyle": {
+        "tags": [
+          "Frontera",
+          "Filtrado de cartas",
+          "Cartas de Póquer"
+        ],
+        "strength": "Empezar fuera del pueblo le permite ver dos cartas de Póquer nuevas y conservar la que mejor encaje.",
+        "focus": "Termina turnos fuera de pueblos y usa el robo y descarte extra para mejorar continuamente tu mano."
+      }
+    },
+    {
+      "id": "al_swearengen",
+      "name": "Al Swearengen",
+      "starting": {
+        "location": "Un espacio de Saloon que coincida con la Escritura elegida"
+      },
+      "ability": "Las Escrituras te cuestan $10 menos al comprarlas. Una vez por turno, puedes descartar 1 carta de Póquer para usar la capacidad de Acción de 1 de tus Escrituras.",
+      "playstyle": {
+        "tags": [
+          "Escrituras",
+          "Economía",
+          "Eficiencia de acciones"
+        ],
+        "strength": "Obtiene un valor especialmente alto de las Escrituras y de las acciones que proporcionan.",
+        "focus": "Consigue pronto Escrituras útiles y construye tus turnos alrededor de extraer valor de ellas repetidamente."
+      }
+    },
+    {
+      "id": "ben_hodges",
+      "name": "Ben Hodges",
+      "starting": {
+        "location": "Cualquier espacio de frontera desocupado de valor 6"
+      },
+      "ability": "La primera vez que uses una acción de un objeto o una carta de Póquer en cada turno, gana $20.",
+      "playstyle": {
+        "tags": [
+          "Objetos",
+          "Cartas de Póquer",
+          "Economía"
+        ],
+        "strength": "La primera acción de objeto o carta de Póquer de cada turno también paga $20.",
+        "focus": "Planea usar al menos una acción válida de carta u objeto cada turno para no desperdiciar los ingresos extra."
+      }
+    },
+    {
+      "id": "buckshot_roberts",
+      "name": "Buckshot Roberts",
+      "starting": {
+        "location": "Estación de ferrocarril de Spike's View"
+      },
+      "ability": "Si comienzas tu turno con una Lesión, roba 1 carta de Póquer y gana 1 acción.",
+      "playstyle": {
+        "tags": [
+          "Lesiones",
+          "Ventaja de cartas",
+          "Acciones"
+        ],
+        "strength": "Comenzar el turno lesionado proporciona tanto una carta de Póquer como una acción adicional.",
+        "focus": "Sopesa la ventaja de seguir lesionado frente al riesgo y aprovecha el ritmo extra en turnos importantes."
+      }
+    },
+    {
+      "id": "charley_parkhurst",
+      "name": "Charley Parkhurst",
+      "starting": {
+        "location": "Espacio de tienda general de Red Falls"
+      },
+      "ability": "Una vez durante tu turno, puedes volver a lanzar 1 dado cualquiera. Después de obtener el resultado de lanzar el dado de Riesgo, gana 1 Punto de Historia.",
+      "playstyle": {
+        "tags": [
+          "Dado de Riesgo",
+          "Repetir dados",
+          "Historia"
+        ],
+        "strength": "Puede corregir una tirada por turno y convierte los resultados del dado de Riesgo en Puntos de Historia.",
+        "focus": "Aprovecha las oportunidades del dado de Riesgo y reserva la repetición para los resultados que más importen."
+      }
+    },
+    {
+      "id": "elfego_baca",
+      "name": "Elfego Baca",
+      "starting": {
+        "location": "Cualquier espacio de frontera desocupado de valor 7"
+      },
+      "ability": "Mientras tengas un arma mejorada, reduce en 1 el valor de una carta jugada contra ti en un combate. La primera vez que fueras a recibir cualquier cantidad de Heridas en tu turno, cancela 1 de esas Heridas.",
+      "playstyle": {
+        "tags": [
+          "Armas mejoradas",
+          "Combate",
+          "Defensa"
+        ],
+        "strength": "Un arma mejorada refuerza su defensa en combate y puede cancelar la primera Herida recibida en su turno.",
+        "focus": "Mejora un arma pronto y usa la protección añadida para entrar en combate con más confianza."
+      }
+    },
+    {
+      "id": "james_bloody_arm_beckwourth",
+      "name": "James “Bloody Arm” Beckwourth",
+      "starting": {
+        "location": "Cualquier espacio de frontera desocupado de valor 7"
+      },
+      "ability": "Después de lanzar el dado de Riesgo, roba 1 carta de Póquer. La primera vez que ganes un combate en tu turno, gana 1 Punto de Historia.",
+      "playstyle": {
+        "tags": [
+          "Dado de Riesgo",
+          "Combate",
+          "Historia"
+        ],
+        "strength": "Las tiradas del dado de Riesgo generan cartas y la primera victoria en combate del turno genera un Punto de Historia.",
+        "focus": "Busca turnos que combinen una tirada de Riesgo con un combate ganable para activar ambas ventajas."
+      }
+    },
+    {
+      "id": "lottie_deno",
+      "name": "Lottie Deno",
+      "starting": {
+        "location": "Cualquier espacio de Saloon desocupado"
+      },
+      "ability": "Después de usar un efecto de bonificación de una carta de Póquer, gana 1 Punto de Historia.",
+      "playstyle": {
+        "tags": [
+          "Cartas de Póquer",
+          "Historia",
+          "Efectos de bonificación"
+        ],
+        "strength": "Convierte los efectos de bonificación de las cartas de Póquer en Puntos de Historia adicionales.",
+        "focus": "Favorece oportunidades para usar efectos de bonificación de Póquer en vez de tratar las cartas solo como valores de combate."
+      }
+    },
+    {
+      "id": "lozen",
+      "name": "Lozen",
+      "starting": {
+        "location": "Cualquier espacio de frontera desocupado de valor 7"
+      },
+      "ability": "Al comienzo de tu turno, puedes mirar la carta superior del mazo de Combate, del mazo de Póquer o del mazo de Encuentros del Tren. Puedes elegir colocar esa carta en la parte inferior del mazo.",
+      "playstyle": {
+        "tags": [
+          "Control de mazos",
+          "Información",
+          "Flexibilidad"
+        ],
+        "strength": "Puede ver y rechazar la carta superior de varios mazos importantes antes de comprometerse con lo que viene.",
+        "focus": "Usa la información antes de combates, robos de Póquer o encuentros del Tren para evitar malos resultados y preparar otros mejores."
+      }
+    },
+    {
+      "id": "texas_john_slaughter",
+      "name": "Texas John Slaughter",
+      "starting": {
+        "location": "Cualquier espacio de frontera desocupado de valor 6"
+      },
+      "ability": "Acción: Elige 2: roba 1 carta de Póquer, gana $10, pierde 1 Herida, muévete 1 espacio o genera 1 Bandido en cualquier Escondite de Bandidos.",
+      "playstyle": {
+        "tags": [
+          "Flexibilidad",
+          "Acciones",
+          "Bandidos"
+        ],
+        "strength": "Su acción puede combinar dos de varios efectos útiles y adaptarse a la situación inmediata.",
+        "focus": "Elige los dos efectos que resuelvan las mayores necesidades del turno actual en vez de repetir siempre la misma combinación."
+      }
+    },
+    {
+      "id": "tom_tobin",
+      "name": "Tom Tobin",
+      "starting": {
+        "location": "Cualquier espacio de la misma región que el Comerciante Ambulante"
+      },
+      "ability": "Los Objetos Legendarios te cuestan $10 menos al comprarlos. Si terminas tu turno en la misma región que el Comerciante Ambulante, puedes comprar un Objeto Legendario.",
+      "playstyle": {
+        "tags": [
+          "Objetos legendarios",
+          "Economía",
+          "Comerciante Ambulante"
+        ],
+        "strength": "Compra Objetos Legendarios más baratos y puede comerciar con el Comerciante Ambulante terminando cerca de él.",
+        "focus": "Sigue al Comerciante Ambulante y convierte el descuento en una colección temprana de potentes Objetos Legendarios."
+      }
+    },
+    {
+      "id": "aaron_ross",
+      "name": "Aaron Ross",
+      "starting": {
+        "location": "Cualquier punto de control del tren desocupado"
+      },
+      "ability": "Al comienzo de tu turno, elige 1: si tienes al menos $60, roba 1 carta de Póquer; si tienes al menos $120, gana 1 LP.",
+      "playstyle": {
+        "tags": [
+          "Riqueza",
+          "Economía",
+          "LP"
+        ],
+        "strength": "Grandes reservas de dinero se convierten en ventaja de cartas recurrente o incluso en LP al comienzo de un turno.",
+        "focus": "Acumula y protege tu dinero, usando $120 como umbral clave para generar LP de forma pasiva."
+      }
+    },
+    {
+      "id": "dark_knight",
+      "name": "Dark Knight",
+      "starting": {
+        "location": "Mina de Spike's View (cueva)"
+      },
+      "ability": "Al entrar en un espacio con un Bandido o un jugador Wanted, puedes hacer que huya a un espacio adyacente o que descarte al azar 1 de sus cartas de Combate/Póquer.",
+      "playstyle": {
+        "tags": [
+          "Control del tablero",
+          "Cazadores de Wanted",
+          "Interferencia"
+        ],
+        "strength": "Puede interferir de inmediato con un Bandido o jugador Wanted al entrar en su espacio.",
+        "focus": "Persigue objetivos peligrosos y usa el movimiento forzado o el descarte aleatorio para debilitarlos antes del siguiente enfrentamiento."
+      }
+    }
+  ]
+}

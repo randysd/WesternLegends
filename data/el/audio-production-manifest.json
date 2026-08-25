@@ -1,0 +1,1082 @@
+[
+  {
+    "type": "one-off",
+    "id": "bandit_reinforcements",
+    "title": "Κι Άλλοι στους Βράχους",
+    "trigger": "trig_defeat_bandit",
+    "audioFile": "audio/oneoffs/bandit_reinforcements.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ένας ακόμη ληστής πετάγεται πίσω από τους βράχους.\""
+  },
+  {
+    "type": "one-off",
+    "id": "twin_pistol_rogue",
+    "title": "Παράνομος με Δύο Πιστόλια",
+    "trigger": "trig_start_bandit_fight",
+    "audioFile": "audio/oneoffs/twin_pistol_rogue.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ένας δεύτερος πυροβολισμός σκίζει τον αέρα από την κορυφογραμμή.\""
+  },
+  {
+    "type": "one-off",
+    "id": "drunken_bandit",
+    "title": "Μεθυσμένος Ληστής",
+    "trigger": "trig_start_bandit_fight",
+    "audioFile": "audio/oneoffs/drunken_bandit.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Παραπατά στον δρόμο με περισσότερο ουίσκι παρά μυαλό.\""
+  },
+  {
+    "type": "one-off",
+    "id": "veteran_bandit",
+    "title": "Βετεράνος Ληστής",
+    "trigger": "trig_start_bandit_fight",
+    "audioFile": "audio/oneoffs/veteran_bandit.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Αυτός έχει επιζήσει από πάρα πολλές πιστολιές για να είναι απλώς τυχερός.\""
+  },
+  {
+    "type": "one-off",
+    "id": "bandit_last_words",
+    "title": "Τα Τελευταία Λόγια του Ληστή",
+    "trigger": "trig_defeat_bandit",
+    "audioFile": "audio/oneoffs/bandit_last_words.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Με την τελευταία του ανάσα, ο ληστής αποκαλύπτει μια κρυψώνα κάτω από έναν σκισμένο κέδρο.\""
+  },
+  {
+    "type": "one-off",
+    "id": "hidden_sniper",
+    "title": "Κρυμμένος Σκοπευτής",
+    "trigger": "trig_defeat_bandit",
+    "audioFile": "audio/oneoffs/hidden_sniper.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ένας δεύτερος πυροβολισμός σκίζει τον αέρα από την κορυφογραμμή.\""
+  },
+  {
+    "type": "one-off",
+    "id": "posse_cheers",
+    "title": "Οι Άνθρωποι Επευφημούν",
+    "trigger": "trig_gain_mp",
+    "audioFile": "audio/oneoffs/posse_cheers.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Οι άνθρωποι στην πόλη βγάζουν το καπέλο. Ο νόμος ακόμη σημαίνει κάτι εδώ έξω.\""
+  },
+  {
+    "type": "one-off",
+    "id": "false_badge",
+    "title": "Ψεύτικο Σήμα",
+    "trigger": "trig_arrest_player",
+    "audioFile": "audio/oneoffs/false_badge.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Το σήμα δείχνει σωστό από μακριά, αλλά από κοντά μυρίζει μπελά.\""
+  },
+  {
+    "type": "one-off",
+    "id": "sheriffs_notice",
+    "title": "Ανακοίνωση του Σερίφη",
+    "trigger": "trig_gain_wp",
+    "audioFile": "audio/oneoffs/sheriffs_notice.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Μια αφίσα καταζητούμενου κυρτώνει στον τοίχο και ο σερίφης σελώνει ήδη το άλογό του.\""
+  },
+  {
+    "type": "one-off",
+    "id": "inside_man",
+    "title": "Ο Άνθρωπος από Μέσα",
+    "trigger": "trig_bank_heist",
+    "audioFile": "audio/oneoffs/inside_man.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ένας νευρικός ταμίας αφήνει το μάνταλο του θησαυροφυλακίου χαλαρό.\""
+  },
+  {
+    "type": "one-off",
+    "id": "locked_vault",
+    "title": "Κλειδωμένο Θησαυροφυλάκιο",
+    "trigger": "trig_bank_heist",
+    "audioFile": "audio/oneoffs/locked_vault.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Η πόρτα του θησαυροφυλακίου κλείνει με βόγγο. Αυτή η δουλειά μόλις έγινε πιο θορυβώδης.\""
+  },
+  {
+    "type": "one-off",
+    "id": "dusty_getaway",
+    "title": "Απόδραση μέσα στη Σκόνη",
+    "trigger": "trig_bank_heist",
+    "audioFile": "audio/oneoffs/dusty_getaway.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Μια αμμοθύελλα έρχεται, αρκετά άσχημη για να κρύψει μια απελπισμένη απόδραση.\""
+  },
+  {
+    "type": "one-off",
+    "id": "train_payroll",
+    "title": "Βαγόνι Μισθοδοσίας",
+    "trigger": "trig_train_heist",
+    "audioFile": "audio/oneoffs/train_payroll.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Απόψε το τρένο μεταφέρει τη μισθοδοσία και κάθε παράνομος μπορεί να τη μυρίσει.\""
+  },
+  {
+    "type": "one-off",
+    "id": "railroad_guard",
+    "title": "Φρουρός Σιδηροδρόμου",
+    "trigger": "trig_train_heist",
+    "audioFile": "audio/oneoffs/railroad_guard.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ένας ένστολος φρουρός αναγνωρίζει ένα νόμιμο πρόσωπο και ζητά βοήθεια.\""
+  },
+  {
+    "type": "one-off",
+    "id": "rich_vein",
+    "title": "Πλούσια Φλέβα",
+    "trigger": "trig_begin_prospect",
+    "audioFile": "audio/oneoffs/rich_vein.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Χρυσόσκονη ξεχύνεται σαν εμφιαλωμένο φως του ήλιου.\""
+  },
+  {
+    "type": "one-off",
+    "id": "cave_in",
+    "title": "Κατάρρευση Στοάς",
+    "trigger": "trig_begin_prospect",
+    "audioFile": "audio/oneoffs/cave_in.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Τα δοκάρια τρίζουν πάνω από το κεφάλι. Σήμερα το ορυχείο ζητά πληρωμή σε αίμα.\""
+  },
+  {
+    "type": "one-off",
+    "id": "claim_jumper_shadow",
+    "title": "Η Σκιά του Claim Jumper",
+    "trigger": "trig_gain_gold_prospect",
+    "audioFile": "audio/oneoffs/claim_jumper_shadow.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Κάποιος σε είδε να βρίσκεις χρυσό και δεν είναι από αυτούς που μοιράζονται.\""
+  },
+  {
+    "type": "one-off",
+    "id": "lost_map_tube",
+    "title": "Χάρτης σε Θήκη",
+    "trigger": "trig_gain_gold_prospect",
+    "audioFile": "audio/oneoffs/lost_map_tube.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Τυλιγμένος σε λαδόπανο περιμένει ένας χάρτης παλαιότερος κι από την ίδια την πόλη.\""
+  },
+  {
+    "type": "one-off",
+    "id": "fools_gold",
+    "title": "Χρυσός των Ανόητων",
+    "trigger": "trig_gain_gold_prospect",
+    "audioFile": "audio/oneoffs/fools_gold.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Αυτό που γυαλίζει στο ταψί σου είναι όμορφο, μα η ομορφιά δεν πληρώνει πάντα.\""
+  },
+  {
+    "type": "one-off",
+    "id": "bankers_smile",
+    "title": "Το Χαμόγελο του Τραπεζίτη",
+    "trigger": "trig_deposit_gold",
+    "audioFile": "audio/oneoffs/bankers_smile.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ο τραπεζίτης χαμογελά τόσο πλατιά που φαίνονται όλα του τα δόντια.\""
+  },
+  {
+    "type": "one-off",
+    "id": "assayer_dispute",
+    "title": "Διαφωνία με τον Εκτιμητή",
+    "trigger": "trig_deposit_gold",
+    "audioFile": "audio/oneoffs/assayer_dispute.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ο εκτιμητής κοιτάζει λοξά τον χρυσό σου και λέει πως είναι λιγοστός.\""
+  },
+  {
+    "type": "one-off",
+    "id": "free_spurs",
+    "title": "Δωρεάν Σπιρούνια",
+    "trigger": "trig_purchase_item",
+    "audioFile": "audio/oneoffs/free_spurs.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ο καταστηματάρχης πετά μέσα κι ένα ζευγάρι σπιρούνια που ανήκαν κάποτε σε γρήγορο άνθρωπο.\""
+  },
+  {
+    "type": "one-off",
+    "id": "gunsmith_discount",
+    "title": "Η Χάρη του Οπλουργού",
+    "trigger": "trig_purchase_item",
+    "audioFile": "audio/oneoffs/gunsmith_discount.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ο οπλουργός κοιτάζει το όπλο σου και κόβει δέκα δολάρια από την τιμή.\""
+  },
+  {
+    "type": "one-off",
+    "id": "counterfeit_goods",
+    "title": "Ελαττωματικά Εμπορεύματα",
+    "trigger": "trig_purchase_item",
+    "audioFile": "audio/oneoffs/counterfeit_goods.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Η ευκαιρία έδειχνε μια χαρά στο φως του καταστήματος. Ύστερα αρχίζει να καπνίζει.\""
+  },
+  {
+    "type": "one-off",
+    "id": "rare_shipment",
+    "title": "Σπάνια Αποστολή",
+    "trigger": "trig_purchase_item",
+    "audioFile": "audio/oneoffs/rare_shipment.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ένα κιβώτιο από την Ανατολή φτάνει στον πάγκο, σφραγισμένο με υποσχέσεις.\""
+  },
+  {
+    "type": "one-off",
+    "id": "doctor_secret",
+    "title": "Το Μυστικό Τονωτικό του Γιατρού",
+    "trigger": "trig_heal_doctor",
+    "audioFile": "audio/oneoffs/doctor_secret.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ο γιατρός χύνει κάτι σκούρο και λέει να μη ρωτήσεις τι έχει μέσα.\""
+  },
+  {
+    "type": "one-off",
+    "id": "bad_medicine",
+    "title": "Κακό Φάρμακο",
+    "trigger": "trig_heal_doctor",
+    "audioFile": "audio/oneoffs/bad_medicine.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Το φάρμακο δουλεύει, μα το δωμάτιο εξακολουθεί να στέκεται στραβά.\""
+  },
+  {
+    "type": "one-off",
+    "id": "cabaret_ovation",
+    "title": "Όρθιο Χειροκρότημα",
+    "trigger": "trig_revel_cabaret",
+    "audioFile": "audio/oneoffs/cabaret_ovation.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Το πλήθος χτυπά τα τραπέζια μέχρι που τρίζουν τα δοκάρια.\""
+  },
+  {
+    "type": "one-off",
+    "id": "cabaret_scandal",
+    "title": "Σκάνδαλο στο Καμπαρέ",
+    "trigger": "trig_revel_cabaret",
+    "audioFile": "audio/oneoffs/cabaret_scandal.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Μέχρι την ανατολή, η μισή Red Falls το ξέρει και η άλλη μισή έχει επινοήσει κάτι χειρότερο.\""
+  },
+  {
+    "type": "one-off",
+    "id": "card_shark",
+    "title": "Χαρτοπαίκτης-Καρχαρίας",
+    "trigger": "trig_begin_poker",
+    "audioFile": "audio/oneoffs/card_shark.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ένας επαγγελματίας χαρτοπαίκτης γλιστρά στο παιχνίδι με καθαρές μανσέτες και βρόμικο βλέμμα.\""
+  },
+  {
+    "type": "one-off",
+    "id": "lucky_table",
+    "title": "Τυχερό Τραπέζι",
+    "trigger": "trig_win_poker",
+    "audioFile": "audio/oneoffs/lucky_table.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Αυτό το τραπέζι είναι τυχερό από τότε που μπάλωσαν την τρύπα από σφαίρα με ασήμι.\""
+  },
+  {
+    "type": "one-off",
+    "id": "saloon_brawl",
+    "title": "Καβγάς στο Σαλούν",
+    "trigger": "trig_begin_poker",
+    "audioFile": "audio/oneoffs/saloon_brawl.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Μια καρέκλα σπάει, ένα μπουκάλι πετά και οι κάρτες δεν είναι το μόνο πρόβλημα.\""
+  },
+  {
+    "type": "one-off",
+    "id": "work_honest_pay",
+    "title": "Τίμια Αμοιβή",
+    "trigger": "trig_work_action",
+    "audioFile": "audio/oneoffs/work_honest_pay.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ο τίμιος ιδρώτας ξοδεύεται μια χαρά.\""
+  },
+  {
+    "type": "one-off",
+    "id": "work_splintered_hand",
+    "title": "Αγκίδα στο Χέρι",
+    "trigger": "trig_work_action",
+    "audioFile": "audio/oneoffs/work_splintered_hand.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Η λαβή σπάει και καρφώνει μια αγκίδα αρκετά βαθιά ώστε να τη θυμάσαι.\""
+  },
+  {
+    "type": "one-off",
+    "id": "stampede",
+    "title": "Αφηνιασμένο Κοπάδι",
+    "trigger": "trig_acquire_cattle",
+    "audioFile": "audio/oneoffs/stampede.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Το κοπάδι ξεχύνεται, με τις οπλές να βροντούν σαν ημέρα κρίσης.\""
+  },
+  {
+    "type": "one-off",
+    "id": "prize_steer",
+    "title": "Βραβευμένο Βόδι",
+    "trigger": "trig_acquire_cattle",
+    "audioFile": "audio/oneoffs/prize_steer.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ο εργάτης του ράντσου δείχνει το πιο καλοθρεμμένο βόδι στο μαντρί.\""
+  },
+  {
+    "type": "one-off",
+    "id": "rustler_brand",
+    "title": "Το Σημάδι του Ζωοκλέφτη",
+    "trigger": "trig_rustle_cattle",
+    "audioFile": "audio/oneoffs/rustler_brand.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Το σημάδι είναι φρέσκο και κάθε άνθρωπος του νόμου θα το μυριστεί.\""
+  },
+  {
+    "type": "one-off",
+    "id": "clean_drive",
+    "title": "Άψογη Μεταφορά",
+    "trigger": "trig_wrangle_cattle",
+    "audioFile": "audio/oneoffs/clean_drive.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ούτε ένα ζώο δεν ξεστρατίζει. Τέτοια δουλειά κερδίζει σεβασμό.\""
+  },
+  {
+    "type": "one-off",
+    "id": "broken_bridge",
+    "title": "Σπασμένη Γέφυρα",
+    "trigger": "trig_move_3_plus",
+    "audioFile": "audio/oneoffs/broken_bridge.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Η γέφυρα μπροστά είναι περισσότερο ανάμνηση παρά ξυλεία.\""
+  },
+  {
+    "type": "one-off",
+    "id": "runaway_stage",
+    "title": "Αφηνιασμένη Άμαξα",
+    "trigger": "trig_move_3_plus",
+    "audioFile": "audio/oneoffs/runaway_stage.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Μια άμαξα χωρίς οδηγό ορμά καταπάνω στον δρόμο!\""
+  },
+  {
+    "type": "one-off",
+    "id": "snakebite",
+    "title": "Δάγκωμα Φιδιού",
+    "trigger": "trig_end_outside_town",
+    "audioFile": "audio/oneoffs/snakebite.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ένας κροταλίας χτυπά από μια σκιά όχι μεγαλύτερη από τακούνι μπότας.\""
+  },
+  {
+    "type": "one-off",
+    "id": "desert_shortcut",
+    "title": "Συντόμευση στην Έρημο",
+    "trigger": "trig_enter_dixon_creek",
+    "audioFile": "audio/oneoffs/desert_shortcut.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ένα παλιό μονοπάτι κόβει μέσα από τόπο που οι περισσότεροι ορκίζονται πως είναι αδιάβατος.\""
+  },
+  {
+    "type": "one-off",
+    "id": "dixon_ambush",
+    "title": "Ενέδρα στο Dixon Creek",
+    "trigger": "trig_enter_dixon_creek",
+    "audioFile": "audio/oneoffs/dixon_ambush.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Το Dixon Creek είναι ήσυχο. Πολύ ήσυχο για τίμιο τόπο.\""
+  },
+  {
+    "type": "one-off",
+    "id": "mesitos_greenhorn",
+    "title": "Ο Πρωτάρης του Πράσινου Ράντσου",
+    "trigger": "trig_enter_mesitos_point",
+    "audioFile": "audio/oneoffs/mesitos_greenhorn.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ένας νεαρός εργάτης του ράντσου σε σταματά κουνώντας τα χέρια, με πανικό στα μάτια.\""
+  },
+  {
+    "type": "one-off",
+    "id": "sunny_hills_luck",
+    "title": "Η Τύχη του Sunny Hills",
+    "trigger": "trig_enter_sunny_hills",
+    "audioFile": "audio/oneoffs/sunny_hills_luck.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Το Sunny Hills κερδίζει το όνομά του όταν η ίδια η πέτρα αρχίζει να λάμπει.\""
+  },
+  {
+    "type": "one-off",
+    "id": "spikes_view_signal",
+    "title": "Φωτιά Σήματος",
+    "trigger": "trig_enter_spikes_view",
+    "audioFile": "audio/oneoffs/spikes_view_signal.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Μια φωτιά σήματος καίει στην κορυφογραμμή πάνω από το Spike’s View.\""
+  },
+  {
+    "type": "one-off",
+    "id": "cliff_junction_echo",
+    "title": "Ηχώ στους Γκρεμούς",
+    "trigger": "trig_enter_cliff_junction",
+    "audioFile": "audio/oneoffs/cliff_junction_echo.mp3",
+    "status": "ready",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Κάτι απαντά στα βήματά σου από βαθιά μέσα στον βράχο.\""
+  },
+  {
+    "type": "one-off",
+    "id": "legendary_whisper",
+    "title": "Θρυλικός Ψίθυρος",
+    "trigger": "trig_gain_legendary_item",
+    "audioFile": "audio/oneoffs/legendary_whisper.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Κάποια αντικείμενα κουβαλούν ιστορίες πριν καν φτάσουν στα χέρια σου.\""
+  },
+  {
+    "type": "one-off",
+    "id": "famous_deed",
+    "title": "Ξακουστή Πράξη",
+    "trigger": "trig_gain_lp_2_plus",
+    "audioFile": "audio/oneoffs/famous_deed.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Μέχρι τη δύση, κάποιος ήδη διηγείται λάθος την ιστορία.\""
+  },
+  {
+    "type": "one-off",
+    "id": "risk_pays",
+    "title": "Το Ρίσκο Πληρώνει",
+    "trigger": "trig_roll_risk_die",
+    "audioFile": "audio/oneoffs/risk_pays.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Η τύχη ευνοεί τον ανόητο που ξέρει πότε να τρέξει.\""
+  },
+  {
+    "type": "one-off",
+    "id": "risk_bites",
+    "title": "Το Ρίσκο Δαγκώνει",
+    "trigger": "trig_roll_risk_die",
+    "audioFile": "audio/oneoffs/risk_bites.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Το ρίσκο έχει δόντια και σήμερα βρήκε σάρκα.\""
+  },
+  {
+    "type": "one-off",
+    "id": "gang_loyalty",
+    "title": "Πιστό Πλήρωμα",
+    "trigger": "trig_recruit_gang_posse",
+    "audioFile": "audio/oneoffs/gang_loyalty.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Μερικά σκληρά πρόσωπα ξέρουν το όνομά σου και θα καβαλήσουν φθηνά.\""
+  },
+  {
+    "type": "one-off",
+    "id": "frontier_cache",
+    "title": "Κρυψώνα στη Μεθόριο",
+    "trigger": "trig_frontier_action",
+    "audioFile": "audio/oneoffs/frontier_cache.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Κάτω από μια επίπεδη πέτρα περιμένει μια κρυψώνα που άφησε κάποιος που δεν γύρισε ποτέ.\""
+  },
+  {
+    "type": "one-off",
+    "id": "frontier_deadfall",
+    "title": "Παγίδα στη Μεθόριο",
+    "trigger": "trig_frontier_action",
+    "audioFile": "audio/oneoffs/frontier_deadfall.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Η μεθόριος δίνει με το ένα χέρι και ρίχνει έναν κορμό με το άλλο.\""
+  },
+  {
+    "type": "one-off",
+    "id": "hunters_mark",
+    "title": "Το Σημάδι του Κυνηγού",
+    "trigger": "trig_hunt_success",
+    "audioFile": "audio/oneoffs/hunters_mark.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Καθαρή δουλειά. Ακόμη και οι παλιοί παγιδευτές θα έγνεφαν επιδοκιμαστικά σε τέτοια βολή.\""
+  },
+  {
+    "type": "one-off",
+    "id": "wounded_predator",
+    "title": "Τραυματισμένο Αρπακτικό",
+    "trigger": "trig_hunt_success",
+    "audioFile": "audio/oneoffs/wounded_predator.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Το θηρίο πέφτει, όχι όμως πριν αφήσει το σημάδι του.\""
+  },
+  {
+    "type": "one-off",
+    "id": "forager_cache",
+    "title": "Κρυψώνα Συλλέκτη",
+    "trigger": "trig_forage_resource",
+    "audioFile": "audio/oneoffs/forager_cache.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Μια ξερή κοίτη κρύβει περισσότερα από σκόνη.\""
+  },
+  {
+    "type": "one-off",
+    "id": "spoiled_bundle",
+    "title": "Χαλασμένο Δέμα",
+    "trigger": "trig_forage_resource",
+    "audioFile": "audio/oneoffs/spoiled_bundle.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Αυτό που έμοιαζε χρήσιμο στη σκιά μυρίζει άσχημα στον ήλιο.\""
+  },
+  {
+    "type": "one-off",
+    "id": "fine_craft",
+    "title": "Εξαιρετική Κατασκευή",
+    "trigger": "trig_craft_item",
+    "audioFile": "audio/oneoffs/fine_craft.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Αυτό δεν είναι απλώς χρήσιμο. Είναι δουλειά που αξίζει να τη θυμούνται.\""
+  },
+  {
+    "type": "one-off",
+    "id": "broken_tool",
+    "title": "Σπασμένο Εργαλείο",
+    "trigger": "trig_craft_item",
+    "audioFile": "audio/oneoffs/broken_tool.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Το εργαλείο κρατιέται ενωμένο ίσα-ίσα μέχρι να τελειώσει η δουλειά.\""
+  },
+  {
+    "type": "one-off",
+    "id": "wood_for_station",
+    "title": "Ξυλεία για τον Σταθμό",
+    "trigger": "trig_deliver_resource_location",
+    "audioFile": "audio/oneoffs/wood_for_station.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Φρεσκοκομμένα δοκάρια πέφτουν δίπλα στις γραμμές σαν τα κόκαλα μιας καινούριας πόλης.\""
+  },
+  {
+    "type": "one-off",
+    "id": "metal_for_tracks",
+    "title": "Σίδερο για τη Γραμμή",
+    "trigger": "trig_deliver_resource_location",
+    "audioFile": "audio/oneoffs/metal_for_tracks.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ο επιστάτης περνά τον αντίχειρα πάνω στο σίδερο και χαμογελά σαν άνθρωπος που βλέπει το αύριο.\""
+  },
+  {
+    "type": "one-off",
+    "id": "robbery_hidden_witness",
+    "title": "Μάτια στο Παράθυρο",
+    "trigger": "trig_rob_player",
+    "audioFile": "audio/oneoffs/robbery_hidden_witness.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Μια κουρτίνα σαλεύει απέναντι. Κάποιος τα είδε όλα και οι μάρτυρες έχουν τρόπο να βρίσκουν τον σερίφη.\""
+  },
+  {
+    "type": "one-off",
+    "id": "robbery_dropped_purse",
+    "title": "Κάτι Παραπάνω",
+    "trigger": "trig_rob_player",
+    "audioFile": "audio/oneoffs/robbery_dropped_purse.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Κάτι ακόμη πέφτει στη σκόνη μέσα στην αναστάτωση: ένα μικρό πουγκί που κανείς δεν είχε προσέξει.\""
+  },
+  {
+    "type": "one-off",
+    "id": "player_fight_crowd",
+    "title": "Μαζεύεται Πλήθος",
+    "trigger": "trig_start_player_fight",
+    "audioFile": "audio/oneoffs/player_fight_crowd.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Μπότες ξύνουν τις βεράντες και οι πόρτες του σαλούν ανοίγουν. Ο κόσμος μυρίζεται καβγά και τα στοιχήματα αλλάζουν χέρια.\""
+  },
+  {
+    "type": "one-off",
+    "id": "player_fight_dust",
+    "title": "Σκόνη στα Μάτια",
+    "trigger": "trig_start_player_fight",
+    "audioFile": "audio/oneoffs/player_fight_dust.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Μια δυνατή ριπή πετά χώμα ανάμεσα στους μαχητές. Για μισό χτύπο καρδιάς, κανείς δεν βλέπει καθαρά.\""
+  },
+  {
+    "type": "one-off",
+    "id": "sheriff_arrest_public_example",
+    "title": "Παραδειγματική Σύλληψη",
+    "trigger": "trig_sheriff_arrests",
+    "audioFile": "audio/oneoffs/sheriff_arrest_public_example.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ο σερίφης περνά τον κρατούμενο μέσα από το κέντρο της πόλης, ώστε όλοι να δουν πώς τελείωσε η μέρα.\""
+  },
+  {
+    "type": "one-off",
+    "id": "sheriff_arrest_loose_cuffs",
+    "title": "Χαλαρές Χειροπέδες",
+    "trigger": "trig_sheriff_arrests",
+    "audioFile": "audio/oneoffs/sheriff_arrest_loose_cuffs.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Οι χειροπέδες του σερίφη έχουν δει καλύτερες μέρες, όπως και ο βοηθός που κοιτάζει τις τσέπες του κρατούμενου.\""
+  },
+  {
+    "type": "one-off",
+    "id": "rail_friendly_conductor",
+    "title": "Φιλικός Ελεγκτής",
+    "trigger": "trig_travel_rail",
+    "audioFile": "audio/oneoffs/rail_friendly_conductor.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ο ελεγκτής αναγνωρίζει ένα γνώριμο πρόσωπο και μοιράζεται μια χρήσιμη πληροφορία πριν σφυρίξει το τρένο.\""
+  },
+  {
+    "type": "one-off",
+    "id": "rail_late_freight",
+    "title": "Καθυστερημένο Φορτίο",
+    "trigger": "trig_travel_rail",
+    "audioFile": "audio/oneoffs/rail_late_freight.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ένα εμπορικό βαγόνι φτάνει καθυστερημένο και με λίγα χέρια για δουλειά.\""
+  },
+  {
+    "type": "one-off",
+    "id": "mountain_pass_rockslide",
+    "title": "Κατολίσθηση",
+    "trigger": "trig_use_mountain_pass",
+    "audioFile": "audio/oneoffs/mountain_pass_rockslide.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Πέτρες ξεκολλούν πάνω από το μονοπάτι και όλο το βουνό μοιάζει να κατεβαίνει μαζί τους.\""
+  },
+  {
+    "type": "one-off",
+    "id": "mountain_pass_abandoned_cache",
+    "title": "Εγκαταλελειμμένη Κρυψώνα",
+    "trigger": "trig_use_mountain_pass",
+    "audioFile": "audio/oneoffs/mountain_pass_abandoned_cache.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Κάτω από μια στοίβα πετρών του μονοπατιού βρίσκεται μια ταλαιπωρημένη κρυψώνα που άφησε κάποιος που δεν γύρισε ποτέ να την πάρει.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "prospector_intro",
+    "title": "Ένας Άνθρωπος Κοντά στον Θάνατο",
+    "trigger": "trig_begin_prospect",
+    "audioFile": "audio/arcs/prospector_intro.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ένας μισοπεθαμένος από την πείνα χρυσοθήρας βγαίνει παραπατώντας από τους θάμνους, σφίγγοντας ένα δερμάτινο πουγκί. Προσφέρει είκοσι δολάρια για ένα ποτό και μια διαδρομή ως την πόλη.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "prospector_debt_repaid",
+    "title": "Ξεπληρωμένο Χρέος",
+    "trigger": "trig_purchase_item",
+    "audioFile": "audio/arcs/prospector_debt_repaid.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ο γέρος χρυσοθήρας βγαίνει από τη γωνία και αφήνει κέρματα στον πάγκο. Σου είπα πως θα ξεπληρώσω την καλοσύνη.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "prospector_bandit_reveal",
+    "title": "Ο Άνθρωπος που Άφησες Πίσω",
+    "trigger": "trig_defeat_bandit",
+    "audioFile": "audio/arcs/prospector_bandit_reveal.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ο παράνομος πέφτει και βγάζει το καπέλο του. Κάτω από τη βρομιά αναγνωρίζεις τον χρυσοθήρα που άφησες στη σκόνη. Σφυρίζει και δύο ακόμη ληστές βγαίνουν από τους βράχους.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "widow_fence_down",
+    "title": "Πεσμένος Φράχτης",
+    "trigger": "trig_acquire_cattle",
+    "audioFile": "audio/arcs/widow_fence_down.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Μια χήρα στα μαύρα ζητά βοήθεια για να επισκευάσει τον φράχτη πριν οι ζωοκλέφτες βρουν το άνοιγμα.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "widow_cattle_drive",
+    "title": "Ασφαλής Μεταφορά",
+    "trigger": "trig_wrangle_cattle",
+    "audioFile": "audio/arcs/widow_cattle_drive.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Το σημάδι της χήρας ταξιδεύει μαζί με το κοπάδι και κάθε τίμιο μίλι βοηθά να σωθεί η γη της.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "widow_black_veil",
+    "title": "Ληστής με Μαύρο Πέπλο",
+    "trigger": "trig_rustle_cattle",
+    "audioFile": "audio/arcs/widow_black_veil.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Μια καβαλάρισσα με πέπλο ενώνεται με τους ζωοκλέφτες. Η θλίψη την ακόνισε σε κάτι επικίνδυνο.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "reeves_deputy_call",
+    "title": "Βοηθός για Μια Μέρα",
+    "trigger": "trig_gain_mp",
+    "audioFile": "audio/arcs/reeves_deputy_call.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ο Μάρσαλ Reeves χρειάζεται σταθερό χέρι και ακόμη πιο σταθερή συνείδηση.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "reeves_crackdown",
+    "title": "Ένταλμα Καταστολής",
+    "trigger": "trig_defeat_bandit",
+    "audioFile": "audio/arcs/reeves_crackdown.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ο Reeves έχει εντάλματα στοιβαγμένα σαν καυσόξυλα και αρκετό σχοινί για κάθε όνομα που γράφουν.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "reeves_hunted",
+    "title": "Ο Μάρσαλ στα Ίχνη Σου",
+    "trigger": "trig_gain_wp",
+    "audioFile": "audio/arcs/reeves_hunted.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ο Reeves καρφιτσώνει το όνομά σου κάτω από το φανάρι και καλπάζει μέσα στη νύχτα.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "showman_arrives",
+    "title": "Η Ζωγραφισμένη Άμαξα",
+    "trigger": "trig_revel_cabaret",
+    "audioFile": "audio/arcs/showman_arrives.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Μια ζωγραφισμένη άμαξα κυλά στη Red Falls, υποσχόμενη θαύματα, μουσική και ψέματα σε ίσες δόσεις.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "showman_grand_show",
+    "title": "Μεγάλο Σόου της Μεθορίου",
+    "trigger": "trig_win_poker",
+    "audioFile": "audio/arcs/showman_grand_show.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ο Silas Bell αποκαλεί το φύλλο σου θαύμα και πουλά εισιτήρια πριν καν κρυώσουν οι κάρτες.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "showman_swindle",
+    "title": "Η Μεγάλη Απάτη",
+    "trigger": "trig_purchase_item",
+    "audioFile": "audio/arcs/showman_swindle.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Η ετικέτα γράφει γνήσιο. Το χαμόγελο του θεατρίνου λέει το αντίθετο.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "pike_tracks",
+    "title": "Τα Ίχνη του Γέρου Pike",
+    "trigger": "trig_hunt_success",
+    "audioFile": "audio/arcs/pike_tracks.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ο γέρος Jeremiah Pike μελετά τα ίχνη και γρυλίζει σαν να του χρωστά το ζώο λεφτά.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "pike_white_bear",
+    "title": "Το Μονοπάτι της Λευκής Αρκούδας",
+    "trigger": "trig_hunt_success",
+    "audioFile": "audio/arcs/pike_white_bear.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ο Pike δείχνει με τρεμάμενο δάχτυλο. Αυτό το μονοπάτι ανήκει σε κάτι πολύ μεγάλο για συνηθισμένο φόβο.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "pike_trap_line",
+    "title": "Παγίδα που Έκλεισε",
+    "trigger": "trig_end_outside_town",
+    "audioFile": "audio/arcs/pike_trap_line.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Μια κρυμμένη παγίδα κλείνει απότομα. Ο Pike δεν συγχωρεί όταν τον αγνοούν.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "cardshark_first_hand",
+    "title": "Ένας Ξένος στο Τραπέζι",
+    "trigger": "trig_begin_poker",
+    "audioFile": "audio/arcs/cardshark_first_hand.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ένας ξένος με χλωμά γάντια κάθεται χωρίς να ρωτήσει και χαμογελά χωρίς ζεστασιά.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "cardshark_beaten",
+    "title": "Νικώντας τον Καρχαρία",
+    "trigger": "trig_win_poker",
+    "audioFile": "audio/arcs/cardshark_beaten.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Για πρώτη φορά όλη τη νύχτα, το χαμόγελο του ξένου σπάει.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "cardshark_debt",
+    "title": "Εισπράκτορας Χρεών",
+    "trigger": "trig_start_player_fight",
+    "audioFile": "audio/arcs/cardshark_debt.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ένας εισπράκτορας βγαίνει από το σοκάκι, απαγγέλλοντας νούμερα που κανένας τίμιος άνθρωπος δεν θυμάται.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "rail_surveyors",
+    "title": "Φτάνουν οι Τοπογράφοι",
+    "trigger": "trig_travel_rail",
+    "audioFile": "audio/arcs/rail_surveyors.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Οι τοπογράφοι φτάνουν με αλυσίδες, πασσάλους και την επικίνδυνη ιδέα ότι το αύριο μπορεί να μετρηθεί.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "rail_lumber",
+    "title": "Ξυλεία για τον Σταθμό",
+    "trigger": "trig_deliver_resource_location",
+    "audioFile": "audio/arcs/rail_lumber.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Φρέσκα δοκάρια πέφτουν δίπλα στις γραμμές σαν τα κόκαλα μιας νέας πόλης.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "rail_iron",
+    "title": "Σίδερο για τη Γραμμή",
+    "trigger": "trig_deliver_resource_location",
+    "audioFile": "audio/arcs/rail_iron.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ο επιστάτης περνά τον αντίχειρα πάνω στο σίδερο και βλέπει το αύριο.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "rail_grand_opening",
+    "title": "Μεγάλα Εγκαίνια",
+    "trigger": "",
+    "audioFile": "audio/storylines/rail_grand_opening.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Με το τελευταίο καρφί στη θέση του, η ατμομηχανή σφυρίζει σαν να ξύπνησε η ίδια η μεθόριος.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "spanish_journal",
+    "title": "Σκισμένο Ημερολόγιο",
+    "trigger": "trig_gain_gold_prospect",
+    "audioFile": "audio/arcs/spanish_journal.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ένα σκισμένο ημερολόγιο μιλά για ισπανικό χρυσό κρυμμένο εκεί όπου οι γκρεμοί ρίχνουν σκιά το μεσημέρι.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "spanish_marker",
+    "title": "Το Πέτρινο Σημάδι",
+    "trigger": "trig_enter_cliff_junction",
+    "audioFile": "audio/arcs/spanish_marker.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ένας πέτρινος σταυρός γέρνει μέσα από τη σκόνη, παλαιότερος από κάθε πόλη αυτού του χάρτη.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "spanish_cache",
+    "title": "Η Θαμμένη Κρυψώνα",
+    "trigger": "trig_deposit_gold",
+    "audioFile": "audio/arcs/spanish_cache.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Κάτω από κόκκινη πέτρα περιμένει μια κρυψώνα με νομίσματα σφραγισμένα για έναν βασιλιά που δεν είδε ποτέ αυτή τη γη.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "buffalo_tracks",
+    "title": "Παράξενα Ίχνη",
+    "trigger": "trig_hunt_success",
+    "audioFile": "audio/arcs/buffalo_tracks.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ίχνη πλατιά σαν πιάτα διασχίζουν την πεδιάδα και κάθε πουλί έχει σωπάσει.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "buffalo_warning",
+    "title": "Η Προειδοποίηση",
+    "trigger": "trig_enter_sunny_hills",
+    "audioFile": "audio/arcs/buffalo_warning.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ένας γέρος ανιχνευτής προειδοποιεί πως κάποια ζώα δεν είναι τρόπαια. Είναι δοκιμασίες.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "buffalo_appears",
+    "title": "Εμφανίζεται ο Λευκός Βούβαλος",
+    "trigger": "trig_hunt_success",
+    "audioFile": "audio/storylines/buffalo_appears.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ο λευκός βούβαλος βγαίνει από την πρωινή ομίχλη, φωτεινός σαν φάντασμα και βαρύτερος από θρύλο.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_drought",
+    "title": "Ξηρασία",
+    "trigger": "",
+    "audioFile": "audio/world/world_drought.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Τα πηγάδια βγάζουν λάσπη και ο ήλιος καίει ανελέητα στον ουρανό.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_gold_rush",
+    "title": "Πυρετός του Χρυσού",
+    "trigger": "",
+    "audioFile": "audio/world/world_gold_rush.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ο πυρετός του χρυσού εξαπλώνεται γρηγορότερα κι από την κοινή λογική.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_sheriff_crackdown",
+    "title": "Καταστολή του Σερίφη",
+    "trigger": "",
+    "audioFile": "audio/world/world_sheriff_crackdown.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ο νόμος ακονίζει τα δόντια του.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_bandit_uprising",
+    "title": "Εξέγερση Ληστών",
+    "trigger": "",
+    "audioFile": "audio/world/world_bandit_uprising.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Οι λόφοι αρχίζουν να ξερνούν σκληρούς άντρες με γεμάτα όπλα.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_frontier_festival",
+    "title": "Γιορτή της Μεθορίου",
+    "trigger": "",
+    "audioFile": "audio/world/world_frontier_festival.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Η μουσική ξεχύνεται από την πόλη σαν φως από φανάρια.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_bad_weather",
+    "title": "Κακοκαιρία",
+    "trigger": "",
+    "audioFile": "audio/world/world_bad_weather.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Η βροχή μετατρέπει κάθε δρόμο σε καφέ λάσπη.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_clear_skies",
+    "title": "Καθαρός Ουρανός",
+    "trigger": "",
+    "audioFile": "audio/world/world_clear_skies.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ο ουρανός καθαρίζει και κάθε μονοπάτι μοιάζει πιο σύντομο.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_high_stakes",
+    "title": "Βραδιά Υψηλών Στοιχημάτων",
+    "trigger": "",
+    "audioFile": "audio/world/world_high_stakes.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Κάθε ανόητος με λεφτά στην τσέπη θέλει μια θέση στο τραπέζι.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_cattle_market",
+    "title": "Αγορά Βοοειδών",
+    "trigger": "",
+    "audioFile": "audio/world/world_cattle_market.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Οι τιμές του βοδινού ανεβαίνουν σαν καπνός.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_doctor_shortage",
+    "title": "Έλλειψη Γιατρών",
+    "trigger": "",
+    "audioFile": "audio/world/world_doctor_shortage.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ο γιατρός δεν έχει ούτε λάβδανο ούτε υπομονή.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_free_rail",
+    "title": "Γιορτή του Σιδηροδρόμου",
+    "trigger": "",
+    "audioFile": "audio/world/world_free_rail.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Η ατμομηχανή σφυρίζει και κάθε σταθμός γιορτάζει.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_train_security",
+    "title": "Ένοπλοι Φρουροί Τρένου",
+    "trigger": "",
+    "audioFile": "audio/world/world_train_security.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Οι άνθρωποι του σιδηροδρόμου προσλαμβάνουν οπλοφόρους με τη δωδεκάδα.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_mine_collapse",
+    "title": "Ασταθή Ορυχεία",
+    "trigger": "",
+    "audioFile": "audio/world/world_mine_collapse.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Η γη βογκά κάτω από κάθε αξίνα.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_trader_boom",
+    "title": "Άνθηση Εμπορίου",
+    "trigger": "",
+    "audioFile": "audio/world/world_trader_boom.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Η άμαξα του Dr. Herve κυλά φορτωμένη με θαύματα.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_saloons_dry",
+    "title": "Στεγνά Σαλούν",
+    "trigger": "",
+    "audioFile": "audio/world/world_saloons_dry.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Το ουίσκι τελειώνει και τα τραπέζια παγώνουν.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_ranch_fire",
+    "title": "Φωτιά σε Ράντσο",
+    "trigger": "",
+    "audioFile": "audio/world/world_ranch_fire.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Καπνός σηκώνεται από το βόρειο λιβάδι.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_resource_boom",
+    "title": "Χρήσιμα Απομεινάρια",
+    "trigger": "",
+    "audioFile": "audio/world/world_resource_boom.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Η μεθόριος είναι γεμάτη πράγματα χρήσιμα σε επιδέξια χέρια.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_predator_migration",
+    "title": "Μετανάστευση Αρπακτικών",
+    "trigger": "",
+    "audioFile": "audio/world/world_predator_migration.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Πεινασμένα μάτια λάμπουν μέσα στους θάμνους.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_craft_fair",
+    "title": "Έκθεση Χειροτεχνίας",
+    "trigger": "",
+    "audioFile": "audio/world/world_craft_fair.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Κάθε χρήσιμο μικροπράγμα βρίσκει αγοραστή.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_legendary_weather",
+    "title": "Κόκκινο Ηλιοβασίλεμα",
+    "trigger": "",
+    "audioFile": "audio/world/world_legendary_weather.mp3",
+    "status": "missing",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Το ηλιοβασίλεμα φλέγεται κόκκινο και ακόμη και οι συνηθισμένες πράξεις μοιάζουν θρυλικές.\""
+  }
+]

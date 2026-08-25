@@ -2,578 +2,221 @@
   {
     "id": "world_drought",
     "title": "Sequía",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "weather",
-      "wound"
-    ],
     "screenText": "El primer jugador que termine fuera del pueblo sufre 1 herida.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Los pozos escupen barro y el sol cuelga cruel en el cielo.\"",
     "newspaperText": [
       "Una sequía castigadora se asentó sobre el territorio, dejando los pozos bajos y a los viajeros vigilando cada gota de agua.",
       "Semanas de sol implacable dejaron la frontera seca y quebradiza, con el agua volviéndose casi tan valiosa como el oro.",
       "El tiempo seco apretó su dominio sobre la llanura, y los jinetes sorprendidos fuera del pueblo sufrieron lo peor."
-    ],
-    "audioFile": "audio/world/world_drought.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 5
-      },
-      {
-        "type": "outside_town_wound_first"
-      }
     ]
   },
   {
     "id": "world_gold_rush",
     "title": "Fiebre del Oro",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "gold",
-      "prospect"
-    ],
     "screenText": "Las acciones de Prospección obtienen +$10.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"La fiebre del oro se extiende más rápido que el sentido común.\"",
     "newspaperText": [
       "Nuevos rumores de oro recorrieron los campamentos, atrayendo de nuevo a los prospectores a las excavaciones con renovada fiebre.",
       "La fiebre del oro volvió a apoderarse del territorio cuando hallazgos prometedores hicieron que los mineros corrieran por sus bateas y picos.",
       "Los rumores de terreno rico se extendieron de concesión en concesión, haciendo que cada salida de prospección pareciera un poco más valiosa."
-    ],
-    "audioFile": "audio/world/world_gold_rush.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 5
-      },
-      {
-        "type": "prospect_money_bonus",
-        "amount": 10
-      }
     ]
   },
   {
     "id": "world_sheriff_crackdown",
     "title": "Mano Dura del Sheriff",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "sheriff",
-      "wanted"
-    ],
     "screenText": "Siempre que un jugador obtenga WP, mueve al Sheriff 3 espacios hacia ese jugador.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"La ley afila los dientes.\"",
     "newspaperText": [
       "El Sheriff lanzó una dura ofensiva contra la ilegalidad, cabalgando con rapidez cada vez que aparecían nuevos avisos de Wanted.",
       "Los jinetes Wanted descubrieron que el territorio era de pronto menos indulgente, ya que el Sheriff respondía a los nuevos delitos con una rapidez inusual.",
       "La ley estrechó su control sobre la frontera, con el Sheriff acercándose a cualquiera que siguiera aumentando su reputación de Wanted."
-    ],
-    "audioFile": "audio/world/world_sheriff_crackdown.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 5
-      },
-      {
-        "type": "wanted_moves_sheriff",
-        "spaces": 3
-      }
     ]
   },
   {
     "id": "world_bandit_uprising",
     "title": "Levantamiento de Bandidos",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "bandit",
-      "fight"
-    ],
     "screenText": "Los Bandidos roban +1 Carta de Pelea.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Las colinas empiezan a escupir hombres duros con las armas cargadas.\"",
     "newspaperText": [
       "La actividad de los bandidos se disparó por todo el territorio, y los viajeros informaron de bandas más duras y mejor armadas en los caminos.",
       "Un brote de violencia bandida volvió la llanura más peligrosa, con bandas de forajidos mostrando una fuerza inesperada en pelea.",
       "Los bandidos armados se volvieron más atrevidos por toda la frontera, convirtiendo encuentros rutinarios en asuntos mucho más peligrosos."
-    ],
-    "audioFile": "audio/world/world_bandit_uprising.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 5
-      },
-      {
-        "type": "bandits_extra_fight_card",
-        "count": 1
-      }
     ]
   },
   {
     "id": "world_frontier_festival",
     "title": "Festival de la Frontera",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "town",
-      "positive"
-    ],
     "screenText": "La primera acción de Pueblo obtiene +$10.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"La música sale del pueblo como la luz de los faroles.\"",
     "newspaperText": [
       "Un festival fronterizo llenó el pueblo de música, comercio y monedas sueltas, recompensando el primer negocio realizado en plena celebración.",
       "Las calles cobraron vida con un raro festival, trayendo multitudes, oportunidades y un poco de dinero extra a los negocios locales.",
       "La celebración recorrió el pueblo cuando un festival fronterizo atrajo colonos desde kilómetros de distancia y puso nuevas monedas en circulación."
-    ],
-    "audioFile": "audio/world/world_frontier_festival.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 4
-      },
-      {
-        "type": "first_town_action_bonus_money",
-        "amount": 10
-      }
     ]
   },
   {
     "id": "world_bad_weather",
     "title": "Mal Tiempo",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "weather",
-      "move"
-    ],
     "screenText": "Las acciones de Movimiento tienen -1 espacio.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"La lluvia convierte cada camino en sopa marrón.\"",
     "newspaperText": [
       "El mal tiempo convirtió los caminos en barro e hizo que cada viaje por el territorio fuera más lento de lo habitual.",
       "La lluvia y unas condiciones miserables en los senderos se asentaron sobre la frontera, acortando incluso los viajes de los jinetes más resistentes.",
       "El mal tiempo hizo difícil avanzar por la llanura abierta, con caminos arrasados y barro profundo ralentizando el movimiento en todas partes."
-    ],
-    "audioFile": "audio/world/world_bad_weather.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 4
-      },
-      {
-        "type": "movement_modifier",
-        "amount": -1
-      }
     ]
   },
   {
     "id": "world_clear_skies",
     "title": "Cielos Despejados",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "weather",
-      "move"
-    ],
     "screenText": "Las acciones de Movimiento tienen +1 espacio.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"El cielo se despeja y todos los senderos parecen más cortos.\"",
     "newspaperText": [
       "Los cielos despejados y senderos firmes abrieron el territorio, permitiendo a los jinetes cubrir más terreno de lo habitual.",
       "Una racha de buen tiempo volvió los caminos inusualmente favorables y acortó los viajes por la frontera.",
       "Los cielos brillantes y senderos secos favorecieron a los viajeros, ayudando a los jinetes a llegar más lejos con cada movimiento."
-    ],
-    "audioFile": "audio/world/world_clear_skies.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 4
-      },
-      {
-        "type": "movement_modifier",
-        "amount": 1
-      }
     ]
   },
   {
     "id": "world_high_stakes",
     "title": "Noche de Grandes Apuestas",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "poker"
-    ],
     "screenText": "Los ganadores de Poker obtienen +$20.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Todo necio con monedas en el bolsillo quiere un asiento.\"",
     "newspaperText": [
       "El Poker de grandes apuestas se apoderó de los saloons, con botes mayores esperando a cualquiera lo bastante hábil para ganarlos.",
       "Las mesas de cartas ardieron cuando jugadores de bolsillos profundos elevaron las ganancias del Poker muy por encima de las apuestas habituales.",
       "El dinero cambió de manos libremente durante una racha de Poker de grandes apuestas que atrajo a jugadores ambiciosos a las mesas."
-    ],
-    "audioFile": "audio/world/world_high_stakes.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 4
-      },
-      {
-        "type": "poker_win_bonus_money",
-        "amount": 20
-      }
     ]
   },
   {
     "id": "world_cattle_market",
     "title": "Mercado de Ganado",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "cattle"
-    ],
     "screenText": "Las recompensas por Arrear/Robar ganado obtienen +$10.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"El precio de la carne sube como el humo.\"",
     "newspaperText": [
       "Un fuerte mercado de ganado elevó el precio de la carne e hizo que el trabajo exitoso en los ranchos fuera inusualmente rentable.",
       "La demanda de ganado aumentó por todo el territorio, llevando dinero extra tanto a arreadores honrados como a cuatreros atrevidos.",
       "Los precios del ganado subieron con fuerza, convirtiendo cada arreo exitoso en un negocio fronterizo más lucrativo."
-    ],
-    "audioFile": "audio/world/world_cattle_market.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 5
-      },
-      {
-        "type": "cattle_delivery_bonus_money",
-        "amount": 10
-      }
     ]
   },
   {
     "id": "world_doctor_shortage",
     "title": "Escasez de Doctores",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "doctor"
-    ],
     "screenText": "Curarse cuesta +$10.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Al doctor le faltan láudano y paciencia.\"",
     "newspaperText": [
       "La escasez de doctores y medicinas elevó el precio del tratamiento por toda la frontera.",
       "La atención médica se volvió escasa en todo el territorio, obligando a los jinetes heridos a pagar caro por la atención de un doctor.",
       "Con las medicinas escaseando, el coste de dejarse remendar subió allí donde la Gazette recibió noticias."
-    ],
-    "audioFile": "audio/world/world_doctor_shortage.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 4
-      },
-      {
-        "type": "heal_cost_modifier",
-        "amount": 10
-      }
     ]
   },
   {
     "id": "world_free_rail",
     "title": "Jubileo del Ferrocarril",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [
-      "ante_up"
-    ],
-    "tags": [
-      "rail",
-      "ante_up"
-    ],
     "screenText": "Viajar en tren cuesta $0.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"La locomotora silba y todas las estaciones celebran.\"",
     "newspaperText": [
       "Un jubileo ferroviario abrió las vías a viajes gratuitos, enviando pasajeros de estación en estación sin coste alguno.",
       "El ferrocarril lo celebró por todo lo alto eliminando las tarifas y llenando sus vagones de viajeros de la frontera.",
       "Los silbatos resonaron desde cada estación mientras un jubileo ferroviario hacía gratuito el viaje en tren por todo el territorio."
-    ],
-    "audioFile": "audio/world/world_free_rail.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 6
-      },
-      {
-        "type": "rail_cost",
-        "amount": 0
-      }
     ]
   },
   {
     "id": "world_train_security",
     "title": "Guardias de Tren Armados",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [
-      "ante_up"
-    ],
-    "tags": [
-      "train",
-      "ante_up"
-    ],
     "screenText": "Los Guardias del Tren roban +1 Carta de Pelea.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Los hombres del ferrocarril contratan pistoleros por docenas.\"",
     "newspaperText": [
       "Las compañías ferroviarias respondieron a los crecientes problemas colocando guardias fuertemente armados a bordo de sus trenes.",
       "La seguridad de los trenes aumentó drásticamente cuando el ferrocarril contrató más pistoleros para proteger sus valiosos vagones.",
       "Los aspirantes a ladrones de trenes encontraron una resistencia mayor después de que los guardias armados empezaran a viajar por las vías en mayor número."
-    ],
-    "audioFile": "audio/world/world_train_security.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 5
-      },
-      {
-        "type": "train_guard_extra_fight_card",
-        "count": 1
-      }
     ]
   },
   {
     "id": "world_mine_collapse",
     "title": "Minas Inestables",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "mine"
-    ],
     "screenText": "Los jugadores que Prospectan sufren 1 herida con Grava.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"La tierra gime bajo cada golpe de pico.\"",
     "newspaperText": [
       "El terreno inestable volvió traicioneras las minas, haciendo que incluso una prospección corriente conllevara mayor riesgo de heridas.",
       "Los informes sobre tierra desplazándose y galerías inseguras se extendieron por los campamentos mineros, haciendo cada excavación más peligrosa.",
       "Las minas del territorio se volvieron peligrosas cuando el terreno inestable amenazó a los prospectores que trabajaban la grava."
-    ],
-    "audioFile": "audio/world/world_mine_collapse.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 5
-      },
-      {
-        "type": "prospect_gravel_wound"
-      }
     ]
   },
   {
     "id": "world_trader_boom",
     "title": "Auge de los Comerciantes",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "trader"
-    ],
     "screenText": "Los Objetos Legendarios cuestan $10 menos.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"El carro del Dr. Herve avanza cargado de maravillas.\"",
     "newspaperText": [
       "Un auge de comerciantes ambulantes puso los bienes raros más al alcance y redujo el precio de las mercancías legendarias.",
       "Mercancías raras inundaron el mercado fronterizo, dando a los jinetes una oportunidad poco común de comprar objetos legendarios por menos.",
       "La llegada de comerciantes bien abastecidos agitó el territorio y, por un breve tiempo, hizo más baratos los bienes más codiciados."
-    ],
-    "audioFile": "audio/world/world_trader_boom.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 5
-      },
-      {
-        "type": "legendary_item_discount",
-        "amount": 10
-      }
     ]
   },
   {
     "id": "world_saloons_dry",
     "title": "Saloons Secos",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "saloon"
-    ],
     "screenText": "El Poker no puede activar eventos únicos.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Se acaba el whiskey y las mesas se enfrían.\"",
     "newspaperText": [
       "Los saloons de todo el territorio se quedaron secos, apagando las mesas y poniendo fin a las sorpresas habituales nacidas del Poker.",
       "La escasez de whiskey dejó los saloons apagados y las partidas de Poker extrañamente tranquilas por toda la frontera.",
       "Los grifos secos cambiaron el ambiente de los saloons, donde las partidas de cartas continuaron sin sus habituales complicaciones inesperadas."
-    ],
-    "audioFile": "audio/world/world_saloons_dry.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 4
-      },
-      {
-        "type": "suppress_event_tag",
-        "tag": "poker"
-      }
     ]
   },
   {
     "id": "world_ranch_fire",
     "title": "Incendio en el Rancho",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "ranch"
-    ],
     "screenText": "Adquirir ganado cuesta 1 Carta de Poker.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"El humo se eleva desde el pasto del norte.\"",
     "newspaperText": [
       "Un incendio en un rancho cubrió de humo la tierra ganadera e hizo más costoso de lo habitual reponer el ganado.",
       "Las llamas recorrieron la región de ranchos, complicando la compra de ganado y obligando a los compradores a pagar un precio adicional.",
       "El humo sobre la llanura señaló un grave incendio que hizo inusualmente difícil adquirir ganado nuevo."
-    ],
-    "audioFile": "audio/world/world_ranch_fire.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 4
-      },
-      {
-        "type": "acquire_cattle_extra_cost",
-        "cost": "discard_1_poker"
-      }
     ]
   },
   {
     "id": "world_resource_boom",
     "title": "Restos Útiles",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [
-      "foraging"
-    ],
-    "tags": [
-      "foraging"
-    ],
     "screenText": "Recolectar roba +1 y después descarta 1.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"La frontera está sembrada de cosas útiles para unas manos ingeniosas.\"",
     "newspaperText": [
       "Los restos útiles y materiales recuperables se volvieron abundantes por toda la frontera, dando a los recolectores hábiles más con lo que trabajar.",
       "Una repentina abundancia de material aprovechable recompensó a quienes estaban dispuestos a registrar el territorio en busca de suministros.",
       "Los objetos desechados demostraron ser inusualmente valiosos cuando un auge de recursos dio a los recolectores mejores opciones sobre qué llevar consigo."
-    ],
-    "audioFile": "audio/world/world_resource_boom.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 5
-      },
-      {
-        "type": "forage_draw_then_discard",
-        "draw": 1,
-        "discard": 1
-      }
     ]
   },
   {
     "id": "world_predator_migration",
     "title": "Migración de Depredadores",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [
-      "hunting"
-    ],
-    "tags": [
-      "hunting"
-    ],
     "screenText": "Las Cazas exitosas obtienen +1 LP pero también +1 herida.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Ojos hambrientos brillan entre los matorrales.\"",
     "newspaperText": [
       "Una migración de depredadores hambrientos hizo que las cazas exitosas fueran más gratificantes, pero también mucho más peligrosas.",
       "Los depredadores atravesaron el territorio en cantidades inusuales, aumentando tanto la gloria como el coste de una caza exitosa.",
       "Los cazadores encontraron mayores oportunidades y dientes más afilados en la llanura mientras los depredadores se concentraban en la región."
-    ],
-    "audioFile": "audio/world/world_predator_migration.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 5
-      },
-      {
-        "type": "hunt_success_bonus_lp_and_wound"
-      }
     ]
   },
   {
     "id": "world_craft_fair",
     "title": "Feria de Artesanía",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [
-      "crafting"
-    ],
-    "tags": [
-      "crafting"
-    ],
     "screenText": "La acción de Fabricar otorga +$10.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Toda baratija útil encuentra comprador.\"",
     "newspaperText": [
       "Una feria de artesanía fronteriza creó compradores ansiosos por productos hechos a mano y puso dinero extra en manos de artesanos capaces.",
       "El buen trabajo manual alcanzó precios elevados cuando una feria de artesanía atrajo compradores de todo el territorio.",
       "Los productos fabricados encontraron clientes dispuestos durante una animada feria que recompensó a cualquiera que diera buen uso a los materiales de la frontera."
-    ],
-    "audioFile": "audio/world/world_craft_fair.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 5
-      },
-      {
-        "type": "craft_bonus_money",
-        "amount": 10
-      }
     ]
   },
   {
     "id": "world_legendary_weather",
     "title": "Atardecer Rojo",
-    "type": "worldEvent",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "legendary"
-    ],
     "screenText": "El primer jugador que obtenga LP obtiene +1 LP.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"El atardecer arde rojo, y hasta las hazañas corrientes parecen legendarias.\"",
     "newspaperText": [
       "Un brillante atardecer rojo bañó la frontera en una luz legendaria, y la primera hazaña notable de la tarde recibió elogios adicionales.",
       "El cielo ardió rojo sobre el territorio, dando un peso poco común a la primera leyenda nacida bajo él.",
       "Un atardecer extraordinario detuvo a los jinetes en seco y pareció engrandecer la primera hazaña legendaria que siguió."
-    ],
-    "audioFile": "audio/world/world_legendary_weather.mp3",
-    "effects": [
-      {
-        "type": "duration_primary_triggers",
-        "count": 3
-      },
-      {
-        "type": "first_lp_gain_bonus",
-        "amount": 1
-      }
     ]
   }
 ]

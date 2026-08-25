@@ -8,24 +8,12 @@
       "Parmi les faits marquants de la journée, un cavalier a parcouru quatre cases ou plus au cours d’une seule action Déplacement.",
       "Des témoins dans tout le territoire ont rapporté qu’un cavalier a parcouru quatre cases ou plus au cours d’une seule action Déplacement."
     ],
-    "category": "movement",
-    "baseWeight": 12,
-    "requiredModules": [],
-    "tags": [
-      "move",
-      "travel"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/ride.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Se déplacer de 4+ avec une action DÉPLACEMENT",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-gallop.mp3"
+    ]
   },
   {
     "id": "trig_end_outside_town",
@@ -36,24 +24,12 @@
       "Parmi les faits marquants de la journée, un cavalier a terminé son trajet en pleine frontière plutôt qu’en sécurité en ville.",
       "Des témoins dans tout le territoire ont rapporté qu’un cavalier a terminé son trajet en pleine frontière plutôt qu’en sécurité en ville."
     ],
-    "category": "movement",
-    "baseWeight": 8,
-    "requiredModules": [],
-    "tags": [
-      "move",
-      "frontier"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/night.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Terminer un DÉPLACEMENT hors de la ville",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-wolf.mp3"
+    ]
   },
   {
     "id": "trig_enter_dixon_creek",
@@ -64,24 +40,12 @@
       "Parmi les faits marquants de la journée, un cavalier est entré dans les terres sauvages autour de Dixon Creek.",
       "Des témoins dans tout le territoire ont rapporté qu’un cavalier est entré dans les terres sauvages autour de Dixon Creek."
     ],
-    "category": "movement",
-    "baseWeight": 6,
-    "requiredModules": [],
-    "tags": [
-      "dixon_creek",
-      "ambush"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/canyon.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Entrer à Dixon Creek",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-water.mp3"
+    ]
   },
   {
     "id": "trig_enter_mesitos_point",
@@ -92,25 +56,12 @@
       "Parmi les faits marquants de la journée, un cavalier est passé par Mesito’s Point.",
       "Des témoins dans tout le territoire ont rapporté qu’un cavalier est passé par Mesito’s Point."
     ],
-    "category": "movement",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "mesitos_point",
-      "green_ranch",
-      "bandit_a"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/overlook.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Entrer à Mesito’s Point",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-water.mp3"
+    ]
   },
   {
     "id": "trig_enter_sunny_hills",
@@ -121,25 +72,12 @@
       "Parmi les faits marquants de la journée, un cavalier est entré dans la région de Sunny Hills.",
       "Des témoins dans tout le territoire ont rapporté qu’un cavalier est entré dans la région de Sunny Hills."
     ],
-    "category": "movement",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "sunny_hills",
-      "mine",
-      "blue_ranch"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/sunny.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Entrer à Sunny Hills",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-walk.mp3"
+    ]
   },
   {
     "id": "trig_enter_spikes_view",
@@ -150,25 +88,12 @@
       "Parmi les faits marquants de la journée, un cavalier a atteint Spike’s View.",
       "Des témoins dans tout le territoire ont rapporté qu’un cavalier a atteint Spike’s View."
     ],
-    "category": "movement",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "spikes_view",
-      "mine",
-      "rail_station"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/cliff.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Entrer à Spike’s View",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-walk.mp3"
+    ]
   },
   {
     "id": "trig_enter_cliff_junction",
@@ -179,25 +104,12 @@
       "Parmi les faits marquants de la journée, un cavalier est entré à Cliff Junction.",
       "Des témoins dans tout le territoire ont rapporté qu’un cavalier est entré à Cliff Junction."
     ],
-    "category": "movement",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "cliff_junction",
-      "mine",
-      "bandit_c"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/barren.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Entrer à Cliff Junction",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-walk.mp3"
+    ]
   },
   {
     "id": "trig_bank_heist",
@@ -208,25 +120,12 @@
       "Parmi les faits marquants de la journée, un hors-la-loi a lancé un braquage de banque.",
       "Des témoins dans tout le territoire ont rapporté qu’un hors-la-loi a lancé un braquage de banque."
     ],
-    "category": "outlaw",
-    "baseWeight": 11,
-    "requiredModules": [],
-    "tags": [
-      "bank",
-      "heist",
-      "wanted"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/bankheist.png",
-    "themeColor": "black",
     "titleParts": [
       {
         "text": "Commencer un braquage de banque",
         "style": "red"
       }
-    ],
-    "soundFile": "audio/sfx/short-guncock.mp3"
+    ]
   },
   {
     "id": "trig_gain_wp",
@@ -237,24 +136,12 @@
       "Parmi les faits marquants de la journée, un cavalier a ajouté un nouveau point Wanted à une réputation grandissante.",
       "Des témoins dans tout le territoire ont rapporté qu’un cavalier a ajouté un nouveau point Wanted à une réputation grandissante."
     ],
-    "category": "outlaw",
-    "baseWeight": 11,
-    "requiredModules": [],
-    "tags": [
-      "wanted",
-      "lawless"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/wanted.png",
-    "themeColor": "red",
     "titleParts": [
       {
         "text": "Gagner un point Wanted",
         "style": "red"
       }
-    ],
-    "soundFile": "audio/sfx/short-note.mp3"
+    ]
   },
   {
     "id": "trig_rustle_cattle",
@@ -265,25 +152,12 @@
       "Parmi les faits marquants de la journée, du bétail a été volé dans un ranch de la frontière.",
       "Des témoins dans tout le territoire ont rapporté que du bétail a été volé dans un ranch de la frontière."
     ],
-    "category": "outlaw",
-    "baseWeight": 9,
-    "requiredModules": [],
-    "tags": [
-      "ranch",
-      "cattle",
-      "wanted"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/rustle.png",
-    "themeColor": "red",
     "titleParts": [
       {
         "text": "Voler du bétail",
         "style": "red"
       }
-    ],
-    "soundFile": "audio/sfx/short-moo.mp3"
+    ]
   },
   {
     "id": "trig_rob_player",
@@ -294,25 +168,12 @@
       "Parmi les faits marquants de la journée, un cavalier en a détroussé un autre sur la frontière.",
       "Des témoins dans tout le territoire ont rapporté qu’un cavalier en a détroussé un autre sur la frontière."
     ],
-    "category": "outlaw",
-    "baseWeight": 8,
-    "requiredModules": [],
-    "tags": [
-      "rob",
-      "player_fight",
-      "wanted"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/rob.png",
-    "themeColor": "red",
     "titleParts": [
       {
         "text": "Détrousser un joueur",
         "style": "red"
       }
-    ],
-    "soundFile": "audio/sfx/short-pistol.mp3"
+    ]
   },
   {
     "id": "trig_defeat_bandit",
@@ -323,25 +184,12 @@
       "Parmi les faits marquants de la journée, un Bandit a été vaincu au combat.",
       "Des témoins dans tout le territoire ont rapporté qu’un Bandit a été vaincu au combat."
     ],
-    "category": "fight",
-    "baseWeight": 13,
-    "requiredModules": [],
-    "tags": [
-      "bandit",
-      "fight",
-      "marshal"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/defeat.png",
-    "themeColor": "blue",
     "titleParts": [
       {
         "text": "Vaincre un Bandit",
         "style": "blue"
       }
-    ],
-    "soundFile": "audio/sfx/short-pistol.mp3"
+    ]
   },
   {
     "id": "trig_start_bandit_fight",
@@ -352,25 +200,12 @@
       "Parmi les faits marquants de la journée, un cavalier a engagé un combat contre un Bandit.",
       "Des témoins dans tout le territoire ont rapporté qu’un cavalier a engagé un combat contre un Bandit."
     ],
-    "category": "fight",
-    "baseWeight": 12,
-    "requiredModules": [],
-    "tags": [
-      "bandit",
-      "fight",
-      "npc"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/bandit.png",
-    "themeColor": "blue",
     "titleParts": [
       {
         "text": "Commencer un combat contre un Bandit",
         "style": "blue"
       }
-    ],
-    "soundFile": "audio/sfx/short-holster.mp3"
+    ]
   },
   {
     "id": "trig_start_player_fight",
@@ -381,25 +216,12 @@
       "Parmi les faits marquants de la journée, deux cavaliers de la frontière en sont venus aux mains.",
       "Des témoins dans tout le territoire ont rapporté que deux cavaliers de la frontière en sont venus aux mains."
     ],
-    "category": "fight",
-    "baseWeight": 9,
-    "requiredModules": [],
-    "tags": [
-      "duel",
-      "rob",
-      "arrest"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/duel.png",
-    "themeColor": "black",
     "titleParts": [
       {
         "text": "Commencer un combat contre un joueur",
         "style": "black"
       }
-    ],
-    "soundFile": "audio/sfx/short-holster.mp3"
+    ]
   },
   {
     "id": "trig_arrest_player",
@@ -410,25 +232,12 @@
       "Parmi les faits marquants de la journée, un cavalier Wanted a fait l’objet d’une tentative d’arrestation.",
       "Des témoins dans tout le territoire ont rapporté qu’un cavalier Wanted a fait l’objet d’une tentative d’arrestation."
     ],
-    "category": "law",
-    "baseWeight": 8,
-    "requiredModules": [],
-    "tags": [
-      "arrest",
-      "marshal",
-      "wanted"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/arrest.png",
-    "themeColor": "blue",
     "titleParts": [
       {
         "text": "Arrêter un joueur Wanted",
         "style": "blue"
       }
-    ],
-    "soundFile": "audio/sfx/short-pistol.mp3"
+    ]
   },
   {
     "id": "trig_sheriff_arrests",
@@ -439,25 +248,12 @@
       "Parmi les faits marquants de la journée, le Shérif a arrêté un cavalier Wanted.",
       "Des témoins dans tout le territoire ont rapporté que le Shérif a arrêté un cavalier Wanted."
     ],
-    "category": "law",
-    "baseWeight": 6,
-    "requiredModules": [],
-    "tags": [
-      "sheriff",
-      "arrest",
-      "wanted"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/arrest.png",
-    "themeColor": "blue",
     "titleParts": [
       {
         "text": "Le Shérif arrête un joueur",
         "style": "blue"
       }
-    ],
-    "soundFile": "audio/sfx/short-pistol.mp3"
+    ]
   },
   {
     "id": "trig_gain_mp",
@@ -468,24 +264,12 @@
       "Parmi les faits marquants de la journée, un cavalier a gagné un nouveau point Marshal grâce à ses actes au service de la loi.",
       "Des témoins dans tout le territoire ont rapporté qu’un cavalier a gagné un nouveau point Marshal grâce à ses actes au service de la loi."
     ],
-    "category": "law",
-    "baseWeight": 9,
-    "requiredModules": [],
-    "tags": [
-      "marshal",
-      "law"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/marshal.png",
-    "themeColor": "blue",
     "titleParts": [
       {
         "text": "Gagner un point Marshal",
         "style": "blue"
       }
-    ],
-    "soundFile": "audio/sfx/short-good.mp3"
+    ]
   },
   {
     "id": "trig_begin_prospect",
@@ -496,25 +280,12 @@
       "Parmi les faits marquants de la journée, un prospecteur s’est mis au travail à la recherche d’or.",
       "Des témoins dans tout le territoire ont rapporté qu’un prospecteur s’est mis au travail à la recherche d’or."
     ],
-    "category": "frontier",
-    "baseWeight": 13,
-    "requiredModules": [],
-    "tags": [
-      "mine",
-      "prospect",
-      "gold"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/prospect.png",
-    "themeColor": "gold",
     "titleParts": [
       {
         "text": "Commencer une action Prospection",
         "style": "gold"
       }
-    ],
-    "soundFile": "audio/sfx/short-pickaxe.mp3"
+    ]
   },
   {
     "id": "trig_gain_gold_prospect",
@@ -525,25 +296,12 @@
       "Parmi les faits marquants de la journée, un prospecteur a extrait de l’or du sol.",
       "Des témoins dans tout le territoire ont rapporté qu’un prospecteur a extrait de l’or du sol."
     ],
-    "category": "frontier",
-    "baseWeight": 12,
-    "requiredModules": [],
-    "tags": [
-      "mine",
-      "gold",
-      "prospect"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/prospect.png",
-    "themeColor": "gold",
     "titleParts": [
       {
         "text": "Gagner de l’or pendant une Prospection",
         "style": "gold"
       }
-    ],
-    "soundFile": "audio/sfx/short-pickaxe.mp3"
+    ]
   },
   {
     "id": "trig_deposit_gold",
@@ -554,25 +312,12 @@
       "Parmi les faits marquants de la journée, de l’or fraîchement extrait a été déposé à la banque.",
       "Des témoins dans tout le territoire ont rapporté que de l’or fraîchement extrait a été déposé à la banque."
     ],
-    "category": "town",
-    "baseWeight": 9,
-    "requiredModules": [],
-    "tags": [
-      "bank",
-      "gold",
-      "lp"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/sellgold.png",
-    "themeColor": "gold",
     "titleParts": [
       {
         "text": "Déposer de l’or",
         "style": "gold"
       }
-    ],
-    "soundFile": "audio/sfx/short-money.mp3"
+    ]
   },
   {
     "id": "trig_acquire_cattle",
@@ -583,24 +328,12 @@
       "Parmi les faits marquants de la journée, un cavalier a acquis du bétail dans un ranch.",
       "Des témoins dans tout le territoire ont rapporté qu’un cavalier a acquis du bétail dans un ranch."
     ],
-    "category": "ranch",
-    "baseWeight": 9,
-    "requiredModules": [],
-    "tags": [
-      "ranch",
-      "cattle"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/ranch.png",
-    "themeColor": "orange",
     "titleParts": [
       {
         "text": "Acquérir du bétail au ranch",
         "style": "orange"
       }
-    ],
-    "soundFile": "audio/sfx/short-moo.mp3"
+    ]
   },
   {
     "id": "trig_wrangle_cattle",
@@ -611,25 +344,12 @@
       "Parmi les faits marquants de la journée, un cavalier a mené à bien un convoyage de bétail.",
       "Des témoins dans tout le territoire ont rapporté qu’un cavalier a mené à bien un convoyage de bétail."
     ],
-    "category": "ranch",
-    "baseWeight": 8,
-    "requiredModules": [],
-    "tags": [
-      "rail",
-      "cattle",
-      "marshal"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/wrangle.png",
-    "themeColor": "orange",
     "titleParts": [
       {
         "text": "Convoyer du bétail",
         "style": "orange"
       }
-    ],
-    "soundFile": "audio/sfx/short-moo.mp3"
+    ]
   },
   {
     "id": "trig_purchase_item",
@@ -640,25 +360,12 @@
       "Parmi les faits marquants de la journée, un cavalier a effectué un nouvel achat en ville.",
       "Des témoins dans tout le territoire ont rapporté qu’un cavalier a effectué un nouvel achat en ville."
     ],
-    "category": "town",
-    "baseWeight": 12,
-    "requiredModules": [],
-    "tags": [
-      "store",
-      "item",
-      "money"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/store.png",
-    "themeColor": "green",
     "titleParts": [
       {
         "text": "Acheter un objet",
         "style": "green"
       }
-    ],
-    "soundFile": "audio/sfx/short-money.mp3"
+    ]
   },
   {
     "id": "trig_heal_doctor",
@@ -669,25 +376,12 @@
       "Parmi les faits marquants de la journée, un cavalier blessé a cherché à se faire soigner au cabinet du docteur.",
       "Des témoins dans tout le territoire ont rapporté qu’un cavalier blessé a cherché à se faire soigner au cabinet du docteur."
     ],
-    "category": "town",
-    "baseWeight": 8,
-    "requiredModules": [],
-    "tags": [
-      "doctor",
-      "heal",
-      "wound"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/heal.png",
-    "themeColor": "green",
     "titleParts": [
       {
         "text": "Se soigner au cabinet du docteur",
         "style": "green"
       }
-    ],
-    "soundFile": "audio/sfx/short-good.mp3"
+    ]
   },
   {
     "id": "trig_revel_cabaret",
@@ -698,25 +392,12 @@
       "Parmi les faits marquants de la journée, un cavalier a passé du bon temps au cabaret.",
       "Des témoins dans tout le territoire ont rapporté qu’un cavalier a passé du bon temps au cabaret."
     ],
-    "category": "town",
-    "baseWeight": 7,
-    "requiredModules": [],
-    "tags": [
-      "cabaret",
-      "lp",
-      "red_falls"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/revel.png",
-    "themeColor": "purple",
     "titleParts": [
       {
         "text": "FAIRE LA FÊTE au Cabaret",
         "style": "purple"
       }
-    ],
-    "soundFile": "audio/sfx/short-piano.mp3"
+    ]
   },
   {
     "id": "trig_begin_poker",
@@ -727,25 +408,12 @@
       "Parmi les faits marquants de la journée, une nouvelle partie de poker a commencé au saloon.",
       "Des témoins dans tout le territoire ont rapporté qu’une nouvelle partie de poker a commencé au saloon."
     ],
-    "category": "gamble",
-    "baseWeight": 12,
-    "requiredModules": [],
-    "tags": [
-      "saloon",
-      "poker",
-      "gambler"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/gamble.png",
-    "themeColor": "purple",
     "titleParts": [
       {
         "text": "Commencer une partie de POKER",
         "style": "purple"
       }
-    ],
-    "soundFile": "audio/sfx/short-cards.mp3"
+    ]
   },
   {
     "id": "trig_win_poker",
@@ -756,25 +424,12 @@
       "Parmi les faits marquants de la journée, un cavalier est reparti vainqueur d’une partie de poker.",
       "Des témoins dans tout le territoire ont rapporté qu’un cavalier est reparti vainqueur d’une partie de poker."
     ],
-    "category": "gamble",
-    "baseWeight": 10,
-    "requiredModules": [],
-    "tags": [
-      "saloon",
-      "poker",
-      "gambler"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/gamble.png",
-    "themeColor": "purple",
     "titleParts": [
       {
         "text": "Gagner une partie de POKER",
         "style": "purple"
       }
-    ],
-    "soundFile": "audio/sfx/short-money.mp3"
+    ]
   },
   {
     "id": "trig_work_action",
@@ -785,24 +440,12 @@
       "Parmi les faits marquants de la journée, un cavalier s’est livré à une honnête journée de travail sur la frontière.",
       "Des témoins dans tout le territoire ont rapporté qu’un cavalier s’est livré à une honnête journée de travail sur la frontière."
     ],
-    "category": "town",
-    "baseWeight": 7,
-    "requiredModules": [],
-    "tags": [
-      "work",
-      "money"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/work.png",
-    "themeColor": "black",
     "titleParts": [
       {
         "text": "Effectuer une ACTION TRAVAIL",
         "style": "black"
       }
-    ],
-    "soundFile": "audio/sfx/short-hammer.mp3"
+    ]
   },
   {
     "id": "trig_gain_legendary_item",
@@ -813,24 +456,12 @@
       "Parmi les faits marquants de la journée, un cavalier est entré en possession d’un objet légendaire.",
       "Des témoins dans tout le territoire ont rapporté qu’un cavalier est entré en possession d’un objet légendaire."
     ],
-    "category": "legendary",
-    "baseWeight": 5,
-    "requiredModules": [],
-    "tags": [
-      "legendary_item",
-      "trader"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/legend.png",
-    "themeColor": "green",
     "titleParts": [
       {
         "text": "Gagner un OBJET LÉGENDAIRE",
         "style": "green"
       }
-    ],
-    "soundFile": "audio/sfx/short-good.mp3"
+    ]
   },
   {
     "id": "trig_buy_traveling_trader",
@@ -841,28 +472,12 @@
       "Parmi les faits marquants de la journée, un cavalier a conclu une affaire avec le marchand ambulant.",
       "Des témoins dans tout le territoire ont rapporté qu’un cavalier a conclu une affaire avec le marchand ambulant."
     ],
-    "category": "legendary",
-    "baseWeight": 6,
-    "requiredModules": [
-      "blood_money_traveling_trader"
-    ],
-    "tags": [
-      "trader",
-      "legendary_item",
-      "purchase",
-      "blood_money"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/trader.png",
-    "themeColor": "green",
     "titleParts": [
       {
         "text": "Achat auprès du Marchand ambulant",
         "style": "green"
       }
-    ],
-    "soundFile": "audio/sfx/short-money.mp3"
+    ]
   },
   {
     "id": "trig_gain_lp_2_plus",
@@ -873,24 +488,12 @@
       "Parmi les faits marquants de la journée, un seul exploit a rapporté deux Points de Légende ou plus.",
       "Des témoins dans tout le territoire ont rapporté qu’un seul exploit a rapporté deux Points de Légende ou plus."
     ],
-    "category": "legendary",
-    "baseWeight": 7,
-    "requiredModules": [],
-    "tags": [
-      "lp",
-      "legendary"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/lp.png",
-    "themeColor": "gold",
     "titleParts": [
       {
         "text": "GAGNER 2+ LP en UNE SEULE ACTION",
         "style": "normal"
       }
-    ],
-    "soundFile": "audio/sfx/short-good.mp3"
+    ]
   },
   {
     "id": "trig_travel_rail",
@@ -901,27 +504,12 @@
       "Parmi les faits marquants de la journée, un cavalier a traversé une partie du territoire par le rail.",
       "Des témoins dans tout le territoire ont rapporté qu’un cavalier a traversé une partie du territoire par le rail."
     ],
-    "category": "ante_up",
-    "baseWeight": 7,
-    "requiredModules": [
-      "ante_up"
-    ],
-    "tags": [
-      "railroad",
-      "train",
-      "ante_up"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/train.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Voyager par le RAIL",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-train.mp3"
+    ]
   },
   {
     "id": "trig_use_mountain_pass",
@@ -932,26 +520,12 @@
       "Parmi les faits marquants de la journée, un cavalier a emprunté le dangereux col de montagne.",
       "Des témoins dans tout le territoire ont rapporté qu’un cavalier a emprunté le dangereux col de montagne."
     ],
-    "category": "ante_up",
-    "baseWeight": 5,
-    "requiredModules": [
-      "ante_up"
-    ],
-    "tags": [
-      "mountain_pass",
-      "ante_up"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/fork.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "Emprunter un COL DE MONTAGNE",
         "style": "brown"
       }
-    ],
-    "soundFile": "audio/sfx/short-gallop.mp3"
+    ]
   },
   {
     "id": "trig_train_heist",
@@ -962,28 +536,12 @@
       "Parmi les faits marquants de la journée, des hors-la-loi ont lancé un braquage contre le train.",
       "Des témoins dans tout le territoire ont rapporté que des hors-la-loi ont lancé un braquage contre le train."
     ],
-    "category": "ante_up",
-    "baseWeight": 8,
-    "requiredModules": [
-      "ante_up"
-    ],
-    "tags": [
-      "train",
-      "heist",
-      "wanted",
-      "ante_up"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/trainheist.png",
-    "themeColor": "red",
     "titleParts": [
       {
         "text": "Commencer un BRAQUAGE DE TRAIN",
         "style": "red"
       }
-    ],
-    "soundFile": "audio/sfx/short-train.mp3"
+    ]
   },
   {
     "id": "trig_frontier_action",
@@ -994,27 +552,12 @@
       "Parmi les faits marquants de la journée, un jeton Frontière a provoqué un nouveau rebondissement à Buzzard Gulch.",
       "Des témoins dans tout le territoire ont rapporté qu’un jeton Frontière a provoqué un nouveau rebondissement à Buzzard Gulch."
     ],
-    "category": "ante_up",
-    "baseWeight": 8,
-    "requiredModules": [
-      "ante_up"
-    ],
-    "tags": [
-      "frontier",
-      "buzzard_gulch",
-      "ante_up"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/work.png",
-    "themeColor": "black",
     "titleParts": [
       {
         "text": "RÉSOUDRE UN JETON FRONTIÈRE",
         "style": "normal"
       }
-    ],
-    "soundFile": "audio/sfx/short-hammer.mp3"
+    ]
   },
   {
     "id": "trig_roll_risk_die",
@@ -1025,27 +568,12 @@
       "Parmi les faits marquants de la journée, un cavalier a confié son destin à un lancer du Dé de Risque.",
       "Des témoins dans tout le territoire ont rapporté qu’un cavalier a confié son destin à un lancer du Dé de Risque."
     ],
-    "category": "blood_money",
-    "baseWeight": 8,
-    "requiredModules": [
-      "blood_money"
-    ],
-    "tags": [
-      "risk",
-      "story",
-      "blood_money"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/injury.png",
-    "themeColor": "red",
     "titleParts": [
       {
         "text": "LANCER LE DÉ DE RISQUE",
         "style": "red"
       }
-    ],
-    "soundFile": "audio/sfx/sfx_dice.mp3"
+    ]
   },
   {
     "id": "trig_recruit_gang_posse",
@@ -1056,27 +584,12 @@
       "Parmi les faits marquants de la journée, un cavalier a recruté de nouvelles recrues dans un gang ou une posse.",
       "Des témoins dans tout le territoire ont rapporté qu’un cavalier a recruté de nouvelles recrues dans un gang ou une posse."
     ],
-    "category": "blood_money",
-    "baseWeight": 6,
-    "requiredModules": [
-      "blood_money"
-    ],
-    "tags": [
-      "gang",
-      "posse",
-      "blood_money"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/recruit.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "RECRUTER UN GANG OU UNE POSSE",
         "style": "normal"
       }
-    ],
-    "soundFile": "audio/sfx/short-note.mp3"
+    ]
   },
   {
     "id": "trig_hunt_success",
@@ -1087,27 +600,12 @@
       "Parmi les faits marquants de la journée, un chasseur est revenu d’une chasse réussie.",
       "Des témoins dans tout le territoire ont rapporté qu’un chasseur est revenu d’une chasse réussie."
     ],
-    "category": "hunting",
-    "baseWeight": 8,
-    "requiredModules": [
-      "hunting"
-    ],
-    "tags": [
-      "hunt",
-      "animal",
-      "hunting"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/hunt.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "CHASSE RÉUSSIE",
         "style": "normal"
       }
-    ],
-    "soundFile": "audio/sfx/short-shotgun.mp3"
+    ]
   },
   {
     "id": "trig_forage_resource",
@@ -1118,27 +616,12 @@
       "Parmi les faits marquants de la journée, un cueilleur a trouvé une ressource utile dans la nature.",
       "Des témoins dans tout le territoire ont rapporté qu’un cueilleur a trouvé une ressource utile dans la nature."
     ],
-    "category": "foraging",
-    "baseWeight": 8,
-    "requiredModules": [
-      "foraging"
-    ],
-    "tags": [
-      "forage",
-      "resource",
-      "foraging"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/forage.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "GAGNER UNE RESSOURCE DE CUEILLETTE",
         "style": "normal"
       }
-    ],
-    "soundFile": "audio/sfx/short-good.mp3"
+    ]
   },
   {
     "id": "trig_craft_item",
@@ -1149,27 +632,12 @@
       "Parmi les faits marquants de la journée, des matériaux de la frontière ont été transformés en un objet fabriqué.",
       "Des témoins dans tout le territoire ont rapporté que des matériaux de la frontière ont été transformés en un objet fabriqué."
     ],
-    "category": "crafting",
-    "baseWeight": 7,
-    "requiredModules": [
-      "crafting"
-    ],
-    "tags": [
-      "craft",
-      "resource",
-      "crafting"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/craft.png",
-    "themeColor": "green",
     "titleParts": [
       {
         "text": "Fabriquer un OBJET",
         "style": "green"
       }
-    ],
-    "soundFile": "audio/sfx/short-hammer.mp3"
+    ]
   },
   {
     "id": "trig_deliver_resource_location",
@@ -1180,26 +648,11 @@
       "Parmi les faits marquants de la journée, une ressource utile a été livrée là où elle était nécessaire.",
       "Des témoins dans tout le territoire ont rapporté qu’une ressource utile a été livrée là où elle était nécessaire."
     ],
-    "category": "foraging",
-    "baseWeight": 6,
-    "requiredModules": [
-      "foraging"
-    ],
-    "tags": [
-      "resource",
-      "delivery",
-      "foraging"
-    ],
-    "cooldownAfterSeen": 2,
-    "canRepeat": true,
-    "image": "assets/images/triggers/sell.png",
-    "themeColor": "brown",
     "titleParts": [
       {
         "text": "LIVRER UNE RESSOURCE",
         "style": "normal"
       }
-    ],
-    "soundFile": "audio/sfx/short-good.mp3"
+    ]
   }
 ]

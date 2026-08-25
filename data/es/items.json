@@ -1,515 +1,238 @@
 {
-  "storeLayout": {
-    "generalStore": {
-      "slots": 12
-    },
-    "tradingPost": {
-      "slots": 6,
-      "requiredModules": [
-        "ante_up_sideboard"
-      ]
-    }
-  },
   "items": [
     {
       "id": "bedroll",
-      "name": "Petate",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "wild_bunch_of_extras"
-      ]
+      "name": "Petate"
     },
     {
       "id": "boot_knife",
-      "name": "Cuchillo de Bota",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Cuchillo de Bota"
     },
     {
       "id": "bullwhip",
-      "name": "Látigo",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Látigo"
     },
     {
       "id": "burro",
-      "name": "Burro",
-      "type": "mount",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Burro"
     },
     {
       "id": "carbine",
-      "name": "Carabina",
-      "type": "weapon",
-      "icon": "",
-      "requiredModules": [
-        "promo_carbine"
-      ]
+      "name": "Carabina"
     },
     {
       "id": "derringer",
-      "name": "Derringer",
-      "type": "weapon",
-      "icon": "",
-      "requiredModules": [
-        "ante_up"
-      ]
+      "name": "Derringer"
     },
     {
       "id": "gazette",
-      "name": "Gazette",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "ante_up"
-      ]
+      "name": "Gazette"
     },
     {
       "id": "holster",
-      "name": "Holster",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "fistful_of_extras"
-      ]
+      "name": "Holster"
     },
     {
       "id": "medicine_pouch",
-      "name": "Bolsa de Medicinas",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Bolsa de Medicinas"
     },
     {
       "id": "miners_map",
-      "name": "Mapa del Minero",
-      "type": "misc",
-      "icon": ""
+      "name": "Mapa del Minero"
     },
     {
       "id": "mule",
-      "name": "Mula",
-      "type": "mount",
-      "icon": ""
+      "name": "Mula"
     },
     {
       "id": "mustang",
-      "name": "Mustang",
-      "type": "mount",
-      "icon": ""
+      "name": "Mustang"
     },
     {
       "id": "peacekeeper",
-      "name": "Peacekeeper",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "fistful_of_extras"
-      ]
+      "name": "Peacekeeper"
     },
     {
       "id": "pocket_watch",
-      "name": "Reloj de Bolsillo",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Reloj de Bolsillo"
     },
     {
       "id": "provisions",
-      "name": "Provisiones",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "fistful_of_extras"
-      ]
+      "name": "Provisiones"
     },
     {
       "id": "quarter_horse",
-      "name": "Quarter Horse",
-      "type": "mount",
-      "icon": "",
-      "requiredModules": [
-        "ante_up"
-      ]
+      "name": "Quarter Horse"
     },
     {
       "id": "repeating_shotgun",
-      "name": "Escopeta de Repetición",
-      "type": "weapon",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Escopeta de Repetición"
     },
     {
       "id": "revolver",
-      "name": "Revolver",
-      "type": "weapon",
-      "icon": ""
+      "name": "Revolver"
     },
     {
       "id": "rifle",
-      "name": "Rifle",
-      "type": "weapon",
-      "icon": ""
+      "name": "Rifle"
     },
     {
       "id": "saddle_bags",
-      "name": "Alforjas",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "wild_bunch_of_extras"
-      ]
+      "name": "Alforjas"
     },
     {
       "id": "shotgun",
-      "name": "Escopeta",
-      "type": "weapon",
-      "icon": ""
+      "name": "Escopeta"
     },
     {
       "id": "snake_oil",
-      "name": "Aceite de Serpiente",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "ante_up"
-      ]
+      "name": "Aceite de Serpiente"
     },
     {
       "id": "ten_gallon",
-      "name": "Sombrero de Diez Galones",
-      "type": "misc",
-      "icon": ""
+      "name": "Sombrero de Diez Galones"
     },
     {
       "id": "whiskey",
-      "name": "Whiskey",
-      "type": "misc",
-      "icon": ""
+      "name": "Whiskey"
     },
     {
       "id": "work_horse",
-      "name": "Caballo de Trabajo",
-      "type": "mount",
-      "icon": "",
-      "requiredModules": [
-        "fistful_of_extras"
-      ]
+      "name": "Caballo de Trabajo"
     }
   ],
   "legendary_items": [
     {
       "id": "bandolier",
-      "name": "Bandolera",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "wild_bunch_of_extras"
-      ]
+      "name": "Bandolera"
     },
     {
       "id": "black_coat",
-      "name": "Abrigo Negro",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "the_good_the_bad_and_the_handsome"
-      ]
+      "name": "Abrigo Negro"
     },
     {
       "id": "bowie_knife",
-      "name": "Cuchillo Bowie",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "the_good_the_bad_and_the_handsome"
-      ]
+      "name": "Cuchillo Bowie"
     },
     {
       "id": "canteen",
-      "name": "Cantimplora",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Cantimplora"
     },
     {
       "id": "cattle_brand",
-      "name": "Hierro de Marcar",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Hierro de Marcar"
     },
     {
       "id": "companion",
-      "name": "Compañero",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "the_good_the_bad_and_the_handsome"
-      ]
+      "name": "Compañero"
     },
     {
       "id": "dime_western",
-      "name": "Novela del Oeste",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Novela del Oeste"
     },
     {
       "id": "dragoons",
-      "name": "Pistolas de Dragón",
-      "type": "weapon",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Pistolas de Dragón"
     },
     {
       "id": "dynamite",
-      "name": "Dinamita",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "the_good_the_bad_and_the_handsome"
-      ]
+      "name": "Dinamita"
     },
     {
       "id": "fiddle",
-      "name": "Violín",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Violín"
     },
     {
       "id": "lasso",
-      "name": "Lasso",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "the_good_the_bad_and_the_handsome"
-      ]
+      "name": "Lasso"
     },
     {
       "id": "lightning",
-      "name": "Lightning",
-      "type": "mount",
-      "icon": "",
-      "requiredModules": [
-        "the_good_the_bad_and_the_handsome"
-      ]
+      "name": "Lightning"
     },
     {
       "id": "lucky_coin",
-      "name": "Moneda de la Suerte",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "wild_bunch_of_extras"
-      ]
+      "name": "Moneda de la Suerte"
     },
     {
       "id": "marked_cards",
-      "name": "Cartas Marcadas",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "wild_bunch_of_extras"
-      ]
+      "name": "Cartas Marcadas"
     },
     {
       "id": "marshals_badge",
-      "name": "Insignia de Marshal",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "the_good_the_bad_and_the_handsome"
-      ]
+      "name": "Insignia de Marshal"
     },
     {
       "id": "mesa_deed",
-      "name": "Escritura de la Mesa",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "the_good_the_bad_and_the_handsome"
-      ]
+      "name": "Escritura de la Mesa"
     },
     {
       "id": "molasses",
-      "name": "Molasses",
-      "type": "mount",
-      "icon": "",
-      "requiredModules": [
-        "wild_bunch_of_extras"
-      ]
+      "name": "Molasses"
     },
     {
       "id": "outlaws_mask",
-      "name": "Máscara de Forajido",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "the_good_the_bad_and_the_handsome"
-      ]
+      "name": "Máscara de Forajido"
     },
     {
       "id": "portrait",
-      "name": "Retrato",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Retrato"
     },
     {
       "id": "pump_trolley",
-      "name": "Vagoneta de Mano",
-      "type": "mount",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Vagoneta de Mano"
     },
     {
       "id": "saber",
-      "name": "Sable",
-      "type": "weapon",
-      "icon": "",
-      "requiredModules": [
-        "wild_bunch_of_extras"
-      ]
+      "name": "Sable"
     },
     {
       "id": "serape",
-      "name": "Serape",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "wild_bunch_of_extras"
-      ]
+      "name": "Serape"
     },
     {
       "id": "short_cut",
-      "name": "Atajo",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Atajo"
     },
     {
       "id": "shot_glass",
-      "name": "Vaso de Chupito",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Vaso de Chupito"
     },
     {
       "id": "silver_flask",
-      "name": "Petaca de Plata",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "the_good_the_bad_and_the_handsome"
-      ]
+      "name": "Petaca de Plata"
     },
     {
       "id": "snakeskin_boots",
-      "name": "Botas de Piel de Serpiente",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Botas de Piel de Serpiente"
     },
     {
       "id": "spurs",
-      "name": "Espuelas",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Espuelas"
     },
     {
       "id": "spyglass",
-      "name": "Catalejo",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "wild_bunch_of_extras"
-      ]
+      "name": "Catalejo"
     },
     {
       "id": "strongbox",
-      "name": "Caja Fuerte",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "big_box"
-      ]
+      "name": "Caja Fuerte"
     },
     {
       "id": "telegram",
-      "name": "Telegrama",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "blood_money"
-      ]
+      "name": "Telegrama"
     },
     {
       "id": "thunder",
-      "name": "Thunder",
-      "type": "weapon",
-      "icon": "",
-      "requiredModules": [
-        "the_good_the_bad_and_the_handsome"
-      ]
+      "name": "Thunder"
     },
     {
       "id": "tomahawk",
-      "name": "Tomahawk",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "the_good_the_bad_and_the_handsome"
-      ]
+      "name": "Tomahawk"
     },
     {
       "id": "treasure_map",
-      "name": "Mapa del Tesoro",
-      "type": "misc",
-      "icon": "",
-      "requiredModules": [
-        "wild_bunch_of_extras"
-      ]
+      "name": "Mapa del Tesoro"
     }
   ]
 }

@@ -1,0 +1,769 @@
+{
+  "characters": [
+    {
+      "id": "annie_oakley",
+      "name": "Annie Oakley",
+      "starting": {
+        "location": "Ein beliebiges Gemischtwarenladen-Feld in Darkrock"
+      },
+      "ability": "Zu Beginn eines Kampfes mit einem anderen Spieler muss dieser Spieler 1 Pokerkarte abwerfen oder 1 Verwundung erhalten.",
+      "playstyle": {
+        "tags": [
+          "Kampf",
+          "Duelle",
+          "Handdruck"
+        ],
+        "strength": "Setzt einen anderen Spieler bereits vor Beginn eines Kampfes sofort unter Druck.",
+        "focus": "Suche Kämpfe, wenn Gegner nur wenige Pokerkarten haben oder sich keine weitere Verwundung leisten können."
+      }
+    },
+    {
+      "id": "bass_reeves",
+      "name": "Bass Reeves",
+      "starting": {
+        "location": "Sheriffbüro in Darkrock"
+      },
+      "ability": "Ziehe zu Beginn deines Zuges 1 Pokerkarte.",
+      "playstyle": {
+        "tags": [
+          "Kartenvorteil",
+          "Poker",
+          "Vielseitig"
+        ],
+        "strength": "Erzeugt zu Beginn jedes Zuges zuverlässig eine zusätzliche Pokerkarte.",
+        "focus": "Nutze die größere Hand, um für Kämpfe, Poker und kartengesteuerte Aktionen vorbereitet zu bleiben."
+      }
+    },
+    {
+      "id": "billy_the_kid",
+      "name": "Billy the Kid",
+      "starting": {
+        "location": "Eines der Banditenverstecke A"
+      },
+      "ability": "Nachdem du eine Bewegungsaktion auf einem Feld mit einem oder mehreren Spielern beendet hast, muss dir ein Spieler deiner Wahl auf diesem Feld $10 oder 1 Pokerkarte geben.",
+      "playstyle": {
+        "tags": [
+          "Spielerinteraktion",
+          "Bewegung",
+          "Wirtschaft"
+        ],
+        "strength": "Erpresst Geld oder Karten, indem er seine Bewegung einfach bei anderen Spielern beendet.",
+        "focus": "Suche besetzte Felder und setze Spieler unter Druck, die reich sind oder nur wenige Pokerkarten haben."
+      }
+    },
+    {
+      "id": "bloody_knife",
+      "name": "Bloody Knife",
+      "starting": {
+        "location": "Spike's View Mine"
+      },
+      "ability": "Du darfst dich durch eine Mesa bewegen, als wäre sie ein einziges Feld. Du darfst eine Bewegungsaktion nicht in einer Mesa beenden. Nachdem du dich durch eine Mesa bewegt hast, verlierst du 1 Verwundung.",
+      "playstyle": {
+        "tags": [
+          "Bewegung",
+          "Grenzland",
+          "Abkürzungen"
+        ],
+        "strength": "Kann Mesas als einzelne Felder durchqueren und dadurch Routen nehmen, die anderen Charakteren verwehrt sind.",
+        "focus": "Nutze Mesa-Abkürzungen, um Bewegung zu sparen, und behalte dabei die Kosten durch Verwundungen im Blick."
+      }
+    },
+    {
+      "id": "calamity_jane",
+      "name": "Calamity Jane",
+      "starting": {
+        "location": "Ein beliebiges Gemischtwarenladen-Feld in Red Falls"
+      },
+      "ability": "Deine Handkartengrenze ist um 1 erhöht. Nachdem du zu einer Story-Karte beigetragen hast, ziehe 1 Pokerkarte.",
+      "playstyle": {
+        "tags": [
+          "Kartenvorteil",
+          "Story",
+          "Große Hand"
+        ],
+        "strength": "Hält eine zusätzliche Karte und erhält weitere Karten durch Beiträge zu Story-Karten.",
+        "focus": "Suche Gelegenheiten, zu Story-Karten beizutragen, und nutze die größere Hand, um flexibel zu bleiben."
+      }
+    },
+    {
+      "id": "doc_holliday",
+      "name": "Doc Holliday",
+      "starting": {
+        "location": "Arztpraxis in Red Falls"
+      },
+      "ability": "Nachdem du eine beliebige Anzahl Verwundungen erhalten hast, ziehe 1 Pokerkarte. Verwundungen verringern deine Handkartengrenze nicht.",
+      "playstyle": {
+        "tags": [
+          "Verwundungen",
+          "Kartenvorteil",
+          "Widerstandskraft"
+        ],
+        "strength": "Verwandelt erlittene Verwundungen in Pokerkarten und ignoriert die normale Verringerung der Handkartengrenze durch Verwundungen.",
+        "focus": "Scheue dich nicht vor etwas Schaden, wenn die zusätzlichen Karten einen stärkeren Zug ermöglichen."
+      }
+    },
+    {
+      "id": "jesse_james",
+      "name": "Jesse James",
+      "starting": {
+        "location": "Eines der Banditenverstecke B"
+      },
+      "ability": "Verringere in einem Kampf außerhalb einer Stadt den Wert einer gegen dich gespielten Karte um 1. In einem Kampf gegen einen anderen Spieler gewinnst du alle Gleichstände.",
+      "playstyle": {
+        "tags": [
+          "Kampf",
+          "Grenzland",
+          "Duelle"
+        ],
+        "strength": "Ist in Kämpfen außerhalb von Städten besonders schwer zu schlagen und gewinnt Gleichstände gegen Spieler.",
+        "focus": "Wähle Kampfplätze sorgfältig und bevorzuge Auseinandersetzungen im Grenzland."
+      }
+    },
+    {
+      "id": "kit_carson",
+      "name": "Kit Carson",
+      "starting": {
+        "location": "Sunny Hill's Mine"
+      },
+      "ability": "Am Ende einer Bewegungsaktion darfst du dich 1 zusätzliches Feld bewegen. Verringere in einem Kampf außerhalb einer Stadt den Wert einer gegen dich gespielten Karte um 1.",
+      "playstyle": {
+        "tags": [
+          "Bewegung",
+          "Grenzland",
+          "Kampf"
+        ],
+        "strength": "Verbindet zusätzliche Bewegung mit besserer Verteidigung in Kämpfen außerhalb von Städten.",
+        "focus": "Bleibe im Grenzland mobil und nutze das Bonusfeld, um profitable oder taktische Positionen zu erreichen."
+      }
+    },
+    {
+      "id": "stagecoach_mary_fields",
+      "name": "Stagecoach Mary Fields",
+      "starting": {
+        "location": "Ein beliebiges Saloon-Feld in Darkrock"
+      },
+      "ability": "Erhalte zu Beginn deines Zuges $10. Nachdem du zu einer Story-Karte beigetragen hast, erhalte $10.",
+      "playstyle": {
+        "tags": [
+          "Wirtschaft",
+          "Story",
+          "Einkommen"
+        ],
+        "strength": "Erzeugt in jedem Zug verlässlich Geld und verdient durch Beiträge zu Story-Karten noch mehr.",
+        "focus": "Halte das stetige Einkommen am Laufen und suche Story-Beiträge, die dich zusätzlich bezahlen."
+      }
+    },
+    {
+      "id": "wild_bill_hickok",
+      "name": "Wild Bill Hickok",
+      "starting": {
+        "location": "Cabaret in Red Falls"
+      },
+      "ability": "Nachdem du eine Pokerrunde gewonnen hast, erhalte $20. Nachdem du eine Pokerrunde verloren hast, darfst du 1 zufällige Pokerkarte behalten, die du gespielt hast.",
+      "playstyle": {
+        "tags": [
+          "Poker",
+          "Wirtschaft",
+          "Kartenrückgewinnung"
+        ],
+        "strength": "Macht Poker profitabler und mildert zugleich die Kosten einer Niederlage.",
+        "focus": "Spiele häufig Poker, besonders wenn deine Hand gute Chancen bietet, Spiele in Geld umzuwandeln."
+      }
+    },
+    {
+      "id": "wyatt_earp",
+      "name": "Wyatt Earp",
+      "starting": {
+        "location": "Ein beliebiges verfügbares Banditenversteck"
+      },
+      "ability": "Wenn du in einem Zug zum ersten Mal einen Kampf gegen einen Banditen gewinnst, erhältst du 1 zusätzliche Aktion.",
+      "playstyle": {
+        "tags": [
+          "Banditen",
+          "Aktionen",
+          "Kampf"
+        ],
+        "strength": "Verwandelt den ersten Sieg gegen einen Banditen in jedem Zug in eine zusätzliche Aktion.",
+        "focus": "Finde früh im Zug einen Banditen, damit die Bonusaktion deinen restlichen Zug verlängern kann."
+      }
+    },
+    {
+      "id": "y_b_rowdy",
+      "name": "Y. B. Rowdy",
+      "starting": {
+        "location": "Cliff Junction Mine"
+      },
+      "ability": "Wenn du deinen Zug außerhalb einer Stadt beginnst, darfst du 1 Pokerkarte abwerfen, um dich bis zu 3 Felder zu bewegen.",
+      "playstyle": {
+        "tags": [
+          "Bewegung",
+          "Pokerkarten",
+          "Grenzland"
+        ],
+        "strength": "Kann eine Pokerkarte gegen einen Bewegungsschub eintauschen, wenn der Zug außerhalb einer Stadt beginnt.",
+        "focus": "Halte Ersatzkarten bereit und nutze Starts im Grenzland, um dich schnell neu zu positionieren."
+      }
+    },
+    {
+      "id": "judge_roy_bean",
+      "name": "Judge Roy Bean",
+      "starting": {
+        "location": "Ein beliebiges Saloon-Feld in Red Falls"
+      },
+      "ability": "In einem Kampf gegen einen Banditen, eine Wache oder den Sheriff müssen sie ihre Karte zuerst wählen und aufdecken. In einem Kampf gegen einen Banditen, eine Wache oder den Sheriff gewinnst du alle Gleichstände.",
+      "playstyle": {
+        "tags": [
+          "NPC-Kampf",
+          "Banditen",
+          "Kampfvorteil"
+        ],
+        "strength": "Erhält zusätzliche Informationen und gewinnt Gleichstände gegen Banditen, Wachen und den Sheriff.",
+        "focus": "Suche NPC-Kämpfe, bei denen du durch das frühe Aufdecken ihrer Karte nur so viel Stärke einsetzen musst wie nötig."
+      }
+    },
+    {
+      "id": "butch_cassity",
+      "name": "Butch Cassity",
+      "starting": {
+        "location": "Eines der Banditenverstecke C"
+      },
+      "ability": "Nachdem du einen anderen Spieler ausgeraubt hast, darfst du statt der Hälfte seines Geldes oder seiner Goldnuggets 1 sonstigen Gegenstand stehlen, den du noch nicht besitzt. Nachdem du einen anderen Spieler verhaftet hast, darfst du die Hälfte seines Geldes oder seiner Goldnuggets stehlen.",
+      "playstyle": {
+        "tags": [
+          "Spielerinteraktion",
+          "Diebstahl",
+          "Flexible Ausrichtung"
+        ],
+        "strength": "Kann wertvolle Ressourcen von Gegnern nehmen, egal ob er als Räuber oder verhaftender Gesetzeshüter auftritt.",
+        "focus": "Ziele auf Spieler mit Gegenständen, Geld oder Goldnuggets, die deine aktuelle Ausrichtung am stärksten belohnen."
+      }
+    },
+    {
+      "id": "joaquin_murrieta",
+      "name": "Joaquin Murrieta",
+      "starting": {
+        "location": "Ein beliebiges Gemischtwarenladen-Feld in Darkrock"
+      },
+      "ability": "Wenn du ein Wanted-Spieler bist, erhalte 1 LP, nachdem du gegen einen Marshal-Spieler gekämpft hast. Wenn du ein Marshal-Spieler bist, erhalte 1 LP, nachdem du gegen einen Wanted-Spieler gekämpft hast.",
+      "playstyle": {
+        "tags": [
+          "Marshal / Wanted",
+          "Kampf",
+          "LP"
+        ],
+        "strength": "Verdient LP für Kämpfe gegen Spieler auf der jeweils anderen Seite des Gesetzes.",
+        "focus": "Lege dich auf eine Leiste fest und suche Auseinandersetzungen mit Spielern auf der gegnerischen Leiste."
+      }
+    },
+    {
+      "id": "belle_starr",
+      "name": "Belle Starr",
+      "starting": {
+        "location": "Ein beliebiges Gemischtwarenladen-Feld in Red Falls"
+      },
+      "ability": "Verringere in einem Kampf gegen einen Banditen, eine Wache oder den Sheriff den Wert der gegen dich gespielten Kampfkarte um 2. Nachdem du einen Kampf gegen einen Banditen gewonnen hast, darfst du stattdessen 1 Wanted-Punkt erhalten.",
+      "playstyle": {
+        "tags": [
+          "NPC-Kampf",
+          "Banditen",
+          "Wanted"
+        ],
+        "strength": "Ist gegen NPC-Gegner sehr stark und kann Banditensiege in Wanted-Fortschritt umwandeln.",
+        "focus": "Jage Banditen und andere NPCs und entscheide dann, wann ein Banditensieg den weiteren Aufstieg auf der Wanted-Leiste wert ist."
+      }
+    },
+    {
+      "id": "isom_dart",
+      "name": "Isom Dart",
+      "starting": {
+        "location": "Sunny Hills Ranch"
+      },
+      "ability": "Wenn du deinen Zug mit mindestens 1 Rindermarker beginnst, darfst du 1 zusätzliche Aktion erhalten. Wenn du das tust, musst du am Ende deines Zuges alle Rindermarker abwerfen.",
+      "playstyle": {
+        "tags": [
+          "Rinder",
+          "Aktionen",
+          "Ranching"
+        ],
+        "strength": "Kann einen mitgeführten Rindermarker in eine zusätzliche Aktion für den Zug umwandeln.",
+        "focus": "Plane wichtige Züge so, dass du mit Rindern beginnst, wenn die zusätzliche Aktion den Verlust der Marker wert ist."
+      }
+    },
+    {
+      "id": "allan_pinkerton",
+      "name": "Allan Pinkerton",
+      "starting": {
+        "location": "Bank in Darkrock"
+      },
+      "ability": "Aktion: Wähle einen Spieler innerhalb von 1 Feld, der dir seine Pokerkarten zeigt. Dieser Spieler muss alle Karten eines von dir gewählten Wertes abwerfen.",
+      "playstyle": {
+        "tags": [
+          "Handkontrolle",
+          "Spielerinteraktion",
+          "Pokerkarten"
+        ],
+        "strength": "Kann die Hand eines nahen Spielers prüfen und alle Karten eines gewählten Wertes entfernen.",
+        "focus": "Komme wichtigen Gegnern nahe und störe ihre Hand vor einem Kampf oder einer anderen umkämpften Aktion."
+      }
+    },
+    {
+      "id": "buffalo_bill_cody",
+      "name": "Buffalo Bill Cody",
+      "starting": {
+        "location": "Mesito's Point Ranch"
+      },
+      "ability": "Wenn du deinen Zug außerhalb einer Stadt beginnst, erhalte 1 Goldnugget.",
+      "playstyle": {
+        "tags": [
+          "Gold",
+          "Grenzland",
+          "Wirtschaft"
+        ],
+        "strength": "Erzeugt kostenlos 1 Goldnugget, wenn er einen Zug außerhalb einer Stadt beginnt.",
+        "focus": "Plane Routen, die im Grenzland enden, und löse das angesammelte Gold zum passenden Zeitpunkt ein."
+      }
+    },
+    {
+      "id": "bat_masterson",
+      "name": "Bat Masterson",
+      "starting": {
+        "location": "Dixon Creek"
+      },
+      "ability": "Zu Beginn deines Zuges darfst du in einem beliebigen Banditenversteck 1 Banditen hinzufügen oder entfernen, um dich bis zu 2 Felder zu bewegen. (Ein Bandit darf nur einem unbesetzten Banditenversteck hinzugefügt werden.)",
+      "playstyle": {
+        "tags": [
+          "Banditen",
+          "Bewegung",
+          "Spielbrettkontrolle"
+        ],
+        "strength": "Manipuliert Banditenverstecke und erhält dabei kostenlose Bewegung.",
+        "focus": "Nutze das Platzieren und Entfernen von Banditen, um den Spielbrettzustand zu verbessern und dich zugleich neu zu positionieren."
+      }
+    },
+    {
+      "id": "pearl_hart",
+      "name": "Pearl Hart",
+      "starting": {
+        "location": "Dixon Creek"
+      },
+      "ability": "Nachdem du in deinem Zug eine beliebige Anzahl Marshal- oder Wanted-Punkte erhalten hast, ziehe 1 Pokerkarte und bewege dich bis zu 2 Felder.",
+      "playstyle": {
+        "tags": [
+          "Marshal / Wanted",
+          "Kartenvorteil",
+          "Bewegung"
+        ],
+        "strength": "Jeder Fortschritt auf Marshal oder Wanted kann sofort sowohl eine Karte als auch zusätzliche Bewegung bringen.",
+        "focus": "Löse häufig Fortschritte auf den Leisten aus und nutze die Bonusbewegung, um direkt zum nächsten Ziel überzugehen."
+      }
+    },
+    {
+      "id": "ada_curnutt",
+      "name": "Ada Curnutt",
+      "starting": {
+        "location": "Ein beliebiges Saloon-Feld in Buzzard Gulch"
+      },
+      "ability": "Bewege dich zu Beginn deines Zuges um bis zu so viele Felder wie deine Stufe auf der Marshal- oder Wanted-Leiste. (Die Stufe wird durch die Reihe bestimmt, in der sich dein Würfel befindet.)",
+      "playstyle": {
+        "tags": [
+          "Bewegung",
+          "Marshal / Wanted",
+          "Leistenpositionierung"
+        ],
+        "strength": "Ihr Bewegungspotenzial wächst mit ihrer Stufe auf der Marshal- oder Wanted-Leiste.",
+        "focus": "Baue früh eine gute Leistenposition auf, damit spätere Züge stärkere kostenlose Bewegung erhalten."
+      }
+    },
+    {
+      "id": "dave_rudabaugh",
+      "name": "Dave Rudabaugh",
+      "starting": {
+        "location": "Als Letzter auf ein Feld mit einem anderen Spieler setzen"
+      },
+      "ability": "Am Ende einer Bewegungsaktion darfst du dich 1 zusätzliches Feld bewegen. Wenn du in diesem Zug zum ersten Mal eine Bewegungsaktion auf demselben Feld wie ein anderer Spieler beendest, ziehe 1 Pokerkarte.",
+      "playstyle": {
+        "tags": [
+          "Bewegung",
+          "Spielerinteraktion",
+          "Kartenvorteil"
+        ],
+        "strength": "Bewegt sich weiter als üblich und zieht einmal pro Zug eine Karte, wenn er eine Bewegung bei einem anderen Spieler beendet.",
+        "focus": "Plane deine Route über nützliche Ziele, die es dir zugleich erlauben, neben einem anderen Spieler zu enden."
+      }
+    },
+    {
+      "id": "johnny_ringo",
+      "name": "Johnny Ringo",
+      "starting": {
+        "location": "Buzzard Gulch Ranch"
+      },
+      "ability": "Verliere am Ende eines Kampfes 1 Verwundung. Am Ende eines Kampfes gegen einen anderen Spieler erhält dieser Spieler 1 Verwundung.",
+      "playstyle": {
+        "tags": [
+          "Kampf",
+          "Verwundungen",
+          "Aggression"
+        ],
+        "strength": "Heilt nach jedem Kampf 1 Verwundung und fügt Spieler-Gegnern anschließend 1 Verwundung zu.",
+        "focus": "Kämpfe häufig, besonders gegen Spieler, um wiederholte Auseinandersetzungen in dauerhaften Verschleiß umzuwandeln."
+      }
+    },
+    {
+      "id": "tiburcio_vasquez",
+      "name": "Tiburcio Vasquez",
+      "starting": {
+        "location": "Mountain Pass C"
+      },
+      "ability": "Aktion: Bewege deinen Würfel auf das entsprechend nummerierte Feld der Marshal- oder Wanted-Leiste, ohne die Belohnungen zu erhalten.",
+      "playstyle": {
+        "tags": [
+          "Marshal / Wanted",
+          "Leistenkontrolle",
+          "Flexibilität"
+        ],
+        "strength": "Kann sich direkt auf der Marshal- oder Wanted-Leiste neu positionieren, ohne jedes Zwischenfeld verdienen zu müssen.",
+        "focus": "Nutze die Aktion, um die Leistenposition einzunehmen, die deinen nächsten Wertungs- oder Taktikplan am besten unterstützt."
+      }
+    },
+    {
+      "id": "fee_lee_wong",
+      "name": "Fee Lee Wong",
+      "starting": {
+        "location": "Grenzlandfeld mit Wert 8"
+      },
+      "ability": "Deine Handkartengrenze ist um 1 erhöht. Du kannst höchstens $180 mitführen.",
+      "playstyle": {
+        "tags": [
+          "Große Hand",
+          "Wirtschaft",
+          "Kapazität"
+        ],
+        "strength": "Kann mehr Pokerkarten und deutlich mehr Geld als ein normaler Charakter halten.",
+        "focus": "Nutze die höheren Limits, indem du Ressourcen für teure Käufe und starke Hände ansammelst."
+      }
+    },
+    {
+      "id": "maria_gertrudis_barcelo",
+      "name": "Maria Gertrudis Barceló",
+      "starting": {
+        "location": "Ein beliebiges Trading-Post-Feld in Buzzard Gulch"
+      },
+      "ability": "Wenn du deinen Zug in einer Stadt beginnst, erhalte $10 oder ziehe 1 Pokerkarte.",
+      "playstyle": {
+        "tags": [
+          "Stadt",
+          "Wirtschaft",
+          "Kartenvorteil"
+        ],
+        "strength": "Ein Zugbeginn in einer Stadt bietet die flexible Wahl zwischen Geld und einer Pokerkarte.",
+        "focus": "Beende Züge wenn möglich in Städten und nimm die Ressource, die dein nächster Zug am meisten braucht."
+      }
+    },
+    {
+      "id": "pat_garrett",
+      "name": "Pat Garrett",
+      "starting": {
+        "location": "Marshal-Büro in Buzzard Gulch"
+      },
+      "ability": "Aktion: Einmal pro Zug darfst du den Sheriff bis zu 6 Felder bewegen. Erhalte 1 LP, wenn dies zu einer Verhaftung führt.",
+      "playstyle": {
+        "tags": [
+          "Sheriff",
+          "Marshal",
+          "LP"
+        ],
+        "strength": "Kann den Sheriff stark neu positionieren und erhält LP, wenn diese Bewegung zu einer Verhaftung führt.",
+        "focus": "Beobachte die Positionen von Wanted-Spielern und plane Sheriff-Bewegungen, die direkt zu Verhaftungen führen."
+      }
+    },
+    {
+      "id": "poker_alice",
+      "name": "Poker Alice",
+      "starting": {
+        "location": "Bahnhof in Buzzard Gulch"
+      },
+      "ability": "Aktion: Einmal pro Zug ziehe 1 Pokerkarte und beginne eine Pokerrunde. Jeder Spieler darf unabhängig von seinem Standort teilnehmen.",
+      "playstyle": {
+        "tags": [
+          "Poker",
+          "Kartenvorteil",
+          "Spielerinteraktion"
+        ],
+        "strength": "Kann von überall eine Pokerrunde beginnen und zieht dabei eine zusätzliche Karte für die Teilnahme.",
+        "focus": "Beginne Poker, wenn deine Hand günstig ist, statt auf den richtigen Standort zu warten."
+      }
+    },
+    {
+      "id": "seth_bullock",
+      "name": "Seth Bullock",
+      "starting": {
+        "location": "Ein beliebiges Trading-Post-Feld in Buzzard Gulch"
+      },
+      "ability": "Wenn du in einem Zug zum ersten Mal einen Kampf gegen einen Banditen gewinnst, ziehe 2 Pokerkarten.",
+      "playstyle": {
+        "tags": [
+          "Banditen",
+          "Kartenvorteil",
+          "Kampf"
+        ],
+        "strength": "Der erste Banditensieg jedes Zuges erzeugt zwei zusätzliche Pokerkarten.",
+        "focus": "Versuche in produktiven Zügen einen Banditen zu besiegen, um deine Hand gut gefüllt zu halten."
+      }
+    },
+    {
+      "id": "soapy_smith",
+      "name": "“Soapy” Smith",
+      "starting": {
+        "location": "Ein beliebiges Trading-Post-Feld in Buzzard Gulch"
+      },
+      "ability": "Nachdem du einen Glücksspieler-Punkt erhalten hast, wirf 1 Goldsuchwürfel und erhalte das Ergebnis. Wenn du Geröll würfelst, fülle deine Hand wieder auf.",
+      "playstyle": {
+        "tags": [
+          "Glücksspiel",
+          "Goldsuche",
+          "Bonusressourcen"
+        ],
+        "strength": "Glücksspieler-Punkte erzeugen zusätzlich eine Belohnung vom Goldsuchwürfel und können manchmal die Hand auffüllen.",
+        "focus": "Verfolge Glücksspiel-Fortschritt, damit jeder Glücksspieler-Punkt zusätzliche Ressourcen erzeugen kann."
+      }
+    },
+    {
+      "id": "sundance_kid",
+      "name": "Sundance Kid",
+      "starting": {
+        "location": "Mountain Pass A"
+      },
+      "ability": "Aktion: Einmal pro Zug darfst du dich auf das Feld bewegen, auf dem sich der Zug aktuell befindet. (Dies gilt als Bewegungsaktion.)",
+      "playstyle": {
+        "tags": [
+          "Zug",
+          "Bewegung",
+          "Mobilität"
+        ],
+        "strength": "Kann sich einmal pro Zug unabhängig von der normalen Entfernung direkt zum Zug bewegen.",
+        "focus": "Nutze den Zug als mobiles Ziel für schnelles Umpositionieren, Begegnungen oder Überfälle."
+      }
+    },
+    {
+      "id": "william_curly_bill_brocius",
+      "name": "William “Curly Bill” Brocius",
+      "starting": {
+        "location": "Outlaw-Camp in Buzzard Gulch"
+      },
+      "ability": "Wenn du deinen Zug außerhalb einer Stadt beginnst, ziehe 2 Pokerkarten und wirf anschließend 1 Pokerkarte aus deiner Hand ab.",
+      "playstyle": {
+        "tags": [
+          "Grenzland",
+          "Kartenauswahl",
+          "Pokerkarten"
+        ],
+        "strength": "Ein Start außerhalb der Stadt lässt ihn zwei neue Pokerkarten sehen und die passendere behalten.",
+        "focus": "Beende Züge außerhalb von Städten und nutze Ziehen/Abwerfen, um deine Hand ständig zu verbessern."
+      }
+    },
+    {
+      "id": "al_swearengen",
+      "name": "Al Swearengen",
+      "starting": {
+        "location": "Ein Saloon-Feld, das zur gewählten Urkunde passt"
+      },
+      "ability": "Urkunden kosten dich beim Kauf $10 weniger. Einmal pro Zug darfst du eine Pokerkarte abwerfen, um die Aktionsfähigkeit 1 deiner Urkunden zu verwenden.",
+      "playstyle": {
+        "tags": [
+          "Urkunden",
+          "Wirtschaft",
+          "Aktionseffizienz"
+        ],
+        "strength": "Erhält ungewöhnlich hohen Nutzen aus Urkunden und den Aktionen, die sie bieten.",
+        "focus": "Besorge früh nützliche Urkunden und baue deine Züge darauf auf, wiederholt Wert aus ihnen zu ziehen."
+      }
+    },
+    {
+      "id": "ben_hodges",
+      "name": "Ben Hodges",
+      "starting": {
+        "location": "Ein beliebiges unbesetztes Grenzlandfeld mit Wert 6"
+      },
+      "ability": "Wenn du in einem Zug zum ersten Mal eine Aktion auf einem Gegenstand oder einer Pokerkarte verwendest, erhalte $20.",
+      "playstyle": {
+        "tags": [
+          "Gegenstände",
+          "Pokerkarten",
+          "Wirtschaft"
+        ],
+        "strength": "Die erste Gegenstands- oder Pokerkartenaktion jedes Zuges zahlt zusätzlich $20.",
+        "focus": "Plane in jedem Zug mindestens eine passende Karten- oder Gegenstandsaktion ein, damit das Bonusgeld nie verfällt."
+      }
+    },
+    {
+      "id": "buckshot_roberts",
+      "name": "Buckshot Roberts",
+      "starting": {
+        "location": "Bahnhof von Spike's View"
+      },
+      "ability": "Wenn du deinen Zug mit einer Verletzung beginnst, ziehe 1 Pokerkarte und erhalte 1 Aktion.",
+      "playstyle": {
+        "tags": [
+          "Verletzungen",
+          "Kartenvorteil",
+          "Aktionen"
+        ],
+        "strength": "Ein verletzter Zugbeginn liefert sowohl eine Pokerkarte als auch eine zusätzliche Aktion.",
+        "focus": "Wäge den Nutzen einer bestehenden Verletzung gegen das Risiko ab und nutze das zusätzliche Tempo in wichtigen Zügen."
+      }
+    },
+    {
+      "id": "charley_parkhurst",
+      "name": "Charley Parkhurst",
+      "starting": {
+        "location": "Gemischtwarenladen-Feld in Red Falls"
+      },
+      "ability": "Einmal in deinem Zug darfst du 1 beliebigen Würfel neu werfen. Nachdem du das Ergebnis eines Risikowürfels erhalten hast, erhalte 1 Story-Punkt.",
+      "playstyle": {
+        "tags": [
+          "Risikowürfel",
+          "Neuwürfe",
+          "Story"
+        ],
+        "strength": "Kann einen Würfelwurf pro Zug korrigieren und erfolgreiche Risikowürfel-Ergebnisse in Story-Punkte umwandeln.",
+        "focus": "Nutze Gelegenheiten für den Risikowürfel und spare den Neuwurf für Ergebnisse auf, die am wichtigsten sind."
+      }
+    },
+    {
+      "id": "elfego_baca",
+      "name": "Elfego Baca",
+      "starting": {
+        "location": "Ein beliebiges unbesetztes Grenzlandfeld mit Wert 7"
+      },
+      "ability": "Solange du eine aufgewertete Waffe besitzt, verringere den Wert einer gegen dich im Kampf gespielten Karte um 1. Wenn du in deinem Zug zum ersten Mal eine beliebige Anzahl Verwundungen erhalten würdest, verhindere 1 davon.",
+      "playstyle": {
+        "tags": [
+          "Aufgewertete Waffen",
+          "Kampf",
+          "Verteidigung"
+        ],
+        "strength": "Eine aufgewertete Waffe verbessert seine Kampfverteidigung, und er kann die erste Verwundung seines Zuges verhindern.",
+        "focus": "Werte früh eine Waffe auf und nutze den zusätzlichen Schutz, um Kämpfe selbstbewusster einzugehen."
+      }
+    },
+    {
+      "id": "james_bloody_arm_beckwourth",
+      "name": "James “Bloody Arm” Beckwourth",
+      "starting": {
+        "location": "Ein beliebiges unbesetztes Grenzlandfeld mit Wert 7"
+      },
+      "ability": "Nachdem du den Risikowürfel geworfen hast, ziehe 1 Pokerkarte. Wenn du in deinem Zug zum ersten Mal einen Kampf gewinnst, erhalte 1 Story-Punkt.",
+      "playstyle": {
+        "tags": [
+          "Risikowürfel",
+          "Kampf",
+          "Story"
+        ],
+        "strength": "Risikowürfe erzeugen Karten, während der erste Kampfsieg seines Zuges einen Story-Punkt erzeugt.",
+        "focus": "Suche Züge, die einen Risikowurf mit einem gewinnbaren Kampf verbinden, um beide Vorteile auszulösen."
+      }
+    },
+    {
+      "id": "lottie_deno",
+      "name": "Lottie Deno",
+      "starting": {
+        "location": "Ein beliebiges unbesetztes Saloon-Feld"
+      },
+      "ability": "Nachdem du einen Bonuseffekt auf einer Pokerkarte verwendet hast, erhalte 1 Story-Punkt.",
+      "playstyle": {
+        "tags": [
+          "Pokerkarten",
+          "Story",
+          "Bonuseffekte"
+        ],
+        "strength": "Verwandelt Bonuseffekte auf Pokerkarten in zusätzliche Story-Punkte.",
+        "focus": "Bevorzuge Gelegenheiten, Pokerkarten-Bonuseffekte zu nutzen, statt Karten nur als Kampfwerte zu behandeln."
+      }
+    },
+    {
+      "id": "lozen",
+      "name": "Lozen",
+      "starting": {
+        "location": "Ein beliebiges unbesetztes Grenzlandfeld mit Wert 7"
+      },
+      "ability": "Zu Beginn deines Zuges darfst du die oberste Karte des Kampfdecks, Pokerdecks oder Zugbegegnungsdecks ansehen. Du darfst diese Karte unter das Deck legen.",
+      "playstyle": {
+        "tags": [
+          "Deckkontrolle",
+          "Information",
+          "Flexibilität"
+        ],
+        "strength": "Kann die oberste Karte mehrerer wichtiger Decks ansehen und ablehnen, bevor sie relevant wird.",
+        "focus": "Nutze diese Information vor Kämpfen, Pokerzügen oder Zugbegegnungen, um schwache Ergebnisse zu vermeiden und bessere vorzubereiten."
+      }
+    },
+    {
+      "id": "texas_john_slaughter",
+      "name": "Texas John Slaughter",
+      "starting": {
+        "location": "Ein beliebiges unbesetztes Grenzlandfeld mit Wert 6"
+      },
+      "ability": "Aktion: Wähle 2: Ziehe 1 Pokerkarte, erhalte $10, verliere 1 Verwundung, bewege dich 1 Feld oder setze 1 Banditen in ein beliebiges Banditenversteck.",
+      "playstyle": {
+        "tags": [
+          "Flexibilität",
+          "Aktionen",
+          "Banditen"
+        ],
+        "strength": "Seine Aktion kann zwei von mehreren nützlichen Effekten kombinieren und sich so an die aktuelle Situation anpassen.",
+        "focus": "Wähle die zwei Effekte, die die größten Bedürfnisse des aktuellen Zuges lösen, statt immer dieselbe Kombination zu verwenden."
+      }
+    },
+    {
+      "id": "tom_tobin",
+      "name": "Tom Tobin",
+      "starting": {
+        "location": "Ein beliebiges Feld in derselben Region wie der Reisende Händler"
+      },
+      "ability": "Legendäre Gegenstände kosten dich beim Kauf $10 weniger. Wenn du deinen Zug in derselben Region wie der Reisende Händler beendest, darfst du einen Legendären Gegenstand kaufen.",
+      "playstyle": {
+        "tags": [
+          "Legendäre Gegenstände",
+          "Wirtschaft",
+          "Reisender Händler"
+        ],
+        "strength": "Kauft Legendäre Gegenstände günstiger und kann beim Reisenden Händler einkaufen, indem er seinen Zug in dessen Nähe beendet.",
+        "focus": "Behalte den Reisenden Händler im Auge und nutze den Rabatt, um früh eine Sammlung mächtiger Legendärer Gegenstände aufzubauen."
+      }
+    },
+    {
+      "id": "aaron_ross",
+      "name": "Aaron Ross",
+      "starting": {
+        "location": "Ein beliebiger unbesetzter Zug-Kontrollpunkt"
+      },
+      "ability": "Wähle zu Beginn deines Zuges 1: Wenn du mindestens $60 besitzt, ziehe 1 Pokerkarte; wenn du mindestens $120 besitzt, erhalte 1 LP.",
+      "playstyle": {
+        "tags": [
+          "Reichtum",
+          "Wirtschaft",
+          "LP"
+        ],
+        "strength": "Große Geldreserven werden zu wiederkehrendem Kartenvorteil oder sogar zu LP zu Beginn eines Zuges.",
+        "focus": "Baue dein Geldvermögen auf und schütze es; $120 ist die entscheidende Schwelle für passive LP."
+      }
+    },
+    {
+      "id": "dark_knight",
+      "name": "Dark Knight",
+      "starting": {
+        "location": "Spike's View Mine (Höhle)"
+      },
+      "ability": "Wenn du ein Feld mit einem Banditen oder Wanted-Spieler betrittst, darfst du ihn auf ein angrenzendes Feld fliehen lassen oder zufällig 1 seiner Kampf-/Pokerkarten abwerfen lassen.",
+      "playstyle": {
+        "tags": [
+          "Spielbrettkontrolle",
+          "Wanted-Jäger",
+          "Störung"
+        ],
+        "strength": "Kann einen Banditen oder Wanted-Spieler sofort beim Betreten seines Feldes stören.",
+        "focus": "Jage gefährliche Ziele und nutze erzwungene Bewegung oder zufälliges Abwerfen, um sie vor der nächsten Auseinandersetzung zu schwächen."
+      }
+    }
+  ]
+}

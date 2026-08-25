@@ -53,7 +53,10 @@
             "type": "newspaperNote",
             "text": "A Man Near Death was ignored."
           }
-        ]
+        ],
+        "changes": {
+          "money": 20
+        }
       },
       {
         "id": "prospector_debt_repaid",
@@ -106,7 +109,10 @@
               "Another chapter in the unfolding story reached the Gazette with a vivid detail: The old prospector grins when he sees you. I ain't forgot what you did for me. Let me square that debt proper.",
               "The trail of the larger story led to a fresh development: The old prospector grins when he sees you. I ain't forgot what you did for me. Let me square that debt proper.",
               "Witnesses tied the latest turn in the story to one memorable scene: The old prospector grins when he sees you. I ain't forgot what you did for me. Let me square that debt proper."
-            ]
+            ],
+            "changes": {
+              "money": 30
+            }
           },
           "differentPlayer": {
             "title": "Kindness Passed On",
@@ -118,10 +124,16 @@
               "Another chapter in the unfolding story reached the Gazette with a vivid detail: The old prospector tells you some stranger once saved his hide. Says a kindness like that ought not stop with one man.",
               "The trail of the larger story led to a fresh development: The old prospector tells you some stranger once saved his hide. Says a kindness like that ought not stop with one man.",
               "Witnesses tied the latest turn in the story to one memorable scene: The old prospector tells you some stranger once saved his hide. Says a kindness like that ought not stop with one man."
-            ]
+            ],
+            "changes": {
+              "money": 20
+            }
           },
           "default": {
-            "screenText": "After purchasing/upgrading an Item, gain $20."
+            "screenText": "After purchasing/upgrading an Item, gain $20.",
+            "changes": {
+              "money": 20
+            }
           }
         }
       },
@@ -175,7 +187,10 @@
                     "type": "addWorldTag",
                     "tag": "prospector_paid_off"
                   }
-                ]
+                ],
+                "changes": {
+                  "money": -20
+                }
               },
               {
                 "label": "Faced the Ambush",
@@ -207,7 +222,10 @@
                     "type": "addWorldTag",
                     "tag": "prospector_helped_escape"
                   }
-                ]
+                ],
+                "changes": {
+                  "money": 20
+                }
               },
               {
                 "label": "Refused",
@@ -281,7 +299,11 @@
             "type": "newspaperNote",
             "text": "Fence Line Down was ignored."
           }
-        ]
+        ],
+        "changes": {
+          "money": 20,
+          "pokerCards": 1
+        }
       },
       {
         "id": "widow_cattle_drive",
@@ -332,7 +354,10 @@
               "Frontier witnesses carried word of A Safe Drive from one settlement to the next.",
               "By day's end, A Safe Drive had earned a place among the territory's notable happenings."
             ],
-            "audioFile": null
+            "audioFile": null,
+            "changes": {
+              "money": 30
+            }
           },
           "differentPlayer": {
             "screenText": "Widow McCall tells you another traveler helped save her ranch when she needed it most. She offers you honest work on the next drive. Wrangle cattle to gain +$20.",
@@ -342,10 +367,16 @@
               "Frontier witnesses carried word of A Safe Drive from one settlement to the next.",
               "By day's end, A Safe Drive had earned a place among the territory's notable happenings."
             ],
-            "audioFile": null
+            "audioFile": null,
+            "changes": {
+              "money": 20
+            }
           },
           "default": {
-            "screenText": "Wrangle cattle for Widow McCall to gain +$20."
+            "screenText": "Wrangle cattle for Widow McCall to gain +$20.",
+            "changes": {
+              "money": 20
+            }
           }
         }
       },
@@ -412,10 +443,18 @@
               "Another chapter in the unfolding story reached the Gazette with a vivid detail: The veiled rider calls herself McCall. Says nobody came when the ranch was dying, so she learned to take what the frontier would not give.",
               "The trail of the larger story led to a fresh development: The veiled rider calls herself McCall. Says nobody came when the ranch was dying, so she learned to take what the frontier would not give.",
               "Witnesses tied the latest turn in the story to one memorable scene: The veiled rider calls herself McCall. Says nobody came when the ranch was dying, so she learned to take what the frontier would not give."
-            ]
+            ],
+            "changes": {
+              "money": 30,
+              "wanted": 1
+            }
           },
           "default": {
-            "screenText": "After rustling, gain +$30 and +1 WP, then move the Sheriff up to 2 spaces toward you."
+            "screenText": "After rustling, gain +$30 and +1 WP, then move the Sheriff up to 2 spaces toward you.",
+            "changes": {
+              "money": 30,
+              "wanted": 1
+            }
           }
         }
       }
@@ -476,7 +515,11 @@
             "type": "newspaperNote",
             "text": "Deputy for a Day was ignored."
           }
-        ]
+        ],
+        "changes": {
+          "money": 20,
+          "marshal": 1
+        }
       },
       {
         "id": "reeves_crackdown",
@@ -527,7 +570,11 @@
               "Frontier witnesses carried word of Crackdown Warrant from one settlement to the next.",
               "By day's end, Crackdown Warrant had earned a place among the territory's notable happenings."
             ],
-            "audioFile": null
+            "audioFile": null,
+            "changes": {
+              "money": 20,
+              "marshal": 1
+            }
           },
           "differentPlayer": {
             "screenText": "Marshal Reeves tells you another traveler stood beside him when trouble first started. The crackdown is working, and he gives you a warrant of your own. After defeating a Bandit, gain +$20.",
@@ -537,10 +584,16 @@
               "Frontier witnesses carried word of Crackdown Warrant from one settlement to the next.",
               "By day's end, Crackdown Warrant had earned a place among the territory's notable happenings."
             ],
-            "audioFile": null
+            "audioFile": null,
+            "changes": {
+              "money": 20
+            }
           },
           "default": {
-            "screenText": "After defeating a Bandit, gain +$20."
+            "screenText": "After defeating a Bandit, gain +$20.",
+            "changes": {
+              "money": 20
+            }
           }
         }
       },
@@ -669,7 +722,10 @@
             "type": "newspaperNote",
             "text": "The Painted Wagon was ignored."
           }
-        ]
+        ],
+        "changes": {
+          "pokerCards": 2
+        }
       },
       {
         "id": "showman_grand_show",
@@ -720,7 +776,11 @@
               "Frontier witnesses carried word of Grand Frontier Show from one settlement to the next.",
               "By day's end, Grand Frontier Show had earned a place among the territory's notable happenings."
             ],
-            "audioFile": null
+            "audioFile": null,
+            "changes": {
+              "legendary": 1,
+              "money": 30
+            }
           },
           "differentPlayer": {
             "screenText": "Silas boasts that another traveler helped get his show started, then turns your Poker victory into tonight’s headline act. Gain +1 LP and +$20.",
@@ -730,10 +790,18 @@
               "Frontier witnesses carried word of Grand Frontier Show from one settlement to the next.",
               "By day's end, Grand Frontier Show had earned a place among the territory's notable happenings."
             ],
-            "audioFile": null
+            "audioFile": null,
+            "changes": {
+              "legendary": 1,
+              "money": 20
+            }
           },
           "default": {
-            "screenText": "Silas turns your Poker victory into the centerpiece of his Grand Frontier Show. Gain +1 LP and +$20."
+            "screenText": "Silas turns your Poker victory into the centerpiece of his Grand Frontier Show. Gain +1 LP and +$20.",
+            "changes": {
+              "legendary": 1,
+              "money": 20
+            }
           }
         }
       },
@@ -1107,7 +1175,11 @@
               "Frontier witnesses carried word of Beating the Shark from one settlement to the next.",
               "By day's end, Beating the Shark had earned a place among the territory's notable happenings."
             ],
-            "audioFile": null
+            "audioFile": null,
+            "changes": {
+              "money": 40,
+              "gambler": 1
+            }
           },
           "differentPlayer": {
             "screenText": "The card shark tells you another gambler crossed cards with him earlier. You are the fresh challenger who finally beats him. Gain +$30 and 1 GP.",
@@ -1117,10 +1189,18 @@
               "Frontier witnesses carried word of Beating the Shark from one settlement to the next.",
               "By day's end, Beating the Shark had earned a place among the territory's notable happenings."
             ],
-            "audioFile": null
+            "audioFile": null,
+            "changes": {
+              "money": 30,
+              "gambler": 1
+            }
           },
           "default": {
-            "screenText": "After winning Poker, gain +$30 and 1 GP."
+            "screenText": "After winning Poker, gain +$30 and 1 GP.",
+            "changes": {
+              "money": 30,
+              "gambler": 1
+            }
           }
         }
       },

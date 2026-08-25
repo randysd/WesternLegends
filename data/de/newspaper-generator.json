@@ -1,62 +1,41 @@
 {
-  "id": "darkrock_gazette_generator",
   "title": "Die Darkrock Gazette",
   "edition": "",
-  "output": "print-ready-html",
-  "bodyFont": "Times New Roman",
   "sections": [
     {
       "id": "lead_story",
-      "source": "frontierMood + triggeredLog.primaryTrigger",
-      "presentation": "headline-and-deck",
       "description": "Stimmungsabhängige Leitgeschichte plus eine knappe Zusammenfassung der vorherrschenden Aktivitäten während des Spiels."
     },
     {
       "id": "final_tally",
-      "source": "finalScores + finalWinnerColors",
-      "presentation": "side-callout",
       "description": "Kompakter Endstandkasten mit dem Sieger und dem LP-Ergebnis jedes Spielers."
     },
     {
       "id": "gazette_ledger",
-      "source": "triggeredLog.primaryTrigger",
-      "presentation": "compact-counts",
       "description": "Gut lesbare Zählung der Aktionskategorien, die in der aufgezeichneten Auslöserhistorie am häufigsten vorkamen."
     },
     {
       "id": "player_recaps",
-      "source": "triggeredLog grouped by player color",
-      "presentation": "prose",
       "description": "Kurze Zusammenfassungen für jeden Spieler, ausschließlich auf Grundlage der tatsächlich für diesen Spieler aufgezeichneten Aktionen, Story-Ausgänge und einmaligen Begegnungen."
     },
     {
       "id": "world_events",
-      "source": "triggeredLog.worldEventStarted + activeWorldEvents",
-      "presentation": "article",
       "description": "Eine erzählerische Zusammenfassung der gebietsweiten Ereignisse während des Spiels, unter Verwendung verfasster newspaperText-Varianten, sofern vorhanden."
     },
     {
       "id": "one_off_dispatches",
-      "source": "triggeredLog.oneOffEvent",
-      "presentation": "article",
       "description": "Eine erzählerische Zusammenfassung ungewöhnlicher einmaliger Vorfälle, gruppiert nach den Reitern, die sie erlebt haben, unter Verwendung verfasster newspaperText-Varianten, sofern vorhanden."
     },
     {
       "id": "character_arcs",
-      "source": "arcProgress + activeStories",
-      "presentation": "mini-articles",
       "description": "Ein kurzer Artikel für jeden begonnenen Charakter-Handlungsbogen, einschließlich abgeschlossener, verpasster und noch offener Kapitel, unter Verwendung verfasster newspaperText-Varianten, sofern vorhanden."
     },
     {
       "id": "global_storylines",
-      "source": "arcProgress + activeStories",
-      "presentation": "article",
       "description": "Eine knappe Zusammenfassung aller gebietsweiten Hauptgeschichten, die im Verlauf des Spiels vorangeschritten sind, unter Verwendung verfasster newspaperText-Varianten, sofern vorhanden."
     },
     {
       "id": "final_word",
-      "source": "frontierMood + finalScores + activity + narrative history",
-      "presentation": "closing-editorial",
       "description": "Ein dynamischer Schlussabsatz, geprägt von der Stimmung des Grenzlands, den vorherrschenden Aktivitäten, Geschichten, Weltereignissen, einmaligen Ereignissen und dem endgültigen Sieger."
     }
   ]
