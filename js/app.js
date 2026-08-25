@@ -9,6 +9,7 @@ const DATA_FILES = {
   newspaper: 'data/newspaper-generator.json',
   setupAssist: 'data/setup-assist.json',
   items: 'data/items.json',
+  characters: 'data/characters.json',
   finalScoring: 'data/final-scoring.json',
   ui: 'data/ui.json'
 };
@@ -36,117 +37,140 @@ const PLAYER_COLORS = ['white', 'red', 'yellow', 'blue', 'purple', 'black'];
 const NULL_PLAYER_COLOR = '';
 const PLAYER_COLOR_OPTIONS = [...PLAYER_COLORS, NULL_PLAYER_COLOR];
 const TRASH_ICON_SVG = `<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>`;
-// Characters are tied to the expansion/module that supplies them. The Base
-// Game pool is always available; expansion characters only enter the player
-// dropdown when that expansion is active in the current setup.
-const CHARACTER_SETS = {
-  base: [
-    'Annie Oakley',
-    'Bass Reeves',
-    'Billy the Kid',
-    'Bloody Knife',
-    'Calamity Jane',
-    'Doc Holliday',
-    'Jesse James',
-    'Kit Carson',
-    'Stagecoach Mary Fields',
-    'Wild Bill Hickok',
-    'Wyatt Earp',
-    'Y. B. Rowdy'
-  ],
-  the_good_the_bad_and_the_handsome: [
-    'Judge Roy Bean',
-    'Butch Cassidy',
-    'Joaquin Murrieta'
-  ],
-  fistful_of_extras: [
-    'Belle Starr',
-    'Isom Dart',
-    'Allan Pinkerton',
-    'Buffalo Bill Cody',
-    'Bat Masterson',
-    'Pearl Hart'
-  ],
-  wild_bunch: [
-    'Ada Curnutt',
-    'Dave Rudabaugh',
-    'Johnny Ringo',
-    'Tiburcio Vasquez'
-  ],
-  ante_up: [
-    'Fee Lee Wong',
-    'Maria Gertrudis Barceló',
-    'Pat Garrett',
-    'Poker Alice',
-    'Seth Bullock',
-    'Jefferson “Soapy” Smith',
-    'Sundance Kid',
-    'William “Curly Bill” Brocius'
-  ],
-  blood_money: [
-    'Al Swearengen',
-    'Ben Hodges',
-    'Buckshot Roberts',
-    'Charlie Parkhurst',
-    'Elfego Baca',
-    'James “Bloody Arm” Beckworth',
-    'Lottie Deno',
-    'Lozen',
-    'Texas John Slaughter',
-    'Tom Tobin'
-  ],
-  big_box: [
-    'Aaron Ross'
-  ],
-  dark_knight: [
-    'Dark Knight'
-  ]
-};
-
-function characterSortKey(name = '') {
-  // Leading nickname quotes should not cause entries such as "Doc" Holliday
-  // or "Stagecoach Mary" Fields to sort before A in the dropdown.
-  return String(name).replace(/^[^\p{L}\p{N}]+/u, '');
+// Character identity, display names, expansion ownership, image paths, and
+// localization all live in data/characters.json. Application state stores only
+// stable character IDs so spelling/translation changes never change identity.
+function characterRecords() {
+  return Array.isArray(db?.characters?.characters) ? db.characters.characters : [];
 }
 
-function sortCharactersAlphabetically(characters) {
-  return characters.slice().sort((a, b) =>
-    characterSortKey(a).localeCompare(characterSortKey(b), 'en', { sensitivity: 'base' })
+function characterDataRecord(characterId) {
+  if (!characterId) return null;
+  return characterRecords().find(entry => entry?.id === characterId) || null;
+}
+
+function normalizeCharacterLookupValue(value = '') {
+  return String(value || '')
+    .normalize('NFD')
+    .replace(/\p{Diacritic}/gu, '')
+    .replace(/[“”‘’"']/g, '')
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
+    .trim()
+    .toLocaleLowerCase();
+}
+
+function characterIdFromLegacyValue(value = '') {
+  if (!value) return '';
+  const literal = String(value).trim();
+  const direct = characterDataRecord(literal);
+  if (direct) return direct.id;
+  const normalized = normalizeCharacterLookupValue(literal);
+  const record = characterRecords().find(entry => {
+    const aliases = [entry?.name, ...(Array.isArray(entry?.legacyNames) ? entry.legacyNames : [])];
+    return aliases.some(alias => normalizeCharacterLookupValue(alias) === normalized);
+  });
+  return record?.id || '';
+}
+
+function characterDisplayName(characterId) {
+  return characterDataRecord(characterId)?.name || '';
+}
+
+function characterSortKey(characterId = '') {
+  const name = characterDisplayName(characterId) || String(characterId || '');
+  return name.replace(/^[^\p{L}\p{N}]+/u, '');
+}
+
+function sortCharacterIdsAlphabetically(characterIds) {
+  const locale = document.documentElement.lang || selectedLanguageCode() || 'en';
+  return characterIds.slice().sort((a, b) =>
+    characterSortKey(a).localeCompare(characterSortKey(b), locale, { sensitivity: 'base' })
   );
 }
 
 function characterExpansionIsActive(moduleId, activeModules) {
   if (activeModules.has(moduleId)) return true;
-
-  // For expansion-level character pools (Ante Up, Blood Money, Wild Bunch,
-  // etc.), selecting ANY child module means that expansion is in use and its
-  // characters should be available. Dark Knight is intentionally a child-only
-  // pool, so it unlocks only when that specific fan module is selected.
   const group = MODULES.find(entry => entry.id === moduleId);
   return !!group?.modules?.some(child => activeModules.has(child.id));
 }
 
-function availableCharactersForSetup() {
+function availableCharacterIdsForSetup() {
   const active = new Set(state?.setup?.modules || ['base']);
-  const available = [...CHARACTER_SETS.base];
-
-  Object.entries(CHARACTER_SETS).forEach(([moduleId, characters]) => {
-    if (moduleId === 'base') return;
-    const enabled = moduleId === 'dark_knight'
-      ? active.has('dark_knight')
-      : characterExpansionIsActive(moduleId, active);
-    if (enabled) available.push(...characters);
-  });
-
-  return sortCharactersAlphabetically([...new Set(available)]);
+  const ids = characterRecords().filter(record => {
+    const moduleId = record?.sourceModule || 'base';
+    if (moduleId === 'base') return true;
+    if (moduleId === 'dark_knight') return active.has('dark_knight');
+    return characterExpansionIsActive(moduleId, active);
+  }).map(record => record.id).filter(Boolean);
+  return sortCharacterIdsAlphabetically([...new Set(ids)]);
 }
 
 function reconcileSelectedCharactersWithModules() {
   normalizePlayers();
-  const available = new Set(availableCharactersForSetup());
+  const available = new Set(availableCharacterIdsForSetup());
   state.setup.playerDetails.forEach(player => {
-    if (player.character && !available.has(player.character)) player.character = '';
+    if (player.characterId && !available.has(player.characterId)) player.characterId = '';
   });
+}
+
+function migratePlayerCharacterIds(container) {
+  const players = container?.setup?.playerDetails;
+  if (!Array.isArray(players)) return;
+  players.forEach(player => {
+    if (!player || typeof player !== 'object') return;
+    if (typeof player.characterId !== 'string' || !characterDataRecord(player.characterId)) {
+      const legacyValue = typeof player.character === 'string' ? player.character : '';
+      player.characterId = characterIdFromLegacyValue(legacyValue);
+    }
+    if (Object.prototype.hasOwnProperty.call(player, 'character')) delete player.character;
+  });
+}
+
+function characterCardSources(record) {
+  const fallbackId = record?.id || 'character';
+  return {
+    front: record?.frontImage || `assets/images/cards/character-${fallbackId.replaceAll('_', '-')}-front.png`,
+    back: record?.backImage || `assets/images/cards/character-${fallbackId.replaceAll('_', '-')}-back.png`
+  };
+}
+
+function characterThumbnailSource(record) {
+  if (!record) return '';
+  return record?.thumbnail?.image || record?.thumbnailImage || characterCardSources(record).front;
+}
+
+function characterThumbnailStyle(record) {
+  const thumb = record?.thumbnail || {};
+  const scale = Math.max(1, Math.min(4, Number(thumb.scale) || 1.85));
+  const centerX = Math.max(0, Math.min(100, Number(thumb.centerX) || 50));
+  const centerY = Math.max(0, Math.min(100, Number(thumb.centerY) || 29));
+  return `--character-thumb-scale:${scale};--character-thumb-x:${centerX}%;--character-thumb-y:${centerY}%;`;
+}
+
+function characterStartingBonuses(record) {
+  const core = window.WLCharacterPickerCore;
+  if (core?.characterStartingBonuses) return core.characterStartingBonuses(record);
+  return Array.isArray(record?.starting?.bonuses) ? record.starting.bonuses : [];
+}
+
+function characterStartingBonusItems(record) {
+  const core = window.WLCharacterPickerCore;
+  if (core?.resolveStartingBonusItems) return core.resolveStartingBonusItems(record, db.items || {});
+  const allItems = [...(db.items?.items || []), ...(db.items?.legendary_items || [])];
+  const byId = new Map(allItems.map(item => [item.id, item]));
+  return characterStartingBonuses(record)
+    .filter(bonus => bonus.type === 'item' && bonus.itemId)
+    .map(bonus => ({ bonus, item: byId.get(bonus.itemId) }))
+    .filter(entry => entry.item);
+}
+
+function characterStartingItems(record) {
+  return characterStartingBonusItems(record).map(entry => entry.item);
+}
+
+function characterSourceLabel(record) {
+  if (!record?.sourceModule) return '';
+  return moduleName({ id: record.sourceModule }) || record.sourceModule;
 }
 const MODULES = [
   {
@@ -495,7 +519,7 @@ function defaultState() {
     setup: {
       players: 1,
       playerColors: [],
-      playerDetails: [{ name: '', character: '', color: PLAYER_COLORS[0] }],
+      playerDetails: [{ name: '', characterId: '', color: PLAYER_COLORS[0] }],
       modules: (db?.settings?.enabledModulesDefault || ['base']).slice(),
       targetLP: 20,
       storyDensity: 'standard',
@@ -683,9 +707,44 @@ async function loadData() {
 }
 
 function loadSave() {
-  try { return JSON.parse(localStorage.getItem(SAVE_KEY)); } catch { return null; }
+  try {
+    const saved = JSON.parse(localStorage.getItem(SAVE_KEY));
+    if (!saved) return null;
+
+    // Character selections used to persist localized/display names. Migrate
+    // them once to stable IDs from characters.json so future spelling or
+    // translation changes cannot invalidate a saved setup.
+    if (typeof migratePlayerCharacterIds === 'function') migratePlayerCharacterIds(saved);
+
+    // Active primary triggers are localized data. Saves persist only their
+    // identity/timing, then restore the display object from the language that
+    // was loaded for this session. This also migrates older saves that stored
+    // the full trigger object (including its previous-language label/text).
+    if (Array.isArray(saved.activeTriggers)) {
+      saved.activeTriggers = saved.activeTriggers
+        .map(savedTrigger => {
+          const localizedTrigger = (db?.triggers || []).find(trigger => trigger.id === savedTrigger?.id);
+          if (!localizedTrigger) return null;
+          return { ...localizedTrigger, dealtAt: savedTrigger.dealtAt };
+        })
+        .filter(Boolean);
+    }
+
+    return saved;
+  } catch {
+    return null;
+  }
 }
-function save() { localStorage.setItem(SAVE_KEY, JSON.stringify(state)); }
+function save() {
+  const persistedState = {
+    ...state,
+    activeTriggers: (state.activeTriggers || []).map(trigger => ({
+      id: trigger.id,
+      dealtAt: trigger.dealtAt
+    }))
+  };
+  localStorage.setItem(SAVE_KEY, JSON.stringify(persistedState));
+}
 function navigate(screen) {
   if (screen === 'game' && !state.gameStarted) screen = 'setup';
   state.screen = screen;
@@ -978,7 +1037,7 @@ function storyTrackNoticeMarkup() {
   const space = STORY_TRACK_SPACES.find(item => item.id === spaceId);
   if (!space || space.id === 'start') return '';
   const player = (state.setup.playerDetails || []).find(p => p.color === color);
-  const displayName = player?.name?.trim() || player?.character?.trim() || localizedColorPlayer(color);
+  const displayName = player?.name?.trim() || characterDisplayName(player?.characterId) || localizedColorPlayer(color);
   const dotClass = PLAYER_COLORS.includes(color) ? `swatch-${color}` : 'swatch-none';
   return `<div class="story-track-area-reminder" role="status" aria-live="polite" tabindex="0" data-dismiss-story-track-reminder title="${t('strings.tap_to_dismiss')}">
     <div class="story-track-reminder-heading">
@@ -1192,13 +1251,17 @@ function normalizePlayers() {
   // makes it back into state.
   if (!state.setup.playerDetails || !Array.isArray(state.setup.playerDetails)) state.setup.playerDetails = [];
   if (!state.setup.playerDetails.length && Array.isArray(state.setup.playerColors) && state.setup.playerColors.length) {
-    state.setup.playerDetails = state.setup.playerColors.map(color => ({ name: '', character: '', color }));
+    state.setup.playerDetails = state.setup.playerColors.map(color => ({ name: '', characterId: '', color }));
   }
-  if (!state.setup.playerDetails.length) state.setup.playerDetails.push({ name: '', character: '', color: PLAYER_COLORS[0] });
+  if (!state.setup.playerDetails.length) state.setup.playerDetails.push({ name: '', characterId: '', color: PLAYER_COLORS[0] });
   if (state.setup.playerDetails.length > 6) state.setup.playerDetails.length = 6;
   state.setup.playerDetails.forEach(player => {
     if (typeof player.name !== 'string') player.name = '';
-    if (typeof player.character !== 'string') player.character = '';
+    if (typeof player.characterId !== 'string' || !characterDataRecord(player.characterId)) {
+      const legacyValue = typeof player.character === 'string' ? player.character : '';
+      player.characterId = characterIdFromLegacyValue(legacyValue);
+    }
+    if (Object.prototype.hasOwnProperty.call(player, 'character')) delete player.character;
     if (typeof player.color !== 'string') player.color = '';
   });
   state.setup.players = state.setup.playerDetails.length;
@@ -1228,7 +1291,7 @@ function readPlayerFieldsFromSetupUI() {
     const nameEl = document.getElementById(`playerName_${index}`);
     const charEl = document.getElementById(`playerCharacter_${index}`);
     if (nameEl) player.name = nameEl.value.trim();
-    if (charEl) player.character = charEl.value.trim();
+    if (charEl) player.characterId = charEl.value.trim();
   });
 }
 
@@ -1264,6 +1327,14 @@ function cyclePlayerColor(playerIndex) {
 }
 
 function handleSetupPlayerButtonClick(event) {
+  const characterBtn = event.target.closest('[data-choose-character]');
+  if (characterBtn) {
+    event.preventDefault();
+    event.stopPropagation();
+    openCharacterPicker(Number(characterBtn.dataset.chooseCharacter));
+    return true;
+  }
+
   const colorBtn = event.target.closest('[data-cycle-player-color]');
   if (colorBtn) {
     event.preventDefault();
@@ -1295,7 +1366,7 @@ function addSetupPlayer() {
   updateSetupFromUI(false);
   if (state.setup.playerDetails.length >= 6) return;
   const color = nextAvailablePlayerColor('', -1) || '';
-  state.setup.playerDetails.push({ name: '', character: '', color });
+  state.setup.playerDetails.push({ name: '', characterId: '', color });
   state.setup.players = state.setup.playerDetails.length;
   save();
 refreshPlayerSetupRows()
@@ -1315,9 +1386,487 @@ function clearSetupCharacter(playerIndex) {
   updateSetupFromUI(false);
   const player = state.setup.playerDetails[playerIndex];
   if (!player) return;
-  player.character = '';
+  player.characterId = '';
   save();
 refreshPlayerSetupRows()
+}
+
+
+function closeCharacterPicker() {
+  document.querySelector('.character-picker-overlay')?.remove();
+  document.querySelector('.character-map-viewer')?.remove();
+  document.body.classList.remove('character-picker-open');
+}
+
+function characterStartingMapEntries(record) {
+  const ids = Array.isArray(record?.starting?.mapLocationIds) ? record.starting.mapLocationIds : [];
+  const registry = db?.characters?.mapLocations || {};
+  return ids.map(id => ({ id, ...(registry[id] || {}) }))
+    .filter(entry => (entry.board === 'main' || entry.board === 'frontier') && Array.isArray(entry.points) && entry.points.length);
+}
+
+function showCharacterStartingMap(record) {
+  const entries = characterStartingMapEntries(record);
+  if (!entries.length) return;
+
+  document.querySelector('.character-map-viewer')?.remove();
+  const boardInfo = {
+    main: { src: 'assets/images/boards/main-board.png', label: t('strings.main_board') },
+    frontier: { src: 'assets/images/boards/ante-up-frontier.png', label: t('strings.buzzard_gulch_frontier_board') }
+  };
+  const grouped = new Map();
+  entries.forEach(entry => {
+    if (!grouped.has(entry.board)) grouped.set(entry.board, []);
+    grouped.get(entry.board).push(...entry.points);
+  });
+
+  const mapPinSvg = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z"/><circle cx="12" cy="10" r="2.2"/></svg>`;
+  const boardsHtml = [...grouped.entries()].map(([board, points]) => {
+    const info = boardInfo[board];
+    if (!info) return '';
+    const pins = points.map((point, index) => `<span class="character-map-pin" style="--map-x:${Number(point.x)}%;--map-y:${Number(point.y)}%" aria-label="${escapeHtml(t('strings.character_starting_location'))} ${index + 1}">${mapPinSvg}</span>`).join('');
+    return `<figure class="character-map-board character-map-board-${board}" data-character-map-board="${board}">
+      <div class="character-map-board-stage">
+        <img src="${escapeHtml(info.src)}" alt="${escapeHtml(info.label)}" draggable="false">
+        ${pins}
+      </div>
+      <figcaption>${escapeHtml(info.label)}</figcaption>
+    </figure>`;
+  }).join('');
+
+  const overlay = document.createElement('div');
+  overlay.className = 'character-map-viewer';
+  overlay.innerHTML = `<section class="panel character-map-dialog" role="dialog" aria-modal="true" aria-labelledby="characterStartingMapTitle">
+    <button type="button" class="dialog-close-x" data-character-map-close aria-label="${escapeHtml(t('strings.close'))}">&#10005;</button>
+    <header class="character-map-header">
+      <p class="eyebrow">${escapeHtml(record?.name || t('strings.character'))}</p>
+      <h2 id="characterStartingMapTitle">${escapeHtml(t('strings.starting_location_map'))}</h2>
+      <p>${escapeHtml(record?.starting?.location || '')}</p>
+    </header>
+    <div class="character-map-boards">${boardsHtml}</div>
+  </section>`;
+  const close = () => overlay.remove();
+  overlay.querySelector('[data-character-map-close]')?.addEventListener('click', close);
+  overlay.addEventListener('click', event => { if (event.target === overlay) close(); });
+  overlay.addEventListener('keydown', event => { if (event.key === 'Escape') { event.preventDefault(); close(); } });
+  document.body.appendChild(overlay);
+  overlay.querySelector('[data-character-map-close]')?.focus();
+}
+
+function renderCharacterMoneyCards(amount) {
+  const numeric = Number(amount);
+  if (!Number.isFinite(numeric) || numeric <= 0) return '';
+  let remaining = Math.round(numeric / 10) * 10;
+  const cards = [];
+  while (remaining >= 20 && cards.length < 4) {
+    cards.push(20);
+    remaining -= 20;
+  }
+  while (remaining >= 10 && cards.length < 4) {
+    cards.push(10);
+    remaining -= 10;
+  }
+  return `<div class="character-money-cards" aria-hidden="true">${cards.map((value, index) => `<img src="assets/images/cards/money-${value}.png" alt="" style="--money-index:${index}" loading="lazy">`).join('')}</div>`;
+}
+
+function renderCharacterPokerCards(amount) {
+  const count = Math.max(1, Math.min(3, Math.round(Number(amount) || 1)));
+  return `<div class="character-poker-cards" aria-hidden="true">${Array.from({ length: count }, (_, index) => `<img src="assets/images/cards/poker-back.png" alt="" style="--poker-index:${index}" loading="lazy">`).join('')}</div>`;
+}
+
+function characterBonusRewardNote(bonus) {
+  if (bonus?.gainReward === false) return t('strings.character_bonus_no_reward');
+  if (bonus?.gainReward === true) return t('strings.character_bonus_gain_reward');
+  return '';
+}
+
+function characterBonusKnownDetail(bonus) {
+  if (bonus?.note === 'Draw 1 Poker Card.') return t('strings.character_bonus_draw_one_poker_card');
+  if (bonus?.choice === 'ranch of your choice') return t('strings.character_bonus_ranch_of_your_choice');
+  if (bonus?.choice === 'any saloon') return t('strings.character_bonus_any_saloon');
+  return bonus?.note || bonus?.choice || '';
+}
+
+function renderCharacterPointBonus(bonus, kind, shortLabel, labelKey) {
+  const amount = Math.max(1, Math.round(Number(bonus?.amount) || 1));
+  const rewardNote = characterBonusRewardNote(bonus);
+  return `<div class="character-loadout-special character-loadout-point character-loadout-point-${kind}">
+    <span class="character-point-token" aria-hidden="true">${escapeHtml(shortLabel)}</span>
+    <strong>${escapeHtml(`+${amount} ${shortLabel}`)}</strong>
+    <span>${escapeHtml(t(labelKey))}</span>
+    ${rewardNote ? `<small>${escapeHtml(rewardNote)}</small>` : ''}
+  </div>`;
+}
+
+function renderCharacterStartingBonus(bonus, itemById) {
+  const amount = Math.max(1, Math.round(Number(bonus?.amount) || 1));
+  const detail = characterBonusKnownDetail(bonus);
+
+  if (bonus?.type === 'money') {
+    const dollars = Math.max(0, Math.round(Number(bonus.amount) || 0));
+    const moneyCard = dollars >= 20 ? 20 : 10;
+    return `<button type="button" class="character-loadout-money character-loadout-clickable" data-character-bonus-image="assets/images/cards/money-${moneyCard}.png" data-character-bonus-alt="$${escapeHtml(String(dollars))}" data-character-bonus-caption="${escapeHtml(t('strings.starting_money'))}">${renderCharacterMoneyCards(dollars)}<strong>$${escapeHtml(String(dollars))}</strong><span>${escapeHtml(t('strings.starting_money'))}</span></button>`;
+  }
+
+  if (bonus?.type === 'poker_cards') {
+    return `<button type="button" class="character-loadout-special character-loadout-poker character-loadout-clickable" data-character-bonus-image="assets/images/cards/poker-back.png" data-character-bonus-alt="${escapeHtml(t('strings.character_bonus_poker_card'))}" data-character-bonus-caption="${escapeHtml(`×${amount}`)}">${renderCharacterPokerCards(amount)}<strong>${escapeHtml(`×${amount}`)}</strong><span>${escapeHtml(t('strings.character_bonus_poker_card'))}</span></button>`;
+  }
+
+  if (bonus?.type === 'item' && bonus.itemId) {
+    const item = itemById.get(bonus.itemId);
+    if (!item) return '';
+    const imageSrc = bonus.image || item.upgradedImage || itemImageSrc(item);
+    const upgraded = !!bonus.upgraded;
+    return `<button type="button" class="character-loadout-item ${upgraded ? 'is-upgraded' : ''}" data-character-item="${escapeHtml(item.id)}" data-character-item-image="${escapeHtml(imageSrc)}" aria-label="${escapeHtml(t('strings.view_item', { item: item.name }))}">
+      <span class="character-loadout-item-art"><img src="${escapeHtml(imageSrc)}" alt="${escapeHtml(item.name)}" loading="lazy">${upgraded ? `<b>${escapeHtml(t('strings.character_bonus_upgraded'))}</b>` : ''}</span>
+      <span>${escapeHtml(item.name)}</span>
+      ${detail ? `<small>${escapeHtml(detail)}</small>` : ''}
+    </button>`;
+  }
+
+  if (bonus?.type === 'marshal_point') return renderCharacterPointBonus(bonus, 'marshal', 'MP', 'strings.character_bonus_marshal_point');
+  if (bonus?.type === 'wanted_point') return renderCharacterPointBonus(bonus, 'wanted', 'WP', 'strings.character_bonus_wanted_point');
+  if (bonus?.type === 'gambler_point') return renderCharacterPointBonus(bonus, 'gambler', 'GP', 'strings.character_bonus_gambler_point');
+  if (bonus?.type === 'story_point') return renderCharacterPointBonus(bonus, 'story', 'SP', 'strings.character_bonus_story_point');
+  if (bonus?.type === 'legendary_point') return renderCharacterPointBonus(bonus, 'legendary', 'LP', 'strings.character_bonus_legendary_point');
+
+  if (bonus?.type === 'track_point_choice') {
+    const rewardNote = characterBonusRewardNote(bonus);
+    const options = Array.isArray(bonus.options) ? bonus.options : [];
+    const chips = options.map(option => option === 'marshal_point'
+      ? `<span class="character-point-token character-point-token-marshal">MP</span>`
+      : option === 'wanted_point'
+        ? `<span class="character-point-token character-point-token-wanted">WP</span>`
+        : '').filter(Boolean);
+    return `<div class="character-loadout-special character-loadout-choice">
+      <div class="character-track-choice" aria-hidden="true">${chips.join(`<em>${escapeHtml(t('strings.or'))}</em>`)}</div>
+      <strong>${escapeHtml(`+${amount} MP / WP`)}</strong>
+      <span>${escapeHtml(t('strings.character_bonus_marshal_or_wanted_point'))}</span>
+      ${rewardNote ? `<small>${escapeHtml(rewardNote)}</small>` : ''}
+    </div>`;
+  }
+
+  if (bonus?.type === 'gold_nugget') {
+    return `<button type="button" class="character-loadout-special character-loadout-clickable" data-character-bonus-image="assets/images/tokens/gold-nugget.png" data-character-bonus-alt="${escapeHtml(t('strings.character_bonus_gold_nugget'))}" data-character-bonus-caption="${escapeHtml(`×${amount}`)}"><img class="character-bonus-token-image" src="assets/images/tokens/gold-nugget.png" alt="" loading="lazy"><strong>${escapeHtml(`×${amount}`)}</strong><span>${escapeHtml(t('strings.character_bonus_gold_nugget'))}</span></button>`;
+  }
+
+  if (bonus?.type === 'wound') {
+    return `<button type="button" class="character-loadout-special character-loadout-clickable" data-character-bonus-image="assets/images/tokens/wound.png" data-character-bonus-alt="${escapeHtml(t('strings.character_bonus_wound'))}" data-character-bonus-caption="${escapeHtml(`×${amount}`)}"><img class="character-bonus-token-image" src="assets/images/tokens/wound.png" alt="" loading="lazy"><strong>${escapeHtml(`×${amount}`)}</strong><span>${escapeHtml(t('strings.character_bonus_wound'))}</span></button>`;
+  }
+
+  if (bonus?.type === 'deed') {
+    return `<button type="button" class="character-loadout-special character-loadout-clickable" data-character-bonus-image="assets/images/tokens/deed.png" data-character-bonus-alt="${escapeHtml(t('strings.character_bonus_deed'))}" data-character-bonus-caption="${escapeHtml(detail || `×${amount}`)}"><img class="character-bonus-token-image" src="assets/images/tokens/deed.png" alt="" loading="lazy"><strong>${escapeHtml(`×${amount}`)}</strong><span>${escapeHtml(t('strings.character_bonus_deed'))}</span>${detail ? `<small>${escapeHtml(detail)}</small>` : ''}</button>`;
+  }
+
+  if (bonus?.type === 'cattle_token') {
+    return `<button type="button" class="character-loadout-special character-loadout-clickable" data-character-bonus-image="assets/images/tokens/ranch-any.png" data-character-bonus-alt="${escapeHtml(t('strings.character_bonus_cattle_token'))}" data-character-bonus-caption="${escapeHtml(detail || `×${amount}`)}"><img class="character-bonus-token-image" src="assets/images/tokens/ranch-any.png" alt="" loading="lazy"><strong>${escapeHtml(`×${amount}`)}</strong><span>${escapeHtml(t('strings.character_bonus_cattle_token'))}</span>${detail ? `<small>${escapeHtml(detail)}</small>` : ''}</button>`;
+  }
+
+  if (bonus?.type === 'legendary_item') {
+    const legendaryLabel = bonus.random ? t('strings.character_bonus_random_legendary_item') : t('strings.character_bonus_legendary_item');
+    return `<button type="button" class="character-loadout-special character-loadout-clickable" data-character-bonus-image="assets/images/cards/item-back.png" data-character-bonus-alt="${escapeHtml(legendaryLabel)}" data-character-bonus-caption="${escapeHtml(`×${amount}`)}"><img class="character-bonus-card-back" src="assets/images/cards/item-back.png" alt="" loading="lazy"><strong>${escapeHtml(`×${amount}`)}</strong><span>${escapeHtml(legendaryLabel)}</span></button>`;
+  }
+
+  if (bonus?.type === 'item_choice') {
+    const choiceLabel = bonus.itemType === 'weapon' ? t('strings.character_bonus_weapon_of_your_choice') : t('strings.character_bonus_item_of_your_choice');
+    const sourceLabel = bonus.source === 'general_store' ? t('strings.general_store') : '';
+    return `<button type="button" class="character-loadout-special character-loadout-clickable" data-character-bonus-image="assets/images/cards/item-back.png" data-character-bonus-alt="${escapeHtml(choiceLabel)}" data-character-bonus-caption="${escapeHtml(sourceLabel || `×${amount}`)}"><img class="character-bonus-card-back" src="assets/images/cards/item-back.png" alt="" loading="lazy"><strong>${escapeHtml(`×${amount}`)}</strong><span>${escapeHtml(choiceLabel)}</span>${sourceLabel ? `<small>${escapeHtml(sourceLabel)}</small>` : ''}</button>`;
+  }
+
+  return '';
+}
+
+function renderCharacterStartingBonuses(record) {
+  const bonuses = characterStartingBonuses(record);
+  const resolvedItems = characterStartingBonusItems(record);
+  const itemById = new Map(resolvedItems.map(entry => [entry.item.id, entry.item]));
+  return bonuses.map(bonus => renderCharacterStartingBonus(bonus, itemById)).filter(Boolean).join('');
+}
+
+const CHARACTER_BROWSE_GROUPS = ['fighting', 'marshal', 'outlaw', 'poker', 'economy', 'frontier', 'movement', 'story'];
+
+function openCharacterPicker(playerIndex = null, { readOnly = false } = {}) {
+  let player = null;
+  if (!readOnly) {
+    normalizePlayers();
+    readPlayerFieldsFromSetupUI();
+    save();
+    player = state.setup.playerDetails[playerIndex];
+    if (!player) return;
+  }
+
+  closeCharacterPicker();
+
+  const allIds = availableCharacterIdsForSetup();
+  const takenByOther = new Map();
+  if (!readOnly) {
+    state.setup.playerDetails.forEach((other, index) => {
+      if (index !== playerIndex && other.characterId) takenByOther.set(other.characterId, index);
+    });
+  }
+  const pool = readOnly
+    ? allIds
+    : allIds.filter(characterId => !takenByOther.has(characterId) || characterId === player.characterId);
+  if (!pool.length) return;
+
+  let currentIndex = readOnly ? 0 : Math.max(0, pool.indexOf(player.characterId));
+  let showingBack = false;
+  let browseOpen = false;
+  let browseFilter = 'all';
+  let pointerStartX = null;
+  let pointerStartY = null;
+  let activePointerId = null;
+  let pointerDragging = false;
+  let suppressCardClick = false;
+
+  const overlay = document.createElement('div');
+  overlay.className = 'modal-screen-overlay character-picker-overlay';
+  overlay.setAttribute('data-character-picker-backdrop', '');
+  overlay.setAttribute('data-character-picker-mode', readOnly ? 'reference' : 'setup');
+  overlay.innerHTML = `<section class="panel modal-screen-card character-picker-card" role="dialog" aria-modal="true" aria-labelledby="characterPickerTitle">
+    <button type="button" class="dialog-close-x" data-character-picker-close aria-label="${escapeHtml(t('strings.close'))}">&#10005;</button>
+    <header class="character-picker-header">
+      <p class="eyebrow">${escapeHtml(readOnly ? t('strings.quick_reference') : t('strings.players'))}</p>
+      <h2 id="characterPickerTitle">${escapeHtml(readOnly ? t('strings.characters') : t('strings.choose_character'))}</h2>
+    </header>
+    <div class="character-picker-main" data-character-picker-main></div>
+    <div class="character-picker-browser hidden" data-character-picker-browser></div>
+  </section>`;
+  document.body.classList.add('character-picker-open');
+  document.body.appendChild(overlay);
+
+  const main = overlay.querySelector('[data-character-picker-main]');
+  const browser = overlay.querySelector('[data-character-picker-browser]');
+  const characterPickerHeader = overlay.querySelector('.character-picker-header');
+  const characterPickerDialog = overlay.querySelector('.character-picker-card');
+
+  const move = delta => {
+    if (pool.length < 2) return;
+    currentIndex = (currentIndex + delta + pool.length) % pool.length;
+    showingBack = false;
+    renderCurrent();
+  };
+
+  const renderFace = (src, displayName, sideLabel) => `<span class="character-card-face character-card-face-${sideLabel.toLowerCase()}">
+    <img src="${escapeHtml(src)}" alt="${escapeHtml(`${displayName} ${sideLabel}`)}" loading="eager">
+    <span class="character-card-missing" aria-hidden="true"><strong>${escapeHtml(displayName)}</strong><small>${escapeHtml(t('strings.character_card_scan_missing'))}</small></span>
+  </span>`;
+
+  const bindBrokenImages = root => {
+    root.querySelectorAll('.character-card-face img, .character-picker-peek img, .character-browse-thumb img').forEach(img => {
+      img.addEventListener('error', () => {
+        img.closest('.character-card-face, .character-picker-peek, .character-browse-thumb')?.classList.add('image-missing');
+      });
+    });
+  };
+
+  const renderBrowse = () => {
+    const filteredIds = browseFilter === 'all'
+      ? allIds
+      : allIds.filter(characterId => characterDataRecord(characterId)?.browseGroups?.includes(browseFilter));
+    const filterButtons = ['all', ...CHARACTER_BROWSE_GROUPS].map(group => `<button type="button" class="character-browser-filter ${browseFilter === group ? 'active' : ''}" data-character-filter="${group}" aria-pressed="${browseFilter === group}">${escapeHtml(t(`strings.character_filter_${group}`))}</button>`).join('');
+
+    browser.innerHTML = `<div class="character-browser-head">
+      <button type="button" class="secondary-btn character-browser-back" data-character-browser-back>‹ ${escapeHtml(t('strings.back'))}</button>
+      <div><h3 id="characterBrowseTitle">${escapeHtml(t('strings.all_characters'))}</h3></div>
+    </div>
+    <div class="character-browser-filters" role="group" aria-label="${escapeHtml(t('strings.character_filters'))}">${filterButtons}</div>
+    <div class="character-browser-list">${filteredIds.map(characterId => {
+      const record = characterDataRecord(characterId);
+      if (!record) return '';
+      const displayName = record.name || characterId;
+      const thumb = characterThumbnailSource(record);
+      const thumbStyle = characterThumbnailStyle(record);
+      const takenIndex = readOnly ? null : takenByOther.get(characterId);
+      const takenPlayer = takenIndex == null ? null : state.setup.playerDetails[takenIndex];
+      const unavailable = !readOnly && takenIndex != null;
+      const subLabel = unavailable
+        ? t('strings.taken_by_player', { player: takenPlayer?.name?.trim() || t('setup.playerNumber', { number: takenIndex + 1 }) })
+        : characterSourceLabel(record);
+      return `<button type="button" class="character-browser-option ${characterId === pool[currentIndex] ? 'current' : ''}" data-character-jump="${escapeHtml(characterId)}" ${unavailable ? 'disabled' : ''}>
+        <span class="character-browse-thumb"><img src="${escapeHtml(thumb)}" style="${escapeHtml(thumbStyle)}" alt="" loading="lazy"><span>${escapeHtml(displayName.slice(0, 1))}</span></span>
+        <span class="character-browser-copy"><strong>${escapeHtml(displayName)}</strong><small>${escapeHtml(subLabel)}</small></span>
+        <span class="character-browser-arrow" aria-hidden="true">${unavailable ? '×' : '›'}</span>
+      </button>`;
+    }).join('')}</div>`;
+    bindBrokenImages(browser);
+    browser.querySelector('[data-character-browser-back]')?.addEventListener('click', () => setBrowse(false));
+    browser.querySelectorAll('[data-character-filter]').forEach(button => button.addEventListener('click', () => {
+      browseFilter = button.dataset.characterFilter || 'all';
+      renderBrowse();
+    }));
+    browser.querySelectorAll('[data-character-jump]').forEach(button => button.addEventListener('click', () => {
+      const nextIndex = pool.indexOf(button.dataset.characterJump);
+      if (nextIndex < 0) return;
+      currentIndex = nextIndex;
+      showingBack = false;
+      setBrowse(false);
+      renderCurrent();
+    }));
+  };
+
+  const setBrowse = open => {
+    browseOpen = !!open;
+    main.classList.toggle('hidden', browseOpen);
+    browser.classList.toggle('hidden', !browseOpen);
+    characterPickerHeader?.classList.toggle('hidden', browseOpen);
+    characterPickerDialog?.setAttribute('aria-labelledby', browseOpen ? 'characterBrowseTitle' : 'characterPickerTitle');
+    if (browseOpen) renderBrowse();
+  };
+
+  function renderCurrent() {
+    const characterId = pool[currentIndex];
+    const record = characterDataRecord(characterId);
+    if (!record) return;
+    const displayName = record.name || characterId;
+    const sources = characterCardSources(record);
+    const bonusItems = characterStartingBonusItems(record).map(entry => entry.item);
+    const startingBonusesHtml = renderCharacterStartingBonuses(record);
+    const startingLocation = record.starting?.location || '';
+    const ability = typeof record.ability === 'string' ? record.ability.trim() : '';
+    const playstyle = record.playstyle && typeof record.playstyle === 'object' ? record.playstyle : {};
+    const playstyleTags = Array.isArray(playstyle.tags) ? playstyle.tags.filter(tag => typeof tag === 'string' && tag.trim()).slice(0, 3) : [];
+    const playstyleStrength = typeof playstyle.strength === 'string' ? playstyle.strength.trim() : '';
+    const playstyleFocus = typeof playstyle.focus === 'string' ? playstyle.focus.trim() : '';
+    const playstyleTagsHtml = playstyleTags.length ? `<div class="character-playstyle-tags">${playstyleTags.map(tag => `<span>${escapeHtml(tag)}</span>`).join('')}</div>` : '';
+    const sourceLabel = characterSourceLabel(record);
+    const previousId = pool[(currentIndex - 1 + pool.length) % pool.length];
+    const nextId = pool[(currentIndex + 1) % pool.length];
+    const previousSrc = characterCardSources(characterDataRecord(previousId)).front;
+    const nextSrc = characterCardSources(characterDataRecord(nextId)).front;
+    const pinSvg = `<svg class="character-location-pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z"/><circle cx="12" cy="10" r="2.2"/></svg>`;
+    const hasMap = characterStartingMapEntries(record).length > 0;
+    const selectHtml = readOnly ? '' : `<button type="button" class="primary-btn character-card-select" data-character-select>
+      <span aria-hidden="true">✓</span><span>${escapeHtml(t('strings.select_short'))}</span>
+    </button>`;
+
+    main.innerHTML = `<div class="character-picker-toolbar">
+        <div class="character-picker-counter" aria-live="polite">${currentIndex + 1} / ${pool.length}</div>
+        <button type="button" class="secondary-btn character-toolbar-browse" data-character-browse><span aria-hidden="true">☷</span><span>${escapeHtml(t('strings.see_all'))}</span></button>
+      </div>
+      <div class="character-carousel-shell">
+        <div class="character-picker-peek character-picker-peek-left" aria-hidden="true"><img src="${escapeHtml(previousSrc)}" alt="" loading="lazy"></div>
+        <button type="button" class="character-carousel-nav character-carousel-prev" data-character-prev aria-label="${escapeHtml(t('strings.previous_character'))}" ${pool.length < 2 ? 'disabled' : ''}>‹</button>
+        <div class="character-carousel-stage" data-character-stage tabindex="0" aria-label="${escapeHtml(t('strings.swipe_browse_character_cards'))}">
+          <button type="button" class="character-card-viewport" data-character-card-view aria-label="${escapeHtml(t('strings.view_character_card_full_size', { character: displayName }))}">
+            <span class="character-card-flipper ${showingBack ? 'is-back' : ''}">
+              ${renderFace(sources.front, displayName, 'Front')}
+              ${renderFace(sources.back, displayName, 'Back')}
+            </span>
+          </button>
+          <button type="button" class="character-card-flip-control" data-character-card-flip aria-label="${escapeHtml(t('strings.flip_character_card', { character: displayName }))}">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h7.5a4.5 4.5 0 0 1 4.2 6.1"/><path d="m16.5 10.5 2.5 2.7 2.2-3"/><path d="M17 17H9.5a4.5 4.5 0 0 1-4.2-6.1"/><path d="m7.5 13.5-2.5-2.7-2.2 3"/></svg>
+          </button>
+          ${selectHtml}
+        </div>
+        <button type="button" class="character-carousel-nav character-carousel-next" data-character-next aria-label="${escapeHtml(t('strings.next_character'))}" ${pool.length < 2 ? 'disabled' : ''}>›</button>
+        <div class="character-picker-peek character-picker-peek-right" aria-hidden="true"><img src="${escapeHtml(nextSrc)}" alt="" loading="lazy"></div>
+      </div>
+
+      <section class="character-info-tray">
+        <div class="character-info-heading"><div><div class="character-info-title-row"><h3>${escapeHtml(displayName)}</h3><p>${escapeHtml(sourceLabel)}</p></div>${playstyleTagsHtml}</div></div>
+        <div class="character-starting-loadout">
+          <span class="character-loadout-label">${escapeHtml(t('strings.starts_with'))}</span>
+          ${startingBonusesHtml ? `<div class="character-loadout-items">${startingBonusesHtml}</div>` : `<p class="character-loadout-note">${escapeHtml(t('strings.character_starting_bonus_unavailable'))}</p>`}
+        </div>
+        ${startingLocation ? `<div class="character-location-row"><div class="character-location-chip">${pinSvg}<span><small>${escapeHtml(t('strings.character_starting_location'))}</small><strong>${escapeHtml(startingLocation)}</strong></span></div>${hasMap ? `<button type="button" class="secondary-btn character-map-btn" data-character-map aria-label="${escapeHtml(t('strings.view_on_map'))}">${pinSvg}<span>${escapeHtml(t('strings.map'))}</span></button>` : ''}</div>` : ''}
+        ${ability ? `<details class="character-ability"><summary><span class="character-ability-mark" aria-hidden="true">✦</span><strong>${escapeHtml(t('strings.special_ability'))}</strong><span class="character-ability-caret" aria-hidden="true">▾</span></summary><div class="character-ability-text">${escapeHtml(ability)}</div></details>` : ''}
+        ${(playstyleStrength || playstyleFocus) ? `<details class="character-guide"><summary><span class="character-guide-mark" aria-hidden="true">⌁</span><strong>${escapeHtml(t('strings.character_guide'))}</strong><span class="character-guide-caret" aria-hidden="true">▾</span></summary><div class="character-guide-content">${playstyleStrength ? `<div><span>${escapeHtml(t('strings.strength'))}</span><p>${escapeHtml(playstyleStrength)}</p></div>` : ''}${playstyleFocus ? `<div><span>${escapeHtml(t('strings.focus'))}</span><p>${escapeHtml(playstyleFocus)}</p></div>` : ''}</div></details>` : ''}
+      </section>`;
+
+    bindBrokenImages(main);
+    main.querySelectorAll('[data-character-prev]').forEach(btn => btn.addEventListener('click', () => move(-1)));
+    main.querySelectorAll('[data-character-next]').forEach(btn => btn.addEventListener('click', () => move(1)));
+    main.querySelector('[data-character-card-view]')?.addEventListener('click', () => {
+      if (suppressCardClick) return;
+      const visibleCardSrc = showingBack ? sources.back : sources.front;
+      showFullscreenImage(visibleCardSrc, displayName, '');
+    });
+    const flipControl = main.querySelector('[data-character-card-flip]');
+    flipControl?.addEventListener('pointerdown', event => event.stopPropagation());
+    flipControl?.addEventListener('click', event => {
+      event.preventDefault();
+      event.stopPropagation();
+      showingBack = !showingBack;
+      main.querySelector('.character-card-flipper')?.classList.toggle('is-back', showingBack);
+    });
+    main.querySelectorAll('[data-character-item]').forEach(button => button.addEventListener('click', () => {
+      const item = bonusItems.find(candidate => candidate.id === button.dataset.characterItem);
+      if (!item) return;
+      showFullscreenImage(button.dataset.characterItemImage || itemImageSrc(item), item.name, itemTypeLabel(item.type));
+    }));
+    main.querySelectorAll('[data-character-bonus-image]').forEach(button => button.addEventListener('click', () => {
+      showFullscreenImage(button.dataset.characterBonusImage, button.dataset.characterBonusAlt || '', button.dataset.characterBonusCaption || '');
+    }));
+    main.querySelector('[data-character-map]')?.addEventListener('click', () => showCharacterStartingMap(record));
+    main.querySelector('[data-character-select]')?.addEventListener('click', () => {
+      if (readOnly || !player) return;
+      player.characterId = characterId;
+      save();
+      closeCharacterPicker();
+      refreshPlayerSetupRows();
+    });
+    main.querySelector('[data-character-browse]')?.addEventListener('click', () => setBrowse(true));
+
+    const stage = main.querySelector('[data-character-stage]');
+    stage?.addEventListener('pointerdown', event => {
+      if (event.pointerType === 'mouse' && event.button !== 0) return;
+      pointerStartX = event.clientX;
+      pointerStartY = event.clientY;
+      activePointerId = event.pointerId;
+      pointerDragging = false;
+    });
+    stage?.addEventListener('pointermove', event => {
+      if (pointerStartX == null || pointerStartY == null || event.pointerId !== activePointerId) return;
+      const dx = event.clientX - pointerStartX;
+      const dy = event.clientY - pointerStartY;
+      if (!pointerDragging && Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy)) {
+        pointerDragging = true;
+        suppressCardClick = true;
+        stage.setPointerCapture?.(event.pointerId);
+      }
+      if (pointerDragging) event.preventDefault();
+    });
+    stage?.addEventListener('pointerup', event => {
+      if (pointerStartX == null || pointerStartY == null || event.pointerId !== activePointerId) return;
+      const dx = event.clientX - pointerStartX;
+      const dy = event.clientY - pointerStartY;
+      if (pointerDragging && stage.hasPointerCapture?.(event.pointerId)) stage.releasePointerCapture?.(event.pointerId);
+      const shouldMove = pointerDragging && Math.abs(dx) >= 42 && Math.abs(dx) > Math.abs(dy);
+      pointerStartX = null;
+      pointerStartY = null;
+      activePointerId = null;
+      pointerDragging = false;
+      if (shouldMove) move(dx < 0 ? 1 : -1);
+      if (suppressCardClick) window.setTimeout(() => { suppressCardClick = false; }, 100);
+    });
+    stage?.addEventListener('pointercancel', event => {
+      if (stage.hasPointerCapture?.(event.pointerId)) stage.releasePointerCapture?.(event.pointerId);
+      pointerStartX = null;
+      pointerStartY = null;
+      activePointerId = null;
+      pointerDragging = false;
+      suppressCardClick = false;
+    });
+  }
+
+  overlay.querySelector('[data-character-picker-close]')?.addEventListener('click', closeCharacterPicker);
+  overlay.addEventListener('click', event => {
+    if (event.target === overlay) closeCharacterPicker();
+  });
+  overlay.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      if (browseOpen) setBrowse(false); else closeCharacterPicker();
+      return;
+    }
+    if (browseOpen) return;
+    if (event.key === 'ArrowLeft') { event.preventDefault(); move(-1); }
+    if (event.key === 'ArrowRight') { event.preventDefault(); move(1); }
+  });
+
+  renderCurrent();
+  overlay.querySelector('[data-character-picker-close]')?.focus();
 }
 
 function updateStartGameDisabled() {
@@ -1354,7 +1903,7 @@ function updateSetupFromUI(rerender = false) {
     const nameEl = document.getElementById(`playerName_${index}`);
     const charEl = document.getElementById(`playerCharacter_${index}`);
     if (nameEl) player.name = nameEl.value.trim();
-    if (charEl) player.character = charEl.value.trim();
+    if (charEl) player.characterId = charEl.value.trim();
   });
   state.setup.players = state.setup.playerDetails.length;
   state.setup.playerColors = state.setup.playerDetails.map(p => p.color).filter(Boolean);
@@ -1391,19 +1940,25 @@ function updateSetupFromUI(rerender = false) {
 
 function renderPlayerSetupRows() {
   normalizePlayers();
-  const availableCharacters = availableCharactersForSetup();
-  const selectedCharacters = new Set(state.setup.playerDetails.map(p => p.character).filter(Boolean));
   const rows = state.setup.playerDetails.map((player, index) => {
     const colorClass = player.color ? `swatch-${player.color}` : 'swatch-none';
-    const selectedOthers = new Set([...selectedCharacters].filter(name => name !== player.character));
-    const characterOptions = [''].concat(availableCharacters.filter(name => !selectedOthers.has(name) || name === player.character));
     const canRemove = state.setup.playerDetails.length > 1;
+    const record = player.characterId ? characterDataRecord(player.characterId) : null;
+    const portrait = record ? characterThumbnailSource(record) : '';
+    const portraitStyle = record ? characterThumbnailStyle(record) : '';
+    const characterLabel = record?.name || t('strings.choose_character');
+    const thumb = record
+      ? `<span class="player-character-thumb"><img src="${escapeHtml(portrait)}" style="${escapeHtml(portraitStyle)}" alt="" loading="lazy" onerror="this.closest('.player-character-thumb').classList.add('image-missing');this.remove();"><span aria-hidden="true">${escapeHtml((record?.name || '').slice(0, 1))}</span></span>`
+      : `<span class="player-character-thumb player-character-thumb-empty" aria-hidden="true">?</span>`;
     return `<div class="player-setup-row">
       <button type="button" class="player-color-swatch ${colorClass}" data-cycle-player-color="${index}" onclick="cyclePlayerColor(${index})" title="${t('strings.tap_to_cycle_color')}" aria-label="${escapeHtml(t('setup.cyclePlayerColor', { number: index + 1 }))}"></button>
       <input id="playerName_${index}" class="player-setup-input" value="${escapeHtml(player.name || '')}" placeholder="${t('strings.name')}" autocomplete="off" aria-label="${escapeHtml(t('setup.playerNameAria', { number: index + 1 }))}">
-      <select id="playerCharacter_${index}" class="player-setup-input player-character-select" aria-label="${escapeHtml(t('setup.playerCharacterAria', { number: index + 1 }))}">
-        ${characterOptions.map(name => `<option value="${escapeHtml(name)}" ${player.character === name ? 'selected' : ''}>${name ? escapeHtml(name) : escapeHtml(t('setup.character'))}</option>`).join('')}
-      </select>
+      <input type="hidden" id="playerCharacter_${index}" value="${escapeHtml(player.characterId || '')}">
+      <button type="button" class="player-character-picker-btn ${player.characterId ? 'selected' : ''}" data-choose-character="${index}" aria-label="${escapeHtml(t('setup.playerCharacterAria', { number: index + 1 }))}">
+        ${thumb}
+        <span class="player-character-picker-copy"><strong>${escapeHtml(characterLabel)}</strong></span>
+        <span class="player-character-picker-arrow" aria-hidden="true">›</span>
+      </button>
       <button type="button" class="player-remove-btn" data-remove-player="${index}" ${canRemove ? '' : 'disabled'} aria-label="${escapeHtml(t('setup.removePlayer', { number: index + 1 }))}">${TRASH_ICON_SVG}</button>
     </div>`;
   }).join('');
@@ -1528,30 +2083,56 @@ function triggerBalanceBucket(trigger) {
   return 'neutral';
 }
 
-// Self-balancing pressure: the more WANTED-flavored triggers have actually
-// fired recently, the less likely another one is to appear and the more
-// likely a MARSHAL-flavored one is (marshals need to respond). Once marshal
-// activity has caught up and overtaken, pressure flips back toward neutral,
-// everyday triggers (things have calmed down) - and if marshal presence
-// stays high without wanted activity, wanted triggers get a slight bump
-// back too, since a quiet town with idle marshals invites more trouble.
-const WANTED_MARSHAL_WINDOW = 10;
-const WANTED_MARSHAL_STRENGTH = 0.14;
+// Three-way frontier pressure. Western Legends naturally cycles through:
+//   NEUTRAL opportunity/prosperity -> WANTED predation -> MARSHAL response -> NEUTRAL safety.
+// We look at the last ten primary triggers the players actually performed,
+// weighting newer actions more heavily. Scores are normalized against a full
+// ten-action window, so one isolated action only nudges the probabilities while
+// a sustained pattern creates a much stronger response.
+const BALANCE_WINDOW = 10;
+const BALANCE_OLDEST_WEIGHT = 0.30;
+
+function balanceRecencyWeight(index) {
+  if (BALANCE_WINDOW <= 1) return 1;
+  const progress = clamp(index / (BALANCE_WINDOW - 1), 0, 1);
+  return 1 - (1 - BALANCE_OLDEST_WEIGHT) * progress;
+}
+
+function recentBalanceActivity() {
+  const scores = { neutral: 0, wanted: 0, marshal: 0 };
+  const recent = state.triggeredLog.filter(t => t.type === 'primaryTrigger').slice(0, BALANCE_WINDOW);
+  const fullWindowWeight = Array.from({ length: BALANCE_WINDOW }, (_, index) => balanceRecencyWeight(index))
+    .reduce((sum, weight) => sum + weight, 0);
+
+  recent.forEach((entry, index) => {
+    scores[triggerBalanceBucket(entry)] += balanceRecencyWeight(index);
+  });
+
+  if (fullWindowWeight > 0) {
+    Object.keys(scores).forEach(bucket => { scores[bucket] /= fullWindowWeight; });
+  }
+  return scores;
+}
 
 function categoryBalanceFactor(trigger) {
-  const recent = state.triggeredLog.filter(t => t.type === 'primaryTrigger').slice(0, WANTED_MARSHAL_WINDOW);
-  const wantedRecent = recent.filter(t => triggerBalanceBucket(t) === 'wanted').length;
-  const marshalRecent = recent.filter(t => triggerBalanceBucket(t) === 'marshal').length;
-  const net = wantedRecent - marshalRecent; // >0: wanted has been running hot; <0: marshals are dominant
-
+  const activity = recentBalanceActivity();
   const bucket = triggerBalanceBucket(trigger);
-  if (bucket === 'wanted') return clamp(1 - net * WANTED_MARSHAL_STRENGTH, 0.3, 1.8);
-  if (bucket === 'marshal') return clamp(1 + net * (WANTED_MARSHAL_STRENGTH + 0.06), 0.3, 2.6);
 
-  // Neutral trigger: gets a bump when marshals have recently been dominant
-  // (the frontier calms down and everyone goes back to prospecting, etc.).
-  const marshalLead = Math.max(0, -net);
-  return clamp(1 + marshalLead * 0.09, 1, 2);
+  // Prosperity creates attractive targets for outlaws. Repeated outlaw activity
+  // then suppresses more of the same so the frontier does not spiral endlessly.
+  if (bucket === 'wanted') {
+    return clamp(1 + activity.neutral * 0.90 - activity.wanted * 0.45, 0.45, 1.90);
+  }
+
+  // Lawlessness draws a stronger law response because unchecked Wanted players
+  // can accelerate quickly on the Wanted track and need meaningful counterplay.
+  if (bucket === 'marshal') {
+    return clamp(1 + activity.wanted * 1.25 - activity.marshal * 0.55, 0.40, 2.25);
+  }
+
+  // Sustained Marshal activity restores safety and nudges the table back toward
+  // prospecting, commerce, gambling, travel and other neutral opportunities.
+  return clamp(1 + activity.marshal * 0.65 - activity.neutral * 0.25, 0.65, 1.65);
 }
 
 // Which primary-trigger ids would unlock the *next* chapter of an arc whose
@@ -2429,9 +3010,9 @@ function renderHome() {
   const worldCount = Array.isArray(state.activeWorldEvents) ? state.activeWorldEvents.length : 0;
 
   const playerChips = players.map((player, index) => {
-    const name = player?.name?.trim() || player?.character?.trim() || t('setup.playerNumber', { number: index + 1 });
+    const character = characterDisplayName(player?.characterId);
+    const name = player?.name?.trim() || character || t('setup.playerNumber', { number: index + 1 });
     const color = PLAYER_COLORS.includes(player?.color) ? player.color : 'none';
-    const character = player?.character?.trim();
     const title = character && character !== name ? `${name} — ${character}` : name;
     return `<span class="home-player-chip" title="${escapeHtml(title)}"><span class="home-player-dot swatch-${color}" aria-hidden="true"></span><span>${escapeHtml(name)}</span></span>`;
   }).join('');
@@ -2941,7 +3522,17 @@ function collectTrackableSetupSteps(section, steps = section?.steps || [], paren
   return out;
 }
 
+function setupAutoCompletionMet(step) {
+  if (step?.autoComplete === 'all_players_have_characters') {
+    normalizePlayers();
+    const players = state.setup.playerDetails || [];
+    return players.length > 0 && players.every(player => !!player.characterId && !!characterDataRecord(player.characterId));
+  }
+  return false;
+}
+
 function isSetupLeafStepDone(section, step, stepIndex, parentPath = []) {
+  if (step?.autoComplete) return setupAutoCompletionMet(step);
   const stepKey = setupStepKey(section, stepIndex, step, parentPath);
   return setupStepProgress.has(stepKey);
 }
@@ -2986,7 +3577,7 @@ function setupProgressStats(sections) {
   let done = 0;
   sections.forEach(section => collectTrackableSetupSteps(section).forEach(item => {
     total += 1;
-    if (setupStepProgress.has(item.key)) done += 1;
+    if (isSetupLeafStepDone(section, item.step, item.stepIndex, item.parentPath)) done += 1;
   }));
   return { total, done };
 }
@@ -3165,7 +3756,7 @@ function renderSetupSection(section, index, firstIncomplete = 0) {
   const complete = isSetupSectionComplete(section);
   const stepItems = section.steps.map((step, stepIndex) => renderSetupStep(step, section, stepIndex)).join('');
   const stepTotal = collectTrackableSetupSteps(section).length;
-  const stepDone = collectTrackableSetupSteps(section).filter(item => setupStepProgress.has(item.key)).length;
+  const stepDone = collectTrackableSetupSteps(section).filter(item => isSetupLeafStepDone(section, item.step, item.stepIndex, item.parentPath)).length;
   return `<details class="setup-note ${complete ? 'complete' : ''}" ${index === (firstIncomplete >= 0 ? firstIncomplete : 0) ? 'open' : ''}>
     <summary>
       <span class="step-number">${complete ? '✓' : index + 1}</span>
@@ -3206,9 +3797,10 @@ function renderSetupStep(step, section, stepIndex, parentPath = []) {
     </li>`;
   }
 
-  const isDone = setupStepProgress.has(stepKey);
-  return `<li class="setup-step-item ${isDone ? 'done' : ''}">
-    <button type="button" class="setup-step-toggle" data-step-key="${escapeHtml(stepKey)}" aria-pressed="${isDone ? 'true' : 'false'}">
+  const isDone = isSetupLeafStepDone(section, step, stepIndex, parentPath);
+  const autoComplete = !!step.autoComplete;
+  return `<li class="setup-step-item ${isDone ? 'done' : ''} ${autoComplete ? 'auto-status' : ''}">
+    <button type="button" class="setup-step-toggle ${autoComplete ? 'setup-step-auto' : ''}" data-step-key="${escapeHtml(stepKey)}" aria-pressed="${isDone ? 'true' : 'false'}" ${autoComplete ? 'disabled aria-disabled="true"' : ''}>
       ${renderStepIcon(step)}
       <span class="setup-step-text">${formatSetupText(step.text)}</span>
     </button>
@@ -3929,6 +4521,10 @@ function renderReferenceOverlay(returnTarget = null) {
   const turnAndActions = `
     <h4 class="reference-subheading">${t('strings.turn_summary')}</h4>
     ${renderTurnSummaryReference()}`;
+  const characterReference = `<div class="character-reference-entry">
+    <p>${escapeHtml(t('strings.character_reference_intro'))}</p>
+    <button type="button" class="secondary-btn character-reference-open-btn" data-open-character-reference>${escapeHtml(t('strings.browse_all_characters'))}</button>
+  </div>`;
 
   app.innerHTML = `<div class="modal-screen-overlay" data-modal-backdrop>
     <section class="panel modal-screen-card">
@@ -3942,6 +4538,7 @@ function renderReferenceOverlay(returnTarget = null) {
         ${renderReferenceSection(t('strings.fight'), fightReference)}
         ${renderReferenceSection(t('strings.gambling'), gamblingReference)}
         ${renderReferenceSection(t('strings.points'), renderPointReference())}
+        ${renderReferenceSection(t('strings.characters'), characterReference)}
       </div>
     </section>
   </div>`;
@@ -3953,6 +4550,7 @@ function renderReferenceOverlay(returnTarget = null) {
   bindFightFlowInteractions(document.querySelector('[data-fight-flow-host]'), 'reference');
   bindGamblingFlowInteractions(document.querySelector('[data-gambling-flow-host]'), 'reference');
   document.querySelectorAll('[data-open-actions-reference]').forEach(btn => btn.addEventListener('click', () => openActionsReference('reference')));
+  document.querySelector('[data-open-character-reference]')?.addEventListener('click', () => openCharacterPicker(null, { readOnly: true }));
 }
 
 function referenceItemVisible(item) {
@@ -6530,7 +7128,7 @@ function finalTallyContestants() {
 function finalTallyPlayerLabel(color) {
   if (color === MAN_IN_BLACK_ID) return t('strings.man_in_black');
   const player = (state.setup.playerDetails || []).find(p => p.color === color);
-  const character = player?.character?.trim();
+  const character = characterDisplayName(player?.characterId);
   const name = player?.name?.trim();
   const colorLabel = localizedColorPlayer(color);
   if (character && name) return `${character} (${name})`;
@@ -6542,7 +7140,7 @@ function finalTallyPlayerLabel(color) {
 function finalTallyPlayerDisplay(color) {
   if (color === MAN_IN_BLACK_ID) return { eyebrow: '', title: t('strings.man_in_black') };
   const player = (state.setup.playerDetails || []).find(p => p.color === color);
-  const character = player?.character?.trim();
+  const character = characterDisplayName(player?.characterId);
   const name = player?.name?.trim();
   const colorLabel = localizedColorPlayer(color);
   return { eyebrow: name || '', title: character || colorLabel };
@@ -7354,7 +7952,7 @@ function generateNewspaperArticle() {
   const mood = computeFrontierMood();
   const bank = newspaperMoodBank(mood.key);
   const primaryTriggers = (state.triggeredLog || []).filter(log => log.type === 'primaryTrigger');
-  const humanPlayerNames = (state.setup.playerDetails || []).map((player, index) => player.name || player.character || t('setup.playerNumber', { number: index + 1 }));
+  const humanPlayerNames = (state.setup.playerDetails || []).map((player, index) => player.name || characterDisplayName(player.characterId) || t('setup.playerNumber', { number: index + 1 }));
   const playerNames = humanPlayerNames.concat(hasModule('wild_bunch_man_in_black') ? [t('strings.man_in_black')] : []);
   const headline = newspaperStablePick(bank.headlines, 7);
   const lead = newspaperStablePick(bank.leads, 13);
@@ -7379,7 +7977,7 @@ function generateNewspaperArticle() {
     <div class="newspaper-clear" aria-hidden="true"></div>`;
 }
 
-const APP_VERSION = '1.2.0-beta';
+const APP_VERSION = '1.3.0';
 let swRegistration = null;
 let appUpdateAvailable = false;
 let deferredInstallPrompt = null;
