@@ -6477,3 +6477,1169 @@ body.home-screen .home-launcher {
   .fight-flow-mini-fan-card { margin-left: -24px; }
   .fight-flow-card-side small { font-size: .64rem; }
 }
+
+/* -------------------------------------------------------------------------
+   Character picker — swipeable character cards used during New Game setup.
+   ------------------------------------------------------------------------- */
+.player-character-picker-btn {
+  min-width: 0;
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 4px 7px 4px 5px;
+  background: rgba(255,248,232,.86);
+  color: var(--ink);
+  display: grid;
+  grid-template-columns: 30px minmax(0,1fr) 12px;
+  gap: 7px;
+  align-items: center;
+  text-align: left;
+  box-shadow: 0 2px 6px rgba(84,52,24,.08);
+}
+.player-character-picker-btn.selected { background: rgba(248,236,205,.92); }
+.player-character-picker-copy { min-width: 0; display: grid; gap: 1px; }
+.player-character-picker-copy strong { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .88rem; line-height: 1.05; }
+.player-character-picker-copy small { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--muted); font-size: .68rem; line-height: 1.05; }
+.player-character-picker-arrow { color: var(--red); font-size: 1.05rem; justify-self: end; }
+.player-character-thumb {
+  width: 28px;
+  height: 36px;
+  border-radius: 4px;
+  border: 1px solid rgba(76,48,26,.25);
+  overflow: hidden;
+  background: linear-gradient(145deg,#6f3d2b,#2f2118);
+  display: grid;
+  place-items: center;
+  color: #f5deb2;
+  font-family: 'Rye', Georgia, serif;
+  font-size: .75rem;
+  box-shadow: 0 1px 3px rgba(45,26,13,.18);
+}
+.player-character-thumb img { width: 100%; height: 100%; object-fit: cover; grid-area: 1/1; }
+.player-character-thumb > span { grid-area: 1/1; }
+.player-character-thumb:not(.image-missing) > span { opacity: 0; }
+.player-character-thumb-empty { font-size: 1rem; background: rgba(104,67,36,.08); color: var(--muted); }
+
+.character-picker-overlay { z-index: 120; }
+.character-picker-card {
+  width: min(520px, calc(100vw - 28px));
+  max-width: 520px;
+  max-height: calc(100vh - 28px);
+  overflow: auto;
+  padding: 18px 16px 16px;
+}
+.character-picker-header { padding-right: 40px; margin-bottom: 4px; }
+.character-picker-header .eyebrow { margin-bottom: 1px; }
+.character-picker-header h2 { margin: 0; font-family: 'Rye', Georgia, serif; font-size: 1.35rem; }
+.character-picker-header > p:last-child { margin: 3px 0 0; color: var(--muted); font-size: .82rem; line-height: 1.25; }
+.character-picker-main { display: grid; gap: 9px; }
+.character-picker-counter { text-align: center; color: var(--muted); font-size: .75rem; font-weight: 700; letter-spacing: .08em; }
+
+.character-carousel-shell {
+  position: relative;
+  min-height: 300px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  margin: 0 -5px;
+  touch-action: pan-y;
+}
+.character-carousel-stage {
+  width: min(60vw, 220px);
+  max-width: 220px;
+  min-width: 178px;
+  position: relative;
+  z-index: 2;
+  outline: none;
+  touch-action: pan-y;
+}
+.character-carousel-stage:focus-visible .character-card-viewport { outline: 3px solid rgba(164,74,50,.48); outline-offset: 3px; }
+.character-card-viewport {
+  appearance: none;
+  width: 100%;
+  aspect-ratio: 64 / 89;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  perspective: 1000px;
+  display: block;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.character-card-flipper {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform .42s cubic-bezier(.2,.72,.2,1);
+}
+.character-card-flipper.is-back { transform: rotateY(180deg); }
+.character-card-face {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid rgba(61,37,19,.35);
+  background:
+    radial-gradient(circle at 50% 25%, rgba(255,236,191,.2), transparent 45%),
+    linear-gradient(145deg,#774331,#312219);
+  box-shadow: 0 10px 22px rgba(47,29,16,.28);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.character-card-face-back { transform: rotateY(180deg); }
+.character-card-face img { width: 100%; height: 100%; object-fit: contain; display: block; background: #efe0bd; }
+.character-card-missing {
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(246,221,171,.4);
+  border-radius: 7px;
+  display: none;
+  place-items: center;
+  align-content: center;
+  gap: 8px;
+  padding: 18px;
+  color: #f7e7c5;
+  text-align: center;
+}
+.character-card-face.image-missing .character-card-missing { display: grid; }
+.character-card-face.image-missing img { display: none; }
+.character-card-missing strong { font-family: 'Rye', Georgia, serif; font-size: 1.15rem; line-height: 1.15; }
+.character-card-missing small { opacity: .78; font-size: .72rem; line-height: 1.25; }
+
+.character-picker-peek {
+  position: absolute;
+  z-index: 1;
+  width: 135px;
+  aspect-ratio: 64 / 89;
+  border-radius: 8px;
+  overflow: hidden;
+  opacity: .34;
+  filter: saturate(.65);
+  pointer-events: none;
+  background: rgba(83,52,29,.3);
+  border: 1px solid rgba(61,37,19,.22);
+}
+.character-picker-peek img { width: 100%; height: 100%; object-fit: cover; }
+.character-picker-peek-left { left: -55px; transform: translateX(-4px) rotate(-5deg) scale(.88); }
+.character-picker-peek-right { right: -55px; transform: translateX(4px) rotate(5deg) scale(.88); }
+.character-picker-peek.image-missing { opacity: .12; }
+.character-carousel-nav {
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 52px;
+  border-radius: 11px;
+  border: 1px solid rgba(104,67,36,.28);
+  background: rgba(255,248,232,.88);
+  color: var(--red);
+  font-size: 1.9rem;
+  line-height: 1;
+  box-shadow: 0 3px 10px rgba(62,40,22,.16);
+}
+.character-carousel-prev { left: 5px; }
+.character-carousel-next { right: 5px; }
+.character-carousel-nav:disabled { visibility: hidden; }
+
+
+.character-info-tray {
+  border: 1px solid rgba(104,67,36,.2);
+  border-radius: 12px;
+  background: rgba(255,248,232,.72);
+  overflow: hidden;
+}
+.character-info-heading { padding: 9px 11px 7px; border-bottom: 1px solid rgba(104,67,36,.12); }
+.character-info-heading h3 { margin: 0; font-family: 'Rye', Georgia, serif; font-size: 1.08rem; line-height: 1.1; }
+.character-info-heading p { margin: 2px 0 0; color: var(--muted); font-size: .76rem; }
+.character-starting-location {
+  padding: 7px 10px;
+  border-bottom: 1px solid rgba(104,67,36,.12);
+  display: grid;
+  grid-template-columns: auto minmax(0,1fr);
+  gap: 7px;
+  align-items: baseline;
+}
+.character-starting-location span { color: var(--muted); font-size: .69rem; font-weight: 800; text-transform: uppercase; letter-spacing: .045em; }
+.character-starting-location strong { min-width: 0; color: var(--ink); font-size: .78rem; line-height: 1.2; }
+.character-starting-loadout { padding: 8px 10px 10px; }
+.character-loadout-label { display: block; margin-bottom: 6px; color: var(--brown); font-weight: 800; font-size: .76rem; text-transform: uppercase; letter-spacing: .06em; }
+.character-loadout-items { display: flex; align-items: flex-end; flex-wrap: wrap; gap: 7px; }
+.character-loadout-item {
+  width: 54px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: var(--ink);
+  display: grid;
+  gap: 3px;
+  text-align: center;
+}
+.character-loadout-item-art { position: relative; display: grid; justify-items: center; }
+.character-loadout-item img { width: 48px; height: 68px; object-fit: cover; border-radius: 4px; border: 1px solid rgba(70,43,24,.25); box-shadow: 0 2px 5px rgba(62,39,21,.18); justify-self: center; }
+.character-loadout-item span { font-size: .64rem; line-height: 1.05; overflow-wrap: anywhere; }
+.character-loadout-item small { color: var(--muted); font-size: .58rem; line-height: 1.05; }
+.character-loadout-item-art b {
+  position: absolute;
+  right: -5px;
+  bottom: 3px;
+  padding: 2px 4px;
+  border-radius: 999px;
+  background: #6f3b25;
+  color: #fff4d6;
+  border: 1px solid rgba(255,244,214,.55);
+  font-family: system-ui, sans-serif;
+  font-size: .48rem;
+  line-height: 1;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+  box-shadow: 0 1px 3px rgba(39,21,11,.28);
+}
+.character-loadout-money { min-width: 64px; display: grid; justify-items: center; gap: 1px; }
+.character-loadout-money strong { font-family: 'Rye', Georgia, serif; color: var(--green); font-size: .95rem; }
+.character-loadout-money > span { color: var(--muted); font-size: .62rem; }
+.character-loadout-special {
+  min-width: 58px;
+  max-width: 82px;
+  display: grid;
+  justify-items: center;
+  align-content: end;
+  gap: 2px;
+  text-align: center;
+}
+.character-loadout-special strong { font-family: 'Rye', Georgia, serif; color: var(--brown); font-size: .78rem; line-height: 1; }
+.character-loadout-special > span { color: var(--muted); font-size: .6rem; line-height: 1.05; }
+.character-loadout-special > small { color: var(--red); font-size: .54rem; line-height: 1.08; }
+.character-poker-cards { width: 58px; height: 68px; position: relative; }
+.character-poker-cards img {
+  position: absolute;
+  left: calc(7px + (var(--poker-index) * 5px));
+  top: calc(var(--poker-index) * 2px);
+  width: 40px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid rgba(70,43,24,.24);
+  box-shadow: 0 2px 4px rgba(62,39,21,.16);
+}
+.character-point-token {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 2px solid rgba(255,244,214,.7);
+  outline: 1px solid rgba(70,43,24,.3);
+  background: #5e6e4f;
+  color: #fff5d8;
+  font-family: 'Rye', Georgia, serif;
+  font-size: .8rem;
+  box-shadow: 0 2px 5px rgba(62,39,21,.2);
+}
+.character-loadout-point-wanted .character-point-token, .character-point-token-wanted { background: #7a2f27; }
+.character-loadout-point-gambler .character-point-token { background: #735a2e; }
+.character-loadout-point-story .character-point-token { background: #4a5d72; }
+.character-loadout-point-legendary .character-point-token { background: #77572b; }
+.character-bonus-token-image { width: 48px; height: 48px; object-fit: contain; filter: drop-shadow(0 2px 2px rgba(62,39,21,.18)); }
+.character-bonus-card-back { width: 43px; height: 61px; object-fit: cover; border-radius: 4px; border: 1px solid rgba(70,43,24,.24); box-shadow: 0 2px 4px rgba(62,39,21,.16); }
+.character-track-choice { min-height: 50px; display: flex; align-items: center; justify-content: center; gap: 3px; }
+.character-track-choice .character-point-token { width: 38px; height: 38px; font-size: .66rem; }
+.character-track-choice em { color: var(--muted); font-size: .56rem; font-style: normal; }
+.character-money-cards { height: 68px; width: 58px; position: relative; }
+.character-money-cards img {
+  position: absolute;
+  left: calc(5px + (var(--money-index) * 4px));
+  top: calc(var(--money-index) * 2px);
+  width: 42px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid rgba(70,43,24,.24);
+  box-shadow: 0 2px 4px rgba(62,39,21,.14);
+}
+.character-loadout-note { margin: 0; color: var(--muted); font-size: .78rem; font-style: italic; line-height: 1.3; }
+
+.character-picker-actions { display: grid; gap: 7px; padding-bottom: 2px; }
+.character-select-btn { width: 100%; }
+.character-browse-btn { width: 100%; min-height: 40px; }
+
+.character-picker-browser { display: grid; gap: 10px; }
+.character-browser-head { display: grid; grid-template-columns: auto minmax(0,1fr); gap: 10px; align-items: center; padding-right: 38px; }
+.character-browser-head .secondary-btn { min-height: 38px; padding: 7px 10px; }
+.character-browser-head .eyebrow { margin: 0; }
+.character-browser-head h3 { margin: 0; font-family: 'Rye', Georgia, serif; font-size: 1.1rem; }
+.character-browser-list { display: grid; gap: 5px; max-height: min(65vh, 560px); overflow-y: auto; padding-right: 2px; }
+.character-browser-option {
+  width: 100%;
+  min-height: 54px;
+  border: 1px solid rgba(104,67,36,.18);
+  border-radius: 10px;
+  background: rgba(255,248,232,.74);
+  padding: 5px 8px 5px 5px;
+  display: grid;
+  grid-template-columns: 34px minmax(0,1fr) 14px;
+  gap: 8px;
+  align-items: center;
+  text-align: left;
+  color: var(--ink);
+}
+.character-browser-option.current { border-color: rgba(173,122,40,.65); background: rgba(248,231,185,.7); }
+.character-browser-option:disabled { opacity: .46; }
+.character-browse-thumb { width: 32px; height: 44px; border-radius: 4px; overflow: hidden; display: grid; place-items: center; background: linear-gradient(145deg,#75412e,#302118); color: #f3deb6; font-family: 'Rye', Georgia, serif; }
+.character-browse-thumb img, .character-browse-thumb span { grid-area: 1/1; }
+.character-browse-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.character-browse-thumb:not(.image-missing) span { opacity: 0; }
+.character-browser-copy { min-width: 0; display: grid; gap: 1px; }
+.character-browser-copy strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .88rem; }
+.character-browser-copy small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--muted); font-size: .7rem; }
+.character-browser-arrow { color: var(--red); justify-self: end; font-size: 1rem; }
+
+@media (max-width: 600px) {
+  .character-picker-overlay { padding: 0; place-items: stretch; background: rgba(34,21,12,.46); }
+  .character-picker-card {
+    width: 100%;
+    max-width: none;
+    min-height: 100%;
+    max-height: none;
+    margin: 0;
+    border-radius: 0;
+    padding: 15px 13px max(15px, env(safe-area-inset-bottom));
+  }
+  .character-picker-header { padding-top: 1px; }
+  .character-carousel-shell { min-height: 286px; }
+}
+
+@media (max-width: 375px) {
+  .player-character-picker-btn { grid-template-columns: 24px minmax(0,1fr) 10px; gap: 5px; min-height: 38px; padding: 3px 5px 3px 3px; }
+  .player-character-thumb { width: 23px; height: 31px; }
+  .player-character-picker-copy strong { font-size: .78rem; }
+  .player-character-picker-copy small { font-size: .62rem; }
+  .character-picker-card { padding-left: 10px; padding-right: 10px; }
+  .character-carousel-shell { min-height: 266px; }
+  .character-carousel-stage { width: 174px; min-width: 164px; }
+  .character-picker-peek { width: 112px; }
+  .character-carousel-nav { width: 36px; height: 46px; }
+  .character-loadout-item { width: 48px; }
+  .character-loadout-item img { width: 44px; height: 62px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .character-card-flipper { transition: none; }
+}
+
+/* -------------------------------------------------------------------------
+   v95 character picker/reference refinements
+   ------------------------------------------------------------------------- */
+.fullscreen-image-viewer { z-index: 220; }
+body.character-picker-open .app-shell {
+  filter: blur(4px);
+}
+.character-picker-overlay {
+  z-index: 120;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Keep the character control visually aligned with the adjacent Name field. */
+.player-character-picker-btn {
+  min-height: 38px;
+  height: 38px;
+  padding: 3px 7px 3px 4px;
+  grid-template-columns: 30px minmax(0,1fr) 12px;
+}
+.player-character-picker-copy { display: block; }
+.player-character-picker-copy strong { font-size: .9rem; line-height: 1.1; }
+.player-character-picker-copy small { display: none; }
+.player-character-thumb {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.player-character-thumb img { object-fit: cover; object-position: center; }
+
+/* Browse All uses the same portrait crop instead of an unreadably small card. */
+.character-browser-option { grid-template-columns: 42px minmax(0,1fr) 14px; }
+.character-browse-thumb {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.character-browse-thumb img { object-fit: cover; object-position: center; }
+
+.character-location-row {
+  padding: 7px 10px 8px;
+  border-bottom: 1px solid rgba(104,67,36,.12);
+}
+.character-location-chip {
+  width: fit-content;
+  max-width: 100%;
+  display: inline-grid;
+  grid-template-columns: 24px minmax(0,1fr);
+  gap: 7px;
+  align-items: center;
+  padding: 5px 9px 5px 6px;
+  border: 1px solid rgba(164,74,50,.22);
+  border-radius: 999px;
+  background: rgba(164,74,50,.07);
+  color: var(--red);
+}
+.character-location-pin {
+  width: 22px;
+  height: 22px;
+  fill: rgba(164,74,50,.10);
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+.character-location-chip > span { min-width: 0; display: grid; gap: 0; }
+.character-location-chip small {
+  color: var(--muted);
+  font-size: .58rem;
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: .045em;
+  text-transform: uppercase;
+}
+.character-location-chip strong {
+  min-width: 0;
+  color: var(--ink);
+  font-size: .76rem;
+  line-height: 1.16;
+}
+
+/* Starting bonuses share a common top edge even when their art has different heights. */
+.character-loadout-items { align-items: flex-start; }
+.character-loadout-item,
+.character-loadout-money,
+.character-loadout-special { align-content: start; }
+.character-loadout-money,
+.character-loadout-special,
+.character-loadout-clickable {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: var(--ink);
+  font: inherit;
+  text-align: center;
+}
+.character-loadout-clickable { cursor: zoom-in; border-radius: 6px; }
+.character-loadout-clickable:focus-visible,
+.character-loadout-item:focus-visible {
+  outline: 2px solid rgba(164,74,50,.55);
+  outline-offset: 2px;
+}
+
+.character-ability {
+  border-top: 1px solid rgba(104,67,36,.12);
+}
+.character-ability > summary {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 18px minmax(0,1fr) 16px;
+  gap: 6px;
+  align-items: center;
+  padding: 8px 10px;
+  cursor: pointer;
+  color: var(--brown);
+}
+.character-ability > summary::-webkit-details-marker { display: none; }
+.character-ability-mark { color: var(--red); text-align: center; }
+.character-ability > summary strong {
+  font-size: .76rem;
+  text-transform: uppercase;
+  letter-spacing: .055em;
+}
+.character-ability-caret { justify-self: end; transition: transform .18s ease; }
+.character-ability[open] .character-ability-caret { transform: rotate(180deg); }
+.character-ability-text {
+  padding: 0 11px 10px 34px;
+  color: var(--ink);
+  font-size: .82rem;
+  line-height: 1.35;
+}
+
+.character-reference-entry { display: grid; gap: 8px; }
+.character-reference-entry p { margin: 0; color: var(--muted); }
+.character-reference-open-btn { width: 100%; min-height: 42px; }
+
+@media (max-width: 375px) {
+  .player-character-picker-btn {
+    height: 34px;
+    min-height: 34px;
+    grid-template-columns: 27px minmax(0,1fr) 10px;
+    padding: 2px 5px 2px 3px;
+  }
+  .player-character-thumb { width: 27px; height: 27px; }
+  .player-character-picker-copy strong { font-size: .8rem; }
+}
+
+/* -------------------------------------------------------------------------
+   v96 character picker toolbar, starting-location maps, and track colors
+   ------------------------------------------------------------------------- */
+.character-picker-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 38px;
+  padding: 0 2px;
+}
+.character-picker-toolbar .character-picker-counter {
+  flex: 0 0 auto;
+  text-align: left;
+}
+.character-toolbar-browse {
+  width: auto;
+  min-height: 34px;
+  padding: 5px 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: .74rem;
+  white-space: nowrap;
+}
+.character-toolbar-browse > span:first-child {
+  color: var(--red);
+  font-size: .9rem;
+  line-height: 1;
+}
+
+.character-carousel-stage {
+  padding-bottom: 21px;
+}
+.character-card-select {
+  position: absolute;
+  z-index: 8;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+  width: max-content;
+  max-width: calc(100% - 18px);
+  min-height: 36px;
+  padding: 6px 15px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+  font-size: .78rem;
+  box-shadow: 0 5px 12px rgba(55,31,15,.28);
+}
+.character-card-select > span:first-child {
+  font-family: system-ui, sans-serif;
+  font-weight: 900;
+}
+.character-carousel-shell {
+  margin-bottom: 2px;
+}
+
+.character-location-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.character-location-chip {
+  flex: 1 1 auto;
+  width: auto;
+}
+.character-map-btn {
+  flex: 0 0 auto;
+  min-height: 38px;
+  padding: 5px 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border-radius: 999px;
+  font-size: .7rem;
+  white-space: nowrap;
+}
+.character-map-btn .character-location-pin {
+  width: 17px;
+  height: 17px;
+}
+
+/* Track points use the same five colors consistently everywhere in the
+   character starting-bonus tray: LP gold, MP blue, WP red, GP purple, SP green. */
+.character-point-token {
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,.5);
+}
+.character-loadout-point-legendary .character-point-token { background: #a97813; }
+.character-loadout-point-marshal .character-point-token,
+.character-point-token-marshal { background: #2f67a8; }
+.character-loadout-point-wanted .character-point-token,
+.character-point-token-wanted { background: #b43a32; }
+.character-loadout-point-gambler .character-point-token { background: #7a4295; }
+.character-loadout-point-story .character-point-token { background: #3c7e4e; }
+
+/* Starting-location board viewer. It sits above the character picker and uses
+   percentage coordinates from data/characters.json so markers stay anchored
+   while the board image responsively scales. */
+.character-map-viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 240;
+  padding: 24px;
+  display: grid;
+  place-items: center;
+  background: rgba(24,15,9,.88);
+}
+.character-map-dialog {
+  position: relative;
+  width: min(960px, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
+  overflow: auto;
+  padding: 18px 18px 16px;
+}
+.character-map-dialog > .dialog-close-x {
+  z-index: 5;
+}
+.character-map-header {
+  padding-right: 44px;
+  margin-bottom: 10px;
+}
+.character-map-header .eyebrow { margin: 0 0 1px; }
+.character-map-header h2 {
+  margin: 0;
+  font-family: 'Rye', Georgia, serif;
+  font-size: 1.28rem;
+}
+.character-map-header > p:last-child {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: .82rem;
+}
+.character-map-boards {
+  display: grid;
+  gap: 14px;
+}
+.character-map-board {
+  margin: 0;
+  display: grid;
+  gap: 5px;
+}
+.character-map-board-stage {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(74,44,24,.32);
+  border-radius: 12px;
+  background: #d6bb82;
+  box-shadow: 0 5px 18px rgba(42,25,13,.2);
+}
+.character-map-board-stage > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+}
+.character-map-pin {
+  position: absolute;
+  z-index: 3;
+  left: var(--map-x);
+  top: var(--map-y);
+  width: 34px;
+  height: 34px;
+  transform: translate(-50%, -92%);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255,248,232,.96);
+  border: 2px solid #a43e31;
+  color: #a43e31;
+  box-shadow: 0 3px 8px rgba(42,23,12,.38), 0 0 0 5px rgba(164,62,49,.16);
+  pointer-events: none;
+}
+.character-map-pin svg {
+  width: 23px;
+  height: 23px;
+  fill: rgba(164,62,49,.12);
+  stroke: currentColor;
+  stroke-width: 1.9;
+}
+.character-map-board figcaption {
+  color: var(--muted);
+  font-size: .72rem;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+  .character-toolbar-browse {
+    max-width: 72%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .character-map-viewer {
+    padding: 0;
+    place-items: stretch;
+  }
+  .character-map-dialog {
+    width: 100%;
+    max-width: none;
+    min-height: 100%;
+    max-height: none;
+    border-radius: 0;
+    padding: 15px 10px max(15px, env(safe-area-inset-bottom));
+  }
+  .character-map-pin {
+    width: 30px;
+    height: 30px;
+  }
+  .character-map-pin svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .character-map-pin { transition: none; }
+}
+
+/* -------------------------------------------------------------------------
+   v98 character picker select placement + softer dialog elevation
+   ------------------------------------------------------------------------- */
+/* Keep Select on top of the lower portion of the physical character card.
+   The ability is repeated below, so this avoids spending vertical space below
+   the card and prevents the carousel's clipped overflow from hiding the CTA. */
+.character-carousel-stage {
+  padding-bottom: 0;
+}
+.character-card-select {
+  bottom: 14px;
+  transform: translateX(-50%);
+}
+
+/* The shared modal shadow is intentionally broad for ordinary dialogs, but it
+   reads as dark vertical bands beside this tall picker. Give the picker a
+   tighter local elevation instead. */
+.character-picker-card {
+  box-shadow: 0 9px 24px rgba(50,28,12,0.16);
+}
+
+/* -------------------------------------------------------------------------
+   v99 character playstyle guidance
+   ------------------------------------------------------------------------- */
+.character-playstyle-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 6px;
+}
+.character-playstyle-tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 20px;
+  padding: 2px 7px;
+  border: 1px solid rgba(104,67,36,.18);
+  border-radius: 999px;
+  background: rgba(173,122,40,.09);
+  color: var(--brown);
+  font-size: .61rem;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+}
+.character-guide {
+  border-top: 1px solid rgba(104,67,36,.12);
+}
+.character-guide > summary {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 18px minmax(0,1fr) 16px;
+  gap: 6px;
+  align-items: center;
+  padding: 8px 10px;
+  cursor: pointer;
+  color: var(--brown);
+}
+.character-guide > summary::-webkit-details-marker { display: none; }
+.character-guide-mark { color: var(--gold); text-align: center; font-weight: 900; }
+.character-guide > summary strong {
+  font-size: .76rem;
+  text-transform: uppercase;
+  letter-spacing: .055em;
+}
+.character-guide-caret { justify-self: end; transition: transform .18s ease; }
+.character-guide[open] .character-guide-caret { transform: rotate(180deg); }
+.character-guide-content {
+  display: grid;
+  gap: 9px;
+  padding: 0 11px 11px 34px;
+}
+.character-guide-content > div { display: grid; gap: 2px; }
+.character-guide-content span {
+  color: var(--muted);
+  font-size: .62rem;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.character-guide-content p {
+  margin: 0;
+  color: var(--ink);
+  font-size: .8rem;
+  line-height: 1.35;
+}
+
+/* -------------------------------------------------------------------------
+   v100 character data IDs, thumbnail framing, browse filters, and map polish
+   ------------------------------------------------------------------------- */
+/* Character thumbnail crops now come from each character's front card. The
+   center values are percentages stored in data/characters.json and scale is a
+   simple zoom factor, so every crop can be tuned without touching CSS/JS. */
+.player-character-thumb img,
+.character-browse-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--character-thumb-x, 50%) var(--character-thumb-y, 29%);
+  transform: scale(var(--character-thumb-scale, 1.85));
+  transform-origin: var(--character-thumb-x, 50%) var(--character-thumb-y, 29%);
+}
+
+/* Browse All can be narrowed by stable gameplay groups. */
+.character-browser-filters {
+  display: flex;
+  gap: 5px;
+  overflow-x: auto;
+  padding: 2px 1px 8px;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+.character-browser-filter {
+  flex: 0 0 auto;
+  min-height: 29px;
+  padding: 4px 9px;
+  border: 1px solid rgba(104,67,36,.22);
+  border-radius: 999px;
+  background: rgba(255,248,232,.78);
+  color: var(--brown);
+  font: inherit;
+  font-size: .67rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+.character-browser-filter.active {
+  border-color: rgba(164,74,50,.62);
+  background: rgba(164,74,50,.12);
+  color: var(--red);
+  box-shadow: inset 0 0 0 1px rgba(164,74,50,.08);
+}
+
+/* Generic button hover translates buttons upward. Because Select is centered
+   with translateX(-50%), that generic transform used to replace its centering
+   transform and visibly jump the button to the right. Preserve both axes. */
+@media (hover: hover) {
+  .character-card-select:not(:disabled):hover {
+    transform: translateX(-50%) translateY(-1px);
+  }
+}
+.character-card-select:not(:disabled):active {
+  transform: translateX(-50%) translateY(0);
+}
+
+/* The generic loadout span rule has greater selector specificity than the
+   original token color. Force the initials inside LP/MP/WP/GP/SP circles to
+   remain bright white. */
+.character-loadout-special > .character-point-token,
+.character-track-choice .character-point-token {
+  color: #fff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,.62);
+}
+
+/* Remove the full-page blur compositing layer entirely for this dialog. It was
+   responsible for dark vertical GPU/filter seams beside the picker on some
+   Chromium configurations. The normal translucent overlay is sufficient. */
+body.character-picker-open .app-shell {
+  filter: none !important;
+}
+.character-picker-overlay {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: rgba(34,21,12,.34);
+}
+.character-picker-card {
+  box-shadow: 0 4px 14px rgba(50,28,12,.10) !important;
+}
+
+/* Make starting-location pins unmistakable over busy board art. */
+.character-map-pin {
+  width: 42px;
+  height: 42px;
+  border: 3px solid #fff;
+  background: #b43a32;
+  color: #fff;
+  box-shadow:
+    0 4px 10px rgba(35,18,9,.55),
+    0 0 0 5px rgba(232,188,70,.72),
+    0 0 0 9px rgba(180,58,50,.22);
+  animation: characterMapPinPulse 1.6s ease-in-out infinite;
+}
+.character-map-pin svg {
+  width: 27px;
+  height: 27px;
+  fill: #fff;
+  stroke: #6f201a;
+  stroke-width: 1.8;
+}
+@keyframes characterMapPinPulse {
+  0%, 100% {
+    box-shadow: 0 4px 10px rgba(35,18,9,.55), 0 0 0 5px rgba(232,188,70,.72), 0 0 0 9px rgba(180,58,50,.18);
+  }
+  50% {
+    box-shadow: 0 4px 10px rgba(35,18,9,.55), 0 0 0 7px rgba(232,188,70,.88), 0 0 0 13px rgba(180,58,50,.08);
+  }
+}
+
+/* The Ante Up frontier board is tall. Let it fit the available viewport by
+   height instead of forcing it to fill the dialog width. Its stage shrink-wraps
+   the rendered image so percentage-positioned pins remain relative to the
+   actual displayed board dimensions. */
+.character-map-board-frontier {
+  justify-items: center;
+}
+.character-map-board-frontier .character-map-board-stage {
+  display: inline-block;
+  width: auto;
+  max-width: 100%;
+  overflow: visible;
+}
+.character-map-board-frontier .character-map-board-stage > img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: calc(100vh - 190px);
+  object-fit: contain;
+}
+
+@media (max-width: 600px) {
+  .character-map-board-frontier .character-map-board-stage > img {
+    max-height: calc(100vh - 155px);
+  }
+  .character-map-pin {
+    width: 36px;
+    height: 36px;
+  }
+  .character-map-pin svg {
+    width: 23px;
+    height: 23px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .character-map-pin { animation: none; }
+}
+
+
+/* -------------------------------------------------------------------------
+   v101 compact mobile character picker
+   ------------------------------------------------------------------------- */
+.character-info-title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0;
+}
+.character-info-title-row h3 { min-width: 0; }
+.character-info-title-row p {
+  flex: 0 1 auto;
+  margin: 0;
+  text-align: right;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  /* .panel.modal-screen-card has higher specificity than the older mobile
+     .character-picker-card rule. Override it directly so the picker actually
+     fills the phone viewport instead of retaining the desktop 28px gutter. */
+  .panel.modal-screen-card.character-picker-card {
+    width: 100dvw;
+    max-width: 100dvw;
+    height: 100dvh;
+    min-height: 0;
+    max-height: 100dvh;
+    margin: 0;
+    border-radius: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 12px 11px max(12px, env(safe-area-inset-bottom));
+  }
+  .character-picker-overlay {
+    width: 100dvw;
+    height: 100dvh;
+    overflow: hidden;
+  }
+  .character-picker-header {
+    margin-bottom: 0;
+    padding-top: 0;
+  }
+  .character-picker-header h2 { font-size: 1.25rem; }
+  .character-picker-main { gap: 6px; }
+  .character-picker-toolbar {
+    min-height: 32px;
+    gap: 6px;
+  }
+  .character-toolbar-browse {
+    min-height: 31px;
+    padding: 4px 9px;
+    font-size: .7rem;
+  }
+  .character-carousel-shell {
+    min-height: 270px;
+    margin: 0 -3px;
+  }
+  .character-carousel-stage {
+    width: 188px;
+    min-width: 188px;
+    max-width: 188px;
+  }
+  .character-picker-peek { width: 104px; }
+  .character-carousel-nav {
+    width: 38px;
+    height: 48px;
+  }
+  .character-card-select {
+    min-height: 33px;
+    padding: 5px 13px;
+    font-size: .74rem;
+    bottom: 12px;
+  }
+  .character-info-heading { padding: 7px 9px 6px; }
+  .character-info-heading h3 { font-size: 1rem; }
+  .character-info-title-row p {
+    font-size: .68rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .character-playstyle-tags { margin-top: 4px; gap: 3px; }
+  .character-playstyle-tags span {
+    min-height: 18px;
+    padding: 2px 6px;
+    font-size: .57rem;
+  }
+  .character-starting-loadout { padding: 7px 9px 8px; }
+  .character-loadout-label { margin-bottom: 4px; font-size: .7rem; }
+  .character-loadout-items { gap: 5px; }
+  .character-loadout-item { width: 48px; }
+  .character-loadout-item img { width: 42px; height: 59px; }
+  .character-loadout-money,
+  .character-loadout-special { min-width: 44px; }
+  .character-money-cards img,
+  .character-poker-cards img { max-height: 58px; }
+  .character-location-row { padding: 7px 9px; gap: 6px; }
+  .character-location-chip { min-height: 38px; padding: 5px 8px; }
+  .character-map-btn { min-height: 36px; padding: 4px 8px; }
+}
+
+@media (max-width: 375px) {
+  .character-carousel-stage {
+    width: 174px;
+    min-width: 174px;
+    max-width: 174px;
+  }
+  .character-carousel-shell { min-height: 250px; }
+}
+
+/* -------------------------------------------------------------------------
+   v102 character card interaction polish
+   ------------------------------------------------------------------------- */
+/* Keep the small upgraded ribbon readable even inside the narrow item art. */
+.character-loadout-item-art b {
+  white-space: nowrap;
+  font-size: .46rem;
+  letter-spacing: .02em;
+}
+
+/* Flipping is now an explicit control; tapping the card itself opens it in
+   the same fullscreen viewer used by item cards. */
+.character-card-flip-control {
+  position: absolute;
+  z-index: 10;
+  top: 8px;
+  right: 8px;
+  width: 31px;
+  height: 31px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(75,45,24,.45);
+  border-radius: 50%;
+  background: rgba(255,248,232,.92);
+  color: var(--red);
+  box-shadow: 0 2px 7px rgba(45,26,13,.24);
+  cursor: pointer;
+}
+.character-card-flip-control svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.character-card-flip-control:active { transform: scale(.94); }
+
+/* Full-size Starts With track tokens should read immediately at a glance. */
+.character-loadout-special > .character-point-token {
+  font-size: 1.05rem;
+}
+/* The either/or choice uses two smaller circles, so preserve its compact type. */
+.character-track-choice .character-point-token {
+  font-size: .66rem;
+}
+
+@media (max-width: 600px) {
+  .character-card-flip-control {
+    top: 6px;
+    right: 6px;
+    width: 29px;
+    height: 29px;
+  }
+  .character-card-flip-control svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+
+/* -------------------------------------------------------------------------
+   v1.3.0 release polish
+   ------------------------------------------------------------------------- */
+.player-character-picker-copy {
+  min-width: 0;
+  overflow: hidden;
+}
+.player-character-picker-copy strong {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Map placement is still being authored; keep data/viewer code intact. */
+.character-map-btn {
+  display: none !important;
+}
+
+.setup-step-auto:disabled {
+  opacity: 1;
+  cursor: default;
+}
