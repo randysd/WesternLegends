@@ -7,7 +7,8 @@
   <meta name="description" content="" data-i18n-content="app.description">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" type="image/png" href="assets/icons/icon-64.png">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=138">
+  <link rel="stylesheet" href="css/home-frontier.css?v=137">
   <title data-i18n="app.title"></title>
 </head>
 <body>
@@ -34,11 +35,11 @@
     </nav>
     <main id="app" class="page"></main>
     <nav class="bottom-nav" data-i18n-aria-label="accessibility.bottomNavigation">
-      <button data-view="home" class="bottom-btn active">⌂<span data-i18n="navigation.home"></span></button>
-      <button data-view="game" class="bottom-btn">⚔<span data-i18n="navigation.game"></span></button>
-      <button type="button" data-open-reference="true" class="bottom-btn">☰<span data-i18n="navigation.reference"></span></button>
-      <button type="button" data-assist="menu" class="bottom-btn">✦<span data-i18n="navigation.assist"></span></button>
-      <button type="button" data-end-game="true" class="bottom-btn end-game-nav">▤<span data-i18n="navigation.endGame"></span></button>
+      <button data-view="home" class="bottom-btn active"><img class="bottom-nav-icon" src="assets/icons/icon-cabin.png" alt="" aria-hidden="true"><span data-i18n="navigation.home"></span></button>
+      <button data-view="game" class="bottom-btn"><img class="bottom-nav-icon" src="assets/icons/icon-hat.png" alt="" aria-hidden="true"><span data-i18n="navigation.game"></span></button>
+      <button type="button" data-open-reference="true" class="bottom-btn"><img class="bottom-nav-icon" src="assets/icons/icon-book.png" alt="" aria-hidden="true"><span data-i18n="navigation.reference"></span></button>
+      <button type="button" data-assist="menu" class="bottom-btn"><img class="bottom-nav-icon" src="assets/icons/icon-lantern.png" alt="" aria-hidden="true"><span data-i18n="navigation.assist"></span></button>
+      <button type="button" data-end-game="true" class="bottom-btn end-game-nav"><img class="bottom-nav-icon" src="assets/icons/icon-gazette.png" alt="" aria-hidden="true"><span data-i18n="navigation.endGame"></span></button>
     </nav>
   </div>
   <dialog id="storyDialog" class="story-dialog"><form method="dialog" class="dialog-card">
@@ -52,5 +53,8 @@
   </form></dialog>
   <audio id="musicPlayer" loop preload="auto"></audio><audio id="voicePlayer" preload="auto"></audio><audio id="sfxPlayer" preload="auto"></audio>
   <script src="js/localized-data.js" defer></script>
-  <script src="js/app.js" defer></script>
+  <script src="js/character-picker-core.js?v=137" defer></script>
+  <script src="js/contextual-music-core.js?v=137" defer></script>
+  <script src="js/app.js?v=138" defer></script>
+  <script src="js/home-frontier.js?v=137" defer></script>
 </body></html>
