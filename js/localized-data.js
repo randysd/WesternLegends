@@ -30,11 +30,9 @@
   const LOCALIZABLE_KEYS = new Set([
     'label', 'title', 'screenText', 'narrationScript', 'newspaperText',
     'text', 'name', 'summary', 'description', 'caption', 'alt', 'edition',
-    'weightingNotes', 'emptyText', 'placeholder', 'ariaLabel', 'helpText'
+    'weightingNotes', 'emptyText', 'placeholder', 'ariaLabel', 'helpText',
+    'location', 'ability', 'tags', 'strength', 'focus'
   ]);
-  const FILE_LOCALIZABLE_KEYS = Object.freeze({
-    'characters.json': new Set(['location', 'ability', 'tags', 'strength', 'focus'])
-  });
 
   // The location and style of highlighted words can legitimately differ by
   // language, so titleParts is localized as one complete value.
@@ -48,7 +46,7 @@
       : JSON.parse(JSON.stringify(value));
   }
 
-  function extractLocaleOverlay(value, parentKey = '', extraLocalizableKeys = null) {
+  function extractLocaleOverlay(value, parentKey = '') {
     if (LOCALIZED_WHOLE_KEYS.has(parentKey)) return clone(value);
 
     if (Array.isArray(value)) {
@@ -56,7 +54,7 @@
 
       const result = [];
       value.forEach((item, index) => {
-        const child = extractLocaleOverlay(item, '', extraLocalizableKeys);
+        const child = extractLocaleOverlay(item);
         if (child === undefined) return;
 
         if (child && !Array.isArray(child) && typeof child === 'object') {
@@ -80,11 +78,11 @@
     if (value && typeof value === 'object') {
       const result = {};
       Object.entries(value).forEach(([key, item]) => {
-        if (LOCALIZABLE_KEYS.has(key) || LOCALIZED_WHOLE_KEYS.has(key) || extraLocalizableKeys?.has(key)) {
+        if (LOCALIZABLE_KEYS.has(key) || LOCALIZED_WHOLE_KEYS.has(key)) {
           result[key] = clone(item);
           return;
         }
-        const child = extractLocaleOverlay(item, key, extraLocalizableKeys);
+        const child = extractLocaleOverlay(item, key);
         if (child !== undefined) result[key] = child;
       });
       return Object.keys(result).length ? result : undefined;
@@ -176,19 +174,13 @@
     // Preserve the original failure behavior so app.js can surface the same
     // localized load error it does today.
     if (!sharedResponse.ok) return sharedResponse;
-    // Character presentation text is optional per locale. Until a language
-    // supplies data/<lang>/characters.json, keep using the shared character
-    // mechanics/text instead of failing the whole app load.
-    if (!localizedResponse.ok) {
-      if (request.filename === 'characters.json' && localizedResponse.status === 404) return sharedResponse;
-      return localizedResponse;
-    }
+    if (!localizedResponse.ok) return localizedResponse;
 
     const [shared, localized] = await Promise.all([
       sharedResponse.json(),
       localizedResponse.json()
     ]);
-    const overlay = extractLocaleOverlay(localized, '', FILE_LOCALIZABLE_KEYS[request.filename] || null);
+    const overlay = extractLocaleOverlay(localized);
     const merged = mergeLocaleOverlay(shared, overlay);
 
     return new Response(JSON.stringify(merged), {

@@ -1,5 +1,5 @@
 const DATA_FILES = {
-  settings: 'data/settings.json',
+  settings: 'data/settings.json?v=136',
   triggers: 'data/triggers.json',
   oneOffs: 'data/one-off-events.json',
   arcs: 'data/character-arcs.json',
@@ -10,13 +10,33 @@ const DATA_FILES = {
   setupAssist: 'data/setup-assist.json',
   items: 'data/items.json',
   characters: 'data/characters.json',
+  boards: 'data/boards.json',
   finalScoring: 'data/final-scoring.json',
   ui: 'data/ui.json'
 };
+const SHARED_DATA_KEYS = new Set(['boards']);
 
-const SAVE_KEY = 'wl_frontier_director_save_v1';
-const LANGUAGE_KEY = 'wl_frontier_director_language';
+const SAVE_KEY = 'wl_companion_save_v1';
+const LANGUAGE_KEY = 'wl_companion_language';
+const LEGACY_SAVE_KEY = 'wl_frontier_director_save_v1';
+const LEGACY_LANGUAGE_KEY = 'wl_frontier_director_language';
 const DEFAULT_LANGUAGE = 'en';
+
+function migrateLegacyStorageKeys() {
+  const legacySave = localStorage.getItem(LEGACY_SAVE_KEY);
+  if (localStorage.getItem(SAVE_KEY) === null && legacySave !== null) {
+    localStorage.setItem(SAVE_KEY, legacySave);
+  }
+  if (legacySave !== null) localStorage.removeItem(LEGACY_SAVE_KEY);
+
+  const legacyLanguage = localStorage.getItem(LEGACY_LANGUAGE_KEY);
+  if (localStorage.getItem(LANGUAGE_KEY) === null && legacyLanguage !== null) {
+    localStorage.setItem(LANGUAGE_KEY, legacyLanguage);
+  }
+  if (legacyLanguage !== null) localStorage.removeItem(LEGACY_LANGUAGE_KEY);
+}
+
+migrateLegacyStorageKeys();
 const LANGUAGE_GLOBE_SVG = `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>`;
 
 function selectedLanguageCode() {
@@ -498,6 +518,7 @@ function normalizeStoryEventSettings() {
   }
   if (!state.storyTrackLastReward || typeof state.storyTrackLastReward !== 'object') state.storyTrackLastReward = {};
   if (!Object.prototype.hasOwnProperty.call(state, 'storyTrackNotice')) state.storyTrackNotice = null;
+  if (!Object.prototype.hasOwnProperty.call(state, 'primaryTriggerStoryPointCycle')) state.primaryTriggerStoryPointCycle = null;
   if (!state.settings || typeof state.settings !== 'object') state.settings = {};
   if (typeof state.settings.hideStoryTrackReminders !== 'boolean') state.settings.hideStoryTrackReminders = false;
 }
@@ -555,9 +576,16 @@ function defaultState() {
     // replaces the Story Point marker row without changing the page layout.
     storyTrackLastReward: {}, // retained for compatibility with v1.1.16 saves
     storyTrackNotice: null,
+    // Alternates Story Point awards when the same player fires consecutive
+    // primary Event Triggers: award, skip, award, skip. A different player
+    // always starts a fresh award sequence.
+    primaryTriggerStoryPointCycle: null,
     // Per-player running totals of Gambling/Legendary/Marshal/Wanted points
     // gained from landing on the "choose a point" story-track space.
     playerCounters: {},
+    // Last audible playback position for each frontier-mood music track.
+    // This lets a track resume where it faded out if that mood returns later.
+    musicPositions: {},
     arcProgress: {},
     worldEventClock: { nextAt: null, pendingEventId: null },
     settings: { musicOn: true, soundOn: true, voiceOn: true, musicVolume: 0.2, soundVolume: 0.6, voiceVolume: 0.8, hideStoryTrackReminders: false }
@@ -610,7 +638,6 @@ async function init() {
   });
   assistDialog.addEventListener('close', () => {
     assistNestedReturn = null;
-    currentStoreLayout = null;
     clearTimeout(storeAutoRandomizeTimer);
     storeAutoRandomizeTimer = null;
     Object.keys(prospectDieTimers).forEach(key => { clearTimeout(prospectDieTimers[key]); delete prospectDieTimers[key]; });
@@ -698,9 +725,9 @@ async function loadData() {
   const entries = await Promise.all(Object.entries(DATA_FILES)
     .filter(([key]) => key !== 'ui')
     .map(async ([key, url]) => {
-      const localizedUrl = localizedDataUrl(url, language);
-      const response = await fetch(localizedUrl);
-      if (!response.ok) throw new Error(t('errors.unableLoad', { url: localizedUrl }));
+      const dataUrl = SHARED_DATA_KEYS.has(key) ? url : localizedDataUrl(url, language);
+      const response = await fetch(dataUrl);
+      if (!response.ok) throw new Error(t('errors.unableLoad', { url: dataUrl }));
       return [key, await response.json()];
     }));
   return { ...Object.fromEntries(entries), ui };
@@ -1066,7 +1093,7 @@ function activePlayerStoryAlertColors() {
 function storyTrackMarkersMarkup() {
   const colors = (state.setup.playerColors || []).filter(Boolean);
   const alertColors = activePlayerStoryAlertColors();
-  return `<div class="story-track-strip" aria-label="${t('strings.story_point_track_per_player')}">${colors.map(color => {
+  return `<div class="story-track-points-group"><div class="story-track-caption">${t('strings.story_points')}</div><div class="story-track-strip" aria-label="${t('strings.story_point_track_per_player')}">${colors.map(color => {
     ensurePlayerTrackState(color);
     const position = state.storyTrack[color] || 0;
     const space = STORY_TRACK_SPACES[position];
@@ -1076,7 +1103,7 @@ function storyTrackMarkersMarkup() {
       <span class="story-track-chip-number">${position + 1}</span>
       ${hasAlert ? '<span class="player-story-alert-badge" aria-hidden="true">!</span>' : ''}
     </button>`;
-  }).join('')}</div>`;
+  }).join('')}</div></div>`;
 }
 
 function playerStoryAlertsOnlyMarkup() {
@@ -1399,10 +1426,208 @@ function closeCharacterPicker() {
 }
 
 function characterStartingMapEntries(record) {
-  const ids = Array.isArray(record?.starting?.mapLocationIds) ? record.starting.mapLocationIds : [];
-  const registry = db?.characters?.mapLocations || {};
-  return ids.map(id => ({ id, ...(registry[id] || {}) }))
-    .filter(entry => (entry.board === 'main' || entry.board === 'frontier') && Array.isArray(entry.points) && entry.points.length);
+  const core = window.WLCharacterPickerCore;
+  if (core?.resolveCharacterMapLocations) return core.resolveCharacterMapLocations(record, db?.boards || {});
+  return [];
+}
+
+function characterMapBoardLabel(board = {}) {
+  if (board.labelKey) return t(board.labelKey);
+  if (board.moduleId) return moduleName({ id: board.moduleId }) || board.moduleId;
+  return board.id || t('strings.character_starting_location');
+}
+
+function characterMapImageReady(image) {
+  if (!image) return Promise.resolve();
+  if (image.complete && image.naturalWidth > 0) return Promise.resolve();
+  if (typeof image.decode === 'function') {
+    return image.decode().catch(() => new Promise(resolve => {
+      image.addEventListener('load', resolve, { once: true });
+      image.addEventListener('error', resolve, { once: true });
+    }));
+  }
+  return new Promise(resolve => {
+    image.addEventListener('load', resolve, { once: true });
+    image.addEventListener('error', resolve, { once: true });
+  });
+}
+
+function initializeCharacterMapGestures(viewport, world, worldPixelSize, initialFrame) {
+  const core = window.WLCharacterPickerCore;
+  if (!viewport || !world || !core?.characterMapClampTransform) return;
+
+  const pointers = new Map();
+  const state = {
+    scale: initialFrame.scale,
+    x: initialFrame.x,
+    y: initialFrame.y,
+    minScale: initialFrame.minScale,
+    maxScale: initialFrame.maxScale
+  };
+  let gesture = null;
+
+  const viewportSize = () => ({ width: viewport.clientWidth, height: viewport.clientHeight });
+  const clampScale = value => Math.max(state.minScale, Math.min(state.maxScale, value));
+  const apply = next => {
+    const clamped = core.characterMapClampTransform(
+      { scale: clampScale(next.scale), x: next.x, y: next.y },
+      worldPixelSize,
+      viewportSize()
+    );
+    state.scale = clamped.scale;
+    state.x = clamped.x;
+    state.y = clamped.y;
+    world.style.transform = `translate3d(${state.x}px, ${state.y}px, 0) scale(${state.scale})`;
+    world.style.setProperty('--map-pin-inverse-scale', String(1 / state.scale));
+  };
+
+  const pointerPair = () => [...pointers.values()].slice(0, 2);
+  const pairGeometry = () => {
+    const [a, b] = pointerPair();
+    if (!a || !b) return null;
+    return {
+      center: { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 },
+      distance: Math.max(1, Math.hypot(b.x - a.x, b.y - a.y))
+    };
+  };
+  const beginPan = pointer => {
+    gesture = { type: 'pan', pointerX: pointer.x, pointerY: pointer.y, x: state.x, y: state.y };
+  };
+  const beginPinch = () => {
+    const geometry = pairGeometry();
+    if (!geometry) return;
+    gesture = {
+      type: 'pinch',
+      distance: geometry.distance,
+      center: geometry.center,
+      scale: state.scale,
+      x: state.x,
+      y: state.y,
+      worldX: (geometry.center.x - state.x) / state.scale,
+      worldY: (geometry.center.y - state.y) / state.scale
+    };
+  };
+
+  viewport.addEventListener('pointerdown', event => {
+    viewport.setPointerCapture?.(event.pointerId);
+    pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+    viewport.classList.add('is-dragging');
+    if (pointers.size >= 2) beginPinch();
+    else beginPan({ x: event.clientX, y: event.clientY });
+  });
+
+  viewport.addEventListener('pointermove', event => {
+    if (!pointers.has(event.pointerId)) return;
+    pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+
+    if (pointers.size >= 2) {
+      if (gesture?.type !== 'pinch') beginPinch();
+      const geometry = pairGeometry();
+      if (!geometry || gesture?.type !== 'pinch') return;
+      const nextScale = clampScale(gesture.scale * (geometry.distance / gesture.distance));
+      apply({
+        scale: nextScale,
+        x: geometry.center.x - (gesture.worldX * nextScale),
+        y: geometry.center.y - (gesture.worldY * nextScale)
+      });
+      return;
+    }
+
+    if (gesture?.type !== 'pan') beginPan({ x: event.clientX, y: event.clientY });
+    if (gesture?.type !== 'pan') return;
+    apply({
+      scale: state.scale,
+      x: gesture.x + (event.clientX - gesture.pointerX),
+      y: gesture.y + (event.clientY - gesture.pointerY)
+    });
+  });
+
+  const releasePointer = event => {
+    pointers.delete(event.pointerId);
+    if (!pointers.size) {
+      gesture = null;
+      viewport.classList.remove('is-dragging');
+      return;
+    }
+    if (pointers.size >= 2) beginPinch();
+    else {
+      const remaining = [...pointers.values()][0];
+      beginPan(remaining);
+    }
+  };
+  viewport.addEventListener('pointerup', releasePointer);
+  viewport.addEventListener('pointercancel', releasePointer);
+  viewport.addEventListener('lostpointercapture', releasePointer);
+
+  viewport.addEventListener('wheel', event => {
+    event.preventDefault();
+    const rect = viewport.getBoundingClientRect();
+    const cursor = { x: event.clientX - rect.left, y: event.clientY - rect.top };
+    const nextScale = clampScale(state.scale * (event.deltaY < 0 ? 1.12 : 0.89));
+    const worldX = (cursor.x - state.x) / state.scale;
+    const worldY = (cursor.y - state.y) / state.scale;
+    apply({
+      scale: nextScale,
+      x: cursor.x - (worldX * nextScale),
+      y: cursor.y - (worldY * nextScale)
+    });
+  }, { passive: false });
+
+  const resizeObserver = typeof ResizeObserver === 'function' ? new ResizeObserver(() => {
+    const next = core.characterMapWorldFrame(worldPixelSize, [], viewportSize());
+    state.minScale = next.minScale;
+    state.maxScale = Math.max(state.maxScale, next.maxScale);
+    apply(state);
+  }) : null;
+  resizeObserver?.observe(viewport);
+  viewport._characterMapCleanup = () => resizeObserver?.disconnect();
+  apply(state);
+}
+
+async function initializeCharacterMapWorld(overlay, entries) {
+  const core = window.WLCharacterPickerCore;
+  const viewport = overlay?.querySelector('[data-character-map-viewport]');
+  const world = overlay?.querySelector('[data-character-map-world]');
+  if (!viewport || !world || !core?.characterMapWorldLayout || !core?.characterMapWorldPoints || !core?.characterMapWorldFrame) return;
+
+  const boardIds = core.characterMapRequiredBoardIds(entries);
+  const images = [...world.querySelectorAll('[data-character-map-board-image]')];
+  await Promise.all(images.map(characterMapImageReady));
+  if (!overlay.isConnected) return;
+
+  const aspectRatios = {};
+  images.forEach(image => {
+    const boardId = image.dataset.characterMapBoardImage;
+    if (!boardId) return;
+    const ratio = image.naturalWidth > 0 && image.naturalHeight > 0 ? image.naturalHeight / image.naturalWidth : 1;
+    aspectRatios[boardId] = ratio;
+  });
+
+  const layout = core.characterMapWorldLayout(db?.boards || {}, boardIds, aspectRatios);
+  if (!layout.boards.length) return;
+  const unitPixels = 8;
+  const worldPixelSize = { width: layout.width * unitPixels, height: layout.height * unitPixels };
+  world.style.width = `${worldPixelSize.width}px`;
+  world.style.height = `${worldPixelSize.height}px`;
+
+  layout.boards.forEach(board => {
+    const element = world.querySelector(`[data-character-map-board="${CSS.escape(board.id)}"]`);
+    if (!element) return;
+    element.style.left = `${board.x * unitPixels}px`;
+    element.style.top = `${board.y * unitPixels}px`;
+    element.style.width = `${board.width * unitPixels}px`;
+    element.style.height = `${board.height * unitPixels}px`;
+    element.style.transform = `rotate(${board.rotation}deg)`;
+  });
+
+  const worldPoints = core.characterMapWorldPoints(entries, layout)
+    .map(point => ({ ...point, x: point.x * unitPixels, y: point.y * unitPixels }));
+  const frame = core.characterMapWorldFrame(
+    worldPixelSize,
+    worldPoints,
+    { width: viewport.clientWidth, height: viewport.clientHeight }
+  );
+  initializeCharacterMapGestures(viewport, world, worldPixelSize, frame);
 }
 
 function showCharacterStartingMap(record) {
@@ -1410,28 +1635,25 @@ function showCharacterStartingMap(record) {
   if (!entries.length) return;
 
   document.querySelector('.character-map-viewer')?.remove();
-  const boardInfo = {
-    main: { src: 'assets/images/boards/main-board.png', label: t('strings.main_board') },
-    frontier: { src: 'assets/images/boards/ante-up-frontier.png', label: t('strings.buzzard_gulch_frontier_board') }
-  };
-  const grouped = new Map();
+  const core = window.WLCharacterPickerCore;
+  const boardIds = core?.characterMapRequiredBoardIds ? core.characterMapRequiredBoardIds(entries) : [];
+  const boardRegistry = db?.boards?.boards || {};
+  const pointsByBoard = new Map();
   entries.forEach(entry => {
-    if (!grouped.has(entry.board)) grouped.set(entry.board, []);
-    grouped.get(entry.board).push(...entry.points);
+    if (!pointsByBoard.has(entry.boardId)) pointsByBoard.set(entry.boardId, []);
+    entry.points.forEach((point, pointIndex) => pointsByBoard.get(entry.boardId).push({ ...point, locationId: entry.id, pointIndex }));
   });
 
   const mapPinSvg = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z"/><circle cx="12" cy="10" r="2.2"/></svg>`;
-  const boardsHtml = [...grouped.entries()].map(([board, points]) => {
-    const info = boardInfo[board];
-    if (!info) return '';
-    const pins = points.map((point, index) => `<span class="character-map-pin" style="--map-x:${Number(point.x)}%;--map-y:${Number(point.y)}%" aria-label="${escapeHtml(t('strings.character_starting_location'))} ${index + 1}">${mapPinSvg}</span>`).join('');
-    return `<figure class="character-map-board character-map-board-${board}" data-character-map-board="${board}">
-      <div class="character-map-board-stage">
-        <img src="${escapeHtml(info.src)}" alt="${escapeHtml(info.label)}" draggable="false">
-        ${pins}
-      </div>
-      <figcaption>${escapeHtml(info.label)}</figcaption>
-    </figure>`;
+  const boardsHtml = boardIds.map(boardId => {
+    const board = boardRegistry[boardId];
+    if (!board?.image) return '';
+    const label = characterMapBoardLabel({ id: boardId, ...board });
+    const pins = (pointsByBoard.get(boardId) || []).map((point, index) => `<span class="character-map-pin" data-character-map-location="${escapeHtml(point.locationId)}" style="--map-x:${Number(point.x)}%;--map-y:${Number(point.y)}%" aria-label="${escapeHtml(t('strings.character_starting_location'))} ${index + 1}">${mapPinSvg}</span>`).join('');
+    return `<div class="character-map-world-board character-map-world-board-${escapeHtml(boardId)}" data-character-map-board="${escapeHtml(boardId)}" aria-label="${escapeHtml(label)}">
+      <img data-character-map-board-image="${escapeHtml(boardId)}" src="${escapeHtml(board.image)}" alt="${escapeHtml(label)}" draggable="false">
+      ${pins}
+    </div>`;
   }).join('');
 
   const overlay = document.createElement('div');
@@ -1443,13 +1665,19 @@ function showCharacterStartingMap(record) {
       <h2 id="characterStartingMapTitle">${escapeHtml(t('strings.starting_location_map'))}</h2>
       <p>${escapeHtml(record?.starting?.location || '')}</p>
     </header>
-    <div class="character-map-boards">${boardsHtml}</div>
+    <div class="character-map-viewport" data-character-map-viewport>
+      <div class="character-map-world" data-character-map-world>${boardsHtml}</div>
+    </div>
   </section>`;
-  const close = () => overlay.remove();
+  const close = () => {
+    overlay.querySelector('[data-character-map-viewport]')?._characterMapCleanup?.();
+    overlay.remove();
+  };
   overlay.querySelector('[data-character-map-close]')?.addEventListener('click', close);
   overlay.addEventListener('click', event => { if (event.target === overlay) close(); });
   overlay.addEventListener('keydown', event => { if (event.key === 'Escape') { event.preventDefault(); close(); } });
   document.body.appendChild(overlay);
+  initializeCharacterMapWorld(overlay, entries);
   overlay.querySelector('[data-character-map-close]')?.focus();
 }
 
@@ -1736,8 +1964,14 @@ function openCharacterPicker(playerIndex = null, { readOnly = false } = {}) {
     const nextSrc = characterCardSources(characterDataRecord(nextId)).front;
     const pinSvg = `<svg class="character-location-pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z"/><circle cx="12" cy="10" r="2.2"/></svg>`;
     const hasMap = characterStartingMapEntries(record).length > 0;
-    const selectHtml = readOnly ? '' : `<button type="button" class="primary-btn character-card-select" data-character-select>
-      <span aria-hidden="true">✓</span><span>${escapeHtml(t('strings.select_short'))}</span>
+    const selectionState = readOnly
+      ? { selected: false, action: 'select' }
+      : (window.WLCharacterPickerCore?.characterSelectionState?.(player?.characterId || '', characterId)
+        || { selected: !!(player?.characterId && player.characterId === characterId), action: player?.characterId === characterId ? 'deselect' : 'select' });
+    const selectionColor = (!readOnly && player?.color && PLAYER_COLORS.includes(player.color)) ? player.color : 'none';
+    const selectionClass = selectionState.selected ? ` is-current-selection character-selection-${selectionColor}` : '';
+    const selectHtml = readOnly ? '' : `<button type="button" class="primary-btn character-card-select ${selectionState.selected ? 'is-deselect' : ''}" data-character-select>
+      <span aria-hidden="true">${selectionState.selected ? '×' : '✓'}</span><span>${escapeHtml(t(selectionState.selected ? 'strings.deselect_short' : 'strings.select_short'))}</span>
     </button>`;
 
     main.innerHTML = `<div class="character-picker-toolbar">
@@ -1747,7 +1981,7 @@ function openCharacterPicker(playerIndex = null, { readOnly = false } = {}) {
       <div class="character-carousel-shell">
         <div class="character-picker-peek character-picker-peek-left" aria-hidden="true"><img src="${escapeHtml(previousSrc)}" alt="" loading="lazy"></div>
         <button type="button" class="character-carousel-nav character-carousel-prev" data-character-prev aria-label="${escapeHtml(t('strings.previous_character'))}" ${pool.length < 2 ? 'disabled' : ''}>‹</button>
-        <div class="character-carousel-stage" data-character-stage tabindex="0" aria-label="${escapeHtml(t('strings.swipe_browse_character_cards'))}">
+        <div class="character-carousel-stage${selectionClass}" data-character-stage tabindex="0" aria-label="${escapeHtml(t('strings.swipe_browse_character_cards'))}" ${selectionState.selected ? `title="${escapeHtml(t('strings.character_currently_selected'))}"` : ''}>
           <button type="button" class="character-card-viewport" data-character-card-view aria-label="${escapeHtml(t('strings.view_character_card_full_size', { character: displayName }))}">
             <span class="character-card-flipper ${showingBack ? 'is-back' : ''}">
               ${renderFace(sources.front, displayName, 'Front')}
@@ -1801,6 +2035,13 @@ function openCharacterPicker(playerIndex = null, { readOnly = false } = {}) {
     main.querySelector('[data-character-map]')?.addEventListener('click', () => showCharacterStartingMap(record));
     main.querySelector('[data-character-select]')?.addEventListener('click', () => {
       if (readOnly || !player) return;
+      if (selectionState.selected) {
+        player.characterId = '';
+        save();
+        refreshPlayerSetupRows();
+        renderCurrent();
+        return;
+      }
       player.characterId = characterId;
       save();
       closeCharacterPicker();
@@ -1886,10 +2127,12 @@ function isSetupReadyToStart() {
 function updateSetupFromUI(rerender = false) {
   normalizeStoryEventSettings();
   const previousWorldSettings = { ...state.setup.storyOptions.world };
+  const previousUseStoryTrack = state.setup.useStoryTrack !== false;
   const targetDisplay = document.getElementById('targetLPValue');
   const useStoryTrackEl = document.getElementById('useStoryTrack');
   if (targetDisplay) state.setup.targetLP = Math.max(1, Number(targetDisplay.dataset.value || targetDisplay.textContent || 20));
   if (useStoryTrackEl) state.setup.useStoryTrack = useStoryTrackEl.checked;
+  if (useStoryTrackEl && previousUseStoryTrack !== state.setup.useStoryTrack) state.primaryTriggerStoryPointCycle = null;
 
   ['oneOff', 'arcs', 'world'].forEach(key => {
     const enabledEl = document.getElementById(`storyEnabled_${key}`);
@@ -2222,6 +2465,7 @@ function startGameFromSetup() {
   state.storyTrack = {};
   state.storyTrackLastReward = {};
   state.storyTrackNotice = null;
+  state.primaryTriggerStoryPointCycle = null;
   state.playerCounters = {};
   state.worldEventClock = { nextAt: null, pendingEventId: null };
   state.setup.setupProgress = [];
@@ -2377,6 +2621,12 @@ function finishPrimaryTriggerNarrative(trigger, triggeringColor) {
   setTimeout(maybePresentPendingWorldEvent, 30);
 }
 
+function shouldAwardPrimaryTriggerStoryPoint(lastTrigger, triggeringColor) {
+  if (!triggeringColor) return false;
+  if (!lastTrigger || lastTrigger.color !== triggeringColor) return true;
+  return lastTrigger.awarded !== true;
+}
+
 function tapPrimaryTrigger(triggerId, triggeringColor = null) {
   const trigger = state.activeTriggers.find(t => t.id === triggerId);
   if (!trigger) return;
@@ -2398,8 +2648,18 @@ function tapPrimaryTrigger(triggerId, triggeringColor = null) {
   }
 
   // Story Point rewards update passive page UI only. They never delay or
-  // queue the real narrative event that may result from this trigger.
-  gainStoryPoint(triggeringColor, () => finishPrimaryTriggerNarrative(trigger, triggeringColor));
+  // queue the real narrative event that may result from this trigger. When
+  // the same player fires consecutive primary triggers, alternate the Story
+  // Point reward (award, skip, award, skip). A different player always earns
+  // the first Story Point in their new sequence.
+  if (!triggeringColor) {
+    finishPrimaryTriggerNarrative(trigger, triggeringColor);
+    return;
+  }
+  const awardStoryPoint = shouldAwardPrimaryTriggerStoryPoint(state.primaryTriggerStoryPointCycle, triggeringColor);
+  state.primaryTriggerStoryPointCycle = { color: triggeringColor, awarded: awardStoryPoint };
+  if (awardStoryPoint) gainStoryPoint(triggeringColor, () => finishPrimaryTriggerNarrative(trigger, triggeringColor));
+  else finishPrimaryTriggerNarrative(trigger, triggeringColor);
 }
 
 function deliverArcEvent(event, triggeringColor) {
@@ -2561,6 +2821,11 @@ function startWorldEventById(eventId) {
   state.triggeredLog = state.triggeredLog.slice(0, 200);
 }
 
+function ongoingStoryTriggerDuration() {
+  const playerCount = Number(state?.setup?.playerDetails?.length || state?.setup?.players || 0);
+  return Math.max(3, playerCount || 3);
+}
+
 // event.type === 'storyTrigger' is a TASK: a player needs to go do something
 // at the table before it resolves or expires, so it lives in activeStories
 // until the player taps Resolved/Ignored. Everything else that comes out of
@@ -2611,7 +2876,7 @@ function handleCreatedEvent(event, type, triggeringColor = null) {
       screenText: event.screenText,
       rewardText: event.rewardText || '',
       audioFile: event.audioFile,
-      turnsLeft: event.expiresAfterPrimaryTriggers || db.settings.defaultStoryExpirationPrimaryTriggers || 6,
+      turnsLeft: ongoingStoryTriggerDuration(),
       arcScope: event.arcScope || 'shared',
       // Shared Character Arc chapters belong to whoever triggered THIS
       // chapter. Personal arcs also have a chapter owner, while global
@@ -3866,6 +4131,7 @@ function renderGame() {
   app.querySelectorAll('[data-trigger]').forEach(b => b.onclick = () => {
     const trigger = state.activeTriggers.find(item => item.id === b.dataset.trigger);
     playPrimaryTriggerSound(trigger);
+    playContextualMusicForTrigger(trigger);
     // Story Arcs are personal by default, so even when the virtual Story Track
     // is off we still need to know which player performed the trigger.
     if (isStoryTrackEnabled() || storyEventsEnabled('arcs')) promptTriggerColor(b.dataset.trigger);
@@ -4279,7 +4545,7 @@ function renderFightFlowBrief(type) {
   const tieFact = playerFight ? t('strings.highest_value_wins_active_player_wins_ties') : t('strings.highest_value_wins_npc_wins_ties');
   return `<div class="fight-flow-brief">
     <div class="fight-flow-brief-heading">
-      <span class="fight-flow-brief-icon" aria-hidden="true">⚔</span>
+      <span class="fight-flow-brief-icon" aria-hidden="true">${revolverIconSvg('fight-flow-revolver')}</span>
       <span><small>${escapeHtml(t(`assist.fight.groups.${type.group}`))}</small><strong>${escapeHtml(type.label)}</strong></span>
     </div>
     <div class="fight-flow-brief-facts">
@@ -4313,7 +4579,7 @@ function renderFightSequenceReference() {
   if (!type) {
     return `<div class="fight-flowchart interactive-fight-flow" aria-label="${t('strings.interactive_fight_resolution_flowchart')}">
       ${selector}
-      <div class="fight-flow-empty"><span aria-hidden="true">⚔</span><strong>${t('strings.select_a_fight_type_to_begin')}</strong><p>${t('strings.the_rest_of_the_flow_adapts_to_player_or_npc_fights_and_the_modules_enab')}</p></div>
+      <div class="fight-flow-empty"><span aria-hidden="true">${revolverIconSvg('fight-flow-revolver')}</span><strong>${t('strings.select_a_fight_type_to_begin')}</strong><p>${t('strings.the_rest_of_the_flow_adapts_to_player_or_npc_fights_and_the_modules_enab')}</p></div>
     </div>`;
   }
 
@@ -5325,8 +5591,15 @@ function setMusicEnabled(enabled) {
     if (musicPlayerB) musicPlayerB.pause();
     return;
   }
-  if (state?.gameStarted && state?.screen === 'game') ensureFrontierMusicPlaying();
-  else playMusic();
+  if (state?.gameStarted && state?.screen === 'game') {
+    if (contextualMusicActive) {
+      const active = activeMusicPlayer();
+      active.volume = state.settings.musicVolume ?? 0.2;
+      if (active.paused) active.play().catch(() => {});
+    } else {
+      ensureFrontierMusicPlaying();
+    }
+  } else playMusic();
 }
 function applyAudioSettings() {
   musicPlayer.volume = state?.settings?.musicVolume ?? .2;
@@ -5334,9 +5607,56 @@ function applyAudioSettings() {
   sfxPlayer.volume = state?.settings?.soundVolume ?? .6;
   voicePlayer.volume = state?.settings?.voiceVolume ?? .8;
 }
+
+// Five persistent Frontier Mood tracks. The data/settings.json mapping is the
+// source of truth; these defaults keep older/localized settings compatible.
+const DEFAULT_MOOD_MUSIC = {
+  quiet: 'audio/music/calm.mp3',
+  lawless: 'audio/music/outlaw.mp3',
+  orderly: 'audio/music/marshal.mp3',
+  tense: 'audio/music/standoff.mp3',
+  opportunity: 'audio/music/opportunity.mp3'
+};
+const MUSIC_CROSSFADE_MS = 5000;
+
+function clampAudioVolume(value) {
+  const numeric = Number(value);
+  if (!Number.isFinite(numeric)) return 0;
+  return Math.max(0, Math.min(1, numeric));
+}
+
+function crossfadeProgress(now, startedAt) {
+  const elapsed = (Number(now) - Number(startedAt)) / MUSIC_CROSSFADE_MS;
+  if (!Number.isFinite(elapsed)) return 0;
+  return Math.max(0, Math.min(1, elapsed));
+}
+let musicPlayerB = null;
+let activeMusicSlot = 'A';
+let currentMoodMusicKey = null;
+let musicCrossfadeFrame = null;
+let musicCrossfadeInProgress = false;
+let contextualMusicActive = false;
+let contextualMusicContext = null;
+let pendingContextualMusic = null;
+let contextualMusicReturnCleanup = null;
+
+function configuredMoodMusic() {
+  const configured = db?.settings?.audio?.frontierMoodMusic;
+  return configured && typeof configured === 'object' ? { ...DEFAULT_MOOD_MUSIC, ...configured } : DEFAULT_MOOD_MUSIC;
+}
+
+function frontierMoodMusicSource(moodKey) {
+  const tracks = configuredMoodMusic();
+  return tracks[moodKey] || tracks.quiet || DEFAULT_MOOD_MUSIC.quiet;
+}
+
+function configuredContextualMusicRules() {
+  return Array.isArray(db?.settings?.audio?.contextualMusic) ? db.settings.audio.contextualMusic : [];
+}
+
 function currentFrontierMusicSource() {
   const moodKey = state?.gameStarted ? computeFrontierMood().key : 'quiet';
-  return MOOD_MUSIC[moodKey] || MOOD_MUSIC.quiet;
+  return frontierMoodMusicSource(moodKey);
 }
 
 function activeMusicPlayer() {
@@ -5344,23 +5664,22 @@ function activeMusicPlayer() {
 }
 
 function ensureFrontierMusicPlaying() {
-  if (!state?.settings?.musicOn || !state?.gameStarted || state?.screen !== 'game') return;
+  if (!state?.settings?.musicOn || !state?.gameStarted || state?.screen !== 'game' || musicCrossfadeInProgress || contextualMusicActive) return;
   const moodKey = computeFrontierMood().key;
-  const src = MOOD_MUSIC[moodKey] || MOOD_MUSIC.quiet;
+  const src = frontierMoodMusicSource(moodKey);
   currentMoodMusicKey = moodKey;
 
   let active = activeMusicPlayer();
-  // If no player owns the correct current track (common after a reload), use
-  // the active slot directly instead of requiring a crossfade from silence.
   if (!active.src || !active.src.endsWith(src)) {
     if (musicPlayerB) musicPlayerB.pause();
     musicPlayer.pause();
     activeMusicSlot = 'A';
     active = musicPlayer;
     active.src = src;
-    active.currentTime = 0;
+    resumeMoodMusicPosition(active, moodKey);
   }
   active.loop = true;
+  active.onended = null;
   active.volume = state.settings.musicVolume ?? 0.2;
   if (active.paused) active.play().catch(() => {});
 }
@@ -5371,30 +5690,46 @@ function playMusic() {
     ensureFrontierMusicPlaying();
     return;
   }
-  if (!musicPlayer.src) musicPlayer.src = MOOD_MUSIC.quiet;
+  if (!musicPlayer.src) musicPlayer.src = frontierMoodMusicSource('quiet');
+  musicPlayer.loop = true;
   musicPlayer.volume = state.settings.musicVolume ?? 0.2;
   musicPlayer.play().catch(() => {});
 }
 
-// Event-trigger sound effects are now defined directly in data/triggers.json.
-// Music remains continuous; SFX fire only when the corresponding trigger is tapped.
+function ensureMoodMusicPositions() {
+  if (!state.musicPositions || typeof state.musicPositions !== 'object' || Array.isArray(state.musicPositions)) {
+    state.musicPositions = {};
+  }
+  return state.musicPositions;
+}
 
-// One mp3 per frontier mood - crossfaded smoothly whenever the dominant
-// mood changes, rather than an abrupt cut. "quiet" reuses the same default
-// ambient loop playMusic() already starts the game with, so a fresh game
-// doesn't immediately crossfade away from what's already playing.
-const MOOD_MUSIC = {
-  quiet: 'audio/music/western_loop.mp3',
-  lawless: 'audio/music/mood_lawless.mp3',
-  orderly: 'audio/music/mood-orderly.mp3',
-  tense: 'audio/music/mood-tense.mp3',
-  opportunity: 'audio/music/mood-opportunity.mp3',
-  bloodshed: 'audio/music/mood-bloodshed.mp3'
-};
-const MUSIC_CROSSFADE_MS = 1800;
-let musicPlayerB = null;
-let activeMusicSlot = 'A';
-let currentMoodMusicKey = null;
+function rememberMoodMusicPosition(moodKey, player) {
+  const position = Number(player?.currentTime);
+  if (!moodKey || !Number.isFinite(position) || position < 0) return;
+  ensureMoodMusicPositions()[moodKey] = position;
+  save();
+}
+
+function resumeMoodMusicPosition(player, moodKey) {
+  if (!player || !moodKey) return;
+  const savedPosition = Number(ensureMoodMusicPositions()[moodKey]);
+  if (!Number.isFinite(savedPosition) || savedPosition < 0) return;
+
+  const seek = () => {
+    const duration = Number(player.duration);
+    const resumeAt = Number.isFinite(duration) && duration > 0 ? savedPosition % duration : savedPosition;
+    try {
+      player.currentTime = resumeAt;
+      return true;
+    } catch (_) {
+      return false;
+    }
+  };
+
+  if (!seek() && typeof player.addEventListener === 'function') {
+    player.addEventListener('loadedmetadata', seek, { once: true });
+  }
+}
 
 function ensureSecondMusicPlayer() {
   if (!musicPlayerB) {
@@ -5406,38 +5741,40 @@ function ensureSecondMusicPlayer() {
   return musicPlayerB;
 }
 
-// Recomputes the current frontier mood and, if it's changed since the last
-// check, smoothly crossfades the background music to that mood's track.
-// Cheap to call on every game-screen render - it no-ops instantly if the
-// mood hasn't moved.
+// Recomputes the current Frontier Mood and crossfades to its persistent loop.
+// While a one-shot contextual cue is active, mood changes continue to accrue in
+// game state but do not interrupt the cue; the newest mood is chosen afterward.
 function updateFrontierMoodMusic() {
-  if (!state.gameStarted || state.screen !== 'game') return;
+  if (!state.gameStarted || state.screen !== 'game' || musicCrossfadeInProgress || contextualMusicActive) return;
   const moodKey = computeFrontierMood().key;
-  const src = MOOD_MUSIC[moodKey] || MOOD_MUSIC.quiet;
+  const src = frontierMoodMusicSource(moodKey);
 
-  // A prior play() may have been blocked by the browser. Do not treat matching
-  // mood metadata as proof that audio is actually running.
   if (moodKey === currentMoodMusicKey) {
     if (state.settings.musicOn) ensureFrontierMusicPlaying();
     return;
   }
+  const outgoingMoodKey = currentMoodMusicKey;
   currentMoodMusicKey = moodKey;
   if (!state.settings.musicOn) return;
   ensureSecondMusicPlayer();
   const active = activeMusicSlot === 'A' ? musicPlayer : musicPlayerB;
   const incoming = activeMusicSlot === 'A' ? musicPlayerB : musicPlayer;
 
-  // If the outgoing track is silent/paused, a direct start is more reliable
-  // than pretending to crossfade from something the user cannot hear.
   if (!active.src || active.paused) {
     active.pause();
     incoming.pause();
     activeMusicSlot = 'A';
     musicPlayer.src = src;
     musicPlayer.loop = true;
+    musicPlayer.onended = null;
     musicPlayer.volume = state.settings.musicVolume ?? 0.2;
-    musicPlayer.currentTime = 0;
+    resumeMoodMusicPosition(musicPlayer, moodKey);
     musicPlayer.play().catch(() => {});
+    if (pendingContextualMusic) {
+      const queued = pendingContextualMusic;
+      pendingContextualMusic = null;
+      setTimeout(() => startContextualMusic(queued), 0);
+    }
     return;
   }
   if (active.src.endsWith(src)) {
@@ -5448,23 +5785,188 @@ function updateFrontierMoodMusic() {
   const targetVolume = state.settings.musicVolume ?? 0.2;
   incoming.src = src;
   incoming.loop = true;
+  incoming.onended = null;
   incoming.volume = 0;
-  incoming.currentTime = 0;
-  incoming.play().catch(() => {});
-  const steps = 18;
-  let step = 0;
-  const fade = setInterval(() => {
-    step++;
-    const t = step / steps;
-    incoming.volume = Math.min(targetVolume, targetVolume * t);
-    active.volume = Math.max(0, targetVolume * (1 - t));
-    if (step >= steps) {
-      clearInterval(fade);
+  resumeMoodMusicPosition(incoming, moodKey);
+
+  musicCrossfadeInProgress = true;
+  const playback = incoming.play();
+  const startFade = () => {
+    const startedAt = performance.now();
+    const fade = now => {
+      const t = crossfadeProgress(now, startedAt);
+      const liveTargetVolume = clampAudioVolume(state.settings.musicVolume ?? targetVolume);
+      incoming.volume = clampAudioVolume(liveTargetVolume * t);
+      active.volume = clampAudioVolume(liveTargetVolume * (1 - t));
+      if (t < 1) {
+        musicCrossfadeFrame = requestAnimationFrame(fade);
+        return;
+      }
+
       active.pause();
+      active.onended = null;
+      rememberMoodMusicPosition(outgoingMoodKey, active);
+      active.volume = liveTargetVolume;
+      incoming.volume = liveTargetVolume;
       activeMusicSlot = activeMusicSlot === 'A' ? 'B' : 'A';
-    }
-  }, MUSIC_CROSSFADE_MS / steps);
+      musicCrossfadeFrame = null;
+      musicCrossfadeInProgress = false;
+
+      if (pendingContextualMusic) {
+        const queued = pendingContextualMusic;
+        pendingContextualMusic = null;
+        startContextualMusic(queued);
+        return;
+      }
+      updateFrontierMoodMusic();
+    };
+    musicCrossfadeFrame = requestAnimationFrame(fade);
+  };
+
+  if (playback?.then) {
+    playback.then(startFade).catch(() => {
+      incoming.pause();
+      incoming.volume = 0;
+      currentMoodMusicKey = outgoingMoodKey;
+      musicCrossfadeInProgress = false;
+      musicCrossfadeFrame = null;
+    });
+  } else {
+    startFade();
+  }
 }
+
+// Trigger-context cues temporarily replace the persistent Frontier Mood loop.
+// They play once, then the app recomputes the mood and crossfades back to the
+// track appropriate *at that moment*. Multiple eligible tracks are selected by
+// the JSON-driven contextual-music helper.
+function playContextualMusicForTrigger(trigger) {
+  if (!trigger || !state?.settings?.musicOn || typeof WLContextualMusic === 'undefined') return;
+  const selection = WLContextualMusic.chooseTrackForTrigger(trigger, configuredContextualMusicRules());
+  if (!selection?.src) return;
+  if (musicCrossfadeInProgress) {
+    pendingContextualMusic = selection;
+    return;
+  }
+  startContextualMusic(selection);
+}
+
+function startContextualMusic(selection) {
+  if (!selection?.src || !state?.settings?.musicOn) return;
+  if (musicCrossfadeInProgress) {
+    pendingContextualMusic = selection;
+    return;
+  }
+
+  ensureSecondMusicPlayer();
+  const active = activeMusicSlot === 'A' ? musicPlayer : musicPlayerB;
+  const incoming = activeMusicSlot === 'A' ? musicPlayerB : musicPlayer;
+  const outgoingMoodKey = contextualMusicActive ? null : currentMoodMusicKey;
+  const previousContext = contextualMusicContext;
+  const wasContextual = contextualMusicActive;
+  const targetVolume = state.settings.musicVolume ?? 0.2;
+
+  contextualMusicActive = true;
+  contextualMusicContext = selection.context || null;
+  pendingContextualMusic = null;
+  if (contextualMusicReturnCleanup) contextualMusicReturnCleanup();
+  active.onended = null;
+  incoming.onended = null;
+  incoming.pause();
+  incoming.src = selection.src;
+  incoming.loop = false;
+  incoming.currentTime = 0;
+  incoming.volume = 0;
+
+  musicCrossfadeInProgress = true;
+  const playback = incoming.play();
+  const startFade = () => {
+    const startedAt = performance.now();
+    const fade = now => {
+      const t = crossfadeProgress(now, startedAt);
+      const liveTargetVolume = clampAudioVolume(state.settings.musicVolume ?? targetVolume);
+      incoming.volume = clampAudioVolume(liveTargetVolume * t);
+      active.volume = clampAudioVolume(liveTargetVolume * (1 - t));
+      if (t < 1) {
+        musicCrossfadeFrame = requestAnimationFrame(fade);
+        return;
+      }
+
+      active.pause();
+      active.onended = null;
+      if (outgoingMoodKey) rememberMoodMusicPosition(outgoingMoodKey, active);
+      active.volume = liveTargetVolume;
+      incoming.volume = liveTargetVolume;
+      activeMusicSlot = activeMusicSlot === 'A' ? 'B' : 'A';
+      musicCrossfadeFrame = null;
+      musicCrossfadeInProgress = false;
+      armContextualMusicReturn(incoming);
+
+      if (pendingContextualMusic) {
+        const queued = pendingContextualMusic;
+        pendingContextualMusic = null;
+        startContextualMusic(queued);
+      }
+    };
+    musicCrossfadeFrame = requestAnimationFrame(fade);
+  };
+
+  if (playback?.then) {
+    playback.then(startFade).catch(() => {
+      incoming.pause();
+      incoming.volume = 0;
+      contextualMusicActive = wasContextual;
+      contextualMusicContext = previousContext;
+      musicCrossfadeInProgress = false;
+      musicCrossfadeFrame = null;
+      if (!wasContextual) ensureFrontierMusicPlaying();
+    });
+  } else {
+    startFade();
+  }
+}
+
+function armContextualMusicReturn(player) {
+  if (!player) return;
+  if (contextualMusicReturnCleanup) contextualMusicReturnCleanup();
+
+  let armed = true;
+  const cleanup = () => {
+    if (!armed) return;
+    armed = false;
+    player.removeEventListener?.('timeupdate', onTimeUpdate);
+    if (player.onended === beginReturn) player.onended = null;
+    if (contextualMusicReturnCleanup === cleanup) contextualMusicReturnCleanup = null;
+  };
+  const beginReturn = () => {
+    if (!armed) return;
+    cleanup();
+    returnToFrontierMoodMusic();
+  };
+  const onTimeUpdate = () => {
+    const duration = Number(player.duration);
+    const currentTime = Number(player.currentTime);
+    if (!Number.isFinite(duration) || duration <= 0 || !Number.isFinite(currentTime)) return;
+    const remaining = duration - currentTime;
+    if (remaining > 0 && remaining <= MUSIC_CROSSFADE_MS / 1000 + 0.12) beginReturn();
+  };
+
+  player.addEventListener?.('timeupdate', onTimeUpdate);
+  player.onended = beginReturn;
+  contextualMusicReturnCleanup = cleanup;
+}
+
+function returnToFrontierMoodMusic() {
+  if (musicCrossfadeInProgress) return;
+  if (contextualMusicReturnCleanup) contextualMusicReturnCleanup();
+  const active = activeMusicPlayer();
+  active.onended = null;
+  contextualMusicActive = false;
+  contextualMusicContext = null;
+  currentMoodMusicKey = null;
+  updateFrontierMoodMusic();
+}
+
 function playVoice(src) {
   if (!src || !state.settings.voiceOn) return;
   try {
@@ -5658,8 +6160,14 @@ function ensureFightDeck() {
 }
 function drawFightCardsFromDeck(count) {
   ensureFightDeck();
+  const requested = Math.max(0, Math.min(FIGHT_RANKS.length, Number(count) || 0));
+  // A saved/reloaded game can occasionally retain an incomplete virtual deck
+  // after a hand was drawn but before those cards were returned. If there are
+  // not enough cards to satisfy the next requested hand, recover by rebuilding
+  // the full 13-card deck before drawing rather than returning a partial/empty hand.
+  if (state.fightDeck.length < requested) state.fightDeck = shuffleArray(FIGHT_RANKS);
   const drawn = [];
-  for (let i = 0; i < count && state.fightDeck.length; i++) drawn.push(state.fightDeck.shift());
+  for (let i = 0; i < requested && state.fightDeck.length; i++) drawn.push(state.fightDeck.shift());
   save();
   return drawn;
 }
@@ -5671,16 +6179,17 @@ function discardFightCardsToDeck(ranks) {
 }
 
 
-const ASSIST_GROUP_ICONS = {
-  fight: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4l15 15M19 4L4 19M6 3l3 3-3 3M18 3l-3 3 3 3"/></svg>',
-  gambling: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c-2.5 3.6-6 5.6-6 9a4 4 0 0 0 7 2.6V18H9v3h6v-3h-4v-3.4A4 4 0 0 0 18 12c0-3.4-3.5-5.4-6-9z"/></svg>',
-  dice: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="9" cy="9" r="1"/><circle cx="15" cy="15" r="1"/><circle cx="15" cy="9" r="1"/><circle cx="9" cy="15" r="1"/></svg>',
-  randomizers: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h3c5 0 5 10 10 10h5M18 14l3 3-3 3M3 17h3c2.2 0 3.4-1.8 4.6-4M18 4l3 3-3 3M14 7h7"/></svg>',
-  other: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="19" cy="12" r="1.4"/></svg>'
+const ASSIST_GROUP_ICON_PATHS = {
+  fight: 'assets/icons/icon-fight.png',
+  gambling: 'assets/icons/icon-spade.png',
+  dice: 'assets/icons/icon-die.png',
+  randomizers: 'assets/icons/icon-random.png'
 };
 
 function assistGroupIcon(groupId) {
-  return `<span class="assist-group-heading-icon">${ASSIST_GROUP_ICONS[groupId] || ASSIST_GROUP_ICONS.other}</span>`;
+  return ASSIST_GROUP_ICON_PATHS[groupId]
+    ? `<span class="assist-group-heading-icon assist-group-heading-icon-${groupId}" aria-hidden="true"></span>`
+    : '';
 }
 
 function openAssistMenu() {
@@ -5692,7 +6201,7 @@ function openAssistMenu() {
   setAssistHeader(t('strings.game_assist'), t('strings.quick_helpers'));
   const groups = [
     { id: 'fight', title: t('assist.groups.fight'), items: [
-      { id: 'fightCards', title: t('strings.draw'), desc: t('assist.fight.autoDrawNpc') },
+      { id: 'fightCards', title: t('assist.fight.npcFightCard'), desc: t('assist.fight.autoDrawNpc') },
       { id: 'fightFlow', title: t('strings.fight_flow'), desc: t('strings.step_by_step_fight_guide') }
     ]},
     { id: 'gambling', title: t('assist.groups.gambling'), items: [
@@ -5774,6 +6283,7 @@ function openAssist(kind) {
 }
 
 function setAssistHeader(title, type = t('strings.trail_helper')) {
+  assistDialog.classList.remove('store-randomizer-dialog');
   document.getElementById('assistTitle').textContent = title;
   document.getElementById('assistType').textContent = type;
 }
@@ -5784,7 +6294,7 @@ function showAssistDialog() {
 }
 
 function closeAssist() {
-  assistDialog.classList.remove('first-player-dialog');
+  assistDialog.classList.remove('first-player-dialog', 'store-randomizer-dialog');
   if (assistDialog.open) assistDialog.close();
 }
 
@@ -5889,18 +6399,111 @@ function fightCardFaceInner(rank, showFront) {
   if (!showFront) return art;
   return art + `<span class="fight-card-overlay"><span class="fight-card-rank">${escapeHtml(rank)}</span></span>`;
 }
-function renderFightCardEl(index) {
+function fightCardInteractiveLabel(index) {
+  const entry = fightCardState?.cards?.[index];
+  if (!entry?.rank || !entry.revealed) return t('reference.fightCardBack');
+  const cardLabel = t('assist.fight.cardAlt', { rank: entry.rank });
+  return fightCardState.chosenIndex === index ? `${t('assist.fight.npcPlays')}: ${cardLabel}` : cardLabel;
+}
+
+function revolverIconSvg(className = '') {
+  const classAttr = className ? ` class="${escapeHtml(className)}"` : '';
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 542 265" width="16" height="16" aria-hidden="true"${classAttr}><path fill="currentColor" d="M180 92H111L89 104L47 155L0 243L131 263L152 185L164 161L180 143Z"/><path fill="currentColor" d="M347 86L348 115L502 112L502 90Z"/><path fill="currentColor" fill-rule="evenodd" d="M87 20L82 33L120 74L197 75L198 149L208 173L225 189L247 198L276 198L302 187L319 169L329 139L328 8L150 7L126 36ZM304 137L294 162L272 175L255 175L240 169L229 158L223 143L224 137ZM232 33L244 28L296 29L295 44L236 43L235 63L295 64L296 79L236 79L234 96L295 99L295 114L241 114L226 104L218 88L216 64L223 43Z"/><path fill="currentColor" d="M541 22L514 22L512 0L489 0L473 23L344 24L346 73L541 75Z"/></svg>`;
+}
+
+function fightContextIconSvg(kind, label = '') {
+  const icons = {
+    weapon: {
+      markup: revolverIconSvg('fight-context-revolver')
+    },
+    wounds: {
+      viewBox: '0 0 16 16',
+      svg: '<path d="M8 2.1c1.6 2.1 3.7 4.1 3.7 6.5A3.7 3.7 0 0 1 8 12.3 3.7 3.7 0 0 1 4.3 8.6C4.3 6.2 6.4 4.2 8 2.1Z"/><path d="M6 8.2h4" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" fill="none"/>'
+    },
+    value: {
+      viewBox: '0 0 16 16',
+      svg: '<path d="m8 2.3 1.3 2.6 2.9.4-2.1 2 .5 2.9L8 8.9l-2.6 1.3.5-2.9-2.1-2 2.9-.4L8 2.3Z"/>'
+    },
+    nopoker: {
+      viewBox: '0 0 16 16',
+      svg: '<rect x="3.4" y="2.8" width="8.2" height="10.4" rx="1.4" ry="1.4" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M5.2 5.1h1.8M9 10.9h1.8" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" fill="none"/><path d="M3.1 12.9 12.9 3.1" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" fill="none"/>'
+    }
+  };
+  const icon = icons[kind] || { viewBox: '0 0 16 16', svg: '' };
+  const markup = icon.markup || `<svg viewBox="${icon.viewBox}" focusable="false">${icon.svg}</svg>`;
+  return `<span class="fight-context-icon fight-context-icon-${kind}" aria-hidden="true">${markup}</span>${label ? `<span class="sr-only">${escapeHtml(label)}</span>` : ''}`;
+}
+function fightContextSummaryIcons(st) {
+  const active = [];
+  if (st.opponentHasWeapon) active.push({ kind: 'weapon', label: t('assist.fight.playerHasReducingWeapon') });
+  if (st.opponentAtMaxWounds) active.push({ kind: 'wounds', label: t('assist.fight.playerAtMaxWounds') });
+  if (st.highStakesNpc) active.push({ kind: 'value', label: t('assist.fight.highValueNpc') });
+  if (st.opponentHasNoPokerCards) active.push({ kind: 'nopoker', label: t('assist.fight.playerHasNoPokerCards') });
+  if (!active.length) return '';
+  const label = active.map(item => item.label).join(', ');
+  return `<span class="fight-context-summary-icons" role="img" aria-label="${escapeHtml(label)}">${active.map(item => fightContextIconSvg(item.kind)).join('')}</span>`;
+}
+function renderFightContextOption(kind, dataAttr, checked, label) {
+  return `<label class="fight-weapon-toggle fight-context-option fight-context-option-${kind}"><input type="checkbox" ${dataAttr} ${checked ? 'checked' : ''}>${fightContextIconSvg(kind)}<span class="fight-context-option-text">${escapeHtml(label)}</span></label>`;
+}
+function fightCardResultOtherIndexes(st) {
+  return st.cards.map((_, index) => index).filter(index => index !== st.chosenIndex);
+}
+function captureFightCardRects() {
+  const rects = new Map();
+  assistBody.querySelectorAll('[data-card-index]').forEach(card => {
+    rects.set(Number(card.dataset.cardIndex), card.getBoundingClientRect());
+  });
+  return rects;
+}
+function animateFightCardResultLayout(previousRects) {
+  if (!previousRects || !previousRects.size) return;
+  assistBody.querySelectorAll('[data-card-index]').forEach(card => {
+    const index = Number(card.dataset.cardIndex);
+    const from = previousRects.get(index);
+    if (!from) return;
+    const to = card.getBoundingClientRect();
+    if (!to.width || !to.height) return;
+    const dx = from.left - to.left;
+    const dy = from.top - to.top;
+    const sx = from.width / to.width;
+    const sy = from.height / to.height;
+    if (Math.abs(dx) < .5 && Math.abs(dy) < .5 && Math.abs(sx - 1) < .01 && Math.abs(sy - 1) < .01) return;
+    if (typeof card.animate === 'function') {
+      card.animate([
+        { translate: `${dx}px ${dy}px`, scale: `${sx} ${sy}` },
+        { translate: '0 0', scale: '1 1' }
+      ], {
+        duration: 360,
+        easing: 'cubic-bezier(.22,.72,.2,1)',
+        fill: 'both'
+      });
+    }
+  });
+}
+function renderFightCardEl(index, extraClass = '') {
   const entry = fightCardState.cards[index];
   const stateClass = entry.revealed ? 'fight-card-front-state' : 'fight-card-back-state';
   const chosenClass = fightCardState.chosenIndex === index ? 'fight-card-chosen' : '';
-  return `<div class="fight-card-3d ${stateClass} ${chosenClass}" data-card-index="${index}">
-    <div class="fight-card-face" data-card-face>${fightCardFaceInner(entry.rank, entry.revealed)}</div>
-  </div>`;
+  return `<button type="button" class="fight-card-3d ${stateClass} ${chosenClass} ${extraClass}" data-card-index="${index}" aria-label="${escapeHtml(fightCardInteractiveLabel(index))}">
+    <span class="fight-card-face" data-card-face>${fightCardFaceInner(entry.rank, entry.revealed)}</span>
+  </button>`;
+}
+function fightCardDrawButtonLabel(count, hasDrawn) {
+  return hasDrawn ? t('assist.fight.drawAgain') : t('strings.draw');
+}
+function fightCardGridCountClass(count) {
+  const safeCount = Math.max(1, Number(count) || 1);
+  return safeCount > 4 ? 'fight-card-grid-many' : `fight-card-grid-count-${safeCount}`;
+}
+function fightCardFlipIconSvg() {
+  return `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.2 5.5A7 7 0 0 1 18 9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="m17.8 5.8.6 3.8-3.8-.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><rect x="7.2" y="7.4" width="8.2" height="10.4" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M16.8 18.5A7 7 0 0 1 6 15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="m6.2 18.2-.6-3.8 3.8.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 }
 function updateFightCardDom(container, rank, showFront) {
   const face = container.querySelector('[data-card-face]');
   container.classList.toggle('fight-card-front-state', showFront);
   container.classList.toggle('fight-card-back-state', !showFront);
+  container.setAttribute('aria-label', showFront && rank ? t('assist.fight.cardAlt', { rank }) : t('reference.fightCardBack'));
   face.innerHTML = fightCardFaceInner(rank, showFront);
 }
 
@@ -5932,6 +6535,8 @@ function openFightCardFromFlow(source = 'assist') {
     assistReturnAfterClose = false;
   }
   assistView = 'detail';
+  // Open with the correct NPC/count configured, but wait for the player to
+  // review Circumstances before explicitly pressing Draw.
   renderFightCardAssist();
 }
 
@@ -5952,11 +6557,27 @@ function changeFightCardOpponent(npcType) {
 }
 
 function renderFightCardAssist() {
-  setAssistHeader(t('strings.draw_fight_cards'), t('strings.fight_helper'));
+  setAssistHeader(t('assist.fight.npcFightCard'), t('strings.fight_helper'));
   const st = ensureFightCardState();
   const chosenRank = st.chosenIndex != null ? st.cards[st.chosenIndex]?.rank : null;
   const customCount = st.npcType === 'other';
-  assistBody.innerHTML = `${assistBackButton()}<div class="assist-panel">
+  const gridClass = fightCardGridCountClass(st.count);
+  const otherIndexes = fightCardResultOtherIndexes(st);
+  const cardArea = st.hasDrawn && chosenRank
+    ? `<div class="fight-card-result" data-fight-card-area>
+        <div class="fight-card-result-kicker">${escapeHtml(t('assist.fight.npcPlays'))}</div>
+        <div class="fight-card-result-stage">
+          <div class="fight-card-result-chosen">${renderFightCardEl(st.chosenIndex, 'fight-card-featured')}</div>
+          ${otherIndexes.map((index, pos) => `<div class="fight-card-result-other-slot fight-card-result-other-${pos}">
+            ${renderFightCardEl(index, 'fight-card-result-small')}
+            <button type="button" class="fight-card-flip-control" data-fc-flip="${index}" title="${escapeHtml(t('strings.flip_card'))}" aria-label="${escapeHtml(t('strings.flip_card'))}">${fightCardFlipIconSvg()}</button>
+          </div>`).join('')}
+        </div>
+        <div class="dialog-reward fight-card-chosen-note"><strong>${escapeHtml(chosenRank)}</strong><span>${escapeHtml(fightCardAbilityText(chosenRank))}</span></div>
+      </div>`
+    : `<div class="fight-card-grid ${gridClass}" data-fight-card-area>${st.cards.map((_, index) => renderFightCardEl(index)).join('')}</div>`;
+
+  assistBody.innerHTML = `${assistBackButton()}<div class="assist-panel fight-card-assist-panel">
     <div class="fight-card-opponent-control ${customCount ? 'has-custom-count' : 'fixed-count'}">
       <label><span>${t('strings.npc')}</span><select data-fc-opponent>
         ${Object.entries(FIGHT_CARD_NPC_PRESETS).map(([value, preset]) => `<option value="${value}" ${st.npcType === value ? 'selected' : ''}>${escapeHtml(t(preset.labelKey))}${value === 'other' ? '' : tp('assist.fight.cardCountSuffix', preset.count, { count: preset.count })}</option>`).join('')}
@@ -5967,39 +6588,57 @@ function renderFightCardAssist() {
       </div>` : ''}
     </div>
     ${st.flowTargetLabel ? `<div class="fight-card-flow-context"><strong>${escapeHtml(st.flowTargetLabel)}</strong><span>${escapeHtml(st.flowCountHint)}</span></div>` : ''}
-    <p class="assist-hint">${st.hasDrawn ? t('strings.tap_a_face_down_card_to_peek_at_it_tap_any_revealed_card_to_view_it_full') : t('strings.tap_draw_to_draw_this_many_fight_cards_and_reveal_the_npc_s_best_play')}</p>
-    <div class="fight-card-grid" data-fight-card-area>${st.cards.map((c, i) => renderFightCardEl(i)).join('')}</div>
-    ${chosenRank ? `<div class="dialog-reward fight-card-chosen-note"><strong>${t('strings.npc_plays_the')} ${escapeHtml(chosenRank)}:</strong> ${escapeHtml(fightCardAbilityText(chosenRank))}</div>` : ''}
-    <details class="fight-context-toggles">
-      <summary>${t('strings.advanced_refine_the_npc_s_decision')}</summary>
-      <label class="fight-weapon-toggle"><input type="checkbox" data-fc-weapon ${st.opponentHasWeapon ? 'checked' : ''}> ${t('strings.opponent_has_a_card_reducing_weapon')}</label>
-      <label class="fight-weapon-toggle"><input type="checkbox" data-fc-maxwounds ${st.opponentAtMaxWounds ? 'checked' : ''}> ${t('strings.opponent_already_has_3_wounds_the_max')}</label>
-      <label class="fight-weapon-toggle"><input type="checkbox" data-fc-stakes ${st.highStakesNpc ? 'checked' : ''}> ${t('strings.this_npc_u2019s_defeat_reward_is_especially_valuable_bank_guard_sheriff_')}</label>
-      <label class="fight-weapon-toggle"><input type="checkbox" data-fc-nopoker ${st.opponentHasNoPokerCards ? 'checked' : ''}> ${t('strings.opponent_has_no_poker_cards_to_discard')}</label>
+    ${cardArea}
+    <details class="fight-context-toggles fight-decision-context">
+      <summary><span class="fight-context-summary-main"><span class="fight-context-summary-title">${escapeHtml(t('assist.fight.decisionContext'))}</span>${fightContextSummaryIcons(st)}</span><span class="fight-context-summary-chevron" aria-hidden="true"></span></summary>
+      ${renderFightContextOption('weapon', 'data-fc-weapon', st.opponentHasWeapon, t('assist.fight.playerHasReducingWeapon'))}
+      ${renderFightContextOption('wounds', 'data-fc-maxwounds', st.opponentAtMaxWounds, t('assist.fight.playerAtMaxWounds'))}
+      ${renderFightContextOption('value', 'data-fc-stakes', st.highStakesNpc, t('assist.fight.highValueNpc'))}
+      ${renderFightContextOption('nopoker', 'data-fc-nopoker', st.opponentHasNoPokerCards, t('assist.fight.playerHasNoPokerCards'))}
     </details>
-    <button type="button" class="primary-btn assist-action-btn-centered" data-fc-draw>${st.hasDrawn ? t('reference.redraw') : t('reference.draw')}</button>
+    <button type="button" class="primary-btn assist-action-btn-centered fight-card-draw-btn" data-fc-draw>${escapeHtml(fightCardDrawButtonLabel(st.count, st.hasDrawn))}</button>
   </div>`;
   bindAssistBack();
   assistBody.querySelector('[data-fc-opponent]').onchange = event => changeFightCardOpponent(event.target.value);
-  assistBody.querySelector('[data-fc-weapon]').onchange = event => { fightCardState.opponentHasWeapon = event.target.checked; };
-  assistBody.querySelector('[data-fc-maxwounds]').onchange = event => { fightCardState.opponentAtMaxWounds = event.target.checked; };
-  assistBody.querySelector('[data-fc-stakes]').onchange = event => { fightCardState.highStakesNpc = event.target.checked; };
-  assistBody.querySelector('[data-fc-nopoker]').onchange = event => { fightCardState.opponentHasNoPokerCards = event.target.checked; };
+  assistBody.querySelector('[data-fc-weapon]').onchange = event => { fightCardState.opponentHasWeapon = event.target.checked; updateFightContextSummaryDom(); };
+  assistBody.querySelector('[data-fc-maxwounds]').onchange = event => { fightCardState.opponentAtMaxWounds = event.target.checked; updateFightContextSummaryDom(); };
+  assistBody.querySelector('[data-fc-stakes]').onchange = event => { fightCardState.highStakesNpc = event.target.checked; updateFightContextSummaryDom(); };
+  assistBody.querySelector('[data-fc-nopoker]').onchange = event => { fightCardState.opponentHasNoPokerCards = event.target.checked; updateFightContextSummaryDom(); };
   const minusBtn = assistBody.querySelector('[data-fc-minus]');
   const plusBtn = assistBody.querySelector('[data-fc-plus]');
   if (minusBtn) minusBtn.onclick = () => adjustFightCardCount(-1);
   if (plusBtn) plusBtn.onclick = () => adjustFightCardCount(1);
   assistBody.querySelector('[data-fc-draw]').onclick = () => animateFightCardDraw();
   assistBody.querySelector('[data-fight-card-area]').onclick = event => {
+    const flipBtn = event.target.closest('[data-fc-flip]');
+    if (flipBtn) {
+      event.stopPropagation();
+      animateToggleFightCard(Number(flipBtn.dataset.fcFlip));
+      return;
+    }
     const cardEl = event.target.closest('[data-card-index]');
     if (!cardEl) return;
     const index = Number(cardEl.dataset.cardIndex);
     const entry = fightCardState.cards[index];
     if (!entry || !entry.rank) return;
-    if (entry.revealed) showFullscreenImage(fightCardFrontSrc(entry.rank), t('assist.fight.cardAlt', { rank: entry.rank }), '');
-    else animatePeekFightCard(index);
+    const src = entry.revealed ? fightCardFrontSrc(entry.rank) : FIGHT_CARD_BACK_SRC;
+    const alt = entry.revealed ? t('assist.fight.cardAlt', { rank: entry.rank }) : t('reference.fightCardBack');
+    showFullscreenImage(src, alt, '');
   };
   showAssistDialog();
+}
+
+
+function updateFightContextSummaryDom() {
+  const summaryIcons = assistBody.querySelector('.fight-context-summary-icons');
+  const summaryMain = assistBody.querySelector('.fight-context-summary-main');
+  const st = ensureFightCardState();
+  const html = fightContextSummaryIcons(st);
+  if (summaryIcons) {
+    summaryIcons.outerHTML = html || '';
+  } else if (html && summaryMain) {
+    summaryMain.insertAdjacentHTML('beforeend', html);
+  }
 }
 
 function adjustFightCardCount(delta) {
@@ -6019,18 +6658,41 @@ function adjustFightCardCount(delta) {
   renderFightCardAssist();
 }
 
-// Flips a single face-down card to reveal it without changing which card is
-// "chosen" for the fight - just a peek.
-function animatePeekFightCard(index) {
+// Flip controls on unselected cards toggle only that physical card. Clicking
+// the card itself is reserved for opening the currently visible face full-size.
+function animateToggleFightCard(index) {
+  if (fightCardState?.chosenIndex === index) return;
   const cardEl = assistBody.querySelector(`[data-card-index="${index}"]`);
   if (!cardEl) return;
   const face = cardEl.querySelector('[data-card-face]');
   const entry = fightCardState.cards[index];
-  if (!entry || entry.revealed) return;
+  if (!entry?.rank) return;
+  const showFront = !entry.revealed;
   flipStoreSlotFace(face, () => {
-    entry.revealed = true;
-    updateFightCardDom(cardEl, entry.rank, true);
+    entry.revealed = showFront;
+    updateFightCardDom(cardEl, entry.rank, showFront);
   });
+}
+
+function nextFightCardLayoutPaint() {
+  return new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+}
+
+async function resetFightCardHandForRedraw(st) {
+  const inHand = st.cards.filter(card => card.rank).map(card => card.rank);
+  if (inHand.length) discardFightCardsToDeck(inHand);
+
+  // Keep hasDrawn true so the action continues to read “Draw Again”, but
+  // clear the chosen state and render every card back in the original
+  // equal-size grid. This snap happens before a new hand is selected.
+  st.cards = st.cards.map(card => ({ rank: card.rank, revealed: false }));
+  st.chosenIndex = null;
+  fightCardState = st;
+  renderFightCardAssist();
+  const drawBtn = assistBody.querySelector('[data-fc-draw]');
+  if (drawBtn) drawBtn.disabled = true;
+  await nextFightCardLayoutPaint();
+  return ensureFightCardState();
 }
 
 // Discards whatever's currently in hand, draws a fresh set from the
@@ -6038,12 +6700,16 @@ function animatePeekFightCard(index) {
 // currently-revealed card flips back to its back first, then the newly
 // chosen card flips forward to reveal itself. Reuses the exact same
 // scaleX flip helper built for the Store Randomizer.
-function animateFightCardDraw() {
-  const st = ensureFightCardState();
-  if (st.hasDrawn) {
-    const inHand = st.cards.filter(c => c.rank).map(c => c.rank);
-    if (inHand.length) discardFightCardsToDeck(inHand);
-  }
+async function animateFightCardDraw() {
+  let st = ensureFightCardState();
+  const initialDrawBtn = assistBody.querySelector('[data-fc-draw]');
+  if (initialDrawBtn) initialDrawBtn.disabled = true;
+
+  // On Draw Again, first snap the previous result back to the same neutral
+  // equal-size hand used before a selection. Only after that layout has had
+  // a chance to paint do we draw and choose the next NPC card.
+  if (st.hasDrawn) st = await resetFightCardHandForRedraw(st);
+
   const drawnRanks = drawFightCardsFromDeck(st.count);
   const chosenLocalIndex = drawnRanks.length ? drawnRanks.indexOf(chooseBestFightCard(drawnRanks, {
     opponentHasReducingWeapon: st.opponentHasWeapon,
@@ -6052,7 +6718,9 @@ function animateFightCardDraw() {
     highStakesNpc: st.highStakesNpc
   })) : -1;
 
-  assistBody.querySelector('[data-fc-draw]').disabled = true;
+  const drawBtn = assistBody.querySelector('[data-fc-draw]');
+  if (drawBtn) drawBtn.disabled = true;
+  const previousCardRects = captureFightCardRects();
   const cardEls = assistBody.querySelectorAll('[data-card-index]');
   const flips = [];
   cardEls.forEach((el, i) => {
@@ -6084,7 +6752,9 @@ function animateFightCardDraw() {
     opponentHasNoPokerCards: st.opponentHasNoPokerCards,
     highStakesNpc: st.highStakesNpc
   };
-  Promise.all(flips).then(() => renderFightCardAssist());
+  await Promise.all(flips);
+  renderFightCardAssist();
+  requestAnimationFrame(() => animateFightCardResultLayout(previousCardRects));
 }
 
 function renderGamblingAssist(game = null, returnTarget = gamblingFlowReturnTarget) {
@@ -6437,6 +7107,52 @@ function isTradingPostActive() {
   return isSetupVisualVisible(cfg);
 }
 
+function chooseSplitGeneralStoreGuarantees(slotCount, randomFn = Math.random) {
+  const firstTownCount = Math.floor(slotCount / 2);
+  const secondTownCount = slotCount - firstTownCount;
+  if (!firstTownCount || !secondTownCount) return { weaponIndex: 0, mountIndex: Math.max(0, slotCount - 1) };
+
+  const weaponInFirstTown = randomFn() < 0.5;
+  const firstTownIndex = Math.floor(randomFn() * firstTownCount);
+  const secondTownIndex = firstTownCount + Math.floor(randomFn() * secondTownCount);
+  return weaponInFirstTown
+    ? { weaponIndex: firstTownIndex, mountIndex: secondTownIndex }
+    : { weaponIndex: secondTownIndex, mountIndex: firstTownIndex };
+}
+
+function splitGeneralStoreItems(items) {
+  const splitAt = Math.floor(items.length / 2);
+  return {
+    darkrock: items.slice(0, splitAt),
+    redFalls: items.slice(splitAt)
+  };
+}
+
+function storeSlotRequiredType(area, index, layout = currentStoreLayout) {
+  if (area === 'generalStore') {
+    const guarantees = layout?.generalStoreGuarantees;
+    if (guarantees?.weaponIndex === index) return 'weapon';
+    if (guarantees?.mountIndex === index) return 'mount';
+    return null;
+  }
+  if (area === 'tradingPost' && index === 0) return 'weapon';
+  if (area === 'tradingPost' && index === 1) return 'mount';
+  return null;
+}
+
+function storeLayoutSignature() {
+  const generalSlots = db.items?.storeLayout?.generalStore?.slots || 6;
+  const tradingActive = isTradingPostActive();
+  const tradingSlots = tradingActive ? (db.items?.storeLayout?.tradingPost?.slots || 6) : 0;
+  const eligibleIds = eligibleStoreItems().map(item => item.id).filter(Boolean).sort().join(',');
+  return `${generalSlots}|${tradingActive ? 1 : 0}|${tradingSlots}|${eligibleIds}`;
+}
+
+function resetCurrentStoreLayout() {
+  currentStoreLayout = null;
+  currentStoreLayoutSignature = null;
+}
+
 function generateStoreLayout() {
   const pool = shuffleArray(eligibleStoreItems());
   const generalSlots = db.items?.storeLayout?.generalStore?.slots || 6;
@@ -6448,27 +7164,26 @@ function generateStoreLayout() {
     return idx === -1 ? null : pool.splice(idx, 1)[0];
   };
 
-  const generalStore = [];
-  const tradingPost = [];
+  // The General Store can be displayed as one shared 12-card inventory or
+  // split into six cards for Darkrock and six for Red Falls. Build every deal
+  // so its guaranteed Weapon and Mount land in opposite halves. Which town
+  // receives which category is randomized for every new deal.
+  const generalStoreGuarantees = chooseSplitGeneralStoreGuarantees(generalSlots);
+  const generalStore = Array.from({ length: generalSlots }, () => null);
+  generalStore[generalStoreGuarantees.weaponIndex] = takeFirstOfType('weapon');
+  generalStore[generalStoreGuarantees.mountIndex] = takeFirstOfType('mount');
 
-  const firstWeapon = takeFirstOfType('weapon');
-  if (firstWeapon) generalStore.push(firstWeapon);
-  const firstMount = takeFirstOfType('mount');
-  if (firstMount) generalStore.push(firstMount);
+  const tradingPost = tradingActive
+    ? [takeFirstOfType('weapon'), takeFirstOfType('mount')]
+    : [];
 
-  if (tradingActive) {
-    const secondWeapon = takeFirstOfType('weapon');
-    if (secondWeapon) tradingPost.push(secondWeapon);
-    const secondMount = takeFirstOfType('mount');
-    if (secondMount) tradingPost.push(secondMount);
+  for (let i = 0; i < generalStore.length && pool.length; i++) {
+    if (!generalStore[i]) generalStore[i] = pool.shift();
   }
-
-  while (generalStore.length < generalSlots && pool.length) generalStore.push(pool.shift());
   while (tradingPost.length < tradingSlots && pool.length) tradingPost.push(pool.shift());
-  while (generalStore.length < generalSlots) generalStore.push(null);
   while (tradingPost.length < tradingSlots) tradingPost.push(null);
 
-  return { generalStore, tradingPost, tradingActive };
+  return { generalStore, generalStoreGuarantees, tradingPost, tradingActive };
 }
 
 const CARD_BACK_SRC = 'assets/images/cards/item-back.png';
@@ -6477,6 +7192,8 @@ const STORE_FLIP_STAGGER_MS = 40;
 const STORE_FLIP_PAUSE_MS = 90;
 
 let currentStoreLayout = null;
+let currentStoreLayoutSignature = null;
+let currentGeneralStoreMode = 'shared';
 let storeAutoRandomizeTimer = null;
 
 function itemTypeLabel(type) {
@@ -6513,24 +7230,74 @@ function storeSlotFaceInnerHtml(item, showFront) {
 //   an item obj -> drawn card, shown as its back or front depending on `revealed`
 function renderStoreSlotCard(item, area, index, revealed) {
   if (!item) {
-    return `<div class="store-slot store-slot-empty" data-slot="${area}:${index}"><span class="store-slot-empty-label">${t('strings.empty')}</span></div>`;
+    return `<div class="store-slot store-slot-empty" data-slot="${area}:${index}" data-original-slot-index="${index}"><span class="store-slot-empty-label">${t('strings.empty')}</span></div>`;
   }
   const showFront = !!revealed;
   const rerollBtn = showFront
     ? `<button type="button" class="store-slot-reroll" data-reroll-slot="${area}:${index}" title="${t('strings.draw_a_different_item')}" aria-label="${escapeHtml(t('assist.store.rerollItem', { item: item.name }))}">⟲</button>`
     : '';
-  return `<div class="store-slot ${showFront ? 'store-slot-' + item.type : 'store-slot-back'}" data-slot="${area}:${index}">
-    <div class="store-slot-face" ${showFront ? `data-view-card="${area}:${index}" role="button" tabindex="0" aria-label="${escapeHtml(t('assist.store.viewItemFullSize', { item: item.name }))}"` : ''}>${storeSlotFaceInnerHtml(item, showFront)}</div>
+  return `<div class="store-slot ${showFront ? 'store-slot-' + item.type : 'store-slot-back'}" data-slot="${area}:${index}" data-original-slot-index="${index}">
+    <button type="button" class="store-slot-face" ${showFront ? `data-view-card="${area}:${index}" aria-label="${escapeHtml(t('assist.store.viewItemFullSize', { item: item.name }))}"` : 'disabled tabindex="-1" aria-hidden="true"'}>${storeSlotFaceInnerHtml(item, showFront)}</button>
     ${rerollBtn}
   </div>`;
 }
 
+function compactStoreDisplayEntries(items, startIndex = 0) {
+  const entries = items.map((item, offset) => ({ item, originalIndex: startIndex + offset }));
+  return entries.filter(entry => entry.item).concat(entries.filter(entry => !entry.item));
+}
+
+function renderStoreSlotGrid(items, area, revealed, startIndex = 0, extraClass = '') {
+  const classes = ['store-slot-grid', extraClass].filter(Boolean).join(' ');
+  const entries = compactStoreDisplayEntries(items, startIndex);
+  return `<div class="${classes}">${entries.map(entry => renderStoreSlotCard(entry.item, area, entry.originalIndex, revealed)).join('')}</div>`;
+}
+
+function renderStoreLayoutControl(mode) {
+  const sharedActive = mode !== 'split';
+  return `<div class="store-layout-control">
+    <span class="store-layout-label">${escapeHtml(t('strings.store_layout'))}</span>
+    <div class="store-layout-segmented" role="group" aria-label="${escapeHtml(t('strings.store_layout'))}">
+      <button type="button" class="store-layout-btn${sharedActive ? ' active' : ''}" data-store-layout-mode="shared" aria-pressed="${sharedActive ? 'true' : 'false'}">${escapeHtml(t('strings.shared_store'))}</button>
+      <button type="button" class="store-layout-btn${!sharedActive ? ' active' : ''}" data-store-layout-mode="split" aria-pressed="${!sharedActive ? 'true' : 'false'}">${escapeHtml(t('strings.split_by_town'))}</button>
+    </div>
+  </div>`;
+}
+
+function renderStoreTown(title, items, startIndex, revealed) {
+  return `<section class="store-town" aria-label="${escapeHtml(title)}">
+    <h4 class="store-town-title">${escapeHtml(title)}</h4>
+    ${renderStoreSlotGrid(items, 'generalStore', revealed, startIndex, 'store-town-slot-grid')}
+  </section>`;
+}
+
+function renderGeneralStoreArea(title, items, revealed, mode) {
+  if (!items.length) return '';
+  let inventoryHtml = renderStoreSlotGrid(items, 'generalStore', revealed);
+  if (mode === 'split') {
+    const split = splitGeneralStoreItems(items);
+    inventoryHtml = `<div class="store-town-split">
+      ${renderStoreTown(t('strings.darkrock'), split.darkrock, 0, revealed)}
+      ${renderStoreTown(t('strings.red_falls'), split.redFalls, split.darkrock.length, revealed)}
+    </div>`;
+  }
+  return `<section class="store-area store-area-general" aria-label="${escapeHtml(title)}">
+    <header class="store-area-header">
+      <h3 class="store-area-title">${escapeHtml(title)}</h3>
+    </header>
+    ${renderStoreLayoutControl(mode)}
+    ${inventoryHtml}
+  </section>`;
+}
+
 function renderStoreArea(title, items, area, revealed) {
   if (!items.length) return '';
-  return `<div class="store-area">
-    <h3 class="store-area-title">${escapeHtml(title)}</h3>
-    <div class="store-slot-grid">${items.map((item, index) => renderStoreSlotCard(item, area, index, revealed)).join('')}</div>
-  </div>`;
+  return `<section class="store-area" aria-label="${escapeHtml(title)}">
+    <header class="store-area-header">
+      <h3 class="store-area-title">${escapeHtml(title)}</h3>
+    </header>
+    ${renderStoreSlotGrid(items, area, revealed)}
+  </section>`;
 }
 
 // Updates an already-rendered slot's contents in place (no re-render), used mid-flip
@@ -6541,9 +7308,10 @@ function updateStoreSlotDom(container, item, area, index, showFront) {
   face.innerHTML = storeSlotFaceInnerHtml(item, showFront);
   let rerollBtn = container.querySelector('.store-slot-reroll');
   if (showFront) {
+    face.disabled = false;
     face.dataset.viewCard = `${area}:${index}`;
-    face.setAttribute('role', 'button');
-    face.setAttribute('tabindex', '0');
+    face.removeAttribute('tabindex');
+    face.removeAttribute('aria-hidden');
     face.setAttribute('aria-label', t('assist.store.viewItemFullSize', { item: item.name }));
     if (!rerollBtn) {
       rerollBtn = document.createElement('button');
@@ -6556,9 +7324,10 @@ function updateStoreSlotDom(container, item, area, index, showFront) {
     rerollBtn.setAttribute('aria-label', t('assist.store.rerollItem', { item: item.name }));
     rerollBtn.textContent = '⟲';
   } else {
+    face.disabled = true;
     delete face.dataset.viewCard;
-    face.removeAttribute('role');
-    face.removeAttribute('tabindex');
+    face.setAttribute('tabindex', '-1');
+    face.setAttribute('aria-hidden', 'true');
     face.removeAttribute('aria-label');
     if (rerollBtn) rerollBtn.remove();
   }
@@ -6582,6 +7351,7 @@ function flipStoreSlotFace(faceEl, swapContent, delay = 0) {
 
 function setStoreControlsDisabled(disabled) {
   assistBody.querySelectorAll('.store-slot').forEach(el => el.classList.toggle('store-slot-locked', disabled));
+  assistBody.querySelectorAll('[data-store-layout-mode]').forEach(btn => { btn.disabled = disabled; });
   const btn = assistBody.querySelector('[data-store-randomize-all]');
   if (btn) btn.disabled = disabled;
 }
@@ -6619,6 +7389,7 @@ function randomizeStoreAllAnimated() {
     });
   });
   currentStoreLayout = newLayout;
+  currentStoreLayoutSignature = storeLayoutSignature();
   Promise.all(promises).then(() => renderStoreRandomizerAssist());
 }
 
@@ -6630,7 +7401,12 @@ function rerollStoreSlotAnimated(area, index) {
   const face = slotEl.querySelector('.store-slot-face');
   const outgoing = currentStoreLayout[area][index];
   const usedIds = new Set([...currentStoreLayout.generalStore, ...currentStoreLayout.tradingPost].filter(Boolean).map(i => i.id));
-  const candidates = eligibleStoreItems().filter(i => !usedIds.has(i.id) && i.id !== outgoing?.id);
+  const requiredType = storeSlotRequiredType(area, index);
+  const candidates = eligibleStoreItems().filter(item =>
+    !usedIds.has(item.id) &&
+    item.id !== outgoing?.id &&
+    (!requiredType || item.type === requiredType)
+  );
   const replacement = candidates.length ? candidates[Math.floor(Math.random() * candidates.length)] : outgoing;
 
   setStoreControlsDisabled(true);
@@ -6670,6 +7446,11 @@ function showFullscreenStoreCard(item) {
 
 function renderStoreRandomizerAssist() {
   setAssistHeader(t('strings.store_randomizer'), t('strings.setup_helper'));
+  assistDialog.classList.add('store-randomizer-dialog');
+
+  const signature = storeLayoutSignature();
+  if (currentStoreLayout && currentStoreLayoutSignature !== signature) resetCurrentStoreLayout();
+
   const generalSlots = db.items?.storeLayout?.generalStore?.slots || 6;
   const tradingActive = isTradingPostActive();
   const tradingSlots = tradingActive ? (db.items?.storeLayout?.tradingPost?.slots || 6) : 0;
@@ -6678,22 +7459,30 @@ function renderStoreRandomizerAssist() {
   const tradingItems = hasLayout ? currentStoreLayout.tradingPost : Array.from({ length: tradingSlots }, () => ({ __pending: true }));
 
   // A "pending" placeholder has no real name/type yet — it only ever renders as a card back.
-  const generalHtml = renderStoreArea(t('strings.general_store'), generalItems, 'generalStore', hasLayout);
+  const generalHtml = renderGeneralStoreArea(t('strings.general_store'), generalItems, hasLayout, currentGeneralStoreMode);
   const tradingHtml = tradingActive
     ? renderStoreArea(t('strings.trading_post'), tradingItems, 'tradingPost', hasLayout)
     : t('strings.trading_post_is_inactive_for_this_setup_enable_the_buzzard_gulch_sideb');
-  const hint = !hasLayout
-    ? t('strings.tap_randomize_to_reveal_the_store')
-    : t('strings.tap_a_card_to_view_it_full_size_or_tap_to_draw_a_different_item_the_firs');
   assistBody.innerHTML = `${assistBackButton()}<div class="assist-panel store-randomizer">
-    <p class="assist-hint">${hint}</p>
+    <p class="assist-hint store-randomizer-hint">${escapeHtml(t('strings.store_interaction_hint'))}</p>
     ${generalHtml}
     ${tradingHtml}
-    <button type="button" class="secondary-btn" data-store-randomize-all>${hasLayout ? t('reference.rerandomize') : t('reference.randomize')}</button>
+    <div class="store-randomizer-actions">
+      <button type="button" class="secondary-btn store-deal-btn" data-store-randomize-all>${escapeHtml(t('strings.deal_new_store'))}</button>
+    </div>
   </div>`;
   bindAssistBack();
   const wrap = assistBody.querySelector('.store-randomizer');
   wrap.onclick = event => {
+    const layoutModeBtn = event.target.closest('[data-store-layout-mode]');
+    if (layoutModeBtn) {
+      const mode = layoutModeBtn.dataset.storeLayoutMode === 'split' ? 'split' : 'shared';
+      if (mode !== currentGeneralStoreMode) {
+        currentGeneralStoreMode = mode;
+        renderStoreRandomizerAssist();
+      }
+      return;
+    }
     const rerollBtn = event.target.closest('[data-reroll-slot]');
     if (rerollBtn) {
       const [area, index] = rerollBtn.dataset.rerollSlot.split(':');
@@ -6723,11 +7512,25 @@ function renderStoreRandomizerAssist() {
 
 function renderRandomPlayerAssist() {
   setAssistHeader(t('strings.random_player'), t('strings.randomizer'));
-  const colors = (state.setup.playerColors || PLAYER_COLORS.slice(0, state.setup.players || 4)).filter(Boolean);
-  const picked = colors[Math.floor(Math.random() * colors.length)] || 'white';
-  assistBody.innerHTML = `${assistBackButton()}<div class="assist-panel">
-    <div class="random-player-result"><span class="player-color large" style="background:${picked}"></span><strong>${picked.toUpperCase()} ${t('strings.player')}</strong></div>
-    <button type="button" class="primary-btn" data-random-again>${t('strings.pick_again')}</button>
+  const configuredPlayers = (state.setup.playerDetails || []).filter(player => player?.color);
+  const fallbackPlayers = (state.setup.playerColors || PLAYER_COLORS.slice(0, state.setup.players || 4)).filter(Boolean).map(color => ({ color, name: '', characterId: '' }));
+  const players = configuredPlayers.length ? configuredPlayers : fallbackPlayers;
+  const picked = players[Math.floor(Math.random() * players.length)] || { color: 'white', name: '', characterId: '' };
+  const record = picked.characterId ? characterDataRecord(picked.characterId) : null;
+  const portrait = record ? characterThumbnailSource(record) : '';
+  const portraitStyle = record ? characterThumbnailStyle(record) : '';
+  const characterName = record?.name || localizedColorName(picked.color) || t('strings.player');
+  const playerName = String(picked.name || '').trim();
+  const label = playerName ? `${characterName} (${playerName})` : characterName;
+  const thumb = record
+    ? `<span class="random-player-character-thumb"><img src="${escapeHtml(portrait)}" style="${escapeHtml(portraitStyle)}" alt="${escapeHtml(record.name || '')}" loading="lazy" onerror="this.closest('.random-player-character-thumb').classList.add('image-missing');this.remove();"><span aria-hidden="true">${escapeHtml((record.name || '').slice(0, 1))}</span></span>`
+    : `<span class="random-player-character-thumb random-player-character-thumb-empty" aria-hidden="true">?</span>`;
+  assistBody.innerHTML = `${assistBackButton()}<div class="assist-panel random-player-assist">
+    <div class="random-player-result">
+      <div class="random-player-color-tile" style="--random-player-color:${escapeHtml(picked.color || 'white')}">${thumb}</div>
+      <strong class="random-player-label">${escapeHtml(label)}</strong>
+    </div>
+    <div class="random-player-actions"><button type="button" class="primary-btn random-player-pick-again" data-random-again>${escapeHtml(t('strings.pick_again'))}</button></div>
   </div>`;
   bindAssistBack();
   assistBody.querySelector('[data-random-again]').onclick = renderRandomPlayerAssist;
@@ -6748,6 +7551,7 @@ function renderFirstPlayerAssist() {
   const stage = document.getElementById('firstPlayerStage');
   const canvas = document.getElementById('firstPlayerCanvas');
   const timer = document.getElementById('firstPlayerTimer');
+  timer.textContent = ''; // countdown idle
   const hint = document.getElementById('firstPlayerHint');
   const ctx = canvas.getContext('2d');
 
@@ -6920,7 +7724,7 @@ function renderFirstPlayerAssist() {
     for (const touch of Array.from(event.changedTouches || [])) touches.delete(touch.identifier);
     if (touches.size === 0) {
       stopCountdown();
-      timer.textContent = '3';
+      timer.textContent = '';
       hint.textContent = t('assist.firstPlayer.instruction');
     } else {
       startCountdown();
@@ -6949,7 +7753,7 @@ function renderFirstPlayerAssist() {
     pointerDown = false;
     touches.delete('mouse');
     stopCountdown();
-    timer.textContent = '3';
+    timer.textContent = '';
   };
 
   const drawFirstPlayerToken = (x, y, radius, alpha = 1) => {
@@ -7363,6 +8167,7 @@ function renderEndGame() {
   document.getElementById('finishGame').onclick = () => {
     if (!confirm(t('strings.finish_this_game_and_clear_its_saved_data_print_or_save_the_newspaper_fi'))) return;
     localStorage.removeItem(SAVE_KEY);
+    resetCurrentStoreLayout();
     state = defaultState();
     render();
   };
@@ -7391,15 +8196,14 @@ function computeWorldTension() {
 
 // Classifies the whole game (or its state so far, mid-game) into one
 // overall "feel" - lawlessness, law and order, opportunity, a tense
-// standoff between the two, open bloodshed regardless of which side caused
-// it, or a quiet day with little to report. This single classification
+// standoff between the two, or a quiet day with little to report. Fighting can
+// shape the story without becoming its own morally ambiguous Frontier Mood.
 // drives both the newspaper's voice and which music track is playing, so
 // the two always agree with each other.
 function computeFrontierMood() {
   const tension = computeWorldTension();
   let key, label;
   if (tension.total < 3) { key = 'quiet'; label = t('newspaper.moodLabels.quiet'); }
-  else if (tension.total >= 5 && tension.fights / tension.total >= 0.5) { key = 'bloodshed'; label = t('newspaper.moodLabels.bloodshed'); }
   else if (tension.net >= 3) { key = 'lawless'; label = t('newspaper.moodLabels.lawless'); }
   else if (tension.net <= -3) { key = 'orderly'; label = t('newspaper.moodLabels.orderly'); }
   else if (Math.abs(tension.net) <= 1 && tension.wanted + tension.marshal >= 4) { key = 'tense'; label = t('newspaper.moodLabels.tense'); }
@@ -7977,7 +8781,7 @@ function generateNewspaperArticle() {
     <div class="newspaper-clear" aria-hidden="true"></div>`;
 }
 
-const APP_VERSION = '1.3.0';
+const APP_VERSION = '1.4.0';
 let swRegistration = null;
 let appUpdateAvailable = false;
 let deferredInstallPrompt = null;
