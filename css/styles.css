@@ -472,6 +472,26 @@ button { color: inherit; cursor: pointer; }
   place-items: center;
   overflow: visible;
 }
+.story-track-points-group {
+  width: 100%;
+  height: 48px;
+  display: grid;
+  grid-template-rows: 10px 36px;
+  align-content: center;
+  justify-items: center;
+  row-gap: 1px;
+}
+.story-track-caption {
+  color: rgba(83,56,35,.72);
+  font-family: 'Rye', Georgia, serif;
+  font-size: .56rem;
+  line-height: 1;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.story-track-points-group .story-track-strip { height: 36px; }
+
 .story-track-strip {
   width: 100%;
   height: 48px;
@@ -1151,47 +1171,179 @@ ol.ref-card li div{
   min-height: 1em;
   display: none;
 }
-.store-area {
-  margin-bottom: 20px;
+.assist-dialog.store-randomizer-dialog {
+  width: min(680px, calc(100vw - 22px));
 }
-.store-area-title {
-  margin: 0 0 8px;
-  font-family: var(--wl-fell-font);
-  text-transform: uppercase;
-  letter-spacing: .04em;
-  font-size: .95rem;
-  _color: var(--brown);
-
-  background: var(--brown);
-  color: #fdf4de;
-  padding: 3px 5px;
+.store-randomizer {
+  padding: 12px;
+  overflow: visible;
+}
+.store-randomizer-hint {
+  margin: 0 2px 12px;
   text-align: center;
+}
+.store-area {
+  position: relative;
+  margin: 12px 0 17px;
+  padding: 10px;
+  border: 1px solid rgba(104,67,36,.22);
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(173,122,40,.055), transparent 38%),
+    linear-gradient(180deg, rgba(255,250,238,.68), rgba(244,226,188,.52));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.46),
+    0 2px 7px rgba(84,52,24,.06);
+}
+.store-area-header {
+  display: grid;
+  grid-template-columns: minmax(18px, 1fr) auto minmax(18px, 1fr);
+  gap: 9px;
+  align-items: center;
+  margin: 0 1px 9px;
+}
+.store-area-header::before,
+.store-area-header::after {
+  content: '';
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(104,67,36,.34));
+}
+.store-area-header::after { transform: scaleX(-1); }
+.store-area-title {
+  margin: 0;
+  font-family: 'Rye', Georgia, serif;
+  font-size: .96rem;
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: .045em;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  color: var(--brown);
+}
+.store-layout-control {
+  width: min(100%, 360px);
+  margin: -1px auto 10px;
+  display: grid;
+  gap: 5px;
+}
+.store-layout-label {
+  color: var(--muted);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: .76rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .055em;
+  text-align: center;
+  text-transform: uppercase;
+}
+.store-layout-segmented {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3px;
+  padding: 3px;
+  border: 1px solid rgba(104,67,36,.24);
+  border-radius: 10px;
+  background: rgba(231,200,142,.24);
+  box-shadow: inset 0 1px 2px rgba(84,52,24,.07);
+}
+.store-layout-btn {
+  min-width: 0;
+  min-height: 32px;
+  padding: 6px 8px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--wl-fell-font);
+  font-size: .9rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: normal;
+  box-shadow: none;
+}
+.store-layout-btn.active {
+  background: linear-gradient(180deg, #81503a, #684324);
+  color: #fff8e9;
+  box-shadow: 0 2px 5px rgba(62,35,18,.2), inset 0 1px 0 rgba(255,255,255,.12);
+}
+.store-layout-btn:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+}
+.store-layout-btn:disabled { opacity: .5; cursor: default; }
+.store-town-split {
+  display: grid;
+  gap: 13px;
+}
+.store-town { min-width: 0; }
+.store-town-title {
+  margin: 0 1px 7px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--red);
+  font-family: 'Rye', Georgia, serif;
+  font-size: .82rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: .045em;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.store-town-title::before,
+.store-town-title::after {
+  content: '';
+  flex: 1 1 auto;
+  height: 1px;
+  background: rgba(104,67,36,.22);
+}
+.store-town .store-slot-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
 }
 .store-slot-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
-  gap: 7px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
 }
 .store-slot {
   position: relative;
+  min-width: 0;
   border: 1px solid rgba(91,57,28,.28);
   border-radius: 10px;
   overflow: hidden;
   box-shadow: inset 0 0 0 2px rgba(255,255,255,.4);
+  background: rgba(255,248,232,.45);
 }
 .store-slot-face {
+  appearance: none;
+  -webkit-appearance: none;
   display: block;
   width: 100%;
   aspect-ratio: 5 / 7;
   position: relative;
   transform-origin: 50% 50%;
   will-change: transform;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
 }
-.store-slot-face[data-view-card] {
-  cursor: pointer;
+.store-slot-face:disabled {
+  opacity: 1;
+  cursor: default;
 }
-.store-slot-face:active {
-  transform: scale(.98);
+.store-slot-face[data-view-card] { cursor: pointer; }
+.store-slot-face[data-view-card]:active { transform: scale(.98); }
+.store-slot-face[data-view-card]:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: -3px;
 }
 .store-slot-art {
   display: block;
@@ -1223,7 +1375,7 @@ ol.ref-card li div{
   display: grid;
   gap: 1px;
   text-align: center;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,.8);
   pointer-events: none;
 }
 .store-slot-name {
@@ -1234,7 +1386,7 @@ ol.ref-card li div{
   text-shadow: 0 1px 2px rgba(0,0,0,.6);
 }
 .store-slot-type {
-  font-size: .56rem;
+  font-size: .7rem;
   text-transform: uppercase;
   letter-spacing: .03em;
   color: #f3dfb7;
@@ -1242,24 +1394,39 @@ ol.ref-card li div{
 }
 .store-slot-reroll {
   position: absolute;
-  top: 4px;
-  right: 4px;
-  font-size: .78rem;
-  color: #fff8e9;
-  background: rgba(45,28,15,.6);
-  border: none;
-  border-radius: 999px;
-  width: 20px;
-  height: 20px;
+  top: 1px;
+  right: 1px;
+  width: 32px;
+  height: 32px;
   display: grid;
   place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #fff8e9;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: .82rem;
   line-height: 1;
-  z-index: 2;
-  padding: 6px 0;
+  text-shadow: 0 1px 2px rgba(20,12,6,.8);
+  z-index: 4;
 }
-.store-slot-reroll:active {
-  transform: scale(.9);
+.store-slot-reroll::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(255,248,233,.24);
+  border-radius: 50%;
+  background: rgba(45,28,15,.58);
+  box-shadow: 0 1px 3px rgba(20,12,6,.22);
+  z-index: -1;
 }
+.store-slot-reroll:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -2px;
+}
+.store-slot-reroll:active { transform: scale(.92); }
 .store-slot-weapon { box-shadow: inset 0 0 0 2px rgba(180,63,50,.28); }
 .store-slot-mount { box-shadow: inset 0 0 0 2px rgba(60,111,155,.28); }
 .store-slot-back { box-shadow: inset 0 0 0 2px rgba(91,57,28,.18); }
@@ -1267,9 +1434,7 @@ ol.ref-card li div{
   opacity: .82;
   pointer-events: none;
 }
-.store-randomizer .secondary-btn:disabled {
-  opacity: .6;
-}
+.store-randomizer .secondary-btn:disabled { opacity: .6; }
 .store-slot-empty {
   background: rgba(255,248,232,.5);
   border-style: dashed;
@@ -1279,12 +1444,49 @@ ol.ref-card li div{
 }
 .store-slot-empty-label {
   color: var(--muted);
-  font-size: .74rem;
+  font-size: .86rem;
 }
-.store-randomizer .secondary-btn {
+.store-randomizer-actions {
+  position: sticky;
+  z-index: 6;
+  bottom: -12px;
+  margin: 8px -12px -12px;
+  padding: 10px 12px 12px;
+  border-top: 1px solid rgba(104,67,36,.16);
+  background:
+    linear-gradient(180deg, rgba(247,232,199,0), rgba(247,232,199,.97) 18%, rgba(247,232,199,.99));
+}
+.store-randomizer-actions .store-deal-btn {
   width: 100%;
-  margin-top: 12px;
+  margin: 0;
 }
+
+@media (min-width: 520px) {
+  .store-slot-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 9px; }
+}
+
+@media (min-width: 720px) {
+  .store-randomizer { padding: 14px; }
+  .store-slot-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 9px; }
+  .store-area { padding: 11px 12px 12px; }
+  .store-town-split {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .store-town .store-slot-grid { gap: 8px; }
+  .store-randomizer-actions {
+    position: static;
+    margin: 9px 0 0;
+    padding: 12px 0 0;
+    background: none;
+  }
+  .store-randomizer-actions .store-deal-btn {
+    width: min(100%, 360px);
+    display: block;
+    margin: 0 auto;
+  }
+}
+
 .fullscreen-image-viewer {
   position: fixed;
   inset: 0;
@@ -3869,25 +4071,18 @@ button:disabled { opacity: .48; cursor: not-allowed; }
   gap: 7px;
 }
 .assist-group-heading-icon {
-  width: 23px;
-  height: 23px;
-  flex: 0 0 23px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(104,67,36,.22);
-  border-radius: 50%;
-  background: rgba(255,248,232,.55);
-  color: var(--brown);
-}
-.assist-group-heading-icon svg {
+  display: inline-block;
   width: 14px;
   height: 14px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  flex: 0 0 14px;
+  background-color: currentColor;
+  -webkit-mask: var(--assist-group-icon) center / contain no-repeat;
+  mask: var(--assist-group-icon) center / contain no-repeat;
 }
+.assist-group-heading-icon-fight { --assist-group-icon: url('../assets/icons/icon-fight.png'); }
+.assist-group-heading-icon-gambling { --assist-group-icon: url('../assets/icons/icon-spade.png'); }
+.assist-group-heading-icon-dice { --assist-group-icon: url('../assets/icons/icon-die.png'); }
+.assist-group-heading-icon-randomizers { --assist-group-icon: url('../assets/icons/icon-random.png'); }
 
 /* Final scoring is one concise reminder per accordion, rather than grouped
    panels that expose several rules at once. */
@@ -7081,7 +7276,7 @@ body.character-picker-open .app-shell {
 .character-loadout-point-story .character-point-token { background: #3c7e4e; }
 
 /* Starting-location board viewer. It sits above the character picker and uses
-   percentage coordinates from data/characters.json so markers stay anchored
+   percentage coordinates from data/boards.json so markers stay anchored
    while the board image responsively scales. */
 .character-map-viewer {
   position: fixed;
@@ -7135,7 +7330,13 @@ body.character-picker-open .app-shell {
   background: #d6bb82;
   box-shadow: 0 5px 18px rgba(42,25,13,.2);
 }
-.character-map-board-stage > img {
+.character-map-board-canvas {
+  position: relative;
+  width: 100%;
+  transform-origin: 0 0;
+  transform: translate(var(--map-view-offset-x), var(--map-view-offset-y)) scale(var(--map-view-scale));
+}
+.character-map-board-canvas > img {
   display: block;
   width: 100%;
   height: auto;
@@ -7148,7 +7349,8 @@ body.character-picker-open .app-shell {
   top: var(--map-y);
   width: 34px;
   height: 34px;
-  transform: translate(-50%, -92%);
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
   display: grid;
   place-items: center;
   border-radius: 50%;
@@ -7164,6 +7366,11 @@ body.character-picker-open .app-shell {
   fill: rgba(164,62,49,.12);
   stroke: currentColor;
   stroke-width: 1.9;
+}
+
+/* Keep location pins a consistent on-screen size while the board artwork zooms. */
+.character-map-board-canvas .character-map-pin {
+  transform: translate(-50%, -50%) scale(var(--map-pin-inverse-scale, 1));
 }
 .character-map-board figcaption {
   color: var(--muted);
@@ -7415,9 +7622,14 @@ body.character-picker-open .app-shell {
   display: inline-block;
   width: auto;
   max-width: 100%;
-  overflow: visible;
+  overflow: hidden;
 }
-.character-map-board-frontier .character-map-board-stage > img {
+.character-map-board-frontier .character-map-board-canvas {
+  display: inline-block;
+  width: auto;
+  max-width: 100%;
+}
+.character-map-board-frontier .character-map-board-canvas > img {
   width: auto;
   height: auto;
   max-width: 100%;
@@ -7426,7 +7638,7 @@ body.character-picker-open .app-shell {
 }
 
 @media (max-width: 600px) {
-  .character-map-board-frontier .character-map-board-stage > img {
+  .character-map-board-frontier .character-map-board-canvas > img {
     max-height: calc(100vh - 155px);
   }
   .character-map-pin {
@@ -7634,12 +7846,899 @@ body.character-picker-open .app-shell {
   white-space: nowrap;
 }
 
-/* Map placement is still being authored; keep data/viewer code intact. */
-.character-map-btn {
-  display: none !important;
-}
-
 .setup-step-auto:disabled {
   opacity: 1;
   cursor: default;
+}
+
+/* -------------------------------------------------------------------------
+   v109 shared tabletop character map
+   Physical boards are positioned in one virtual table world from data/boards.json.
+   Location pins stay local to their own board while the complete world pans/zooms.
+   ------------------------------------------------------------------------- */
+.character-map-dialog {
+  overflow: hidden;
+}
+.character-map-viewport {
+  position: relative;
+  width: 100%;
+  height: min(68vh, 640px);
+  min-height: 320px;
+  overflow: hidden;
+  touch-action: none;
+  overscroll-behavior: contain;
+  user-select: none;
+  cursor: grab;
+  border: 1px solid rgba(74,44,24,.32);
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(255,247,220,.18), transparent 58%),
+    #8b785c;
+  box-shadow: inset 0 2px 14px rgba(35,20,11,.28);
+}
+.character-map-viewport.is-dragging {
+  cursor: grabbing;
+}
+.character-map-world {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+.character-map-world-board {
+  position: absolute;
+  transform-origin: 0 0;
+  box-shadow: 0 5px 16px rgba(25,14,8,.34);
+}
+.character-map-world-board > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+.character-map-world .character-map-pin {
+  transform: translate(-50%, -50%) scale(var(--map-pin-inverse-scale, 1));
+  transform-origin: center center;
+}
+
+@media (max-width: 600px) {
+  .character-map-viewer {
+    padding: 8px;
+  }
+  .character-map-dialog {
+    width: calc(100vw - 16px);
+    max-height: calc(100dvh - 16px);
+    padding: 14px 12px 12px;
+  }
+  .character-map-viewport {
+    height: calc(100dvh - 150px);
+    min-height: 260px;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   v1.3.1 Fight Helper refinement
+   Clear NPC -> Decision Context -> draw -> chosen-play hierarchy. Fight cards
+   use deliberate count-based layouts and the selected NPC play becomes the
+   visual result rather than one highlighted card hidden inside the hand.
+   ------------------------------------------------------------------------- */
+.fight-card-assist-panel {
+  padding: 12px;
+}
+
+/* Decision Context is optional rules input, not an "advanced" technical
+   panel. Keep it compact and visually consistent with other accordions. */
+.fight-context-toggles.fight-decision-context {
+  margin: 9px 0 12px;
+  padding: 0;
+  border: 1px solid rgba(104,67,36,.24);
+  border-radius: 10px;
+  background: rgba(255,252,243,.68);
+  overflow: hidden;
+}
+.fight-decision-context summary {
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 8px 10px;
+  color: var(--ink);
+  font-family: var(--wl-fell-font);
+  font-size: .96rem;
+  font-weight: 700;
+}
+.fight-decision-context[open] summary {
+  border-bottom: 1px dashed rgba(104,67,36,.18);
+}
+.fight-decision-context .fight-weapon-toggle {
+  margin: 0;
+  padding: 8px 10px;
+  border-bottom: 1px dashed rgba(104,67,36,.12);
+  color: var(--ink);
+  font-size: .94rem;
+  line-height: 1rem !important;
+}
+.fight-decision-context .fight-weapon-toggle:last-child {
+  border-bottom: 0;
+}
+
+/* Native buttons keep card interactions keyboard/touch accessible while
+   retaining the visual appearance of physical Fight Cards. */
+.fight-card-3d {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  max-width: 118px;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  line-height: 0;
+}
+.fight-card-3d:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+}
+.fight-card-face {
+  line-height: normal;
+}
+
+/* Intentional card arrangements rather than incidental flex wrapping. */
+.fight-card-grid {
+  width: 100%;
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+  align-items: start;
+  margin: 12px auto;
+}
+.fight-card-grid-count-1 { grid-template-columns: minmax(0, 126px); }
+.fight-card-grid-count-2 { grid-template-columns: repeat(2, minmax(0, 118px)); }
+.fight-card-grid-count-3 { grid-template-columns: repeat(3, minmax(0, 104px)); }
+.fight-card-grid-count-4 { grid-template-columns: repeat(4, minmax(0, 88px)); }
+.fight-card-grid-many { grid-template-columns: repeat(auto-fit, minmax(78px, 94px)); }
+
+/* After selection, the chosen card is the result. Other drawn cards remain
+   available for verification, but are visually secondary and no longer
+   compete with the NPC's actual play. */
+.fight-card-result {
+  display: grid;
+  justify-items: center;
+  margin-top: 3px;
+}
+.fight-card-result-kicker {
+  width: min(100%, 280px);
+  margin: 2px auto 7px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 8px;
+  align-items: center;
+  color: var(--red);
+  font-family: 'Rye', Georgia, serif;
+  font-size: .83rem;
+  line-height: 1;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  text-align: center;
+}
+.fight-card-result-kicker::before,
+.fight-card-result-kicker::after {
+  content: '';
+  height: 1px;
+  background: rgba(104,67,36,.24);
+}
+.fight-card-selected-stage {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+.fight-card-selected-stage .fight-card-featured {
+  width: 132px;
+  max-width: 132px;
+  box-shadow:
+    0 0 0 3px var(--gold),
+    0 8px 18px rgba(62,35,18,.20),
+    inset 0 0 0 2px rgba(255,255,255,.4);
+}
+.fight-card-chosen-note {
+  width: min(100%, 360px);
+  margin: 0 auto 10px;
+  display: grid;
+  gap: 2px;
+}
+.fight-card-chosen-note strong {
+  font-family: 'Rye', Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.1;
+  color: var(--red);
+}
+.fight-card-chosen-note span {
+  font-size: .98rem;
+  line-height: 1rem !important;
+}
+.fight-card-other-hand {
+  width: 100%;
+  margin-top: 3px;
+}
+.fight-card-other-label {
+  margin: 0 auto 2px;
+  color: var(--muted);
+  font-size: .82rem;
+  line-height: 1;
+  letter-spacing: .055em;
+  text-align: center;
+  text-transform: uppercase;
+}
+.fight-card-grid-secondary {
+  grid-template-columns: repeat(auto-fit, 82px);
+  gap: 8px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+.fight-card-grid-secondary .fight-card-3d {
+  width: 82px;
+  max-width: 82px;
+  opacity: .9;
+}
+.fight-card-draw-btn {
+  display: block;
+  width: min(100%, 320px);
+  margin: 12px auto 0;
+}
+
+@media (max-width: 360px) {
+  .fight-card-grid-count-3 { grid-template-columns: repeat(3, minmax(0, 92px)); gap: 7px; }
+  .fight-card-grid-count-4 { grid-template-columns: repeat(2, minmax(0, 108px)); }
+  .fight-card-selected-stage .fight-card-featured { width: 122px; max-width: 122px; }
+  .fight-card-grid-secondary { grid-template-columns: repeat(auto-fit, 74px); }
+  .fight-card-grid-secondary .fight-card-3d { width: 74px; max-width: 74px; }
+}
+
+
+/* -------------------------------------------------------------------------
+   v1.3.3 Fight Helper context + result-stage refinement
+   Tighten Decision Context copy/layout, add subtle indicator icons, and keep
+   the other drawn cards in the same stage as smaller fanned side cards.
+   ------------------------------------------------------------------------- */
+.fight-card-assist-panel {
+  display: grid;
+  gap: 10px;
+}
+.fight-context-toggles.fight-decision-context {
+  order: 3;
+  margin: 2px 0 0;
+}
+.fight-decision-context summary {
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 38px;
+  padding: 7px 10px;
+}
+.fight-context-summary-title {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+}
+.fight-context-summary-icons {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.fight-context-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(131, 70, 45, .96);
+  flex: 0 0 auto;
+}
+.fight-context-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+  stroke: currentColor;
+}
+.fight-context-option {
+  display: grid;
+  grid-template-columns: 18px 16px minmax(0, 1fr);
+  align-items: center;
+  column-gap: 10px;
+  row-gap: 0;
+  cursor: pointer;
+}
+.fight-context-option input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  border: 1.5px solid rgba(131, 70, 45, .55);
+  border-radius: 4px;
+  background: #fffdf8;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+}
+.fight-context-option input[type="checkbox"]::after {
+  content: '';
+  width: 9px;
+  height: 5px;
+  border-left: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  transform: rotate(-45deg) scale(0);
+  transform-origin: center;
+  margin-top: -1px;
+}
+.fight-context-option input[type="checkbox"]:checked {
+  background: var(--red);
+  border-color: var(--red);
+}
+.fight-context-option input[type="checkbox"]:checked::after {
+  border-left-color: #fff8ef;
+  border-bottom-color: #fff8ef;
+  transform: rotate(-45deg) scale(1);
+}
+.fight-context-option input[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 2px;
+}
+.fight-context-check {
+  display: none;
+}
+.fight-context-option .fight-context-icon {
+  color: rgba(131, 70, 45, .90);
+}
+.fight-context-option-text {
+  min-width: 0;
+  line-height: 1.02rem;
+}
+.fight-decision-context .fight-weapon-toggle {
+  padding: 8px 10px;
+  font-size: .91rem;
+  line-height: 1rem !important;
+}
+.fight-card-result-stage {
+  width: min(100%, 340px);
+  min-height: 170px;
+  margin: 0 auto 8px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 2px;
+}
+.fight-card-fan-wing {
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  pointer-events: none;
+}
+.fight-card-fan-wing .fight-card-3d,
+.fight-card-fan-wing .fight-card-3d * {
+  pointer-events: auto;
+}
+.fight-card-fan-wing-left {
+  justify-content: flex-end;
+  padding-right: 4px;
+}
+.fight-card-fan-wing-right {
+  justify-content: flex-start;
+  padding-left: 4px;
+}
+.fight-card-fan-card {
+  width: 74px;
+  max-width: 74px;
+  transform-origin: center bottom;
+  box-shadow: 0 4px 10px rgba(62,35,18,.16);
+  opacity: .96;
+}
+.fight-card-fan-wing-left .fight-card-fan-card + .fight-card-fan-card {
+  margin-left: -30px;
+}
+.fight-card-fan-wing-right .fight-card-fan-card + .fight-card-fan-card {
+  margin-left: -30px;
+}
+.fight-card-fan-card-left.fight-card-fan-pos-0 { transform: rotate(-16deg) translateY(6px); }
+.fight-card-fan-card-left.fight-card-fan-pos-1 { transform: rotate(-7deg) translateY(-1px); }
+.fight-card-fan-card-left.fight-card-fan-pos-2 { transform: rotate(1deg) translateY(-7px); }
+.fight-card-fan-card-right.fight-card-fan-pos-0 { transform: rotate(16deg) translateY(6px); }
+.fight-card-fan-card-right.fight-card-fan-pos-1 { transform: rotate(7deg) translateY(-1px); }
+.fight-card-fan-card-right.fight-card-fan-pos-2 { transform: rotate(-1deg) translateY(-7px); }
+.fight-card-selected-stage {
+  margin-bottom: 0;
+  position: relative;
+  z-index: 2;
+}
+.fight-card-selected-stage .fight-card-featured {
+  width: 134px;
+  max-width: 134px;
+}
+.fight-card-result {
+  margin-top: 2px;
+}
+.fight-card-draw-btn {
+  order: 4;
+  margin-top: 0;
+}
+.fight-card-other-hand,
+.fight-card-other-label,
+.fight-card-grid-secondary {
+  display: none !important;
+}
+@media (max-width: 360px) {
+  .fight-card-result-stage {
+    width: min(100%, 316px);
+    min-height: 158px;
+  }
+  .fight-card-fan-card {
+    width: 66px;
+    max-width: 66px;
+  }
+  .fight-card-selected-stage .fight-card-featured {
+    width: 124px;
+    max-width: 124px;
+  }
+  .fight-context-option {
+    grid-template-columns: 18px 14px minmax(0, 1fr);
+    column-gap: 8px;
+  }
+}
+
+
+/* -------------------------------------------------------------------------
+   v1.3.4 Fight Helper result motion + compact Decision Context summary
+   Chosen card settles at far left; the remaining draw stacks to its right.
+   Context title follows the app's normal accordion pattern with centered
+   active-state icons and a right-side chevron.
+   ------------------------------------------------------------------------- */
+.fight-decision-context summary {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 18px;
+  align-items: center;
+  justify-content: initial;
+  min-height: 38px;
+  gap: 8px;
+  padding: 7px 10px;
+  list-style: none;
+  text-align: left;
+}
+.fight-decision-context summary::-webkit-details-marker { display: none; }
+.fight-decision-context summary::marker { content: ''; }
+.fight-decision-context summary::before { content: none; display: none; }
+.fight-context-summary-title {
+  justify-self: start;
+  text-align: left;
+  white-space: nowrap;
+}
+.fight-context-summary-icons {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 6px;
+  max-width: 42%;
+  pointer-events: none;
+}
+.fight-context-summary-icons .fight-context-icon {
+  width: 15px;
+  height: 15px;
+}
+.fight-context-summary-chevron {
+  width: 7px;
+  height: 7px;
+  justify-self: end;
+  border-right: 2px solid rgba(72,47,29,.88);
+  border-bottom: 2px solid rgba(72,47,29,.88);
+  transform: rotate(-45deg);
+  transition: transform 140ms ease;
+}
+.fight-decision-context[open] .fight-context-summary-chevron {
+  transform: rotate(45deg);
+}
+.fight-card-result-stage {
+  width: 100%;
+  min-height: 176px;
+  margin: 0 0 8px;
+  display: grid;
+  grid-template-columns: 136px minmax(0, 1fr);
+  align-items: center;
+  justify-content: start;
+  gap: 12px;
+  overflow: visible;
+}
+.fight-card-result-chosen {
+  width: 136px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 4;
+}
+.fight-card-result-chosen .fight-card-featured {
+  width: 134px;
+  max-width: 134px;
+  box-shadow:
+    0 0 0 3px var(--gold),
+    0 8px 18px rgba(62,35,18,.20),
+    inset 0 0 0 2px rgba(255,255,255,.4);
+}
+.fight-card-result-others {
+  min-width: 0;
+  min-height: 128px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 4px;
+  overflow: visible;
+  position: relative;
+}
+.fight-card-result-other-slot {
+  width: 82px;
+  flex: 0 0 82px;
+  position: relative;
+  transform-origin: center bottom;
+}
+.fight-card-result-other-slot + .fight-card-result-other-slot {
+  margin-left: -48px;
+}
+.fight-card-result-other-slot .fight-card-fan-card {
+  width: 82px;
+  max-width: 82px;
+  opacity: .96;
+  box-shadow: 0 4px 10px rgba(62,35,18,.17);
+  transform-origin: center bottom;
+}
+.fight-card-result-other-0 .fight-card-fan-card { transform: rotate(-6deg) translateY(5px); }
+.fight-card-result-other-1 .fight-card-fan-card { transform: rotate(0deg) translateY(0); }
+.fight-card-result-other-2 .fight-card-fan-card { transform: rotate(6deg) translateY(5px); }
+.fight-card-result-other-3 .fight-card-fan-card { transform: rotate(10deg) translateY(9px); }
+.fight-card-result-other-slot:hover,
+.fight-card-result-other-slot:focus-within { z-index: 5; }
+.fight-card-fan-wing,
+.fight-card-selected-stage {
+  display: none !important;
+}
+@media (max-width: 360px) {
+  .fight-card-result-stage {
+    grid-template-columns: 126px minmax(0, 1fr);
+    gap: 8px;
+    min-height: 164px;
+  }
+  .fight-card-result-chosen { width: 126px; }
+  .fight-card-result-chosen .fight-card-featured {
+    width: 124px;
+    max-width: 124px;
+  }
+  .fight-card-result-other-slot {
+    width: 72px;
+    flex-basis: 72px;
+  }
+  .fight-card-result-other-slot + .fight-card-result-other-slot {
+    margin-left: -44px;
+  }
+  .fight-card-result-other-slot .fight-card-fan-card {
+    width: 72px;
+    max-width: 72px;
+  }
+  .fight-context-summary-icons { gap: 4px; }
+  .fight-context-summary-icons .fight-context-icon {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+
+/* -------------------------------------------------------------------------
+   v1.3.5 Fight Helper sequential result layout
+   Keep unselected cards upright and place them sequentially to the right of
+   the featured card, wrapping to additional rows only when space runs out.
+   ------------------------------------------------------------------------- */
+.fight-card-result-stage {
+  grid-template-columns: 136px minmax(0, 1fr);
+  align-items: start;
+  gap: 12px;
+}
+.fight-card-result-chosen {
+  align-items: flex-start;
+}
+.fight-card-result-others {
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+  padding: 0;
+  overflow: visible;
+  position: relative;
+}
+.fight-card-result-other-slot {
+  width: 82px;
+  flex: 0 0 82px;
+  position: relative;
+  margin: 0 !important;
+  transform: none !important;
+}
+.fight-card-result-other-slot + .fight-card-result-other-slot {
+  margin-left: 0 !important;
+}
+.fight-card-result-other-slot .fight-card-fan-card,
+.fight-card-result-other-0 .fight-card-fan-card,
+.fight-card-result-other-1 .fight-card-fan-card,
+.fight-card-result-other-2 .fight-card-fan-card,
+.fight-card-result-other-3 .fight-card-fan-card {
+  width: 82px;
+  max-width: 82px;
+  transform: none !important;
+  rotate: 0deg !important;
+  translate: none !important;
+  opacity: .96;
+}
+@media (max-width: 360px) {
+  .fight-card-result-stage {
+    grid-template-columns: 126px minmax(0, 1fr);
+    gap: 8px;
+  }
+  .fight-card-result-others { gap: 6px; }
+  .fight-card-result-other-slot {
+    width: 72px;
+    flex-basis: 72px;
+  }
+  .fight-card-result-other-slot .fight-card-fan-card,
+  .fight-card-result-other-0 .fight-card-fan-card,
+  .fight-card-result-other-1 .fight-card-fan-card,
+  .fight-card-result-other-2 .fight-card-fan-card,
+  .fight-card-result-other-3 .fight-card-fan-card {
+    width: 72px;
+    max-width: 72px;
+  }
+}
+
+/* v1.3.9 Warm-tinted bottom-nav PNG icon set */
+.bottom-nav-icon {
+  display: block;
+  width: 32px;
+  height: auto;
+  object-fit: contain;
+  /* Convert the black transparent PNG silhouette to #3b281b. */
+  filter: brightness(0) saturate(100%) invert(46.53%) sepia(46.26%) saturate(1044.84%) hue-rotate(345.11deg) brightness(18.16%) contrast(81.60%);
+  transition: filter .16s ease;
+}
+.bottom-btn.active .bottom-nav-icon {
+  /* Active nav tint: var(--red) / #a44a32. */
+  filter: brightness(0) saturate(100%) invert(15.60%) sepia(83.07%) saturate(723.20%) hue-rotate(332.41deg) brightness(174.46%) contrast(83.45%);
+}
+.fight-flow-revolver {
+  display: block;
+  width: 22px;
+  height: auto;
+}
+.fight-flow-empty .fight-flow-revolver {
+  width: 30px;
+  margin: 0 auto;
+}
+.fight-context-revolver {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+/* -------------------------------------------------------------------------
+   v1.4.0 Helper refinement pass
+   Compact Decision Context summary, player-aware Random Player, and a Fight
+   Card result grid sized so two rows of small cards match the featured card.
+   ------------------------------------------------------------------------- */
+.fight-decision-context summary {
+  grid-template-columns: minmax(0, 1fr) 18px;
+}
+.fight-context-summary-main {
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 9px;
+}
+.fight-context-summary-title {
+  flex: 0 0 auto;
+}
+.fight-context-summary-icons {
+  position: static;
+  left: auto;
+  top: auto;
+  transform: none;
+  max-width: none;
+  justify-content: flex-start;
+  flex: 0 1 auto;
+  gap: 5px;
+}
+
+.fight-card-result-stage {
+  --fight-featured-width: 134px;
+  --fight-small-width: 65px;
+  --fight-result-gap: 6px;
+  width: 100%;
+  min-height: 0;
+  margin: 0 0 8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, var(--fight-small-width));
+  grid-auto-flow: row;
+  grid-auto-rows: calc(var(--fight-small-width) * 7 / 5);
+  align-items: start;
+  justify-content: start;
+  gap: var(--fight-result-gap);
+  overflow: visible;
+}
+.fight-card-result-chosen {
+  width: var(--fight-featured-width);
+  grid-column: span 2;
+  grid-row: span 2;
+  align-self: start;
+}
+.fight-card-result-chosen .fight-card-featured {
+  width: var(--fight-featured-width);
+  max-width: var(--fight-featured-width);
+}
+.fight-card-result-other-slot {
+  width: var(--fight-small-width);
+  min-width: 0;
+  height: calc(var(--fight-small-width) * 7 / 5);
+  position: relative;
+  margin: 0 !important;
+  transform: none !important;
+}
+.fight-card-result-other-slot .fight-card-result-small {
+  width: var(--fight-small-width);
+  max-width: var(--fight-small-width);
+  transform: none !important;
+  opacity: 1;
+}
+.fight-card-result-others { display: contents; }
+.fight-card-flip-control {
+  position: absolute;
+  z-index: 8;
+  top: -5px;
+  right: -5px;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(54,34,20,.78);
+  color: #fff8e9;
+  box-shadow: 0 1px 4px rgba(28,16,8,.28);
+  cursor: pointer;
+}
+.fight-card-flip-control svg { width: 16px; height: 16px; display: block; }
+.fight-card-flip-control:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.fight-card-flip-control:active { transform: scale(.92); }
+
+.random-player-assist { display: grid; gap: 4px; }
+.random-player-result {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  padding: 14px 0 10px;
+}
+.random-player-color-tile {
+  width: 94px;
+  height: 94px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  background: var(--random-player-color, #eee);
+  border: 2px solid rgba(61,39,22,.28);
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.28), 0 4px 10px rgba(50,29,13,.14);
+}
+.random-player-character-thumb {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: rgba(49,30,18,.5);
+  border: 2px solid rgba(255,248,232,.82);
+  color: #fff8e9;
+  font-family: 'Rye', Georgia, serif;
+  box-shadow: 0 2px 5px rgba(32,18,8,.28);
+}
+.random-player-character-thumb img,
+.random-player-character-thumb > span { grid-area: 1 / 1; }
+.random-player-character-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--character-thumb-x, 50%) var(--character-thumb-y, 29%);
+  transform: scale(var(--character-thumb-scale, 1.85));
+  transform-origin: var(--character-thumb-x, 50%) var(--character-thumb-y, 29%);
+}
+.random-player-character-thumb:not(.image-missing) > span { opacity: 0; }
+.random-player-character-thumb-empty { font-size: 1.35rem; }
+.random-player-label {
+  color: var(--ink);
+  text-align: center;
+  font-family: 'Rye', Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+.random-player-actions { display: flex; justify-content: center; }
+.random-player-pick-again { width: min(100%, 260px); margin: 0 auto; }
+
+@media (max-width: 360px) {
+  .fight-card-result-stage {
+    --fight-featured-width: 124px;
+    --fight-small-width: 60px;
+    --fight-result-gap: 6px;
+  }
+  .fight-context-summary-main { gap: 7px; }
+  .fight-context-summary-icons { gap: 4px; }
+}
+
+/* -------------------------------------------------------------------------
+   v1.4.1 Fight Helper Circumstances icon sizing
+   Keep the four situational icons readable in both the checklist and the
+   compact active-state summary without changing the surrounding flow.
+   ------------------------------------------------------------------------- */
+.fight-context-option {
+  grid-template-columns: 18px 24px minmax(0, 1fr);
+}
+.fight-context-option .fight-context-icon {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+}
+.fight-context-summary-icons .fight-context-icon {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+}
+@media (max-width: 360px) {
+  .fight-context-option {
+    grid-template-columns: 18px 24px minmax(0, 1fr);
+  }
+  .fight-context-summary-icons .fight-context-icon,
+  .fight-context-option .fight-context-icon {
+    width: 24px;
+    height: 24px;
+    flex-basis: 24px;
+  }
+}
+
+
+/* v137: current character assignment indicator in the setup picker. */
+.character-carousel-stage.is-current-selection {
+  --character-selection-accent: #8c765e;
+  --character-selection-glow: rgba(140,118,94,.30);
+}
+.character-carousel-stage.is-current-selection.character-selection-red { --character-selection-accent: #b94333; --character-selection-glow: rgba(185,67,51,.34); }
+.character-carousel-stage.is-current-selection.character-selection-yellow { --character-selection-accent: #b88107; --character-selection-glow: rgba(184,129,7,.34); }
+.character-carousel-stage.is-current-selection.character-selection-blue { --character-selection-accent: #376f94; --character-selection-glow: rgba(55,111,148,.34); }
+.character-carousel-stage.is-current-selection.character-selection-purple { --character-selection-accent: #7a4f86; --character-selection-glow: rgba(122,79,134,.34); }
+.character-carousel-stage.is-current-selection.character-selection-black { --character-selection-accent: #3d3935; --character-selection-glow: rgba(61,57,53,.34); }
+.character-carousel-stage.is-current-selection.character-selection-white { --character-selection-accent: #858682; --character-selection-glow: rgba(133,134,130,.34); }
+.character-carousel-stage.is-current-selection .character-card-viewport {
+  border-radius: 10px;
+  box-shadow: 0 0 0 3px var(--character-selection-accent), 0 0 15px 5px var(--character-selection-glow);
+}
+.character-card-select.is-deselect > span:first-child {
+  font-size: 1rem;
+  line-height: .8;
 }

@@ -1,0 +1,241 @@
+/* Compact active-game homepage summary.
+   This file intentionally layers on top of the existing frosted parchment
+   card rather than replacing its translucent/background-blur treatment. */
+
+.home-hero.has-active-game .home-status-card {
+  overflow: visible;
+  padding-top: 11px;
+  padding-bottom: 11px;
+}
+
+.home-hero.has-active-game .home-divider {
+  margin-bottom: 3px;
+}
+
+.home-hero.has-active-game .home-kicker {
+  margin: 2px 0 6px;
+}
+
+/* Player chips: light player-color fills with a character portrait that
+   overlaps the left edge, matching the player identity language used in-game. */
+.home-hero.has-active-game .home-player-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  column-gap: 9px;
+  row-gap: 14px;
+  margin: 11px auto 15px;
+  overflow: visible;
+}
+
+.home-hero.has-active-game .home-player-chip {
+  --home-player-accent: #8c765e;
+  --home-player-tint: rgba(140,118,94,.09);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  height: 32px;
+  min-height: 32px;
+  padding: 0 11px 0 3px;
+  border: 1.5px solid var(--home-player-accent);
+  border-radius: 10px;
+  background: var(--home-player-bg, rgba(238,228,210,.84));
+  box-shadow: 0 2px 7px rgba(73,45,22,.08), inset 0 1px 0 rgba(255,255,255,.52);
+  color: var(--home-player-accent);
+  font-size: 1rem;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+.home-hero.has-active-game .home-player-chip.home-player-chip-white { --home-player-accent: #858682; --home-player-tint: rgba(255,255,255,.78); --home-player-bg: rgba(255,252,244,.90); --home-player-name: #4f4032; }
+.home-hero.has-active-game .home-player-chip.home-player-chip-red { --home-player-accent: #b94333; --home-player-tint: rgba(185,67,51,.15); --home-player-bg: #b94333; --home-player-name: #ffffff; }
+.home-hero.has-active-game .home-player-chip.home-player-chip-yellow { --home-player-accent: #b88107; --home-player-tint: rgba(184,129,7,.20); --home-player-bg: #b88107; --home-player-name: #ffffff; }
+.home-hero.has-active-game .home-player-chip.home-player-chip-blue { --home-player-accent: #376f94; --home-player-tint: rgba(55,111,148,.16); --home-player-bg: #376f94; --home-player-name: #ffffff; }
+.home-hero.has-active-game .home-player-chip.home-player-chip-purple { --home-player-accent: #7a4f86; --home-player-tint: rgba(122,79,134,.15); --home-player-bg: #7a4f86; --home-player-name: #ffffff; }
+.home-hero.has-active-game .home-player-chip.home-player-chip-black { --home-player-accent: #3d3935; --home-player-tint: rgba(61,57,53,.24); --home-player-bg: #3d3935; --home-player-name: #ffffff; }
+.home-hero.has-active-game .home-player-chip.home-player-chip-none { --home-player-accent: #8c765e; --home-player-tint: rgba(140,118,94,.09); --home-player-bg: rgba(238,228,210,.84); --home-player-name: #6b533d; }
+
+.home-player-avatar {
+  position: relative;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  margin: 0 0 0 -4px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 2px solid rgba(255,248,232,.97);
+  background: #f5e6c7;
+  box-shadow: 0 0 0 2px var(--home-player-accent), 0 2px 5px rgba(55,32,14,.16);
+  z-index: 1;
+}
+
+.home-player-avatar img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--character-thumb-x, 50%) var(--character-thumb-y, 29%);
+  transform: scale(var(--character-thumb-scale, 1));
+  transform-origin: var(--character-thumb-x, 50%) var(--character-thumb-y, 29%);
+}
+
+.home-player-avatar-fallback {
+  display: block;
+  background: var(--home-player-accent);
+}
+
+.home-player-chip-name {
+  max-width: 92px;
+  color: var(--home-player-name, var(--home-player-accent));
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.home-player-alert-badge {
+  position: absolute;
+  z-index: 3;
+  top: -8px;
+  right: -5px;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,248,232,.98);
+  background: var(--home-player-accent);
+  color: #fff9ea;
+  box-shadow: 0 1px 4px rgba(62,41,24,.25);
+  font-family: Georgia, serif;
+  font-size: .79rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* app.js initially renders these two rows. home-frontier.js removes them from
+   the active-game home card; these guards avoid a flash if rendering is slow. */
+.home-hero.has-active-game .home-game-facts,
+.home-hero.has-active-game .home-context-line,
+.home-hero.has-active-game .home-ongoing-section {
+  display: none !important;
+}
+
+/* The mood illustration is a true background layer. It takes up no grid/flex
+   column of its own, so copy can overlap the watercolor edge slightly. */
+.home-frontier-summary {
+  position: relative;
+  isolation: isolate;
+  min-height: 82px;
+  margin: 6px 0 8px;
+  padding: 7px 22px 7px 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(104,67,36,.13);
+  border-bottom: 1px solid rgba(104,67,36,.11);
+  background: linear-gradient(90deg, rgba(255,250,240,.03), rgba(255,250,240,.15), rgba(255,250,240,.05));
+  text-align: left;
+}
+
+.home-frontier-art {
+  position: absolute;
+  z-index: 0;
+  left: -7px;
+  top: 50%;
+  width: 43%;
+  height: calc(100% + 14px);
+  transform: translateY(-50%);
+  object-fit: contain;
+  object-position: left center;
+  filter: saturate(.88) contrast(.97);
+  opacity: .96;
+  pointer-events: none;
+}
+
+.home-frontier-copy {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  margin-left: 31%;
+  text-shadow: 0 1px 0 rgba(255,248,232,.76), 0 0 8px rgba(255,248,232,.46);
+}
+
+.home-frontier-heading {
+  margin: 0 0 4px;
+  color: #4b2d18;
+  font-family: 'Rye', Georgia, serif;
+  font-size: .76rem;
+  line-height: 1.2;
+  letter-spacing: .028em;
+  text-transform: uppercase;
+}
+
+.home-frontier-dot {
+  color: #ad7a28;
+  padding: 0 .08em;
+}
+
+.home-frontier-copy p {
+  margin: 0;
+  color: #60452f;
+  font-size: .86rem;
+  line-height: 1.2;
+}
+
+.home-frontier-chevron {
+  position: absolute;
+  z-index: 2;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #65482f;
+  font-size: 1.55rem;
+  line-height: 1;
+  opacity: .8;
+}
+
+.home-hero.has-active-game .home-major-btn {
+  margin-top: 0;
+}
+
+@media (max-width: 375px) {
+  .home-hero.has-active-game .home-player-chips { column-gap: 7px; row-gap: 13px; margin-top: 10px; margin-bottom: 14px; }
+  .home-hero.has-active-game .home-player-chip {
+    height: 32px;
+    min-height: 32px;
+    padding: 0 9px 0 3px;
+    gap: 5px;
+    font-size: .9rem;
+  }
+  .home-player-avatar {
+    flex-basis: 35px;
+    width: 35px;
+    height: 35px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .home-player-chip-name { max-width: 76px; }
+  .home-frontier-summary {
+    min-height: 76px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+  .home-frontier-copy { margin-left: 29%; }
+  .home-frontier-art { width: 42%; }
+  .home-frontier-heading { font-size: .69rem; }
+  .home-frontier-copy p { font-size: .8rem; }
+}
+
+@media (max-width: 335px) {
+  .home-hero.has-active-game .home-player-chip { font-size: .84rem; }
+  .home-player-chip-name { max-width: 67px; }
+  .home-frontier-summary {
+    min-height: 72px;
+    padding-right: 16px;
+  }
+  .home-frontier-copy { margin-left: 28%; }
+  .home-frontier-art { width: 41%; opacity: .9; }
+  .home-frontier-chevron { right: 1px; }
+}
