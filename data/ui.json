@@ -1787,7 +1787,15 @@
     "see_all": "See All",
     "all_characters": "All Characters",
     "deselect_short": "Deselect",
-    "character_currently_selected": "Currently selected for this player"
+    "character_currently_selected": "Currently selected for this player",
+    "check_for_updates_text": "Check for Updates",
+    "checking_for_updates": "Checking for updates…",
+    "up_to_date_version": "You’re up to date — v{version}",
+    "unable_to_check_updates": "Unable to check for updates.",
+    "check_again": "Check Again",
+    "update_available_version": "Update available — v{version}",
+    "update_now": "Update Now",
+    "updating_app": "Updating…"
   },
   "reference": {
     "fightFlow": "Fight Flow",

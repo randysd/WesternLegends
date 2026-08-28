@@ -12,9 +12,10 @@ const DATA_FILES = {
   characters: 'data/characters.json',
   boards: 'data/boards.json',
   finalScoring: 'data/final-scoring.json',
-  ui: 'data/ui.json'
+  ui: 'data/ui.json',
+  version: 'version.json'
 };
-const SHARED_DATA_KEYS = new Set(['boards']);
+const SHARED_DATA_KEYS = new Set(['boards', 'version']);
 
 const SAVE_KEY = 'wl_companion_save_v1';
 const LANGUAGE_KEY = 'wl_companion_language';
@@ -8781,11 +8782,17 @@ function generateNewspaperArticle() {
     <div class="newspaper-clear" aria-hidden="true"></div>`;
 }
 
-const APP_VERSION = '1.4.0';
 let swRegistration = null;
 let appUpdateAvailable = false;
+let publishedAppVersion = '';
+let updateCheckState = 'idle';
 let deferredInstallPrompt = null;
 let installHelpMessage = '';
+let updateReloadRequested = false;
+
+function currentAppVersion() {
+  return String(db?.version?.version || '').trim() || '0.0.0';
+}
 
 function isPwaInstalled() {
   return window.matchMedia?.(t('strings.display_mode_standalone')).matches
@@ -8818,9 +8825,7 @@ async function requestPwaInstall() {
   try {
     await promptEvent.prompt();
     const choice = await promptEvent.userChoice;
-    if (choice?.outcome !== 'accepted') {
-      installHelpMessage = t('install.canceled');
-    }
+    if (choice?.outcome !== 'accepted') installHelpMessage = t('install.canceled');
   } catch (err) {
     installHelpMessage = installFallbackMessage();
   }
@@ -8844,30 +8849,34 @@ function registerServiceWorker() {
   if (!('serviceWorker' in navigator)) return;
   navigator.serviceWorker.register('./sw.js').then(reg => {
     swRegistration = reg;
-    // A worker was already waiting before we ever attached this listener
-    // (e.g. an update finished installing in a previous tab/session).
-    if (reg.waiting && navigator.serviceWorker.controller) markUpdateAvailable();
+    if (reg.waiting && navigator.serviceWorker.controller) markUpdateAvailable(publishedAppVersion);
     reg.addEventListener('updatefound', () => {
       const installing = reg.installing;
       if (!installing) return;
       installing.addEventListener('statechange', () => {
-        if (installing.state === 'installed' && navigator.serviceWorker.controller) markUpdateAvailable();
+        if (installing.state === 'installed' && navigator.serviceWorker.controller) {
+          markUpdateAvailable(publishedAppVersion);
+        }
       });
     });
-    // Passive periodic check so a long-running open tab still notices a
-    // newly published version without the user having to do anything.
-    setInterval(() => reg.update().catch(() => {}), 60 * 60 * 1000);
+
+    // Check the published version manifest rather than relying on sw.js itself
+    // changing. This lets normal content/data updates be detected reliably.
+    setTimeout(() => checkForAppUpdate({ silent: true }), 900);
+    setInterval(() => checkForAppUpdate({ silent: true }), 60 * 60 * 1000);
   }).catch(() => {});
-  let reloadedForUpdate = false;
+
   navigator.serviceWorker.addEventListener('controllerchange', () => {
-    if (reloadedForUpdate) return;
-    reloadedForUpdate = true;
+    if (updateReloadRequested) return;
+    updateReloadRequested = true;
     window.location.reload();
   });
 }
 
-function markUpdateAvailable() {
+function markUpdateAvailable(version = '') {
   appUpdateAvailable = true;
+  if (version) publishedAppVersion = version;
+  updateCheckState = 'available';
   if (isPwaInstalled()) {
     document.getElementById('menuBtn')?.classList.add('has-update-dot');
     document.querySelector('[data-open-credits-support]')?.classList.add('has-update-dot');
@@ -8875,14 +8884,75 @@ function markUpdateAvailable() {
   refreshVersionBlockStatus();
 }
 
-function checkForAppUpdate() {
-  if (!swRegistration) { window.location.reload(); return; }
-  swRegistration.update().catch(() => {});
+function clearUpdateIndicators() {
+  document.getElementById('menuBtn')?.classList.remove('has-update-dot');
+  document.querySelector('[data-open-credits-support]')?.classList.remove('has-update-dot');
 }
 
-function applyAppUpdate() {
-  if (swRegistration?.waiting) { swRegistration.waiting.postMessage('skipWaiting'); return; }
-  window.location.reload();
+async function checkForAppUpdate({ silent = false } = {}) {
+  if (!window.WLUpdateCore?.fetchPublishedVersion) return;
+  if (!silent) {
+    updateCheckState = 'checking';
+    refreshVersionBlockStatus();
+  }
+  try {
+    const published = await WLUpdateCore.fetchPublishedVersion(fetch, 'version.json', Date.now());
+    publishedAppVersion = published;
+    if (WLUpdateCore.isVersionNewer(currentAppVersion(), published)) {
+      markUpdateAvailable(published);
+      // If sw.js changed too, start installing it now so Update Now can activate
+      // it immediately. A content-only release still works through cache refresh.
+      swRegistration?.update().catch(() => {});
+      return true;
+    }
+
+    if (!swRegistration?.waiting) {
+      appUpdateAvailable = false;
+      clearUpdateIndicators();
+    }
+    updateCheckState = appUpdateAvailable ? 'available' : 'current';
+    refreshVersionBlockStatus();
+    return false;
+  } catch (err) {
+    if (!silent) {
+      updateCheckState = 'error';
+      refreshVersionBlockStatus();
+    }
+    return false;
+  }
+}
+
+function refreshAppCacheViaActiveWorker() {
+  const controller = navigator.serviceWorker?.controller;
+  if (!controller) {
+    window.location.reload();
+    return;
+  }
+  const requestId = `refresh-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+  const timeout = setTimeout(() => window.location.reload(), 15000);
+  const onMessage = event => {
+    if (event.data?.type !== 'APP_CACHE_REFRESHED' || event.data?.requestId !== requestId) return;
+    clearTimeout(timeout);
+    navigator.serviceWorker.removeEventListener('message', onMessage);
+    window.location.reload();
+  };
+  navigator.serviceWorker.addEventListener('message', onMessage);
+  controller.postMessage({ type: 'REFRESH_APP_CACHE', requestId });
+}
+
+async function applyAppUpdate() {
+  updateCheckState = 'updating';
+  refreshVersionBlockStatus();
+  try { await swRegistration?.update(); } catch (_) {}
+  if (swRegistration?.waiting) {
+    swRegistration.waiting.postMessage('skipWaiting');
+    return;
+  }
+  refreshAppCacheViaActiveWorker();
+}
+
+function renderUpdateAction(label, id, className = 'secondary-btn') {
+  return `<button type="button" class="${className} app-update-btn" id="${id}">${escapeHtml(label)}</button>`;
 }
 
 function renderUpdateStatus() {
@@ -8892,21 +8962,36 @@ function renderUpdateStatus() {
       : '';
     return `<button type="button" class="primary-btn app-update-btn" id="installAppBtn">${t('strings.install_app')}</button>${help}`;
   }
-  return appUpdateAvailable
-    ? t('strings.update_available_tap_to_update')
-    : t('strings.check_for_updates');
+
+  const version = publishedAppVersion || currentAppVersion();
+  if (updateCheckState === 'checking') {
+    return `<div class="app-update-result">${escapeHtml(t('strings.checking_for_updates'))}</div>`;
+  }
+  if (updateCheckState === 'updating') {
+    return `<div class="app-update-result">${escapeHtml(t('strings.updating_app'))}</div>`;
+  }
+  if (appUpdateAvailable || updateCheckState === 'available') {
+    return `<div class="app-update-status-stack"><div class="app-update-result app-update-available">${escapeHtml(t('strings.update_available_version', { version }))}</div>${renderUpdateAction(t('strings.update_now'), 'applyUpdateBtn', 'primary-btn')}</div>`;
+  }
+  if (updateCheckState === 'current') {
+    return `<div class="app-update-status-stack"><div class="app-update-result">${escapeHtml(t('strings.up_to_date_version', { version: currentAppVersion() }))}</div>${renderUpdateAction(t('strings.check_again'), 'checkUpdateBtn')}</div>`;
+  }
+  if (updateCheckState === 'error') {
+    return `<div class="app-update-status-stack"><div class="app-update-result app-update-error">${escapeHtml(t('strings.unable_to_check_updates'))}</div>${renderUpdateAction(t('strings.check_again'), 'checkUpdateBtn')}</div>`;
+  }
+  return renderUpdateAction(t('strings.check_for_updates_text'), 'checkUpdateBtn');
 }
 
 function renderVersionBlock() {
   return `<div class="app-version-block">
-    <span class="app-version-label">${t('strings.version')} ${escapeHtml(APP_VERSION)}</span>
+    <span class="app-version-label">${t('strings.version')} ${escapeHtml(currentAppVersion())}</span>
     <div id="appUpdateStatus">${renderUpdateStatus()}</div>
   </div>`;
 }
 function wireVersionBlock() {
   document.getElementById('installAppBtn')?.addEventListener('click', requestPwaInstall);
   document.getElementById('applyUpdateBtn')?.addEventListener('click', applyAppUpdate);
-  document.getElementById('checkUpdateBtn')?.addEventListener('click', checkForAppUpdate);
+  document.getElementById('checkUpdateBtn')?.addEventListener('click', () => checkForAppUpdate());
 }
 function refreshVersionBlockStatus() {
   const status = document.getElementById('appUpdateStatus');

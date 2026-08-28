@@ -1787,7 +1787,15 @@
     "see_all": "Alle anzeigen",
     "all_characters": "Alle Charaktere",
     "deselect_short": "Abwählen",
-    "character_currently_selected": "Derzeit für diesen Spieler ausgewählt"
+    "character_currently_selected": "Derzeit für diesen Spieler ausgewählt",
+    "check_for_updates_text": "Nach Updates suchen",
+    "checking_for_updates": "Suche nach Updates…",
+    "up_to_date_version": "Du bist auf dem neuesten Stand — v{version}",
+    "unable_to_check_updates": "Updates konnten nicht geprüft werden.",
+    "check_again": "Erneut prüfen",
+    "update_available_version": "Update verfügbar — v{version}",
+    "update_now": "Jetzt aktualisieren",
+    "updating_app": "Wird aktualisiert…"
   },
   "reference": {
     "fightFlow": "Kampfablauf",

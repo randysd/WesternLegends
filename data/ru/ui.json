@@ -1787,7 +1787,15 @@
     "see_all": "Показать все",
     "all_characters": "Все персонажи",
     "deselect_short": "Отменить выбор",
-    "character_currently_selected": "Сейчас выбран для этого игрока"
+    "character_currently_selected": "Сейчас выбран для этого игрока",
+    "check_for_updates_text": "Проверить обновления",
+    "checking_for_updates": "Проверка обновлений…",
+    "up_to_date_version": "У вас последняя версия — v{version}",
+    "unable_to_check_updates": "Не удалось проверить обновления.",
+    "check_again": "Проверить снова",
+    "update_available_version": "Доступно обновление — v{version}",
+    "update_now": "Обновить сейчас",
+    "updating_app": "Обновление…"
   },
   "reference": {
     "fightFlow": "Ход боя",

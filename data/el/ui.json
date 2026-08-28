@@ -1787,7 +1787,15 @@
     "see_all": "Προβολή όλων",
     "all_characters": "Όλοι οι Χαρακτήρες",
     "deselect_short": "Αποεπιλογή",
-    "character_currently_selected": "Επιλεγμένος αυτή τη στιγμή για αυτόν τον παίκτη"
+    "character_currently_selected": "Επιλεγμένος αυτή τη στιγμή για αυτόν τον παίκτη",
+    "check_for_updates_text": "Έλεγχος για ενημερώσεις",
+    "checking_for_updates": "Έλεγχος για ενημερώσεις…",
+    "up_to_date_version": "Έχετε την πιο πρόσφατη έκδοση — v{version}",
+    "unable_to_check_updates": "Δεν ήταν δυνατός ο έλεγχος για ενημερώσεις.",
+    "check_again": "Έλεγχος ξανά",
+    "update_available_version": "Διαθέσιμη ενημέρωση — v{version}",
+    "update_now": "Ενημέρωση τώρα",
+    "updating_app": "Γίνεται ενημέρωση…"
   },
   "reference": {
     "fightFlow": "Ροή Μάχης",

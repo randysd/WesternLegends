@@ -3164,6 +3164,20 @@ button:disabled { opacity: .48; cursor: not-allowed; }
   font-size: .78rem;
 }
 
+
+.about-version-section .app-update-status-stack {
+  display: grid;
+  gap: 6px;
+}
+.about-version-section .app-update-result {
+  color: var(--muted);
+  font-size: .78rem;
+  line-height: 1.25;
+  text-align: center;
+}
+.about-version-section .app-update-available { color: var(--red); font-weight: 700; }
+.about-version-section .app-update-error { color: var(--red); }
+
 /* Final scoring stays available without dominating the tally screen. */
 .final-scoring-details,
 .final-tiebreak-details {
