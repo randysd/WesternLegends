@@ -83,7 +83,24 @@
       "one": "{count} παγκόσμια επίδραση",
       "other": "{count} παγκόσμιες επιδράσεις"
     },
-    "defaultPlayer": "Παίκτης {number}"
+    "defaultPlayer": "Παίκτης {number}",
+    "frontierPhrases": {
+      "quiet": "Τα σύνορα ησυχάζουν… προς το παρόν",
+      "opportunity": "Η τύχη καλεί",
+      "lawless": "Οι παράνομοι αλωνίζουν",
+      "orderly": "Ο νόμος κρατά γερά τα ηνία",
+      "tense": "Τα σύνορα είναι πυριτιδαποθήκη",
+      "poker": "Τα χαρτιά έχουν πάρει φωτιά",
+      "revelry": "Τα σαλούν σφύζουν από ζωή",
+      "range": "Τα κοπάδια κυριαρχούν στην πεδιάδα",
+      "prospect": "Ο πυρετός του χρυσού εξαπλώνεται",
+      "trade": "Οι δουλειές ανθούν",
+      "railroad": "Ο σιδηρόδρομος βουίζει",
+      "explore": "Το μονοπάτι καλεί",
+      "posse": "Τα αποσπάσματα σχηματίζονται",
+      "intrigue": "Οι ψίθυροι ταξιδεύουν με τον άνεμο",
+      "legendary": "Οι θρύλοι γεννιούνται"
+    }
   },
   "story": {
     "frequency": {
@@ -653,7 +670,7 @@
       "cleanup": "Τακτοποίηση",
       "cleanUpPlayedCards": "Τακτοποιήστε τις Παιγμένες Κάρτες",
       "discardBothPoker": "Απορρίψτε και τις δύο παιγμένες Κάρτες Πόκερ",
-      "autoDrawNpc": "Αυτόματο τράβηγμα Κάρτας Μάχης NPC",
+      "autoDrawNpc": "Τραβήξτε Κάρτες Μάχης και επιλέξτε αυτόματα την κίνηση του NPC.",
       "npcLabels": {
         "bandit": "Ληστής",
         "bank_guard": "Φρουρός Τράπεζας",
@@ -674,7 +691,16 @@
       "fullscreenTitle": "Κάρτα Μάχης",
       "cardAlt": "Κάρτα Μάχης {rank}",
       "versus": "ΕΝΑΝΤΙΟΝ",
-      "autoSelectShort": "Αυτόματη Επιλογή"
+      "autoSelectShort": "Αυτόματη Επιλογή",
+      "npcFightCard": "Κάρτα Μάχης NPC",
+      "decisionContext": "Περιστάσεις",
+      "playerHasReducingWeapon": "Ο παίκτης μπορεί να μειώσει την αξία της κάρτας του NPC",
+      "playerAtMaxWounds": "Ο παίκτης έχει ήδη 3 πληγές",
+      "highValueNpc": "Η νίκη επί αυτού του NPC έχει μεγάλη αξία",
+      "playerHasNoPokerCards": "Ο παίκτης δεν έχει κάρτες πόκερ",
+      "npcPlays": "Το NPC παίζει",
+      "otherDrawnCards": "Άλλες τραβηγμένες κάρτες",
+      "drawAgain": "Τράβηξε ξανά"
     },
     "dice": {
       "types": {
@@ -1404,7 +1430,7 @@
     "first_player": "Πρώτος Παίκτης",
     "choose_first_player": "Επιλέξτε πρώτο παίκτη",
     "random_player": "Τυχαίος Παίκτης",
-    "pick_a_random_player_color": "Επιλέξτε τυχαία ένα χρώμα παίκτη.",
+    "pick_a_random_player_color": "Επιλέξτε τυχαία έναν παίκτη.",
     "store_randomizer": "Τυχαιοποίηση Καταστήματος",
     "fill_general_store_trading_post": "Γεμίστε Γενικό Κατάστημα/Εμπορικό Σταθμό",
     "fill_general_store": "Γεμίστε το Γενικό Κατάστημα",
@@ -1418,7 +1444,15 @@
     "draw_a_different_item": "Τραβήξτε διαφορετικό αντικείμενο",
     "setup_helper": "Βοηθός Προετοιμασίας",
     "general_store": "Γενικό Κατάστημα",
+    "store_layout": "Διάταξη καταστήματος",
+    "shared_store": "Κοινό κατάστημα",
+    "split_by_town": "Χωριστά ανά πόλη",
+    "darkrock": "Darkrock",
+    "red_falls": "Red Falls",
     "trading_post": "Εμπορικός Σταθμός",
+    "store_inventory_summary": "{count} θέσεις · Εγγυημένα Όπλο + Υποζύγιο",
+    "deal_new_store": "Νέα διάταξη καταστήματος",
+    "store_interaction_hint": "Πατήστε μια κάρτα για μεγέθυνση. Πατήστε ⟲ για αντικατάσταση.",
     "tap_randomize_to_reveal_the_store": "Πατήστε Τυχαιοποίηση για να αποκαλύψετε το κατάστημα.",
     "tap_a_card_to_view_it_full_size_or_tap_to_draw_a_different_item_the_firs": "Πατήστε μια κάρτα για να τη δείτε σε πλήρες μέγεθος ή πατήστε ⟲ για να τραβήξετε διαφορετικό αντικείμενο. Το πρώτο Όπλο και Ζώο Μετακίνησης που τραβιούνται κλειδώνουν αυτόματα στο Γενικό Κατάστημα.",
     "randomizer": "Τυχαιοποίηση",
@@ -1678,7 +1712,7 @@
     "poker_hands_2": "<button type=\"button\" class=\"small-btn gambling-poker-hands-btn\" data-open-poker-hands>Χέρια Πόκερ</button>",
     "start_a_game_to_see_the_story_events_and_story_point_settings_for_that": "\n      <p class=\"settings-no-game-note\">Ξεκινήστε ένα παιχνίδι για να δείτε τις ρυθμίσεις Ιστορίας &amp; Γεγονότων και Πόντων Ιστορίας για αυτό το παιχνίδι.</p>",
     "trading_post_is_inactive_for_this_setup_enable_the_buzzard_gulch_sideb": "<p class=\"assist-hint\">Ο Εμπορικός Σταθμός είναι ανενεργός σε αυτή την προετοιμασία — ενεργοποιήστε τη μονάδα Buzzard Gulch Sideboard για να τον συμπεριλάβετε.</p>",
-    "3_everyone_place_one_finger_on_the_screen_hold_steady_while_the_timer_": "<div class=\"first-player-stage\" id=\"firstPlayerStage\">\n    <canvas id=\"firstPlayerCanvas\" class=\"first-player-canvas\" aria-label=\"Επιλογή πρώτου παίκτη με αφή\"></canvas>\n    <div class=\"first-player-timer\" id=\"firstPlayerTimer\">3</div>\n    <p class=\"first-player-instructions\" id=\"firstPlayerHint\">Όλοι τοποθετήστε ένα δάχτυλο στην οθόνη. Κρατήστε το σταθερό όσο μετρά αντίστροφα ο χρονοδιακόπτης.</p>\n  </div>\n  <div class=\"first-player-footer\"><button type=\"button\" class=\"primary-btn first-player-reset-btn\" data-first-player-reset>Ξεκινήστε Ξανά</button></div>",
+    "3_everyone_place_one_finger_on_the_screen_hold_steady_while_the_timer_": "<div class=\"first-player-stage\" id=\"firstPlayerStage\">\n    <canvas id=\"firstPlayerCanvas\" class=\"first-player-canvas\" aria-label=\"Επιλογή πρώτου παίκτη με αφή\"></canvas>\n    <div class=\"first-player-timer\" id=\"firstPlayerTimer\"></div>\n    <p class=\"first-player-instructions\" id=\"firstPlayerHint\">Όλοι τοποθετήστε ένα δάχτυλο στην οθόνη. Κρατήστε το σταθερό όσο μετρά αντίστροφα ο χρονοδιακόπτης.</p>\n  </div>\n  <div class=\"first-player-footer\"><button type=\"button\" class=\"primary-btn first-player-reset-btn\" data-first-player-reset>Ξεκινήστε Ξανά</button></div>",
     "no_players_were_assigned_colors_this_game": "<p>Δεν ανατέθηκαν χρώματα σε παίκτες σε αυτό το παιχνίδι.</p>",
     "man_in_black_tie_rule_man_in_black_wins_the_tie": "<div class=\"auto-winner-note\"><span class=\"sheriff-star\" aria-hidden=\"true\">★</span><span><small>Κανόνας ισοπαλίας Άντρα με τα Μαύρα</small><strong>Ο Άντρας με τα Μαύρα κερδίζει την ισοπαλία</strong></span></div>",
     "update_available_tap_to_update": "<button type=\"button\" class=\"primary-btn app-update-btn\" id=\"applyUpdateBtn\">Διαθέσιμη Ενημέρωση — Πατήστε για Ενημέρωση</button>",
@@ -1751,7 +1785,9 @@
     "character_filter_story": "Ιστορία",
     "select_short": "Επιλογή",
     "see_all": "Προβολή όλων",
-    "all_characters": "Όλοι οι Χαρακτήρες"
+    "all_characters": "Όλοι οι Χαρακτήρες",
+    "deselect_short": "Αποεπιλογή",
+    "character_currently_selected": "Επιλεγμένος αυτή τη στιγμή για αυτόν τον παίκτη"
   },
   "reference": {
     "fightFlow": "Ροή Μάχης",

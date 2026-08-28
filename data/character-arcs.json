@@ -24,7 +24,6 @@
         "title": "A Man Near Death",
         "screenText": "End your turn at any Saloon to gain $20.",
         "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"A half-starved prospector stumbles from the sagebrush, clutching a leather poke. He offers twenty dollars for a drink and a ride to town.\"",
         "newspaperText": [
           "The continuing tale took another turn, and reports described the scene this way: A half-starved prospector stumbles from the sagebrush, clutching a leather poke. He offers twenty dollars for a drink and a ride to town.",
@@ -65,7 +64,6 @@
         "title": "Debt Repaid",
         "screenText": "The prospector pays forward the kindness that kept him alive. After purchasing/upgrading an Item, gain $20.",
         "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"The old prospector steps from the corner and lays coins on the counter. I told ya I would repay kindness.\"",
         "newspaperText": [
           "The continuing tale took another turn, and reports described the scene this way: The old prospector steps from the corner and lays coins on the counter. I told ya I would repay kindness.",
@@ -270,7 +268,6 @@
         "title": "Fence Line Down",
         "screenText": "End your turn at Green Ranch or Blue Ranch. Gain $20 and 1 Poker Card.",
         "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"A widow in black asks for help mending a fence before rustlers find the gap.\"",
         "newspaperText": [
           "The continuing tale took another turn, and reports described the scene this way: A widow in black asks for help mending a fence before rustlers find the gap.",
@@ -312,7 +309,6 @@
         "title": "A Safe Drive",
         "screenText": "Wrangle cattle for Widow McCall to gain +$20.",
         "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"The widow’s brand rides among the herd, and every honest mile helps save her land.\"",
         "newspaperText": [
           "The continuing tale took another turn, and reports described the scene this way: The widow’s brand rides among the herd, and every honest mile helps save her land.",
@@ -387,7 +383,6 @@
         "title": "Black Veil Bandit",
         "screenText": "Widow McCall has become an outlaw. After rustling, gain +$30 and +1 WP, then move the Sheriff up to 2 spaces toward you.",
         "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"A veiled rider joins the rustlers. Grief has sharpened her into something dangerous.\"",
         "newspaperText": [
           "The continuing tale took another turn, and reports described the scene this way: A veiled rider joins the rustlers. Grief has sharpened her into something dangerous.",
@@ -486,7 +481,6 @@
         "title": "Deputy for a Day",
         "screenText": "End your turn at Darkrock Sheriff’s Office or Buzzard Gulch Marshal’s Office to gain $20 and 1 MP.",
         "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Marshal Reeves needs a steady hand and a steadier conscience.\"",
         "newspaperText": [
           "The continuing tale took another turn, and reports described the scene this way: Marshal Reeves needs a steady hand and a steadier conscience.",
@@ -528,7 +522,6 @@
         "title": "Crackdown Warrant",
         "screenText": "After defeating a Bandit while serving Reeves’s warrant, gain +$20.",
         "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Reeves has warrants stacked like firewood and enough rope for every name on them.\"",
         "newspaperText": [
           "The continuing tale took another turn, and reports described the scene this way: Reeves has warrants stacked like firewood and enough rope for every name on them.",
@@ -604,7 +597,6 @@
         "title": "Marshal on Your Trail",
         "screenText": "Marshal Reeves is cracking down on the growing outlaw problem. Move the Sheriff up to 2 spaces toward the triggering player; if the Sheriff reaches that player, discard 1 Poker Card.",
         "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Reeves pins your name below the lantern and rides into the dark.\"",
         "newspaperText": [
           "The continuing tale took another turn, and reports described the scene this way: Reeves pins your name below the lantern and rides into the dark.",
@@ -693,7 +685,6 @@
         "title": "The Painted Wagon",
         "screenText": "End your turn at Red Falls Cabaret to draw 2 Poker Cards.",
         "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"A painted wagon rolls into Red Falls, promising wonders, music, and lies in equal measure.\"",
         "newspaperText": [
           "The continuing tale took another turn, and reports described the scene this way: A painted wagon rolls into Red Falls, promising wonders, music, and lies in equal measure.",
@@ -734,7 +725,6 @@
         "title": "Grand Frontier Show",
         "screenText": "Silas turns your Poker victory into the centerpiece of his Grand Frontier Show. Gain +1 LP and +$20.",
         "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Silas Bell calls your hand a miracle and sells tickets before the cards cool.\"",
         "newspaperText": [
           "The continuing tale took another turn, and reports described the scene this way: Silas Bell calls your hand a miracle and sells tickets before the cards cool.",
@@ -812,7 +802,6 @@
         "title": "The Great Swindle",
         "screenText": "Silas has turned to less honest business. After purchasing, discard $10 or 1 Poker Card.",
         "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"The label says genuine. The showman’s smile says otherwise.\"",
         "newspaperText": [
           "The continuing tale took another turn, and reports described the scene this way: The label says genuine. The showman’s smile says otherwise.",
@@ -903,7 +892,6 @@
         "title": "Old Pike’s Tracks",
         "screenText": "After a successful Hunt, gain 1 extra animal resource if possible; otherwise gain $10.",
         "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Old Jeremiah Pike studies the tracks and grunts like the animal owed him money.\"",
         "newspaperText": [
           "The continuing tale took another turn, and reports described the scene this way: Old Jeremiah Pike studies the tracks and grunts like the animal owed him money.",
@@ -941,7 +929,6 @@
         "title": "The White Bear Trail",
         "screenText": "Pike offers the White Bear trail. Draw two animals and choose one to encounter. If successful, gain +1 LP.",
         "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Pike points with a shaking finger. That trail belongs to something too big for ordinary fear.\"",
         "newspaperText": [
           "The continuing tale took another turn, and reports described the scene this way: Pike points with a shaking finger. That trail belongs to something too big for ordinary fear.",
@@ -1007,7 +994,6 @@
         "title": "Sprung Trap",
         "screenText": "Pike has started laying spiteful traps after being ignored.",
         "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"A hidden trap snaps shut. Pike does not forgive being ignored.\"",
         "newspaperText": [
           "The continuing tale took another turn, and reports described the scene this way: A hidden trap snaps shut. Pike does not forgive being ignored.",
@@ -1095,7 +1081,6 @@
         "title": "A Stranger at the Table",
         "screenText": "During this Poker game, the active player draws 1 extra Poker Card, then discards 1.",
         "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"A stranger with pale gloves sits down without asking and smiles without warmth.\"",
         "newspaperText": [
           "The continuing tale took another turn, and reports described the scene this way: A stranger with pale gloves sits down without asking and smiles without warmth.",
@@ -1133,7 +1118,6 @@
         "title": "Beating the Shark",
         "screenText": "After winning Poker against the Red Falls card shark, gain +$30 and 1 GP.",
         "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"For the first time all night, the stranger’s smile breaks.\"",
         "newspaperText": [
           "The continuing tale took another turn, and reports described the scene this way: For the first time all night, the stranger’s smile breaks.",
@@ -1211,7 +1195,6 @@
         "title": "Debt Collector",
         "screenText": "The card shark’s unfinished business spills into your fight.",
         "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"A debt collector steps from the alley, quoting numbers no honest man remembers.\"",
         "newspaperText": [
           "The continuing tale took another turn, and reports described the scene this way: A debt collector steps from the alley, quoting numbers no honest man remembers.",

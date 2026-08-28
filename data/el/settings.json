@@ -1,3 +1,79 @@
 {
-  "weightingNotes": "Τα μεμονωμένα γεγονότα επιλέγονται με βάση την ενεργοποίηση που πατήθηκε· οι συνέχειες ενεργών Αφηγηματικών Τόξων είναι καθορισμένες όταν πληρούνται οι συνθήκες ενεργοποίησης/παίκτη· τα Παγκόσμια Γεγονότα χρησιμοποιούν ένα αποθηκευμένο τυχαιοποιημένο ρολόι πραγματικού χρόνου και έναν ελαφρύ παλμό ελέγχου, ώστε να εμφανίζονται όταν πρέπει ακόμη κι αν δεν πατηθεί κάποια ενεργοποίηση παιχνιδιού."
+  "weightingNotes": "Τα μεμονωμένα γεγονότα επιλέγονται με βάση την ενεργοποίηση που πατήθηκε· οι συνέχειες ενεργών Αφηγηματικών Τόξων είναι καθορισμένες όταν πληρούνται οι συνθήκες ενεργοποίησης/παίκτη· τα Παγκόσμια Γεγονότα χρησιμοποιούν ένα αποθηκευμένο τυχαιοποιημένο ρολόι πραγματικού χρόνου και έναν ελαφρύ παλμό ελέγχου, ώστε να εμφανίζονται όταν πρέπει ακόμη κι αν δεν πατηθεί κάποια ενεργοποίηση παιχνιδιού.",
+  "audio": {
+    "frontierMoodMusic": {
+      "quiet": "audio/music/calm.mp3",
+      "opportunity": "audio/music/opportunity.mp3",
+      "lawless": "audio/music/outlaw.mp3",
+      "orderly": "audio/music/marshal.mp3",
+      "tense": "audio/music/standoff.mp3"
+    },
+    "contextualMusic": [
+      {
+        "id": "saloon",
+        "priority": 100,
+        "tracks": [
+          "audio/music/saloon.mp3",
+          "audio/music/saloon2.mp3",
+          "audio/music/saloon3.mp3",
+          "audio/music/cabaret.mp3"
+        ],
+        "match": {
+          "categories": [
+            "gamble"
+          ],
+          "tags": [
+            "saloon",
+            "poker",
+            "gambler",
+            "cabaret",
+            "revel",
+            "revelry",
+            "faro"
+          ]
+        }
+      },
+      {
+        "id": "frontier",
+        "priority": 90,
+        "tracks": [
+          "audio/music/frontier.mp3"
+        ],
+        "match": {
+          "ids": [
+            "trig_use_mountain_pass",
+            "trig_frontier_action"
+          ],
+          "tags": [
+            "work",
+            "frontier",
+            "mountain_pass",
+            "buzzard_gulch"
+          ]
+        }
+      },
+      {
+        "id": "travel",
+        "priority": 80,
+        "tracks": [
+          "audio/music/travel.mp3"
+        ],
+        "match": {
+          "ids": [
+            "trig_travel_rail"
+          ],
+          "categories": [
+            "movement",
+            "ranch"
+          ],
+          "tags": [
+            "travel",
+            "mount",
+            "ranch",
+            "cattle"
+          ]
+        }
+      }
+    ]
+  }
 }

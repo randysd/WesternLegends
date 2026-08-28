@@ -83,7 +83,24 @@
       "one": "{count} effet mondial",
       "other": "{count} effets mondiaux"
     },
-    "defaultPlayer": "Joueur {number}"
+    "defaultPlayer": "Joueur {number}",
+    "frontierPhrases": {
+      "quiet": "La frontière est calme… pour l’instant",
+      "opportunity": "La fortune appelle",
+      "lawless": "Les hors-la-loi font la loi",
+      "orderly": "La loi chevauche fièrement",
+      "tense": "La frontière est une poudrière",
+      "poker": "Les cartes sont brûlantes",
+      "revelry": "Les saloons sont en effervescence",
+      "range": "Le bétail règne sur les plaines",
+      "prospect": "La fièvre de l’or se répand",
+      "trade": "Les affaires sont florissantes",
+      "railroad": "Le chemin de fer bat son plein",
+      "explore": "La piste vous appelle",
+      "posse": "Les groupes se forment",
+      "intrigue": "Les murmures voyagent avec le vent",
+      "legendary": "Des légendes sont en train de s’écrire"
+    }
   },
   "story": {
     "frequency": {
@@ -653,7 +670,7 @@
       "cleanup": "Nettoyage",
       "cleanUpPlayedCards": "Nettoyer les cartes jouées",
       "discardBothPoker": "Défaussez les deux Cartes de Poker jouées",
-      "autoDrawNpc": "Piocher automatiquement une Carte de Combat du NPC",
+      "autoDrawNpc": "Piochez les cartes de combat et sélectionnez automatiquement le choix du PNJ.",
       "npcLabels": {
         "bandit": "Bandit",
         "bank_guard": "Garde de banque",
@@ -674,7 +691,16 @@
       "fullscreenTitle": "Carte de Combat",
       "cardAlt": "Carte de Combat {rank}",
       "versus": "VS",
-      "autoSelectShort": "Sélection auto"
+      "autoSelectShort": "Sélection auto",
+      "npcFightCard": "Carte de combat du PNJ",
+      "decisionContext": "Circonstances",
+      "playerHasReducingWeapon": "Le joueur peut réduire la valeur de la carte du PNJ",
+      "playerAtMaxWounds": "Le joueur a déjà 3 blessures",
+      "highValueNpc": "Vaincre ce PNJ a une grande valeur",
+      "playerHasNoPokerCards": "Le joueur n'a pas de cartes de poker",
+      "npcPlays": "Le PNJ joue",
+      "otherDrawnCards": "Autres cartes piochées",
+      "drawAgain": "Repiocher"
     },
     "dice": {
       "types": {
@@ -1404,7 +1430,7 @@
     "first_player": "Premier joueur",
     "choose_first_player": "Choisir le premier joueur",
     "random_player": "Joueur aléatoire",
-    "pick_a_random_player_color": "Choisissez une couleur de joueur au hasard.",
+    "pick_a_random_player_color": "Choisissez un joueur au hasard.",
     "store_randomizer": "Sélection aléatoire du magasin",
     "fill_general_store_trading_post": "Remplir le Magasin général/Comptoir commercial",
     "fill_general_store": "Remplir le Magasin général",
@@ -1418,7 +1444,15 @@
     "draw_a_different_item": "Piocher un autre objet",
     "setup_helper": "Aide à la mise en place",
     "general_store": "Magasin général",
+    "store_layout": "Disposition du magasin",
+    "shared_store": "Magasin partagé",
+    "split_by_town": "Séparer par ville",
+    "darkrock": "Darkrock",
+    "red_falls": "Red Falls",
     "trading_post": "Comptoir commercial",
+    "store_inventory_summary": "{count} emplacements · Arme + monture garanties",
+    "deal_new_store": "Nouvel assortiment",
+    "store_interaction_hint": "Touchez une carte pour l’agrandir. Touchez ⟲ pour la remplacer.",
     "tap_randomize_to_reveal_the_store": "Touchez Aléatoire pour révéler le magasin.",
     "tap_a_card_to_view_it_full_size_or_tap_to_draw_a_different_item_the_firs": "Touchez une carte pour l’afficher en taille réelle, ou touchez ⟲ pour piocher un autre objet. La première Arme et la première Monture piochées sont automatiquement verrouillées dans le Magasin général.",
     "randomizer": "Sélection aléatoire",
@@ -1678,7 +1712,7 @@
     "poker_hands_2": "<button type=\"button\" class=\"small-btn gambling-poker-hands-btn\" data-open-poker-hands>Mains de Poker</button>",
     "start_a_game_to_see_the_story_events_and_story_point_settings_for_that": "\n      <p class=\"settings-no-game-note\">Commencez une partie pour afficher les paramètres Histoires &amp; Événements et Points d’Histoire de cette partie.</p>",
     "trading_post_is_inactive_for_this_setup_enable_the_buzzard_gulch_sideb": "<p class=\"assist-hint\">Le Comptoir commercial est inactif pour cette mise en place — activez le module Plateau annexe Buzzard Gulch pour l’inclure.</p>",
-    "3_everyone_place_one_finger_on_the_screen_hold_steady_while_the_timer_": "<div class=\"first-player-stage\" id=\"firstPlayerStage\">\n    <canvas id=\"firstPlayerCanvas\" class=\"first-player-canvas\" aria-label=\"sélecteur tactile du premier joueur\"></canvas>\n    <div class=\"first-player-timer\" id=\"firstPlayerTimer\">3</div>\n    <p class=\"first-player-instructions\" id=\"firstPlayerHint\">Tout le monde pose un doigt sur l’écran. Restez immobile pendant le compte à rebours.</p>\n  </div>\n  <div class=\"first-player-footer\"><button type=\"button\" class=\"primary-btn first-player-reset-btn\" data-first-player-reset>Recommencer</button></div>",
+    "3_everyone_place_one_finger_on_the_screen_hold_steady_while_the_timer_": "<div class=\"first-player-stage\" id=\"firstPlayerStage\">\n    <canvas id=\"firstPlayerCanvas\" class=\"first-player-canvas\" aria-label=\"sélecteur tactile du premier joueur\"></canvas>\n    <div class=\"first-player-timer\" id=\"firstPlayerTimer\"></div>\n    <p class=\"first-player-instructions\" id=\"firstPlayerHint\">Tout le monde pose un doigt sur l’écran. Restez immobile pendant le compte à rebours.</p>\n  </div>\n  <div class=\"first-player-footer\"><button type=\"button\" class=\"primary-btn first-player-reset-btn\" data-first-player-reset>Recommencer</button></div>",
     "no_players_were_assigned_colors_this_game": "<p>Aucune couleur n’a été attribuée aux joueurs pour cette partie.</p>",
     "man_in_black_tie_rule_man_in_black_wins_the_tie": "<div class=\"auto-winner-note\"><span class=\"sheriff-star\" aria-hidden=\"true\">★</span><span><small>Règle d’égalité du Man in Black</small><strong>Le Man In Black remporte l’égalité</strong></span></div>",
     "update_available_tap_to_update": "<button type=\"button\" class=\"primary-btn app-update-btn\" id=\"applyUpdateBtn\">Mise à jour disponible — touchez pour mettre à jour</button>",
@@ -1751,7 +1785,9 @@
     "character_filter_story": "Histoire",
     "select_short": "Sélectionner",
     "see_all": "Tout voir",
-    "all_characters": "Tous les personnages"
+    "all_characters": "Tous les personnages",
+    "deselect_short": "Désélectionner",
+    "character_currently_selected": "Actuellement sélectionné pour ce joueur"
   },
   "reference": {
     "fightFlow": "Déroulement du combat",

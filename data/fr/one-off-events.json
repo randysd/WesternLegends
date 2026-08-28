@@ -884,7 +884,7 @@
   {
     "id": "trader_no_questions_asked",
     "title": "Sans poser de questions",
-    "screenText": "Dr Herve fait glisser 20 $ vers vous et propose une concoction trouble pour la route. Acceptez l’affaire sans poser de questions pour gagner 20 $ et 1 WP, ou refusez sans effet supplémentaire.",
+    "screenText": "Dr Herve fait glisser 10 $ vers vous et propose une concoction trouble pour la route. Acceptez l’affaire sans poser de questions pour gagner 10 $ et 1 WP. Lancez ensuite 2 Dés de Prospection et gagnez 1 Blessure pour chaque Pépite d’or obtenue. Ou refusez sans effet supplémentaire.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Herve fait glisser un peu d’argent vers vous, puis sort une bouteille trouble. Ne demandez pas d’où vient l’un ou l’autre. Décidez seulement si vous vous sentez chanceux.\"",
     "newspaperText": [
       "Les coups de feu et les affaires de la loi ont fourni l’un des rapports les plus vifs de la journée : Herve fait glisser un peu d’argent vers vous, puis sort une bouteille trouble. Ne demandez pas d’où vient l’un ou l’autre. Décidez seulement si vous vous sentez chanceux.",
@@ -895,7 +895,7 @@
     "resultButtons": [
       {
         "_index": 0,
-        "label": "Prendre 20 $ + 1 WP"
+        "label": "Prendre 10 $ + 1 WP"
       },
       {
         "_index": 1,
@@ -905,7 +905,7 @@
     "moduleVariants": [
       {
         "id": "gambler_track",
-        "screenText": "Dr Herve fait glisser 20 $ vers vous et propose une concoction trouble pour la route. Si vous vous sentez chanceux, acceptez l’affaire sans poser de questions pour gagner 20 $ et 1 Point de Jeu ; ou refusez sans effet supplémentaire.",
+        "screenText": "Dr Herve fait glisser 10 $ vers vous et propose une concoction trouble pour la route. Si vous vous sentez chanceux, acceptez l’affaire sans poser de questions pour gagner 10 $ et 1 Point de Jeu. Lancez ensuite 2 Dés de Prospection et gagnez 1 Blessure pour chaque Pépite d’or obtenue. Ou refusez sans effet supplémentaire.",
         "newspaperText": [
           "Dr Herve a discrètement adouci l’achat d’un client de passage avec de l’argent liquide et un pari digne des salles de jeu.",
           "Une affaire sans questions posées à la roulotte du Dr Herve a mêlé commerce, argent facile et un peu plus de tentation du jeu.",
@@ -915,7 +915,7 @@
         "resultButtons": [
           {
             "_index": 0,
-            "label": "Prendre 20 $ + 1 GP"
+            "label": "Prendre 10 $ + 1 GP"
           },
           {
             "_index": 1,

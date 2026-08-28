@@ -438,7 +438,7 @@
         "style": "blue"
       }
     ],
-    "soundFile": "audio/sfx/short-pistol.mp3",
+    "soundFile": "audio/sfx/arrest.mp3",
     "changes": {
       "marshal": 1
     }
@@ -821,7 +821,7 @@
         "style": "purple"
       }
     ],
-    "soundFile": "audio/sfx/short-money.mp3"
+    "soundFile": "audio/sfx/chips.mp3"
   },
   {
     "id": "trig_work_action",

@@ -83,7 +83,24 @@
       "one": "{count} world effect",
       "other": "{count} world effects"
     },
-    "defaultPlayer": "Player {number}"
+    "defaultPlayer": "Player {number}",
+    "frontierPhrases": {
+      "quiet": "The Frontier’s Quiet… For Now",
+      "opportunity": "Fortune’s Calling",
+      "lawless": "Outlaws Run Wild",
+      "orderly": "The Law Rides Tall",
+      "tense": "The Frontier’s on a Powder Keg",
+      "poker": "The Cards Are Running Hot",
+      "revelry": "The Saloons Are Hopping",
+      "range": "Cattle Rule the Range",
+      "prospect": "Gold Fever’s Spreading",
+      "trade": "Business Is Booming",
+      "railroad": "The Iron Road Is Humming",
+      "explore": "The Trail Is Calling",
+      "posse": "Posses Are Forming",
+      "intrigue": "Whispers Ride the Wind",
+      "legendary": "Legends Are Being Made"
+    }
   },
   "story": {
     "frequency": {
@@ -653,7 +670,7 @@
       "cleanup": "Cleanup",
       "cleanUpPlayedCards": "Clean Up Played Cards",
       "discardBothPoker": "Discard both played Poker Cards",
-      "autoDrawNpc": "Auto-draw NPC Fight Card",
+      "autoDrawNpc": "Draw and automatically select the NPC's play.",
       "npcLabels": {
         "bandit": "Bandit",
         "bank_guard": "Bank Guard",
@@ -674,7 +691,16 @@
       "fullscreenTitle": "Fight Card",
       "cardAlt": "Fight card {rank}",
       "versus": "VS",
-      "autoSelectShort": "Auto-Select"
+      "autoSelectShort": "Auto-Select",
+      "npcFightCard": "NPC Fight Card",
+      "decisionContext": "Circumstances",
+      "playerHasReducingWeapon": "Player can reduce NPC card value",
+      "playerAtMaxWounds": "Player already has 3 Wounds",
+      "highValueNpc": "Defeating this NPC is high value",
+      "playerHasNoPokerCards": "Player has no Poker Cards",
+      "npcPlays": "NPC Plays",
+      "otherDrawnCards": "Other Drawn Cards",
+      "drawAgain": "Draw Again"
     },
     "dice": {
       "types": {
@@ -1404,7 +1430,7 @@
     "first_player": "First Player",
     "choose_first_player": "Choose first player",
     "random_player": "Random Player",
-    "pick_a_random_player_color": "Pick a random player color.",
+    "pick_a_random_player_color": "Pick a random player.",
     "store_randomizer": "Store Randomizer",
     "fill_general_store_trading_post": "Fill General Store/Trading Post",
     "fill_general_store": "Fill General Store",
@@ -1418,7 +1444,15 @@
     "draw_a_different_item": "Draw a different item",
     "setup_helper": "Setup Helper",
     "general_store": "General Store",
+    "store_layout": "Store Layout",
+    "shared_store": "Shared Store",
+    "split_by_town": "Split by Town",
+    "darkrock": "Darkrock",
+    "red_falls": "Red Falls",
     "trading_post": "Trading Post",
+    "store_inventory_summary": "{count} slots · Weapon + Mount guaranteed",
+    "deal_new_store": "Deal New Store",
+    "store_interaction_hint": "Tap a card to enlarge it. Tap ⟲ to replace it.",
     "tap_randomize_to_reveal_the_store": "Tap Randomize to reveal the store.",
     "tap_a_card_to_view_it_full_size_or_tap_to_draw_a_different_item_the_firs": "Tap a card to view it full size, or tap ⟲ to draw a different item. The first drawn Weapon and Mount are locked into the General Store automatically.",
     "randomizer": "Randomizer",
@@ -1678,7 +1712,7 @@
     "poker_hands_2": "<button type=\"button\" class=\"small-btn gambling-poker-hands-btn\" data-open-poker-hands>Poker Hands</button>",
     "start_a_game_to_see_the_story_events_and_story_point_settings_for_that": "\n      <p class=\"settings-no-game-note\">Start a game to see the Story &amp; Events and Story Point settings for that game.</p>",
     "trading_post_is_inactive_for_this_setup_enable_the_buzzard_gulch_sideb": "<p class=\"assist-hint\">Trading Post is inactive for this setup — enable the Buzzard Gulch Sideboard module to include it.</p>",
-    "3_everyone_place_one_finger_on_the_screen_hold_steady_while_the_timer_": "<div class=\"first-player-stage\" id=\"firstPlayerStage\">\n    <canvas id=\"firstPlayerCanvas\" class=\"first-player-canvas\" aria-label=\"First player touch selector\"></canvas>\n    <div class=\"first-player-timer\" id=\"firstPlayerTimer\">3</div>\n    <p class=\"first-player-instructions\" id=\"firstPlayerHint\">Everyone place one finger on the screen. Hold steady while the timer counts down.</p>\n  </div>\n  <div class=\"first-player-footer\"><button type=\"button\" class=\"primary-btn first-player-reset-btn\" data-first-player-reset>Start Over</button></div>",
+    "3_everyone_place_one_finger_on_the_screen_hold_steady_while_the_timer_": "<div class=\"first-player-stage\" id=\"firstPlayerStage\">\n    <canvas id=\"firstPlayerCanvas\" class=\"first-player-canvas\" aria-label=\"First player touch selector\"></canvas>\n    <div class=\"first-player-timer\" id=\"firstPlayerTimer\"></div>\n    <p class=\"first-player-instructions\" id=\"firstPlayerHint\">Everyone place one finger on the screen. Hold steady while the timer counts down.</p>\n  </div>\n  <div class=\"first-player-footer\"><button type=\"button\" class=\"primary-btn first-player-reset-btn\" data-first-player-reset>Start Over</button></div>",
     "no_players_were_assigned_colors_this_game": "<p>No players were assigned colors this game.</p>",
     "man_in_black_tie_rule_man_in_black_wins_the_tie": "<div class=\"auto-winner-note\"><span class=\"sheriff-star\" aria-hidden=\"true\">★</span><span><small>Man in Black tie rule</small><strong>Man In Black wins the tie</strong></span></div>",
     "update_available_tap_to_update": "<button type=\"button\" class=\"primary-btn app-update-btn\" id=\"applyUpdateBtn\">Update Available — Tap to Update</button>",
@@ -1751,7 +1785,9 @@
     "character_filter_story": "Story",
     "select_short": "Select",
     "see_all": "See All",
-    "all_characters": "All Characters"
+    "all_characters": "All Characters",
+    "deselect_short": "Deselect",
+    "character_currently_selected": "Currently selected for this player"
   },
   "reference": {
     "fightFlow": "Fight Flow",

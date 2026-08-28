@@ -83,7 +83,24 @@
       "one": "{count} мировой эффект",
       "other": "{count} мировых эффектов"
     },
-    "defaultPlayer": "Игрок {number}"
+    "defaultPlayer": "Игрок {number}",
+    "frontierPhrases": {
+      "quiet": "На фронтире тихо… пока",
+      "opportunity": "Удача зовёт",
+      "lawless": "Бандиты разгулялись",
+      "orderly": "Закон крепко держится в седле",
+      "tense": "Фронтир — пороховая бочка",
+      "poker": "Карты раскалились",
+      "revelry": "Салуны гудят",
+      "range": "Скот правит прерией",
+      "prospect": "Золотая лихорадка распространяется",
+      "trade": "Торговля процветает",
+      "railroad": "Железная дорога гудит",
+      "explore": "Тропа зовёт",
+      "posse": "Отряды собираются",
+      "intrigue": "Шёпот несётся по ветру",
+      "legendary": "Рождаются легенды"
+    }
   },
   "story": {
     "frequency": {
@@ -653,7 +670,7 @@
       "cleanup": "Очистка",
       "cleanUpPlayedCards": "Уберите сыгранные карты",
       "discardBothPoker": "Сбросьте обе сыгранные карты покера",
-      "autoDrawNpc": "Автоматически взять карту боя NPC",
+      "autoDrawNpc": "Возьмите карты боя и автоматически выберите ход NPC.",
       "npcLabels": {
         "bandit": "Bandit",
         "bank_guard": "Банковский охранник",
@@ -674,7 +691,16 @@
       "fullscreenTitle": "Карта боя",
       "cardAlt": "Карта боя {rank}",
       "versus": "ПРОТИВ",
-      "autoSelectShort": "Автовыбор"
+      "autoSelectShort": "Автовыбор",
+      "npcFightCard": "Карта боя NPC",
+      "decisionContext": "Обстоятельства",
+      "playerHasReducingWeapon": "Игрок может уменьшить значение карты НИП",
+      "playerAtMaxWounds": "У игрока уже 3 раны",
+      "highValueNpc": "Победа над этим NPC особенно ценна",
+      "playerHasNoPokerCards": "У игрока нет карт покера",
+      "npcPlays": "NPC играет",
+      "otherDrawnCards": "Другие вытянутые карты",
+      "drawAgain": "Взять снова"
     },
     "dice": {
       "types": {
@@ -1404,7 +1430,7 @@
     "first_player": "Первый игрок",
     "choose_first_player": "Выбрать первого игрока",
     "random_player": "Случайный игрок",
-    "pick_a_random_player_color": "Выбрать случайный цвет игрока.",
+    "pick_a_random_player_color": "Выбрать случайного игрока.",
     "store_randomizer": "Случайное заполнение магазина",
     "fill_general_store_trading_post": "Заполнить универсальный магазин/торговый пост",
     "fill_general_store": "Заполнить универсальный магазин",
@@ -1418,7 +1444,15 @@
     "draw_a_different_item": "Взять другой предмет",
     "setup_helper": "Помощник подготовки",
     "general_store": "Универсальный магазин",
+    "store_layout": "Схема магазина",
+    "shared_store": "Общий магазин",
+    "split_by_town": "Разделить по городам",
+    "darkrock": "Darkrock",
+    "red_falls": "Red Falls",
     "trading_post": "Торговый пост",
+    "store_inventory_summary": "{count} ячеек · Оружие + ездовое животное гарантированы",
+    "deal_new_store": "Новый ассортимент",
+    "store_interaction_hint": "Нажмите карту, чтобы увеличить её. Нажмите ⟲, чтобы заменить её.",
     "tap_randomize_to_reveal_the_store": "Нажмите «Случайно», чтобы открыть магазин.",
     "tap_a_card_to_view_it_full_size_or_tap_to_draw_a_different_item_the_firs": "Нажмите на карту, чтобы открыть её в полном размере, или нажмите ⟲, чтобы взять другой предмет. Первые выпавшие оружие и ездовое животное автоматически закрепляются в универсальном магазине.",
     "randomizer": "Случайный выбор",
@@ -1678,7 +1712,7 @@
     "poker_hands_2": "<button type=\"button\" class=\"small-btn gambling-poker-hands-btn\" data-open-poker-hands>Покерные комбинации</button>",
     "start_a_game_to_see_the_story_events_and_story_point_settings_for_that": "\n      <p class=\"settings-no-game-note\">Начните игру, чтобы увидеть настройки историй, событий и очков истории для неё.</p>",
     "trading_post_is_inactive_for_this_setup_enable_the_buzzard_gulch_sideb": "<p class=\"assist-hint\">Торговый пост неактивен для этой подготовки — включите модуль дополнительного поля Баззард-Галч, чтобы добавить его.</p>",
-    "3_everyone_place_one_finger_on_the_screen_hold_steady_while_the_timer_": "<div class=\"first-player-stage\" id=\"firstPlayerStage\">\n    <canvas id=\"firstPlayerCanvas\" class=\"first-player-canvas\" aria-label=\"Сенсорный выбор первого игрока\"></canvas>\n    <div class=\"first-player-timer\" id=\"firstPlayerTimer\">3</div>\n    <p class=\"first-player-instructions\" id=\"firstPlayerHint\">Каждый положите один палец на экран. Не двигайтесь, пока идёт обратный отсчёт.</p>\n  </div>\n  <div class=\"first-player-footer\"><button type=\"button\" class=\"primary-btn first-player-reset-btn\" data-first-player-reset>Начать заново</button></div>",
+    "3_everyone_place_one_finger_on_the_screen_hold_steady_while_the_timer_": "<div class=\"first-player-stage\" id=\"firstPlayerStage\">\n    <canvas id=\"firstPlayerCanvas\" class=\"first-player-canvas\" aria-label=\"Сенсорный выбор первого игрока\"></canvas>\n    <div class=\"first-player-timer\" id=\"firstPlayerTimer\"></div>\n    <p class=\"first-player-instructions\" id=\"firstPlayerHint\">Каждый положите один палец на экран. Не двигайтесь, пока идёт обратный отсчёт.</p>\n  </div>\n  <div class=\"first-player-footer\"><button type=\"button\" class=\"primary-btn first-player-reset-btn\" data-first-player-reset>Начать заново</button></div>",
     "no_players_were_assigned_colors_this_game": "<p>В этой игре игрокам не были назначены цвета.</p>",
     "man_in_black_tie_rule_man_in_black_wins_the_tie": "<div class=\"auto-winner-note\"><span class=\"sheriff-star\" aria-hidden=\"true\">★</span><span><small>Правило ничьей Человека в чёрном</small><strong>Человек в чёрном побеждает при ничьей</strong></span></div>",
     "update_available_tap_to_update": "<button type=\"button\" class=\"primary-btn app-update-btn\" id=\"applyUpdateBtn\">Доступно обновление — нажмите, чтобы обновить</button>",
@@ -1751,7 +1785,9 @@
     "character_filter_story": "История",
     "select_short": "Выбрать",
     "see_all": "Показать все",
-    "all_characters": "Все персонажи"
+    "all_characters": "Все персонажи",
+    "deselect_short": "Отменить выбор",
+    "character_currently_selected": "Сейчас выбран для этого игрока"
   },
   "reference": {
     "fightFlow": "Ход боя",

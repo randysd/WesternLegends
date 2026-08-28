@@ -1,0 +1,430 @@
+{
+  "referenceBoardId": "main",
+  "layoutUnit": "main-board-width-percent",
+  "boards": {
+    "main": {
+      "image": "assets/images/boards/main-board.png",
+      "labelKey": "strings.main_board",
+      "layout": {
+        "x": 0,
+        "y": 0,
+        "width": 100,
+        "rotation": 0
+      },
+      "locations": {
+        "darkrock-general-store": {
+          "points": [
+            {
+              "x": 44,
+              "y": 28
+            },
+            {
+              "x": 42,
+              "y": 38
+            },
+            {
+              "x": 48,
+              "y": 38
+            }
+          ]
+        },
+        "darkrock-sheriff": {
+          "points": [
+            {
+              "x": 37.5,
+              "y": 38
+            }
+          ]
+        },
+        "darkrock-saloon": {
+          "points": [
+            {
+              "x": 37,
+              "y": 46
+            },
+            {
+              "x": 34,
+              "y": 54
+            },
+            {
+              "x": 42,
+              "y": 54
+            }
+          ]
+        },
+        "darkrock-bank": {
+          "points": [
+            {
+              "x": 47,
+              "y": 53.5
+            }
+          ]
+        },
+        "red-falls-general-store": {
+          "points": [
+            {
+              "x": 80,
+              "y": 39.5
+            },
+            {
+              "x": 77,
+              "y": 47
+            },
+            {
+              "x": 83.5,
+              "y": 46
+            }
+          ]
+        },
+        "red-falls-doctor": {
+          "points": [
+            {
+              "x": 71.8,
+              "y": 27.3
+            }
+          ]
+        },
+        "red-falls-cabaret": {
+          "points": [
+            {
+              "x": 69.2,
+              "y": 36.5
+            }
+          ]
+        },
+        "red-falls-saloon": {
+          "points": [
+            {
+              "x": 77,
+              "y": 28
+            },
+            {
+              "x": 73,
+              "y": 39
+            },
+            {
+              "x": 80,
+              "y": 35
+            }
+          ]
+        },
+        "spikes-view-mine": {
+          "points": [
+            {
+              "x": 32.2,
+              "y": 81.2
+            }
+          ]
+        },
+        "spikes-view-rail": {
+          "points": [
+            {
+              "x": 57.5,
+              "y": 80
+            }
+          ]
+        },
+        "sunny-hills-mine": {
+          "points": [
+            {
+              "x": 53.7,
+              "y": 22
+            }
+          ]
+        },
+        "sunny-hills-ranch": {
+          "points": [
+            {
+              "x": 81.3,
+              "y": 20.3
+            }
+          ]
+        },
+        "cliff-junction-mine": {
+          "points": [
+            {
+              "x": 68,
+              "y": 72.2
+            }
+          ]
+        },
+        "mesitos-point-ranch": {
+          "points": [
+            {
+              "x": 35.9,
+              "y": 22.3
+            }
+          ]
+        },
+        "dixon-creek": {
+          "points": [
+            {
+              "x": 59,
+              "y": 48.5
+            }
+          ]
+        },
+        "bandit-hideout-a": {
+          "points": [
+            {
+              "x": 28,
+              "y": 24
+            },
+            {
+              "x": 88.5,
+              "y": 20
+            }
+          ]
+        },
+        "bandit-hideout-b": {
+          "points": [
+            {
+              "x": 57.4,
+              "y": 13.5
+            },
+            {
+              "x": 59,
+              "y": 48.5
+            }
+          ]
+        },
+        "bandit-hideout-c": {
+          "points": [
+            {
+              "x": 29.5,
+              "y": 72.9
+            },
+            {
+              "x": 85.2,
+              "y": 65.8
+            }
+          ]
+        },
+        "bandit-hideout-any": {
+          "points": [
+            {
+              "x": 28,
+              "y": 24
+            },
+            {
+              "x": 88.5,
+              "y": 20
+            },
+            {
+              "x": 57.4,
+              "y": 13.5
+            },
+            {
+              "x": 59,
+              "y": 48.5
+            },
+            {
+              "x": 29.5,
+              "y": 72.9
+            },
+            {
+              "x": 85.2,
+              "y": 65.8
+            }
+          ]
+        },
+        "train-checkpoints-main": {
+          "points": [
+            {
+              "x": 57.5,
+              "y": 80
+            },
+            {
+              "x": 85.2,
+              "y": 65.8
+            }
+          ]
+        }
+      }
+    },
+    "ante-up-frontier": {
+      "image": "assets/images/boards/ante-up-frontier.png",
+      "labelKey": "strings.buzzard_gulch_frontier_board",
+      "layout": {
+        "x": 100,
+        "y": -11.875,
+        "width": 42.875,
+        "rotation": 0
+      },
+      "locations": {
+        "buzzard-gulch-saloon": {
+          "points": [
+            {
+              "x": 59,
+              "y": 20.5
+            },
+            {
+              "x": 74,
+              "y": 20.5
+            },
+            {
+              "x": 64,
+              "y": 25
+            }
+          ]
+        },
+        "buzzard-gulch-trading-post": {
+          "points": [
+            {
+              "x": 65,
+              "y": 30
+            },
+            {
+              "x": 65,
+              "y": 36
+            },
+            {
+              "x": 78,
+              "y": 33
+            }
+          ]
+        },
+        "buzzard-gulch-marshal": {
+          "points": [
+            {
+              "x": 47.4,
+              "y": 28.5
+            }
+          ]
+        },
+        "buzzard-gulch-rail": {
+          "points": [
+            {
+              "x": 14.1,
+              "y": 29.4
+            }
+          ]
+        },
+        "buzzard-gulch-ranch": {
+          "points": [
+            {
+              "x": 89.1,
+              "y": 4.9
+            }
+          ]
+        },
+        "buzzard-gulch-outlaw-camp": {
+          "points": [
+            {
+              "x": 89.8,
+              "y": 61.2
+            }
+          ]
+        },
+        "mountain-pass-a": {
+          "points": [
+            {
+              "x": 22.4,
+              "y": 6.6
+            }
+          ]
+        },
+        "mountain-pass-c": {
+          "points": [
+            {
+              "x": 21,
+              "y": 57.5
+            }
+          ]
+        },
+        "frontier-value-6": {
+          "points": [
+            {
+              "x": 27.2,
+              "y": 17.5
+            },
+            {
+              "x": 73.4,
+              "y": 14
+            },
+            {
+              "x": 32.4,
+              "y": 40
+            },
+            {
+              "x": 78,
+              "y": 42.8
+            }
+          ]
+        },
+        "frontier-value-7": {
+          "points": [
+            {
+              "x": 41,
+              "y": 2.7
+            },
+            {
+              "x": 64.2,
+              "y": 3.4
+            },
+            {
+              "x": 46,
+              "y": 59.8
+            },
+            {
+              "x": 72,
+              "y": 61.4
+            }
+          ]
+        },
+        "frontier-value-8": {
+          "points": [
+            {
+              "x": 93.8,
+              "y": 31.4
+            }
+          ]
+        },
+        "train-checkpoints-frontier": {
+          "points": [
+            {
+              "x": 21,
+              "y": 57.5
+            },
+            {
+              "x": 14.1,
+              "y": 29.4
+            },
+            {
+              "x": 22.4,
+              "y": 6.6
+            }
+          ]
+        }
+      }
+    },
+    "ante-up-gambler": {
+      "image": "assets/images/boards/ante-up-gambler.png",
+      "moduleId": "ante_up_gambler",
+      "layout": {
+        "x": 0,
+        "y": -11.875,
+        "width": 100,
+        "rotation": 0
+      },
+      "locations": {
+        "train-checkpoints-gambler": {
+          "points": [
+            {
+              "x": 31.6,
+              "y": 58
+            },
+            {
+              "x": 60,
+              "y": 50
+            },
+            {
+              "x": 94,
+              "y": 53
+            }
+          ]
+        }
+      }
+    }
+  }
+}

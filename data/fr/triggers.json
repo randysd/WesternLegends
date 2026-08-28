@@ -237,7 +237,8 @@
         "text": "Arrêter un joueur Wanted",
         "style": "blue"
       }
-    ]
+    ],
+    "soundFile": "audio/sfx/arrest.mp3"
   },
   {
     "id": "trig_sheriff_arrests",

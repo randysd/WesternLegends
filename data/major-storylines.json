@@ -24,7 +24,6 @@
         "title": "Surveyors Arrive",
         "screenText": "End your turn at any Rail Station to gain $20 and Railroad Progress +1.",
         "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Surveyors arrive with chains, stakes, and the dangerous idea that tomorrow can be measured.\"",
         "newspaperText": [
           "The continuing tale took another turn, and reports described the scene this way: Surveyors arrive with chains, stakes, and the dangerous idea that tomorrow can be measured.",
@@ -70,7 +69,6 @@
         "title": "Timbers for the Depot",
         "screenText": "Deliver Wood to a Rail Station. Gain $20 and Railroad Progress +1.",
         "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Fresh timbers thump beside the tracks like bones of a new town.\"",
         "newspaperText": [
           "The continuing tale took another turn, and reports described the scene this way: Fresh timbers thump beside the tracks like bones of a new town.",
@@ -118,7 +116,6 @@
         "title": "Iron for the Line",
         "screenText": "Deliver Metal to a Rail Station. Gain $20 and Railroad Progress +1.",
         "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"The foreman runs a thumb along the iron and sees tomorrow.\"",
         "newspaperText": [
           "The continuing tale took another turn, and reports described the scene this way: The foreman runs a thumb along the iron and sees tomorrow.",
@@ -210,7 +207,6 @@
         "title": "Torn Journal",
         "screenText": "End your turn at Cliff Junction Mine to gain 1 Legendary Token.",
         "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"A torn journal speaks of Spanish gold hidden where the cliffs throw shadows at noon.\"",
         "newspaperText": [
           "The continuing tale took another turn, and reports described the scene this way: A torn journal speaks of Spanish gold hidden where the cliffs throw shadows at noon.",
@@ -251,7 +247,6 @@
         "title": "The Stone Marker",
         "screenText": "Draw 1 Fight Card. On 8+, gain 2 Gold; otherwise gain 1 wound.",
         "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[raspy][old cowboy][western][fast][low key][emotionless][quick]A stone cross leans from the dust, older than any town on this map.",
         "newspaperText": [
           "The continuing tale took another turn, and reports described the scene this way: A stone cross leans from the dust, older than any town on this map.",
@@ -291,7 +286,6 @@
         "title": "The Buried Cache",
         "screenText": "Gain $40 and 2 LP. Add Lost Spanish Gold to the newspaper.",
         "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Under red stone waits a cache of coins stamped for a king who never saw this country.\"",
         "newspaperText": [
           "The continuing tale took another turn, and reports described the scene this way: Under red stone waits a cache of coins stamped for a king who never saw this country.",
@@ -356,7 +350,6 @@
         "title": "Strange Tracks",
         "screenText": "After a Hunt, gain 1 White Buffalo Clue.",
         "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"Tracks wide as dinner plates cut across the prairie, and every bird has gone quiet.\"",
         "newspaperText": [
           "The continuing tale took another turn, and reports described the scene this way: Tracks wide as dinner plates cut across the prairie, and every bird has gone quiet.",
@@ -397,7 +390,6 @@
         "title": "The Warning",
         "screenText": "End your turn in Sunny Hills to gain 1 LP or draw 2 Poker Cards.",
         "assignPlayerColor": "optional",
-        "expiresAfterPrimaryTriggers": 6,
         "narrationScript": "[western storyteller][old cowboy][raspy] \"An old scout warns that some animals are not trophies. They are tests.\"",
         "newspaperText": [
           "The continuing tale took another turn, and reports described the scene this way: An old scout warns that some animals are not trophies. They are tests.",

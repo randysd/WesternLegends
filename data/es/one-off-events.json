@@ -884,7 +884,7 @@
   {
     "id": "trader_no_questions_asked",
     "title": "Sin Hacer Preguntas",
-    "screenText": "El Dr. Herve desliza $20 de vuelta por el mostrador y ofrece una mezcla turbia para el camino. Acepta el trato sin preguntas para obtener $20 y 1 WP, o recházalo sin efecto adicional.",
+    "screenText": "El Dr. Herve desliza $10 de vuelta por el mostrador y ofrece una mezcla turbia para el camino. Acepta el trato sin preguntas para obtener $10 y 1 WP. Después tira 2 Dados de Prospección y recibe 1 Herida por cada Pepita de Oro obtenida. O recházalo sin efecto adicional.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Herve desliza algo de dinero de vuelta por el mostrador y luego saca una botella turbia. No preguntes de dónde salió ninguna de las dos cosas. Solo decide si hoy te sientes con suerte.\"",
     "newspaperText": [
       "Los tiroteos y los asuntos de la ley proporcionaron uno de los informes más contundentes del día: Herve desliza algo de dinero de vuelta por el mostrador y luego saca una botella turbia. No preguntes de dónde salió ninguna de las dos cosas. Solo decide si hoy te sientes con suerte.",
@@ -895,7 +895,7 @@
     "resultButtons": [
       {
         "_index": 0,
-        "label": "Aceptar $20 + 1 WP"
+        "label": "Aceptar $10 + 1 WP"
       },
       {
         "_index": 1,
@@ -905,7 +905,7 @@
     "moduleVariants": [
       {
         "id": "gambler_track",
-        "screenText": "El Dr. Herve desliza $20 de vuelta por el mostrador y ofrece una mezcla turbia para el camino. Si te sientes con suerte, acepta el trato sin preguntas para obtener $20 y 1 Punto de Gambler; o recházalo sin efecto adicional.",
+        "screenText": "El Dr. Herve desliza $10 de vuelta por el mostrador y ofrece una mezcla turbia para el camino. Si te sientes con suerte, acepta el trato sin preguntas para obtener $10 y 1 Punto de Juego. Después tira 2 Dados de Prospección y recibe 1 Herida por cada Pepita de Oro obtenida. O recházalo sin efecto adicional.",
         "newspaperText": [
           "El Dr. Herve mejoró discretamente la compra de un cliente viajero con dinero suelto y una apuesta digna de las salas de juego.",
           "Un trato sin preguntas en el carro del Dr. Herve mezcló comercio, dinero fácil y un poco más de tentación por el juego.",
@@ -915,7 +915,7 @@
         "resultButtons": [
           {
             "_index": 0,
-            "label": "Aceptar $20 + 1 GP"
+            "label": "Aceptar $10 + 1 GP"
           },
           {
             "_index": 1,

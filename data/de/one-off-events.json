@@ -884,7 +884,7 @@
   {
     "id": "trader_no_questions_asked",
     "title": "Keine Fragen",
-    "screenText": "Dr. Herve schiebt $20 über den Tresen zurück und bietet dir für den Weg ein trübes Gebräu an. Nimm das Geschäft ohne Fragen an, um $20 und 1 WP zu erhalten, oder lehne ohne weiteren Effekt ab.",
+    "screenText": "Dr. Herve schiebt $10 über den Tresen zurück und bietet dir für den Weg ein trübes Gebräu an. Nimm das Geschäft ohne Fragen an, um $10 und 1 WP zu erhalten. Würfle dann mit 2 Schürfwürfeln und erhalte für jedes gewürfelte Goldnugget 1 Wunde. Oder lehne ohne weiteren Effekt ab.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Herve schiebt etwas Geld über den Tresen zurück und holt dann eine trübe Flasche hervor. Frag besser nicht, woher beides stammt. Entscheide nur, ob du dich heute glücklich fühlst.\"",
     "newspaperText": [
       "Schießereien und Gesetzesangelegenheiten lieferten einen der schärferen Berichte des Tages: Herve schiebt etwas Geld über den Tresen zurück und holt dann eine trübe Flasche hervor. Frag besser nicht, woher beides stammt. Entscheide nur, ob du dich heute glücklich fühlst.",
@@ -895,7 +895,7 @@
     "resultButtons": [
       {
         "_index": 0,
-        "label": "$20 + 1 WP nehmen"
+        "label": "$10 + 1 WP nehmen"
       },
       {
         "_index": 1,
@@ -905,7 +905,7 @@
     "moduleVariants": [
       {
         "id": "gambler_track",
-        "screenText": "Dr. Herve schiebt $20 über den Tresen zurück und bietet dir für den Weg ein trübes Gebräu an. Wenn du dich glücklich fühlst, nimm das Geschäft ohne Fragen an, um $20 und 1 Glücksspieler-Punkt zu erhalten; oder lehne ohne weiteren Effekt ab.",
+        "screenText": "Dr. Herve schiebt $10 über den Tresen zurück und bietet dir für den Weg ein trübes Gebräu an. Wenn du dich glücklich fühlst, nimm das Geschäft ohne Fragen an, um $10 und 1 Glücksspieler-Punkt zu erhalten. Würfle dann mit 2 Schürfwürfeln und erhalte für jedes gewürfelte Goldnugget 1 Wunde. Oder lehne ohne weiteren Effekt ab.",
         "newspaperText": [
           "Dr. Herve versüßte einem reisenden Kunden den Kauf ganz unauffällig mit etwas Bargeld und einer Wette, wie sie in die Spielhallen passt.",
           "Ein Geschäft ohne Fragen an Dr. Herves Wagen vermischte Handel, leichtes Geld und ein wenig zusätzliche Versuchung zum Glücksspiel.",
@@ -915,7 +915,7 @@
         "resultButtons": [
           {
             "_index": 0,
-            "label": "$20 + 1 GP nehmen"
+            "label": "$10 + 1 GP nehmen"
           },
           {
             "_index": 1,

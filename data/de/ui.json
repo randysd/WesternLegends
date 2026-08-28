@@ -83,7 +83,24 @@
       "one": "{count} Welteffekt",
       "other": "{count} Welteffekte"
     },
-    "defaultPlayer": "Spieler {number}"
+    "defaultPlayer": "Spieler {number}",
+    "frontierPhrases": {
+      "quiet": "Die Frontier ist still … vorerst",
+      "opportunity": "Das Glück ruft",
+      "lawless": "Die Gesetzlosen treiben ihr Unwesen",
+      "orderly": "Das Gesetz sitzt fest im Sattel",
+      "tense": "Die Frontier sitzt auf einem Pulverfass",
+      "poker": "Die Karten laufen heiß",
+      "revelry": "In den Saloons ist die Hölle los",
+      "range": "Das Vieh beherrscht die Prärie",
+      "prospect": "Das Goldfieber greift um sich",
+      "trade": "Die Geschäfte boomen",
+      "railroad": "Die Eisenbahn brummt",
+      "explore": "Der Trail ruft",
+      "posse": "Die Posses sammeln sich",
+      "intrigue": "Gerüchte reiten auf dem Wind",
+      "legendary": "Legenden werden geboren"
+    }
   },
   "story": {
     "frequency": {
@@ -653,7 +670,7 @@
       "cleanup": "Aufräumen",
       "cleanUpPlayedCards": "Gespielte Karten aufräumen",
       "discardBothPoker": "Wirf beide gespielten Pokerkarten ab",
-      "autoDrawNpc": "NSC-Kampfkarte automatisch ziehen",
+      "autoDrawNpc": "Kampfkarten ziehen und den Zug des NSC automatisch auswählen.",
       "npcLabels": {
         "bandit": "Bandit",
         "bank_guard": "Bankwache",
@@ -674,7 +691,16 @@
       "fullscreenTitle": "Kampfkarte",
       "cardAlt": "Kampfkarte {rank}",
       "versus": "GEGEN",
-      "autoSelectShort": "Automatisch wählen"
+      "autoSelectShort": "Automatisch wählen",
+      "npcFightCard": "NSC-Kampfkarte",
+      "decisionContext": "Umstände",
+      "playerHasReducingWeapon": "Spieler kann den Kartenwert des NSC reduzieren",
+      "playerAtMaxWounds": "Der Spieler hat bereits 3 Wunden",
+      "highValueNpc": "Der Sieg über diesen NPC ist besonders wertvoll",
+      "playerHasNoPokerCards": "Der Spieler hat keine Pokerkarten",
+      "npcPlays": "NSC spielt",
+      "otherDrawnCards": "Andere gezogene Karten",
+      "drawAgain": "Erneut ziehen"
     },
     "dice": {
       "types": {
@@ -1404,7 +1430,7 @@
     "first_player": "Startspieler",
     "choose_first_player": "Startspieler wählen",
     "random_player": "Zufälliger Spieler",
-    "pick_a_random_player_color": "Wähle zufällig eine Spielerfarbe.",
+    "pick_a_random_player_color": "Wähle zufällig einen Spieler.",
     "store_randomizer": "Laden-Zufallsauswahl",
     "fill_general_store_trading_post": "Gemischtwarenladen/Handelsposten füllen",
     "fill_general_store": "Gemischtwarenladen füllen",
@@ -1418,7 +1444,15 @@
     "draw_a_different_item": "Anderen Gegenstand ziehen",
     "setup_helper": "Aufbauhelfer",
     "general_store": "Gemischtwarenladen",
+    "store_layout": "Ladenaufteilung",
+    "shared_store": "Gemeinsamer Laden",
+    "split_by_town": "Nach Stadt trennen",
+    "darkrock": "Darkrock",
+    "red_falls": "Red Falls",
     "trading_post": "Handelsposten",
+    "store_inventory_summary": "{count} Plätze · Waffe + Reittier garantiert",
+    "deal_new_store": "Neuen Laden auslegen",
+    "store_interaction_hint": "Tippe auf eine Karte, um sie zu vergrößern. Tippe auf ⟲, um sie zu ersetzen.",
     "tap_randomize_to_reveal_the_store": "Tippe auf „Zufällig bestimmen“, um den Laden aufzudecken.",
     "tap_a_card_to_view_it_full_size_or_tap_to_draw_a_different_item_the_firs": "Tippe auf eine Karte, um sie in voller Größe anzusehen, oder auf ⟲, um einen anderen Gegenstand zu ziehen. Die zuerst gezogene Waffe und das zuerst gezogene Reittier werden automatisch im Gemischtwarenladen festgelegt.",
     "randomizer": "Zufallsauswahl",
@@ -1678,7 +1712,7 @@
     "poker_hands_2": "<button type=\"button\" class=\"small-btn gambling-poker-hands-btn\" data-open-poker-hands>Pokerhände</button>",
     "start_a_game_to_see_the_story_events_and_story_point_settings_for_that": "\n      <p class=\"settings-no-game-note\">Starte ein Spiel, um die Einstellungen für Story &amp; Ereignisse sowie Story-Punkte dieses Spiels zu sehen.</p>",
     "trading_post_is_inactive_for_this_setup_enable_the_buzzard_gulch_sideb": "<p class=\"assist-hint\">Der Handelsposten ist bei diesem Aufbau inaktiv — aktiviere das Modul „Buzzard-Gulch-Seitenspielplan“, um ihn einzubeziehen.</p>",
-    "3_everyone_place_one_finger_on_the_screen_hold_steady_while_the_timer_": "<div class=\"first-player-stage\" id=\"firstPlayerStage\">\n    <canvas id=\"firstPlayerCanvas\" class=\"first-player-canvas\" aria-label=\"Touch-Auswahl des Startspielers\"></canvas>\n    <div class=\"first-player-timer\" id=\"firstPlayerTimer\">3</div>\n    <p class=\"first-player-instructions\" id=\"firstPlayerHint\">Jeder legt einen Finger auf den Bildschirm. Haltet still, während der Timer herunterzählt.</p>\n  </div>\n  <div class=\"first-player-footer\"><button type=\"button\" class=\"primary-btn first-player-reset-btn\" data-first-player-reset>Neu starten</button></div>",
+    "3_everyone_place_one_finger_on_the_screen_hold_steady_while_the_timer_": "<div class=\"first-player-stage\" id=\"firstPlayerStage\">\n    <canvas id=\"firstPlayerCanvas\" class=\"first-player-canvas\" aria-label=\"Touch-Auswahl des Startspielers\"></canvas>\n    <div class=\"first-player-timer\" id=\"firstPlayerTimer\"></div>\n    <p class=\"first-player-instructions\" id=\"firstPlayerHint\">Jeder legt einen Finger auf den Bildschirm. Haltet still, während der Timer herunterzählt.</p>\n  </div>\n  <div class=\"first-player-footer\"><button type=\"button\" class=\"primary-btn first-player-reset-btn\" data-first-player-reset>Neu starten</button></div>",
     "no_players_were_assigned_colors_this_game": "<p>In diesem Spiel wurden keinen Spielern Farben zugewiesen.</p>",
     "man_in_black_tie_rule_man_in_black_wins_the_tie": "<div class=\"auto-winner-note\"><span class=\"sheriff-star\" aria-hidden=\"true\">★</span><span><small>Gleichstandsregel des Mannes in Schwarz</small><strong>Der Mann in Schwarz gewinnt den Gleichstand</strong></span></div>",
     "update_available_tap_to_update": "<button type=\"button\" class=\"primary-btn app-update-btn\" id=\"applyUpdateBtn\">Update verfügbar — zum Aktualisieren antippen</button>",
@@ -1751,7 +1785,9 @@
     "character_filter_story": "Story",
     "select_short": "Auswählen",
     "see_all": "Alle anzeigen",
-    "all_characters": "Alle Charaktere"
+    "all_characters": "Alle Charaktere",
+    "deselect_short": "Abwählen",
+    "character_currently_selected": "Derzeit für diesen Spieler ausgewählt"
   },
   "reference": {
     "fightFlow": "Kampfablauf",

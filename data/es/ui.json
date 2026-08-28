@@ -83,7 +83,24 @@
       "one": "{count} efecto mundial",
       "other": "{count} efectos mundiales"
     },
-    "defaultPlayer": "Jugador {number}"
+    "defaultPlayer": "Jugador {number}",
+    "frontierPhrases": {
+      "quiet": "La frontera está tranquila… por ahora",
+      "opportunity": "La fortuna está llamando",
+      "lawless": "Los forajidos campan a sus anchas",
+      "orderly": "La ley cabalga con firmeza",
+      "tense": "La frontera es un barril de pólvora",
+      "poker": "Las cartas están que arden",
+      "revelry": "Los salones están a rebosar",
+      "range": "El ganado manda en la pradera",
+      "prospect": "La fiebre del oro se extiende",
+      "trade": "Los negocios están en auge",
+      "railroad": "El ferrocarril no para",
+      "explore": "El sendero está llamando",
+      "posse": "Se están formando partidas",
+      "intrigue": "Los susurros viajan con el viento",
+      "legendary": "Se están forjando leyendas"
+    }
   },
   "story": {
     "frequency": {
@@ -653,7 +670,7 @@
       "cleanup": "Limpieza",
       "cleanUpPlayedCards": "Limpiar cartas jugadas",
       "discardBothPoker": "Descarta las dos cartas de Poker jugadas",
-      "autoDrawNpc": "Robar automáticamente Carta de Pelea del PNJ",
+      "autoDrawNpc": "Roba cartas de combate y selecciona automáticamente la jugada del PNJ.",
       "npcLabels": {
         "bandit": "Bandit",
         "bank_guard": "Guardia del Banco",
@@ -674,7 +691,16 @@
       "fullscreenTitle": "Carta de Pelea",
       "cardAlt": "Carta de Pelea {rank}",
       "versus": "VS",
-      "autoSelectShort": "Selección automática"
+      "autoSelectShort": "Selección automática",
+      "npcFightCard": "Carta de combate del PNJ",
+      "decisionContext": "Circunstancias",
+      "playerHasReducingWeapon": "El jugador puede reducir el valor de la carta del PNJ",
+      "playerAtMaxWounds": "El jugador ya tiene 3 heridas",
+      "highValueNpc": "Derrotar a este PNJ es muy valioso",
+      "playerHasNoPokerCards": "El jugador no tiene cartas de póker",
+      "npcPlays": "El PNJ juega",
+      "otherDrawnCards": "Otras cartas robadas",
+      "drawAgain": "Robar de nuevo"
     },
     "dice": {
       "types": {
@@ -1404,7 +1430,7 @@
     "first_player": "Primer jugador",
     "choose_first_player": "Elegir primer jugador",
     "random_player": "Jugador aleatorio",
-    "pick_a_random_player_color": "Elige un color de jugador al azar.",
+    "pick_a_random_player_color": "Elige un jugador al azar.",
     "store_randomizer": "Aleatorizador de tienda",
     "fill_general_store_trading_post": "Llenar Tienda General/Puesto Comercial",
     "fill_general_store": "Llenar Tienda General",
@@ -1418,7 +1444,15 @@
     "draw_a_different_item": "Robar un objeto diferente",
     "setup_helper": "Ayuda de preparación",
     "general_store": "Tienda General",
+    "store_layout": "Distribución de la tienda",
+    "shared_store": "Tienda compartida",
+    "split_by_town": "Separar por ciudad",
+    "darkrock": "Darkrock",
+    "red_falls": "Red Falls",
     "trading_post": "Puesto Comercial",
+    "store_inventory_summary": "{count} espacios · Arma + montura garantizadas",
+    "deal_new_store": "Repartir nueva tienda",
+    "store_interaction_hint": "Toca una carta para ampliarla. Toca ⟲ para reemplazarla.",
     "tap_randomize_to_reveal_the_store": "Toca Aleatorizar para revelar la tienda.",
     "tap_a_card_to_view_it_full_size_or_tap_to_draw_a_different_item_the_firs": "Toca una carta para verla a tamaño completo o toca ⟲ para robar un objeto diferente. La primera Arma y Montura robadas quedan fijadas automáticamente en la Tienda General.",
     "randomizer": "Aleatorizador",
@@ -1678,7 +1712,7 @@
     "poker_hands_2": "<button type=\"button\" class=\"small-btn gambling-poker-hands-btn\" data-open-poker-hands>Manos de Poker</button>",
     "start_a_game_to_see_the_story_events_and_story_point_settings_for_that": "\n      <p class=\"settings-no-game-note\">Inicia una partida para ver los ajustes de Historias y Eventos y Puntos de Historia de esa partida.</p>",
     "trading_post_is_inactive_for_this_setup_enable_the_buzzard_gulch_sideb": "<p class=\"assist-hint\">El Puesto Comercial está inactivo en esta preparación — activa el módulo Tablero lateral de Buzzard Gulch para incluirlo.</p>",
-    "3_everyone_place_one_finger_on_the_screen_hold_steady_while_the_timer_": "<div class=\"first-player-stage\" id=\"firstPlayerStage\">\n    <canvas id=\"firstPlayerCanvas\" class=\"first-player-canvas\" aria-label=\"Selector táctil del primer jugador\"></canvas>\n    <div class=\"first-player-timer\" id=\"firstPlayerTimer\">3</div>\n    <p class=\"first-player-instructions\" id=\"firstPlayerHint\">Que todos coloquen un dedo en la pantalla. Manténganlo quieto mientras termina la cuenta atrás.</p>\n  </div>\n  <div class=\"first-player-footer\"><button type=\"button\" class=\"primary-btn first-player-reset-btn\" data-first-player-reset>Empezar de nuevo</button></div>",
+    "3_everyone_place_one_finger_on_the_screen_hold_steady_while_the_timer_": "<div class=\"first-player-stage\" id=\"firstPlayerStage\">\n    <canvas id=\"firstPlayerCanvas\" class=\"first-player-canvas\" aria-label=\"Selector táctil del primer jugador\"></canvas>\n    <div class=\"first-player-timer\" id=\"firstPlayerTimer\"></div>\n    <p class=\"first-player-instructions\" id=\"firstPlayerHint\">Que todos coloquen un dedo en la pantalla. Manténganlo quieto mientras termina la cuenta atrás.</p>\n  </div>\n  <div class=\"first-player-footer\"><button type=\"button\" class=\"primary-btn first-player-reset-btn\" data-first-player-reset>Empezar de nuevo</button></div>",
     "no_players_were_assigned_colors_this_game": "<p>No se asignaron colores a los jugadores en esta partida.</p>",
     "man_in_black_tie_rule_man_in_black_wins_the_tie": "<div class=\"auto-winner-note\"><span class=\"sheriff-star\" aria-hidden=\"true\">★</span><span><small>Regla de desempate de Man in Black</small><strong>Man In Black gana el desempate</strong></span></div>",
     "update_available_tap_to_update": "<button type=\"button\" class=\"primary-btn app-update-btn\" id=\"applyUpdateBtn\">Actualización disponible — toca para actualizar</button>",
@@ -1751,7 +1785,9 @@
     "character_filter_story": "Historia",
     "select_short": "Seleccionar",
     "see_all": "Ver todos",
-    "all_characters": "Todos los personajes"
+    "all_characters": "Todos los personajes",
+    "deselect_short": "Deseleccionar",
+    "character_currently_selected": "Seleccionado actualmente para este jugador"
   },
   "reference": {
     "fightFlow": "Flujo de pelea",

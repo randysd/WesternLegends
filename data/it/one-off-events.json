@@ -884,7 +884,7 @@
   {
     "id": "trader_no_questions_asked",
     "title": "Niente Domande",
-    "screenText": "Il Dr. Herve fa scivolare $20 indietro sul bancone e offre un intruglio torbido per il viaggio. Accetta l'affare senza domande per ottenere $20 e 1 WP, oppure rifiuta senza alcun effetto aggiuntivo.",
+    "screenText": "Il Dr. Herve fa scivolare $10 indietro sul bancone e offre un intruglio torbido per il viaggio. Accetta l’affare senza domande per ottenere $10 e 1 WP. Poi lancia 2 Dadi di Prospezione e subisci 1 Ferita per ogni Pepita d’Oro ottenuta. Oppure rifiuta senza alcun effetto aggiuntivo.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Herve fa scivolare un po' di denaro indietro sul bancone, poi tira fuori una bottiglia torbida. Non chiedere da dove provenga né l'uno né l'altra. Decidi soltanto se ti senti fortunato.\"",
     "newspaperText": [
       "Sparatorie e affari di legge fornirono uno dei rapporti più accesi della giornata: Herve fa scivolare un po' di denaro indietro sul bancone, poi tira fuori una bottiglia torbida. Non chiedere da dove provenga né l'uno né l'altra. Decidi soltanto se ti senti fortunato.",
@@ -895,7 +895,7 @@
     "resultButtons": [
       {
         "_index": 0,
-        "label": "Prendi $20 + 1 WP"
+        "label": "Prendi $10 + 1 WP"
       },
       {
         "_index": 1,
@@ -905,7 +905,7 @@
     "moduleVariants": [
       {
         "id": "gambler_track",
-        "screenText": "Il Dr. Herve fa scivolare $20 indietro sul bancone e offre un intruglio torbido per il viaggio. Se ti senti fortunato, accetta l'affare senza domande per ottenere $20 e 1 Punto Giocatore d'Azzardo; oppure rifiuta senza alcun effetto aggiuntivo.",
+        "screenText": "Il Dr. Herve fa scivolare $10 indietro sul bancone e offre un intruglio torbido per il viaggio. Se ti senti fortunato, accetta l’affare senza domande per ottenere $10 e 1 Punto Giocatore d’Azzardo. Poi lancia 2 Dadi di Prospezione e subisci 1 Ferita per ogni Pepita d’Oro ottenuta. Oppure rifiuta senza alcun effetto aggiuntivo.",
         "newspaperText": [
           "Il Dr. Herve addolcì discretamente l'acquisto di un cliente itinerante con denaro contante e una scommessa degna delle sale da gioco.",
           "Un affare senza domande al carro del Dr. Herve mescolò commercio, denaro facile e un po' di tentazione da gioco in più.",
@@ -915,7 +915,7 @@
         "resultButtons": [
           {
             "_index": 0,
-            "label": "Prendi $20 + 1 GP"
+            "label": "Prendi $10 + 1 GP"
           },
           {
             "_index": 1,

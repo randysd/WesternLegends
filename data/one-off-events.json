@@ -2004,7 +2004,7 @@
       "temptation",
       "blood_money"
     ],
-    "screenText": "Dr. Herve slides $20 back across the counter and offers a cloudy concoction for the road. Take the no-questions-asked deal to gain $20 and 1 WP, or refuse it with no additional effect.",
+    "screenText": "Dr. Herve slides $10 back across the counter and offers a cloudy concoction for the road. Take the no-questions-asked deal to gain $10 and 1 WP, then roll 2 Prospecting Dice and gain 1 Wound for each Gold Nugget rolled. Or refuse it with no additional effect.",
     "narrationScript": "[western storyteller][old cowboy][raspy] \"Herve slides some money back across the counter, then produces a cloudy bottle. Don't ask where either one came from. Just decide whether you're feeling lucky.\"",
     "newspaperText": [
       "Gunplay and law business supplied one of the day's sharper reports: Herve slides some money back across the counter, then produces a cloudy bottle. Don't ask where either one came from. Just decide whether you're feeling lucky.",
@@ -2016,7 +2016,7 @@
     "effects": [],
     "resultButtons": [
       {
-        "label": "Take $20 + 1 WP",
+        "label": "Take $10 + 1 WP",
         "effects": [
           {
             "type": "log_event",
@@ -2024,7 +2024,7 @@
           }
         ],
         "changes": {
-          "money": 20,
+          "money": 10,
           "wanted": 1
         }
       },
@@ -2051,7 +2051,7 @@
           "temptation",
           "blood_money"
         ],
-        "screenText": "Dr. Herve slides $20 back across the counter and offers a cloudy concoction for the road. If you're feeling lucky, take the no-questions-asked deal to gain $20 and 1 Gambling Point; or refuse it with no additional effect.",
+        "screenText": "Dr. Herve slides $10 back across the counter and offers a cloudy concoction for the road. If you’re feeling lucky, take the no-questions-asked deal to gain $10 and 1 Gambling Point, then roll 2 Prospecting Dice and gain 1 Wound for each Gold Nugget rolled. Or refuse it with no additional effect.",
         "newspaperText": [
           "Dr. Herve quietly sweetened a traveling customer's purchase with loose cash and a wager fit for the gambling halls.",
           "A no-questions-asked deal at Dr. Herve's wagon mixed trade, easy money and a little extra gambling temptation.",
@@ -2060,7 +2060,7 @@
         ],
         "resultButtons": [
           {
-            "label": "Take $20 + 1 GP",
+            "label": "Take $10 + 1 GP",
             "effects": [
               {
                 "type": "log_event",
