@@ -180,9 +180,10 @@
     const thumbStyle = record ? (ctx.characterThumbnailStyle?.(record) || '') : '';
     const title = characterName && characterName !== name ? `${name} — ${characterName}` : name;
     const hasAlert = !!ctx.alertColors?.has?.(color);
+    const fallbackAvatarStyle = color === 'white' ? 'background:#fff;' : '';
     const avatar = source
       ? `<span class="home-player-avatar" style="${esc(thumbStyle)}"><img src="${esc(source)}" alt="" aria-hidden="true"></span>`
-      : `<span class="home-player-avatar home-player-avatar-fallback" aria-hidden="true"></span>`;
+      : `<span class="home-player-avatar home-player-avatar-fallback"${fallbackAvatarStyle ? ` style="${fallbackAvatarStyle}"` : ''} aria-hidden="true"></span>`;
 
     const palette = PLAYER_CHIP_COLORS[color] || PLAYER_CHIP_COLORS.none;
     const chipStyle = `--home-player-accent:${palette.accent};--home-player-tint:${palette.tint};--home-player-bg:${palette.bg};--home-player-name:${palette.name || palette.accent};`;

@@ -341,6 +341,12 @@ let assistReturnAfterClose = false;
 let assistOpenedDirectly = false;
 let assistNestedReturn = null;
 let worldEventHeartbeatTimer = null;
+let triggerRefreshUndoSnapshot = null;
+let triggerRefreshUndoTimer = null;
+let triggerRefreshUndoIndex = null;
+let triggerRefreshAnimateInIndex = null;
+let triggerSwipeSuppressClicksUntil = 0;
+const TRIGGER_RIP_SFX = 'audio/sfx/rip.mp3';
 let fightFlowReturnTarget = null;
 let gamblingFlowReturnTarget = null;
 let gamblingFlowSelection = 'poker';
@@ -604,6 +610,7 @@ async function init() {
   ensureWorldEventClock();
   save();
   preloadAudio(PROSPECT_DICE_SFX);
+  preloadAudio(TRIGGER_RIP_SFX);
   document.querySelectorAll('[data-view]').forEach(btn => btn.addEventListener('click', () => navigate(btn.dataset.view)));
   document.querySelectorAll('[data-assist]').forEach(btn => btn.addEventListener('click', () => {
     const fromDrawer = !!btn.closest('#drawerNav');
@@ -2296,9 +2303,11 @@ function weightedPick(items, weightFn = item => item.baseWeight || item.weight |
   return weighted.at(-1).item;
 }
 
-function eligibleTriggers() {
+function eligibleTriggers(excludedIds = null) {
+  const excluded = excludedIds instanceof Set ? excludedIds : new Set(excludedIds || []);
   return db.triggers.filter(t =>
     hasAllModules(t.requiredModules || []) &&
+    !excluded.has(t.id) &&
     !state.activeTriggers.some(a => a.id === t.id) &&
     (t.canRepeat !== false || !state.seenTriggerIds.includes(t.id))
   );
@@ -2442,7 +2451,127 @@ function refillTriggers() {
   [...new Set(state.activeTriggers.map(trigger => trigger.soundFile).filter(Boolean))].forEach(preloadAudio);
 }
 
+function clearTriggerRefreshUndo() {
+  if (triggerRefreshUndoTimer) clearTimeout(triggerRefreshUndoTimer);
+  triggerRefreshUndoTimer = null;
+  triggerRefreshUndoSnapshot = null;
+  triggerRefreshUndoIndex = null;
+}
+
+function preloadActiveTriggerSounds() {
+  [...new Set((state.activeTriggers || []).map(trigger => trigger.soundFile).filter(Boolean))].forEach(preloadAudio);
+}
+
+function scheduleTriggerRefreshUndoTimeout() {
+  if (triggerRefreshUndoTimer) clearTimeout(triggerRefreshUndoTimer);
+  triggerRefreshUndoTimer = null;
+  if (!triggerRefreshUndoSnapshot) return;
+  triggerRefreshUndoTimer = setTimeout(() => {
+    triggerRefreshUndoTimer = null;
+    triggerRefreshUndoSnapshot = null;
+    document.querySelector('[data-trigger-refresh-notice]')?.remove();
+  }, 7000);
+}
+
+function refreshPrimaryTriggerAtIndex(index) {
+  const core = window.WLTriggerRefreshCore;
+  if (!core?.refreshSingleTriggerState) return;
+  const targetIndex = Number(index);
+  if (!Number.isInteger(targetIndex) || targetIndex < 0 || targetIndex >= state.activeTriggers.length) return;
+  const shell = app.querySelector(`.trigger-card-shell[data-trigger-slot="${targetIndex}"]`);
+  if (shell?.classList.contains('trigger-card-shell-refreshing-out')) return;
+
+  const pendingBoosts = pendingArcTriggerBoosts();
+  const result = core.refreshSingleTriggerState(state, {
+    index: targetIndex,
+    drawOne: blockedIds => weightedPick(eligibleTriggers(blockedIds), trigger => triggerWeight(trigger, pendingBoosts))
+  });
+  if (!result.refreshed) return;
+
+  clearTriggerRefreshUndo();
+  triggerRefreshUndoSnapshot = result.snapshot;
+  triggerRefreshUndoIndex = result.index;
+  triggerRefreshAnimateInIndex = null;
+  preloadActiveTriggerSounds();
+  save();
+
+  const finishRefresh = () => {
+    render();
+    scheduleTriggerRefreshUndoTimeout();
+  };
+
+  if (!shell) {
+    finishRefresh();
+    return;
+  }
+
+  const replacement = state.activeTriggers[targetIndex];
+  shell.insertAdjacentHTML('afterbegin', `<div class="trigger-card-underlay" aria-hidden="true">
+    <div class="trigger-card">${renderTriggerCardContents(replacement)}</div>
+    <span class="trigger-refresh-pulltab trigger-refresh-pulltab-underlay"></span>
+  </div>`);
+  requestAnimationFrame(() => {
+    playSoundEffect(TRIGGER_RIP_SFX);
+    shell.classList.add('trigger-card-shell-refreshing-out');
+  });
+  setTimeout(finishRefresh, 280);
+}
+
+function undoPrimaryTriggerRefresh() {
+  const core = window.WLTriggerRefreshCore;
+  if (!triggerRefreshUndoSnapshot || !core?.restoreTriggerState) return;
+  const snapshot = triggerRefreshUndoSnapshot;
+  const restoreIndex = triggerRefreshUndoIndex;
+  const shell = app.querySelector(`.trigger-card-shell[data-trigger-slot="${restoreIndex}"]`);
+  const restoredTrigger = snapshot.activeTriggers?.[restoreIndex];
+
+  clearTriggerRefreshUndo();
+  document.querySelector('[data-trigger-refresh-notice]')?.remove();
+
+  const finishUndo = () => {
+    core.restoreTriggerState(state, snapshot);
+    triggerRefreshAnimateInIndex = null;
+    preloadActiveTriggerSounds();
+    save();
+    render();
+  };
+
+  if (!shell || !restoredTrigger) {
+    finishUndo();
+    return;
+  }
+
+  shell.classList.add('trigger-card-shell-undoing');
+  shell.insertAdjacentHTML('beforeend', `<div class="trigger-card-returning" aria-hidden="true">
+    <div class="trigger-card">${renderTriggerCardContents(restoredTrigger)}</div>
+    <span class="trigger-refresh-pulltab"></span>
+  </div>`);
+  const returningLayer = shell.querySelector('.trigger-card-returning');
+  if (!returningLayer) {
+    finishUndo();
+    return;
+  }
+
+  requestAnimationFrame(() => returningLayer.classList.add('trigger-card-returning-visible'));
+  setTimeout(() => {
+    core.restoreTriggerState(state, snapshot);
+    triggerRefreshAnimateInIndex = null;
+    preloadActiveTriggerSounds();
+    save();
+    render();
+  }, 300);
+}
+
+function renderTriggerRefreshNotice() {
+  if (!triggerRefreshUndoSnapshot) return '';
+  return `<div class="trigger-refresh-notice" data-trigger-refresh-notice role="status" aria-live="polite">
+    <span>${escapeHtml(t('strings.trigger_swapped'))}</span>
+    <button type="button" class="trigger-refresh-undo-btn" data-undo-trigger-refresh>${escapeHtml(t('strings.undo'))}</button>
+  </div>`;
+}
+
 function startGameFromSetup() {
+  clearTriggerRefreshUndo();
   updateSetupFromUI(false);
   if (!isSetupReadyToStart()) {
     alert(t('setup.assignColors'));
@@ -2614,8 +2743,18 @@ function startWorldEventHeartbeat() {
   setTimeout(checkWorldEventClock, 500);
 }
 
-function finishPrimaryTriggerNarrative(trigger, triggeringColor) {
-  maybeCreateTriggerEvent(trigger, triggeringColor);
+function primaryTriggerActorId(log) {
+  const actorId = String(log?.actorId || '');
+  if (actorId === MAN_IN_BLACK_ID || PLAYER_COLORS.includes(actorId)) return actorId;
+  return PLAYER_COLORS.includes(log?.color) ? log.color : null;
+}
+
+function triggerActorHumanColor(actorId) {
+  return PLAYER_COLORS.includes(actorId) ? actorId : null;
+}
+
+function finishPrimaryTriggerNarrative(trigger, triggeringColor, actorId = null) {
+  maybeCreateTriggerEvent(trigger, triggeringColor, actorId);
   queueDueWorldEvent();
   save();
   render();
@@ -2628,14 +2767,25 @@ function shouldAwardPrimaryTriggerStoryPoint(lastTrigger, triggeringColor) {
   return lastTrigger.awarded !== true;
 }
 
-function tapPrimaryTrigger(triggerId, triggeringColor = null) {
+function tapPrimaryTrigger(triggerId, actorId = null) {
+  clearTriggerRefreshUndo();
   const trigger = state.activeTriggers.find(t => t.id === triggerId);
   if (!trigger) return;
+  const triggeringColor = triggerActorHumanColor(actorId);
   state.activeTriggers = state.activeTriggers.filter(t => t.id !== triggerId);
   state.recentTriggerIds.unshift(triggerId);
   state.recentTriggerIds = state.recentTriggerIds.slice(0, recentTriggerHistoryLength());
   if (triggeringColor) ensurePlayerTrackState(triggeringColor);
-  state.triggeredLog.unshift({ time: Date.now(), type: 'primaryTrigger', id: trigger.id, label: trigger.label, category: trigger.category, tags: trigger.tags || [], color: triggeringColor || null });
+  state.triggeredLog.unshift({
+    time: Date.now(),
+    type: 'primaryTrigger',
+    id: trigger.id,
+    label: trigger.label,
+    category: trigger.category,
+    tags: trigger.tags || [],
+    actorId: actorId || triggeringColor || null,
+    color: triggeringColor || null
+  });
   state.triggeredLog = state.triggeredLog.slice(0, 200);
   tickStoryExpirations();
   tickWorldExpirations();
@@ -2644,23 +2794,21 @@ function tapPrimaryTrigger(triggerId, triggeringColor = null) {
   render();
 
   if (!isStoryTrackEnabled()) {
-    finishPrimaryTriggerNarrative(trigger, triggeringColor);
+    finishPrimaryTriggerNarrative(trigger, triggeringColor, actorId);
     return;
   }
 
-  // Story Point rewards update passive page UI only. They never delay or
-  // queue the real narrative event that may result from this trigger. When
-  // the same player fires consecutive primary triggers, alternate the Story
-  // Point reward (award, skip, award, skip). A different player always earns
-  // the first Story Point in their new sequence.
+  // Story Point rewards remain human-player-only. Man in Black activity is
+  // recorded as a trigger actor, but it never changes the alternating human
+  // Story Point sequence or creates player track state for the automa.
   if (!triggeringColor) {
-    finishPrimaryTriggerNarrative(trigger, triggeringColor);
+    finishPrimaryTriggerNarrative(trigger, triggeringColor, actorId);
     return;
   }
   const awardStoryPoint = shouldAwardPrimaryTriggerStoryPoint(state.primaryTriggerStoryPointCycle, triggeringColor);
   state.primaryTriggerStoryPointCycle = { color: triggeringColor, awarded: awardStoryPoint };
-  if (awardStoryPoint) gainStoryPoint(triggeringColor, () => finishPrimaryTriggerNarrative(trigger, triggeringColor));
-  else finishPrimaryTriggerNarrative(trigger, triggeringColor);
+  if (awardStoryPoint) gainStoryPoint(triggeringColor, () => finishPrimaryTriggerNarrative(trigger, triggeringColor, actorId));
+  else finishPrimaryTriggerNarrative(trigger, triggeringColor, actorId);
 }
 
 function deliverArcEvent(event, triggeringColor) {
@@ -2679,22 +2827,27 @@ function deliverArcEvent(event, triggeringColor) {
   return true;
 }
 
-function maybeCreateTriggerEvent(trigger, triggeringColor = null) {
+function maybeCreateTriggerEvent(trigger, triggeringColor = null, actorId = null) {
+  const isManInBlack = actorId === MAN_IN_BLACK_ID;
+
   // 1) Once an arc exists, the matching future action advances it
-  // deterministically instead of competing in another random roll.
+  // deterministically instead of competing in another random roll. Man in
+  // Black can advance/start only global storylines; player-owned chapters
+  // stay reserved for real human players.
   if (storyEventsEnabled('arcs')) {
-    const continuation = pickArmedArcNode(trigger.id, triggeringColor);
+    const continuation = pickArmedArcNode(trigger.id, triggeringColor, { globalOnly: isManInBlack });
     if (continuation) return deliverArcEvent(continuation, triggeringColor);
 
     // 2) Frequency controls STARTING a new arc, not continuing one.
     if (Math.random() < eventFrequencyChance('arcs')) {
-      const starter = pickNewArcNode(trigger.id, triggeringColor);
+      const starter = pickNewArcNode(trigger.id, triggeringColor, { globalOnly: isManInBlack });
       if (starter) return deliverArcEvent(starter, triggeringColor);
     }
   }
 
-  // 3) One-offs are independent short encounters tied to the reported action.
-  if (storyEventsEnabled('oneOff') && Math.random() < eventFrequencyChance('oneOff')) {
+  // 3) One-offs are player-facing encounters. Man in Black still records the
+  // trigger and affects the frontier, but he never receives or reassigns one.
+  if (!isManInBlack && storyEventsEnabled('oneOff') && Math.random() < eventFrequencyChance('oneOff')) {
     const oneOff = pickOneOff(trigger.id);
     if (oneOff) {
       handleCreatedEvent(oneOff, 'oneOff', triggeringColor);
@@ -2748,9 +2901,10 @@ function arcNodeEligible(n, triggerId = null) {
   return true;
 }
 
-function pickArmedArcNode(triggerId, triggeringColor = null) {
+function pickArmedArcNode(triggerId, triggeringColor = null, { globalOnly = false } = {}) {
   const pool = allArcNodes().filter(n => {
     if (!arcNodeEligible(n, triggerId)) return false;
+    if (globalOnly && n.arcScope !== 'global') return false;
     const progress = getArcProgress(n.arcId);
     if (progress.status !== 'in_progress') return false;
     // Only explicitly personal arcs stay locked to their original player.
@@ -2764,10 +2918,11 @@ function pickArmedArcNode(triggerId, triggeringColor = null) {
   return weightedPick(pool);
 }
 
-function pickNewArcNode(triggerId, triggeringColor = null) {
+function pickNewArcNode(triggerId, triggeringColor = null, { globalOnly = false } = {}) {
   const activeLimit = db.settings.activeStoryLimit || 5;
   const pool = allArcNodes().filter(n => {
     if (!arcNodeEligible(n, triggerId)) return false;
+    if (globalOnly && n.arcScope !== 'global') return false;
     const progress = getArcProgress(n.arcId);
     if (progress.status !== 'inactive') return false;
     if (n.arcIndex !== 0) return false;
@@ -3019,11 +3174,98 @@ function applyEffects(effects = [], context = {}) {
 }
 
 // Every primary trigger tap now asks who triggered it first - this feeds
-// the story-track marker, per-player stat totals, and richer end-game
+// the story-track marker, actor-aware stat totals, and richer end-game
 // article data, instead of only asking sometimes deep inside an event
 // dialog that might not even fire.
-// Generic "who did this?" color prompt, reused for tapping a primary
-// trigger and for resolving a world effect that requires one.
+function triggerActorChoices() {
+  const colors = (state.setup.playerColors || []).filter(Boolean);
+  const detailsByColor = new Map((state.setup.playerDetails || []).filter(Boolean).map(player => [player.color, player]));
+  const actors = colors.map(color => {
+    const player = detailsByColor.get(color) || null;
+    const record = characterDataRecord(player?.characterId);
+    return {
+      id: color,
+      swatchClass: color,
+      label: playerLabel(color),
+      thumbnailSource: record ? characterThumbnailSource(record) : '',
+      thumbnailStyle: record ? characterThumbnailStyle(record) : ''
+    };
+  });
+
+  if (hasModule('wild_bunch_man_in_black')) {
+    // These values intentionally mirror the normal character thumbnail config
+    // so the crop can be tuned later without changing the chooser structure.
+    const manInBlackRecord = {
+      id: MAN_IN_BLACK_ID,
+      thumbnail: {
+        image: 'assets/images/cards/mib.png',
+        scale: 2.5,
+        centerX: 48,
+        centerY: 18
+      }
+    };
+    actors.push({
+      id: MAN_IN_BLACK_ID,
+      swatchClass: 'man-in-black',
+      label: t('strings.man_in_black'),
+      thumbnailSource: characterThumbnailSource(manInBlackRecord),
+      thumbnailStyle: characterThumbnailStyle(manInBlackRecord)
+    });
+  }
+  return actors;
+}
+
+function appendTriggerActorThumbnail(button, actor) {
+  if (!actor?.thumbnailSource) return;
+  const thumb = document.createElement('span');
+  thumb.className = 'trigger-actor-thumb';
+  if (actor.thumbnailStyle) thumb.setAttribute('style', actor.thumbnailStyle);
+  const image = document.createElement('img');
+  image.src = actor.thumbnailSource;
+  image.alt = '';
+  image.setAttribute('aria-hidden', 'true');
+  thumb.appendChild(image);
+  button.appendChild(thumb);
+}
+
+function promptForTriggerActor(dialogTypeLabel, titleText, subText, onChosen) {
+  const actors = triggerActorChoices();
+  if (!actors.length) { onChosen(null); return; }
+  dialog.classList.add('player-color-prompt-dialog');
+  currentDialogEvent = null;
+  document.getElementById('dialogType').textContent = dialogTypeLabel;
+  document.getElementById('dialogTitle').textContent = titleText;
+  document.getElementById('dialogText').textContent = subText;
+  const reward = document.getElementById('dialogReward');
+  reward.innerHTML = '';
+  reward.classList.add('hidden');
+  document.getElementById('dialogReplayVoice').classList.add('hidden');
+  const assignWrap = document.getElementById('dialogPlayerAssign');
+  assignWrap.innerHTML = '';
+  assignWrap.classList.add('hidden');
+  const wrap = document.getElementById('dialogButtons');
+  wrap.innerHTML = '';
+  wrap.classList.add('trigger-color-prompt-buttons');
+  actors.forEach(actor => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = `player-color-swatch player-choice trigger-color-prompt-btn swatch-${actor.swatchClass}`;
+    btn.title = actor.label;
+    btn.setAttribute('aria-label', actor.label);
+    appendTriggerActorThumbnail(btn, actor);
+    btn.onclick = () => {
+      wrap.classList.remove('trigger-color-prompt-buttons');
+      dialog.classList.remove('player-color-prompt-dialog');
+      dialog.addEventListener('close', () => onChosen(actor.id), { once: true });
+      dialog.close();
+    };
+    wrap.appendChild(btn);
+  });
+  if (!dialog.open) dialog.showModal();
+}
+
+// Generic human-only "who did this?" color prompt, reused for resolving a
+// world effect and other interactions that require a real player.
 function promptForPlayerColor(dialogTypeLabel, titleText, subText, onChosen) {
   const colors = (state.setup.playerColors || []).filter(Boolean);
   if (!colors.length) { onChosen(null); return; }
@@ -3066,7 +3308,7 @@ function promptForPlayerColor(dialogTypeLabel, titleText, subText, onChosen) {
 function promptTriggerColor(triggerId) {
   const trigger = state.activeTriggers.find(t => t.id === triggerId);
   if (!trigger) return;
-  promptForPlayerColor(t('events.whoTriggered'), trigger.label, t('events.tapTriggerPlayer'), color => tapPrimaryTrigger(triggerId, color));
+  promptForTriggerActor(t('events.whoTriggered'), trigger.label, t('events.tapTriggerPlayer'), actorId => tapPrimaryTrigger(triggerId, actorId));
 }
 
 function promptResolveWorldEvent(eventId) {
@@ -4110,17 +4352,72 @@ function formatSetupText(text) {
     .replaceAll('{playerCount}', state.setup.players));
 }
 
+function bindTriggerSwipeGestures() {
+  const swipeCore = window.WLTriggerRefreshCore;
+  if (!swipeCore?.isDeliberateTriggerDownSwipe) return;
+
+  app.querySelectorAll('.trigger-card-shell[data-trigger-slot]').forEach(shell => {
+    let gesture = null;
+
+    shell.addEventListener('touchstart', event => {
+      if (event.touches.length !== 1 || shell.classList.contains('trigger-card-shell-refreshing-out')) return;
+      const touch = event.touches[0];
+      gesture = {
+        startX: touch.clientX,
+        startY: touch.clientY,
+        startTime: performance.now(),
+        lastX: touch.clientX,
+        lastY: touch.clientY,
+        claimed: false
+      };
+    }, { passive: true });
+
+    shell.addEventListener('touchmove', event => {
+      if (!gesture || event.touches.length !== 1) return;
+      const touch = event.touches[0];
+      gesture.lastX = touch.clientX;
+      gesture.lastY = touch.clientY;
+      const dx = touch.clientX - gesture.startX;
+      const dy = touch.clientY - gesture.startY;
+      const elapsed = performance.now() - gesture.startTime;
+
+      // Claim only a quick, clearly downward flick. Slow vertical drags remain
+      // ordinary page scrolling so the event cards do not trap the screen.
+      if (!gesture.claimed && elapsed <= 180 && dy >= 18 && dy >= Math.abs(dx) * 1.8) {
+        gesture.claimed = true;
+      }
+      if (gesture.claimed) event.preventDefault();
+    }, { passive: false });
+
+    shell.addEventListener('touchend', event => {
+      if (!gesture) return;
+      const touch = event.changedTouches[0];
+      const dx = (touch?.clientX ?? gesture.lastX) - gesture.startX;
+      const dy = (touch?.clientY ?? gesture.lastY) - gesture.startY;
+      const durationMs = performance.now() - gesture.startTime;
+      const shouldSwap = gesture.claimed && swipeCore.isDeliberateTriggerDownSwipe({ dx, dy, durationMs });
+      gesture = null;
+      if (!shouldSwap) return;
+
+      event.preventDefault();
+      triggerSwipeSuppressClicksUntil = Date.now() + 550;
+      refreshPrimaryTriggerAtIndex(Number(shell.dataset.triggerSlot));
+    }, { passive: false });
+
+    shell.addEventListener('touchcancel', () => { gesture = null; }, { passive: true });
+  });
+}
+
 function renderGame() {
   const hasStories = state.activeStories.length > 0;
   const hasWorldEvents = state.activeWorldEvents.length > 0;
-  app.innerHTML = `<section class="game-intro">
-    <h1 class="trigger-heading">${t('strings.primary_actions')}</h1>
-    <p>${t('strings.perform_one_of_these_actions_to_see_what_happens')}</p>
-  </section>
-  ${renderStoryTrackArea()}
+  const animateTriggerIndex = triggerRefreshAnimateInIndex;
+  triggerRefreshAnimateInIndex = null;
+  app.innerHTML = `${renderStoryTrackArea()}
   <section class="trigger-grid" aria-label="${t('strings.primary_action_triggers')}">
-    ${state.activeTriggers.map(t => renderTriggerCard(t)).join('')}
+    ${state.activeTriggers.map((t, index) => renderTriggerCard(t, index, index === animateTriggerIndex)).join('')}
   </section>
+  ${renderTriggerRefreshNotice()}
   ${hasStories ? `<section class="panel story-panel">
     <h2 class="story-section-title"><span>${t('strings.ongoing_stories')}</span><span class="story-section-count" aria-label="${escapeHtml(tp('story.ongoingCount', state.activeStories.length, { count: state.activeStories.length }))}">${state.activeStories.length}</span></h2>
     ${renderStoryList()}
@@ -4129,7 +4426,25 @@ function renderGame() {
     <h2 class="story-section-title"><span>${t('strings.current_world_event')}</span></h2>
     ${renderWorldList()}
   </section>` : ''}`;
-  app.querySelectorAll('[data-trigger]').forEach(b => b.onclick = () => {
+  app.querySelector('[data-undo-trigger-refresh]')?.addEventListener('click', undoPrimaryTriggerRefresh);
+  app.querySelectorAll('[data-refresh-trigger-index]').forEach(b => b.onclick = event => {
+    event.stopPropagation();
+    if (Date.now() < triggerSwipeSuppressClicksUntil) {
+      event.preventDefault();
+      return;
+    }
+    refreshPrimaryTriggerAtIndex(Number(b.dataset.refreshTriggerIndex));
+  });
+  bindTriggerSwipeGestures();
+  if (animateTriggerIndex !== null) {
+    requestAnimationFrame(() => requestAnimationFrame(() => app.querySelectorAll('.trigger-card-shell-refreshing-in').forEach(card => card.classList.remove('trigger-card-shell-refreshing-in'))));
+  }
+  app.querySelectorAll('[data-trigger]').forEach(b => b.onclick = event => {
+    if (Date.now() < triggerSwipeSuppressClicksUntil) {
+      event.preventDefault();
+      event.stopPropagation();
+      return;
+    }
     const trigger = state.activeTriggers.find(item => item.id === b.dataset.trigger);
     playPrimaryTriggerSound(trigger);
     playContextualMusicForTrigger(trigger);
@@ -4162,15 +4477,22 @@ function playPrimaryTriggerSound(trigger) {
   playSoundEffect(trigger.soundFile);
 }
 
-function renderTriggerCard(trigger) {
+function renderTriggerCardContents(trigger) {
   const title = renderTriggerTitle(trigger);
   const image = trigger.image || imageForTrigger(trigger);
-  return `<button class="trigger-card" data-trigger="${trigger.id}" aria-label="${escapeHtml(trigger.label)}">
-    <span class="trigger-title-text">${title}</span>
+  return `<span class="trigger-title-text">${title}</span>
     <span class="rule" aria-hidden="true"></span>
     <span class="trigger-image" style="background-image:url('${image}')" aria-hidden="true"></span>
-    <span class="trigger-footer">${t('strings.tap_when_it_happens')}</span>
-  </button>`;
+    <span class="trigger-footer">${t('strings.tap_when_it_happens')}</span>`;
+}
+
+function renderTriggerCard(trigger, index, animateIn = false) {
+  return `<div class="trigger-card-shell${animateIn ? ' trigger-card-shell-refreshing-in' : ''}" data-trigger-slot="${index}">
+    <button class="trigger-card" data-trigger="${trigger.id}" aria-label="${escapeHtml(trigger.label)}">
+      ${renderTriggerCardContents(trigger)}
+    </button>
+    <button type="button" class="trigger-refresh-pulltab" data-refresh-trigger-index="${index}" aria-label="${escapeHtml(t('strings.new_trigger_aria'))}" title="${escapeHtml(t('strings.new_trigger_aria'))}"></button>
+  </div>`;
 }
 
 function renderTriggerTitle(trigger) {
@@ -8231,7 +8553,7 @@ function frontierFlavorSentence(tension) {
 }
 
 function newspaperGameSeed() {
-  const logPart = (state.triggeredLog || []).slice().reverse().map(entry => `${entry.type}:${entry.id || ''}:${entry.color || ''}`).join('|');
+  const logPart = (state.triggeredLog || []).slice().reverse().map(entry => `${entry.type}:${entry.id || ''}:${entry.actorId || entry.color || ''}`).join('|');
   const scorePart = Object.entries(state.finalScores || {}).sort(([a], [b]) => a.localeCompare(b)).map(([color, score]) => `${color}:${score}`).join('|');
   const source = `${logPart}#${scorePart}#${state.setup?.players || 0}`;
   let hash = 2166136261;
@@ -8472,7 +8794,7 @@ function newspaperPlayerRecapSection(primaryTriggers) {
   const paragraphs = configuredPlayers.map(player => {
     const color = player.color;
     const label = newspaperPlayerLabel(color);
-    const logs = primaryTriggers.filter(log => log.color === color);
+    const logs = primaryTriggers.filter(log => primaryTriggerActorId(log) === color);
     if (!logs.length) return `<p><strong>${escapeHtml(label)}.</strong> ${t('strings.the_companion_recorded_a_quieter_trail_for_this_rider_with_no_dominant_l')}</p>`;
     const top = newspaperActivityCounts(logs).slice(0, 2);
     const activityText = top.length
@@ -8488,6 +8810,15 @@ function newspaperPlayerRecapSection(primaryTriggers) {
     const extraText = extras.length ? `${newspaperJoin(extras).charAt(0).toUpperCase()}${newspaperJoin(extras).slice(1)}.` : '';
     return `<p><strong>${escapeHtml(label)}.</strong> ${escapeHtml(activityText)} ${escapeHtml(extraText)}</p>`;
   });
+
+  const manInBlackLogs = primaryTriggers.filter(log => primaryTriggerActorId(log) === MAN_IN_BLACK_ID);
+  if (manInBlackLogs.length) {
+    const top = newspaperActivityCounts(manInBlackLogs).slice(0, 2);
+    const activityText = top.length
+      ? t('newspaper.player.activity', { activity: newspaperJoin(top.map(item => item.phrase)) })
+      : t('strings.kept_a_varied_trail_across_the_territory');
+    paragraphs.push(`<p><strong>${escapeHtml(t('strings.man_in_black'))}.</strong> ${escapeHtml(activityText)}</p>`);
+  }
 
   return `<article class="news-article newspaper-player-recap">
     <h2>${t('strings.riders_leave_their_mark')}</h2>
