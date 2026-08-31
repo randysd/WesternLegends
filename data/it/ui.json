@@ -459,7 +459,7 @@
     "whoResolved": "Chi l'ha Risolto?",
     "anyResolve": "Qualsiasi giocatore può risolvere questa storia. Tocca il giocatore che l'ha completata.",
     "whoTriggered": "Chi ha Attivato Questo?",
-    "tapTriggerPlayer": "Tocca il giocatore che ha appena compiuto questa azione.",
+    "tapTriggerPlayer": "Tocca chi ha appena compiuto questa azione.",
     "tapResolvedPlayer": "Tocca il giocatore che ha risolto questo.",
     "differentSamePlayer": "Esito diverso se lo stesso giocatore viene coinvolto di nuovo.",
     "gainStoryPoint": "Il giocatore che ha attivato l'evento ottiene 1 Punto Storia.",
@@ -1795,7 +1795,15 @@
     "check_again": "Controlla di nuovo",
     "update_available_version": "Aggiornamento disponibile — v{version}",
     "update_now": "Aggiorna ora",
-    "updating_app": "Aggiornamento…"
+    "updating_app": "Aggiornamento…",
+    "new_triggers": "Nuovi trigger",
+    "new_triggers_short": "3 Nuovi",
+    "new_triggers_aria": "Sostituisci tutti e tre i trigger evento con nuovi trigger casuali",
+    "new_triggers_drawn": "Estratti 3 nuovi trigger",
+    "undo": "Annulla",
+    "new_trigger_short": "Nuovo",
+    "new_trigger_aria": "Sostituisci questo trigger evento con un nuovo trigger casuale",
+    "trigger_swapped": "Trigger sostituito"
   },
   "reference": {
     "fightFlow": "Flusso dello Scontro",

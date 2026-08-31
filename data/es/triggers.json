@@ -254,7 +254,8 @@
         "text": "El Sheriff arresta a un jugador",
         "style": "blue"
       }
-    ]
+    ],
+    "soundFile": "audio/sfx/arrest.mp3"
   },
   {
     "id": "trig_gain_mp",

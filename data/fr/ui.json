@@ -459,7 +459,7 @@
     "whoResolved": "Qui a résolu ceci ?",
     "anyResolve": "N’importe quel joueur peut résoudre cette histoire. Touchez le joueur qui l’a accomplie.",
     "whoTriggered": "Qui a déclenché ceci ?",
-    "tapTriggerPlayer": "Touchez le joueur qui vient de faire cela.",
+    "tapTriggerPlayer": "Touchez la personne qui vient de faire cela.",
     "tapResolvedPlayer": "Touchez le joueur qui a résolu ceci.",
     "differentSamePlayer": "Résultat différent si le même joueur est de nouveau impliqué.",
     "gainStoryPoint": "Le joueur déclencheur gagne 1 Point d’Histoire.",
@@ -1795,7 +1795,15 @@
     "check_again": "Vérifier à nouveau",
     "update_available_version": "Mise à jour disponible — v{version}",
     "update_now": "Mettre à jour",
-    "updating_app": "Mise à jour…"
+    "updating_app": "Mise à jour…",
+    "new_triggers": "Nouveaux déclencheurs",
+    "new_triggers_short": "3 Nouveaux",
+    "new_triggers_aria": "Remplacer les trois déclencheurs d’événement par de nouveaux au hasard",
+    "new_triggers_drawn": "3 nouveaux déclencheurs tirés",
+    "undo": "Annuler",
+    "new_trigger_short": "Nouv.",
+    "new_trigger_aria": "Remplacer ce déclencheur d’événement par un nouveau au hasard",
+    "trigger_swapped": "Déclencheur remplacé"
   },
   "reference": {
     "fightFlow": "Déroulement du combat",

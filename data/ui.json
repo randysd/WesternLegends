@@ -459,7 +459,7 @@
     "whoResolved": "Who Resolved This?",
     "anyResolve": "Any player may resolve this story. Tap the player who completed it.",
     "whoTriggered": "Who Triggered This?",
-    "tapTriggerPlayer": "Tap the player who just did this.",
+    "tapTriggerPlayer": "Tap who just did this.",
     "tapResolvedPlayer": "Tap the player who resolved this.",
     "differentSamePlayer": "Different outcome if the same player is involved again.",
     "gainStoryPoint": "The triggering player gains 1 Story Point.",
@@ -1795,7 +1795,15 @@
     "check_again": "Check Again",
     "update_available_version": "Update available — v{version}",
     "update_now": "Update Now",
-    "updating_app": "Updating…"
+    "updating_app": "Updating…",
+    "new_triggers": "New Triggers",
+    "new_triggers_short": "New 3",
+    "new_triggers_aria": "Replace all three event triggers with new random triggers",
+    "new_triggers_drawn": "3 new triggers drawn",
+    "undo": "Undo",
+    "new_trigger_short": "New",
+    "new_trigger_aria": "Replace this event trigger with a new random trigger",
+    "trigger_swapped": "Trigger swapped"
   },
   "reference": {
     "fightFlow": "Fight Flow",

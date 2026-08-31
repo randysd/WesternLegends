@@ -459,7 +459,7 @@
     "whoResolved": "Wer hat dies abgehandelt?",
     "anyResolve": "Jeder Spieler darf diese Geschichte abhandeln. Tippe auf den Spieler, der sie abgeschlossen hat.",
     "whoTriggered": "Wer hat dies ausgelöst?",
-    "tapTriggerPlayer": "Tippe auf den Spieler, der dies gerade getan hat.",
+    "tapTriggerPlayer": "Tippe an, wer dies gerade getan hat.",
     "tapResolvedPlayer": "Tippe auf den Spieler, der dies abgehandelt hat.",
     "differentSamePlayer": "Anderes Ergebnis, wenn derselbe Spieler erneut beteiligt ist.",
     "gainStoryPoint": "Der auslösende Spieler erhält 1 Story-Punkt.",
@@ -1795,7 +1795,15 @@
     "check_again": "Erneut prüfen",
     "update_available_version": "Update verfügbar — v{version}",
     "update_now": "Jetzt aktualisieren",
-    "updating_app": "Wird aktualisiert…"
+    "updating_app": "Wird aktualisiert…",
+    "new_triggers": "Neue Auslöser",
+    "new_triggers_short": "3 Neue",
+    "new_triggers_aria": "Alle drei Ereignisauslöser durch neue zufällige Auslöser ersetzen",
+    "new_triggers_drawn": "3 neue Auslöser gezogen",
+    "undo": "Rückgängig",
+    "new_trigger_short": "Neu",
+    "new_trigger_aria": "Diesen Ereignisauslöser durch einen neuen zufälligen Auslöser ersetzen",
+    "trigger_swapped": "Auslöser ersetzt"
   },
   "reference": {
     "fightFlow": "Kampfablauf",

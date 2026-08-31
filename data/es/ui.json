@@ -459,7 +459,7 @@
     "whoResolved": "¿Quién resolvió esto?",
     "anyResolve": "Cualquier jugador puede resolver esta historia. Toca al jugador que la completó.",
     "whoTriggered": "¿Quién activó esto?",
-    "tapTriggerPlayer": "Toca al jugador que acaba de hacerlo.",
+    "tapTriggerPlayer": "Toca a quien acaba de hacerlo.",
     "tapResolvedPlayer": "Toca al jugador que lo resolvió.",
     "differentSamePlayer": "Resultado diferente si vuelve a estar implicado el mismo jugador.",
     "gainStoryPoint": "El jugador que lo activó gana 1 Punto de Historia.",
@@ -1795,7 +1795,15 @@
     "check_again": "Comprobar de nuevo",
     "update_available_version": "Actualización disponible — v{version}",
     "update_now": "Actualizar ahora",
-    "updating_app": "Actualizando…"
+    "updating_app": "Actualizando…",
+    "new_triggers": "Nuevos desencadenantes",
+    "new_triggers_short": "3 Nuevos",
+    "new_triggers_aria": "Reemplazar los tres desencadenantes de evento por otros nuevos al azar",
+    "new_triggers_drawn": "Se han elegido 3 nuevos desencadenantes",
+    "undo": "Deshacer",
+    "new_trigger_short": "Nuevo",
+    "new_trigger_aria": "Reemplazar este desencadenante de evento por otro nuevo al azar",
+    "trigger_swapped": "Desencadenante cambiado"
   },
   "reference": {
     "fightFlow": "Flujo de pelea",
