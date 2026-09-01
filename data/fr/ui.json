@@ -1893,5 +1893,50 @@
         "dir": "ltr"
       }
     ]
+  },
+  "gameModes": {
+    "gameMode": "Mode de jeu",
+    "chooseTitle": "Choisir un mode de jeu",
+    "chooseIntro": "Jouez à Western Legends normalement ou choisissez une expérience prédéfinie avec ses propres personnages, contenus, mise en place et règles spéciales.",
+    "players": "Joueurs",
+    "lp": "PL",
+    "standardFlexible": "Votre contenu · Votre mise en place",
+    "viewDetails": "Voir les détails du mode",
+    "recommended": "Recommandé",
+    "contentShort": "Contenu",
+    "availableContent": "Contenu disponible",
+    "availableContentIntro": "Indiquez le contenu Western Legends disponible pour {mode}. Seul le contenu explicitement utilisé par ce mode sera inclus.",
+    "requiredByMode": "Requis par le mode",
+    "requiredContent": "Contenu requis",
+    "missingRequired": "Contenu requis à confirmer : {content}.",
+    "characters": "Personnages",
+    "items": "Objets",
+    "legendaryItems": "Objets légendaires",
+    "modeUnavailable": "La définition enregistrée de ce mode n’est pas disponible dans cette version.",
+    "changeConfirm": "Passer à {mode} ? Les réglages du mode et les choix incompatibles seront remplacés. Les noms et couleurs seront conservés.",
+    "overview": "Aperçu",
+    "specialRules": "Règles spéciales",
+    "setupReference": "Référence de mise en place",
+    "versionChanged": "Cette partie a commencé avec la définition v{old}; la référence installée est v{current}.",
+    "activeLabel": "Mode de jeu : {mode}",
+    "viewRules": "Voir les règles",
+    "setByMode": "Défini par le mode de jeu",
+    "characterPool": "Les personnages sont limités par ce mode et le contenu sélectionné.",
+    "insufficientCharacters": "Cette sélection ne fournit que {available} personnages éligibles pour {players} joueurs.",
+    "savedModeUnavailable": "Saved Game Mode “{mode}” is not available in this app version. Select a current Game Mode to continue setup.",
+    "checklistProgress": "{done} éléments de préparation sur {total} terminés",
+    "lockedSummary": "La mise en place, les paquets, les boutiques et les variantes propres au mode sont fixés par ce préréglage.",
+    "characterCleared": "La sélection de personnage a été effacée car elle n’est plus disponible : {characters}."
+  },
+  "visualSetup": {
+    "visual": "Mise en place visuelle",
+    "checklist": "Liste de contrôle",
+    "viewLabel": "Vue de mise en place",
+    "replay": "Rejouer",
+    "recenter": "Recentrer",
+    "viewCards": "Voir les cartes",
+    "boardViewport": "Plateau interactif de mise en place. Pincez ou faites glisser pour inspecter la table.",
+    "navigation": "Navigation de mise en place visuelle",
+    "stepOf": "Étape {current} sur {total}"
   }
 }

@@ -1893,5 +1893,50 @@
         "dir": "ltr"
       }
     ]
+  },
+  "gameModes": {
+    "gameMode": "Modo de juego",
+    "chooseTitle": "Elige un modo de juego",
+    "chooseIntro": "Juega Western Legends estándar o elige una experiencia preconfigurada con sus propios personajes, contenido, preparación y reglas especiales.",
+    "players": "Jugadores",
+    "lp": "PL",
+    "standardFlexible": "Tu contenido · Tu preparación",
+    "viewDetails": "Ver detalles del modo",
+    "recommended": "Recomendado",
+    "contentShort": "Contenido",
+    "availableContent": "Contenido disponible",
+    "availableContentIntro": "Indica qué contenido de Western Legends tienes disponible para {mode}. Solo se incluirá lo que este modo use expresamente.",
+    "requiredByMode": "Requerido por el modo",
+    "requiredContent": "Contenido requerido",
+    "missingRequired": "Aún debes confirmar este contenido requerido: {content}.",
+    "characters": "Personajes",
+    "items": "Objetos",
+    "legendaryItems": "Objetos legendarios",
+    "modeUnavailable": "La definición guardada de este modo no está disponible en esta versión.",
+    "changeConfirm": "¿Cambiar a {mode}? Se reemplazarán los ajustes del modo y las selecciones incompatibles. Se conservarán nombres y colores.",
+    "overview": "Resumen",
+    "specialRules": "Reglas especiales",
+    "setupReference": "Referencia de preparación",
+    "versionChanged": "Esta partida comenzó con la definición v{old}; la referencia instalada es v{current}.",
+    "activeLabel": "Modo de juego: {mode}",
+    "viewRules": "Ver reglas",
+    "setByMode": "Definido por el modo de juego",
+    "characterPool": "Los personajes están limitados por este modo y el contenido seleccionado.",
+    "insufficientCharacters": "Esta selección solo ofrece {available} personajes elegibles para {players} jugadores.",
+    "savedModeUnavailable": "Saved Game Mode “{mode}” is not available in this app version. Select a current Game Mode to continue setup.",
+    "checklistProgress": "{done} de {total} elementos de preparación completados",
+    "lockedSummary": "La preparación, los mazos, las tiendas y las variantes específicas del modo quedan fijados por este preajuste.",
+    "characterCleared": "Se borró la selección de personaje porque ya no está disponible: {characters}."
+  },
+  "visualSetup": {
+    "visual": "Preparación visual",
+    "checklist": "Lista de comprobación",
+    "viewLabel": "Vista de preparación",
+    "replay": "Repetir",
+    "recenter": "Recentrar",
+    "viewCards": "Ver cartas",
+    "boardViewport": "Tablero interactivo de preparación. Pellizca o arrastra para inspeccionar la mesa.",
+    "navigation": "Navegación de preparación visual",
+    "stepOf": "Paso {current} de {total}"
   }
 }

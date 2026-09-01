@@ -1893,5 +1893,50 @@
         "dir": "ltr"
       }
     ]
+  },
+  "gameModes": {
+    "gameMode": "Spielmodus",
+    "chooseTitle": "Spielmodus wählen",
+    "chooseIntro": "Spiele Western Legends standardmäßig oder wähle ein voreingestelltes Erlebnis mit eigenen Charakteren, Inhalten, Aufbau und Sonderregeln.",
+    "players": "Spieler",
+    "lp": "LP",
+    "standardFlexible": "Deine Inhalte · Dein Aufbau",
+    "viewDetails": "Spielmodus-Details",
+    "recommended": "Empfohlen",
+    "contentShort": "Inhalt",
+    "availableContent": "Verfügbare Inhalte",
+    "availableContentIntro": "Wähle die Western-Legends-Inhalte, die du für {mode} besitzt. Es werden nur Inhalte verwendet, die dieser Spielmodus ausdrücklich vorsieht.",
+    "requiredByMode": "Vom Spielmodus benötigt",
+    "requiredContent": "Benötigte Inhalte",
+    "missingRequired": "Folgende benötigte Inhalte müssen noch bestätigt werden: {content}.",
+    "characters": "Charaktere",
+    "items": "Gegenstände",
+    "legendaryItems": "Legendäre Gegenstände",
+    "modeUnavailable": "Die gespeicherte Spielmodus-Definition ist in dieser App-Version nicht verfügbar.",
+    "changeConfirm": "Zu {mode} wechseln? Spielmodus-Einstellungen und unvereinbare Auswahlen werden ersetzt. Spielernamen und Farben bleiben erhalten.",
+    "overview": "Übersicht",
+    "specialRules": "Sonderregeln",
+    "setupReference": "Aufbau-Referenz",
+    "versionChanged": "Dieses Spiel begann mit Spielmodus v{old}; installiert ist v{current}.",
+    "activeLabel": "Spielmodus: {mode}",
+    "viewRules": "Regeln anzeigen",
+    "setByMode": "Vom Spielmodus festgelegt",
+    "characterPool": "Die Charaktere sind auf diesen Spielmodus und deine ausgewählten Inhalte beschränkt.",
+    "insufficientCharacters": "Diese Auswahl bietet nur {available} geeignete Charaktere für {players} Spieler.",
+    "savedModeUnavailable": "Saved Game Mode “{mode}” is not available in this app version. Select a current Game Mode to continue setup.",
+    "checklistProgress": "{done} von {total} Setup-Punkten erledigt",
+    "lockedSummary": "Modusspezifischer Aufbau, Decks, Läden und Varianten werden durch diese Vorgabe festgelegt.",
+    "characterCleared": "Die Charakterauswahl wurde gelöscht, weil sie nicht mehr verfügbar ist: {characters}."
+  },
+  "visualSetup": {
+    "visual": "Visueller Aufbau",
+    "checklist": "Checkliste",
+    "viewLabel": "Aufbauansicht",
+    "replay": "Wiederholen",
+    "recenter": "Zentrieren",
+    "viewCards": "Karten anzeigen",
+    "boardViewport": "Interaktiver Spielaufbau. Zum Prüfen zoomen oder ziehen.",
+    "navigation": "Navigation für visuellen Aufbau",
+    "stepOf": "Schritt {current} von {total}"
   }
 }

@@ -1893,5 +1893,50 @@
         "dir": "ltr"
       }
     ]
+  },
+  "gameModes": {
+    "gameMode": "Режим игры",
+    "chooseTitle": "Выберите режим игры",
+    "chooseIntro": "Играйте в стандартный Western Legends или выберите готовый режим со своими персонажами, компонентами, подготовкой и особыми правилами.",
+    "players": "Игроки",
+    "lp": "ОП",
+    "standardFlexible": "Ваши компоненты · Ваша подготовка",
+    "viewDetails": "Подробнее о режиме",
+    "recommended": "Рекомендуется",
+    "contentShort": "Контент",
+    "availableContent": "Доступные компоненты",
+    "availableContentIntro": "Укажите, какие компоненты Western Legends доступны для {mode}. Будут использованы только явно предусмотренные этим режимом компоненты.",
+    "requiredByMode": "Требуется режимом",
+    "requiredContent": "Обязательные компоненты",
+    "missingRequired": "Нужно подтвердить обязательные компоненты: {content}.",
+    "characters": "Персонажи",
+    "items": "Предметы",
+    "legendaryItems": "Легендарные предметы",
+    "modeUnavailable": "Сохранённое определение режима недоступно в этой версии приложения.",
+    "changeConfirm": "Переключиться на {mode}? Настройки режима и несовместимые выборы будут заменены. Имена и цвета игроков сохранятся.",
+    "overview": "Обзор",
+    "specialRules": "Особые правила",
+    "setupReference": "Справка по подготовке",
+    "versionChanged": "Игра началась с определения v{old}; установленная справка — v{current}.",
+    "activeLabel": "Режим игры: {mode}",
+    "viewRules": "Правила",
+    "setByMode": "Задано режимом игры",
+    "characterPool": "Персонажи ограничены этим режимом и выбранными компонентами.",
+    "insufficientCharacters": "Эта комбинация даёт только {available} подходящих персонажей для {players} игроков.",
+    "savedModeUnavailable": "Saved Game Mode “{mode}” is not available in this app version. Select a current Game Mode to continue setup.",
+    "checklistProgress": "Выполнено {done} из {total} пунктов подготовки",
+    "lockedSummary": "Подготовка, колоды, магазины и варианты этого режима фиксируются выбранной настройкой.",
+    "characterCleared": "Выбор персонажа сброшен, потому что он больше недоступен: {characters}."
+  },
+  "visualSetup": {
+    "visual": "Визуальная подготовка",
+    "checklist": "Контрольный список",
+    "viewLabel": "Вид подготовки",
+    "replay": "Повторить",
+    "recenter": "Центрировать",
+    "viewCards": "Показать карты",
+    "boardViewport": "Интерактивное поле подготовки. Масштабируйте или перетаскивайте для просмотра.",
+    "navigation": "Навигация визуальной подготовки",
+    "stepOf": "Шаг {current} из {total}"
   }
 }

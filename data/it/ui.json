@@ -1893,5 +1893,50 @@
         "dir": "ltr"
       }
     ]
+  },
+  "gameModes": {
+    "gameMode": "Modalità di gioco",
+    "chooseTitle": "Scegli una modalità di gioco",
+    "chooseIntro": "Gioca a Western Legends standard oppure scegli un’esperienza preimpostata con personaggi, contenuti, preparazione e regole speciali proprie.",
+    "players": "Giocatori",
+    "lp": "PL",
+    "standardFlexible": "I tuoi contenuti · La tua preparazione",
+    "viewDetails": "Vedi dettagli modalità",
+    "recommended": "Consigliato",
+    "contentShort": "Contenuto",
+    "availableContent": "Contenuto disponibile",
+    "availableContentIntro": "Indica quali contenuti di Western Legends hai disponibili per {mode}. Verranno inclusi solo quelli usati esplicitamente dalla modalità.",
+    "requiredByMode": "Richiesto dalla modalità",
+    "requiredContent": "Contenuto richiesto",
+    "missingRequired": "Devi ancora confermare questo contenuto richiesto: {content}.",
+    "characters": "Personaggi",
+    "items": "Oggetti",
+    "legendaryItems": "Oggetti leggendari",
+    "modeUnavailable": "La definizione salvata di questa modalità non è disponibile in questa versione.",
+    "changeConfirm": "Passare a {mode}? Le impostazioni della modalità e le selezioni incompatibili verranno sostituite. Nomi e colori resteranno invariati.",
+    "overview": "Panoramica",
+    "specialRules": "Regole speciali",
+    "setupReference": "Riferimento preparazione",
+    "versionChanged": "La partita è iniziata con la definizione v{old}; la versione installata è v{current}.",
+    "activeLabel": "Modalità: {mode}",
+    "viewRules": "Vedi regole",
+    "setByMode": "Impostato dalla modalità di gioco",
+    "characterPool": "I personaggi sono limitati da questa modalità e dai contenuti selezionati.",
+    "insufficientCharacters": "Questa selezione offre solo {available} personaggi idonei per {players} giocatori.",
+    "savedModeUnavailable": "Saved Game Mode “{mode}” is not available in this app version. Select a current Game Mode to continue setup.",
+    "checklistProgress": "{done} elementi di preparazione su {total} completati",
+    "lockedSummary": "Preparazione, mazzi, negozi e varianti specifici della modalità sono fissati da questa configurazione.",
+    "characterCleared": "La selezione del personaggio è stata cancellata perché non è più disponibile: {characters}."
+  },
+  "visualSetup": {
+    "visual": "Preparazione visiva",
+    "checklist": "Lista di controllo",
+    "viewLabel": "Vista preparazione",
+    "replay": "Ripeti",
+    "recenter": "Ricentra",
+    "viewCards": "Mostra carte",
+    "boardViewport": "Tabellone interattivo di preparazione. Pizzica o trascina per esplorare il tavolo.",
+    "navigation": "Navigazione preparazione visiva",
+    "stepOf": "Passo {current} di {total}"
   }
 }
