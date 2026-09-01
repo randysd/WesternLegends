@@ -1,0 +1,487 @@
+{
+  "version": 1,
+  "boardAspectRatios": {
+    "main": 0.6501950585,
+    "ante-up-frontier": 1.7953321364,
+    "ante-up-gambler": 0.1183355007
+  },
+  "compositions": {
+    "standard": {
+      "boards": [
+        "main",
+        "ante-up-frontier",
+        "ante-up-gambler"
+      ]
+    },
+    "main_only": {
+      "boards": [
+        "main"
+      ]
+    },
+    "border_town": {
+      "boards": [
+        "main",
+        "ante-up-frontier",
+        "ante-up-gambler"
+      ],
+      "className": "visual-composition-border-town",
+      "layouts": {
+        "main": {
+          "x": 0,
+          "y": 0,
+          "width": 100,
+          "rotation": 0
+        },
+        "ante-up-frontier": {
+          "x": 34,
+          "y": 7,
+          "width": 32,
+          "rotation": -90
+        },
+        "ante-up-gambler": {
+          "x": 24,
+          "y": 7,
+          "width": 70,
+          "rotation": 0
+        }
+      }
+    }
+  },
+  "anchors": {
+    "left-decks": {
+      "x": -10,
+      "y": 31
+    },
+    "right-decks": {
+      "x": 151,
+      "y": 31
+    },
+    "bottom-supply": {
+      "x": 65,
+      "y": 72
+    },
+    "top-supply": {
+      "x": 68,
+      "y": -18
+    },
+    "general-store-stand": {
+      "x": 111,
+      "y": 53
+    },
+    "trading-post-stand": {
+      "x": 127,
+      "y": 30
+    },
+    "traveling-trader-stand": {
+      "x": 146,
+      "y": 48
+    },
+    "player-area": {
+      "x": 50,
+      "y": 75
+    },
+    "legendary-track": {
+      "x": 17,
+      "y": 60
+    },
+    "story-area": {
+      "x": 6,
+      "y": 25
+    },
+    "top-board-stand": {
+      "relativeTo": "visible-bounds",
+      "edge": "top",
+      "offset": 7,
+      "xRatio": 0.5
+    },
+    "right-money": {
+      "relativeTo": "visible-bounds",
+      "edge": "right",
+      "offset": 7,
+      "yRatio": 0.24
+    },
+    "right-poker": {
+      "relativeTo": "visible-bounds",
+      "edge": "right",
+      "offset": 7,
+      "yRatio": 0.47
+    },
+    "right-small-decks": {
+      "relativeTo": "visible-bounds",
+      "edge": "right",
+      "offset": 7,
+      "yRatio": 0.72
+    },
+    "player-mat-area": {
+      "relativeToBoard": "main",
+      "edge": "bottom",
+      "offset": 8,
+      "xRatio": 0.5
+    }
+  },
+  "assets": {
+    "main-board": {
+      "type": "image",
+      "src": "assets/images/boards/main-board.png",
+      "kind": "board"
+    },
+    "frontier-board": {
+      "type": "image",
+      "src": "assets/images/boards/ante-up-frontier.png",
+      "kind": "board"
+    },
+    "gambler-board": {
+      "type": "image",
+      "src": "assets/images/boards/ante-up-gambler.png",
+      "kind": "board"
+    },
+    "story-board": {
+      "type": "image",
+      "src": "assets/images/boards/story.png",
+      "kind": "board-overlay",
+      "physicalProfile": "legendaryStoryBoardOverlay"
+    },
+    "poker-deck": {
+      "type": "image",
+      "src": "assets/images/cards/poker-back.png",
+      "kind": "card",
+      "physicalProfile": "standardCard"
+    },
+    "fight-deck": {
+      "type": "image",
+      "src": "assets/images/cards/fight-back.png",
+      "kind": "card",
+      "physicalProfile": "miniCard"
+    },
+    "event-deck": {
+      "type": "image",
+      "src": "assets/images/cards/events-back.png",
+      "kind": "card",
+      "physicalProfile": "miniCard"
+    },
+    "train-deck": {
+      "type": "image",
+      "src": "assets/images/cards/train-back.png",
+      "kind": "card",
+      "physicalProfile": "miniCard"
+    },
+    "injury-deck": {
+      "type": "image",
+      "src": "assets/images/cards/injury-back.png",
+      "kind": "card",
+      "physicalProfile": "miniCard"
+    },
+    "trader-deck": {
+      "type": "image",
+      "src": "assets/images/cards/travelingtrader-back.png",
+      "kind": "card",
+      "physicalProfile": "miniCard"
+    },
+    "treasure-deck": {
+      "type": "image",
+      "src": "assets/images/cards/treasurehunting-back.png",
+      "kind": "card",
+      "physicalProfile": "standardCard"
+    },
+    "hunting-deck": {
+      "type": "image",
+      "src": "assets/images/cards/hunting-back.png",
+      "kind": "card",
+      "physicalProfile": "miniCard"
+    },
+    "fishing-deck": {
+      "type": "image",
+      "src": "assets/images/cards/fishing-back.png",
+      "kind": "card",
+      "physicalProfile": "miniCard"
+    },
+    "foraging-deck": {
+      "type": "image",
+      "src": "assets/images/cards/foraging-back.png",
+      "kind": "card",
+      "physicalProfile": "miniCard"
+    },
+    "item-card": {
+      "type": "image",
+      "src": "assets/images/cards/item-back.png",
+      "kind": "card",
+      "physicalProfile": "miniCard"
+    },
+    "money-10": {
+      "type": "image",
+      "src": "assets/images/cards/money-10.png",
+      "kind": "card",
+      "physicalProfile": "miniCard"
+    },
+    "money-20": {
+      "type": "image",
+      "src": "assets/images/cards/money-20.png",
+      "kind": "card",
+      "physicalProfile": "miniCard"
+    },
+    "first-player": {
+      "type": "image",
+      "src": "assets/images/tokens/firstplayer.png",
+      "kind": "token",
+      "physicalProfile": "firstPlayerToken"
+    },
+    "gold-nugget": {
+      "type": "image",
+      "src": "assets/images/tokens/gold-nugget.png",
+      "kind": "token",
+      "physicalProfile": "goldNugget"
+    },
+    "event-token": {
+      "type": "image",
+      "src": "assets/images/tokens/event-token.png",
+      "kind": "token",
+      "physicalProfile": "standardToken"
+    },
+    "legendary-token": {
+      "type": "image",
+      "src": "assets/images/tokens/legendary.png",
+      "kind": "token",
+      "physicalProfile": "standardToken"
+    },
+    "deed-token": {
+      "type": "image",
+      "src": "assets/images/tokens/deed.png",
+      "kind": "token",
+      "physicalProfile": "deedToken"
+    },
+    "trader": {
+      "type": "image",
+      "src": "assets/images/tokens/trader.png",
+      "kind": "token",
+      "physicalProfile": "travelingTraderMini"
+    },
+    "sheriff": {
+      "type": "image",
+      "src": "assets/images/tokens/action-sheriff.png",
+      "kind": "proxy-image",
+      "physicalProfile": "playerMiniature"
+    },
+    "bandit": {
+      "type": "image",
+      "src": "assets/images/tokens/action-bandit.png",
+      "kind": "proxy-image",
+      "physicalProfile": "playerMiniature"
+    },
+    "train": {
+      "type": "image",
+      "src": "assets/images/tokens/action-train.png",
+      "kind": "proxy-image",
+      "physicalProfile": "trainMini"
+    },
+    "store": {
+      "type": "image",
+      "src": "assets/images/tokens/action-store.png",
+      "kind": "proxy-image"
+    },
+    "player-marker": {
+      "type": "proxy",
+      "kind": "pawn",
+      "label": "Player",
+      "physicalProfile": "playerMiniature"
+    },
+    "player-cube": {
+      "type": "proxy",
+      "kind": "cube",
+      "label": "Cube"
+    },
+    "generic": {
+      "type": "proxy",
+      "kind": "generic",
+      "label": "Component"
+    },
+    "story-deck": {
+      "type": "image",
+      "src": "assets/images/cards/story-back.png",
+      "kind": "card",
+      "external": true,
+      "physicalProfile": "standardCard"
+    },
+    "card-stack": {
+      "type": "proxy",
+      "kind": "card-proxy",
+      "label": "Cards"
+    },
+    "ranch-blue": {
+      "type": "image",
+      "src": "assets/images/tokens/ranch-blue.png",
+      "kind": "token",
+      "physicalProfile": "standardToken"
+    },
+    "ranch-green": {
+      "type": "image",
+      "src": "assets/images/tokens/ranch-green.png",
+      "kind": "token",
+      "physicalProfile": "standardToken"
+    },
+    "ranch-orange": {
+      "type": "image",
+      "src": "assets/images/tokens/ranch-orange.png",
+      "kind": "token",
+      "physicalProfile": "standardToken"
+    },
+    "longhorn-token": {
+      "type": "image",
+      "src": "assets/images/tokens/longhorn.png",
+      "kind": "token",
+      "physicalProfile": "standardToken"
+    },
+    "outlaw-token": {
+      "type": "image",
+      "src": "assets/images/tokens/outlaw.png",
+      "kind": "token",
+      "physicalProfile": "standardToken"
+    },
+    "highroller-token": {
+      "type": "image",
+      "src": "assets/images/tokens/highroller.png",
+      "kind": "token",
+      "physicalProfile": "standardToken"
+    },
+    "claim-jumper-token": {
+      "type": "image",
+      "src": "assets/images/tokens/gold.png",
+      "kind": "token",
+      "physicalProfile": "standardToken"
+    },
+    "frontier-token": {
+      "type": "image",
+      "src": "assets/images/tokens/action-frontier.png",
+      "kind": "token",
+      "physicalProfile": "standardToken"
+    },
+    "end-game-marker": {
+      "type": "image",
+      "src": "assets/images/tokens/watch.png",
+      "kind": "token",
+      "physicalProfile": "miniToken"
+    },
+    "hunt-marker": {
+      "type": "proxy",
+      "kind": "token-proxy",
+      "label": "Hunt",
+      "physicalProfile": "standardToken"
+    },
+    "mine-marker": {
+      "type": "proxy",
+      "kind": "token-proxy",
+      "label": "Mine",
+      "physicalProfile": "standardToken"
+    },
+    "general-store-stand": {
+      "type": "image",
+      "src": "assets/images/boards/general-store-stand.png",
+      "kind": "stand",
+      "external": true,
+      "physicalProfile": "generalStoreStand"
+    },
+    "player-mat": {
+      "type": "image",
+      "src": "assets/images/boards/player-mat-front.png",
+      "kind": "player-mat",
+      "external": true,
+      "physicalProfile": "playerBoard"
+    }
+  },
+  "camera": {
+    "minScale": 1,
+    "maxScale": 4.2,
+    "padding": 0.18
+  },
+  "animation": {
+    "cameraMs": 420,
+    "placeMs": 520,
+    "staggerMs": 110
+  },
+  "sceneUnits": {
+    "id": "main-board-width-percent",
+    "referenceBoardId": "main",
+    "description": "Scene coordinates are normalized to the main board width where the full main board width = 100 units. Board location percentages in boards.json continue to use the same space."
+  },
+  "referenceFrames": {
+    "main-board-authoring": {
+      "boardId": "main",
+      "widthUnits": 100,
+      "heightUnits": 65.0195,
+      "description": "Optional authoring frame for converting measurements or design mockup coordinates into scene units."
+    }
+  },
+  "physicalScale": {
+    "referenceBoardId": "main",
+    "referenceBoardWidthMm": 762,
+    "sceneUnitsPerReferenceBoardWidth": 100,
+    "unit": "mm"
+  },
+  "physicalComponents": {
+    "standardCard": {
+      "widthMm": 64,
+      "heightMm": 89
+    },
+    "miniCard": {
+      "widthMm": 44,
+      "heightMm": 63
+    },
+    "standardToken": {
+      "diameterMm": 26
+    },
+    "miniToken": {
+      "diameterMm": 19
+    },
+    "deedToken": {
+      "widthMm": 28,
+      "heightMm": 22
+    },
+    "legendaryStoryCard": {
+      "widthMm": 120,
+      "heightMm": 70
+    },
+    "legendaryStoryBoardOverlay": {
+      "widthMm": 160,
+      "heightMm": 110
+    },
+    "playerBoard": {
+      "widthMm": 285,
+      "heightMm": 166
+    },
+    "prospectorDie": {
+      "edgeMm": 20
+    },
+    "riskDie": {
+      "edgeMm": 15
+    },
+    "goldNugget": {
+      "diameterMm": 10
+    },
+    "firstPlayerToken": {
+      "diameterMm": 45
+    },
+    "trainMini": {
+      "lengthMm": 85
+    },
+    "travelingTraderMini": {
+      "lengthMm": 40
+    },
+    "playerMiniature": {
+      "heightMm": 32.5,
+      "heightRangeMm": [
+        30,
+        35
+      ],
+      "baseDiameterMm": 20,
+      "approximate": true
+    },
+    "generalStoreStand": {
+      "widthMm": 290
+    },
+    "tradingPostStand": {
+      "widthMm": 150
+    },
+    "travelingTraderStand": {
+      "widthMm": 150
+    }
+  }
+}

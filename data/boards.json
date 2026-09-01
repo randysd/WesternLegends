@@ -240,6 +240,10 @@
             }
           ]
         }
+      },
+      "physicalSizeMm": {
+        "width": 762,
+        "height": 495
       }
     },
     "ante-up-frontier": {
@@ -396,6 +400,10 @@
             }
           ]
         }
+      },
+      "physicalSizeMm": {
+        "width": 326,
+        "height": 585
       }
     },
     "ante-up-gambler": {
@@ -424,6 +432,10 @@
             }
           ]
         }
+      },
+      "physicalSizeMm": {
+        "width": 762,
+        "height": 90
       }
     }
   }

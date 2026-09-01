@@ -1893,5 +1893,50 @@
         "dir": "ltr"
       }
     ]
+  },
+  "gameModes": {
+    "gameMode": "Game Mode",
+    "chooseTitle": "Choose a Game Mode",
+    "chooseIntro": "Play standard Western Legends, or choose a preset experience with its own characters, content, setup, and special rules.",
+    "players": "Players",
+    "lp": "LP",
+    "standardFlexible": "Your content · Your setup",
+    "viewDetails": "View Game Mode Details",
+    "recommended": "Recommended",
+    "contentShort": "Content",
+    "availableContent": "Available Content",
+    "availableContentIntro": "Tell us which Western Legends content you have available for {mode}. Only content explicitly used by this Game Mode will be included.",
+    "requiredByMode": "Required by Game Mode",
+    "requiredContent": "Required Content",
+    "missingRequired": "Required content still needs to be confirmed: {content}.",
+    "characters": "Characters",
+    "items": "Items",
+    "legendaryItems": "Legendary Items",
+    "modeUnavailable": "This saved Game Mode definition is not available in this version of the app.",
+    "changeConfirm": "Change to {mode}? Game Mode settings and incompatible selections will be replaced. Player names and colors will be kept.",
+    "overview": "Overview",
+    "specialRules": "Special Rules",
+    "setupReference": "Mode Setup Reference",
+    "versionChanged": "This game began with Game Mode definition v{old}; the installed reference is v{current}. Review changes before relying on updated reference text.",
+    "activeLabel": "Game Mode: {mode}",
+    "viewRules": "View Rules",
+    "setByMode": "Set by Game Mode",
+    "characterPool": "Characters are limited by this Game Mode and the content you selected.",
+    "insufficientCharacters": "This Game Mode/content selection provides only {available} eligible characters for {players} players.",
+    "savedModeUnavailable": "Saved Game Mode “{mode}” is not available in this app version. Select a current Game Mode to continue setup.",
+    "checklistProgress": "{done} of {total} setup items complete",
+    "lockedSummary": "Mode-specific setup, decks, stores, and variants are fixed by this preset.",
+    "characterCleared": "Character selection cleared because it is no longer available: {characters}."
+  },
+  "visualSetup": {
+    "visual": "Visual Setup",
+    "checklist": "Checklist",
+    "viewLabel": "Setup view",
+    "replay": "Replay",
+    "recenter": "Recenter",
+    "viewCards": "View Cards",
+    "boardViewport": "Interactive setup board. Pinch or drag to inspect the table.",
+    "navigation": "Visual setup navigation",
+    "stepOf": "Step {current} of {total}"
   }
 }

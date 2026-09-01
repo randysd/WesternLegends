@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "cards": [
+    {
+      "id": "7_clubs_rumors",
+      "rank": "7",
+      "suit": "clubs",
+      "suitSymbol": "♣",
+      "effect": "Rumors",
+      "label": "7♣ Rumors"
+    },
+    {
+      "id": "7_spades_rumors",
+      "rank": "7",
+      "suit": "spades",
+      "suitSymbol": "♠",
+      "effect": "Rumors",
+      "label": "7♠ Rumors"
+    },
+    {
+      "id": "8_clubs_scout",
+      "rank": "8",
+      "suit": "clubs",
+      "suitSymbol": "♣",
+      "effect": "Scout",
+      "label": "8♣ Scout"
+    },
+    {
+      "id": "8_spades_scout",
+      "rank": "8",
+      "suit": "spades",
+      "suitSymbol": "♠",
+      "effect": "Scout",
+      "label": "8♠ Scout"
+    },
+    {
+      "id": "9_hearts_jackpot",
+      "rank": "9",
+      "suit": "hearts",
+      "suitSymbol": "♥",
+      "effect": "Jackpot",
+      "label": "9♥ Jackpot"
+    },
+    {
+      "id": "9_diamonds_jackpot",
+      "rank": "9",
+      "suit": "diamonds",
+      "suitSymbol": "♦",
+      "effect": "Jackpot",
+      "label": "9♦ Jackpot"
+    },
+    {
+      "id": "7_clubs_reputation",
+      "rank": "7",
+      "suit": "clubs",
+      "suitSymbol": "♣",
+      "effect": "Reputation",
+      "label": "7♣ Reputation"
+    },
+    {
+      "id": "7_spades_reputation",
+      "rank": "7",
+      "suit": "spades",
+      "suitSymbol": "♠",
+      "effect": "Reputation",
+      "label": "7♠ Reputation"
+    },
+    {
+      "id": "8_clubs_wallop",
+      "rank": "8",
+      "suit": "clubs",
+      "suitSymbol": "♣",
+      "effect": "Wallop",
+      "label": "8♣ Wallop"
+    },
+    {
+      "id": "8_spades_wallop",
+      "rank": "8",
+      "suit": "spades",
+      "suitSymbol": "♠",
+      "effect": "Wallop",
+      "label": "8♠ Wallop"
+    },
+    {
+      "id": "9_hearts_instinct",
+      "rank": "9",
+      "suit": "hearts",
+      "suitSymbol": "♥",
+      "effect": "Instinct",
+      "label": "9♥ Instinct"
+    },
+    {
+      "id": "9_diamonds_instinct",
+      "rank": "9",
+      "suit": "diamonds",
+      "suitSymbol": "♦",
+      "effect": "Instinct",
+      "label": "9♦ Instinct"
+    },
+    {
+      "id": "4_hearts_dead_or_alive",
+      "rank": "4",
+      "suit": "hearts",
+      "suitSymbol": "♥",
+      "effect": "Dead or Alive",
+      "label": "4♥ Dead or Alive"
+    },
+    {
+      "id": "4_diamonds_dead_or_alive",
+      "rank": "4",
+      "suit": "diamonds",
+      "suitSymbol": "♦",
+      "effect": "Dead or Alive",
+      "label": "4♦ Dead or Alive"
+    },
+    {
+      "id": "5_hearts_vendetta",
+      "rank": "5",
+      "suit": "hearts",
+      "suitSymbol": "♥",
+      "effect": "Vendetta",
+      "label": "5♥ Vendetta"
+    },
+    {
+      "id": "5_diamonds_vendetta",
+      "rank": "5",
+      "suit": "diamonds",
+      "suitSymbol": "♦",
+      "effect": "Vendetta",
+      "label": "5♦ Vendetta"
+    },
+    {
+      "id": "10_clubs_outfit",
+      "rank": "10",
+      "suit": "clubs",
+      "suitSymbol": "♣",
+      "effect": "Outfit",
+      "label": "10♣ Outfit"
+    },
+    {
+      "id": "10_spades_outfit",
+      "rank": "10",
+      "suit": "spades",
+      "suitSymbol": "♠",
+      "effect": "Outfit",
+      "label": "10♠ Outfit"
+    },
+    {
+      "id": "4_hearts_manhunt",
+      "rank": "4",
+      "suit": "hearts",
+      "suitSymbol": "♥",
+      "effect": "Manhunt",
+      "label": "4♥ Manhunt"
+    },
+    {
+      "id": "4_diamonds_manhunt",
+      "rank": "4",
+      "suit": "diamonds",
+      "suitSymbol": "♦",
+      "effect": "Manhunt",
+      "label": "4♦ Manhunt"
+    },
+    {
+      "id": "5_hearts_payday",
+      "rank": "5",
+      "suit": "hearts",
+      "suitSymbol": "♥",
+      "effect": "Payday",
+      "label": "5♥ Payday"
+    },
+    {
+      "id": "5_diamonds_payday",
+      "rank": "5",
+      "suit": "diamonds",
+      "suitSymbol": "♦",
+      "effect": "Payday",
+      "label": "5♦ Payday"
+    },
+    {
+      "id": "10_clubs_fools_gold",
+      "rank": "10",
+      "suit": "clubs",
+      "suitSymbol": "♣",
+      "effect": "Fool's Gold",
+      "label": "10♣ Fool's Gold"
+    },
+    {
+      "id": "10_spades_fools_gold",
+      "rank": "10",
+      "suit": "spades",
+      "suitSymbol": "♠",
+      "effect": "Fool's Gold",
+      "label": "10♠ Fool's Gold"
+    },
+    {
+      "id": "joker_red",
+      "rank": "Joker",
+      "suit": "red",
+      "suitSymbol": "★",
+      "effect": "Joker",
+      "label": "Joker (Red)"
+    },
+    {
+      "id": "joker_black",
+      "rank": "Joker",
+      "suit": "black",
+      "suitSymbol": "★",
+      "effect": "Joker",
+      "label": "Joker (Black)"
+    }
+  ]
+}

@@ -14,7 +14,15 @@
               "caption": "Main Board",
               "fullWidth": true
             }
-          ]
+          ],
+          "id": "place_the_main_game_board_in_the_center_of_the_table",
+          "visual": {
+            "focusMode": "full",
+            "revealBoards": [
+              "main"
+            ],
+            "placements": []
+          }
         },
         {
           "text": "Place the Buzzard Gulch Frontier Board next to the main board.",
@@ -28,13 +36,39 @@
               "caption": "Buzzard Gulch & Gambler Track",
               "fullWidth": true
             }
-          ]
+          ],
+          "id": "place_the_buzzard_gulch_frontier_board_next_to_the_main_",
+          "visual": {
+            "focusTargets": [
+              {
+                "x": 121,
+                "y": 27
+              }
+            ],
+            "revealBoards": [
+              "ante-up-frontier"
+            ],
+            "placements": []
+          }
         },
         {
           "text": "Place the Gambler Track above the main board.",
           "requiredModules": [
             "ante_up_gambler"
-          ]
+          ],
+          "id": "place_the_gambler_track_above_the_main_board",
+          "visual": {
+            "focusTargets": [
+              {
+                "x": 50,
+                "y": -6
+              }
+            ],
+            "revealBoards": [
+              "ante-up-gambler"
+            ],
+            "placements": []
+          }
         },
         {
           "text": "Place the Legendary Story Board overlay over the core Story Card area.",
@@ -48,22 +82,70 @@
               "caption": "Legendary Story Board",
               "fullWidth": true
             }
-          ]
+          ],
+          "id": "place_the_legendary_story_board_overlay_over_the_core_st",
+          "visual": {
+            "focus": "story-area",
+            "placements": [
+              {
+                "asset": "story-board",
+                "target": "story-area",
+                "size": {
+                  "width": 15,
+                  "height": 10
+                }
+              }
+            ]
+          }
         },
         {
-          "text": "Assemble the General Store stand if needed."
+          "text": "Place the General Store stand at the top of the board.",
+          "id": "assemble_the_general_store_stand_if_needed",
+          "visual": {
+            "focus": "top-board-stand",
+            "skipHalo": true,
+            "placements": [
+              {
+                "asset": "general-store-stand",
+                "target": "top-board-stand"
+              }
+            ],
+            "coordinateSpace": "scene"
+          }
         },
         {
           "text": "Assemble the Trading Post stand.",
           "requiredModules": [
             "ante_up_sideboard"
-          ]
+          ],
+          "id": "assemble_the_trading_post_stand",
+          "visual": {
+            "focus": "trading-post-stand",
+            "placements": [
+              {
+                "asset": "store",
+                "target": "trading-post-stand",
+                "label": "Trading Post"
+              }
+            ]
+          }
         },
         {
           "text": "Assemble the Traveling Trader stand.",
           "requiredModules": [
             "blood_money_traveling_trader"
-          ]
+          ],
+          "id": "assemble_the_traveling_trader_stand",
+          "visual": {
+            "focus": "traveling-trader-stand",
+            "placements": [
+              {
+                "asset": "store",
+                "target": "traveling-trader-stand",
+                "label": "Traveling Trader"
+              }
+            ]
+          }
         }
       ]
     },
@@ -80,75 +162,245 @@
               "opens": "storeRandomizer"
             }
           ],
-          "choiceGroup": "stores_fill"
+          "choiceGroup": "stores_fill",
+          "id": "auto_fill_stores_with_the_helper_or_skip_it_and_follow_t",
+          "visual": {
+            "focus": "top-board-stand",
+            "skipHalo": true,
+            "interactive": "general-store-randomizer",
+            "instruction": "Fill the General Store stand with 12 item cards.",
+            "placements": [],
+            "coordinateSpace": "scene",
+            "interactivePlacement": {
+              "target": "top-board-stand",
+              "physicalProfile": "generalStoreStand"
+            }
+          }
         },
         {
           "text": "Manually Fill Stores",
           "summary": "Use these steps only if you are not using Auto-Fill Stores.",
           "substeps": [
             {
-              "text": "Remove store randomizer cards for items not being used."
+              "text": "Remove store randomizer cards for items not being used.",
+              "id": "remove_store_randomizer_cards_for_items_not_being_used",
+              "visual": {
+                "focus": "general-store-stand",
+                "placements": [
+                  {
+                    "asset": "item-card",
+                    "target": "general-store-stand",
+                    "label": "Item"
+                  }
+                ]
+              }
             },
             {
-              "text": "Set aside the standard setup card as a quick store reference."
+              "text": "Set aside the standard setup card as a quick store reference.",
+              "id": "set_aside_the_standard_setup_card_as_a_quick_store_refer",
+              "visual": {
+                "focus": "general-store-stand",
+                "placements": [
+                  {
+                    "asset": "item-card",
+                    "target": "general-store-stand",
+                    "label": "Item"
+                  }
+                ]
+              }
             },
             {
-              "text": "Shuffle the remaining store randomizer cards facedown."
+              "text": "Shuffle the remaining store randomizer cards facedown.",
+              "id": "shuffle_the_remaining_store_randomizer_cards_facedown",
+              "visual": {
+                "focus": "general-store-stand",
+                "placements": [
+                  {
+                    "asset": "item-card",
+                    "target": "general-store-stand",
+                    "label": "Item"
+                  }
+                ]
+              }
             },
             {
-              "text": "Deal 1 randomizer card to each General Store slot."
+              "text": "Deal 1 randomizer card to each General Store slot.",
+              "id": "deal_1_randomizer_card_to_each_general_store_slot",
+              "visual": {
+                "focus": "general-store-stand",
+                "placements": [
+                  {
+                    "asset": "item-card",
+                    "target": "general-store-stand",
+                    "label": "Item"
+                  }
+                ]
+              }
             },
             {
               "text": "Deal 1 randomizer card to each Trading Post slot.",
               "requiredModules": [
                 "ante_up_sideboard"
-              ]
+              ],
+              "id": "deal_1_randomizer_card_to_each_trading_post_slot",
+              "visual": {
+                "focus": "trading-post-stand",
+                "placements": [
+                  {
+                    "asset": "item-card",
+                    "target": "trading-post-stand",
+                    "label": "Item"
+                  }
+                ]
+              }
             },
             {
-              "text": "Place the first revealed Weapon and first revealed Mount in the General Store."
+              "text": "Place the first revealed Weapon and first revealed Mount in the General Store.",
+              "id": "place_the_first_revealed_weapon_and_first_revealed_mount",
+              "visual": {
+                "focus": "general-store-stand",
+                "placements": [
+                  {
+                    "asset": "item-card",
+                    "target": "general-store-stand",
+                    "label": "Item"
+                  }
+                ]
+              }
             },
             {
               "text": "Place the second revealed Weapon and second revealed Mount in the Trading Post.",
               "requiredModules": [
                 "ante_up_sideboard"
-              ]
+              ],
+              "id": "place_the_second_revealed_weapon_and_second_revealed_mou",
+              "visual": {
+                "focus": "trading-post-stand",
+                "placements": [
+                  {
+                    "asset": "item-card",
+                    "target": "trading-post-stand",
+                    "label": "Item"
+                  }
+                ]
+              }
             },
             {
               "text": "If using standard setup, make sure each store has at least 1 Weapon and 1 Mount. Replace items randomly if needed.",
               "requiredModules": [
                 "ante_up_sideboard"
-              ]
+              ],
+              "id": "if_using_standard_setup_make_sure_each_store_has_at_leas",
+              "visual": {
+                "focus": "general-store-stand",
+                "placements": [
+                  {
+                    "asset": "item-card",
+                    "target": "general-store-stand",
+                    "label": "Item"
+                  }
+                ]
+              }
             },
             {
-              "text": "Place each item deck in the space matching its randomizer card."
+              "text": "Place each item deck in the space matching its randomizer card.",
+              "id": "place_each_item_deck_in_the_space_matching_its_randomize",
+              "visual": {
+                "focus": "general-store-stand",
+                "placements": [
+                  {
+                    "asset": "item-card",
+                    "target": "general-store-stand",
+                    "label": "Item"
+                  }
+                ]
+              }
             }
           ],
           "checkable": false,
-          "choiceGroup": "stores_fill"
+          "choiceGroup": "stores_fill",
+          "id": "manually_fill_stores",
+          "visual": {
+            "focus": "top-board-stand",
+            "skipHalo": true,
+            "interactive": "general-store-randomizer",
+            "instruction": "Fill the General Store stand with 12 item cards.",
+            "hideItems": true,
+            "placements": [],
+            "coordinateSpace": "scene",
+            "interactivePlacement": {
+              "target": "top-board-stand",
+              "physicalProfile": "generalStoreStand"
+            }
+          }
         },
         {
           "text": "Shuffle together the Legendary Items from the selected expansions and place the blocker card on the bottom.",
           "requiredModules": [
             "blood_money_traveling_trader"
-          ]
+          ],
+          "id": "shuffle_together_the_legendary_items_from_the_selected_e",
+          "visual": {
+            "focus": "traveling-trader-stand",
+            "placements": [
+              {
+                "asset": "item-card",
+                "target": "traveling-trader-stand",
+                "label": "Items"
+              }
+            ]
+          }
         },
         {
           "text": "Place the Legendary Item deck facedown in the top-left Traveling Trader slot.",
           "requiredModules": [
             "blood_money_traveling_trader"
-          ]
+          ],
+          "id": "place_the_legendary_item_deck_facedown_in_the_top_left_t",
+          "visual": {
+            "focus": "traveling-trader-stand",
+            "placements": [
+              {
+                "asset": "item-card",
+                "target": "traveling-trader-stand",
+                "label": "Items"
+              }
+            ]
+          }
         },
         {
           "text": "Reveal 3 Legendary Items to the bottom row of the Traveling Trader stand.",
           "requiredModules": [
             "blood_money_traveling_trader"
-          ]
+          ],
+          "id": "reveal_3_legendary_items_to_the_bottom_row_of_the_travel",
+          "visual": {
+            "focus": "traveling-trader-stand",
+            "placements": [
+              {
+                "asset": "item-card",
+                "target": "traveling-trader-stand",
+                "label": "Items"
+              }
+            ]
+          }
         },
         {
           "text": "Place all remaining item decks in the 2 empty Traveling Trader spaces. Keep their randomizer cards nearby.",
           "requiredModules": [
             "blood_money_traveling_trader"
-          ]
+          ],
+          "id": "place_all_remaining_item_decks_in_the_2_empty_traveling_",
+          "visual": {
+            "focus": "traveling-trader-stand",
+            "placements": [
+              {
+                "asset": "item-card",
+                "target": "traveling-trader-stand",
+                "label": "Items"
+              }
+            ]
+          }
         }
       ]
     },
@@ -170,7 +422,41 @@
               "alt": "$20 Bills",
               "caption": "$20"
             }
-          ]
+          ],
+          "id": "separate_money_into_10_and_20_decks",
+          "visual": {
+            "skipHalo": true,
+            "focusTargets": [
+              {
+                "x": 92,
+                "y": 25.5
+              },
+              {
+                "x": 92,
+                "y": 33
+              }
+            ],
+            "placements": [
+              {
+                "asset": "money-10",
+                "position": {
+                  "x": 92,
+                  "y": 25.5
+                },
+                "origin": "top-left",
+                "rotation": 90
+              },
+              {
+                "asset": "money-20",
+                "position": {
+                  "x": 92,
+                  "y": 33
+                },
+                "origin": "top-left",
+                "rotation": 90
+              }
+            ]
+          }
         },
         {
           "text": "Prepare the Poker deck. If using expansion Poker Cards, swap them for matching base cards by suit and value.",
@@ -180,13 +466,53 @@
               "alt": "Poker Deck",
               "caption": "Poker Deck"
             }
-          ]
+          ],
+          "id": "prepare_the_poker_deck_if_using_expansion_poker_cards_sw",
+          "visual": {
+            "skipHalo": true,
+            "focusTargets": [
+              {
+                "x": 92,
+                "y": 45
+              }
+            ],
+            "placements": [
+              {
+                "asset": "poker-deck",
+                "position": {
+                  "x": 92,
+                  "y": 45
+                },
+                "origin": "top-left"
+              }
+            ]
+          }
         },
         {
           "text": "Shuffle the Joker cards into the Poker deck.",
           "requiredModules": [
             "fistful_jokers"
-          ]
+          ],
+          "id": "shuffle_the_joker_cards_into_the_poker_deck",
+          "visual": {
+            "skipHalo": true,
+            "focusTargets": [
+              {
+                "x": 92,
+                "y": 45
+              }
+            ],
+            "placements": [
+              {
+                "asset": "poker-deck",
+                "position": {
+                  "x": 92,
+                  "y": 45
+                },
+                "origin": "top-left"
+              }
+            ]
+          }
         },
         {
           "text": "Shuffle and place the core small decks beside the board.",
@@ -261,57 +587,260 @@
               ]
             },
             {
-              "src": "assets/images/cards/prospecting-back.png",
-              "alt": "Prospecting deck",
+              "src": "assets/images/cards/poker-back.png",
+              "alt": "Prospecting deck (proxy back)",
               "caption": "Prospecting",
               "requiredModules": [
                 "prospecting_cards"
               ]
             }
-          ]
+          ],
+          "id": "shuffle_and_place_the_core_small_decks_beside_the_board",
+          "visual": {
+            "skipHalo": true,
+            "focusTargets": [
+              {
+                "x": 93.5,
+                "y": 20
+              }
+            ],
+            "placements": [
+              {
+                "asset": "fight-deck",
+                "position": {
+                  "x": 93.5,
+                  "y": 20
+                },
+                "origin": "top-left"
+              },
+              {
+                "asset": "event-deck",
+                "target": "right-small-decks",
+                "requiredModules": [
+                  "ante_up_events"
+                ],
+                "offset": {
+                  "x": 0,
+                  "y": -6
+                }
+              },
+              {
+                "asset": "train-deck",
+                "target": "right-small-decks",
+                "requiredModules": [
+                  "ante_up_train"
+                ],
+                "offset": {
+                  "x": 7,
+                  "y": -6
+                }
+              },
+              {
+                "asset": "injury-deck",
+                "target": "right-small-decks",
+                "requiredModules": [
+                  "blood_money_injuries"
+                ],
+                "offset": {
+                  "x": 0,
+                  "y": 4
+                }
+              },
+              {
+                "asset": "trader-deck",
+                "target": "right-small-decks",
+                "requiredModules": [
+                  "blood_money_traveling_trader"
+                ],
+                "offset": {
+                  "x": 7,
+                  "y": 4
+                }
+              },
+              {
+                "asset": "treasure-deck",
+                "target": "right-small-decks",
+                "requiredModules": [
+                  "treasure_hunting_rumors"
+                ],
+                "offset": {
+                  "x": 14,
+                  "y": 4
+                }
+              },
+              {
+                "asset": "hunting-deck",
+                "target": "right-small-decks",
+                "requiredModules": [
+                  "hunting_animals"
+                ],
+                "offset": {
+                  "x": 0,
+                  "y": 14
+                }
+              },
+              {
+                "asset": "fishing-deck",
+                "target": "right-small-decks",
+                "requiredModules": [
+                  "fishing_fish_deck"
+                ],
+                "offset": {
+                  "x": 7,
+                  "y": 14
+                }
+              },
+              {
+                "asset": "foraging-deck",
+                "target": "right-small-decks",
+                "requiredModules": [
+                  "foraging_resources"
+                ],
+                "offset": {
+                  "x": 14,
+                  "y": 14
+                }
+              },
+              {
+                "asset": "poker-deck",
+                "target": "right-small-decks",
+                "requiredModules": [
+                  "prospecting_cards"
+                ],
+                "label": "Prospecting",
+                "offset": {
+                  "x": 21,
+                  "y": 14
+                }
+              }
+            ]
+          }
         },
         {
           "text": "Shuffle the Core Story Cards, place the deck on its designated board space, reveal 1 Core Story Card, and place it on the designated spot.",
           "blockedModules": [
             "blood_money_stories"
-          ]
+          ],
+          "id": "shuffle_the_core_story_cards_place_the_deck_on_its_desig",
+          "visual": {
+            "skipHalo": true,
+            "focusTargets": [
+              {
+                "x": 2,
+                "y": 22
+              }
+            ],
+            "placements": [
+              {
+                "asset": "story-deck",
+                "position": {
+                  "x": 2,
+                  "y": 22
+                },
+                "origin": "top-left"
+              }
+            ]
+          }
         },
         {
           "text": "Shuffle the Legendary Story Cards, place the deck on the Legendary Story Board, then reveal 1 random Legendary Story Card onto the board.",
           "requiredModules": [
             "blood_money_stories"
-          ]
+          ],
+          "id": "shuffle_the_legendary_story_cards_place_the_deck_on_the_",
+          "visual": {
+            "focus": "story-area",
+            "placements": [
+              {
+                "asset": "story-deck",
+                "target": "story-area"
+              }
+            ]
+          }
         },
         {
           "text": "Add the Unique Event cards to the Event deck.",
           "requiredModules": [
             "ante_up_events",
             "wild_bunch_unique_events"
-          ]
+          ],
+          "id": "add_the_unique_event_cards_to_the_event_deck",
+          "visual": {
+            "focus": "left-decks",
+            "placements": [
+              {
+                "asset": "event-deck",
+                "target": "left-decks"
+              }
+            ]
+          }
         },
         {
           "text": "Shuffle the Event deck and place it near the board.",
           "requiredModules": [
             "ante_up_events"
-          ]
+          ],
+          "id": "shuffle_the_event_deck_and_place_it_near_the_board",
+          "visual": {
+            "focus": "left-decks",
+            "placements": [
+              {
+                "asset": "event-deck",
+                "target": "left-decks"
+              }
+            ]
+          }
         },
         {
           "text": "Shuffle the Title cards and randomly reveal 1 Title for this game.",
           "requiredModules": [
             "wild_bunch_titles"
-          ]
+          ],
+          "id": "shuffle_the_title_cards_and_randomly_reveal_1_title_for_",
+          "visual": {
+            "focus": "left-decks",
+            "placements": [
+              {
+                "asset": "card-stack",
+                "target": "left-decks",
+                "label": "Title"
+              }
+            ]
+          }
         },
         {
           "text": "Shuffle the Sheriff cards and reveal the top Sheriff card. Replace it whenever the Sheriff loses a fight.",
           "requiredModules": [
             "wild_bunch_sheriff"
-          ]
+          ],
+          "id": "shuffle_the_sheriff_cards_and_reveal_the_top_sheriff_car",
+          "visual": {
+            "focus": "left-decks",
+            "placements": [
+              {
+                "asset": "card-stack",
+                "target": "left-decks",
+                "label": "Sheriff"
+              }
+            ]
+          }
         },
         {
           "text": "Shuffle the Bandit cards and place the deck facedown near the Fight deck.",
           "requiredModules": [
             "wild_bunch_bandit_variant"
-          ]
+          ],
+          "id": "shuffle_the_bandit_cards_and_place_the_deck_facedown_nea",
+          "visual": {
+            "focus": "left-decks",
+            "placements": [
+              {
+                "asset": "card-stack",
+                "target": "left-decks",
+                "label": "Bandit"
+              }
+            ]
+          }
         },
         {
           "text": "Shuffle all Man in Black cards together to form the deck and place it near the board.",
@@ -325,7 +854,18 @@
               "alt": "Man in Black deck",
               "caption": "Man in Black"
             }
-          ]
+          ],
+          "id": "shuffle_all_man_in_black_cards_together_to_form_the_deck",
+          "visual": {
+            "focus": "left-decks",
+            "placements": [
+              {
+                "asset": "card-stack",
+                "target": "left-decks",
+                "label": "Man in Black"
+              }
+            ]
+          }
         },
         {
           "text": "Shuffle the Man in Black cards together, excluding P-01, P-04, P-05, P-08, P-09, P-10, and P-15. Place the deck near the board.",
@@ -339,37 +879,103 @@
               "alt": "Man in Black deck",
               "caption": "Man in Black"
             }
-          ]
+          ],
+          "id": "shuffle_the_man_in_black_cards_together_excluding_p_01_p",
+          "visual": {
+            "focus": "left-decks",
+            "placements": [
+              {
+                "asset": "card-stack",
+                "target": "left-decks",
+                "label": "Man in Black"
+              }
+            ]
+          }
         },
         {
           "text": "Shuffle the Rumor cards and place the deck near the board.",
           "requiredModules": [
             "treasure_hunting_rumors"
-          ]
+          ],
+          "id": "shuffle_the_rumor_cards_and_place_the_deck_near_the_boar",
+          "visual": {
+            "focus": "left-decks",
+            "placements": [
+              {
+                "asset": "card-stack",
+                "target": "left-decks",
+                "label": "Rumor"
+              }
+            ]
+          }
         },
         {
           "text": "Shuffle the Animal deck and place it beside the game board.",
           "requiredModules": [
             "hunting"
-          ]
+          ],
+          "id": "shuffle_the_animal_deck_and_place_it_beside_the_game_boa",
+          "visual": {
+            "focus": "left-decks",
+            "placements": [
+              {
+                "asset": "hunting-deck",
+                "target": "left-decks",
+                "label": "Animal"
+              }
+            ]
+          }
         },
         {
           "text": "Shuffle the Fish deck and place it beside the game board.",
           "requiredModules": [
             "fishing"
-          ]
+          ],
+          "id": "shuffle_the_fish_deck_and_place_it_beside_the_game_board",
+          "visual": {
+            "focus": "left-decks",
+            "placements": [
+              {
+                "asset": "fishing-deck",
+                "target": "left-decks",
+                "label": "Fish"
+              }
+            ]
+          }
         },
         {
           "text": "Shuffle the Theatre deck, place it near the board, and reveal 3 Theatre cards faceup.",
           "requiredModules": [
             "theatre"
-          ]
+          ],
+          "id": "shuffle_the_theatre_deck_place_it_near_the_board_and_rev",
+          "visual": {
+            "focus": "left-decks",
+            "placements": [
+              {
+                "asset": "card-stack",
+                "target": "left-decks",
+                "label": "Theatre"
+              }
+            ]
+          }
         },
         {
           "text": "Shuffle the Prospecting deck with 2 random events.",
           "requiredModules": [
             "prospecting_cards"
-          ]
+          ],
+          "id": "shuffle_the_prospecting_deck_with_2_random_events",
+          "visual": {
+            "focus": "left-decks",
+            "placements": [
+              {
+                "asset": "poker-deck",
+                "target": "left-decks",
+                "label": "Prospecting"
+              }
+            ]
+          }
         }
       ]
     },
@@ -399,7 +1005,32 @@
                 "ante_up_sideboard"
               ]
             }
-          ]
+          ],
+          "id": "shuffle_cattle_tokens_facedown_and_place_them_at_their_r",
+          "visual": {
+            "focusTargets": [
+              "sunny-hills-ranch",
+              "mesitos-point-ranch",
+              "buzzard-gulch-ranch"
+            ],
+            "placements": [
+              {
+                "asset": "ranch-blue",
+                "target": "sunny-hills-ranch"
+              },
+              {
+                "asset": "ranch-green",
+                "target": "mesitos-point-ranch"
+              },
+              {
+                "asset": "ranch-orange",
+                "target": "buzzard-gulch-ranch",
+                "requiredModules": [
+                  "ante_up_sideboard"
+                ]
+              }
+            ]
+          }
         },
         {
           "text": "Shuffle Longhorn, Outlaw, High Roller, and Claim Jumper tokens facedown.",
@@ -427,7 +1058,45 @@
               "alt": "Claim Jumper token",
               "caption": "Claim Jumper"
             }
-          ]
+          ],
+          "id": "shuffle_longhorn_outlaw_high_roller_and_claim_jumper_tok",
+          "visual": {
+            "focus": "bottom-supply",
+            "placements": [
+              {
+                "asset": "longhorn-token",
+                "target": "bottom-supply",
+                "offset": {
+                  "x": -5,
+                  "y": 0
+                }
+              },
+              {
+                "asset": "outlaw-token",
+                "target": "bottom-supply",
+                "offset": {
+                  "x": -1.8,
+                  "y": 0
+                }
+              },
+              {
+                "asset": "highroller-token",
+                "target": "bottom-supply",
+                "offset": {
+                  "x": 1.8,
+                  "y": 0
+                }
+              },
+              {
+                "asset": "claim-jumper-token",
+                "target": "bottom-supply",
+                "offset": {
+                  "x": 5,
+                  "y": 0
+                }
+              }
+            ]
+          }
         },
         {
           "text": "Shuffle Legendary tokens facedown or place them in a token bag.",
@@ -440,7 +1109,17 @@
               "alt": "Legendary token",
               "caption": "Legendary"
             }
-          ]
+          ],
+          "id": "shuffle_legendary_tokens_facedown_or_place_them_in_a_tok",
+          "visual": {
+            "focus": "bottom-supply",
+            "placements": [
+              {
+                "asset": "legendary-token",
+                "target": "bottom-supply"
+              }
+            ]
+          }
         },
         {
           "text": "Separate Deeds by type and place a Deed token on each Deed location.",
@@ -449,17 +1128,37 @@
           ],
           "images": [
             {
-              "src": "assets/images/setup/tokens/deed-token.png",
+              "src": "assets/images/tokens/deed.png",
               "alt": "Deed token",
               "caption": "Deed"
             }
-          ]
+          ],
+          "id": "separate_deeds_by_type_and_place_a_deed_token_on_each_de",
+          "visual": {
+            "focus": "bottom-supply",
+            "placements": [
+              {
+                "asset": "deed-token",
+                "target": "bottom-supply"
+              }
+            ]
+          }
         },
         {
           "text": "Keep Unique Event tokens in a supply near the board.",
           "requiredModules": [
             "wild_bunch_unique_events"
-          ]
+          ],
+          "id": "keep_unique_event_tokens_in_a_supply_near_the_board",
+          "visual": {
+            "focus": "bottom-supply",
+            "placements": [
+              {
+                "asset": "event-token",
+                "target": "bottom-supply"
+              }
+            ]
+          }
         }
       ]
     },
@@ -476,7 +1175,16 @@
               "alt": "End-game marker pocket watch token",
               "caption": "End-Game Marker"
             }
-          ]
+          ],
+          "id": "place_the_end_game_marker_on_targetlp_lp",
+          "visual": {
+            "placements": [
+              {
+                "asset": "end-game-marker",
+                "dynamicTarget": "target-lp"
+              }
+            ]
+          }
         },
         {
           "text": "Place Event markers on the 5th space of the Gambler, Marshal, and Wanted tracks, and on every 5th LP space before the end-game marker.",
@@ -489,13 +1197,50 @@
               "alt": "Event marker token",
               "caption": "Event Marker"
             }
-          ]
+          ],
+          "id": "place_event_markers_on_the_5th_space_of_the_gambler_mars",
+          "visual": {
+            "focusMode": "full",
+            "placements": [
+              {
+                "asset": "event-token",
+                "target": "legendary-track"
+              },
+              {
+                "asset": "event-token",
+                "target": "top-supply",
+                "offset": {
+                  "x": -6,
+                  "y": 0
+                }
+              },
+              {
+                "asset": "event-token",
+                "target": "top-supply",
+                "offset": {
+                  "x": 6,
+                  "y": 0
+                }
+              }
+            ]
+          }
         },
         {
           "text": "Resolve 1 Event card per 2 players, rounded up. Ignore Sheriff movement because the Sheriff is not placed yet.",
           "requiredModules": [
             "ante_up_events"
-          ]
+          ],
+          "id": "resolve_1_event_card_per_2_players_rounded_up_ignore_she",
+          "visual": {
+            "focus": "left-decks",
+            "placements": [
+              {
+                "asset": "event-deck",
+                "target": "left-decks",
+                "persist": false
+              }
+            ]
+          }
         },
         {
           "text": "Randomly place 1 faceup Frontier token on each Frontier space. Keep unused Frontier tokens nearby.",
@@ -508,7 +1253,35 @@
               "alt": "Frontier token",
               "caption": "Frontier Token"
             }
-          ]
+          ],
+          "id": "randomly_place_1_faceup_frontier_token_on_each_frontier_",
+          "visual": {
+            "focusTargets": [
+              "frontier-value-6"
+            ],
+            "placements": [
+              {
+                "asset": "frontier-token",
+                "target": "frontier-value-6",
+                "pointIndex": 0
+              },
+              {
+                "asset": "frontier-token",
+                "target": "frontier-value-6",
+                "pointIndex": 1
+              },
+              {
+                "asset": "frontier-token",
+                "target": "frontier-value-6",
+                "pointIndex": 2
+              },
+              {
+                "asset": "frontier-token",
+                "target": "frontier-value-6",
+                "pointIndex": 3
+              }
+            ]
+          }
         },
         {
           "text": "Reveal the top Trader Movement card and place the Traveling Trader miniature on any empty space in that region.",
@@ -526,13 +1299,45 @@
               "alt": "Traveling Trader token",
               "caption": "Traveling Trader"
             }
-          ]
+          ],
+          "id": "reveal_the_top_trader_movement_card_and_place_the_travel",
+          "visual": {
+            "focus": "dixon-creek",
+            "placements": [
+              {
+                "asset": "trader",
+                "target": "dixon-creek"
+              }
+            ]
+          }
         },
         {
           "text": "Place 2 Gold Nuggets at each mining location. Place 1 Gold Nugget on the LP track spaces indicated by the Prospecting rules for {playerCount} players and a {targetLP}-LP game.",
           "requiredModules": [
             "prospecting_cards"
-          ]
+          ],
+          "id": "place_2_gold_nuggets_at_each_mining_location_place_1_gol",
+          "visual": {
+            "focusTargets": [
+              "sunny-hills-mine",
+              "spikes-view-mine",
+              "cliff-junction-mine"
+            ],
+            "placements": [
+              {
+                "asset": "gold-nugget",
+                "target": "sunny-hills-mine"
+              },
+              {
+                "asset": "gold-nugget",
+                "target": "spikes-view-mine"
+              },
+              {
+                "asset": "gold-nugget",
+                "target": "cliff-junction-mine"
+              }
+            ]
+          }
         }
       ]
     },
@@ -542,40 +1347,117 @@
       "summary": "Give each player their starting pieces.",
       "steps": [
         {
-          "text": "Each player takes a player mat, scoring cubes, color ring, and wound token."
+          "text": "Each player takes a player mat, scoring cubes, color ring, and wound token.",
+          "id": "each_player_takes_a_player_mat_scoring_cubes_color_ring_",
+          "visual": {
+            "focus": "player-mat-area",
+            "placements": [
+              {
+                "asset": "player-mat",
+                "target": "player-mat-area",
+                "label": "Player Mat"
+              }
+            ]
+          }
         },
         {
           "text": "Use the player mat side with Legendary Token spaces.",
           "requiredModules": [
             "base_legendary_tokens"
-          ]
+          ],
+          "id": "use_the_player_mat_side_with_legendary_token_spaces",
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {
+                "asset": "player-marker",
+                "target": "player-area",
+                "label": "Player"
+              }
+            ]
+          }
         },
         {
           "text": "Each player takes their Faro chips.",
           "requiredModules": [
             "ante_up_faro"
-          ]
+          ],
+          "id": "each_player_takes_their_faro_chips",
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {
+                "asset": "player-marker",
+                "target": "player-area",
+                "label": "Player"
+              }
+            ]
+          }
         },
         {
           "text": "Each player takes their Story disks.",
           "requiredModules": [
             "blood_money_stories"
-          ]
+          ],
+          "id": "each_player_takes_their_story_disks",
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {
+                "asset": "player-marker",
+                "target": "player-area",
+                "label": "Player"
+              }
+            ]
+          }
         },
         {
-          "text": "Place 1 scoring cube for each player left of the 1 space on the LP track."
+          "text": "Place 1 scoring cube for each player left of the 1 space on the LP track.",
+          "id": "place_1_scoring_cube_for_each_player_left_of_the_1_space",
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {
+                "asset": "player-cube",
+                "target": "player-area",
+                "label": "Player"
+              }
+            ]
+          }
         },
         {
           "text": "Place 1 scoring cube for each player on the starting space of the Story track.",
           "requiredModules": [
             "blood_money_stories"
-          ]
+          ],
+          "id": "place_1_scoring_cube_for_each_player_on_the_starting_spa",
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {
+                "asset": "player-cube",
+                "target": "player-area",
+                "label": "Player"
+              }
+            ]
+          }
         },
         {
           "text": "Place each player’s remaining scoring cubes and Story disks beside the board.",
           "requiredModules": [
             "blood_money_stories"
-          ]
+          ],
+          "id": "place_each_players_remaining_scoring_cubes_and_story_dis",
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {
+                "asset": "player-cube",
+                "target": "player-area",
+                "label": "Player"
+              }
+            ]
+          }
         }
       ]
     },
@@ -586,22 +1468,77 @@
       "steps": [
         {
           "text": "Each player chooses a character from the characters available in the selected expansions.",
-          "autoComplete": "all_players_have_characters"
+          "autoComplete": "all_players_have_characters",
+          "id": "each_player_chooses_a_character_from_the_characters_avai",
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {
+                "asset": "player-marker",
+                "target": "player-area",
+                "label": "Player"
+              }
+            ]
+          }
         },
         {
           "text": "For each chosen character, take that character’s 4 Goal cards.",
           "requiredModules": [
             "base_goals"
-          ]
+          ],
+          "id": "for_each_chosen_character_take_that_characters_4_goal_ca",
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {
+                "asset": "player-marker",
+                "target": "player-area",
+                "label": "Player"
+              }
+            ]
+          }
         },
         {
-          "text": "Each player gains starting items, money, Poker Cards, wounds, and points listed on their character."
+          "text": "Each player gains starting items, money, Poker Cards, wounds, and points listed on their character.",
+          "id": "each_player_gains_starting_items_money_poker_cards_wound",
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {
+                "asset": "player-marker",
+                "target": "player-area",
+                "label": "Player"
+              }
+            ]
+          }
         },
         {
-          "text": "If a character starts with Gambler, Legendary, Marshal, Story, or Wanted Points, place a cube on the matching track."
+          "text": "If a character starts with Gambler, Legendary, Marshal, Story, or Wanted Points, place a cube on the matching track.",
+          "id": "if_a_character_starts_with_gambler_legendary_marshal_sto",
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {
+                "asset": "player-marker",
+                "target": "player-area",
+                "label": "Player"
+              }
+            ]
+          }
         },
         {
-          "text": "Resolve any starting item abilities, such as Gazette, Provisions, or similar effects."
+          "text": "Resolve any starting item abilities, such as Gazette, Provisions, or similar effects.",
+          "id": "resolve_any_starting_item_abilities_such_as_gazette_prov",
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {
+                "asset": "player-marker",
+                "target": "player-area",
+                "label": "Player"
+              }
+            ]
+          }
         }
       ]
     },
@@ -617,50 +1554,178 @@
               "label": "Pick First Player",
               "opens": "firstPlayer"
             }
-          ]
+          ],
+          "id": "highest_wanted_player_takes_the_first_player_token_if_ti",
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {
+                "asset": "first-player",
+                "target": "player-area"
+              }
+            ]
+          }
         },
         {
-          "text": "Starting with the first player, each player chooses a miniature and attaches their color ring."
+          "text": "Starting with the first player, each player chooses a miniature and attaches their color ring.",
+          "id": "starting_with_the_first_player_each_player_chooses_a_min",
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {
+                "asset": "player-marker",
+                "target": "player-area",
+                "label": "Players"
+              }
+            ]
+          }
         },
         {
-          "text": "Each player places their miniature at the Starting Location on their character card."
+          "text": "Each player places their miniature at the Starting Location on their character card.",
+          "id": "each_player_places_their_miniature_at_the_starting_locat",
+          "visual": {
+            "placements": [],
+            "focusMode": "full"
+          }
         },
         {
-          "text": "If a Starting Location is a General Store, Trading Post, or Saloon, place the miniature on any adjacent space."
+          "text": "If a Starting Location is a General Store, Trading Post, or Saloon, place the miniature on any adjacent space.",
+          "id": "if_a_starting_location_is_a_general_store_trading_post_o",
+          "visual": {
+            "focusMode": "full",
+            "placements": []
+          }
         },
         {
           "text": "Remove any Event, Claim Jumper, High Roller, Longhorn, Outlaw, or Unique Event token from a space where a player starts.",
           "anyModules": [
             "ante_up_events",
             "wild_bunch_unique_events"
-          ]
+          ],
+          "id": "remove_any_event_claim_jumper_high_roller_longhorn_outla",
+          "visual": {
+            "focusMode": "full",
+            "placements": []
+          }
         },
         {
-          "text": "Attach the brown ring to the Sheriff miniature and place the Sheriff at the Sheriff/Marshal Office in Darkrock."
+          "text": "Attach the brown ring to the Sheriff miniature and place the Sheriff at the Sheriff/Marshal Office in Darkrock.",
+          "id": "attach_the_brown_ring_to_the_sheriff_miniature_and_place",
+          "visual": {
+            "focus": "darkrock-sheriff",
+            "placements": [
+              {
+                "asset": "sheriff",
+                "target": "darkrock-sheriff"
+              }
+            ]
+          }
         },
         {
           "text": "Apply the numbered Bandit stickers to the bottoms of the grey Bandit rings.",
           "requiredModules": [
             "wild_bunch_bandit_variant"
-          ]
+          ],
+          "id": "apply_the_numbered_bandit_stickers_to_the_bottoms_of_the",
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {
+                "asset": "bandit",
+                "target": "player-area",
+                "label": "Bandits"
+              }
+            ]
+          }
         },
         {
-          "text": "Attach grey rings to 6 Bandit miniatures. Place 1 Bandit at each Bandit Hideout that does not contain a player."
+          "text": "Attach grey rings to 6 Bandit miniatures. Place 1 Bandit at each Bandit Hideout that does not contain a player.",
+          "id": "attach_grey_rings_to_6_bandit_miniatures_place_1_bandit_",
+          "visual": {
+            "focusTargets": [
+              "bandit-hideout-any"
+            ],
+            "placements": [
+              {
+                "asset": "bandit",
+                "target": "bandit-hideout-any",
+                "pointIndex": 0
+              },
+              {
+                "asset": "bandit",
+                "target": "bandit-hideout-any",
+                "pointIndex": 1
+              },
+              {
+                "asset": "bandit",
+                "target": "bandit-hideout-any",
+                "pointIndex": 2
+              },
+              {
+                "asset": "bandit",
+                "target": "bandit-hideout-any",
+                "pointIndex": 3
+              },
+              {
+                "asset": "bandit",
+                "target": "bandit-hideout-any",
+                "pointIndex": 4
+              },
+              {
+                "asset": "bandit",
+                "target": "bandit-hideout-any",
+                "pointIndex": 5
+              }
+            ]
+          }
         },
         {
           "text": "Choose a miniature to represent the Man in Black. Place it at the Rail Station or a location chosen by the first player, and place the scoring cube matching its base ring color to the left of the LP track with the player scoring cubes.",
           "requiredModules": [
             "wild_bunch_man_in_black"
-          ]
+          ],
+          "id": "choose_a_miniature_to_represent_the_man_in_black_place_i",
+          "visual": {
+            "focus": "spikes-view-rail",
+            "placements": [
+              {
+                "asset": "player-marker",
+                "target": "spikes-view-rail",
+                "label": "MiB"
+              }
+            ]
+          }
         },
         {
           "text": "After all player miniatures are placed, the player last in turn order places the 3 Hunt Action markers on 3 different unoccupied spaces.",
           "requiredModules": [
             "hunting"
-          ]
+          ],
+          "id": "after_all_player_miniatures_are_placed_the_player_last_i",
+          "visual": {
+            "focusMode": "full",
+            "placements": [
+              {
+                "asset": "hunt-marker",
+                "target": "top-supply",
+                "label": "Hunt"
+              }
+            ]
+          }
         },
         {
-          "text": "Give each player a player aid."
+          "text": "Give each player a player aid.",
+          "id": "give_each_player_a_player_aid",
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {
+                "asset": "card-stack",
+                "target": "player-area",
+                "label": "Player Aid"
+              }
+            ]
+          }
         }
       ]
     },
@@ -670,13 +1735,28 @@
       "summary": "Final check before starting.",
       "steps": [
         {
-          "text": "Confirm all selected modules have been set up."
+          "text": "Confirm all selected modules have been set up.",
+          "id": "confirm_all_selected_modules_have_been_set_up",
+          "visual": {
+            "focusMode": "full",
+            "placements": []
+          }
         },
         {
-          "text": "Confirm the end-game marker is on {targetLP} LP."
+          "text": "Confirm the end-game marker is on {targetLP} LP.",
+          "id": "confirm_the_end_game_marker_is_on_targetlp_lp",
+          "visual": {
+            "focusMode": "full",
+            "placements": []
+          }
         },
         {
-          "text": "Press Start Game when everyone is ready."
+          "text": "Press Start Game when everyone is ready.",
+          "id": "press_start_game_when_everyone_is_ready",
+          "visual": {
+            "focusMode": "full",
+            "placements": []
+          }
         }
       ]
     }

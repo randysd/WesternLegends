@@ -1,0 +1,954 @@
+{
+  "schemaVersion": 1,
+  "modes": [
+    {
+      "id": "standard",
+      "version": 1,
+      "name": "Standard Western Legends",
+      "tagline": "Choose your own frontier",
+      "description": "Build your own game using the content, variants, characters, and setup options you own.",
+      "recommended": {},
+      "content": {
+        "requiredPackages": [],
+        "optionalPackages": []
+      },
+      "setupConstraints": {},
+      "setupInstructions": [],
+      "playRules": []
+    },
+    {
+      "id": "serenade_six_guns",
+      "version": 1,
+      "name": "Serenade of the Six Guns",
+      "tagline": "Gunfights & player conflict",
+      "description": "A combat-focused mode built around characters, items, story cards, and injuries that reward confrontations between players.",
+      "recommended": {
+        "players": {
+          "min": 3,
+          "max": 5
+        },
+        "targetLP": [
+          15,
+          20
+        ],
+        "defaultTargetLP": 20
+      },
+      "content": {
+        "requiredPackages": [
+          "base",
+          "ante_up",
+          "blood_money",
+          "the_good_the_bad_and_the_handsome"
+        ],
+        "optionalPackages": [
+          "wild_bunch",
+          "fistful_of_extras"
+        ]
+      },
+      "setupConstraints": {
+        "characters": {
+          "include": [
+            "elfego_baca",
+            "bass_reeves",
+            "annie_oakley",
+            "kit_carson",
+            "johnny_ringo",
+            "doc_holliday",
+            "allan_pinkerton",
+            "dave_rudabaugh",
+            "butch_cassity",
+            "joaquin_murrieta",
+            "william_curly_bill_brocius",
+            "jesse_james"
+          ]
+        },
+        "modules": {
+          "required": [
+            "ante_up_sideboard",
+            "ante_up_events",
+            "blood_money_stories",
+            "blood_money_injuries"
+          ],
+          "ownershipModules": {
+            "fistful_of_extras": [
+              "fistful_jokers"
+            ]
+          }
+        },
+        "storyCards": {
+          "variant": "core",
+          "triggerTypes": [
+            "fight_player"
+          ],
+          "triggerLabels": [
+            "Initiate a fight with another player"
+          ]
+        },
+        "stores": {
+          "general": [
+            "revolver",
+            "rifle",
+            "shotgun",
+            "bedroll",
+            "provisions",
+            "holster",
+            "derringer",
+            "mustang",
+            "peacekeeper",
+            "burro",
+            "snake_oil",
+            "gazette"
+          ],
+          "tradingPost": [
+            "boot_knife",
+            "repeating_shotgun",
+            "whiskey",
+            "quarter_horse",
+            "miners_map",
+            "medicine_pouch"
+          ],
+          "travelingTrader": null
+        },
+        "legendaryItems": {
+          "include": [
+            "bandolier",
+            "bowie_knife",
+            "canteen",
+            "dragoons",
+            "dynamite",
+            "marshals_badge",
+            "saber",
+            "serape",
+            "short_cut",
+            "shot_glass",
+            "spyglass",
+            "tomahawk"
+          ],
+          "purchaseAllowed": false
+        },
+        "events": {
+          "instruction": "Remove all High Roller and Unique event cards from the Event deck.",
+          "excludeTags": [
+            "high_roller",
+            "unique"
+          ]
+        },
+        "pokerDeck": {
+          "baseline": "base_blood_money",
+          "remove": [
+            "7_clubs_rumors",
+            "7_spades_rumors",
+            "8_clubs_scout",
+            "8_spades_scout",
+            "9_hearts_jackpot",
+            "9_diamonds_jackpot"
+          ],
+          "add": [
+            "7_clubs_reputation",
+            "7_spades_reputation",
+            "8_clubs_wallop",
+            "8_spades_wallop",
+            "9_hearts_instinct",
+            "9_diamonds_instinct"
+          ]
+        },
+        "deeds": false,
+        "twoPlayer": {
+          "instruction": "Only use Man in Black cards 1–9, 11–15, and 19."
+        }
+      },
+      "setupInstructions": [
+        {
+          "id": "starting",
+          "title": "Starting Changes",
+          "summary": "Prepare the more dangerous opening hand.",
+          "steps": [
+            {
+              "text": "Give every player 2 additional Poker cards after their normal starting hand.",
+              "id": "give_every_player_2_additional_poker_cards_after_their_n",
+              "visual": {
+                "focus": "player-area",
+                "placements": [
+                  {
+                    "asset": "poker-deck",
+                    "target": "player-area",
+                    "label": "+2 Cards"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "playRules": [
+        {
+          "id": "extra_starting_poker_cards",
+          "title": "Starting Poker Cards",
+          "text": "All players start the game with 2 extra Poker cards in their hand.",
+          "automation": "reference"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "golden_rule",
+      "version": 1,
+      "name": "The Golden Rule",
+      "tagline": "Wealth & economic competition",
+      "description": "An economic race centered on mining, ranching, gambling, deeds, and building the greatest fortune in the Old West.",
+      "recommended": {
+        "players": {
+          "min": 3,
+          "max": 6
+        },
+        "targetLP": [
+          20
+        ],
+        "defaultTargetLP": 20
+      },
+      "content": {
+        "requiredPackages": [
+          "base",
+          "ante_up",
+          "blood_money"
+        ],
+        "optionalPackages": [
+          "the_good_the_bad_and_the_handsome",
+          "wild_bunch",
+          "fistful_of_extras",
+          "promo_carbine"
+        ]
+      },
+      "setupConstraints": {
+        "characters": {
+          "include": [
+            "al_swearengen",
+            "ben_hodges",
+            "buffalo_bill_cody",
+            "doc_holliday",
+            "fee_lee_wong",
+            "isom_dart",
+            "maria_gertrudis_barcelo",
+            "poker_alice",
+            "soapy_smith",
+            "stagecoach_mary_fields",
+            "texas_john_slaughter",
+            "wild_bill_hickok"
+          ]
+        },
+        "modules": {
+          "required": [
+            "ante_up_sideboard",
+            "ante_up_events",
+            "blood_money_stories",
+            "blood_money_deeds",
+            "blood_money_traveling_trader"
+          ],
+          "ownershipModules": {
+            "fistful_of_extras": [
+              "fistful_jokers"
+            ],
+            "wild_bunch": [
+              "wild_bunch_unique_events"
+            ]
+          }
+        },
+        "storyCards": {
+          "variant": "core",
+          "triggerTypes": [
+            "spend_80_town"
+          ],
+          "triggerLabels": [
+            "Spend $80 or more in a town with a single action"
+          ]
+        },
+        "stores": {
+          "general": [
+            "bullwhip",
+            "derringer",
+            "gazette",
+            "mule",
+            "mustang",
+            "pocket_watch",
+            "revolver",
+            "saddle_bags",
+            "snake_oil",
+            "ten_gallon",
+            "whiskey",
+            "work_horse"
+          ],
+          "tradingPost": [
+            "burro",
+            "miners_map",
+            "peacekeeper",
+            "provisions",
+            "quarter_horse",
+            "shotgun"
+          ],
+          "travelingTrader": [
+            "bedroll",
+            "boot_knife",
+            "carbine",
+            "holster",
+            "medicine_pouch",
+            "rifle",
+            "repeating_shotgun"
+          ]
+        },
+        "legendaryItems": {
+          "include": [
+            "bandolier",
+            "black_coat",
+            "canteen",
+            "cattle_brand",
+            "lasso",
+            "lucky_coin",
+            "marked_cards",
+            "marshals_badge",
+            "mesa_deed",
+            "molasses",
+            "portrait",
+            "shot_glass",
+            "short_cut",
+            "silver_flask",
+            "snakeskin_boots",
+            "spurs",
+            "telegram",
+            "treasure_map"
+          ]
+        },
+        "events": {
+          "instruction": "Remove the Unique event cards Orphan, Grizzly Bear, Wounded Deputy, and Bathcat from the Event deck.",
+          "excludeNames": [
+            "Orphan",
+            "Grizzly Bear",
+            "Wounded Deputy",
+            "Bathcat"
+          ]
+        },
+        "pokerDeck": {
+          "baseline": "base_blood_money",
+          "remove": [
+            "4_hearts_dead_or_alive",
+            "4_diamonds_dead_or_alive",
+            "5_hearts_vendetta",
+            "5_diamonds_vendetta",
+            "8_clubs_scout",
+            "8_spades_scout",
+            "10_clubs_outfit",
+            "10_spades_outfit"
+          ],
+          "add": [
+            "4_hearts_manhunt",
+            "4_diamonds_manhunt",
+            "5_hearts_payday",
+            "5_diamonds_payday",
+            "8_clubs_wallop",
+            "8_spades_wallop",
+            "10_clubs_fools_gold",
+            "10_spades_fools_gold"
+          ]
+        },
+        "deeds": true,
+        "injuries": false
+      },
+      "setupInstructions": [],
+      "playRules": [
+        {
+          "id": "money_scoring",
+          "title": "Money Scoring",
+          "text": "During end game, players gain 1 LP for every $40 they have instead of every $60.",
+          "automation": "reference"
+        },
+        {
+          "id": "richest_player",
+          "title": "Greatest Fortune",
+          "text": "During end game, the player with the greatest combined value of items, money, and deeds gains 1 LP. Upgraded mounts and weapons use their base cost, and Legendary Items count as $40.",
+          "automation": "reference"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "law_and_disorder",
+      "version": 1,
+      "name": "Law and Disorder",
+      "tagline": "Marshal vs. Wanted",
+      "description": "A stark struggle between law and disorder, emphasizing characters who begin Wanted or as Marshals and aggressive Marshal/Wanted strategies.",
+      "recommended": {
+        "players": {
+          "min": 3,
+          "max": 6
+        },
+        "targetLP": [
+          20
+        ],
+        "defaultTargetLP": 20
+      },
+      "content": {
+        "requiredPackages": [
+          "base",
+          "ante_up",
+          "blood_money",
+          "wild_bunch"
+        ],
+        "optionalPackages": [
+          "the_good_the_bad_and_the_handsome",
+          "fistful_of_extras",
+          "promo_carbine"
+        ]
+      },
+      "setupConstraints": {
+        "characters": {
+          "include": [
+            "ada_curnutt",
+            "bass_reeves",
+            "ben_hodges",
+            "billy_the_kid",
+            "butch_cassity",
+            "dave_rudabaugh",
+            "elfego_baca",
+            "jesse_james",
+            "judge_roy_bean",
+            "lozen",
+            "pat_garrett",
+            "seth_bullock",
+            "sundance_kid",
+            "texas_john_slaughter",
+            "tiburcio_vasquez",
+            "william_curly_bill_brocius",
+            "wyatt_earp"
+          ]
+        },
+        "modules": {
+          "required": [
+            "ante_up_sideboard",
+            "ante_up_events",
+            "blood_money_stories",
+            "blood_money_traveling_trader",
+            "wild_bunch_gang_posse"
+          ],
+          "ownershipModules": {
+            "fistful_of_extras": [
+              "fistful_jokers"
+            ]
+          }
+        },
+        "storyCards": {
+          "variant": "core",
+          "triggerTypes": [
+            "fight_player",
+            "gain_marshal_or_wanted"
+          ],
+          "triggerLabels": [
+            "Initiate a fight with another player",
+            "Gain any number of Marshal or Wanted points"
+          ]
+        },
+        "stores": {
+          "general": [
+            "boot_knife",
+            "holster",
+            "medicine_pouch",
+            "peacekeeper",
+            "pocket_watch",
+            "provisions"
+          ],
+          "tradingPost": [
+            "bedroll",
+            "bullwhip",
+            "burro",
+            "gazette",
+            "mustang",
+            "repeating_shotgun"
+          ],
+          "travelingTrader": [
+            "carbine",
+            "derringer",
+            "miners_map",
+            "mule",
+            "rifle",
+            "ten_gallon",
+            "work_horse"
+          ]
+        },
+        "legendaryItems": {
+          "include": [
+            "bandolier",
+            "black_coat",
+            "bowie_knife",
+            "canteen",
+            "dragoons",
+            "dynamite",
+            "lightning",
+            "marshals_badge",
+            "outlaws_mask",
+            "portrait",
+            "saber",
+            "serape",
+            "short_cut",
+            "shot_glass",
+            "silver_flask",
+            "snakeskin_boots",
+            "spurs",
+            "telegram",
+            "thunder",
+            "tomahawk"
+          ]
+        },
+        "events": {
+          "instruction": "Remove all High Roller and Unique event cards from the Event deck.",
+          "excludeTags": [
+            "high_roller",
+            "unique"
+          ]
+        },
+        "pokerDeck": {
+          "baseline": "base_blood_money",
+          "remove": [
+            "7_clubs_rumors",
+            "7_spades_rumors",
+            "9_hearts_jackpot",
+            "9_diamonds_jackpot"
+          ],
+          "add": [
+            "7_clubs_reputation",
+            "7_spades_reputation",
+            "9_hearts_instinct",
+            "9_diamonds_instinct"
+          ]
+        },
+        "deeds": false
+      },
+      "setupInstructions": [],
+      "playRules": [
+        {
+          "id": "infamous",
+          "title": "Infamous",
+          "text": "A Wanted player Arrested by a player or the Sheriff may discard their entire Poker hand to keep from losing all Wanted points and instead move their cube to the first space of the Wanted track. This happens after receiving the Poker card for losing the fight and after the Sheriff and miniature are placed in the Sheriff’s or Marshal’s Office. The Sheriff does not attempt to Arrest that player again this turn; all other arrest rules remain in effect.",
+          "automation": "reference"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "risky_business",
+      "version": 1,
+      "name": "Risky Business",
+      "tagline": "Story cards & risk-taking",
+      "description": "A high-risk mode built around characters that interact strongly with Story Cards and the Risk Die.",
+      "recommended": {
+        "players": {
+          "min": 3,
+          "max": 5
+        },
+        "targetLP": [
+          20,
+          25
+        ],
+        "defaultTargetLP": 20
+      },
+      "content": {
+        "requiredPackages": [
+          "base",
+          "ante_up",
+          "blood_money"
+        ],
+        "optionalPackages": [
+          "the_good_the_bad_and_the_handsome",
+          "wild_bunch",
+          "fistful_of_extras",
+          "promo_carbine",
+          "big_box"
+        ]
+      },
+      "setupConstraints": {
+        "characters": {
+          "include": [
+            "allan_pinkerton",
+            "bat_masterson",
+            "ben_hodges",
+            "bloody_knife",
+            "buckshot_roberts",
+            "calamity_jane",
+            "charley_parkhurst",
+            "doc_holliday",
+            "elfego_baca",
+            "james_bloody_arm_beckwourth",
+            "johnny_ringo",
+            "lottie_deno",
+            "maria_gertrudis_barcelo",
+            "stagecoach_mary_fields",
+            "texas_john_slaughter",
+            "wild_bill_hickok"
+          ]
+        },
+        "modules": {
+          "required": [
+            "base_goals",
+            "base_legendary_tokens",
+            "ante_up_sideboard",
+            "ante_up_events",
+            "blood_money_stories",
+            "blood_money_risk_die",
+            "blood_money_traveling_trader"
+          ],
+          "ownershipModules": {
+            "fistful_of_extras": [
+              "fistful_jokers"
+            ],
+            "wild_bunch": [
+              "wild_bunch_unique_events"
+            ]
+          }
+        },
+        "stores": {
+          "general": [
+            "boot_knife",
+            "bullwhip",
+            "pocket_watch",
+            "provisions",
+            "quarter_horse",
+            "revolver",
+            "repeating_shotgun",
+            "rifle",
+            "saddle_bags",
+            "shotgun",
+            "ten_gallon",
+            "whiskey"
+          ],
+          "tradingPost": [
+            "bedroll",
+            "burro",
+            "gazette",
+            "medicine_pouch",
+            "mustang",
+            "peacekeeper"
+          ],
+          "travelingTrader": [
+            "carbine",
+            "derringer",
+            "holster",
+            "miners_map",
+            "mule",
+            "snake_oil",
+            "work_horse"
+          ]
+        },
+        "legendaryItems": {
+          "exclude": [
+            "cattle_brand",
+            "companion",
+            "lasso",
+            "lightning"
+          ],
+          "allOwnedExcept": true
+        },
+        "events": {
+          "instruction": "Use all Event cards.",
+          "useAll": true
+        },
+        "goals": true
+      },
+      "setupInstructions": [],
+      "playRules": [
+        {
+          "id": "story_space_four_bonus",
+          "title": "Story Track Bonus",
+          "text": "Each time a player reaches space 4 of the Story track, they gain 1 LP in addition to the space reward of their choice.",
+          "automation": "reference"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "border_town",
+      "version": 1,
+      "name": "Who Runs Border Town?",
+      "tagline": "Buzzard Gulch & homesteading",
+      "description": "A highly interactive Buzzard Gulch-only mode with Homesteads, spendable gold nuggets, a shortened train route, and a two-player game without the Man in Black.",
+      "recommended": {
+        "players": {
+          "min": 2,
+          "max": 4
+        },
+        "targetLP": [
+          15,
+          20
+        ],
+        "defaultTargetLP": 20
+      },
+      "content": {
+        "requiredPackages": [
+          "base",
+          "ante_up",
+          "blood_money",
+          "wild_bunch"
+        ],
+        "optionalPackages": [
+          "the_good_the_bad_and_the_handsome",
+          "fistful_of_extras",
+          "big_box",
+          "dark_knight"
+        ]
+      },
+      "setupConstraints": {
+        "characters": {
+          "exclude": [
+            "al_swearengen",
+            "bloody_knife",
+            "buffalo_bill_cody",
+            "charley_parkhurst",
+            "james_bloody_arm_beckwourth",
+            "kit_carson",
+            "lottie_deno",
+            "tom_tobin"
+          ]
+        },
+        "modules": {
+          "required": [
+            "ante_up_sideboard",
+            "ante_up_events",
+            "ante_up_train",
+            "ante_up_faro",
+            "blood_money_stories"
+          ],
+          "ownershipModules": {
+            "fistful_of_extras": [
+              "fistful_jokers"
+            ]
+          }
+        },
+        "storyCards": {
+          "variant": "core",
+          "triggerTypes": [
+            "fight_player",
+            "end_move_event_or_frontier"
+          ],
+          "triggerLabels": [
+            "Initiate a fight with another player",
+            "End your move in a space with an event token or frontier token"
+          ]
+        },
+        "stores": {
+          "generalTradingCombined": [
+            "bedroll",
+            "boot_knife",
+            "bullwhip",
+            "burro",
+            "derringer",
+            "gazette",
+            "holster",
+            "medicine_pouch",
+            "mustang",
+            "provisions",
+            "repeating_shotgun",
+            "revolver",
+            "shotgun",
+            "snake_oil",
+            "ten_gallon",
+            "whiskey",
+            "work_horse"
+          ],
+          "travelingTrader": null
+        },
+        "legendaryItems": {
+          "exclude": [
+            "fiddle",
+            "short_cut",
+            "dime_western",
+            "pump_trolley"
+          ],
+          "allOwnedExcept": true
+        },
+        "events": {
+          "instruction": "Remove all Unique event cards and all events that spawn at Darkrock Bank or Red Falls Cabaret from the Event deck.",
+          "excludeTags": [
+            "unique"
+          ],
+          "excludeSpawnLocations": [
+            "darkrock_bank",
+            "red_falls_cabaret"
+          ]
+        },
+        "deeds": false,
+        "twoPlayer": {
+          "instruction": "Do not use the Man in Black variant. The 2-player game otherwise plays exactly like all other player counts."
+        },
+        "startingLocations": {
+          "mode": "choose_any_unoccupied"
+        },
+        "boardComposition": "border_town"
+      },
+      "setupInstructions": [
+        {
+          "id": "board_setup",
+          "title": "Buzzard Gulch Board Setup",
+          "summary": "Build the compact Border Town play area.",
+          "steps": [
+            {
+              "text": "Place the Buzzard Gulch board on top of the Western Legends board sideways so the Rail Station edge is just above the Legendary Point track and the left edge is just right of the Story deck spaces.",
+              "id": "place_the_buzzard_gulch_board_on_top_of_the_western_lege",
+              "visual": {
+                "focusMode": "full",
+                "revealBoards": [
+                  "ante-up-frontier"
+                ],
+                "placements": []
+              }
+            },
+            {
+              "text": "Fold under the rightmost section of the train board extension and place it just above the Buzzard Gulch board with its left edge just right of the Wanted track.",
+              "id": "fold_under_the_rightmost_section_of_the_train_board_exte",
+              "visual": {
+                "focusMode": "full",
+                "revealBoards": [
+                  "ante-up-gambler"
+                ],
+                "placements": []
+              }
+            },
+            {
+              "text": "Place the train miniature at the Buzzard Gulch Rail Station.",
+              "id": "place_the_train_miniature_at_the_buzzard_gulch_rail_stat",
+              "visual": {
+                "focus": "buzzard-gulch-rail",
+                "placements": [
+                  {
+                    "asset": "train",
+                    "target": "buzzard-gulch-rail"
+                  }
+                ]
+              }
+            },
+            {
+              "text": "Place the Bandit Hideout tokens/buildings in the spaces marked with a red Bandit Hideout icon.",
+              "id": "place_the_bandit_hideout_tokens_buildings_in_the_spaces_",
+              "visual": {
+                "focusTargets": [
+                  "buzzard-gulch-outlaw-camp",
+                  "frontier-value-6"
+                ],
+                "placements": [
+                  {
+                    "asset": "bandit",
+                    "target": "buzzard-gulch-outlaw-camp"
+                  },
+                  {
+                    "asset": "bandit",
+                    "target": "frontier-value-6",
+                    "pointIndex": 0
+                  },
+                  {
+                    "asset": "bandit",
+                    "target": "frontier-value-6",
+                    "pointIndex": 1
+                  }
+                ]
+              }
+            },
+            {
+              "text": "Place the Mine tokens/buildings in the spaces marked with a yellow Mine icon.",
+              "id": "place_the_mine_tokens_buildings_in_the_spaces_marked_wit",
+              "visual": {
+                "focusTargets": [
+                  "mountain-pass-a",
+                  "mountain-pass-c"
+                ],
+                "placements": [
+                  {
+                    "asset": "mine-marker",
+                    "target": "mountain-pass-a"
+                  },
+                  {
+                    "asset": "mine-marker",
+                    "target": "mountain-pass-c"
+                  }
+                ]
+              }
+            },
+            {
+              "text": "Each player sets aside 1 cube near their player mat as a Homestead marker.",
+              "id": "each_player_sets_aside_1_cube_near_their_player_mat_as_a",
+              "visual": {
+                "focus": "player-area",
+                "placements": [
+                  {
+                    "asset": "player-cube",
+                    "target": "player-area",
+                    "label": "Homestead"
+                  }
+                ]
+              }
+            },
+            {
+              "text": "Ignore character Starting Locations. After determining turn order normally, players choose any unoccupied space on the board as their starting space.",
+              "id": "ignore_character_starting_locations_after_determining_tu",
+              "visual": {
+                "focusMode": "full",
+                "placements": [
+                  {
+                    "asset": "player-marker",
+                    "target": "player-area",
+                    "label": "Choose Start"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "playRules": [
+        {
+          "id": "new_locations",
+          "title": "New Locations",
+          "text": "Bandit Hideout and Mine locations from the main board are added to Buzzard Gulch using the Blood Money tokens or 3D Building Upgrade pieces.",
+          "automation": "reference"
+        },
+        {
+          "id": "settler_action",
+          "title": "Settler Action",
+          "text": "In a Frontier space, spend an action and $40 to place your Homestead marker there. Each player may place a Homestead only once, and the space cannot contain a frontier token or another Homestead.",
+          "automation": "reference"
+        },
+        {
+          "id": "homestead",
+          "title": "Homestead",
+          "text": "At your Homestead, Improvement lets you gain 1 LP for every $30 spent (gold nuggets may be spent as $20 each). Recuperate removes all wounds and draws 1 Poker card for each wound lost this way.",
+          "automation": "reference"
+        },
+        {
+          "id": "game_text",
+          "title": "Game Text",
+          "text": "Resolve game text normally except references to Western Legends board spaces/regions use the Buzzard Gulch equivalent. If multiple locations qualify, the active player chooses.",
+          "automation": "reference"
+        },
+        {
+          "id": "town",
+          "title": "Town of Buzzard Gulch",
+          "text": "Bank, Cabaret, and Doctor’s Office are not used. The Buzzard Gulch Marshal’s Office also counts as the Sheriff’s Office for cards, arrests, and the Sheriff.",
+          "automation": "reference"
+        },
+        {
+          "id": "gold_nuggets",
+          "title": "Gold Nuggets",
+          "text": "Gold nuggets cannot be deposited. They can be spent as $20 each, do not count toward the $120 money maximum, and each nugget remaining at the end of the game is worth 1 LP.",
+          "automation": "reference"
+        },
+        {
+          "id": "train",
+          "title": "Train",
+          "text": "The Train starts at Buzzard Gulch Rail Station and follows Buzzard Gulch Rail Station → Mountain Pass A → Mountain Pass C → Buzzard Gulch Rail Station. All other Train rules remain normal.",
+          "automation": "reference"
+        },
+        {
+          "id": "two_player",
+          "title": "2-Player Game",
+          "text": "Do not use the Man in Black variant. The 2-player game otherwise plays exactly like all other player counts.",
+          "automation": "reference"
+        }
+      ],
+      "notes": []
+    }
+  ]
+}
