@@ -1,3 +1,30 @@
+## v1.3.11 — Trigger Swap Animation Polish
+
+- Undo now reverses the poster-removal motion: the restored trigger starts below the slot and rises/fades back into place with the pull tab attached.
+- Pressing the pull tab no longer nudges the tab downward; it remains visually affixed to the event card for the entire press.
+- Plays `audio/sfx/rip.mp3` at the moment a trigger poster begins its downward removal animation, respecting the existing Sound Effects setting.
+
+## v1.3.10 — Swipe-to-Replace Event Triggers
+
+- Removes the **Primary Actions** heading row to recover vertical space on mobile.
+- Adds a deliberate downward swipe gesture on any event trigger card or its pull tab to replace only that trigger; the existing tab click continues to work.
+- Uses distance, direction, and timing thresholds so normal taps and slower page scrolling are not treated as swaps, and suppresses the synthetic click after a recognized swipe.
+- During replacement, the next trigger is partially revealed beneath the outgoing poster before the old card drops/fades away, while the existing per-card Undo behavior remains intact.
+
+## v1.3.9 — Custom Event Trigger Pull Tab
+
+- Replaces the CSS-drawn per-trigger pull tab with the supplied `assets/images/tab.png` artwork.
+- Keeps each tab as an individual trigger-swap control with the existing Undo behavior.
+- The visible tab is clean artwork only; its accessible label remains in code.
+
+## v1.3.7 — Refresh All Event Triggers
+
+- Replaced the header-row **New Triggers** button with a compact shared parchment pull-tab centered on the lower edge of the trigger cards, preserving mobile screen space.
+- Pulling the tab drops/fades the current poster-like cards away, then deals three different eligible triggers using the existing weighting, module, balance, cooldown, and story-arc priority rules.
+- Refreshing does not count as a performed action and does not alter trigger history, Story Points, Frontier Mood, world events, or action cooldowns.
+- A short-lived **Undo** notice restores the exact previous three triggers and their prior seen-trigger state.
+- Added localized refresh/undo copy for German, Greek, Spanish, French, Italian, and Russian.
+
 ## v1.1.24 — Event Dialog Callout Cleanup
 
 - Event dialogs no longer auto-generate an **Effect** callout from the same effect payload that is already described by the main instruction text.

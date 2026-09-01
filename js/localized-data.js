@@ -24,14 +24,15 @@
     'setup-assist.json',
     'items.json',
     'final-scoring.json',
-    'characters.json'
+    'characters.json',
+    'game-modes.json'
   ]);
 
   const LOCALIZABLE_KEYS = new Set([
     'label', 'title', 'screenText', 'narrationScript', 'newspaperText',
     'text', 'name', 'summary', 'description', 'caption', 'alt', 'edition',
     'weightingNotes', 'emptyText', 'placeholder', 'ariaLabel', 'helpText',
-    'location', 'ability', 'tags', 'strength', 'focus'
+    'location', 'ability', 'tags', 'strength', 'focus', 'tagline', 'instruction'
   ]);
 
   // The location and style of highlighted words can legitimately differ by

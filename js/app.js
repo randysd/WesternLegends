@@ -8,20 +8,25 @@ const DATA_FILES = {
   locations: 'data/locations.json',
   newspaper: 'data/newspaper-generator.json',
   setupAssist: 'data/setup-assist.json',
+  setupVisual: 'data/setup-visual.json',
   items: 'data/items.json',
   characters: 'data/characters.json',
   boards: 'data/boards.json',
   finalScoring: 'data/final-scoring.json',
+  gameModes: 'data/game-modes.json',
+  pokerCards: 'data/poker-cards.json',
   ui: 'data/ui.json',
   version: 'version.json'
 };
-const SHARED_DATA_KEYS = new Set(['boards', 'version']);
+const SHARED_DATA_KEYS = new Set(['boards', 'pokerCards', 'setupVisual', 'version']);
 
 const SAVE_KEY = 'wl_companion_save_v1';
 const LANGUAGE_KEY = 'wl_companion_language';
 const LEGACY_SAVE_KEY = 'wl_frontier_director_save_v1';
 const LEGACY_LANGUAGE_KEY = 'wl_frontier_director_language';
 const DEFAULT_LANGUAGE = 'en';
+// Release flag: keep the in-progress Visual Setup implementation installed but hidden.
+const VISUAL_SETUP_ENABLED = false;
 
 function migrateLegacyStorageKeys() {
   const legacySave = localStorage.getItem(LEGACY_SAVE_KEY);
@@ -116,6 +121,10 @@ function characterExpansionIsActive(moduleId, activeModules) {
 }
 
 function availableCharacterIdsForSetup() {
+  if (isNamedGameModeActive()) {
+    const ids = window.WLGameModeCore?.allowedCharacterIds(activeGameMode(), gameModeContext({ ownedPackages: gameModeOwnedPackages() })) || [];
+    return sortCharacterIdsAlphabetically([...new Set(ids)]);
+  }
   const active = new Set(state?.setup?.modules || ['base']);
   const ids = characterRecords().filter(record => {
     const moduleId = record?.sourceModule || 'base';
@@ -331,6 +340,88 @@ const assistType = document.getElementById('assistType');
 
 let db = {};
 let state = null;
+let gameModeCharacterNotice = '';
+let visualSetupController = null;
+
+function gameModeContext(extra = {}) {
+  return {
+    characters: characterRecords(),
+    items: db?.items?.items || [],
+    legendaryItems: db?.items?.legendary_items || [],
+    pokerCards: db?.pokerCards?.cards || [],
+    modules: MODULES,
+    aliases: MODULE_ALIASES,
+    ...extra
+  };
+}
+
+function activeGameMode() {
+  const core = window.WLGameModeCore;
+  if (!core?.modeById) return null;
+  return core.modeById(db?.gameModes || {}, state?.setup?.gameModeId || 'standard');
+}
+
+function isNamedGameModeActive() {
+  return !!window.WLGameModeCore?.isNamedMode?.(activeGameMode());
+}
+
+function hasUnknownSavedGameMode() {
+  const id = state?.setup?.gameModeId || 'standard';
+  return id !== 'standard' && !activeGameMode();
+}
+
+function gameModeOwnedPackages() {
+  return new Set(Array.isArray(state?.setup?.gameModeContent) ? state.setup.gameModeContent : []);
+}
+
+function normalizeGameModeState() {
+  if (!state?.setup) return;
+  window.WLGameModeCore?.normalizeSetupGameMode?.(state.setup, db?.gameModes || {});
+}
+
+function syncNamedModeModules() {
+  if (!isNamedGameModeActive()) return;
+  const core = window.WLGameModeCore;
+  const derived = core?.derivedModulesForMode?.(activeGameMode(), gameModeOwnedPackages(), gameModeContext());
+  if (!Array.isArray(derived)) return;
+  state.setup.modules = derived;
+  state.setup.activeModules = Object.fromEntries(derived.map(id => [id, true]));
+}
+
+function gameModeSwitchNeedsConfirmation(nextModeId) {
+  const currentId = state?.setup?.gameModeId || 'standard';
+  if (currentId === nextModeId) return false;
+  if (currentId !== 'standard') return true;
+  const setup = state?.setup || {};
+  const hasCharacters = (setup.playerDetails || []).some(player => !!player?.characterId);
+  const extraModules = (setup.modules || []).some(id => !['base', 'base_core'].includes(id));
+  return hasCharacters || extraModules || (setup.setupProgress || []).length > 0;
+}
+
+function applyGameModeSelection(modeId, { skipConfirm = false } = {}) {
+  const core = window.WLGameModeCore;
+  const nextMode = core?.modeById?.(db?.gameModes || {}, modeId);
+  if (!nextMode || !state?.setup) return false;
+  if (state.setup.gameModeId === nextMode.id) return true;
+  if (!skipConfirm && gameModeSwitchNeedsConfirmation(nextMode.id)) {
+    const message = t('gameModes.changeConfirm', { mode: nextMode.name || nextMode.id });
+    if (!window.confirm(message)) return false;
+  }
+  const carryOwned = new Set();
+  const currentModules = new Set(state.setup.modules || []);
+  (core.relevantPackages?.(nextMode) || []).forEach(pkg => {
+    if (currentModules.has(pkg) || gameModeOwnedPackages().has(pkg) || pkg === 'base') carryOwned.add(pkg);
+  });
+  const switched = core.switchMode(state.setup, nextMode, gameModeContext({ ownedPackages: carryOwned }));
+  state.setup = switched;
+  state.setup.setupView = VISUAL_SETUP_ENABLED ? 'visual' : 'checklist';
+  state.setup.setupVisualStepId = '';
+  gameModeCharacterNotice = '';
+  syncNamedModeModules();
+  reconcileSelectedCharactersWithModules();
+  save();
+  return true;
+}
 let storyTrackNoticeTimer = null;
 let currentDialogEvent = null;
 let storyDialogReturnTarget = null;
@@ -517,7 +608,9 @@ function normalizeStoryEventSettings() {
     }
   });
   if (!['guided', 'checklist'].includes(state.setup.setupGuideMode)) state.setup.setupGuideMode = 'guided';
-  if (!['modules', 'basics', 'setup'].includes(state.setup.setupPanel)) state.setup.setupPanel = 'modules';
+  if (!['visual', 'checklist'].includes(state.setup.setupView)) state.setup.setupView = VISUAL_SETUP_ENABLED ? 'visual' : 'checklist';
+  if (typeof state.setup.setupVisualStepId !== 'string') state.setup.setupVisualStepId = '';
+  if (!['gameMode', 'modules', 'basics', 'setup'].includes(state.setup.setupPanel)) state.setup.setupPanel = state.setup.gameModeId ? 'gameMode' : 'modules';
   if (!Array.isArray(state.setup.setupProgress)) state.setup.setupProgress = [];
   if (!Number.isFinite(Number(state.setup.setupGuideSection))) state.setup.setupGuideSection = 0;
   if (!state.worldEventClock || typeof state.worldEventClock !== 'object') {
@@ -554,9 +647,15 @@ function defaultState() {
       useStoryTrack: true,
       storyOptions: defaultStoryEventOptions(),
       setupGuideMode: 'guided',
-      setupPanel: 'modules',
+      setupView: 'checklist',
+      setupVisualStepId: '',
+      setupPanel: 'gameMode',
       setupGuideSection: 0,
-      setupProgress: []
+      setupProgress: [],
+      gameModeId: 'standard',
+      gameModeVersion: 1,
+      gameModeContent: [],
+      gameModeSetupProgress: []
     },
     activeTriggers: [],
     activeStories: [],
@@ -603,6 +702,7 @@ async function init() {
   db = await loadData();
   applyStaticTranslations();
   state = loadSave() || defaultState();
+  normalizeGameModeState();
   if (state.screen === 'reference' || state.screen === 'settings') state.screen = state.gameStarted ? 'game' : 'home';
   if (state.screen === 'gameSettings') state.screen = state.gameStarted ? 'game' : 'home';
   normalizeSetupModules();
@@ -750,6 +850,7 @@ function loadSave() {
     // them once to stable IDs from characters.json so future spelling or
     // translation changes cannot invalidate a saved setup.
     if (typeof migratePlayerCharacterIds === 'function') migratePlayerCharacterIds(saved);
+    if (saved.setup && window.WLGameModeCore?.normalizeSetupGameMode) window.WLGameModeCore.normalizeSetupGameMode(saved.setup, db?.gameModes || {});
 
     // Active primary triggers are localized data. Saves persist only their
     // identity/timing, then restore the display object from the language that
@@ -1404,7 +1505,7 @@ function addSetupPlayer() {
   state.setup.playerDetails.push({ name: '', characterId: '', color });
   state.setup.players = state.setup.playerDetails.length;
   save();
-refreshPlayerSetupRows()
+  if (isNamedGameModeActive()) renderSetup(); else refreshPlayerSetupRows();
 }
 
 function removeSetupPlayer(playerIndex) {
@@ -1414,7 +1515,7 @@ function removeSetupPlayer(playerIndex) {
   state.setup.players = state.setup.playerDetails.length;
   state.setup.playerColors = state.setup.playerDetails.map(p => p.color).filter(Boolean);
   save();
-refreshPlayerSetupRows()
+  if (isNamedGameModeActive()) renderSetup(); else refreshPlayerSetupRows();
 }
 
 function clearSetupCharacter(playerIndex) {
@@ -2123,13 +2224,21 @@ function updateStartGameDisabled() {
   const btn = document.getElementById('beginGame');
   if (!btn) return;
   const everyPlayerHasColor = state.setup.playerDetails.length > 0 && state.setup.playerDetails.every(p => !!p.color);
-  btn.disabled = !everyPlayerHasColor;
-  btn.title = everyPlayerHasColor ? '' : t('strings.assign_a_color_to_every_player_before_starting');
+  const missingRequired = gameModeRequiredContentMissing();
+  const shortage = gameModeCharacterShortage();
+  btn.disabled = !everyPlayerHasColor || missingRequired.length > 0 || !!shortage;
+  if (!everyPlayerHasColor) btn.title = t('strings.assign_a_color_to_every_player_before_starting');
+  else if (missingRequired.length) btn.title = t('gameModes.missingRequired', { content: missingRequired.map(gameModePackageLabel).join(', ') });
+  else if (shortage) btn.title = t('gameModes.insufficientCharacters', { available: shortage.available, players: shortage.players });
+  else btn.title = '';
 }
 
 function isSetupReadyToStart() {
   normalizePlayers();
-  return state.setup.playerDetails.length > 0 && state.setup.playerDetails.every(p => !!p.color);
+  return state.setup.playerDetails.length > 0
+    && state.setup.playerDetails.every(p => !!p.color)
+    && gameModeRequiredContentMissing().length === 0
+    && !gameModeCharacterShortage();
 }
 
 function updateSetupFromUI(rerender = false) {
@@ -2574,7 +2683,11 @@ function startGameFromSetup() {
   clearTriggerRefreshUndo();
   updateSetupFromUI(false);
   if (!isSetupReadyToStart()) {
-    alert(t('setup.assignColors'));
+    const missingRequired = gameModeRequiredContentMissing();
+    const shortage = gameModeCharacterShortage();
+    if (missingRequired.length) alert(t('gameModes.missingRequired', { content: missingRequired.map(gameModePackageLabel).join(', ') }));
+    else if (shortage) alert(t('gameModes.insufficientCharacters', { available: shortage.available, players: shortage.players }));
+    else alert(t('setup.assignColors'));
     updateStartGameDisabled();
     return;
   }
@@ -2600,7 +2713,8 @@ function startGameFromSetup() {
   state.worldEventClock = { nextAt: null, pendingEventId: null };
   state.setup.setupProgress = [];
   state.setup.setupGuideSection = 0;
-  state.setup.setupPanel = 'modules';
+  state.setup.setupVisualStepId = '';
+  state.setup.setupPanel = 'gameMode';
   setupStepProgress = new Set();
   state.fightDeck = shuffleArray(FIGHT_RANKS);
   (state.setup.playerColors || []).filter(Boolean).forEach(color => ensurePlayerTrackState(color));
@@ -3589,12 +3703,192 @@ function renderStoryEventSetting(key, title, description) {
   </div>`;
 }
 
+function gameModePackageLabel(packageId) {
+  return findModuleLabel(packageId) || moduleName({ id: packageId }) || packageId.replaceAll('_', ' ');
+}
+
+function gameModeRequiredContentMissing() {
+  if (!isNamedGameModeActive()) return [];
+  return window.WLGameModeCore?.validateRequiredContent(activeGameMode(), gameModeOwnedPackages()) || [];
+}
+
+function gameModeCharacterShortage() {
+  if (!isNamedGameModeActive()) return null;
+  normalizePlayers();
+  const available = availableCharacterIdsForSetup().length;
+  const players = state.setup.playerDetails.length;
+  return available < players ? { available, players } : null;
+}
+
+function renderGameModeCharacterPolicy() {
+  if (!isNamedGameModeActive()) return '';
+  const shortage = gameModeCharacterShortage();
+  return `<div class="game-mode-character-policy ${shortage ? 'has-error' : ''}">
+    <p>${escapeHtml(t('gameModes.characterPool', { mode: activeGameMode()?.name || '' }))}</p>
+    ${gameModeCharacterNotice ? `<p class="game-mode-character-notice">${escapeHtml(gameModeCharacterNotice)}</p>` : ''}
+    ${shortage ? `<p class="game-mode-content-error">${escapeHtml(t('gameModes.insufficientCharacters', { available: shortage.available, players: shortage.players }))}</p>` : ''}
+  </div>`;
+}
+
+function renderGameModeRecommendations(mode = activeGameMode()) {
+  if (!window.WLGameModeCore?.isNamedMode?.(mode)) return '';
+  const players = mode.recommended?.players || {};
+  const lp = Array.isArray(mode.recommended?.targetLP) ? mode.recommended.targetLP : [];
+  const playerLabel = Number.isFinite(players.min) && Number.isFinite(players.max)
+    ? (players.min === players.max ? String(players.min) : `${players.min}–${players.max}`)
+    : '';
+  const lpLabel = lp.join(' / ');
+  return `<div class="game-mode-recommendations">
+    <span class="game-mode-badge">${escapeHtml(t('gameModes.recommended'))}</span>
+    ${playerLabel ? `<span><strong>${escapeHtml(playerLabel)}</strong> ${escapeHtml(t('gameModes.players'))}</span>` : ''}
+    ${lpLabel ? `<span><strong>${escapeHtml(lpLabel)}</strong> ${escapeHtml(t('gameModes.lp'))}</span>` : ''}
+  </div>`;
+}
+
+function renderGameModePanel() {
+  const modes = db?.gameModes?.modes || [];
+  const selectedId = state.setup.gameModeId || 'standard';
+  const unknownWarning = hasUnknownSavedGameMode()
+    ? `<p class="game-mode-content-error">${escapeHtml(t('gameModes.savedModeUnavailable', { mode: selectedId }))}</p>`
+    : '';
+  return `${unknownWarning}<div class="game-mode-panel-intro">
+      <h2>${escapeHtml(t('gameModes.chooseTitle'))}</h2>
+      <p>${escapeHtml(t('gameModes.chooseIntro'))}</p>
+    </div>
+    <div class="game-mode-grid">${modes.map(mode => {
+      const selected = mode.id === selectedId;
+      const players = mode.recommended?.players;
+      const lp = mode.recommended?.targetLP || [];
+      const recommendation = players
+        ? `${players.min}${players.max !== players.min ? `–${players.max}` : ''} ${t('gameModes.players')} · ${lp.join(' / ')} ${t('gameModes.lp')}`
+        : t('gameModes.standardFlexible');
+      return `<article class="game-mode-card ${selected ? 'selected' : ''}">
+        <button type="button" class="game-mode-card-select" data-select-game-mode="${escapeHtml(mode.id)}" aria-pressed="${selected ? 'true' : 'false'}">
+          <span class="game-mode-card-check" aria-hidden="true">${selected ? '✓' : ''}</span>
+          <span class="game-mode-card-copy"><strong>${escapeHtml(mode.name)}</strong><small>${escapeHtml(mode.tagline || '')}</small><em>${escapeHtml(recommendation)}</em></span>
+        </button>
+        <button type="button" class="game-mode-details-btn" data-view-game-mode="${escapeHtml(mode.id)}">${escapeHtml(t('gameModes.viewDetails'))}</button>
+      </article>`;
+    }).join('')}</div>
+    <div class="dialog-actions setup-panel-actions">
+      <button class="primary-btn home-major-btn home-leather-btn home-leather-btn-primary setup-next-btn" type="button" data-setup-next="modules">
+        <span class="home-btn-mark" aria-hidden="true">◆</span><span class="home-btn-label">${t('strings.next')}</span><span class="home-btn-arrow" aria-hidden="true">›</span>
+      </button>
+    </div>`;
+}
+
+function gameModeContributionText(packageId) {
+  const contribution = window.WLGameModeCore?.packageContributions?.(activeGameMode(), packageId, gameModeContext()) || {};
+  const pieces = [];
+  const add = (list, label) => {
+    if (!Array.isArray(list) || !list.length) return;
+    const names = list.slice(0, 3).join(', ');
+    pieces.push(`${label}: ${names}${list.length > 3 ? ` +${list.length - 3}` : ''}`);
+  };
+  add(contribution.characters, t('gameModes.characters'));
+  add(contribution.items, t('gameModes.items'));
+  add(contribution.legendaryItems, t('gameModes.legendaryItems'));
+  if (Array.isArray(contribution.modules) && contribution.modules.length) pieces.push(contribution.modules.map(findModuleLabel).filter(Boolean).join(', '));
+  return pieces.join(' · ') || t('gameModes.requiredContent');
+}
+
+function renderGameModeLocksSummary(mode = activeGameMode()) {
+  if (!window.WLGameModeCore?.isNamedMode?.(mode)) return '';
+  const requiredModules = window.WLGameModeCore?.requiredModules?.(mode) || [];
+  const labels = requiredModules.map(findModuleLabel).filter(Boolean);
+  return `<div class="game-mode-lock-summary">
+    <span class="game-mode-badge">${escapeHtml(t('gameModes.setByMode'))}</span>
+    <p>${escapeHtml(t('gameModes.lockedSummary'))}</p>
+    ${labels.length ? `<small>${escapeHtml(labels.join(' · '))}</small>` : ''}
+  </div>`;
+}
+
+function renderAvailableContentPanel() {
+  const mode = activeGameMode();
+  if (!mode) return `<p class="hint">${escapeHtml(t('gameModes.modeUnavailable'))}</p>`;
+  const required = new Set(mode.content?.requiredPackages || []);
+  const relevant = window.WLGameModeCore?.relevantPackages?.(mode) || [];
+  const owned = gameModeOwnedPackages();
+  const missing = gameModeRequiredContentMissing();
+  return `<div class="game-mode-content-head">
+      <h2>${escapeHtml(t('gameModes.availableContent'))}</h2>
+      <p>${escapeHtml(t('gameModes.availableContentIntro', { mode: mode.name }))}</p>
+    </div>
+    ${renderGameModeLocksSummary(mode)}
+    <div class="game-mode-content-list">${relevant.map(packageId => {
+      const isRequired = required.has(packageId);
+      const isOwned = owned.has(packageId);
+      const lockedConfirmed = isRequired && isOwned;
+      return `<label class="game-mode-content-row ${isRequired ? 'required' : 'optional'} ${lockedConfirmed ? 'locked' : ''}">
+        <input type="checkbox" class="check-input" data-game-mode-content="${escapeHtml(packageId)}" ${isOwned ? 'checked' : ''} ${lockedConfirmed ? 'disabled' : ''}>
+        <span class="game-mode-content-copy"><strong>${escapeHtml(gameModePackageLabel(packageId))}${isRequired ? ` <span class="game-mode-badge game-mode-badge-required">${escapeHtml(t('gameModes.requiredByMode'))}</span>` : ''}</strong><small>${escapeHtml(gameModeContributionText(packageId))}</small></span>
+      </label>`;
+    }).join('')}</div>
+    ${missing.length ? `<p class="game-mode-content-error" data-game-mode-content-error>${escapeHtml(t('gameModes.missingRequired', { content: missing.map(gameModePackageLabel).join(', ') }))}</p>` : ''}
+    <div class="dialog-actions setup-panel-actions">
+      <button class="primary-btn home-major-btn home-leather-btn home-leather-btn-primary setup-next-btn" type="button" data-setup-next="basics" ${missing.length ? 'disabled' : ''}>
+        <span class="home-btn-mark" aria-hidden="true">◆</span><span class="home-btn-label">${t('strings.next')}</span><span class="home-btn-arrow" aria-hidden="true">›</span>
+      </button>
+    </div>`;
+}
+
+function gameModeReferenceProgressStats(sections) {
+  const saved = new Set(state?.setup?.gameModeSetupProgress || []);
+  let total = 0;
+  let done = 0;
+  (sections || []).forEach(section => {
+    collectTrackableSetupSteps(section).forEach(item => {
+      total += 1;
+      if (item.step?.autoComplete ? setupAutoCompletionMet(item.step) : saved.has(item.key)) done += 1;
+    });
+  });
+  return { done, total };
+}
+
+function renderGameModeReferenceSections(mode) {
+  const core = window.WLGameModeCore;
+  const required = mode.content?.requiredPackages || [];
+  const sections = core?.composeSetupSections?.(mode, gameModeContext({ ownedPackages: gameModeOwnedPackages() })) || [];
+  const rules = mode.playRules || [];
+  const checklist = gameModeReferenceProgressStats(sections);
+  const checklistStatus = checklist.total
+    ? `<p class="game-mode-checklist-progress">${escapeHtml(t('gameModes.checklistProgress', { done: checklist.done, total: checklist.total }))}</p>`
+    : '';
+  const versionWarning = Number(state.setup.gameModeVersion || mode.version) !== Number(mode.version)
+    ? `<p class="game-mode-version-warning">${escapeHtml(t('gameModes.versionChanged', { old: state.setup.gameModeVersion, current: mode.version }))}</p>` : '';
+  const renderNestedSteps = steps => `<ul>${(steps || []).map(step => `<li>${escapeHtml(step.text || '')}${step.substeps?.length ? renderNestedSteps(step.substeps) : ''}</li>`).join('')}</ul>`;
+  return `${versionWarning}
+    <section><h3>${escapeHtml(t('gameModes.overview'))}</h3><p>${escapeHtml(mode.description || '')}</p>${renderGameModeRecommendations(mode)}</section>
+    <section><h3>${escapeHtml(t('gameModes.requiredContent'))}</h3><p>${escapeHtml(required.map(gameModePackageLabel).join(' · '))}</p></section>
+    ${rules.length ? `<section><h3>${escapeHtml(t('gameModes.specialRules'))}</h3>${rules.map(rule => `<article class="game-mode-rule"><strong>${escapeHtml(rule.title)}</strong><p>${escapeHtml(rule.text)}</p></article>`).join('')}</section>` : ''}
+    ${sections.length ? `<section><h3>${escapeHtml(t('gameModes.setupReference'))}</h3>${checklistStatus}${sections.map(section => `<details class="game-mode-reference-section"><summary>${escapeHtml(section.title)}</summary>${section.summary ? `<p>${escapeHtml(section.summary)}</p>` : ''}${renderNestedSteps(section.steps)}</details>`).join('')}</section>` : ''}`;
+}
+
+function openGameModeDetails(modeId = state.setup.gameModeId) {
+  const mode = window.WLGameModeCore?.modeById?.(db?.gameModes || {}, modeId);
+  if (!mode) return;
+  document.querySelector('.game-mode-reference-overlay')?.remove();
+  const overlay = document.createElement('div');
+  overlay.className = 'modal-screen-overlay game-mode-reference-overlay';
+  overlay.innerHTML = `<section class="panel modal-screen-card game-mode-reference-card" role="dialog" aria-modal="true" aria-labelledby="gameModeReferenceTitle">
+    <button type="button" class="dialog-close-x" data-game-mode-reference-close aria-label="${escapeHtml(t('strings.close'))}">&#10005;</button>
+    <header><p class="eyebrow">${escapeHtml(t('gameModes.gameMode'))}</p><h2 id="gameModeReferenceTitle">${escapeHtml(mode.name)}</h2><p>${escapeHtml(mode.tagline || '')}</p></header>
+    <div class="game-mode-reference-body">${renderGameModeReferenceSections(mode)}</div>
+  </section>`;
+  document.body.appendChild(overlay);
+  const close = () => overlay.remove();
+  overlay.querySelector('[data-game-mode-reference-close]')?.addEventListener('click', close);
+  overlay.addEventListener('click', event => { if (event.target === overlay) close(); });
+  overlay.addEventListener('keydown', event => { if (event.key === 'Escape') close(); });
+  overlay.querySelector('[data-game-mode-reference-close]')?.focus();
+}
+
 function renderSetup() {
   normalizeSetupModules();
   normalizePlayers();
   normalizeStoryEventSettings();
-  setupStepProgress = new Set(state.setup.setupProgress || []);
-  const currentSetupPanel = state.setup.setupPanel || 'modules';
+  setupStepProgress = new Set((isNamedGameModeActive() ? state.setup.gameModeSetupProgress : state.setup.setupProgress) || []);
+  const currentSetupPanel = state.setup.setupPanel || 'gameMode';
   app.innerHTML = `<div class="modal-screen-overlay" data-modal-backdrop>
     <section class="panel modal-screen-card setup-card">
       <button type="button" class="dialog-close-x" data-modal-close aria-label="${t('strings.close')}">&#10005;</button>
@@ -3605,26 +3899,32 @@ function renderSetup() {
           <h1 class="section-title setup-title">${t('strings.new_game')}</h1>
         </div>
         <div class="setup-trail" role="tablist" aria-label="${t('strings.setup_steps')}">
-          <button type="button" class="trail-stop ${currentSetupPanel === 'modules' ? 'active' : ''}" data-panel="modules" role="tab" aria-selected="${currentSetupPanel === 'modules' ? 'true' : 'false'}"><span class="badge">1</span><span class="trail-label">${t('strings.modules')}</span></button>
-          <button type="button" class="trail-stop ${currentSetupPanel === 'basics' ? 'active' : ''}" data-panel="basics" role="tab" aria-selected="${currentSetupPanel === 'basics' ? 'true' : 'false'}"><span class="badge">2</span><span class="trail-label">${t('strings.basics')}</span></button>
-          <button type="button" class="trail-stop ${currentSetupPanel === 'setup' ? 'active' : ''}" data-panel="setup" role="tab" aria-selected="${currentSetupPanel === 'setup' ? 'true' : 'false'}"><span class="badge">3</span><span class="trail-label">${t('strings.setup')}</span></button>
+          <button type="button" class="trail-stop ${currentSetupPanel === 'gameMode' ? 'active' : ''}" data-panel="gameMode" role="tab" aria-selected="${currentSetupPanel === 'gameMode' ? 'true' : 'false'}"><span class="badge">1</span><span class="trail-label">${t('gameModes.gameMode')}</span></button>
+          <button type="button" class="trail-stop ${currentSetupPanel === 'modules' ? 'active' : ''}" data-panel="modules" role="tab" aria-selected="${currentSetupPanel === 'modules' ? 'true' : 'false'}"><span class="badge">2</span><span class="trail-label">${isNamedGameModeActive() ? t('gameModes.contentShort') : t('strings.modules')}</span></button>
+          <button type="button" class="trail-stop ${currentSetupPanel === 'basics' ? 'active' : ''}" data-panel="basics" role="tab" aria-selected="${currentSetupPanel === 'basics' ? 'true' : 'false'}"><span class="badge">3</span><span class="trail-label">${t('strings.basics')}</span></button>
+          <button type="button" class="trail-stop ${currentSetupPanel === 'setup' ? 'active' : ''}" data-panel="setup" role="tab" aria-selected="${currentSetupPanel === 'setup' ? 'true' : 'false'}"><span class="badge">4</span><span class="trail-label">${t('strings.setup')}</span></button>
         </div>
       </div>
 
       <div class="setup-content">
 
+        <div class="setup-panel ${currentSetupPanel === 'gameMode' ? 'show' : ''}" id="panel-gameMode">
+          ${renderGameModePanel()}
+        </div>
+
         <div class="setup-panel ${currentSetupPanel === 'modules' ? 'show' : ''}" id="panel-modules">
-          <div class="module-groups">${MODULES.map(renderModuleGroup).join('')}</div>
+          ${isNamedGameModeActive() ? renderAvailableContentPanel() : `<div class="module-groups">${MODULES.map(renderModuleGroup).join('')}</div>
           <div class="dialog-actions setup-panel-actions">
             <button class="primary-btn home-major-btn home-leather-btn home-leather-btn-primary setup-next-btn" type="button" data-setup-next="basics">
               <span class="home-btn-mark" aria-hidden="true">◆</span>
               <span class="home-btn-label">${t('strings.next')}</span>
               <span class="home-btn-arrow" aria-hidden="true">›</span>
             </button>
-          </div>
+          </div>`}
         </div>
 
         <div class="setup-panel ${currentSetupPanel === 'basics' ? 'show' : ''}" id="panel-basics">
+          ${renderGameModeRecommendations()}
           <details class="options-card" open>
             <summary class="options-card-head">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 6.9H22l-5.8 4.2 2.2 7-6.4-4.4L5.6 20l2.2-7L2 8.9h7.6z"/></svg>
@@ -3667,6 +3967,7 @@ function renderSetup() {
               <span class="options-card-caret" aria-hidden="true"></span>
             </summary>
             <div class="options-card-body">
+              ${renderGameModeCharacterPolicy()}
               <div class="player-setup-list" id="playerSetupRows">${renderPlayerSetupRows()}</div>
             </div>
           </details>
@@ -3699,6 +4000,8 @@ function renderSetup() {
   // --- trail step navigation ---
   const trailStops = Array.from(app.querySelectorAll('.trail-stop'));
   const showSetupPanel = panelName => {
+    if (isNamedGameModeActive() && ['basics', 'setup'].includes(panelName) && gameModeRequiredContentMissing().length) panelName = 'modules';
+    if (isNamedGameModeActive() && panelName === 'setup' && gameModeCharacterShortage()) panelName = 'basics';
     const stop = trailStops.find(item => item.dataset.panel === panelName);
     if (!stop) return;
     const index = trailStops.indexOf(stop);
@@ -3717,6 +4020,33 @@ function renderSetup() {
   app.querySelectorAll('[data-setup-next]').forEach(btn => btn.addEventListener('click', () => {
     updateSetupFromUI(false);
     showSetupPanel(btn.dataset.setupNext);
+  }));
+  app.querySelectorAll('[data-select-game-mode]').forEach(button => button.addEventListener('click', () => {
+    if (!applyGameModeSelection(button.dataset.selectGameMode)) return;
+    state.setup.setupPanel = 'gameMode';
+    renderSetup();
+  }));
+  app.querySelectorAll('[data-view-game-mode]').forEach(button => button.addEventListener('click', event => {
+    event.stopPropagation();
+    openGameModeDetails(button.dataset.viewGameMode);
+  }));
+  app.querySelectorAll('[data-game-mode-content]').forEach(input => input.addEventListener('change', () => {
+    const packageId = input.dataset.gameModeContent;
+    const previousCharacterIds = (state.setup.playerDetails || []).map(player => player.characterId || '');
+    const content = gameModeOwnedPackages();
+    if (input.checked) content.add(packageId); else content.delete(packageId);
+    state.setup.gameModeContent = [...content];
+    syncNamedModeModules();
+    reconcileSelectedCharactersWithModules();
+    const clearedCharacters = previousCharacterIds
+      .filter((id, index) => id && !(state.setup.playerDetails?.[index]?.characterId))
+      .map(characterDisplayName)
+      .filter(Boolean);
+    gameModeCharacterNotice = clearedCharacters.length
+      ? t('gameModes.characterCleared', { characters: clearedCharacters.join(', ') })
+      : '';
+    save();
+    renderSetup();
   }));
 
   // --- independent story/event toggles + compact frequency dropdowns ---
@@ -4002,26 +4332,41 @@ function renderStepIcon() {
   return '<span class="step-type-bullet" aria-hidden="true">•</span>';
 }
 
+function getResolvedSetupPlan() {
+  const core = window.WLSetupPlanCore;
+  const mode = activeGameMode() || { id: 'standard' };
+  const modeSections = isNamedGameModeActive()
+    ? (window.WLGameModeCore?.composeSetupSections?.(mode, gameModeContext({ ownedPackages: gameModeOwnedPackages() })) || [])
+    : [];
+  if (!core?.resolveSetupPlan) {
+    const fallback = isNamedGameModeActive() ? modeSections : (db.setupAssist?.sections || SETUP_SECTIONS);
+    return { version: 1, modeId: mode.id || 'standard', sections: fallback.map(section => ({ ...section, steps: (section.steps || []).filter(isSetupStepVisible) })).filter(section => section.steps.length) };
+  }
+  return core.resolveSetupPlan({
+    baseSections: db.setupAssist?.sections || SETUP_SECTIONS,
+    mode,
+    modeSections,
+    isStepVisible: isSetupStepVisible
+  });
+}
+
 function getVisibleSetupSections() {
-  const setupSections = db.setupAssist?.sections || SETUP_SECTIONS;
-  return setupSections.map(section => ({
-    ...section,
-    steps: (section.steps || []).filter(isSetupStepVisible)
-  })).filter(section => section.steps.length);
+  return getResolvedSetupPlan().sections;
 }
 
 
 function setupStepKey(section, stepIndex, step, parentPath = []) {
-  const lineage = parentPath.length ? `${parentPath.join('.')}::` : '';
-  return `${section.title}::${lineage}${stepIndex}::${step.text || step.title || step.summary || ''}`.slice(0, 220);
+  const core = window.WLSetupPlanCore;
+  if (core?.stableStepKey) return core.stableStepKey(section, step, parentPath);
+  const lineage = parentPath.length ? `${parentPath.join('/')}::` : '';
+  return `${section.id || section.title}::${lineage}${step.id || stepIndex}`.slice(0, 220);
 }
 
 function collectTrackableSetupSteps(section, steps = section?.steps || [], parentPath = []) {
   const out = [];
   (steps || []).forEach((step, stepIndex) => {
-    const path = [...parentPath, stepIndex];
-    if (Array.isArray(step.substeps) && step.substeps.length) {
-      out.push(...collectTrackableSetupSteps(section, step.substeps, path));
+        if (Array.isArray(step.substeps) && step.substeps.length) {
+      out.push(...collectTrackableSetupSteps(section, step.substeps, [...parentPath, step.id || String(stepIndex)]));
       return;
     }
     if (step.checkable === false) return;
@@ -4049,7 +4394,7 @@ function isSetupStepSatisfied(section, step, stepIndex, parentPath = []) {
   if (Array.isArray(step.substeps) && step.substeps.length) {
     const visibleSubsteps = step.substeps.filter(isSetupStepVisible);
     if (!visibleSubsteps.length) return true;
-    return visibleSubsteps.every((childStep, childIndex) => isSetupStepSatisfied(section, childStep, childIndex, [...parentPath, stepIndex]));
+    return visibleSubsteps.every((childStep, childIndex) => isSetupStepSatisfied(section, childStep, childIndex, [...parentPath, step.id || String(stepIndex)]));
   }
   if (step.checkable === false) return true;
   return isSetupLeafStepDone(section, step, stepIndex, parentPath);
@@ -4129,16 +4474,108 @@ function renderReadySetupSummary() {
   </div>`;
 }
 
+function currentSetupProgressValues() {
+  return (isNamedGameModeActive() ? state.setup.gameModeSetupProgress : state.setup.setupProgress) || [];
+}
+
+function persistCurrentSetupProgress() {
+  const values = Array.from(setupStepProgress);
+  if (isNamedGameModeActive()) state.setup.gameModeSetupProgress = values;
+  else state.setup.setupProgress = values;
+}
+
+function renderSetupViewTabs(activeView) {
+  if (!VISUAL_SETUP_ENABLED) return '';
+  return `<div class="setup-view-tabs" role="tablist" aria-label="${escapeHtml(t('visualSetup.viewLabel'))}">
+    <button type="button" class="setup-view-tab ${activeView === 'visual' ? 'active' : ''}" data-setup-view="visual" role="tab" aria-selected="${activeView === 'visual'}">${escapeHtml(t('visualSetup.visual'))}</button>
+    <button type="button" class="setup-view-tab ${activeView === 'checklist' ? 'active' : ''}" data-setup-view="checklist" role="tab" aria-selected="${activeView === 'checklist'}">${escapeHtml(t('visualSetup.checklist'))}</button>
+  </div>`;
+}
+
+function migrateVisibleSetupProgress(sections) {
+  const core = window.WLSetupPlanCore;
+  if (!core?.migrateProgressKeys) return;
+  const before = currentSetupProgressValues();
+  const after = core.migrateProgressKeys(before, sections);
+  if (before.length === after.length && before.every((value, index) => value === after[index])) return;
+  setupStepProgress = new Set(after);
+  persistCurrentSetupProgress();
+  save();
+}
+
+function visualSetupBoardIds() {
+  const ids = ['main'];
+  if (hasModule('ante_up_sideboard')) ids.push('ante-up-frontier');
+  if (hasModule('ante_up_gambler') || hasModule('ante_up_faro') || activeGameMode()?.setupConstraints?.boardComposition === 'border_town') ids.push('ante-up-gambler');
+  return ids;
+}
+
+function bindSetupViewTabs(wrap) {
+  if (!VISUAL_SETUP_ENABLED) return;
+  wrap.querySelectorAll('[data-setup-view]').forEach(button => button.addEventListener('click', () => {
+    const next = button.dataset.setupView;
+    if (!['visual', 'checklist'].includes(next) || state.setup.setupView === next) return;
+    visualSetupController?.destroy?.();
+    visualSetupController = null;
+    state.setup.setupView = next;
+    save();
+    renderSetupNotes();
+  }));
+}
+
+function mountCurrentVisualSetup(wrap, plan) {
+  const mountPoint = wrap.querySelector('#visualSetupMount');
+  if (!mountPoint || !window.WLVisualSetup?.mount) return;
+  visualSetupController?.destroy?.();
+  const completed = new Set(currentSetupProgressValues());
+  visualSetupController = window.WLVisualSetup.mount(mountPoint, {
+    plan,
+    boards: db.boards,
+    visualData: db.setupVisual,
+    mode: activeGameMode(),
+    boardIds: visualSetupBoardIds(),
+    players: state.setup.playerDetails || [],
+    characters: characterRecords(),
+    targetLP: Number(state.setup.targetLP || 20),
+    completedKeys: completed,
+    currentStepId: state.setup.setupVisualStepId || '',
+    t,
+    formatText: text => formatSetupText(text),
+    isVisualVisible: isSetupVisualVisible,
+    mountStoreRandomizer: mountVisualSetupStoreRandomizer,
+    onComplete: (keys) => {
+      keys.forEach(key => setupStepProgress.add(key));
+      persistCurrentSetupProgress();
+      save();
+    },
+    onNavigate: stepId => {
+      if (state.setup.setupVisualStepId === stepId) return;
+      state.setup.setupVisualStepId = stepId;
+      save();
+    }
+  });
+}
+
 function renderSetupNotes() {
   normalizeSetupModules();
   normalizeStoryEventSettings();
   const wrap = document.getElementById('setupNotes');
   if (!wrap) return;
-  setupStepProgress = new Set(state.setup.setupProgress || []);
-  state.setup.setupGuideMode = 'guided';
-  const visibleSections = getVisibleSetupSections();
+  const plan = getResolvedSetupPlan();
+  const visibleSections = plan.sections;
   if (!visibleSections.length) {
     wrap.innerHTML = `<p class="hint">${escapeHtml(t('setup.noSteps'))}</p>`;
+    return;
+  }
+  setupStepProgress = new Set(currentSetupProgressValues());
+  migrateVisibleSetupProgress(visibleSections);
+  setupStepProgress = new Set(currentSetupProgressValues());
+  const activeView = VISUAL_SETUP_ENABLED ? (state.setup.setupView || 'visual') : 'checklist';
+
+  if (activeView === 'visual') {
+    wrap.innerHTML = `${renderSetupViewTabs(activeView)}<div class="setup-presentation setup-presentation-visual"><div id="visualSetupMount"></div></div>`;
+    bindSetupViewTabs(wrap);
+    mountCurrentVisualSetup(wrap, plan);
     return;
   }
 
@@ -4146,8 +4583,8 @@ function renderSetupNotes() {
   let currentIndex = Math.max(0, Math.min(visibleSections.length - 1, Number(state.setup.setupGuideSection) || 0));
   if (firstIncomplete >= 0 && !Number.isFinite(Number(state.setup.setupGuideSection))) currentIndex = firstIncomplete;
   state.setup.setupGuideSection = currentIndex;
-
-  wrap.innerHTML = renderGuidedSetup(visibleSections, currentIndex);
+  wrap.innerHTML = `${renderSetupViewTabs(activeView)}<div class="setup-presentation setup-presentation-checklist">${renderGuidedSetup(visibleSections, currentIndex)}</div>`;
+  bindSetupViewTabs(wrap);
   bindSetupNoteInteractions(wrap, visibleSections);
 }
 
@@ -4231,7 +4668,7 @@ function bindSetupNoteInteractions(wrap, visibleSections) {
       if (!key) return;
       const willBeDone = !setupStepProgress.has(key);
       if (willBeDone) setupStepProgress.add(key); else setupStepProgress.delete(key);
-      state.setup.setupProgress = Array.from(setupStepProgress);
+      persistCurrentSetupProgress();
       const currentIndex = Number(state.setup.setupGuideSection || 0);
       const currentSection = visibleSections[currentIndex];
       const completedCurrent = currentSection && isSetupSectionComplete(currentSection);
@@ -4294,7 +4731,7 @@ function renderSetupStep(step, section, stepIndex, parentPath = []) {
   const actionButtonsHtml = actionButtons.length ? `<div class="setup-step-actions">${actionButtons.map(renderSetupStepActionButton).join('')}</div>` : '';
 
   if (Array.isArray(step.substeps) && step.substeps.length) {
-    const nested = step.substeps.filter(isSetupStepVisible).map((childStep, childIndex) => renderSetupStep(childStep, section, childIndex, [...parentPath, stepIndex])).join('');
+    const nested = step.substeps.filter(isSetupStepVisible).map((childStep, childIndex) => renderSetupStep(childStep, section, childIndex, [...parentPath, step.id || String(stepIndex)])).join('');
     return `<li class="setup-step-group">
       <div class="setup-step-group-head">
         ${renderStepIcon(step)}
@@ -4408,12 +4845,25 @@ function bindTriggerSwipeGestures() {
   });
 }
 
+function renderActiveGameModeReference() {
+  if (hasUnknownSavedGameMode()) {
+    return `<div class="game-mode-live-ref game-mode-live-ref-warning"><span><strong>${escapeHtml(t('gameModes.savedModeUnavailable', { mode: state.setup.gameModeId }))}</strong></span></div>`;
+  }
+  if (!isNamedGameModeActive()) return '';
+  const mode = activeGameMode();
+  return `<div class="game-mode-live-ref">
+    <span><strong>${escapeHtml(t('gameModes.activeLabel', { mode: mode?.name || '' }))}</strong><small>${escapeHtml(mode?.tagline || '')}</small></span>
+    <button type="button" class="secondary-btn" data-view-active-game-mode>${escapeHtml(t('gameModes.viewRules'))}</button>
+  </div>`;
+}
+
 function renderGame() {
   const hasStories = state.activeStories.length > 0;
   const hasWorldEvents = state.activeWorldEvents.length > 0;
   const animateTriggerIndex = triggerRefreshAnimateInIndex;
   triggerRefreshAnimateInIndex = null;
   app.innerHTML = `${renderStoryTrackArea()}
+  ${renderActiveGameModeReference()}
   <section class="trigger-grid" aria-label="${t('strings.primary_action_triggers')}">
     ${state.activeTriggers.map((t, index) => renderTriggerCard(t, index, index === animateTriggerIndex)).join('')}
   </section>
@@ -4426,6 +4876,7 @@ function renderGame() {
     <h2 class="story-section-title"><span>${t('strings.current_world_event')}</span></h2>
     ${renderWorldList()}
   </section>` : ''}`;
+  app.querySelector('[data-view-active-game-mode]')?.addEventListener('click', () => openGameModeDetails());
   app.querySelector('[data-undo-trigger-refresh]')?.addEventListener('click', undoPrimaryTriggerRefresh);
   app.querySelectorAll('[data-refresh-trigger-index]').forEach(b => b.onclick = event => {
     event.stopPropagation();
@@ -7672,27 +8123,27 @@ function flipStoreSlotFace(faceEl, swapContent, delay = 0) {
   });
 }
 
-function setStoreControlsDisabled(disabled) {
-  assistBody.querySelectorAll('.store-slot').forEach(el => el.classList.toggle('store-slot-locked', disabled));
-  assistBody.querySelectorAll('[data-store-layout-mode]').forEach(btn => { btn.disabled = disabled; });
-  const btn = assistBody.querySelector('[data-store-randomize-all]');
+function setStoreControlsDisabled(disabled, host = assistBody) {
+  host.querySelectorAll('.store-slot').forEach(el => el.classList.toggle('store-slot-locked', disabled));
+  host.querySelectorAll('[data-store-layout-mode]').forEach(btn => { btn.disabled = disabled; });
+  const btn = host.querySelector('[data-store-randomize-all]');
   if (btn) btn.disabled = disabled;
 }
 
 // Flips every slot: back->front on first reveal, or front->back->new-front once
 // a layout already exists. Cascades with a short per-card stagger.
-function randomizeStoreAllAnimated() {
+function randomizeStoreAllAnimated(host = assistBody, onDone = renderStoreRandomizerAssist) {
   clearTimeout(storeAutoRandomizeTimer);
   storeAutoRandomizeTimer = null;
   const wasRevealed = !!currentStoreLayout;
   const newLayout = generateStoreLayout();
-  setStoreControlsDisabled(true);
+  setStoreControlsDisabled(true, host);
   const areas = [['generalStore', newLayout.generalStore], ['tradingPost', newLayout.tradingPost]];
   const promises = [];
   let cardIndex = 0;
   areas.forEach(([area, items]) => {
     items.forEach((item, index) => {
-      const slotEl = assistBody.querySelector(`[data-slot="${area}:${index}"]`);
+      const slotEl = host.querySelector(`[data-slot="${area}:${index}"]`);
       if (!slotEl) return;
       if (!item) {
         slotEl.outerHTML = renderStoreSlotCard(null, area, index, false);
@@ -7713,13 +8164,13 @@ function randomizeStoreAllAnimated() {
   });
   currentStoreLayout = newLayout;
   currentStoreLayoutSignature = storeLayoutSignature();
-  Promise.all(promises).then(() => renderStoreRandomizerAssist());
+  Promise.all(promises).then(() => onDone?.());
 }
 
 // Re-rolls and double-flips a single already-revealed slot.
-function rerollStoreSlotAnimated(area, index) {
+function rerollStoreSlotAnimated(area, index, host = assistBody, onDone = renderStoreRandomizerAssist) {
   if (!currentStoreLayout) return;
-  const slotEl = assistBody.querySelector(`[data-slot="${area}:${index}"]`);
+  const slotEl = host.querySelector(`[data-slot="${area}:${index}"]`);
   if (!slotEl) return;
   const face = slotEl.querySelector('.store-slot-face');
   const outgoing = currentStoreLayout[area][index];
@@ -7732,13 +8183,13 @@ function rerollStoreSlotAnimated(area, index) {
   );
   const replacement = candidates.length ? candidates[Math.floor(Math.random() * candidates.length)] : outgoing;
 
-  setStoreControlsDisabled(true);
+  setStoreControlsDisabled(true, host);
   flipStoreSlotFace(face, () => updateStoreSlotDom(slotEl, outgoing, area, index, false))
     .then(() => flipStoreSlotFace(face, () => {
       currentStoreLayout[area][index] = replacement;
       updateStoreSlotDom(slotEl, replacement, area, index, true);
     }, STORE_FLIP_PAUSE_MS))
-    .then(() => renderStoreRandomizerAssist());
+    .then(() => onDone?.());
 }
 
 // Generic fullscreen viewer: shows any image large, tap-anywhere closes it.
@@ -7765,6 +8216,45 @@ function showFullscreenImage(src, alt, caption) {
 
 function showFullscreenStoreCard(item) {
   showFullscreenImage(itemImageSrc(item), item.name, itemTypeLabel(item.type));
+}
+
+function mountVisualSetupStoreRandomizer(host, labels = {}) {
+  if (!host) return;
+  const signature = storeLayoutSignature();
+  if (currentStoreLayout && currentStoreLayoutSignature !== signature) resetCurrentStoreLayout();
+
+  const firstMount = host.dataset.storeMounted !== 'true';
+  const generalSlots = db.items?.storeLayout?.generalStore?.slots || 12;
+  const hasLayout = !!currentStoreLayout;
+  const generalItems = hasLayout
+    ? currentStoreLayout.generalStore
+    : Array.from({ length: generalSlots }, () => ({ __pending: true }));
+  const revealLabel = labels.revealLabel || t('strings.reveal');
+  const dealLabel = labels.dealLabel || t('strings.deal_new_store');
+
+  host.innerHTML = `<div class="visual-store-randomizer-grid${firstMount ? ' cards-dropping' : ''}">
+    ${renderStoreSlotGrid(generalItems, 'generalStore', hasLayout, 0, 'visual-store-slot-grid')}
+  </div>
+  <button type="button" class="secondary-btn visual-store-reveal-btn" data-store-randomize-all>${escapeHtml(hasLayout ? dealLabel : revealLabel)}</button>`;
+  host.dataset.storeMounted = 'true';
+
+  const rerender = () => mountVisualSetupStoreRandomizer(host, labels);
+  host.onclick = event => {
+    const rerollBtn = event.target.closest('[data-reroll-slot]');
+    if (rerollBtn) {
+      const [area, index] = rerollBtn.dataset.rerollSlot.split(':');
+      rerollStoreSlotAnimated(area, Number(index), host, rerender);
+      return;
+    }
+    const face = event.target.closest('[data-view-card]');
+    if (face) {
+      const [area, index] = face.dataset.viewCard.split(':');
+      const item = currentStoreLayout?.[area]?.[Number(index)];
+      if (item) showFullscreenStoreCard(item);
+      return;
+    }
+    if (event.target.closest('[data-store-randomize-all]')) randomizeStoreAllAnimated(host, rerender);
+  };
 }
 
 function renderStoreRandomizerAssist() {
