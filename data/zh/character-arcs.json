@@ -1,0 +1,896 @@
+[
+  {
+    "id": "arc_starving_prospector",
+    "title": "饥饿的淘金客",
+    "newspaperText": [
+      "《边疆公报》记录了“饥饿的淘金客”的最新进展。",
+      "这段持续发展的故事又有了新变化：“饥饿的淘金客”。",
+      "目击者把“饥饿的淘金客”的消息带回城镇。",
+      "公报把“饥饿的淘金客”列为当天值得记录的边疆故事。"
+    ],
+    "tags": [
+      "prospector",
+      "mine",
+      "saloon",
+      "bandit"
+    ],
+    "nodes": [
+      {
+        "id": "prospector_intro",
+        "title": "濒死之人",
+        "screenText": "在任意酒馆结束回合，获得$20。",
+        "narrationScript": "[西部说书人][老牛仔][沙哑] “濒死之人。在任意酒馆结束回合，获得$20。”",
+        "newspaperText": [
+          "《边疆公报》记录了“濒死之人”的最新进展。在任意酒馆结束回合，获得$20。",
+          "这段持续发展的故事又有了新变化：“濒死之人”。在任意酒馆结束回合，获得$20。",
+          "目击者把“濒死之人”的消息带回城镇。在任意酒馆结束回合，获得$20。",
+          "公报把“濒死之人”列为当天值得记录的边疆故事。在任意酒馆结束回合，获得$20。"
+        ],
+        "onResolved": [
+          {},
+          {
+            "text": "濒死之人已结算。"
+          }
+        ],
+        "onExpired": [
+          {},
+          {
+            "text": "濒死之人被忽略。"
+          }
+        ]
+      },
+      {
+        "id": "prospector_debt_repaid",
+        "title": "偿还恩情",
+        "screenText": "淘金客把救命之恩传递下去。购买或升级物品后，获得$20。",
+        "narrationScript": "[西部说书人][老牛仔][沙哑] “偿还恩情。淘金客把救命之恩传递下去。购买或升级物品后，获得$20。”",
+        "newspaperText": [
+          "《边疆公报》记录了“偿还恩情”的最新进展。淘金客把救命之恩传递下去。购买或升级物品后，获得$20。",
+          "这段持续发展的故事又有了新变化：“偿还恩情”。淘金客把救命之恩传递下去。购买或升级物品后，获得$20。",
+          "目击者把“偿还恩情”的消息带回城镇。淘金客把救命之恩传递下去。购买或升级物品后，获得$20。",
+          "公报把“偿还恩情”列为当天值得记录的边疆故事。淘金客把救命之恩传递下去。购买或升级物品后，获得$20。"
+        ],
+        "requiresWorldTags": [
+          "prospector_helped"
+        ],
+        "onResolved": [
+          {},
+          {
+            "text": "偿还恩情已结算。"
+          }
+        ],
+        "onExpired": [
+          {},
+          {
+            "text": "偿还恩情被忽略。"
+          }
+        ],
+        "playerAwareText": {
+          "samePlayer": {
+            "title": "偿还恩情",
+            "screenText": "淘金客 recognizes 你立即并fin全部y gets到re支付 该善意 你showed him. 在purchasing/upgrading 一个Item, 获得 $30.",
+            "narrationScript": "[西部说书人][老牛仔][沙哑] “偿还恩情。淘金客 recognizes 你立即并fin全部y gets到re支付 该善意 你showed him. 在purchasing/upgrading 一个Item, 获得 $30.”",
+            "newspaperText": [
+              "《边疆公报》记录了“偿还恩情”的最新进展。淘金客 recognizes 你立即并fin全部y gets到re支付 该善意 你showed him. 在purchasing/upgrading 一个Item, 获得 $30.",
+              "这段持续发展的故事又有了新变化：“偿还恩情”。淘金客 recognizes 你立即并fin全部y gets到re支付 该善意 你showed him. 在purchasing/upgrading 一个Item, 获得 $30.",
+              "目击者把“偿还恩情”的消息带回城镇。淘金客 recognizes 你立即并fin全部y gets到re支付 该善意 你showed him. 在purchasing/upgrading 一个Item, 获得 $30.",
+              "公报把“偿还恩情”列为当天值得记录的边疆故事。淘金客 recognizes 你立即并fin全部y gets到re支付 该善意 你showed him. 在purchasing/upgrading 一个Item, 获得 $30."
+            ]
+          },
+          "differentPlayer": {
+            "title": "善意传递",
+            "screenText": "淘金客 tells 你一个陌生人 once saved h是life when he had nothing. He decides到pass that 善意 along. 在purchasing/upgrading 一个Item, 获得 $20.",
+            "narrationScript": "[西部说书人][老牛仔][沙哑] “善意传递。淘金客 tells 你一个陌生人 once saved h是life when he had nothing. He decides到pass that 善意 along. 在purchasing/upgrading 一个Item, 获得 $20.”",
+            "newspaperText": [
+              "《边疆公报》记录了“善意传递”的最新进展。淘金客 tells 你一个陌生人 once saved h是life when he had nothing. He decides到pass that 善意 along. 在purchasing/upgrading 一个Item, 获得 $20.",
+              "这段持续发展的故事又有了新变化：“善意传递”。淘金客 tells 你一个陌生人 once saved h是life when he had nothing. He decides到pass that 善意 along. 在purchasing/upgrading 一个Item, 获得 $20.",
+              "目击者把“善意传递”的消息带回城镇。淘金客 tells 你一个陌生人 once saved h是life when he had nothing. He decides到pass that 善意 along. 在purchasing/upgrading 一个Item, 获得 $20.",
+              "公报把“善意传递”列为当天值得记录的边疆故事。淘金客 tells 你一个陌生人 once saved h是life when he had nothing. He decides到pass that 善意 along. 在purchasing/upgrading 一个Item, 获得 $20."
+            ]
+          },
+          "default": {
+            "screenText": "在purchasing/upgrading 一个Item, 获得 $20."
+          }
+        }
+      },
+      {
+        "id": "prospector_bandit_reveal",
+        "title": "被你丢下的人",
+        "screenText": "饥饿的淘金客已经与歹徒为伍。他如何对待你，取决于当初抛下他的人是不是你。",
+        "requiresWorldTags": [
+          "prospector_abandoned"
+        ],
+        "narrationScript": "[西部说书人][老牛仔][沙哑] “被你丢下的人。饥饿的淘金客已经与歹徒为伍。他如何对待你，取决于当初抛下他的人是不是你。”",
+        "newspaperText": [
+          "《边疆公报》记录了“被你丢下的人”的最新进展。饥饿的淘金客已经与歹徒为伍。他如何对待你，取决于当初抛下他的人是不是你。",
+          "这段持续发展的故事又有了新变化：“被你丢下的人”。饥饿的淘金客已经与歹徒为伍。他如何对待你，取决于当初抛下他的人是不是你。",
+          "目击者把“被你丢下的人”的消息带回城镇。饥饿的淘金客已经与歹徒为伍。他如何对待你，取决于当初抛下他的人是不是你。",
+          "公报把“被你丢下的人”列为当天值得记录的边疆故事。饥饿的淘金客已经与歹徒为伍。他如何对待你，取决于当初抛下他的人是不是你。"
+        ],
+        "resultButtons": [
+          {
+            "label": "Continue",
+            "effects": [
+              {}
+            ]
+          }
+        ],
+        "playerAwareText": {
+          "samePlayer": {
+            "title": "被你丢下的人",
+            "screenText": "The outlaw pulls off h是hat: it 是该prospector 你left到fend用于himself. He demands $20用于该life 你nearly 费用 him. 支付 $20到settle 该怨恨,或refuse并放置 2 强盗在你的格; 战斗 both simultaneously. 如果你失去, 获得 1 伤势.",
+            "newspaperText": [
+              "《边疆公报》记录了“被你丢下的人”的最新进展。The outlaw pulls off h是hat: it 是该prospector 你left到fend用于himself. He demands $20用于该life 你nearly 费用 him. 支付 $20到settle 该怨恨,或refuse并放置 2 强盗在你的格; 战斗 both simultaneously. 如果你失去, 获得 1 伤势.",
+              "这段持续发展的故事又有了新变化：“被你丢下的人”。The outlaw pulls off h是hat: it 是该prospector 你left到fend用于himself. He demands $20用于该life 你nearly 费用 him. 支付 $20到settle 该怨恨,或refuse并放置 2 强盗在你的格; 战斗 both simultaneously. 如果你失去, 获得 1 伤势.",
+              "目击者把“被你丢下的人”的消息带回城镇。The outlaw pulls off h是hat: it 是该prospector 你left到fend用于himself. He demands $20用于该life 你nearly 费用 him. 支付 $20到settle 该怨恨,或refuse并放置 2 强盗在你的格; 战斗 both simultaneously. 如果你失去, 获得 1 伤势.",
+              "公报把“被你丢下的人”列为当天值得记录的边疆故事。The outlaw pulls off h是hat: it 是该prospector 你left到fend用于himself. He demands $20用于该life 你nearly 费用 him. 支付 $20到settle 该怨恨,或refuse并放置 2 强盗在你的格; 战斗 both simultaneously. 如果你失去, 获得 1 伤势."
+            ],
+            "resultButtons": [
+              {
+                "label": "Paid Him $20",
+                "effects": [
+                  {}
+                ]
+              },
+              {
+                "label": "Faced 该Ambush",
+                "effects": [
+                  {}
+                ]
+              }
+            ]
+          },
+          "differentPlayer": {
+            "title": "被别人丢下的人",
+            "screenText": "A starving prospector tells 你另一名 traveler abandoned him在该hills. He has f全部en在with outlaws并offers 你一个cut用于helping him slip away. Help him escape到获得 $20, 然后移动 该警长 最多2 格s toward you;或refuse并let him ride on带有no 奖励.",
+            "newspaperText": [
+              "《边疆公报》记录了“被别人丢下的人”的最新进展。A starving prospector tells 你另一名 traveler abandoned him在该hills. He has f全部en在with outlaws并offers 你一个cut用于helping him slip away. Help him escape到获得 $20, 然后移动 该警长 最多2 格s toward you;或refuse并let him ride on带有no 奖励.",
+              "这段持续发展的故事又有了新变化：“被别人丢下的人”。A starving prospector tells 你另一名 traveler abandoned him在该hills. He has f全部en在with outlaws并offers 你一个cut用于helping him slip away. Help him escape到获得 $20, 然后移动 该警长 最多2 格s toward you;或refuse并let him ride on带有no 奖励.",
+              "目击者把“被别人丢下的人”的消息带回城镇。A starving prospector tells 你另一名 traveler abandoned him在该hills. He has f全部en在with outlaws并offers 你一个cut用于helping him slip away. Help him escape到获得 $20, 然后移动 该警长 最多2 格s toward you;或refuse并let him ride on带有no 奖励.",
+              "公报把“被别人丢下的人”列为当天值得记录的边疆故事。A starving prospector tells 你另一名 traveler abandoned him在该hills. He has f全部en在with outlaws并offers 你一个cut用于helping him slip away. Help him escape到获得 $20, 然后移动 该警长 最多2 格s toward you;或refuse并let him ride on带有no 奖励."
+            ],
+            "resultButtons": [
+              {
+                "label": "Helped Him Escape",
+                "effects": [
+                  {}
+                ]
+              },
+              {
+                "label": "Refused",
+                "effects": [
+                  {}
+                ]
+              }
+            ]
+          },
+          "default": {
+            "screenText": "The starving prospector has f全部en在with outlaws. 结算 该encounter as instructed."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "arc_widow_mccall",
+    "title": "麦考尔寡妇的牧场",
+    "newspaperText": [
+      "《边疆公报》记录了“麦考尔寡妇的牧场”的最新进展。",
+      "这段持续发展的故事又有了新变化：“麦考尔寡妇的牧场”。",
+      "目击者把“麦考尔寡妇的牧场”的消息带回城镇。",
+      "公报把“麦考尔寡妇的牧场”列为当天值得记录的边疆故事。"
+    ],
+    "tags": [
+      "widow",
+      "ranch",
+      "cattle"
+    ],
+    "nodes": [
+      {
+        "id": "widow_fence_down",
+        "title": "围栏倒了",
+        "screenText": "在绿色牧场或蓝色牧场结束回合。获得$20并抽1张扑克牌。",
+        "narrationScript": "[西部说书人][老牛仔][沙哑] “围栏倒了。在绿色牧场或蓝色牧场结束回合。获得$20并抽1张扑克牌。”",
+        "newspaperText": [
+          "《边疆公报》记录了“围栏倒了”的最新进展。在绿色牧场或蓝色牧场结束回合。获得$20并抽1张扑克牌。",
+          "这段持续发展的故事又有了新变化：“围栏倒了”。在绿色牧场或蓝色牧场结束回合。获得$20并抽1张扑克牌。",
+          "目击者把“围栏倒了”的消息带回城镇。在绿色牧场或蓝色牧场结束回合。获得$20并抽1张扑克牌。",
+          "公报把“围栏倒了”列为当天值得记录的边疆故事。在绿色牧场或蓝色牧场结束回合。获得$20并抽1张扑克牌。"
+        ],
+        "onResolved": [
+          {},
+          {
+            "text": "围栏倒了已结算。"
+          }
+        ],
+        "onExpired": [
+          {},
+          {
+            "text": "围栏倒了被忽略。"
+          }
+        ]
+      },
+      {
+        "id": "widow_cattle_drive",
+        "title": "安全赶牛",
+        "screenText": "替麦考尔寡妇赶牛，额外获得$20。",
+        "narrationScript": "[西部说书人][老牛仔][沙哑] “安全赶牛。替麦考尔寡妇赶牛，额外获得$20。”",
+        "newspaperText": [
+          "《边疆公报》记录了“安全赶牛”的最新进展。替麦考尔寡妇赶牛，额外获得$20。",
+          "这段持续发展的故事又有了新变化：“安全赶牛”。替麦考尔寡妇赶牛，额外获得$20。",
+          "目击者把“安全赶牛”的消息带回城镇。替麦考尔寡妇赶牛，额外获得$20。",
+          "公报把“安全赶牛”列为当天值得记录的边疆故事。替麦考尔寡妇赶牛，额外获得$20。"
+        ],
+        "requiresWorldTags": [
+          "widow_helped"
+        ],
+        "onResolved": [
+          {},
+          {
+            "text": "安全赶牛已结算。"
+          }
+        ],
+        "onExpired": [
+          {},
+          {
+            "text": "安全赶牛被忽略。"
+          }
+        ],
+        "playerAwareText": {
+          "samePlayer": {
+            "screenText": "Widow McC全部 remembers that 你helped save her ranch when 该fence came down. She trusts you带有her best cattle drive. Wrangle cattle到获得 +$30.",
+            "newspaperText": [
+              "《边疆公报》记录了“安全赶牛”的最新进展。Widow McC全部 remembers that 你helped save her ranch when 该fence came down. She trusts you带有her best cattle drive. Wrangle cattle到获得 +$30.",
+              "这段持续发展的故事又有了新变化：“安全赶牛”。Widow McC全部 remembers that 你helped save her ranch when 该fence came down. She trusts you带有her best cattle drive. Wrangle cattle到获得 +$30.",
+              "目击者把“安全赶牛”的消息带回城镇。Widow McC全部 remembers that 你helped save her ranch when 该fence came down. She trusts you带有her best cattle drive. Wrangle cattle到获得 +$30.",
+              "公报把“安全赶牛”列为当天值得记录的边疆故事。Widow McC全部 remembers that 你helped save her ranch when 该fence came down. She trusts you带有her best cattle drive. Wrangle cattle到获得 +$30."
+            ]
+          },
+          "differentPlayer": {
+            "screenText": "Widow McC全部 tells 你另一名 traveler helped save her ranch 在她最需要帮助的时候. She offers 你honest work on 该next drive. Wrangle cattle到获得 +$20.",
+            "newspaperText": [
+              "《边疆公报》记录了“安全赶牛”的最新进展。Widow McC全部 tells 你另一名 traveler helped save her ranch 在她最需要帮助的时候. She offers 你honest work on 该next drive. Wrangle cattle到获得 +$20.",
+              "这段持续发展的故事又有了新变化：“安全赶牛”。Widow McC全部 tells 你另一名 traveler helped save her ranch 在她最需要帮助的时候. She offers 你honest work on 该next drive. Wrangle cattle到获得 +$20.",
+              "目击者把“安全赶牛”的消息带回城镇。Widow McC全部 tells 你另一名 traveler helped save her ranch 在她最需要帮助的时候. She offers 你honest work on 该next drive. Wrangle cattle到获得 +$20.",
+              "公报把“安全赶牛”列为当天值得记录的边疆故事。Widow McC全部 tells 你另一名 traveler helped save her ranch 在她最需要帮助的时候. She offers 你honest work on 该next drive. Wrangle cattle到获得 +$20."
+            ]
+          },
+          "default": {
+            "screenText": "替麦考尔寡妇赶牛，额外获得$20。"
+          }
+        }
+      },
+      {
+        "id": "widow_black_veil",
+        "title": "黑纱强盗",
+        "screenText": "麦考尔寡妇成了歹徒。偷牛后额外获得$30和1 WP，然后将警长向你移动最多2格。",
+        "narrationScript": "[西部说书人][老牛仔][沙哑] “黑纱强盗。麦考尔寡妇成了歹徒。偷牛后额外获得$30和1 WP，然后将警长向你移动最多2格。”",
+        "newspaperText": [
+          "《边疆公报》记录了“黑纱强盗”的最新进展。麦考尔寡妇成了歹徒。偷牛后额外获得$30和1 WP，然后将警长向你移动最多2格。",
+          "这段持续发展的故事又有了新变化：“黑纱强盗”。麦考尔寡妇成了歹徒。偷牛后额外获得$30和1 WP，然后将警长向你移动最多2格。",
+          "目击者把“黑纱强盗”的消息带回城镇。麦考尔寡妇成了歹徒。偷牛后额外获得$30和1 WP，然后将警长向你移动最多2格。",
+          "公报把“黑纱强盗”列为当天值得记录的边疆故事。麦考尔寡妇成了歹徒。偷牛后额外获得$30和1 WP，然后将警长向你移动最多2格。"
+        ],
+        "requiresWorldTags": [
+          "widow_ignored"
+        ],
+        "onResolved": [
+          {},
+          {
+            "text": "黑纱强盗已结算。"
+          }
+        ],
+        "onExpired": [
+          {},
+          {
+            "text": "黑纱强盗被忽略。"
+          }
+        ],
+        "playerAwareText": {
+          "samePlayer": {
+            "title": "黑纱清算",
+            "screenText": "The veiled rustler 是Widow McC全部,并she recognizes 该traveler who left her ranch到fail. She wants 支付ment, not partnership. 支付 her $20到settle 该债,或refuse并抽取 一个战斗牌: on 8+, 你drive her riders off; on 7或less, 获得 1 伤势. You do not 获得 该Black Veil rustling bonus.",
+            "narrationScript": "[西部说书人][老牛仔][沙哑] “黑纱清算。The veiled rustler 是Widow McC全部,并she recognizes 该traveler who left her ranch到fail. She wants 支付ment, not partnership. 支付 her $20到settle 该债,或refuse并抽取 一个战斗牌: on 8+, 你drive her riders off; on 7或less, 获得 1 伤势. You do not 获得 该Black Veil rustling bonus.”",
+            "newspaperText": [
+              "《边疆公报》记录了“黑纱清算”的最新进展。The veiled rustler 是Widow McC全部,并she recognizes 该traveler who left her ranch到fail. She wants 支付ment, not partnership. 支付 her $20到settle 该债,或refuse并抽取 一个战斗牌: on 8+, 你drive her riders off; on 7或less, 获得 1 伤势. You do not 获得 该Black Veil rustling bonus.",
+              "这段持续发展的故事又有了新变化：“黑纱清算”。The veiled rustler 是Widow McC全部,并she recognizes 该traveler who left her ranch到fail. She wants 支付ment, not partnership. 支付 her $20到settle 该债,或refuse并抽取 一个战斗牌: on 8+, 你drive her riders off; on 7或less, 获得 1 伤势. You do not 获得 该Black Veil rustling bonus.",
+              "目击者把“黑纱清算”的消息带回城镇。The veiled rustler 是Widow McC全部,并she recognizes 该traveler who left her ranch到fail. She wants 支付ment, not partnership. 支付 her $20到settle 该债,或refuse并抽取 一个战斗牌: on 8+, 你drive her riders off; on 7或less, 获得 1 伤势. You do not 获得 该Black Veil rustling bonus.",
+              "公报把“黑纱清算”列为当天值得记录的边疆故事。The veiled rustler 是Widow McC全部,并she recognizes 该traveler who left her ranch到fail. She wants 支付ment, not partnership. 支付 her $20到settle 该债,或refuse并抽取 一个战斗牌: on 8+, 你drive her riders off; on 7或less, 获得 1 伤势. You do not 获得 该Black Veil rustling bonus."
+            ]
+          },
+          "differentPlayer": {
+            "title": "黑纱强盗",
+            "screenText": "Widow McC全部 tells 你另一名 traveler left her ranch到die,并hard times drove her onto 该outlaw trail. She offers到ride带有you. 在rustling, 获得 +$30并+1 WP, 然后移动 该警长 最多2 格s toward you.",
+            "narrationScript": "[西部说书人][老牛仔][沙哑] “黑纱强盗。Widow McC全部 tells 你另一名 traveler left her ranch到die,并hard times drove her onto 该outlaw trail. She offers到ride带有you. 在rustling, 获得 +$30并+1 WP, 然后移动 该警长 最多2 格s toward you.”",
+            "newspaperText": [
+              "《边疆公报》记录了“黑纱强盗”的最新进展。Widow McC全部 tells 你另一名 traveler left her ranch到die,并hard times drove her onto 该outlaw trail. She offers到ride带有you. 在rustling, 获得 +$30并+1 WP, 然后移动 该警长 最多2 格s toward you.",
+              "这段持续发展的故事又有了新变化：“黑纱强盗”。Widow McC全部 tells 你另一名 traveler left her ranch到die,并hard times drove her onto 该outlaw trail. She offers到ride带有you. 在rustling, 获得 +$30并+1 WP, 然后移动 该警长 最多2 格s toward you.",
+              "目击者把“黑纱强盗”的消息带回城镇。Widow McC全部 tells 你另一名 traveler left her ranch到die,并hard times drove her onto 该outlaw trail. She offers到ride带有you. 在rustling, 获得 +$30并+1 WP, 然后移动 该警长 最多2 格s toward you.",
+              "公报把“黑纱强盗”列为当天值得记录的边疆故事。Widow McC全部 tells 你另一名 traveler left her ranch到die,并hard times drove her onto 该outlaw trail. She offers到ride带有you. 在rustling, 获得 +$30并+1 WP, 然后移动 该警长 最多2 格s toward you."
+            ]
+          },
+          "default": {
+            "screenText": "在rustling, 获得 +$30并+1 WP, 然后移动 该警长 最多2 格s toward you."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "arc_marshal_reeves",
+    "title": "治安官吉迪恩·里夫斯",
+    "newspaperText": [
+      "《边疆公报》记录了“治安官吉迪恩·里夫斯”的最新进展。",
+      "这段持续发展的故事又有了新变化：“治安官吉迪恩·里夫斯”。",
+      "目击者把“治安官吉迪恩·里夫斯”的消息带回城镇。",
+      "公报把“治安官吉迪恩·里夫斯”列为当天值得记录的边疆故事。"
+    ],
+    "tags": [
+      "marshal",
+      "sheriff",
+      "bandit",
+      "law"
+    ],
+    "nodes": [
+      {
+        "id": "reeves_deputy_call",
+        "title": "一日副手",
+        "screenText": "在 Darkrock 警长办公室或 Buzzard Gulch 治安官办公室结束回合，获得$20和1 MP。",
+        "narrationScript": "[西部说书人][老牛仔][沙哑] “一日副手。在 Darkrock 警长办公室或 Buzzard Gulch 治安官办公室结束回合，获得$20和1 MP。”",
+        "newspaperText": [
+          "《边疆公报》记录了“一日副手”的最新进展。在 Darkrock 警长办公室或 Buzzard Gulch 治安官办公室结束回合，获得$20和1 MP。",
+          "这段持续发展的故事又有了新变化：“一日副手”。在 Darkrock 警长办公室或 Buzzard Gulch 治安官办公室结束回合，获得$20和1 MP。",
+          "目击者把“一日副手”的消息带回城镇。在 Darkrock 警长办公室或 Buzzard Gulch 治安官办公室结束回合，获得$20和1 MP。",
+          "公报把“一日副手”列为当天值得记录的边疆故事。在 Darkrock 警长办公室或 Buzzard Gulch 治安官办公室结束回合，获得$20和1 MP。"
+        ],
+        "onResolved": [
+          {},
+          {
+            "text": "一日副手已结算。"
+          }
+        ],
+        "onExpired": [
+          {},
+          {
+            "text": "一日副手被忽略。"
+          }
+        ]
+      },
+      {
+        "id": "reeves_crackdown",
+        "title": "严打通缉令",
+        "screenText": "执行里夫斯的通缉令并击败强盗后，额外获得$20。",
+        "narrationScript": "[西部说书人][老牛仔][沙哑] “严打通缉令。执行里夫斯的通缉令并击败强盗后，额外获得$20。”",
+        "newspaperText": [
+          "《边疆公报》记录了“严打通缉令”的最新进展。执行里夫斯的通缉令并击败强盗后，额外获得$20。",
+          "这段持续发展的故事又有了新变化：“严打通缉令”。执行里夫斯的通缉令并击败强盗后，额外获得$20。",
+          "目击者把“严打通缉令”的消息带回城镇。执行里夫斯的通缉令并击败强盗后，额外获得$20。",
+          "公报把“严打通缉令”列为当天值得记录的边疆故事。执行里夫斯的通缉令并击败强盗后，额外获得$20。"
+        ],
+        "requiresWorldTags": [
+          "reeves_supported"
+        ],
+        "onResolved": [
+          {},
+          {
+            "text": "严打通缉令已结算。"
+          }
+        ],
+        "onExpired": [
+          {},
+          {
+            "text": "严打通缉令被忽略。"
+          }
+        ],
+        "playerAwareText": {
+          "samePlayer": {
+            "screenText": "治安官 Reeves remembers that 你answered h是c全部 when he needed 一个deputy. He gives 你one的h是priority warrants. 在defeating 一个强盗, 获得 +$20并+1 MP.",
+            "newspaperText": [
+              "《边疆公报》记录了“严打通缉令”的最新进展。治安官 Reeves remembers that 你answered h是c全部 when he needed 一个deputy. He gives 你one的h是priority warrants. 在defeating 一个强盗, 获得 +$20并+1 MP.",
+              "这段持续发展的故事又有了新变化：“严打通缉令”。治安官 Reeves remembers that 你answered h是c全部 when he needed 一个deputy. He gives 你one的h是priority warrants. 在defeating 一个强盗, 获得 +$20并+1 MP.",
+              "目击者把“严打通缉令”的消息带回城镇。治安官 Reeves remembers that 你answered h是c全部 when he needed 一个deputy. He gives 你one的h是priority warrants. 在defeating 一个强盗, 获得 +$20并+1 MP.",
+              "公报把“严打通缉令”列为当天值得记录的边疆故事。治安官 Reeves remembers that 你answered h是c全部 when he needed 一个deputy. He gives 你one的h是priority warrants. 在defeating 一个强盗, 获得 +$20并+1 MP."
+            ]
+          },
+          "differentPlayer": {
+            "screenText": "治安官 Reeves tells 你另一名 traveler stood beside him when trouble 第一 started. The crackdown 是working,并he gives 你一个warrant的你的own. 在defeating 一个强盗, 获得 +$20.",
+            "newspaperText": [
+              "《边疆公报》记录了“严打通缉令”的最新进展。治安官 Reeves tells 你另一名 traveler stood beside him when trouble 第一 started. The crackdown 是working,并he gives 你一个warrant的你的own. 在defeating 一个强盗, 获得 +$20.",
+              "这段持续发展的故事又有了新变化：“严打通缉令”。治安官 Reeves tells 你另一名 traveler stood beside him when trouble 第一 started. The crackdown 是working,并he gives 你一个warrant的你的own. 在defeating 一个强盗, 获得 +$20.",
+              "目击者把“严打通缉令”的消息带回城镇。治安官 Reeves tells 你另一名 traveler stood beside him when trouble 第一 started. The crackdown 是working,并he gives 你一个warrant的你的own. 在defeating 一个强盗, 获得 +$20.",
+              "公报把“严打通缉令”列为当天值得记录的边疆故事。治安官 Reeves tells 你另一名 traveler stood beside him when trouble 第一 started. The crackdown 是working,并he gives 你一个warrant的你的own. 在defeating 一个强盗, 获得 +$20."
+            ]
+          },
+          "default": {
+            "screenText": "在defeating 一个强盗, 获得 +$20."
+          }
+        }
+      },
+      {
+        "id": "reeves_hunted",
+        "title": "治安官追踪你",
+        "screenText": "里夫斯治安官正在严厉打击日益严重的歹徒问题。将警长向触发玩家移动最多2格；若警长到达该玩家所在格，该玩家弃1张扑克牌。",
+        "narrationScript": "[西部说书人][老牛仔][沙哑] “治安官追踪你。里夫斯治安官正在严厉打击日益严重的歹徒问题。将警长向触发玩家移动最多2格；若警长到达该玩家所在格，该玩家弃1张扑克牌。”",
+        "newspaperText": [
+          "《边疆公报》记录了“治安官追踪你”的最新进展。里夫斯治安官正在严厉打击日益严重的歹徒问题。将警长向触发玩家移动最多2格；若警长到达该玩家所在格，该玩家弃1张扑克牌。",
+          "这段持续发展的故事又有了新变化：“治安官追踪你”。里夫斯治安官正在严厉打击日益严重的歹徒问题。将警长向触发玩家移动最多2格；若警长到达该玩家所在格，该玩家弃1张扑克牌。",
+          "目击者把“治安官追踪你”的消息带回城镇。里夫斯治安官正在严厉打击日益严重的歹徒问题。将警长向触发玩家移动最多2格；若警长到达该玩家所在格，该玩家弃1张扑克牌。",
+          "公报把“治安官追踪你”列为当天值得记录的边疆故事。里夫斯治安官正在严厉打击日益严重的歹徒问题。将警长向触发玩家移动最多2格；若警长到达该玩家所在格，该玩家弃1张扑克牌。"
+        ],
+        "requiresWorldTags": [
+          "reeves_ignored"
+        ],
+        "onResolved": [
+          {},
+          {
+            "text": "治安官追踪你已结算。"
+          }
+        ],
+        "onExpired": [
+          {},
+          {
+            "text": "治安官追踪你被忽略。"
+          }
+        ],
+        "playerAwareText": {
+          "samePlayer": {
+            "title": "里夫斯盯上你了",
+            "screenText": "治安官 Reeves remembers that 你refused h是earlier c全部用于help. Now 你的通缉 reputation has put 你的name在该top的h是list. 移动 该警长 最多3 格s directly toward you. 如果该警长 r每个es 你的格, dis牌 2 扑克牌.",
+            "newspaperText": [
+              "《边疆公报》记录了“里夫斯盯上你了”的最新进展。治安官 Reeves remembers that 你refused h是earlier c全部用于help. Now 你的通缉 reputation has put 你的name在该top的h是list. 移动 该警长 最多3 格s directly toward you. 如果该警长 r每个es 你的格, dis牌 2 扑克牌.",
+              "这段持续发展的故事又有了新变化：“里夫斯盯上你了”。治安官 Reeves remembers that 你refused h是earlier c全部用于help. Now 你的通缉 reputation has put 你的name在该top的h是list. 移动 该警长 最多3 格s directly toward you. 如果该警长 r每个es 你的格, dis牌 2 扑克牌.",
+              "目击者把“里夫斯盯上你了”的消息带回城镇。治安官 Reeves remembers that 你refused h是earlier c全部用于help. Now 你的通缉 reputation has put 你的name在该top的h是list. 移动 该警长 最多3 格s directly toward you. 如果该警长 r每个es 你的格, dis牌 2 扑克牌.",
+              "公报把“里夫斯盯上你了”列为当天值得记录的边疆故事。治安官 Reeves remembers that 你refused h是earlier c全部用于help. Now 你的通缉 reputation has put 你的name在该top的h是list. 移动 该警长 最多3 格s directly toward you. 如果该警长 r每个es 你的格, dis牌 2 扑克牌."
+            ]
+          },
+          "differentPlayer": {
+            "title": "治安官追踪你",
+            "screenText": "Reeves says someone refused h是c全部 when 该trouble 第一 started,并now 该frontier 是支付ing用于it. Your new 通缉 reputation 抽取s h是attention. 移动 该警长 最多2 格s toward you; if 该警长 r每个es 你的格, dis牌 1 扑克牌.",
+            "newspaperText": [
+              "《边疆公报》记录了“治安官追踪你”的最新进展。Reeves says someone refused h是c全部 when 该trouble 第一 started,并now 该frontier 是支付ing用于it. Your new 通缉 reputation 抽取s h是attention. 移动 该警长 最多2 格s toward you; if 该警长 r每个es 你的格, dis牌 1 扑克牌.",
+              "这段持续发展的故事又有了新变化：“治安官追踪你”。Reeves says someone refused h是c全部 when 该trouble 第一 started,并now 该frontier 是支付ing用于it. Your new 通缉 reputation 抽取s h是attention. 移动 该警长 最多2 格s toward you; if 该警长 r每个es 你的格, dis牌 1 扑克牌.",
+              "目击者把“治安官追踪你”的消息带回城镇。Reeves says someone refused h是c全部 when 该trouble 第一 started,并now 该frontier 是支付ing用于it. Your new 通缉 reputation 抽取s h是attention. 移动 该警长 最多2 格s toward you; if 该警长 r每个es 你的格, dis牌 1 扑克牌.",
+              "公报把“治安官追踪你”列为当天值得记录的边疆故事。Reeves says someone refused h是c全部 when 该trouble 第一 started,并now 该frontier 是支付ing用于it. Your new 通缉 reputation 抽取s h是attention. 移动 该警长 最多2 格s toward you; if 该警长 r每个es 你的格, dis牌 1 扑克牌."
+            ]
+          },
+          "default": {
+            "screenText": "移动 该警长 最多2 格s toward 该triggering 玩家; if 该警长 r每个es that 玩家, dis牌 1 扑克牌."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "arc_silas_bell_showman",
+    "title": "塞拉斯·贝尔巡回秀",
+    "newspaperText": [
+      "《边疆公报》记录了“塞拉斯·贝尔巡回秀”的最新进展。",
+      "这段持续发展的故事又有了新变化：“塞拉斯·贝尔巡回秀”。",
+      "目击者把“塞拉斯·贝尔巡回秀”的消息带回城镇。",
+      "公报把“塞拉斯·贝尔巡回秀”列为当天值得记录的边疆故事。"
+    ],
+    "tags": [
+      "showman",
+      "poker",
+      "cabaret",
+      "saloon"
+    ],
+    "nodes": [
+      {
+        "id": "showman_arrives",
+        "title": "彩绘马车",
+        "screenText": "在 Red Falls 歌舞厅结束回合，抽2张扑克牌。",
+        "narrationScript": "[西部说书人][老牛仔][沙哑] “彩绘马车。在 Red Falls 歌舞厅结束回合，抽2张扑克牌。”",
+        "newspaperText": [
+          "《边疆公报》记录了“彩绘马车”的最新进展。在 Red Falls 歌舞厅结束回合，抽2张扑克牌。",
+          "这段持续发展的故事又有了新变化：“彩绘马车”。在 Red Falls 歌舞厅结束回合，抽2张扑克牌。",
+          "目击者把“彩绘马车”的消息带回城镇。在 Red Falls 歌舞厅结束回合，抽2张扑克牌。",
+          "公报把“彩绘马车”列为当天值得记录的边疆故事。在 Red Falls 歌舞厅结束回合，抽2张扑克牌。"
+        ],
+        "onResolved": [
+          {},
+          {
+            "text": "彩绘马车已结算。"
+          }
+        ],
+        "onExpired": [
+          {},
+          {
+            "text": "彩绘马车被忽略。"
+          }
+        ]
+      },
+      {
+        "id": "showman_grand_show",
+        "title": "边疆大秀",
+        "screenText": "塞拉斯把你的扑克胜利变成边疆大秀的压轴节目。额外获得1 LP和$20。",
+        "narrationScript": "[西部说书人][老牛仔][沙哑] “边疆大秀。塞拉斯把你的扑克胜利变成边疆大秀的压轴节目。额外获得1 LP和$20。”",
+        "newspaperText": [
+          "《边疆公报》记录了“边疆大秀”的最新进展。塞拉斯把你的扑克胜利变成边疆大秀的压轴节目。额外获得1 LP和$20。",
+          "这段持续发展的故事又有了新变化：“边疆大秀”。塞拉斯把你的扑克胜利变成边疆大秀的压轴节目。额外获得1 LP和$20。",
+          "目击者把“边疆大秀”的消息带回城镇。塞拉斯把你的扑克胜利变成边疆大秀的压轴节目。额外获得1 LP和$20。",
+          "公报把“边疆大秀”列为当天值得记录的边疆故事。塞拉斯把你的扑克胜利变成边疆大秀的压轴节目。额外获得1 LP和$20。"
+        ],
+        "requiresWorldTags": [
+          "showman_supported"
+        ],
+        "onResolved": [
+          {},
+          {
+            "text": "边疆大秀已结算。"
+          }
+        ],
+        "onExpired": [
+          {},
+          {
+            "text": "边疆大秀被忽略。"
+          }
+        ],
+        "playerAwareText": {
+          "samePlayer": {
+            "screenText": "塞拉斯·贝尔 recognizes 该person who helped get h是painted wagon show on its feet. He 回合s 你的扑克 victory into h是star attr行动. 获得 +1 LP并+$30.",
+            "newspaperText": [
+              "《边疆公报》记录了“边疆大秀”的最新进展。塞拉斯·贝尔 recognizes 该person who helped get h是painted wagon show on its feet. He 回合s 你的扑克 victory into h是star attr行动. 获得 +1 LP并+$30.",
+              "这段持续发展的故事又有了新变化：“边疆大秀”。塞拉斯·贝尔 recognizes 该person who helped get h是painted wagon show on its feet. He 回合s 你的扑克 victory into h是star attr行动. 获得 +1 LP并+$30.",
+              "目击者把“边疆大秀”的消息带回城镇。塞拉斯·贝尔 recognizes 该person who helped get h是painted wagon show on its feet. He 回合s 你的扑克 victory into h是star attr行动. 获得 +1 LP并+$30.",
+              "公报把“边疆大秀”列为当天值得记录的边疆故事。塞拉斯·贝尔 recognizes 该person who helped get h是painted wagon show on its feet. He 回合s 你的扑克 victory into h是star attr行动. 获得 +1 LP并+$30."
+            ]
+          },
+          "differentPlayer": {
+            "screenText": "塞拉斯 boasts that 另一名 traveler helped get h是show started, 然后回合s 你的扑克 victory into tonight’s headline act. 获得 +1 LP并+$20.",
+            "newspaperText": [
+              "《边疆公报》记录了“边疆大秀”的最新进展。塞拉斯 boasts that 另一名 traveler helped get h是show started, 然后回合s 你的扑克 victory into tonight’s headline act. 获得 +1 LP并+$20.",
+              "这段持续发展的故事又有了新变化：“边疆大秀”。塞拉斯 boasts that 另一名 traveler helped get h是show started, 然后回合s 你的扑克 victory into tonight’s headline act. 获得 +1 LP并+$20.",
+              "目击者把“边疆大秀”的消息带回城镇。塞拉斯 boasts that 另一名 traveler helped get h是show started, 然后回合s 你的扑克 victory into tonight’s headline act. 获得 +1 LP并+$20.",
+              "公报把“边疆大秀”列为当天值得记录的边疆故事。塞拉斯 boasts that 另一名 traveler helped get h是show started, 然后回合s 你的扑克 victory into tonight’s headline act. 获得 +1 LP并+$20."
+            ]
+          },
+          "default": {
+            "screenText": "塞拉斯把你的扑克胜利变成边疆大秀的压轴节目。额外获得1 LP和$20。"
+          }
+        }
+      },
+      {
+        "id": "showman_swindle",
+        "title": "大骗局",
+        "screenText": "塞拉斯开始做不那么光彩的生意。购买后支付$10或弃1张扑克牌。",
+        "narrationScript": "[西部说书人][老牛仔][沙哑] “大骗局。塞拉斯开始做不那么光彩的生意。购买后支付$10或弃1张扑克牌。”",
+        "newspaperText": [
+          "《边疆公报》记录了“大骗局”的最新进展。塞拉斯开始做不那么光彩的生意。购买后支付$10或弃1张扑克牌。",
+          "这段持续发展的故事又有了新变化：“大骗局”。塞拉斯开始做不那么光彩的生意。购买后支付$10或弃1张扑克牌。",
+          "目击者把“大骗局”的消息带回城镇。塞拉斯开始做不那么光彩的生意。购买后支付$10或弃1张扑克牌。",
+          "公报把“大骗局”列为当天值得记录的边疆故事。塞拉斯开始做不那么光彩的生意。购买后支付$10或弃1张扑克牌。"
+        ],
+        "requiresWorldTags": [
+          "showman_ignored"
+        ],
+        "onResolved": [
+          {},
+          {
+            "text": "大骗局已结算。"
+          }
+        ],
+        "onExpired": [
+          {},
+          {
+            "text": "大骗局被忽略。"
+          }
+        ],
+        "playerAwareText": {
+          "samePlayer": {
+            "title": "专门为你准备的骗局",
+            "screenText": "塞拉斯·贝尔 remembers that 你passed him by when h是show needed help,并th是“bar获得” was prepared especi全部y用于you. 在purchasing, 支付 一个额外 $20或dis牌 2 扑克牌.",
+            "newspaperText": [
+              "《边疆公报》记录了“专门为你准备的骗局”的最新进展。塞拉斯·贝尔 remembers that 你passed him by when h是show needed help,并th是“bar获得” was prepared especi全部y用于you. 在purchasing, 支付 一个额外 $20或dis牌 2 扑克牌.",
+              "这段持续发展的故事又有了新变化：“专门为你准备的骗局”。塞拉斯·贝尔 remembers that 你passed him by when h是show needed help,并th是“bar获得” was prepared especi全部y用于you. 在purchasing, 支付 一个额外 $20或dis牌 2 扑克牌.",
+              "目击者把“专门为你准备的骗局”的消息带回城镇。塞拉斯·贝尔 remembers that 你passed him by when h是show needed help,并th是“bar获得” was prepared especi全部y用于you. 在purchasing, 支付 一个额外 $20或dis牌 2 扑克牌.",
+              "公报把“专门为你准备的骗局”列为当天值得记录的边疆故事。塞拉斯·贝尔 remembers that 你passed him by when h是show needed help,并th是“bar获得” was prepared especi全部y用于you. 在purchasing, 支付 一个额外 $20或dis牌 2 扑克牌."
+            ]
+          },
+          "differentPlayer": {
+            "title": "大骗局",
+            "screenText": "塞拉斯 complains that 另一名 traveler left h是show在该dust. He has since learned less honest ways到make ends meet, but he has no particular 怨恨 a获得st you. 在purchasing, dis牌 $10或1 扑克牌.",
+            "newspaperText": [
+              "《边疆公报》记录了“大骗局”的最新进展。塞拉斯 complains that 另一名 traveler left h是show在该dust. He has since learned less honest ways到make ends meet, but he has no particular 怨恨 a获得st you. 在purchasing, dis牌 $10或1 扑克牌.",
+              "这段持续发展的故事又有了新变化：“大骗局”。塞拉斯 complains that 另一名 traveler left h是show在该dust. He has since learned less honest ways到make ends meet, but he has no particular 怨恨 a获得st you. 在purchasing, dis牌 $10或1 扑克牌.",
+              "目击者把“大骗局”的消息带回城镇。塞拉斯 complains that 另一名 traveler left h是show在该dust. He has since learned less honest ways到make ends meet, but he has no particular 怨恨 a获得st you. 在purchasing, dis牌 $10或1 扑克牌.",
+              "公报把“大骗局”列为当天值得记录的边疆故事。塞拉斯 complains that 另一名 traveler left h是show在该dust. He has since learned less honest ways到make ends meet, but he has no particular 怨恨 a获得st you. 在purchasing, dis牌 $10或1 扑克牌."
+            ]
+          },
+          "default": {
+            "screenText": "在purchasing, dis牌 $10或1 扑克牌."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "arc_jeremiah_pike",
+    "title": "传奇捕猎者杰里迈亚·派克",
+    "newspaperText": [
+      "《边疆公报》记录了“传奇捕猎者杰里迈亚·派克”的最新进展。",
+      "这段持续发展的故事又有了新变化：“传奇捕猎者杰里迈亚·派克”。",
+      "目击者把“传奇捕猎者杰里迈亚·派克”的消息带回城镇。",
+      "公报把“传奇捕猎者杰里迈亚·派克”列为当天值得记录的边疆故事。"
+    ],
+    "tags": [
+      "trapper",
+      "hunt",
+      "wilderness"
+    ],
+    "requiredModules": [
+      "hunting"
+    ],
+    "nodes": [
+      {
+        "id": "pike_tracks",
+        "title": "老派克的踪迹",
+        "screenText": "成功狩猎后，如可以则额外获得1个动物资源；否则获得$10。",
+        "narrationScript": "[西部说书人][老牛仔][沙哑] “老派克的踪迹。成功狩猎后，如可以则额外获得1个动物资源；否则获得$10。”",
+        "newspaperText": [
+          "《边疆公报》记录了“老派克的踪迹”的最新进展。成功狩猎后，如可以则额外获得1个动物资源；否则获得$10。",
+          "这段持续发展的故事又有了新变化：“老派克的踪迹”。成功狩猎后，如可以则额外获得1个动物资源；否则获得$10。",
+          "目击者把“老派克的踪迹”的消息带回城镇。成功狩猎后，如可以则额外获得1个动物资源；否则获得$10。",
+          "公报把“老派克的踪迹”列为当天值得记录的边疆故事。成功狩猎后，如可以则额外获得1个动物资源；否则获得$10。"
+        ],
+        "onResolved": [
+          {},
+          {
+            "text": "老派克的踪迹已结算。"
+          }
+        ],
+        "onExpired": [
+          {},
+          {
+            "text": "老派克的踪迹被忽略。"
+          }
+        ]
+      },
+      {
+        "id": "pike_white_bear",
+        "title": "白熊踪迹",
+        "screenText": "派克带你追踪白熊。抽2只动物并选择1只进行遭遇。若成功，额外获得1 LP。",
+        "narrationScript": "[西部说书人][老牛仔][沙哑] “白熊踪迹。派克带你追踪白熊。抽2只动物并选择1只进行遭遇。若成功，额外获得1 LP。”",
+        "newspaperText": [
+          "《边疆公报》记录了“白熊踪迹”的最新进展。派克带你追踪白熊。抽2只动物并选择1只进行遭遇。若成功，额外获得1 LP。",
+          "这段持续发展的故事又有了新变化：“白熊踪迹”。派克带你追踪白熊。抽2只动物并选择1只进行遭遇。若成功，额外获得1 LP。",
+          "目击者把“白熊踪迹”的消息带回城镇。派克带你追踪白熊。抽2只动物并选择1只进行遭遇。若成功，额外获得1 LP。",
+          "公报把“白熊踪迹”列为当天值得记录的边疆故事。派克带你追踪白熊。抽2只动物并选择1只进行遭遇。若成功，额外获得1 LP。"
+        ],
+        "requiresWorldTags": [
+          "pike_helped"
+        ],
+        "onResolved": [
+          {},
+          {
+            "text": "白熊踪迹已结算。"
+          }
+        ],
+        "onExpired": [
+          {},
+          {
+            "text": "白熊踪迹被忽略。"
+          }
+        ],
+        "playerAwareText": {
+          "samePlayer": {
+            "screenText": "老派克 recognizes 该猎人 who earned h是trust before. He gives 你h是best reading的该White Bear trail. 抽取 two animals并选择 one到encounter. 如果成功, 获得 +1 LP并$10.",
+            "newspaperText": [
+              "《边疆公报》记录了“白熊踪迹”的最新进展。老派克 recognizes 该猎人 who earned h是trust before. He gives 你h是best reading的该White Bear trail. 抽取 two animals并选择 one到encounter. 如果成功, 获得 +1 LP并$10.",
+              "这段持续发展的故事又有了新变化：“白熊踪迹”。老派克 recognizes 该猎人 who earned h是trust before. He gives 你h是best reading的该White Bear trail. 抽取 two animals并选择 one到encounter. 如果成功, 获得 +1 LP并$10.",
+              "目击者把“白熊踪迹”的消息带回城镇。老派克 recognizes 该猎人 who earned h是trust before. He gives 你h是best reading的该White Bear trail. 抽取 two animals并选择 one到encounter. 如果成功, 获得 +1 LP并$10.",
+              "公报把“白熊踪迹”列为当天值得记录的边疆故事。老派克 recognizes 该猎人 who earned h是trust before. He gives 你h是best reading的该White Bear trail. 抽取 two animals并选择 one到encounter. 如果成功, 获得 +1 LP并$10."
+            ]
+          },
+          "differentPlayer": {
+            "screenText": "老派克 tells 你另一名 猎人 earned h是trust并helped him pick up 该White Bear trail. He lets 你follow it now. 抽取 two animals并选择 one到encounter. 如果成功, 获得 +1 LP.",
+            "newspaperText": [
+              "《边疆公报》记录了“白熊踪迹”的最新进展。老派克 tells 你另一名 猎人 earned h是trust并helped him pick up 该White Bear trail. He lets 你follow it now. 抽取 two animals并选择 one到encounter. 如果成功, 获得 +1 LP.",
+              "这段持续发展的故事又有了新变化：“白熊踪迹”。老派克 tells 你另一名 猎人 earned h是trust并helped him pick up 该White Bear trail. He lets 你follow it now. 抽取 two animals并选择 one到encounter. 如果成功, 获得 +1 LP.",
+              "目击者把“白熊踪迹”的消息带回城镇。老派克 tells 你另一名 猎人 earned h是trust并helped him pick up 该White Bear trail. He lets 你follow it now. 抽取 two animals并选择 one到encounter. 如果成功, 获得 +1 LP.",
+              "公报把“白熊踪迹”列为当天值得记录的边疆故事。老派克 tells 你另一名 猎人 earned h是trust并helped him pick up 该White Bear trail. He lets 你follow it now. 抽取 two animals并选择 one到encounter. 如果成功, 获得 +1 LP."
+            ]
+          },
+          "default": {
+            "screenText": "抽取 two animals并选择 one到encounter. 如果成功, 获得 +1 LP."
+          }
+        }
+      },
+      {
+        "id": "pike_trap_line",
+        "title": "触发的陷阱",
+        "screenText": "派克被无视后开始布置报复性的陷阱。",
+        "narrationScript": "[西部说书人][老牛仔][沙哑] “触发的陷阱。派克被无视后开始布置报复性的陷阱。”",
+        "newspaperText": [
+          "《边疆公报》记录了“触发的陷阱”的最新进展。派克被无视后开始布置报复性的陷阱。",
+          "这段持续发展的故事又有了新变化：“触发的陷阱”。派克被无视后开始布置报复性的陷阱。",
+          "目击者把“触发的陷阱”的消息带回城镇。派克被无视后开始布置报复性的陷阱。",
+          "公报把“触发的陷阱”列为当天值得记录的边疆故事。派克被无视后开始布置报复性的陷阱。"
+        ],
+        "requiresWorldTags": [
+          "pike_ignored"
+        ],
+        "onResolved": [
+          {},
+          {
+            "text": "触发的陷阱已结算。"
+          }
+        ],
+        "onExpired": [
+          {},
+          {
+            "text": "触发的陷阱被忽略。"
+          }
+        ],
+        "playerAwareText": {
+          "samePlayer": {
+            "title": "为你而设的陷阱",
+            "screenText": "You recognize 派克’s mark beside 该trap,并th是one was laid用于该traveler who ignored him. 获得 1 伤势 unless 你dis牌 1 扑克牌.",
+            "newspaperText": [
+              "《边疆公报》记录了“为你而设的陷阱”的最新进展。You recognize 派克’s mark beside 该trap,并th是one was laid用于该traveler who ignored him. 获得 1 伤势 unless 你dis牌 1 扑克牌.",
+              "这段持续发展的故事又有了新变化：“为你而设的陷阱”。You recognize 派克’s mark beside 该trap,并th是one was laid用于该traveler who ignored him. 获得 1 伤势 unless 你dis牌 1 扑克牌.",
+              "目击者把“为你而设的陷阱”的消息带回城镇。You recognize 派克’s mark beside 该trap,并th是one was laid用于该traveler who ignored him. 获得 1 伤势 unless 你dis牌 1 扑克牌.",
+              "公报把“为你而设的陷阱”列为当天值得记录的边疆故事。You recognize 派克’s mark beside 该trap,并th是one was laid用于该traveler who ignored him. 获得 1 伤势 unless 你dis牌 1 扑克牌."
+            ]
+          },
+          "differentPlayer": {
+            "title": "给别人的陷阱",
+            "screenText": "You spot 派克’s trap before stepping into it. He mutters that it was meant用于该traveler who ignored him earlier. Disarm it并salvage what 你can: 获得 $10或抽取 1 扑克牌.",
+            "newspaperText": [
+              "《边疆公报》记录了“给别人的陷阱”的最新进展。You spot 派克’s trap before stepping into it. He mutters that it was meant用于该traveler who ignored him earlier. Disarm it并salvage what 你can: 获得 $10或抽取 1 扑克牌.",
+              "这段持续发展的故事又有了新变化：“给别人的陷阱”。You spot 派克’s trap before stepping into it. He mutters that it was meant用于该traveler who ignored him earlier. Disarm it并salvage what 你can: 获得 $10或抽取 1 扑克牌.",
+              "目击者把“给别人的陷阱”的消息带回城镇。You spot 派克’s trap before stepping into it. He mutters that it was meant用于该traveler who ignored him earlier. Disarm it并salvage what 你can: 获得 $10或抽取 1 扑克牌.",
+              "公报把“给别人的陷阱”列为当天值得记录的边疆故事。You spot 派克’s trap before stepping into it. He mutters that it was meant用于该traveler who ignored him earlier. Disarm it并salvage what 你can: 获得 $10或抽取 1 扑克牌."
+            ]
+          },
+          "default": {
+            "screenText": "获得 1 伤势 unless 你dis牌 1 扑克牌."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "arc_card_shark",
+    "title": "Red Falls 牌桌老千",
+    "newspaperText": [
+      "《边疆公报》记录了“Red Falls 牌桌老千”的最新进展。",
+      "这段持续发展的故事又有了新变化：“Red Falls 牌桌老千”。",
+      "目击者把“Red Falls 牌桌老千”的消息带回城镇。",
+      "公报把“Red Falls 牌桌老千”列为当天值得记录的边疆故事。"
+    ],
+    "tags": [
+      "poker",
+      "saloon",
+      "rival"
+    ],
+    "nodes": [
+      {
+        "id": "cardshark_first_hand",
+        "title": "牌桌上的陌生人",
+        "screenText": "本局扑克中，主动玩家额外抽1张扑克牌，然后弃1张。",
+        "narrationScript": "[西部说书人][老牛仔][沙哑] “牌桌上的陌生人。本局扑克中，主动玩家额外抽1张扑克牌，然后弃1张。”",
+        "newspaperText": [
+          "《边疆公报》记录了“牌桌上的陌生人”的最新进展。本局扑克中，主动玩家额外抽1张扑克牌，然后弃1张。",
+          "这段持续发展的故事又有了新变化：“牌桌上的陌生人”。本局扑克中，主动玩家额外抽1张扑克牌，然后弃1张。",
+          "目击者把“牌桌上的陌生人”的消息带回城镇。本局扑克中，主动玩家额外抽1张扑克牌，然后弃1张。",
+          "公报把“牌桌上的陌生人”列为当天值得记录的边疆故事。本局扑克中，主动玩家额外抽1张扑克牌，然后弃1张。"
+        ],
+        "onResolved": [
+          {},
+          {
+            "text": "牌桌上的陌生人已结算。"
+          }
+        ],
+        "onExpired": [
+          {},
+          {
+            "text": "牌桌上的陌生人被忽略。"
+          }
+        ]
+      },
+      {
+        "id": "cardshark_beaten",
+        "title": "击败老千",
+        "screenText": "在扑克中击败 Red Falls 牌桌老千后，额外获得$30和1 GP。",
+        "narrationScript": "[西部说书人][老牛仔][沙哑] “击败老千。在扑克中击败 Red Falls 牌桌老千后，额外获得$30和1 GP。”",
+        "newspaperText": [
+          "《边疆公报》记录了“击败老千”的最新进展。在扑克中击败 Red Falls 牌桌老千后，额外获得$30和1 GP。",
+          "这段持续发展的故事又有了新变化：“击败老千”。在扑克中击败 Red Falls 牌桌老千后，额外获得$30和1 GP。",
+          "目击者把“击败老千”的消息带回城镇。在扑克中击败 Red Falls 牌桌老千后，额外获得$30和1 GP。",
+          "公报把“击败老千”列为当天值得记录的边疆故事。在扑克中击败 Red Falls 牌桌老千后，额外获得$30和1 GP。"
+        ],
+        "requiresWorldTags": [
+          "cardshark_met"
+        ],
+        "onResolved": [
+          {},
+          {
+            "text": "击败老千已结算。"
+          }
+        ],
+        "onExpired": [
+          {},
+          {
+            "text": "击败老千被忽略。"
+          }
+        ],
+        "playerAwareText": {
+          "samePlayer": {
+            "screenText": "The 牌 shark recognizes you从该earlier table并raises 该stakes用于该rematch. Your win fin全部y cracks h是smile. 获得 +$40并1 GP.",
+            "newspaperText": [
+              "《边疆公报》记录了“击败老千”的最新进展。The 牌 shark recognizes you从该earlier table并raises 该stakes用于该rematch. Your win fin全部y cracks h是smile. 获得 +$40并1 GP.",
+              "这段持续发展的故事又有了新变化：“击败老千”。The 牌 shark recognizes you从该earlier table并raises 该stakes用于该rematch. Your win fin全部y cracks h是smile. 获得 +$40并1 GP.",
+              "目击者把“击败老千”的消息带回城镇。The 牌 shark recognizes you从该earlier table并raises 该stakes用于该rematch. Your win fin全部y cracks h是smile. 获得 +$40并1 GP.",
+              "公报把“击败老千”列为当天值得记录的边疆故事。The 牌 shark recognizes you从该earlier table并raises 该stakes用于该rematch. Your win fin全部y cracks h是smile. 获得 +$40并1 GP."
+            ]
+          },
+          "differentPlayer": {
+            "screenText": "The 牌 shark tells 你另一名 gambler crossed 牌s带有him earlier. You 是该fresh ch全部enger who fin全部y beats him. 获得 +$30并1 GP.",
+            "newspaperText": [
+              "《边疆公报》记录了“击败老千”的最新进展。The 牌 shark tells 你另一名 gambler crossed 牌s带有him earlier. You 是该fresh ch全部enger who fin全部y beats him. 获得 +$30并1 GP.",
+              "这段持续发展的故事又有了新变化：“击败老千”。The 牌 shark tells 你另一名 gambler crossed 牌s带有him earlier. You 是该fresh ch全部enger who fin全部y beats him. 获得 +$30并1 GP.",
+              "目击者把“击败老千”的消息带回城镇。The 牌 shark tells 你另一名 gambler crossed 牌s带有him earlier. You 是该fresh ch全部enger who fin全部y beats him. 获得 +$30并1 GP.",
+              "公报把“击败老千”列为当天值得记录的边疆故事。The 牌 shark tells 你另一名 gambler crossed 牌s带有him earlier. You 是该fresh ch全部enger who fin全部y beats him. 获得 +$30并1 GP."
+            ]
+          },
+          "default": {
+            "screenText": "在winning 扑克, 获得 +$30并1 GP."
+          }
+        }
+      },
+      {
+        "id": "cardshark_debt",
+        "title": "讨债人",
+        "screenText": "牌桌老千未了的旧账卷入了你的战斗。",
+        "narrationScript": "[西部说书人][老牛仔][沙哑] “讨债人。牌桌老千未了的旧账卷入了你的战斗。”",
+        "newspaperText": [
+          "《边疆公报》记录了“讨债人”的最新进展。牌桌老千未了的旧账卷入了你的战斗。",
+          "这段持续发展的故事又有了新变化：“讨债人”。牌桌老千未了的旧账卷入了你的战斗。",
+          "目击者把“讨债人”的消息带回城镇。牌桌老千未了的旧账卷入了你的战斗。",
+          "公报把“讨债人”列为当天值得记录的边疆故事。牌桌老千未了的旧账卷入了你的战斗。"
+        ],
+        "requiresWorldTags": [
+          "cardshark_unbeaten"
+        ],
+        "onResolved": [
+          {},
+          {
+            "text": "讨债人已结算。"
+          }
+        ],
+        "onExpired": [
+          {},
+          {
+            "text": "讨债人被忽略。"
+          }
+        ],
+        "playerAwareText": {
+          "samePlayer": {
+            "title": "债该还了",
+            "screenText": "The 牌 shark remembers that 你left h是ch全部enge unfinished,并h是讨债人 steps into 你的path before 该战斗. 支付 $20到settle 该债并战斗 norm全部y,或refuse: if 你失去 th是战斗, 获得 1 伤势并dis牌 1 扑克牌.",
+            "newspaperText": [
+              "《边疆公报》记录了“债该还了”的最新进展。The 牌 shark remembers that 你left h是ch全部enge unfinished,并h是讨债人 steps into 你的path before 该战斗. 支付 $20到settle 该债并战斗 norm全部y,或refuse: if 你失去 th是战斗, 获得 1 伤势并dis牌 1 扑克牌.",
+              "这段持续发展的故事又有了新变化：“债该还了”。The 牌 shark remembers that 你left h是ch全部enge unfinished,并h是讨债人 steps into 你的path before 该战斗. 支付 $20到settle 该债并战斗 norm全部y,或refuse: if 你失去 th是战斗, 获得 1 伤势并dis牌 1 扑克牌.",
+              "目击者把“债该还了”的消息带回城镇。The 牌 shark remembers that 你left h是ch全部enge unfinished,并h是讨债人 steps into 你的path before 该战斗. 支付 $20到settle 该债并战斗 norm全部y,或refuse: if 你失去 th是战斗, 获得 1 伤势并dis牌 1 扑克牌.",
+              "公报把“债该还了”列为当天值得记录的边疆故事。The 牌 shark remembers that 你left h是ch全部enge unfinished,并h是讨债人 steps into 你的path before 该战斗. 支付 $20到settle 该债并战斗 norm全部y,或refuse: if 你失去 th是战斗, 获得 1 伤势并dis牌 1 扑克牌."
+            ]
+          },
+          "differentPlayer": {
+            "title": "雇来的打手",
+            "screenText": "The 牌 shark’s 讨债人 says 另一名 gambler left 未了的旧账 behind. He offers 你$20到make 一个example的你的opponent. 如果你win th是玩家 战斗, 获得 +$20. 如果你失去, 获得 nothing extra.",
+            "newspaperText": [
+              "《边疆公报》记录了“雇来的打手”的最新进展。The 牌 shark’s 讨债人 says 另一名 gambler left 未了的旧账 behind. He offers 你$20到make 一个example的你的opponent. 如果你win th是玩家 战斗, 获得 +$20. 如果你失去, 获得 nothing extra.",
+              "这段持续发展的故事又有了新变化：“雇来的打手”。The 牌 shark’s 讨债人 says 另一名 gambler left 未了的旧账 behind. He offers 你$20到make 一个example的你的opponent. 如果你win th是玩家 战斗, 获得 +$20. 如果你失去, 获得 nothing extra.",
+              "目击者把“雇来的打手”的消息带回城镇。The 牌 shark’s 讨债人 says 另一名 gambler left 未了的旧账 behind. He offers 你$20到make 一个example的你的opponent. 如果你win th是玩家 战斗, 获得 +$20. 如果你失去, 获得 nothing extra.",
+              "公报把“雇来的打手”列为当天值得记录的边疆故事。The 牌 shark’s 讨债人 says 另一名 gambler left 未了的旧账 behind. He offers 你$20到make 一个example的你的opponent. 如果你win th是玩家 战斗, 获得 +$20. 如果你失去, 获得 nothing extra."
+            ]
+          },
+          "default": {
+            "screenText": "如果你win th是玩家 战斗, 获得 +$20."
+          }
+        }
+      }
+    ]
+  }
+]

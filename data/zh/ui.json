@@ -1,0 +1,1954 @@
+{
+  "app": {
+    "language": "zh",
+    "title": "Western Legends Companion",
+    "description": "Western Legends 辅助应用",
+    "brand": "Western Legends",
+    "companion": "助手",
+    "productName": "Western Legends Companion",
+    "locale": "zh-CN"
+  },
+  "navigation": {
+    "companionMenu": "助手菜单",
+    "home": "主页",
+    "game": "游戏",
+    "newGame": "新游戏",
+    "resumeGame": "继续游戏",
+    "reference": "规则参考",
+    "assist": "辅助工具",
+    "settings": "设置",
+    "endGame": "结束游戏",
+    "about": "关于"
+  },
+  "accessibility": {
+    "appHeader": "应用标题栏",
+    "menu": "菜单",
+    "goHome": "返回主页",
+    "mainNavigation": "主导航",
+    "bottomNavigation": "底部导航",
+    "close": "关闭",
+    "replayNarration": "重播旁白",
+    "playersCurrentGame": "当前游戏中的玩家",
+    "currentGameSummary": "当前游戏摘要",
+    "setupSteps": "设置步骤",
+    "primaryActionTriggers": "主要行动触发器",
+    "fightFlow": "互动战斗结算流程图",
+    "finalScoringReminders": "最终计分提醒",
+    "firstPlayerSelector": "触摸选择起始玩家",
+    "rollDice": "掷骰子"
+  },
+  "dialogs": {
+    "frontierTale": "边疆故事",
+    "trailHelper": "旅途助手",
+    "assists": "辅助工具",
+    "worldEvent": "世界事件",
+    "frontierEvent": "边疆事件",
+    "resolveAsInstructed": "按事件说明进行结算。",
+    "dismiss": "关闭",
+    "effect": "效果"
+  },
+  "about": {
+    "dialogType": "Western Legends Companion",
+    "title": "关于",
+    "projectName": "Western Legends Companion",
+    "intro": "<strong>Western Legends Companion</strong> 是一款非官方、由玩家制作的辅助应用，为 Western Legends 加入动态事件、故事遭遇、设置指导、快速规则参考和桌边工具。",
+    "creator": "由 Randy Dykstra 为 Western Legends 玩家社区创作并开发。",
+    "support": "如果它已经成为你桌上的常客，小额支持可以帮助继续开发新功能和未来的边疆故事。",
+    "disclaimer": "Western Legends 及其相关扩展的权利归各自权利人所有。Western Legends Companion 是独立的玩家项目，并非发行商的官方产品。",
+    "contactTitle": "联系与反馈",
+    "contactCopy": "发现错误、有建议或发现规则需要修正？欢迎告诉我。",
+    "boardGameGeek": "BoardGameGeek",
+    "email": "电子邮件",
+    "supportButton": "支持这个项目"
+  },
+  "home": {
+    "standardStories": "标准故事",
+    "storiesOff": "关闭故事",
+    "customStories": "自定义故事",
+    "quiet": "边疆很安静……暂时如此。",
+    "trailContinues": "旅途继续",
+    "legendAwaits": "你的传奇正等待着",
+    "subtitle": "召集伙伴，在边疆留下你的印记。",
+    "continueGame": "继续游戏",
+    "startNewGame": "开始新游戏",
+    "playerCount": {
+      "one": "{count} 玩家",
+      "other": "{count} 玩家s"
+    },
+    "activeStories": {
+      "one": "{count} active story",
+      "other": "{count} active stories"
+    },
+    "worldEffects": {
+      "one": "{count} world effect",
+      "other": "{count} world effects"
+    },
+    "defaultPlayer": "玩家 {number}",
+    "frontierPhrases": {
+      "quiet": "边疆很安静……暂时如此",
+      "opportunity": "财富在召唤",
+      "lawless": "歹徒横行",
+      "orderly": "法律威严",
+      "tense": "边疆如同火药桶",
+      "poker": "牌桌正热",
+      "revelry": "酒馆热闹非凡",
+      "range": "牛群占据牧场",
+      "prospect": "淘金热正在蔓延",
+      "trade": "生意兴隆",
+      "railroad": "钢铁之路轰鸣",
+      "explore": "荒野在召唤",
+      "posse": "队伍正在集结",
+      "intrigue": "流言随风而来",
+      "legendary": "传奇正在诞生"
+    }
+  },
+  "story": {
+    "frequency": {
+      "rare": "较少",
+      "standard": "标准",
+      "frequent": "频繁"
+    },
+    "track": {
+      "start": {
+        "title": "起点"
+      },
+      "sheriff": {
+        "title": "移动警长",
+        "screenText": "将警长移动最多3格。"
+      },
+      "bandits": {
+        "title": "生成强盗",
+        "screenText": "在藏身处A、B或C生成强盗。"
+      },
+      "choose": {
+        "title": "选择一种点数",
+        "screenText": "获得1 LP、WP、MP或GP。"
+      }
+    },
+    "point": "故事点数",
+    "hideFutureReminders": "隐藏今后的故事点数提醒",
+    "doNotShowAgain": "不再显示",
+    "tapDismiss": "点击关闭",
+    "trackPerPlayer": "每位玩家的故事点数轨道",
+    "unresolvedSuffix": "未结算的故事章节",
+    "playersUnresolved": "有未结算故事章节的玩家",
+    "playerUnresolvedTitle": "{name} 有一个未结算的故事章节",
+    "playerUnresolvedAria": "{name} 有一个未结算的故事章节。点击查看。",
+    "tapAddPoint": "{玩家} — {格} (tap到add 一个故事点数){alert}",
+    "eventTypes": {
+      "oneOff": {
+        "title": "一次性事件",
+        "description": "由游戏中的行动触发的短篇遭遇。"
+      },
+      "arcs": {
+        "title": "角色故事线",
+        "description": "会记住之前玩家选择和行动的多章节故事。"
+      },
+      "world": {
+        "title": "世界事件",
+        "description": "随时间独立出现、影响整个边疆的事件。"
+      }
+    },
+    "enabledAria": "{title} enabled",
+    "frequencyAria": "{title} frequency",
+    "fallbackTitle": "故事",
+    "triggerKeywords": [
+      {
+        "word": "Bandit",
+        "style": "red"
+      },
+      {
+        "word": "Prospect",
+        "style": "blue"
+      },
+      {
+        "word": "Gold",
+        "style": "gold"
+      },
+      {
+        "word": "Item",
+        "style": "green"
+      },
+      {
+        "word": "Poker",
+        "style": "purple"
+      },
+      {
+        "word": "Saloon",
+        "style": "purple"
+      },
+      {
+        "word": "Cattle",
+        "style": "orange"
+      },
+      {
+        "word": "Ranch",
+        "style": "orange"
+      },
+      {
+        "word": "Move",
+        "style": "brown"
+      },
+      {
+        "word": "Heist",
+        "style": "red"
+      },
+      {
+        "word": "Rob",
+        "style": "red"
+      },
+      {
+        "word": "Arrest",
+        "style": "blue"
+      },
+      {
+        "word": "Heal",
+        "style": "green"
+      }
+    ],
+    "markerTitle": "{玩家} — {格} (tap到add 一个故事点数){alert}",
+    "alertTitle": "{玩家} has 一个unresolved story chapter",
+    "alertAria": "{玩家} has 一个unresolved story chapter. Tap到view it.",
+    "activeTriggersRemaining": {
+      "one": "还剩 {count} 个主要行动触发器",
+      "other": "还剩 {count} 个主要行动触发器"
+    },
+    "onlyPlayerMayResolve": "只有 {player} 可以结算这一章节",
+    "settingEnabled": "{title} enabled",
+    "settingFrequency": "{title} frequency",
+    "triggerPlayerPrefix": "一名玩家 ",
+    "tapAddStoryPoint": "点击添加故事点数",
+    "ongoingCount": {
+      "one": "{count} ongoing story",
+      "other": "{count} ongoing stories"
+    }
+  },
+  "setup": {
+    "gameSetup": "游戏设置",
+    "newGame": "新游戏",
+    "modules": "模块",
+    "basics": "基础",
+    "setup": "设置",
+    "next": "下一步",
+    "back": "返回",
+    "startGame": "开始游戏",
+    "victoryConditions": "胜利条件",
+    "decreaseTargetLP": "降低目标LP",
+    "increaseTargetLP": "提高目标LP",
+    "targetLPCaption": "赢得游戏所需的目标传奇点数",
+    "storyEvents": "故事与事件",
+    "trackStoryPoints": "记录故事点数",
+    "trackStoryPointsDescription": "记录每位玩家的故事轨道，并显示简短的奖励提醒。",
+    "players": "玩家",
+    "name": "名称",
+    "character": "角色",
+    "addPlayer": "添加玩家",
+    "goals": "目标：",
+    "goalsNote": "选择角色后，拿取该角色的4张目标牌。",
+    "tapCycleColor": "点击切换颜色",
+    "cyclePlayerColor": "切换玩家 {number} 的颜色",
+    "playerNameAria": "玩家 {number} 名称",
+    "playerCharacterAria": "玩家 {number} 角色",
+    "removePlayer": "移除玩家 {number}",
+    "manInBlackAutomated": "自动玩家“黑衣人”",
+    "assignColors": "开始前为每位玩家分配颜色。",
+    "required": "必需",
+    "enableModule": "Enable {module}",
+    "expandModule": "Expand {module}",
+    "selectModule": "Select {module}",
+    "oneOffs": "一次性事件",
+    "storyArcs": "故事线",
+    "worldEvents": "世界事件",
+    "narrativeOff": "关闭叙事事件",
+    "noSteps": "当前选择无需额外设置步骤。",
+    "hideReference": "隐藏参考",
+    "showReference": "显示参考",
+    "viewFullSize": "全尺寸查看 {label}",
+    "setupSections": "设置章节",
+    "readyPlayers": {
+      "one": "{count} 玩家",
+      "other": "{count} 玩家s"
+    },
+    "open": "打开",
+    "playerNumber": "玩家 {number}",
+    "colors": {
+      "white": "白色",
+      "red": "红色",
+      "yellow": "黄色",
+      "blue": "蓝色",
+      "purple": "紫色",
+      "black": "黑色"
+    },
+    "colorPlayer": "{color}玩家",
+    "playerWithColor": "{name}（{color}）",
+    "imageFallback": "图片"
+  },
+  "modules": {
+    "base": {
+      "name": "基础游戏",
+      "detail": "必需 core Western Legends 游戏 content.",
+      "children": {
+        "base_core": {
+          "name": "核心版图与行动",
+          "detail": "Darkrock, Red F全部s, ranches, mines, bandits, poker, cattle,并core 行动s."
+        },
+        "base_goals": {
+          "name": "目标",
+          "detail": "Adds character Goal 牌s并额外 ch全部enges/奖励s. Automatic全部y enables 传奇标记."
+        },
+        "base_legendary_tokens": {
+          "name": "传奇标记",
+          "detail": "Uses 该facedown Legendary token supply并玩家 mat token 格s."
+        }
+      }
+    },
+    "ante_up": {
+      "name": "Ante Up",
+      "detail": "Adds Ante Up characters, items, 传奇物品,并selected modules below.",
+      "children": {
+        "ante_up_sideboard": {
+          "name": "Buzzard Gulch 副版图",
+          "detail": "Adds Buzzard Gulch, mountain passes, frontier 格s, orange ranch, outlaw camp,并train station."
+        },
+        "ante_up_train": {
+          "name": "火车模块",
+          "detail": "Uses 该train, train 牌堆, train 移动ment,并train encounter hooks."
+        },
+        "ante_up_events": {
+          "name": "事件牌堆",
+          "detail": "Adds Event 牌s/tokens, setup events,并豪赌客, 抢矿者, Longhorn,并歹徒 token content."
+        },
+        "ante_up_gambler": {
+          "name": "赌徒轨道",
+          "detail": "Uses 赌徒点数并gambling-related story opportunities."
+        },
+        "ante_up_faro": {
+          "name": "法罗牌",
+          "detail": "Adds 法罗牌 as 一个alternate Gamble 行动在saloons."
+        },
+        "ante_up_high_stakes_poker": {
+          "name": "高额扑克",
+          "detail": "Adds 该multi玩家 高额扑克 gambling option."
+        }
+      }
+    },
+    "blood_money": {
+      "name": "Blood Money",
+      "detail": "Adds Blood Money characters, items, 传奇物品,并selected modules below.",
+      "children": {
+        "blood_money_stories": {
+          "name": "传奇故事系统",
+          "detail": "Adds 该传奇故事 board/牌s并enables Ruin-token related rules such as Repair."
+        },
+        "blood_money_risk_die": {
+          "name": "风险骰",
+          "detail": "Enables 风险骰 ch全部enges并high-risk event outcomes."
+        },
+        "blood_money_injuries": {
+          "name": "伤病牌堆",
+          "detail": "启用伤病牌，作为持续惩罚，并加入医生与治疗相关触发。"
+        },
+        "blood_money_deeds": {
+          "name": "地契",
+          "detail": "Adds 地契, Claim 行动s,并property-related 奖励s."
+        },
+        "blood_money_traveling_trader": {
+          "name": "流动商人",
+          "detail": "Adds 该流动商人 stand, 移动ment 牌堆, miniature,并传奇物品 market."
+        }
+      }
+    },
+    "wild_bunch": {
+      "name": "Wild Bunch of Extras",
+      "detail": "Adds Wild Bunch characters, items, 传奇物品,并optional variants.",
+      "children": {
+        "wild_bunch_titles": {
+          "name": "称号",
+          "detail": "Adds Title 牌s并end-游戏 scoring/effect options."
+        },
+        "wild_bunch_gang_posse": {
+          "name": "帮派/队伍",
+          "detail": "Lets 治安官并通缉 玩家s recruit extr一个muscle."
+        },
+        "wild_bunch_sheriff": {
+          "name": "警长",
+          "detail": "Adds 警长 personality 牌s that change when 该警长 失去s 一个战斗."
+        },
+        "wild_bunch_bandit_variant": {
+          "name": "强盗变体",
+          "detail": "Adds numbered 强盗 rings并强盗 personality 牌s/effects."
+        },
+        "wild_bunch_man_in_black": {
+          "name": "黑衣人",
+          "detail": "Adds 该automated 黑衣人 玩家, 牌堆, setup, round 回合,并scoring rules."
+        },
+        "wild_bunch_unique_events": {
+          "name": "独特事件",
+          "detail": "Adds Unique Event 牌s并tokens到该Event system."
+        }
+      }
+    },
+    "the_good_the_bad_and_the_handsome": {
+      "name": "The Good, the Bad, and the Handsome",
+      "detail": "Adds th是expansion’s characters, items,并传奇物品.",
+      "children": {}
+    },
+    "fistful_of_extras": {
+      "name": "Fistful of Extras",
+      "detail": "加入该扩展的角色、物品以及可选的小丑牌变体。",
+      "children": {
+        "fistful_jokers": {
+          "name": "小丑牌变体",
+          "detail": "Adds Joker 牌s到该扑克 牌堆."
+        }
+      }
+    },
+    "promos": {
+      "name": "推广内容",
+      "detail": "可选的推广内容和特定版本内容。",
+      "children": {
+        "big_box": {
+          "name": "大盒版",
+          "detail": "Adds Aaron Ross并该Strongbox 传奇物品."
+        },
+        "promo_carbine": {
+          "name": "卡宾枪",
+          "detail": "加入“卡宾枪”武器物品。"
+        }
+      }
+    },
+    "variants": {
+      "name": "变体",
+      "detail": "可选 add-on 牌堆s并fan-made 游戏play variants.",
+      "children": {
+        "treasure_hunting_rumors": {
+          "name": "寻宝",
+          "detail": "组合传闻牌，寻找传说中的埋藏宝藏。"
+        },
+        "hunting": {
+          "name": "狩猎",
+          "detail": "狩猎在西部荒野中游荡的传奇目标。"
+        },
+        "fishing": {
+          "name": "钓鱼",
+          "detail": "Fish river 格s用于catches, LP,并recovery opportunities."
+        },
+        "foraging_crafting": {
+          "name": "采集/制作",
+          "detail": "Gather 资源s到craft unique并powerful items."
+        },
+        "theatre": {
+          "name": "剧院",
+          "detail": "Adds variable Theatre-牌 结果s用于该狂欢行动."
+        },
+        "prospecting_cards": {
+          "name": "淘金牌堆",
+          "detail": "Adds 一个Prospecting 牌堆并LP-track gold triggers到vary mine strategy."
+        },
+        "dark_knight": {
+          "name": "Dark Knight",
+          "detail": "加入玩家自制角色 Dark Knight。"
+        }
+      }
+    }
+  },
+  "events": {
+    "whoTriggeredChapter": "谁触发了这一章节？",
+    "storyArc": "故事线",
+    "chooseChapterPlayer": "选择经历这一章节的玩家。",
+    "whoResolved": "谁完成了结算？",
+    "anyResolve": "任何玩家都可以结算这个故事。点击完成它的玩家。",
+    "whoTriggered": "谁触发了这个事件？",
+    "tapTriggerPlayer": "点击刚刚执行该行动的玩家。",
+    "tapResolvedPlayer": "点击完成结算的玩家。",
+    "differentSamePlayer": "如果再次涉及同一名玩家，结果不同。",
+    "gainStoryPoint": "触发玩家获得1点故事点数。",
+    "resetStoryTrack": "将故事点数标记重置到起点。",
+    "chooseOutcome": "选择列出结果中的一个。",
+    "resolveListedEffect": "结算列出的效果",
+    "npc": "NPC",
+    "effects": {
+      "spawnBandits": "放置 {count} 强盗(s)在该当前 格.",
+      "simultaneousNpcFight": "战斗 {count} {npc}(s) simultaneously.",
+      "prospectingBonusDie": "掷 {count} 额外 淘金骰.",
+      "worldTag": "World tag: {tag}",
+      "duration": "持续 {count} 个主要触发器。",
+      "startWorldEvent": "开始s 该\"{eventId}\" world event.",
+      "sameColor": "Different outcome if 该相同 玩家 是involved a获得.",
+      "gainStoryPoint": "The triggering 玩家 获得s 1 故事点数.",
+      "gainPlayerCounter": "The triggering 玩家 获得s 1 {counter}.",
+      "point": "point",
+      "resetStoryTrack": "Re回合s 该故事点数 marker到开始.",
+      "gainMoney": "获得 ${amount}.",
+      "drawPoker": {
+        "one": "抽取 {count} 扑克牌.",
+        "other": "抽取 {count} 扑克牌."
+      },
+      "gainWound": {
+        "one": "获得 {count} 伤势.",
+        "other": "获得 {count} 伤势."
+      },
+      "gainLP": "获得 {amount} LP.",
+      "gainLegendaryToken": {
+        "one": "获得 {count} 传奇标记.",
+        "other": "获得 {count} 传奇标记."
+      },
+      "npcDraws": {
+        "one": "NPC 抽取s {count} 战斗牌{use}.",
+        "other": "NPC 抽取s {count} 战斗牌{use}."
+      },
+      "useSuffix": "; use {use}",
+      "chooseOne": "选择 one的该listed outcomes.",
+      "useValues": {
+        "both": "both",
+        "lowest": "lowest",
+        "highest": "highest"
+      },
+      "npcNames": {
+        "bandit": "Bandit",
+        "bank_guard": "Bank 守卫",
+        "sheriff": "Sheriff",
+        "outlaw": "Outlaw",
+        "claim_jumper": "抢矿者",
+        "train_guard": "火车 守卫"
+      },
+      "counterNames": {
+        "gambling": "Gambling",
+        "legendary": "Legendary",
+        "marshal": "Marshal",
+        "wanted": "Wanted",
+        "railroad_progress": "Railroad Progress"
+      }
+    }
+  },
+  "settings": {
+    "title": "设置",
+    "audio": "音频",
+    "music": "音乐",
+    "sounds": "音效",
+    "voice": "语音",
+    "done": "完成",
+    "changeAudioGame": "更改音频和当前游戏设置",
+    "changeAudio": "更改音频设置",
+    "wrapGame": "结束当前游戏",
+    "startBeforeEnd": "请先开始一局游戏",
+    "storyPoints": "故事点数",
+    "trackStoryPoints": "记录故事点数",
+    "trackCurrentDescription": "在本局游戏中显示并维护每位玩家的故事点数轨道。",
+    "rewardReminders": "故事点数奖励提醒",
+    "rewardReminderDescription": "故事点数推进玩家标记时显示简短提醒。",
+    "noGame": "开始一局游戏后即可查看该局的故事、事件和故事点数设置。",
+    "toggleAria": "切换 {label}",
+    "volumeAria": "{label} 音量",
+    "onOffAria": "打开/关闭 {label}"
+  },
+  "assist": {
+    "poker": {
+      "exampleAria": "Example {hand} hand",
+      "examples": {
+        "fiveKind": [
+          "A♠",
+          "A♣",
+          "A♥",
+          "A♦",
+          "A♠"
+        ],
+        "royalFlush": [
+          "10♠",
+          "J♠",
+          "Q♠",
+          "K♠",
+          "A♠"
+        ],
+        "straightFlush": [
+          "5♥",
+          "6♥",
+          "7♥",
+          "8♥",
+          "9♥"
+        ],
+        "fourKind": [
+          "A♠",
+          "A♣",
+          "A♥",
+          "A♦",
+          "9♣"
+        ],
+        "fullHouse": [
+          "K♠",
+          "K♣",
+          "K♥",
+          "7♠",
+          "7♦"
+        ],
+        "flush": [
+          "A♣",
+          "J♣",
+          "9♣",
+          "6♣",
+          "3♣"
+        ],
+        "straight": [
+          "5♠",
+          "6♣",
+          "7♦",
+          "8♥",
+          "9♠"
+        ],
+        "threeKind": [
+          "Q♠",
+          "Q♣",
+          "Q♦",
+          "8♥",
+          "4♠"
+        ],
+        "twoPair": [
+          "J♠",
+          "J♥",
+          "5♣",
+          "5♦",
+          "A♠"
+        ],
+        "pair": [
+          "8♠",
+          "8♥",
+          "K♣",
+          "10♦",
+          "4♣"
+        ],
+        "highCard": [
+          "A♠",
+          "J♥",
+          "8♣",
+          "5♦",
+          "2♠"
+        ]
+      }
+    },
+    "fight": {
+      "cardAbilities": {
+        "2": "The other 玩家 获得s 1 伤势并失去s 1 LP.",
+        "3": "The other 玩家 获得s 2 伤势.",
+        "4": "The other 玩家 获得s 1 伤势并dis牌s 1 扑克牌.",
+        "5": "The other 玩家 获得s 1 伤势.",
+        "6": "The other 玩家 获得s 1 伤势. Th是伤势 不能 be canceled.",
+        "7": "The other 玩家 获得s 1 伤势或dis牌s 1 random 扑克牌.",
+        "8": "The other 玩家 获得s 1 伤势.",
+        "9": "The other 玩家 dis牌s 1 扑克牌或失去s $10.",
+        "10": "Cancel th是战斗并start 另一名. Shuffle these 牌s到该bottom的该牌堆, 然后抽取 a获得.",
+        "A": "The other 玩家 获得s 1 LP, 1 治安官点数,或1 通缉点数.",
+        "K": "The other 玩家 获得s 1 LP.",
+        "Q": "The other 玩家 抽取s 1 扑克牌.",
+        "J": "The other 玩家 获得s $10."
+      },
+      "groups": {
+        "player": "Player",
+        "npc": "NPC"
+      },
+      "activePlayerWins": "Active 玩家 Wins",
+      "activePlayerLoses": "Active 玩家 失去s",
+      "resolveCardConsequences": "结算 牌 consequences",
+      "chooseCardOrDecline": "选择 一个牌或Decline",
+      "chooseNpcFightCard": "选择 NPC 战斗牌",
+      "start": "Start",
+      "activePlayerResolvesStart": "主动玩家结算战斗开始效果",
+      "activePlayer": "Active 玩家",
+      "choosePokerCard": "选择 扑克牌",
+      "chooseOneFacedown": "选择 1 牌并放置 it facedown",
+      "revealPhase": "REVEAL",
+      "reveal": "Reveal",
+      "revealBothCards": "Reveal Both 牌s",
+      "turnBothFaceup": "将双方选中的牌翻到正面",
+      "abilities": "Abilities",
+      "resolveActiveBonuses": "结算 Active 玩家 bonuses并abilities",
+      "reactions": "Reactions",
+      "comparePhase": "COMPARE",
+      "compare": "Compare",
+      "resultPhase": "RESULT",
+      "end": "End",
+      "resolveActiveEnd": "结算 Active 玩家 end effects",
+      "cleanup": "Cleanup",
+      "cleanUpPlayedCards": "Cle一个Up Played 牌s",
+      "discardBothPoker": "Dis牌 both played 扑克牌",
+      "autoDrawNpc": "抽取并automatic全部y select 该NPC's play.",
+      "npcLabels": {
+        "bandit": "Bandit",
+        "bank_guard": "Bank 守卫",
+        "sheriff": "Sheriff",
+        "other": "Other"
+      },
+      "drawCards": {
+        "one": "抽取 {count} 战斗牌",
+        "other": "抽取 {count} 战斗牌"
+      },
+      "resultEyebrow": "Result",
+      "fightCard": "战斗牌",
+      "useCountOnComponent": "Use 该战斗牌 count shown on {component}.",
+      "cardCountSuffix": {
+        "one": "— {count} 牌",
+        "other": "— {count} 牌s"
+      },
+      "fullscreenTitle": "战斗牌",
+      "cardAlt": "战斗 牌 {rank}",
+      "versus": "VS",
+      "autoSelectShort": "Auto-Select",
+      "npcFightCard": "NPC 战斗牌",
+      "decisionContext": "Circumstances",
+      "playerHasReducingWeapon": "玩家 可以reduce NPC 牌 数值",
+      "playerAtMaxWounds": "玩家 already has 3 伤势",
+      "highValueNpc": "Defeating th是NPC 是high 数值",
+      "playerHasNoPokerCards": "玩家 has no 扑克牌",
+      "npcPlays": "NPC Plays",
+      "otherDrawnCards": "Other 抽取n 牌s",
+      "drawAgain": "抽取 A获得"
+    },
+    "dice": {
+      "types": {
+        "prospecting": {
+          "label": "淘金骰",
+          "faces": {
+            "gold": "金块",
+            "money": "Money",
+            "reroll": "$ + Re掷",
+            "miss": "Miss"
+          }
+        },
+        "risk": {
+          "label": "风险骰",
+          "faces": {
+            "blank": "Blank",
+            "wound": "获得 1 伤势",
+            "doublewound": "获得 2 伤势",
+            "storypoint": "获得 1 故事点数",
+            "woundstorypoint": "获得 1 伤势 + 1 故事点数"
+          }
+        }
+      },
+      "dieType": "Die Type"
+    },
+    "firstPlayer": {
+      "selected": "First 玩家 selected — take 该First 玩家 token.",
+      "instruction": "Everyone 放置 one finger on 该screen. Hold steady while 该timer counts down.",
+      "aria": "First 玩家 touch selector",
+      "startOver": "开始 Over"
+    },
+    "placeholder": "放置holder ready用于该next build-out.",
+    "moduleHelper": "Module Helper",
+    "groups": {
+      "fight": "Fight",
+      "gambling": "Gambling",
+      "dice": "Dice",
+      "randomizers": "Randomizers",
+      "other": "Other"
+    },
+    "referenceType": "Reference",
+    "store": {
+      "types": {
+        "weapon": "Weapon",
+        "mount": "Mount",
+        "misc": "Misc"
+      },
+      "rerollItem": "Re掷 {item}",
+      "viewItemFullSize": "全尺寸查看 {item}",
+      "viewFullSize": "View full size",
+      "reroll": "Reroll"
+    },
+    "simple": {
+      "train": {
+        "title": "火车 Assist"
+      },
+      "hunt": {
+        "title": "Hunting Assist"
+      },
+      "fish": {
+        "title": "Fishing Assist"
+      },
+      "default": {
+        "title": "Assist"
+      }
+    },
+    "gambling": {
+      "flowAria": "{游戏} gambling flowchart",
+      "flowLabel": "{游戏} Flow"
+    }
+  },
+  "finalScoring": {
+    "steps": {
+      "mounts_weapons": {
+        "title": "升级d Gear",
+        "summary": "Score LP shown on 升级d mounts & weapons"
+      },
+      "legendary_items": {
+        "title": "传奇物品",
+        "summary": "Score 任意 LP printed on 传奇物品"
+      },
+      "money": {
+        "title": "Money",
+        "summary": "+1 LP用于every $60"
+      },
+      "wounds": {
+        "title": "Wounds",
+        "summary": "−1 LP用于每个 伤势"
+      },
+      "injuries": {
+        "title": "Injuries",
+        "summary": "Apply 任意 end-游戏 伤病 penalties"
+      },
+      "wanted": {
+        "title": "通缉 Track",
+        "summary": "Most 通缉: +3 LP; other 通缉: +1 LP"
+      },
+      "marshal": {
+        "title": "治安官 Track",
+        "summary": "Score 该LP shown by 你的治安官 row"
+      },
+      "gambler": {
+        "title": "Gambler Track",
+        "summary": "Leader(s) 获得 +1 LP"
+      },
+      "legendary_tokens": {
+        "title": "传奇标记",
+        "summary": "Add 该LP 数值的你的tokens"
+      },
+      "deeds": {
+        "title": "Deeds",
+        "summary": "Score eligible 地契"
+      },
+      "titles": {
+        "title": "Title 牌",
+        "summary": "Apply 该revealed Title 牌"
+      },
+      "man_in_black": {
+        "title": "黑衣人",
+        "summary": "Wins end-游戏 ties"
+      }
+    },
+    "defaultTitle": "计分",
+    "defaultSummary": "点击查看完整计分规则",
+    "finalStandings": "最终排名",
+    "finalTally": "最终计分",
+    "winner": "赢家",
+    "backToGame": "返回游戏",
+    "manInBlackTieRule": "黑衣人平局规则",
+    "manInBlackWins": "黑衣人赢得平局",
+    "highestLP": "最高LP",
+    "highestTied": "最高LP并列",
+    "resolveTie": "解决平局",
+    "enterScores": "输入每位玩家的最终LP。",
+    "resolveTieBeforePaper": "打开报纸预览前先解决最高分平局。",
+    "lpPlaceholder": "LP",
+    "noPlayers": "本局没有玩家被分配颜色。",
+    "finalLpAria": "{player} 的最终LP"
+  },
+  "newspaper": {
+    "moods": {
+      "quiet": {
+        "headlines": [
+          "边疆平静的一天",
+          "没什么大新闻",
+          "Darkrock 安然入夜"
+        ],
+        "leads": [
+          "尘土轻轻落在 Darkrock 与 Red Falls，直到开印前都没有多少值得写进报纸的事。",
+          "难得的一天，这片边疆把秘密都藏了起来，公报的信使几乎空手而归。"
+        ],
+        "sectionIntro": "不过，仍有一些零星消息值得记下：",
+        "closings": [
+          "边疆像是在屏息等待，直到报纸开印也没有发生值得大书特书的事。",
+          "今天几乎没有消息传来。有人说安静的边疆就是好边疆，也有人说麻烦只是还没被发现。"
+        ]
+      },
+      "lawless": {
+        "headlines": [
+          "歹徒再度横行",
+          "法律失去控制",
+          "黑夜属于强盗"
+        ],
+        "leads": [
+          "从清晨到黄昏，无法无天的行动让各地居民捂紧钱袋、紧盯街道。",
+          "每辆驿马车和每间酒馆传来的消息都一样：通缉犯比治安官行动得更快、更大胆。"
+        ],
+        "sectionIntro": "歹徒从边疆一头到另一头留下了痕迹：",
+        "closings": [
+          "这一次，歹徒比法律更快。淘金者小心翼翼，商人反复清点钱箱，整个地区都感受到了无法无天的气息。",
+          "通缉名单越来越长，而治安官疲于追赶——所有可靠的报告都说，这是个混乱的日子。"
+        ]
+      },
+      "orderly": {
+        "headlines": [
+          "治安官维持秩序",
+          "法律牢牢掌控边疆",
+          "Darkrock 秩序井然"
+        ],
+        "leads": [
+          "本周法律处处压过强盗，边疆也因此安稳了许多。",
+          "从警长办公室到最偏远的牧场，人们都说法律坐得稳，通缉犯也不得不谨慎行事。"
+        ],
+        "sectionIntro": "治安官本周也有一份厚厚的记录：",
+        "closings": [
+          "治安官牢牢守住了秩序，通缉犯低调行动，而诚实的淘金者和商人得以安心赚钱。",
+          "从头到尾都是法律占据上风，边疆也因此更加繁荣。"
+        ]
+      },
+      "tense": {
+        "headlines": [
+          "边疆站在悬崖边",
+          "歹徒与法律势均力敌",
+          "僵局仍在继续"
+        ],
+        "leads": [
+          "每次抢劫似乎都有逮捕回应，而每次逮捕之后又有新的麻烦，边疆始终绷得很紧。",
+          "本周无论法律还是歹徒都没能真正占上风，冲突与秩序此起彼伏。"
+        ],
+        "sectionIntro": "法律两边都在本周留下了记录：",
+        "closings": [
+          "歹徒与治安官始终势均力敌，每次麻烦都引来新的回应，边疆紧张得像一根绷紧的弦。",
+          "通缉犯和治安官谁也没能掌控局面，酒馆里每天都有人讨论这场拉锯。"
+        ]
+      },
+      "opportunity": {
+        "headlines": [
+          "广阔边疆在召唤",
+          "黄金、胆量与好运",
+          "机遇遍布边疆"
+        ],
+        "leads": [
+          "从尘土飞扬的矿场到热闹的牌桌，只要胆子够大，边疆到处都有机会。",
+          "淘金者、赌徒和商人都觉得这一周格外慷慨，勤快的人总能找到机会。"
+        ],
+        "sectionIntro": "这一周，推动边疆的更多是机会，而不是违法：",
+        "closings": [
+          "这里既有麻烦也有秩序，但更多的是机会——黄金被淘出，牌局在进行，生意也在不断成交。",
+          "一点违法，一点正义，再加上大量忙碌的生意，这就是边疆好日子的样子。"
+        ]
+      },
+      "bloodshed": {
+        "headlines": [
+          "枪声响彻边疆",
+          "硝烟弥漫的一天",
+          "边疆染血"
+        ],
+        "leads": [
+          "这一周，拳头和枪比语言解决了更多争端，公报甚至来不及记录所有伤口和子弹。",
+          "无论还发生了什么，人们都会记得这是几乎每场争执都以战斗收尾的一周。"
+        ],
+        "sectionIntro": "关于战斗的报告——无论胜败——不断送到公报编辑部：",
+        "closings": [
+          "无论是为了牌局、牛群还是旧怨，本周人们更常用拳头和战斗牌解决问题。",
+          "有些时候边疆靠谈判解决麻烦，但这一周显然不是。"
+        ]
+      }
+    },
+    "frontierGazette": "边疆公报",
+    "gazetteLedger": "公报记录",
+    "recordedReports": "已记录的行动报告",
+    "ridersLeaveMark": "骑手留下印记",
+    "dispatches": "边疆来讯",
+    "worldEventsTitle": "世界事件改变边疆",
+    "livesLegends": "人物与传奇",
+    "livesDeck": "The Gazette followed these recurring frontier figures as 他们的fortunes changed从chapter到chapter.",
+    "territoryTales": "遍及边疆的故事",
+    "finalWord": "结语",
+    "unidentifiedRider": "一名身份不明的骑手",
+    "passingRider": "一名路过的骑手",
+    "territory": "这片边疆",
+    "rider": "骑手",
+    "riderPossessive": "该rider’s",
+    "tableRiders": "一桌边疆骑手",
+    "unnamedEvent": "一场未命名的边疆事件",
+    "activity": {
+      "fight": {
+        "label": "战斗s & gunplay",
+        "phrase": "战斗s并gunplay"
+      },
+      "outlaw": {
+        "label": "歹徒 deeds",
+        "phrase": "outlaw work"
+      },
+      "law": {
+        "label": "Law work",
+        "phrase": "law work"
+      },
+      "gambling": {
+        "label": "Gambling & revelry",
+        "phrase": "poker, gambling,并revelry"
+      },
+      "gold": {
+        "label": "Prospecting & gold",
+        "phrase": "prospecting并gold"
+      },
+      "cattle": {
+        "label": "牛群 & ranching",
+        "phrase": "cattle并ranch business"
+      },
+      "travel": {
+        "label": "Travel & rail",
+        "phrase": "travel across 该territory"
+      },
+      "wilderness": {
+        "label": "Hunting & wilderness",
+        "phrase": "hunting并wilderness travel"
+      },
+      "commerce": {
+        "label": "Trade & work",
+        "phrase": "trade, work,并equipment"
+      },
+      "other": {
+        "label": "Other frontier business",
+        "phrase": "other frontier business"
+      }
+    },
+    "flavors": {
+      "gambling": "该gambling h全部s did 一个brisk trade,并more th一个one fortune changed hands over 一个回合的牌s",
+      "legendary": "talk的legendary deeds并legendary items passed从porch到porch faster th一个该telegraph could carry it",
+      "stories": "story after story unfolded across 该territory, 每个 one adding 一个little more color到该frontier’s memory"
+    },
+    "moodLabels": {
+      "quiet": "Quiet",
+      "bloodshed": "Bloodshed",
+      "lawless": "Lawless",
+      "orderly": "Orderly",
+      "tense": "Tense",
+      "opportunity": "Opportunity"
+    },
+    "subject": {
+      "passingRider": "一个passing rider",
+      "territory": "该territory"
+    },
+    "flavorLead": "Meanwhile, {flavor}.",
+    "overall": {
+      "leaders": "{activities} 占据了公报当天记录的大部分篇幅",
+      "oneOff": {
+        "one": "{count} 起意外事件打断了当天的日常事务",
+        "other": "{count} 起意外事件打断了当天的日常事务"
+      },
+      "world": {
+        "one": "{count} 个全局状况改变了边疆生活",
+        "other": "{count} 个全局状况改变了边疆生活"
+      },
+      "arcs": {
+        "one": "{count} 条持续发展的角色故事留下了自己的印记",
+        "other": "{count} 条持续发展的角色故事留下了自己的印记"
+      }
+    },
+    "arc": {
+      "active": "截稿时，{actor} 仍卷在这件事里。",
+      "expired": "{actor} 错过了机会，故事转向了别的方向。",
+      "resolved": [
+        "{actor} 把这件事处理到了最后。",
+        "{actor} 抓住时机，让故事继续发展。",
+        "{actor} 沿着线索走到了故事的下一转折。"
+      ],
+      "drawnIn": "{actor} 被卷入了故事的下一次转折。"
+    },
+    "score": {
+      "winner": "{winner} wins带有{score} LP",
+      "shared": "{winners} sh是该victory在{score} LP"
+    },
+    "final": {
+      "leading": "最常出现在公报记录中的活动是 {activity}。",
+      "worldCount": {
+        "one": "{count} world event",
+        "other": "{count} world events"
+      },
+      "arcCount": {
+        "one": "{count} 条持续发展的角色故事",
+        "other": "{count} 条持续发展的角色故事"
+      },
+      "oneOffCount": {
+        "one": "{count} unexpected incident",
+        "other": "{count} unexpected incidents"
+      },
+      "texture": "{texture} 让这一天有了独特的形状。",
+      "soloWinner": "When 该books fin全部y c失去d, {winner} stood atop 该final t全部y.",
+      "sharedWinner": "When 该books fin全部y c失去d, {winners} shared 该top的该final t全部y."
+    },
+    "lead": {
+      "recorded": {
+        "one": "{participants} 穿行边疆，而助手记录了 {count} 个值得注意的时刻。{summary}",
+        "other": "{participants} 穿行边疆，而助手记录了 {count} 个值得注意的时刻。{summary}"
+      }
+    },
+    "worldPhrases": {
+      "weather": "{title} 回合ed 该weather itself into part的该day’s business",
+      "gold": "{title} 让新的黄金传闻在营地和矿场之间迅速蔓延",
+      "sheriff": "{title} 让法律对通缉骑手的控制更紧",
+      "bandit": "{title} 让道路上多了枪声和危险",
+      "poker": "{title} raised 该temperature在该牌 tables",
+      "cattle": "{title} 改变了牧场主和偷牛贼双方的运气",
+      "doctor": "{title} made every 伤势 一个little harder到ignore",
+      "rail": "{title} put 该railroad在该center的frontier attention",
+      "mine": "{title} made 该mines 一个more dangerous 放置到earn 一个dollar",
+      "trader": "{title} stirred 该traveling market并该price的r是goods",
+      "saloon": "{title} changed 该tone的该saloons并gaming tables",
+      "ranch": "{title} 给牧场地区带来了新的麻烦",
+      "hunting": "{title} 改变了荒野猎人的运气",
+      "town": "{title} brought 一个r是spell的bustle并opportunity到城镇",
+      "default": "{title} left its mark on 该territory before giving way到该next 回合的events"
+    },
+    "player": {
+      "defaultIncident": "An unexpected 回合在{activity} drew attention before 该day was out.",
+      "activity": "最常与 {activity} 有关。",
+      "arcForward": "推进了一条持续发展的故事",
+      "arcExpired": "让一个机会悄悄溜走",
+      "oneOff": "途中挺过了一次意外遭遇",
+      "resolvedTales": {
+        "one": "推进了 {count} 条持续发展的故事",
+        "other": "推进了 {count} 条持续发展的故事"
+      },
+      "expired": {
+        "one": "错过了 {count} 个机会",
+        "other": "错过了 {count} 个机会"
+      },
+      "oneOffs": {
+        "one": "途中挺过了 {count} 次意外遭遇",
+        "other": "途中挺过了 {count} 次意外遭遇"
+      }
+    },
+    "oneOff": {
+      "intro": "{actor} 在路上遇到的不只是普通的边疆事务。",
+      "tail": "当天结束前，又发生了一次不寻常的遭遇。",
+      "personIntro": "{person} 在路上遇到的不只是普通的边疆事务。",
+      "remaining": {
+        "one": "当天结束前又发生了 {count} 次不寻常的遭遇。",
+        "other": "当天结束前又发生了 {count} 次不寻常的遭遇。"
+      }
+    },
+    "mastheadAlt": "{title} 报头"
+  },
+  "install": {
+    "ios": "安装方法：点击“分享”，然后选择“添加到主屏幕”。",
+    "browser": "你的浏览器没有在这里提供安装提示。打开浏览器菜单，选择“安装应用”或“添加到主屏幕”。",
+    "canceled": "安装已取消。你以后仍可通过此按钮或浏览器菜单安装 Western Legends Companion。"
+  },
+  "errors": {
+    "unableStart": "无法启动",
+    "localServer": "请通过本地网页服务器运行此应用，以便加载JSON文件。",
+    "unableLoad": "无法加载 {url}"
+  },
+  "strings": {
+    "man_in_black": "黑衣人",
+    "arc_global_active": "截稿时，这件事仍在整个边疆继续发展。",
+    "arc_global_expired": "机会在任何人进一步追查前就消失了。",
+    "arc_global_started": "这一进展让更大的故事开始运转。",
+    "arc_global_progress": "The development carried 该territory-wide tale 另一名 step forward.",
+    "arc_global_deeper": "新的进展让整个边疆更深地卷入这场故事。",
+    "arc_complete": "By 该time 该presses 掷ed, that trail had r每个ed its end.",
+    "arc_global_unfinished": "The Gazette went到press带有该larger story still unfinished.",
+    "arc_unwritten": "接下来会发生什么，仍无人写下。",
+    "unresolved_story_chapter": "— unresolved story chapter",
+    "has_story_alert": "has-story-alert",
+    "assign_a_color_to_every_player_before_starting": "Assign 一个color到every 玩家 before starting.",
+    "plus": "plus",
+    "oneoff": "oneOff",
+    "world_events": "世界事件",
+    "trigger_title_line": "trigger-title-line",
+    "a_player": "A PLAYER",
+    "story_row_personal": "story-row-personal",
+    "story_heading_personal": "story-heading-personal",
+    "5_of_a_kind": "5的一个Kind",
+    "five_cards_of_the_same_rank": "Five 牌s的该相同 rank.",
+    "royal_flush": "Royal Flush",
+    "10_jack_queen_king_and_ace_all_in_the_same_suit": "10, Jack, Queen, King,并Ace, 全部在该相同 suit.",
+    "straight_flush": "Straight Flush",
+    "five_consecutive_cards_all_in_the_same_suit": "Five consecutive 牌s, 全部在该相同 suit.",
+    "4_of_a_kind": "4的一个Kind",
+    "four_cards_of_the_same_rank_plus_any_other_card": "Four 牌s的该相同 rank, plus 任意 other 牌.",
+    "full_house": "Full House",
+    "three_cards_of_one_rank_plus_two_cards_of_another_rank": "Three 牌s的one rank plus two 牌s的另一名 rank.",
+    "flush": "Flush",
+    "five_cards_in_the_same_suit_that_are_not_consecutive": "Five 牌s在该相同 suit that 是not consecutive.",
+    "straight": "Straight",
+    "five_consecutive_cards_in_any_suits_an_ace_may_be_high_or_low": "Five consecutive 牌s在任意 suits. An Ace 可以 be high或low.",
+    "3_of_a_kind": "3的一个Kind",
+    "three_cards_of_the_same_rank_plus_two_unmatched_cards": "Three 牌s的该相同 rank, plus two unmatched 牌s.",
+    "two_pair": "Two Pair",
+    "two_cards_of_one_rank_and_two_cards_of_another_rank": "Two 牌s的one rank并two 牌s的另一名 rank.",
+    "pair": "Pair",
+    "two_cards_of_the_same_rank_plus_three_unmatched_cards": "Two 牌s的该相同 rank, plus three unmatched 牌s.",
+    "high_card": "High 牌",
+    "when_no_other_hand_is_made_the_highest_card_determines_the_hand": "When no other hand 是made, 该最高 牌 determines 该hand.",
+    "winner": "winner",
+    "arrest": "Arrest",
+    "duel": "Duel",
+    "rob": "Rob",
+    "bandit": "Bandit",
+    "bank_guard": "Bank 守卫",
+    "sheriff": "Sheriff",
+    "outlaw": "歹徒",
+    "the_outlaw_token": "该歹徒 token",
+    "claim_jumper": "抢矿者",
+    "the_claim_jumper_token": "该抢矿者 token",
+    "train_guard": "火车 守卫",
+    "the_train_encounter_card": "该火车 Encounter 牌",
+    "use_count_shown_on_token_card": "使用标记/卡牌上显示的数量",
+    "arrest_the_target": "Arrest 该target",
+    "target_avoids_capture": "Target avoids capture",
+    "gain_2_lp": "获得 2 LP",
+    "take_1_wound": "Take 1 伤势",
+    "steal_from_the_target": "Steal从该target",
+    "robbery_fails": "Robbery fails",
+    "gain_1_mp_or_1_lp": "获得 1 MP或1 LP",
+    "gain_3_wp_80": "获得 3 WP & $80",
+    "1_wound_gain_1_wp": "1 伤势 & 获得 1 WP",
+    "return_sheriff_reveal_new_sheriff": "Re回合 警长 & reveal new 警长",
+    "return_sheriff_to_office": "Re回合 警长到office",
+    "you_are_arrested": "You 是arrested",
+    "gain_printed_reward": "获得 printed 奖励",
+    "resolve_the_win_result": "结算 该win 结果",
+    "resolve_the_loss_result": "结算 该loss 结果",
+    "target_player": "Target 玩家",
+    "1_poker_card_facedown_or_decline_and_lose_immediately": "1 扑克牌 facedown —或decline并失去 立即",
+    "alternate_until_both_players_pass": "双方玩家轮流行动，直到两人都选择跳过",
+    "active_player_reactions_then_npc_card_effect": "Active 玩家 re行动s, 然后NPC 牌 effect",
+    "highest_value_wins_active_player_wins_ties": "Highest 数值 获胜 — Active 玩家 获胜 ties",
+    "highest_value_wins_npc_wins_ties": "Highest 数值 获胜 — NPC 获胜 ties",
+    "start_of_fight": "START OF FIGHT",
+    "resolve_start_effects": "结算 开始 Effects",
+    "bandit_variant": "强盗 Variant",
+    "reveal_bandit_effect": "Reveal 强盗 Effect",
+    "reveal_top_bandit_card_mini_ring_number": "翻开最上方强盗牌与模型环上的编号",
+    "apply_bonuses_abilities": "Apply Bonuses & Abilities",
+    "active_player_then_target_player": "Active 玩家, 然后Target 玩家",
+    "play_reaction_effects": "Play Re行动 Effects",
+    "reactions_fight_card_effect": "Re行动s & 战斗牌 Effect",
+    "compare_final_values": "Comp是Final Values",
+    "end_of_fight": "END OF FIGHT",
+    "resolve_end_effects": "结算 结束 Effects",
+    "return_fight_cards_discard_played_poker_card": "Re回合 战斗牌, dis牌 played 扑克牌",
+    "all_cattle_and_longhorn_tokens": "全部 牛群并Longhorn tokens,",
+    "all_cattle_tokens": "全部 牛群 tokens,",
+    "plus_1_cattle_or_longhorn_token": "plus 1 牛群或Longhorn token.",
+    "plus_1_cattle_token": "plus 1 牛群 token.",
+    "the_npc_component": "该NPC component",
+    "start_of_fight_2": "开始的战斗",
+    "card_selection": "牌 选择ion",
+    "active_player_chooses": "Active 玩家 选择s",
+    "reveal": "Reveal",
+    "reveal_both_cards": "Reveal Both 牌s",
+    "compare": "Compare",
+    "active_player_wins": "Active 玩家 Wins",
+    "active_player_loses": "Active 玩家 失去s",
+    "end_of_fight_2": "结束的战斗",
+    "clean_up_played_cards": "Cle一个Up Played 牌s",
+    "fight_flow": "战斗 Flow",
+    "fight_helper": "战斗 Helper",
+    "turn_actions": "Turn/Actions",
+    "fight": "Fight",
+    "gambling": "Gambling",
+    "points": "Points",
+    "start": "Start",
+    "choose_2_10_1_card": "选择 2: $10, 1 牌",
+    "actions": "Actions",
+    "take_up_to_3_actions": "Take 最多3 行动s",
+    "end": "End",
+    "discard_to_hand_size": "Dis牌到hand size",
+    "end_of_round": "结束的Round",
+    "man_in_black_turn": "黑衣人 Turn",
+    "track_trigger": "Track Trigger",
+    "prospecting_deck": "Prospecting 牌堆",
+    "high_stakes_poker": "高额扑克",
+    "acquire": "Acquire",
+    "take_a_facedown_cattle_token_at_a_ranch": "Take 一个facedown 牛群 token在一个牧场",
+    "acquire_rumor": "Acquire Rumor",
+    "buy_rumor_cards_in_town_for_30_each": "Buy Rumor 牌s在城镇用于$30 每个",
+    "challenge": "Challenge",
+    "challenge_the_high_roller_to_poker": "Ch全部enge 该豪赌客到扑克",
+    "claim": "Claim",
+    "purchase_a_deed_at_its_location": "购买 一个地契在its location",
+    "deposit": "Deposit",
+    "sell_gold_nuggets_at_the_bank": "Sell 金块在该Bank",
+    "dig_up_treasure": "Dig Up Treasure",
+    "turn_3_matching_rumors_into_buried_treasure": "将3张匹配的传闻牌换成埋藏宝藏",
+    "fishing": "Fishing",
+    "fish_while_on_a_river_space": "Fish while on 一个river 格",
+    "frontier": "Frontier",
+    "complete_a_frontier_token_challenge": "Complete 一个边疆 token ch全部enge",
+    "gamble": "Gamble",
+    "gambling_flow": "Gambling Flow",
+    "heal": "Heal",
+    "remove_wounds_and_injuries_at_the_doctor": "Re移动 伤势并injuries在该Doctor",
+    "heist": "Heist",
+    "or_train": "或火车",
+    "hunt": "Hunt",
+    "use_a_hunt_action_marker_to_hunt_an_animal": "Use 一个Hunt 行动 marker到hunt 一个animal",
+    "prospect": "Prospect",
+    "roll_prospecting_dice_at_a_mine": "掷 淘金骰在一个矿场",
+    "dice_roller": "Dice 掷er",
+    "purchase_upgrade": "Purchase/Upgrade",
+    "or_trading_post": "或交易站",
+    "recruit": "Recruit",
+    "recruit_a_posse_or_gang_for_20": "Recruit 一个Posse或Gang用于$20",
+    "repair": "Repair",
+    "remove_a_ruin_token_for_2_sp": "Re移动 一个Ruin token用于2 SP",
+    "revel": "Revel",
+    "pay_30_at_the_cabaret_for_1_lp": "支付 $30在该歌舞厅用于1 LP",
+    "trail": "Trail",
+    "move_between_matching_trail_heads": "在匹配的路径端点之间移动",
+    "trader": "Trader",
+    "buy_an_item_from_the_traveling_trader": "Buy 一个item从该流动商人",
+    "travel_by_rail": "Travel By Rail",
+    "pay_10_to_travel_between_rail_stations": "支付 $10到travel between 火车站s",
+    "work": "Work",
+    "gain_10_at_any_location": "获得 $10在任意 location",
+    "without_a_ruin_token": "没有一个Ruin token",
+    "move": "Move",
+    "move_up_to_your_movement_value_2_default": "移动 最多你的移动ment 数值 (2 default)",
+    "initiate_a_fight_with_a_player_in_your_space": "Initiate 一个战斗带有一个玩家在你的格",
+    "card": "Card",
+    "play_a_poker_card_action": "Play 一个扑克牌 行动",
+    "free_deliveries": "Free Deliveries",
+    "rustle_or_wrangle_after_movement": "移动后偷牛或赶牛",
+    "location": "Location",
+    "actions_available_at_specific_locations": "行动s 可用在specific locations",
+    "quick_reference": "Quick 参考",
+    "start_faro": "开始 法罗牌",
+    "gamble_beside_a_saloon_same_town_players_may_join": "Gamble beside 一个酒馆; 相同-城镇 玩家s 可以 join",
+    "take_a_gamble_action_while_adjacent_to_a_saloon_any_other_player_in_the_": "Take 一个Gamble 行动 while adjacent到一个酒馆. Any other 玩家在该相同 城镇 可以 join. 如果at least one other 玩家 joins, 该active 玩家 获得s $10. The dealer 是该c失去st non-participating 玩家到该right的该active 玩家; if everyone joins, 该active 玩家 是该dealer.",
+    "draw_4_fight_cards_show_3_and_keep_1_facedown": "抽取 4 战斗牌; show 3并keep 1 facedown",
+    "the_dealer_draws_the_top_4_fight_cards_reveal_the_first_3_to_all_players": "The dealer 抽取s 该top 4 战斗牌. Reveal 该第一 3到全部 玩家s并leave 该fourth 牌 facedown.",
+    "bet": "Bet",
+    "place_up_to_2_bets_of_10_or_20_active_player_bets_last": "放置 最多2 bets的$10或$20; active 玩家 bets last",
+    "in_clockwise_order_with_the_active_player_placing_the_last_bet_each_play": "In clockwise order,带有该active 玩家 placing 该last bet, 每个 玩家 可以 放置 最多2 bet markers on 该法罗牌 board. Each marker 是$10或$20. Your two markers 不能 be on 该相同 牌 数值,并你的total bets 不能 exceed 该金钱 你当前ly have.",
+    "loser": "Loser",
+    "shuffle_the_4_cards_first_reveal_loses": "Shuffle 该4 牌s; 第一 reveal 失去s",
+    "the_dealer_shuffles_all_4_cards_facedown_and_offers_the_active_player_a_": "The dealer shuffles 全部 4 牌s facedown并offers 该active 玩家 一个cut. Reveal 该top 牌 as 该失去r. Every bet on that 牌 数值 失去s: 支付 该amount on that marker到该supply并reclaim 该marker.",
+    "winner_2": "赢家",
+    "second_reveal_pays_1_1_1_gp_decide_whether_to_press_on": "Second reveal 支付s 1:1 + 1 GP; decide whether到press on",
+    "reveal_the_next_card_as_the_winner_matching_bets_pay_1_1_gain_money_equa": "Reveal 该next 牌 as 该赢家. Matching bets 支付 1:1: 获得 金钱 equal到该marker并1 赌徒点数, 然后reclaim that marker. 开始ing到该left的该active 玩家, 任意one带有一个marker still on 该board 必须 either reclaim it并stop或leave it用于该Jackpot round.",
+    "jackpot": "Jackpot",
+    "third_reveal_pays_3_1_1_gp_all_other_remaining_bets_lose": "Third reveal 支付s 3:1 + 1 GP; 全部 other remaining bets 失去",
+    "reveal_the_next_card_as_the_jackpot_matching_bets_gain_3_times_the_marke": "Reveal 该next 牌 as 该Jackpot. Matching bets 获得 3 times 该marker 数值并1 赌徒点数, 然后reclaim 该marker. Every other marker still on 该board 失去s: 支付 its 数值到该supply并reclaim it. Shuffle 全部 战斗牌 used在法罗牌并放置 them on 该bottom的该战斗 牌堆.",
+    "qualify_ante": "Qualify & Ante",
+    "need_at_least_30_1_poker_card_ante_10_and_draw_1": "Need在least $30 + 1 扑克牌; ante $10并抽取 1",
+    "to_initiate_high_stakes_poker_the_active_player_must_have_at_least_30_an": "To initiate 高额扑克, 该active 玩家 必须 have在least $30并1 扑克牌. Take 一个Gamble 行动 while adjacent到一个酒馆, 支付 $10到该pot,并抽取 1 扑克牌.",
+    "invite_players": "Invite 玩家s",
+    "same_town_players_may_join_in_clockwise_order": "Same-城镇 玩家s 可以 join在clockwise order",
+    "each_other_player_in_the_same_town_decides_in_clockwise_order_whether_to": "Each other 玩家在该相同 城镇 decides在clockwise order whether到join. To join, 一个玩家 必须 have在least $30并1 扑克牌; they 支付 $10到该pot并抽取 1 扑克牌.",
+    "build_pot_set_dealer": "建立底池 / 指定庄家",
+    "saloon_adds_40_if_solo_dealer_draws_5_cards": "酒馆 adds $40; if solo, dealer 抽取s 5 牌s",
+    "the_saloon_adds_40_to_the_pot_if_no_other_player_joined_the_player_to_th": "The 酒馆 adds $40到该pot. 如果no other 玩家 joined, 该玩家到该right的该active 玩家 becomes 该dealer, sets aside 他们的正常 hand,并抽取s 5 扑克牌用于th是游戏.",
+    "deal_the_flop": "Deal 该Flop",
+    "reveal_3_communal_poker_cards": "Reveal 3 communal 扑克牌",
+    "reveal_3_communal_poker_cards_faceup_these_are_the_flop": "Reveal 3 communal 扑克牌 faceup. These 是该flop.",
+    "add_20_or_fold": "Add $20或Fold",
+    "players_act_clockwise_from_the_active_player_s_left_dealer_never_folds": "玩家s act clockwise从该active 玩家’s left; dealer never folds",
+    "starting_with_the_player_to_the_left_of_the_active_player_and_proceeding": "开始ing带有该玩家到该left的该active 玩家并proceeding clockwise, 每个 玩家 either adds $20到该pot或folds. A 玩家 who folds forfeits 他们的$10 ante, 失去s 该游戏,并抽取s 1 扑克牌. 如果一个dealer 是playing, 该dealer always adds $20从该supply并never folds.",
+    "check_for_early_end": "Check用于Early 结束",
+    "all_fold_clear_pot_lone_player_may_win_immediately": "全部 fold: clear pot; lone 玩家 可以 win 立即",
+    "if_all_players_fold_return_all_money_in_the_pot_to_the_supply_if_only_1_": "如果全部 玩家s fold, re回合 全部 金钱在该pot到该supply. 如果only 1 玩家 remains并no dealer 是playing, that 玩家 立即 takes 该pot并获得s 1 Legendary Point并1 赌徒点数.",
+    "turn_river": "Turn & River",
+    "if_play_continues_reveal_2_more_communal_cards": "如果继续游戏，再翻开2张公共牌",
+    "if_the_hand_continues_and_no_dealer_is_playing_the_saloon_adds_another_2": "如果该hand continues并no dealer 是playing, 该酒馆 adds 另一名 $20到该pot. Then reveal 2 more communal 扑克牌: 该回合并river.",
+    "make_the_best_hand": "Make 该Best Hand",
+    "reveal_2_hand_cards_use_any_3_communal_cards": "Reveal 2 hand 牌s + use 任意 3 communal 牌s",
+    "starting_to_the_left_of_the_active_player_and_proceeding_clockwise_each_": "开始ing到该left的该active 玩家并proceeding clockwise, 每个 remaining 玩家 reveals 2 牌s从hand并combines them带有3的该5 communal 牌s到make 该best 扑克 hand possible. The dealer does 该相同 when playing. 结算 扑克/Gambling abilities as在正常 扑克.",
+    "winner_ties_rewards": "赢家, Ties & Rewards",
+    "best_hand_wins_winner_gets_pot_1_lp_1_gp": "Best hand 获胜; winner gets pot + 1 LP + 1 GP",
+    "the_best_hand_wins_the_dealer_wins_ties_the_active_player_wins_ties_agai": "The best hand 获胜. The dealer 获胜 ties; 该active 玩家 获胜 ties a获得st other 玩家s. 如果multiple non-active 玩家s tie, 每个 获得s 1 LP并1 GP并they split 该pot evenly, rounding down; re回合 任意 remainder到该supply. 如果该dealer 获胜, re回合 该pot到该supply. Otherwise, 一个winning 玩家 takes 该pot并获得s 1 LP并1 GP. 全部 失去rs 抽取 1 扑克牌,并全部 玩家s dis牌 该牌s they revealed.",
+    "ante_draw": "Ante & 抽取",
+    "gamble_beside_a_saloon_pay_10_and_draw_1_poker_card": "Gamble beside 一个酒馆; 支付 $10并抽取 1 扑克牌",
+    "take_a_gamble_action_while_adjacent_to_a_saloon_the_active_player_pays_1": "Take 一个Gamble 行动 while adjacent到一个酒馆. The active 玩家 支付s $10到该pot并抽取s 1 扑克牌.",
+    "any_player_in_the_same_town_may_buy_in_for_10": "Any 玩家在该相同 城镇 可以 buy在for $10",
+    "each_other_player_in_the_same_town_may_join_a_joining_player_pays_10_to_": "Each other 玩家在该相同 城镇 可以 join. A joining 玩家 支付s $10到该pot并抽取s 1 扑克牌. 在everyone has joined或passed, 该house adds $50到该pot.",
+    "set_dealer_if_solo": "Set Dealer if Solo",
+    "if_nobody_joins_the_player_to_the_right_deals_against_you": "如果nobody joins, 该玩家到该right deals a获得st you",
+    "if_no_other_player_joined_the_player_to_the_right_of_the_active_player_b": "如果no other 玩家 joined, 该玩家到该right的该active 玩家 becomes 该dealer. The dealer sets aside 他们的正常 扑克 hand并抽取s 4 扑克牌 as 他们的hand用于th是游戏.",
+    "reveal_the_top_3_poker_cards": "Reveal 该top 3 扑克牌",
+    "reveal_the_top_3_poker_cards_faceup_these_communal_cards_are_the_flop": "Reveal 该top 3 扑克牌 faceup. These communal 牌s 是该flop.",
+    "build_your_hand": "Build Your Hand",
+    "use_2_hand_cards_the_3_flop_cards": "Use 2 hand 牌s + 该3 flop 牌s",
+    "make_the_best_5_card_hand_using_the_3_flop_cards_and_exactly_2_poker_car": "Make 该best 5-牌 hand using 该3 flop 牌s并exactly 2 扑克牌从你的hand, if able. 如果你have only 1 扑克牌, use it到make 该best 4-牌 hand 你can. Aces 可以 be low或high在一个straight或straight flush.",
+    "reveal_break_ties": "Reveal & Break Ties",
+    "best_hand_wins_dealer_and_active_player_have_tie_priority": "Best hand 获胜; dealer并active 玩家 have tie priority",
+    "reveal_chosen_cards_simultaneously_and_announce_each_hand_the_best_hand_": "Reveal chosen 牌s simultaneously并announce 每个 hand. The best hand 获胜. Between hands的该相同 rank, comp是牌 数值s并然后kickers if needed. A dealer 获胜 ties. 如果玩家s tie并该active 玩家 是among them, 该active 玩家 获胜. Otherwise tied 玩家s split 该pot evenly; re回合 任意 remainder到该supply.",
+    "award_the_pot": "Award 该Pot",
+    "winner_takes_pot_losers_draw_1_poker_card": "赢家 takes pot; 失去rs 抽取 1 扑克牌",
+    "the_winner_takes_the_pot_and_any_additional_item_or_ability_rewards_if_t": "The winner takes 该pot并任意 额外 item或ability 奖励s. 如果该active 玩家 获胜, they 可以 获得 either 1 赌徒点数或1 Legendary Point. A winning non-active 玩家 获得s 1 赌徒点数. Every losing 玩家 抽取s 1 扑克牌.",
+    "poker": "Poker",
+    "faro": "Faro",
+    "poker_hands": "扑克 Hands",
+    "gambling_reference": "Gambling 参考",
+    "legendary_points_lp": "Legendary Points (LP)",
+    "deposit_gold": "Deposit 黄金",
+    "at_the_bank_gain_20_and_1_lp_for_each_gold_nugget_sold": "At 该Bank, 获得 $20并1 LP用于每个 金块 sold.",
+    "at_the_cabaret_pay_30_to_gain_1_lp_you_may_repeat_during_the_same_revel_": "At 该歌舞厅, 支付 $30到获得 1 LP; 你可以 repeat during 该相同 狂欢行动.",
+    "win_fights": "Win 战斗s",
+    "defeat_bandits_or_story_npcs_when_the_fight_reward_allows_lp": "Defeat 强盗或story NPCs when 该战斗 奖励 全部ows LP.",
+    "complete_stories": "Complete Stories",
+    "story_cards_legendary_stories_event_triggers_and_app_story_objectives_ma": "故事牌, Legendary Stories, event triggers,并app story objectives 可以 award LP.",
+    "use_deeds": "Use 地契",
+    "claim_or_use_deeds_when_a_property_reward_grants_lp": "Claim或use 地契 when 一个property 奖励 grants LP.",
+    "expansion_rewards": "Expansion Rewards",
+    "hunting_fishing_crafting_and_other_expansion_content_may_award_lp_throug": "Hunting, fishing, crafting,并other expansion content 可以 award LP through 他们的own rules或stories.",
+    "marshal_points_mp": "治安官点数 (MP)",
+    "wrangle_cattle": "Wrangle 牛群",
+    "deliver_cattle_tokens_to_a_rail_station": "Deliver cattle tokens到一个火车站.",
+    "arrest_outlaws": "Arrest 歹徒s",
+    "arrest_wanted_players_or_resolve_lawman_rewards_that_grant_marshal_point": "Arrest 通缉 玩家s或resolve lawm一个奖励s that grant 治安官点数.",
+    "defeat_bandits": "Defeat 强盗",
+    "choose_marshal_points_when_the_bandit_reward_allows_mp_instead_of_lp": "选择 治安官点数 when 该强盗 奖励 全部ows MP 而不是 LP.",
+    "serve_the_law": "Serve 该Law",
+    "complete_sheriff_marshal_posse_or_law_themed_story_events_that_award_mp": "Complete 警长, 治安官, Posse,或law-themed story events that award MP.",
+    "wanted_points_wp": "通缉点数 (WP)",
+    "rustle_cattle": "Rustle 牛群",
+    "deliver_cattle_to_the_wrong_ranch_color": "Deliver cattle到该wrong 牧场 color.",
+    "rob_heist": "Rob / 抢劫",
+    "rob_another_player_rob_the_bank_or_commit_heist_outlaw_actions_that_awar": "Rob 另一名 玩家, rob 该Bank,或commit 抢劫/歹徒 行动s that award 通缉点数.",
+    "fight_the_law": "战斗 该Law",
+    "attack_or_interfere_with_lawmen_when_a_rule_or_story_says_to_gain_wp": "Attack或interfere带有lawmen when 一个rule或story says到获得 WP.",
+    "outlaw_events": "歹徒 Events",
+    "resolve_outlaw_gang_train_heist_or_bandit_story_events_that_grant_wp": "结算 outlaw, gang, train-heist,或bandit story events that grant WP.",
+    "gambler_points_gp": "赌徒点数 (GP)",
+    "gambling_rewards": "Gambling Rewards",
+    "win_or_resolve_ante_up_gambling_activities_when_the_gambler_track_module": "当赌徒轨道模块启用时，赢得或结算 Ante Up 的赌博活动。",
+    "poker_faro": "扑克 / 法罗牌",
+    "play_poker_or_faro_events_that_award_gambler_points": "Play 扑克或法罗牌 events that award 赌徒点数.",
+    "gambling_stories": "Gambling Stories",
+    "complete_saloon_cabaret_card_shark_or_traveling_showman_story_events_tha": "Complete saloon, cabaret, 牌-shark,或traveling-showm一个story events that award GP.",
+    "story_points_sp": "故事点数 (SP)",
+    "legendary_stories": "Legendary Stories",
+    "gain_story_points_from_blood_money_legendary_story_content_when_instruct": "获得 故事点数从Blood Money 传奇故事 content when instructed.",
+    "risk_die_effects": "风险骰 Effects",
+    "gain_story_points_from_the_risk_die_or_other_module_effects_when_instruc": "获得 故事点数从该风险骰或other module effects when instructed.",
+    "story_objectives": "故事 Objectives",
+    "complete_story_objectives_major_storyline_chapters_or_app_events_that_ex": "Complete story objectives, major storyline chapters,或app events that explicitly award 故事点数.",
+    "game_assist": "游戏 Assist",
+    "quick_helpers": "Quick Helpers",
+    "draw": "Draw",
+    "step_by_step_fight_guide": "战斗逐步指南",
+    "which_hand_beats_which": "查看各种牌型的强弱关系。",
+    "step_by_step_poker_guide": "扑克逐步指南。",
+    "step_by_step_faro_guide": "法罗牌逐步指南。",
+    "step_by_step_high_stakes_guide": "高额扑克逐步指南。",
+    "dice": "Dice",
+    "prospecting_dice": "淘金骰",
+    "roll_prospecting_dice": "掷 淘金骰",
+    "risk_die": "风险骰",
+    "roll_the_risk_die": "掷 该风险骰.",
+    "randomizers": "Randomizers",
+    "first_player": "First 玩家",
+    "choose_first_player": "选择起始玩家",
+    "random_player": "Random 玩家",
+    "pick_a_random_player_color": "Pick 一个random 玩家.",
+    "store_randomizer": "Store Randomizer",
+    "fill_general_store_trading_post": "Fill 杂货店/交易站",
+    "fill_general_store": "Fill 杂货店",
+    "other": "Other",
+    "trail_helper": "Trail Helper",
+    "use_the_fight_card_count_shown_on_the_train_encounter_card": "Use 该战斗牌 count shown on 该火车 Encounter 牌.",
+    "draw_fight_cards": "抽取 战斗牌",
+    "tap_a_face_down_card_to_peek_at_it_tap_any_revealed_card_to_view_it_full": "Tap 一个face-down 牌到peek在it. Tap 任意 revealed 牌到view it full size.",
+    "tap_draw_to_draw_this_many_fight_cards_and_reveal_the_npc_s_best_play": "Tap 抽取到抽取 th是m任意 战斗牌并reveal 该NPC’s best play.",
+    "gambling_helper": "Gambling Helper",
+    "draw_a_different_item": "抽取 一个different item",
+    "setup_helper": "设置 Helper",
+    "general_store": "杂货店",
+    "store_layout": "Store Layout",
+    "shared_store": "Shared Store",
+    "split_by_town": "Split by 城镇",
+    "darkrock": "Darkrock",
+    "red_falls": "Red F全部s",
+    "trading_post": "交易站",
+    "store_inventory_summary": "{count} 个位置 · 保证至少1件武器和1匹坐骑",
+    "deal_new_store": "Deal New Store",
+    "store_interaction_hint": "Tap 一个牌到enlarge it. Tap ⟲到re放置 it.",
+    "tap_randomize_to_reveal_the_store": "点击“随机选择”来展示商店。",
+    "tap_a_card_to_view_it_full_size_or_tap_to_draw_a_different_item_the_firs": "Tap 一个牌到view it full size,或tap ⟲到抽取 一个different item. The 第一 抽取n Weapon并Mount 是locked into 该杂货店 automatic全部y.",
+    "randomizer": "Randomizer",
+    "touch_randomizer": "Touch Randomizer",
+    "use_this_for_train_movement_train_heists_and_train_encounter_reminders": "Use this用于train 移动ment, train heists,并火车 Encounter reminders.",
+    "use_this_for_hunt_markers_animal_draws_strength_checks_and_harvest_rewar": "Use this用于Hunt markers, animal 抽取s, strength checks,并harvest 奖励s.",
+    "use_this_for_fish_draws_bait_lure_checks_and_fish_delivery_hooks": "Use this用于fish 抽取s, bait/lure checks,并fish delivery hooks.",
+    "foraging_crafting_assist": "Foraging & 制作ing Assist",
+    "use_this_for_resource_draws_craft_costs_and_delivery_story_hooks": "Use this用于资源 抽取s, craft 费用s,并delivery story hooks.",
+    "this_assist_can_be_expanded_later": "Th是assist 可以be expanded later.",
+    "frontier_gazette": "边疆 Gazette",
+    "finish_this_game_and_clear_its_saved_data_print_or_save_the_newspaper_fi": "Finish th是游戏并clear its saved data? Print或save 该newspaper 第一 if 你want到keep it.",
+    "law_and_order": "Law并Order",
+    "tense_standoff": "Tense Standoff",
+    "the_gambling_halls_did_a_brisk_trade_and_more_than_one_fortune_changed_h": "该gambling h全部s did 一个brisk trade,并more th一个one fortune changed hands over 一个回合的牌s",
+    "story_after_story_unfolded_across_the_territory_each_one_adding_a_little": "story after story unfolded across 该territory, 每个 one adding 一个little more color到该frontier’s memory",
+    "a_passing_rider": "一个passing rider",
+    "other_frontier_business": "Other frontier business",
+    "other_frontier_business_2": "other frontier business",
+    "the_day_left_only_a_light_trail_in_the_companion_s_record_before_the_pre": "The day left only 一个light trail在该Companion’s record before 该presses 掷ed.",
+    "the_rider": "该rider",
+    "the_rider_s": "该rider’s",
+    "kept_a_varied_trail_across_the_territory": "在整个边疆留下了丰富多样的足迹。",
+    "other_reports_reached_the_gazette_from_across_the_territory": "Other reports r每个ed 该Gazette从across 该territory.",
+    "the_territory": "该territory",
+    "tap_to_dismiss": "Tap到dismiss",
+    "hide_future_story_point_reminder_messages": "Hide future 故事点数 reminder messages",
+    "story_point": "故事点数",
+    "do_not_show_again": "Do not show a获得",
+    "story_point_track_per_player": "故事点数 track per 玩家",
+    "players_with_unresolved_story_chapters": "玩家s带有unresolved story chapters",
+    "tap_to_cycle_color": "Tap到cycle color",
+    "name": "Name",
+    "reward": "Reward:",
+    "effect": "Effect:",
+    "the_trail_continues": "The Trail Continues",
+    "current_game_summary": "Current 游戏 summary",
+    "lp": "LP",
+    "continue_game": "Continue 游戏",
+    "players_in_the_current_game": "玩家s在该当前游戏",
+    "close": "Close",
+    "setup_steps": "设置 steps",
+    "game_setup": "游戏 设置",
+    "new_game": "New 游戏",
+    "modules": "Modules",
+    "basics": "Basics",
+    "setup": "Setup",
+    "next": "下一个",
+    "decrease_target_lp": "Decrease target LP",
+    "victory_conditions": "Victory Conditions",
+    "increase_target_lp": "Increase target LP",
+    "target_legend_points_to_win_the_game": "Target 传奇点数到win 该游戏",
+    "story_amp_events": "故事 &amp; Events",
+    "track_story_points": "Track 故事点数",
+    "track_each_player_s_story_track_and_show_compact_reward_reminders": "Track 每个 玩家's 故事轨道并show compact 奖励 reminders.",
+    "players": "Players",
+    "start_game": "开始 游戏",
+    "current_game": "Current 游戏",
+    "game_settings": "游戏 Settings",
+    "adjust_story_features_without_changing_the_modules_used_to_start_this_ga": "Adjust story features没有changing 该modules used到start th是游戏. Changes apply到future events; ongoing chapters并当前 world effects remain active.",
+    "story_points": "故事点数",
+    "show_and_maintain_each_player_s_story_point_track_during_this_game": "Show并maintain 每个 玩家's 故事点数 track 本次游戏.",
+    "story_point_reward_reminders": "故事点数 Reward Reminders",
+    "show_the_compact_reminder_when_a_story_point_advances_a_player_s_marker": "Show 该compact reminder when 一个故事点数 advances 一个玩家's marker.",
+    "done": "Done",
+    "player": "Player",
+    "setup_sections": "设置 sections",
+    "setup_step": "设置 Step",
+    "back": "Back",
+    "primary_actions": "Primary 行动s",
+    "perform_one_of_these_actions_to_see_what_happens": "Perform one的these 行动s到see what happens.",
+    "primary_action_triggers": "Primary 行动 triggers",
+    "ongoing_stories": "进行中的故事",
+    "current_world_event": "当前世界事件",
+    "tap_when_it_happens": "Tap When It Happens",
+    "resolved": "Resolved",
+    "resolve": "Resolve",
+    "strongest": "STRONGEST",
+    "higher_hands_beat_every_hand_below_them_tap_a_hand_for_a_quick_definitio": "Higher hands beat every hand below them. Tap 一个hand用于一个quick definition.",
+    "weakest": "WEAKEST",
+    "fight_type": "战斗 Type",
+    "choose_fight_type": "选择 战斗 type…",
+    "i": "i",
+    "win": "WIN",
+    "lose": "LOSE",
+    "interactive_fight_resolution_flowchart": "Interactive 战斗 resolution flowchart",
+    "select_a_fight_type_to_begin": "选择 一个战斗 type到begin",
+    "the_rest_of_the_flow_adapts_to_player_or_npc_fights_and_the_modules_enab": "The rest的该flow adapts到玩家或NPC 战斗s并该modules enabled用于th是游戏.",
+    "active_player": "Active 玩家:",
+    "gain_1_marshal_point": "获得 1 治安官点数.",
+    "target_player_2": "Target 玩家:",
+    "gain_1_wound_and_draw_1_poker_card_place_the_target_miniature_at_the_she": "获得 1 伤势并抽取 1 扑克牌. 放置 该target miniature在该警长/治安官办公室带有该警长. The target 失去s 全部 通缉点数,",
+    "half_of_their_gold_nuggets_rounded_up_and_half_of_their_money_rounded_up": "half的他们的金块 rounded up,并half的他们的金钱 rounded up.",
+    "gain_1_wanted_point_steal_half_of_the_target_s_money": "获得 1 通缉点数. Steal half的该target's 金钱",
+    "or": "or",
+    "half_of_their_gold_nuggets_rounded_up": "half的他们的金块, rounded up,",
+    "gain_1_wound_and_draw_1_poker_card": "获得 1 伤势并抽取 1 扑克牌.",
+    "place_the_sheriff_at_the": "放置 该警长在the",
+    "sheriff_marshal_office": "警长/治安官办公室",
+    "another_player_draws": "Another 玩家 抽取s",
+    "chooses_1_and_places_it_facedown": ", 选择s 1,并放置s it facedown.",
+    "another_player_draws_the_number_of_fight_cards_shown_on": "Another 玩家 抽取s 该number的战斗牌 shown on",
+    "the_active_player_s_poker_card_and_the_chosen_npc_fight_card_remain_face": "The Active 玩家's 扑克牌并该chosen NPC 战斗牌 remain facedown until 该Reveal step.",
+    "tap_anywhere_to_close": "Tap 任意where到c失去",
+    "turn_summary": "Turn Summary",
+    "rules_reminders": "规则 & Reminders",
+    "if_lp_is_at_least": "如果LP is在least",
+    "trigger_the_end_finish_the_current_round_then_play_1_final_full_round": ", trigger 该end: finish 该当前 round, 然后play 1 final full round.",
+    "while_adjacent_to_a_saloon_choose_to_play": "While adjacent到一个酒馆, 选择到play",
+    "once_per_turn": "每回合一次:",
+    "while_at_the_bank": "while在该Bank",
+    "fight_the_guard": ", 战斗 该guard.",
+    "while_at_a_mine_roll_the_mining_dice_and_gain_the_results": "While在一个矿场, 掷 该mining dice并获得 该结果s.",
+    "while_adjacent_to_the_store": "While adjacent到该Store",
+    "purchase_an_item_from_the_rack_or_pay_to_upgrade_an_owned_item": ", 购买 一个item从该rack或支付到升级 一个owned item.",
+    "initiate_a_fight_in_your_space_with_another_player_arrest_duel_or_rob": "Initiate 一个战斗在你的格带有另一名 玩家: Arrest, Duel,或Rob.",
+    "game": "Game",
+    "step": "Step",
+    "product_name": "Western Legends Companion",
+    "settings": "Settings",
+    "audio": "Audio",
+    "npc": "NPC",
+    "advanced_refine_the_npc_s_decision": "Advanced: refine 该NPC's decision",
+    "opponent_has_a_card_reducing_weapon": "对手拥有降低牌值的武器",
+    "opponent_already_has_3_wounds_the_max": "对手已经有3点伤势（上限）",
+    "this_npc_u2019s_defeat_reward_is_especially_valuable_bank_guard_sheriff_": "Th是NPC’s defeat 奖励 是especi全部y valuable (Bank 守卫, 警长, etc.)",
+    "opponent_has_no_poker_cards_to_discard": "Opponent has no 扑克牌到dis牌",
+    "draw_one_fewer_fight_card": "抽取 one fewer 战斗牌",
+    "fight_cards": "战斗牌",
+    "draw_one_more_fight_card": "抽取 one more 战斗牌",
+    "npc_plays_the": "NPC plays the",
+    "roll_dice": "掷 dice",
+    "roll_all_dice": "掷 全部 Dice",
+    "empty": "Empty",
+    "pick_again": "Pick A获得",
+    "placeholder_ready_for_the_next_build_out": "放置holder ready用于该next build-out.",
+    "final_scoring_reminders": "Final scoring reminders",
+    "final_scoring": "Final Scoring",
+    "tie_breakers": "Tie-breakers",
+    "back_to_game": "Back到游戏",
+    "end_game": "结束游戏",
+    "final_tally": "Final T全部y",
+    "newspaper": "报纸",
+    "highest_lp": "Highest LP",
+    "wins": "获胜",
+    "highest_lp_is_tied": "Highest LP 是tied",
+    "resolve_the_tie": "结算 该tie",
+    "use_the_normal_tie_breakers_then_choose_the_winner_if_the_tie_remains_ch": "Use 该正常 tie-breakers, 然后选择 该winner. 如果该tie remains, 选择 共同胜利.",
+    "shared_victory": "共同胜利",
+    "save": "保存",
+    "finish_game": "Finish 游戏",
+    "gazette_ledger": "Gazette Ledger",
+    "recorded_action_reports": "Recorded 行动 reports",
+    "the_companion_recorded_a_quieter_trail_for_this_rider_with_no_dominant_l": "The Companion recorded 一个quieter trail用于th是rider,带有no dominant line的行动 before 该final t全部y.",
+    "riders_leave_their_mark": "骑手留下印记",
+    "dispatches_from_the_range": "Dispatches From 该Range",
+    "world_events_shape_the_territory": "世界事件 Shape 该Territory",
+    "lives_and_legends": "Lives并Legends",
+    "the_gazette_followed_these_recurring_frontier_figures_as_their_fortunes_": "The Gazette followed these recurring frontier figures as 他们的fortunes changed从chapter到chapter.",
+    "territory_wide_tales": "Territory-Wide Tales",
+    "final_standings": "最终排名",
+    "final_word": "结语",
+    "install_app": "Inst全部 App",
+    "version": "版本",
+    "unable_to_start": "Unable到开始",
+    "run_this_app_from_a_local_web_server_so_the_json_files_can_load": "Run th是app从一个local web server so 该JSON files 可以load.",
+    "display_mode_standalone": "(display-mode: standalone)",
+    "man_in_black_2": "<div class=\"player-setup-row man-in-black-setup-row\" aria-label=\"自动玩家黑衣人\"><span class=\"player-color-swatch swatch-man-in-black\" aria-hidden=\"true\"></span><strong class=\"man-in-black-setup-label\">黑衣人</strong></div>",
+    "goals_after_choosing_each_character_take_that_character_s_4_goal_cards": "<p class=\"player-goals-note\"><strong>目标：</strong>选择每个角色后，拿取该角色的4张目标牌。</p>",
+    "add_player": "<button type=\"button\" class=\"secondary-btn add-player-btn\" id=\"addPlayerBtn\">添加玩家</button>",
+    "effect_2": "<strong>Effect:</strong><ul>",
+    "your_legend_awaits_gather_your_posse_and_make_your_mark_on_the_frontie": "<p class=\"home-kicker\">Your Legend Awaits</p><p class=\"home-subtitle\">Gather 你的posse并make 你的mark on 该frontier.</p>",
+    "start_new_game": "<button class=\"secondary-btn home-major-btn home-leather-btn home-leather-btn-secondary\" id=\"newGameBtn\"><span class=\"home-btn-mark\" aria-hidden=\"true\">◇</span><span class=\"home-btn-label\">开始 New 游戏</span><span class=\"home-btn-arrow\" aria-hidden=\"true\">›</span></button>",
+    "start_new_game_2": "<button class=\"primary-btn home-major-btn home-leather-btn home-leather-btn-primary\" id=\"newGameBtn\"><span class=\"home-btn-mark\" aria-hidden=\"true\">◆</span><span class=\"home-btn-label\">开始 New 游戏</span><span class=\"home-btn-arrow\" aria-hidden=\"true\">›</span></button>",
+    "show_reference": "<button type=\"button\" class=\"step-image-toggle\" aria-expanded=\"false\">显示参考</button>",
+    "no_ongoing_stories_keep_watching_the_three_primary_action_cards": "<p>No ongoing stories. Keep watching 该three primary 行动 牌s.</p>",
+    "no_current_world_event": "<p>No 当前 world event.</p>",
+    "active_player_gain_1_wound_and_draw_1_poker_card_target_player_avoids_": "<p><strong>Active 玩家:</strong>获得 1 伤势并抽取 1 扑克牌.</p><p><strong>Target 玩家:</strong>Avoids capture.</p>",
+    "active_player_gain_2_legendary_points_target_player_gain_1_wound_and_d": "<p><strong>Active 玩家:</strong>获得 2 Legendary Points.</p><p><strong>Target 玩家:</strong>获得 1 伤势并抽取 1 扑克牌.</p>",
+    "active_player_gain_1_wound_and_draw_1_poker_card_target_player_no_addi": "<p><strong>Active 玩家:</strong>获得 1 伤势并抽取 1 扑克牌.</p><p><strong>Target 玩家:</strong>No 额外 effect.</p>",
+    "active_player_gain_1_wound_and_draw_1_poker_card_target_player_avoids__2": "<p><strong>Active 玩家:</strong>获得 1 伤势并抽取 1 扑克牌.</p><p><strong>Target 玩家:</strong>Avoids being robbed.</p>",
+    "gain_1_marshal_point_or_1_legendary_point_then_remove_the_bandit_from_": "<p>获得<strong>1 治安官点数或1 Legendary Point</strong>, 然后re移动 该强盗从play.</p>",
+    "gain_1_wound_draw_1_poker_card_then_remove_the_bandit_from_play": "<p>获得<strong>1 伤势</strong>, 抽取 1 扑克牌, 然后re移动 该强盗从play.</p>",
+    "gain_3_wanted_points_and_80": "<p>获得<strong>3 通缉点数并$80</strong>.</p>",
+    "gain_1_wound_draw_1_poker_card_and_gain_1_wanted_point": "<p>获得<strong>1 伤势</strong>, 抽取 1 扑克牌,并获得<strong>1 通缉点数</strong>.</p>",
+    "sheriff_variant_the_sheriff_lost_the_fight_so_discard_replace_the_curr": "<p><strong>警长 Variant:</strong>该警长 lost 该战斗, so dis牌/re放置 该当前 警长 牌并reveal 该next 警长 牌.</p>",
+    "the_player_is_arrested_gains_1_wound_and_draws_1_poker_card": "<p>The 玩家 是<strong>arrested</strong>, 获得s 1 伤势,并抽取s 1 扑克牌.</p>",
+    "gain_the_reward_printed_on_the_outlaw_token_then_remove_the_token_from": "<p>获得 该<strong>奖励 printed on 该歹徒 token</strong>, 然后re移动 该token从play.</p>",
+    "gain_1_wound_draw_1_poker_card_then_remove_the_outlaw_token_from_play": "<p>获得<strong>1 伤势</strong>, 抽取 1 扑克牌, 然后re移动 该歹徒 token从play.</p>",
+    "gain_the_reward_printed_on_the_claim_jumper_token_then_remove_the_toke": "<p>获得 该<strong>奖励 printed on 该抢矿者 token</strong>, 然后re移动 该token从play.</p>",
+    "gain_1_wound_draw_1_poker_card_then_remove_the_claim_jumper_token_from": "<p>获得<strong>1 伤势</strong>, 抽取 1 扑克牌, 然后re移动 该抢矿者 token从play.</p>",
+    "gain_the_reward_printed_on_the_train_encounter_card": "<p>获得 该<strong>奖励 printed on 该火车 Encounter 牌</strong>.</p>",
+    "gain_1_wound_draw_1_poker_card_and_resolve_the_additional_consequences": "<p>获得<strong>1 伤势</strong>, 抽取 1 扑克牌,并resolve 该额外 consequences printed on 该火车 Encounter 牌.</p>",
+    "resolve_the_result_listed_by_the_fight_or_encounter": "<p>结算 该结果 listed by 该战斗或encounter.</p>",
+    "the_active_player_resolves_a_start_of_fight_effect_then_the_target_pla": "<p>The<strong>Active 玩家</strong>resolves 一个开始的战斗 effect, 然后该<strong>Target 玩家</strong>可以 resolve one. Continue alternating until both 玩家s pass.</p>",
+    "the_active_player_resolves_all_applicable_start_of_fight_effects_befor": "<p>The<strong>Active 玩家</strong>resolves 全部 applicable 开始的战斗 effects before 牌s 是chosen.</p>",
+    "reveal_the_top_bandit_card_then_reveal_the_number_on_the_bottom_of_the": "<p>Reveal 该<strong>top 强盗 牌</strong>, 然后reveal 该number on 该bottom的该强盗 miniature's grey ring. Read 该matching 强盗 effect aloud并apply it用于th是战斗.</p>",
+    "the_active_player_chooses_1_poker_card_from_hand_and_places_it_facedow": "<p>The Active 玩家 选择s<strong>1 扑克牌从hand</strong>并放置s it facedown.</p>",
+    "the_target_player_chooses_1_poker_card_from_hand_and_places_it_facedow": "<p>The Target 玩家 选择s<strong>1 扑克牌从hand</strong>并放置s it facedown.</p><p>Instead, 该Target 玩家 可以<strong>decline 该战斗</strong>. 如果they decline, they instantly 失去 — skip Reveal并Compare并resolve 该Active 玩家's win 结果.</p>",
+    "reveal_the_active_player_s_poker_card_and_the_opposing_poker_fight_car": "<p>Reveal 该Active 玩家's 扑克牌并该opposing 扑克/战斗牌在该相同 time.</p>",
+    "the_active_player_resolves_any_bonus_character_ability_or_item_ability": "<p>The<strong>Active 玩家</strong>resolves 任意 bonus, character ability,或item ability that affects 该revealed 牌. Then 该<strong>Target 玩家</strong>resolves 他们的applicable bonuses并abilities.</p>",
+    "the_active_player_resolves_any_bonus_character_ability_or_item_ability_2": "<p>The<strong>Active 玩家</strong>resolves 任意 bonus, character ability,或item ability that affects 他们的revealed 牌.</p>",
+    "the_active_player_may_play_a_reaction_effect_then_the_target_player_ma": "<p>The Active 玩家 可以 play 一个Re行动 effect, 然后该Target 玩家 可以 play one.<strong>Alternate until both 玩家s pass.</strong></p>",
+    "the_active_player_resolves_applicable_reaction_effects_then_apply_the_": "<p>The Active 玩家 resolves applicable Re行动 effects. Then apply 该effect printed on 该selected<strong>NPC 战斗牌</strong>.</p>",
+    "after_all_modifiers_and_effects_the_highest_final_value_wins_if_the_va": "<p>在全部 modifiers并effects, 该<strong>最高 final 数值 获胜</strong>. 如果该数值s 是tied, 该<strong>Active 玩家 获胜 该tie</strong>.</p>",
+    "after_all_modifiers_and_effects_the_highest_final_value_wins_if_the_va_2": "<p>在全部 modifiers并effects, 该<strong>最高 final 数值 获胜</strong>. 如果该数值s 是tied, 该<strong>NPC 获胜 该tie</strong>.</p>",
+    "the_active_player_resolves_all_applicable_end_of_fight_effects_then_th": "<p>The<strong>Active 玩家</strong>resolves 全部 applicable 结束的战斗 effects. Then 该<strong>Target 玩家</strong>resolves 他们的applicable 结束的战斗 effects.</p>",
+    "the_active_player_resolves_all_applicable_end_of_fight_effects": "<p>The<strong>Active 玩家</strong>resolves 全部 applicable 结束的战斗 effects.</p>",
+    "discard_all_poker_cards_played_in_this_fight": "<p>Dis牌 全部 扑克牌 played在th是战斗.</p>",
+    "shuffle_the_fight_cards_drawn_for_this_fight_and_place_them_on_the_bot": "<p>Shuffle 该战斗牌 抽取n用于th是战斗并放置 them on 该<strong>bottom的该战斗 牌堆</strong>. Dis牌 全部 扑克牌 played在该战斗.</p>",
+    "auto_select_fight_card": "<button type=\"button\" class=\"primary-btn fight-flow-auto-btn\" data-fight-auto-select>Auto-选择 战斗牌</button>",
+    "move_the_train": "<li>移动 该火车.</li>",
+    "resolve_start_of_turn_effects": "<li>结算 start的回合 effects.</li>",
+    "choose_income": "<li>选择 income.</li>",
+    "choose_active_weapon_mount": "<li>选择 active weapon/mount.</li>",
+    "move_move_up_to_your_movement_value_2_default": "<li><strong>Move:</strong>移动 最多你的移动ment 数值 (2 default).</li>",
+    "card_play_a_poker_card_action_as_written": "<li><strong>Card:</strong>play 一个扑克牌 行动 as written.</li>",
+    "fight_another_player_initiate_a_fight_in_your_space": "<li><strong>战斗 Another 玩家:</strong>initiate 一个战斗在你的格.</li>",
+    "free_deliveries_rustle_after_ending_movement_at_ranch_wrangle_after_en": "<li><strong>Free Deliveries:</strong>Rustle after ending 移动ment在牧场; Wrangle after ending 移动ment在火车站.</li>",
+    "location_use_the_available_location_module_actions_view_actions": "<li class=\"turn-location-action\"><strong>Location:</strong>use 该可用 location/module 行动s.<button type=\"button\" class=\"small-btn inline-reference-btn\" data-open-actions-reference>View 行动s</button></li>",
+    "risk_die_once_per_turn_roll_at_no_action_cost_to_draw_1_poker_card_gai": "<li><strong>风险骰:</strong>once per 回合, 掷在no 行动 费用到抽取 1 扑克牌, 获得 $10,或移动 1 (not 一个移动行动).</li>",
+    "resolve_end_of_turn_effects": "<li>结算 end的回合 effects.</li>",
+    "resolve_legendary_story_card_conditions": "<li>结算 传奇故事 牌 conditions.</li>",
+    "discard_down_to_hand_size_5_1_per_wound": "<li>Dis牌 down到hand size:<strong>5 - 1 per 伤势.</strong></li>",
+    "if_wanted_gain_lp_from_the_wanted_track": "<li>如果通缉, 获得 LP从该通缉 Track.</li>",
+    "draw_and_resolve_top_to_bottom_1_card_from_the_man_in_black_deck": "<li>抽取并resolve, top到bottom, 1 牌从该黑衣人 牌堆.</li>",
+    "he_is_considered_a_player_for_gameplay_effects": "<li>He 是considered 一个玩家用于游戏play effects.</li>",
+    "he_cannot_gain_mp_wp_gp_sp_or_wounds": "<li>He 不能 获得 MP, WP, GP, SP,或伤势.</li>",
+    "he_always_has_120_and_4_gold_nuggets": "<li>He always has $120并4 金块.</li>",
+    "he_draws_3_fight_cards_in_fights_and_resolves_the_highest_value_card": "<li>He 抽取s 3 战斗牌在战斗s并resolves 该最高-数值 牌.</li>",
+    "he_decreases_the_value_of_poker_cards_played_against_him_by_1": "<li>He decreases 该数值的扑克牌 played a获得st him by 1.</li>",
+    "he_wins_all_ties": "<li>He 获胜 全部 ties.</li>",
+    "when_a_player_lands_on_or_passes_a_gold_nugget_on_the_lp_track_return_": "<li>When 一个玩家 lands on或passes 一个金块 on 该LP track, re回合 that nugget到该supply.</li>",
+    "reveal_the_next_prospecting_card_and_add_the_designated_gold_nuggets_t": "<li>Reveal 该next Prospecting 牌并add 该designated 金块到该indicated mines.</li>",
+    "while_at_a_ranch_space_gain_1_facedown_cattle_token_if_you_are_not_alr": "<p>While在一个牧场 格, 获得 1 facedown 牛群 token if 你是not already carrying one.</p>",
+    "while_inside_town_buy_any_number_of_rumor_cards_for_30_each_rumor_card": "<p>While inside 城镇, buy 任意 number的Rumor 牌s用于$30 每个. Rumor 牌s 是treated as $10 while在你的possession.</p>",
+    "while_adjacent_to_a_saloon_where_the_high_roller_token_is_present_init": "<p>While adjacent到一个酒馆 where 该豪赌客 token 是present, initiate 一个游戏的扑克.</p>",
+    "while_at_any_location_with_a_deed_card_pay_its_cost_and_take_the_deed_": "<p>While在任意 location带有一个地契 牌, 支付 its 费用并take 该地契 牌.</p>",
+    "while_at_the_bank_space_sell_gold_nuggets_gain_20_1_lp_per_nugget": "<p>While在该Bank 格, sell 金块. 获得<strong>$20 + 1 LP per nugget</strong>.</p>",
+    "when_your_miniature_is_on_the_board_space_indicated_by_3_rumor_cards_d": "<p>When 你的miniature 是on 该board 格 indicated by 3 Rumor 牌s, dis牌 those Rumor 牌s并获得<strong>3 LP</strong>, 1 random 传奇物品,并该结果的2 淘金骰 掷s.</p>",
+    "while_on_a_river_space_discard_1_poker_card_j_q_k_10_a_11_plus_any_fis": "<p>While on 一个river 格, dis牌 1 扑克牌 (J, Q, K = 10; A = 11) plus 任意 Fish 牌s (1 per 牌)到determine Fishing Effort. Reveal Fish 牌s until 他们的total 数值 is在least 该Fishing Effort, dis牌ing 任意 overage. 获得 1 LP if 该total equals 该Fishing Effort并你caught在least 1 Fish.</p>",
+    "while_on_a_space_with_a_frontier_token_discard_poker_cards_from_your_h": "<p>While on 一个格带有一个边疆 token, dis牌 扑克牌从你的hand带有一个total 数值 greater than或equal到该边疆 token + 格. 获得 该奖励 printed on 该back. J, Q, K = 10; A = 11.</p>",
+    "while_at_the_doctor_s_office_pay_10_to_lose_all_wounds_injuries_then_d": "<p>While在该医生诊所, 支付 $10到失去 全部 伤势/injuries, 然后抽取 1 扑克牌 per 伤势.</p>",
+    "while_on_a_space_with_a_hunt_action_marker_remove_the_marker_and_draw_": "<p>While on 一个格带有一个Hunt 行动 marker, re移动 该marker并抽取 Animal 牌s until one matching 该marker size或一个Bird 是revealed. Either dis牌 该chosen Animal 牌并end 该行动,或dis牌 扑克牌(s) whose total 数值 (J, Q, K = 10; A = 11) is在least 该animal's 优势. Rifle modifies 该check by +/-1; Shotgun gives +2. Then 放置 该Hunt 行动 marker on 一个new unoccupied 格.</p>",
+    "prospecting_deck_whenever_your_lp_marker_lands_on_or_passes_a_gold_nug": "<p><strong>Prospecting 牌堆:</strong>whenever 你的LP marker lands on或passes 一个金块 on 该LP track, re回合 it到该supply并reveal 该next Prospecting 牌, adding 该designated 金块到该indicated mines.</p>",
+    "pay_20_at_the_sheriff_marshal_office_with_marshal_points_recruit_a_pos": "<p>支付 $20. At 该警长/治安官办公室带有治安官点数, recruit 一个Posse;在该歹徒营地带有通缉点数, recruit 一个Gang.</p>",
+    "while_at_a_space_with_a_ruin_token_discard_1_poker_card_to_gain_2_sp_a": "<p>While在一个格带有一个Ruin token, dis牌 1 扑克牌到获得 2 SP并re移动 该Ruin token.</p>",
+    "while_at_the_cabaret_buy_any_number_of_faceup_theatre_cards_and_gain_t": "<p>While在该歌舞厅, buy 任意 number的faceup Theatre 牌s并获得 该LP indicated on them. Reveal new 牌s until 3 Theatre 牌s 是faceup a获得.</p>",
+    "while_at_the_cabaret_pay_30_to_gain_1_lp": "<p>While在该歌舞厅, 支付 $30到获得 1 LP.</p>",
+    "use_a_move_action_from_one_trail_head_location_to_the_matching_trail_h": "<p>Use 一个移动行动从one trail head location到该matching trail head location on 该opposite board.</p>",
+    "while_in_the_same_region_as_the_traveling_trader_pay_40_to_gain_an_ite": "<p>While在该相同 region as 该流动商人, 支付 $40到获得 一个item从该Trader stand. 移动 该Trader到一个new location based on 该抽取n 牌.</p>",
+    "pay_10_to_place_your_miniature_on_the_opposite_rail_station_then_conti": "<p>支付 $10到放置 你的miniature on 该opposite 火车站, 然后continue 该移动行动 最多你的maximum 移动ment.</p>",
+    "move_up_to_your_movement_value_the_default_movement_value_is_2": "<p>移动 最多你的移动ment 数值. The default 移动ment 数值 是2.</p>",
+    "play_a_poker_card_action_as_written_on_the_card": "<p>Play 一个扑克牌 行动 as written on 该牌.</p>",
+    "rustle_after_ending_movement_at_a_ranch_wrangle_after_ending_movement_": "<p><strong>Rustle:</strong>after ending 移动ment在一个牧场.</p><p><strong>Wrangle:</strong>after ending 移动ment在一个火车站.</p>",
+    "game_poker": "<div class=\"gambling-flow-game-chip\"><span>Game</span><strong>Poker</strong></div>",
+    "poker_hands_2": "<button type=\"button\" class=\"small-btn gambling-poker-hands-btn\" data-open-poker-hands>扑克牌型</button>",
+    "start_a_game_to_see_the_story_events_and_story_point_settings_for_that": "<p class=\"settings-no-game-note\">开始 一个游戏到see 该故事 &amp; Events并故事点数 settings用于that 游戏.</p>",
+    "trading_post_is_inactive_for_this_setup_enable_the_buzzard_gulch_sideb": "<p class=\"assist-hint\">交易站 是inactive用于th是setup — enable 该Buzzard Gulch Sideboard module到include it.</p>",
+    "3_everyone_place_one_finger_on_the_screen_hold_steady_while_the_timer_": "<div class=\"first-player-stage\" id=\"firstPlayerStage\"><canvas id=\"firstPlayerCanvas\" class=\"first-player-canvas\" aria-label=\"First player touch selector\"></canvas><div class=\"first-player-timer\" id=\"firstPlayerTimer\"></div><p class=\"first-player-instructions\" id=\"firstPlayerHint\">Everyone 放置 one finger on 该screen. Hold steady while 该timer counts down.</p></div><div class=\"first-player-footer\"><button type=\"button\" class=\"primary-btn first-player-reset-btn\" data-first-player-reset>开始 Over</button></div>",
+    "no_players_were_assigned_colors_this_game": "<p>No 玩家s were assigned colors th是游戏.</p>",
+    "man_in_black_tie_rule_man_in_black_wins_the_tie": "<div class=\"auto-winner-note\"><span class=\"sheriff-star\" aria-hidden=\"true\">★</span><span><small>黑衣人 tie rule</small><strong>黑衣人 获胜 该tie</strong></span></div>",
+    "update_available_tap_to_update": "<button type=\"button\" class=\"primary-btn app-update-btn\" id=\"applyUpdateBtn\">有可用更新 — Tap到Update</button>",
+    "check_for_updates": "<button type=\"button\" class=\"secondary-btn app-update-btn\" id=\"checkUpdateBtn\">检查更新</button>",
+    "choose_character": "选择 角色",
+    "change_character": "Change 角色",
+    "tap_to_browse_characters": "Tap到browse 牌s",
+    "swipe_browse_character_cards": "Swipe left或right到browse character 牌s. Tap 该牌到flip it.",
+    "previous_character": "上一个 character",
+    "next_character": "下一个 character",
+    "previous": "上一个",
+    "flip_card": "Flip 牌",
+    "character_card_scan_missing": "Add 该character 牌 scan在该configured image path.",
+    "view_character_card_full_size": "全尺寸查看 {character} 的角色牌",
+    "view_item": "View {item}",
+    "starts_with": "开始s with",
+    "starting_money": "开始ing 金钱",
+    "flip_card_for_starting_bonuses": "Flip 该牌到see th是character’s full starting bonuses.",
+    "select_character_name": "选择 {character}",
+    "browse_all_characters": "Browse 全部 角色",
+    "characters": "角色",
+    "special_ability": "特殊能力",
+    "character_reference_intro": "浏览角色牌、起始地点和起始奖励。",
+    "taken_by_player": "Taken by {玩家}",
+    "character": "角色",
+    "card_back": "牌 back",
+    "card_front": "牌 front",
+    "flip_character_card": "Flip {character} 牌",
+    "character_starting_location": "开始ing location",
+    "character_starting_bonus_unavailable": "开始ing bonus details un可用.",
+    "character_bonus_poker_card": "扑克牌",
+    "character_bonus_upgraded": "Upgraded",
+    "character_bonus_marshal_point": "治安官点数",
+    "character_bonus_wanted_point": "通缉点数",
+    "character_bonus_gambler_point": "赌徒点数",
+    "character_bonus_story_point": "故事点数",
+    "character_bonus_legendary_point": "Legendary Point",
+    "character_bonus_marshal_or_wanted_point": "治安官点数或通缉点数",
+    "character_bonus_gold_nugget": "金块",
+    "character_bonus_wound": "Wound",
+    "character_bonus_deed": "Deed",
+    "character_bonus_cattle_token": "牛群 Token",
+    "character_bonus_legendary_item": "传奇物品",
+    "character_bonus_random_legendary_item": "Random 传奇物品",
+    "character_bonus_weapon_of_your_choice": "Weapon的你的choice",
+    "character_bonus_item_of_your_choice": "Item的你的choice",
+    "character_bonus_no_reward": "Do not 获得 奖励",
+    "character_bonus_gain_reward": "获得 该奖励",
+    "character_bonus_draw_one_poker_card": "抽取 1 扑克牌.",
+    "character_bonus_ranch_of_your_choice": "牧场的你的choice",
+    "character_bonus_any_saloon": "Any saloon",
+    "map": "地图",
+    "view_on_map": "View on map",
+    "starting_location_map": "开始ing Location 地图",
+    "main_board": "Main Board",
+    "buzzard_gulch_frontier_board": "Buzzard Gulch 边疆",
+    "select_character": "选择 角色",
+    "character_guide": "角色 Guide",
+    "strength": "优势",
+    "focus": "玩法重点",
+    "character_filters": "角色 filters",
+    "character_filter_all": "全部",
+    "character_filter_fighting": "战斗",
+    "character_filter_marshal": "治安官",
+    "character_filter_outlaw": "歹徒",
+    "character_filter_poker": "Poker",
+    "character_filter_economy": "经济",
+    "character_filter_frontier": "Frontier",
+    "character_filter_movement": "移动",
+    "character_filter_story": "故事",
+    "select_short": "选择",
+    "see_all": "See 全部",
+    "all_characters": "全部 角色",
+    "deselect_short": "取消选择",
+    "character_currently_selected": "Currently selected用于th是玩家",
+    "check_for_updates_text": "检查更新",
+    "checking_for_updates": "正在检查更新…",
+    "up_to_date_version": "You’re 最多date — v{version}",
+    "unable_to_check_updates": "无法检查更新。",
+    "check_again": "再次检查",
+    "update_available_version": "Update 可用 — v{version}",
+    "update_now": "立即更新",
+    "updating_app": "正在更新…",
+    "new_triggers": "新触发器",
+    "new_triggers_short": "New 3",
+    "new_triggers_aria": "Re放置 全部 three event triggers带有new random triggers",
+    "new_triggers_drawn": "3 new triggers 抽取n",
+    "undo": "撤销",
+    "new_trigger_short": "New",
+    "new_trigger_aria": "Re放置 th是event trigger带有一个new random trigger",
+    "trigger_swapped": "Trigger swapped"
+  },
+  "reference": {
+    "fightFlow": "战斗流程",
+    "autoSelectFightCard": "自动选择战斗牌",
+    "poker": "扑克",
+    "faro": "法罗牌",
+    "pokerHands": "扑克牌型",
+    "game": "游戏",
+    "firstPlayer": "起始玩家",
+    "fightCardBack": "战斗牌背面",
+    "draw": "抽取",
+    "redraw": "重新抽取",
+    "weapon": "武器",
+    "mount": "坐骑",
+    "misc": "杂项",
+    "itemCardBack": "物品牌背面",
+    "randomize": "随机选择",
+    "rerandomize": "重新随机",
+    "open": "打开",
+    "actions": {
+      "playAtSaloon": "Play在一个酒馆",
+      "bankGuard": "每回合一次: 战斗 该guard在该Bank",
+      "store": "Buy或升级 items在该Store",
+      "theatre": "Buy faceup Theatre 牌s在该歌舞厅",
+      "orOneDollar": "或$1"
+    },
+    "gambleSummary": "Play {游戏s}在一个酒馆",
+    "gambleBody": "<p>While adjacent到一个酒馆, 选择到play {游戏s}.</p>",
+    "heistSummary": "每回合一次: 战斗 该guard在该Bank{train}",
+    "purchaseSummary": "Buy或升级 items在该Store{tradingPost}"
+  },
+  "fight": {
+    "step": {
+      "npcDraw": "另一名玩家抽 {count} 张战斗{cardWord}{plural}，选择1张并面朝下放置",
+      "cardWord": "牌"
+    },
+    "resultLabel": "结果：{target}"
+  },
+  "languageSelector": {
+    "title": "语言",
+    "choose": "选择语言",
+    "change": "更改",
+    "current": "当前语言",
+    "prompt": "选择你希望助手使用的语言。",
+    "selectAria": "选择语言。当前语言：{language}",
+    "options": [
+      {
+        "code": "en",
+        "nativeName": "English",
+        "region": "英语",
+        "dir": "ltr"
+      },
+      {
+        "code": "de",
+        "nativeName": "Deutsch",
+        "region": "德语",
+        "dir": "ltr"
+      },
+      {
+        "code": "es",
+        "nativeName": "Español",
+        "region": "西班牙语",
+        "dir": "ltr"
+      },
+      {
+        "code": "fr",
+        "nativeName": "Français",
+        "region": "法语",
+        "dir": "ltr"
+      },
+      {
+        "code": "it",
+        "nativeName": "Italiano",
+        "region": "意大利语",
+        "dir": "ltr"
+      },
+      {
+        "code": "ru",
+        "nativeName": "Русский",
+        "region": "俄语",
+        "dir": "ltr"
+      },
+      {
+        "code": "el",
+        "nativeName": "Ελληνικά",
+        "region": "希腊语",
+        "dir": "ltr"
+      },
+      {
+        "code": "pl",
+        "nativeName": "Polski",
+        "region": "波兰语",
+        "dir": "ltr"
+      },
+      {
+        "code": "zh",
+        "nativeName": "中文",
+        "region": "简体中文",
+        "dir": "ltr"
+      }
+    ]
+  },
+  "gameModes": {
+    "gameMode": "游戏模式",
+    "chooseTitle": "选择游戏模式",
+    "chooseIntro": "进行标准 Western Legends，或选择带有专属角色、内容、设置和特殊规则的预设体验。",
+    "players": "玩家",
+    "lp": "LP",
+    "standardFlexible": "你的内容 · 你的设置",
+    "viewDetails": "查看游戏模式详情",
+    "recommended": "推荐",
+    "contentShort": "内容",
+    "availableContent": "可用内容",
+    "availableContentIntro": "请选择你拥有并可用于 {mode} 的 Western Legends 内容。只会使用该游戏模式明确需要的内容。",
+    "requiredByMode": "游戏模式必需",
+    "requiredContent": "必需内容",
+    "missingRequired": "仍需确认以下必需内容：{content}。",
+    "characters": "角色",
+    "items": "物品",
+    "legendaryItems": "传奇物品",
+    "modeUnavailable": "此版本的应用中没有保存的游戏模式定义。",
+    "changeConfirm": "切换到 {mode}？游戏模式设置和不兼容的选择将被替换。玩家名称和颜色会保留。",
+    "overview": "概览",
+    "specialRules": "特殊规则",
+    "setupReference": "模式设置参考",
+    "versionChanged": "本局开始时使用游戏模式定义 v{old}；当前安装的是 v{current}。使用更新后的参考文本前请先查看变化。",
+    "activeLabel": "游戏模式：{mode}",
+    "viewRules": "查看规则",
+    "setByMode": "由游戏模式设定",
+    "characterPool": "角色受此游戏模式和你选择的内容限制。",
+    "insufficientCharacters": "此游戏模式/内容组合只有 {available} 名可用角色，无法满足 {players} 名玩家。",
+    "savedModeUnavailable": "保存的游戏模式“{mode}”在此版本中不可用。请选择当前游戏模式继续设置。",
+    "checklistProgress": "已完成 {done}/{total} 个设置项目",
+    "lockedSummary": "此预设固定了该模式的设置、牌堆、商店和变体。",
+    "characterCleared": "角色选择已清除，因为以下角色不再可用：{characters}。"
+  },
+  "visualSetup": {
+    "visual": "可视化设置",
+    "checklist": "检查清单",
+    "viewLabel": "设置视图",
+    "replay": "重播",
+    "recenter": "重新居中",
+    "viewCards": "查看卡牌",
+    "boardViewport": "互动设置版图。双指缩放或拖动以查看桌面。",
+    "navigation": "可视化设置导航",
+    "stepOf": "第 {current}/{total} 步"
+  }
+}

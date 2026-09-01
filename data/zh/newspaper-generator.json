@@ -1,0 +1,42 @@
+{
+  "title": "《Darkrock 公报》",
+  "edition": "",
+  "sections": [
+    {
+      "id": "lead_story",
+      "description": "根据边疆氛围生成头条，并简要概括本局最常出现的行动类型。"
+    },
+    {
+      "id": "final_tally",
+      "description": "紧凑的最终排名栏，显示赢家及每位玩家的LP。"
+    },
+    {
+      "id": "gazette_ledger",
+      "description": "以易读方式统计记录历史中最常出现的行动类别。"
+    },
+    {
+      "id": "player_recaps",
+      "description": "仅根据该玩家实际记录的行动、故事结果和一次性遭遇，生成逐个玩家的简短总结。"
+    },
+    {
+      "id": "world_events",
+      "description": "汇总本局发生的全局事件；有作者撰写的报纸文本时优先使用。"
+    },
+    {
+      "id": "one_off_dispatches",
+      "description": "汇总不寻常的一次性事件，并按遭遇这些事件的骑手整理。"
+    },
+    {
+      "id": "character_arcs",
+      "description": "为每个已开始的角色故事生成短文，包括已完成、错过或尚未结束的章节。"
+    },
+    {
+      "id": "global_storylines",
+      "description": "简要汇总本局推进的所有全局主线故事。"
+    },
+    {
+      "id": "final_word",
+      "description": "根据边疆氛围、主要活动、故事、世界事件、一次性事件和最终赢家生成动态结语。"
+    }
+  ]
+}

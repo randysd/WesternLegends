@@ -1,0 +1,769 @@
+{
+  "characters": [
+    {
+      "id": "annie_oakley",
+      "name": "Annie Oakley",
+      "ability": "与另一名玩家开始战斗时，该玩家必须弃1张扑克牌，否则受到1点伤势。",
+      "starting": {
+        "location": "Any Darkrock general store 格"
+      },
+      "playstyle": {
+        "tags": [
+          "战斗",
+          "决斗",
+          "手牌压制"
+        ],
+        "strength": "Puts immediate pressure on 另一名 玩家 before 一个战斗 even begins.",
+        "focus": "Pick 战斗s when opponents 是low on 扑克 牌s或不能 afford 另一名 伤势."
+      }
+    },
+    {
+      "id": "bass_reeves",
+      "name": "Bass Reeves",
+      "ability": "你的回合开始时，抽1张扑克牌。",
+      "starting": {
+        "location": "Darkrock 警长's office"
+      },
+      "playstyle": {
+        "tags": [
+          "手牌优势",
+          "扑克",
+          "灵活"
+        ],
+        "strength": "Generates 一个steady extr一个扑克 牌在该start的every 回合.",
+        "focus": "Use 该larger hand到stay prepared用于战斗s, 扑克,并牌-driven 行动s."
+      }
+    },
+    {
+      "id": "billy_the_kid",
+      "name": "Billy the Kid",
+      "ability": "当你在有一名或多名玩家的格子结束移动行动后，选择该格的一名玩家；其必须给你$10或1张扑克牌。",
+      "starting": {
+        "location": "Either bandit hideout A"
+      },
+      "playstyle": {
+        "tags": [
+          "玩家互动",
+          "移动",
+          "经济"
+        ],
+        "strength": "Extracts 金钱或牌s simply by ending 移动ment带有other 玩家s.",
+        "focus": "Seek occupied 格s并pressure 玩家s who 是rich或short on 扑克 牌s."
+      }
+    },
+    {
+      "id": "bloody_knife",
+      "name": "Bloody Knife",
+      "ability": "你可以穿过台地，并把整块台地视为1格。你不能在台地中结束移动行动。每次穿过台地后，移除1点伤势。",
+      "starting": {
+        "location": "Spike's View 矿场"
+      },
+      "playstyle": {
+        "tags": [
+          "移动",
+          "Frontier",
+          "Shortcuts"
+        ],
+        "strength": "C一个cut through Mesas as single 格s到take routes other characters 不能.",
+        "focus": "Use Mes一个shortcuts到save 移动ment, while managing 该伤势 those shortcuts 费用."
+      }
+    },
+    {
+      "id": "calamity_jane",
+      "name": "Calamity Jane",
+      "ability": "你的手牌上限+1。每次你为一张故事牌做出贡献后，抽1张扑克牌。",
+      "starting": {
+        "location": "Any Red F全部s general store 格"
+      },
+      "playstyle": {
+        "tags": [
+          "手牌优势",
+          "故事",
+          "Large Hand"
+        ],
+        "strength": "Carries 一个extr一个牌并获得s more 牌s by contributing到Story 牌s.",
+        "focus": "Look用于Story contributions while using 该larger hand到stay flexible."
+      }
+    },
+    {
+      "id": "doc_holliday",
+      "name": "Doc Holliday",
+      "ability": "每当你受到任意数量的伤势后，抽1张扑克牌。伤势不会降低你的手牌上限。",
+      "starting": {
+        "location": "Red F全部s Doctor's office"
+      },
+      "playstyle": {
+        "tags": [
+          "Wounds",
+          "手牌优势",
+          "Resilience"
+        ],
+        "strength": "Turns incoming 伤势 into 扑克 牌s并ignores 该正常 hand-size penalty从伤势.",
+        "focus": "Do not be afraid的taking some damage when 该extr一个牌s 可以create 一个stronger 回合."
+      }
+    },
+    {
+      "id": "jesse_james",
+      "name": "Jesse James",
+      "ability": "在城镇外战斗时，对你打出的牌数值-1。与另一名玩家战斗时，你赢得所有平局。",
+      "starting": {
+        "location": "Either bandit hideout B"
+      },
+      "playstyle": {
+        "tags": [
+          "战斗",
+          "Frontier",
+          "决斗"
+        ],
+        "strength": "Is especi全部y difficult到beat在战斗s outside 城镇s并wins ties a获得st 玩家s.",
+        "focus": "选择 战斗 locations carefully并favor confrontations在该frontier."
+      }
+    },
+    {
+      "id": "kit_carson",
+      "name": "Kit Carson",
+      "ability": "移动行动结束时，你可以额外移动1格。在城镇外战斗时，对你打出的牌数值-1。",
+      "starting": {
+        "location": "Sunny Hill's mine"
+      },
+      "playstyle": {
+        "tags": [
+          "移动",
+          "Frontier",
+          "战斗"
+        ],
+        "strength": "Combines extr一个移动ment带有better defense在战斗s outside 城镇s.",
+        "focus": "Stay mobile在该frontier并use 该bonus 格到r每个 profitable或tactical positions."
+      }
+    },
+    {
+      "id": "stagecoach_mary_fields",
+      "name": "Stagecoach Mary Fields",
+      "ability": "你的回合开始时，获得$10。每次你为一张故事牌做出贡献后，获得$10。",
+      "starting": {
+        "location": "Any Darkrock 酒馆 Space"
+      },
+      "playstyle": {
+        "tags": [
+          "经济",
+          "故事",
+          "收入"
+        ],
+        "strength": "Produces reliable cash every 回合并earns even more by contributing到Story 牌s.",
+        "focus": "Keep 该steady income flowing并look用于Story contributions that 支付 你twice."
+      }
+    },
+    {
+      "id": "wild_bill_hickok",
+      "name": "Wild Bill Hickok",
+      "ability": "赢得一局扑克后获得$20。输掉一局扑克后，你可以保留自己打出的1张随机扑克牌。",
+      "starting": {
+        "location": "Red F全部s 歌舞厅"
+      },
+      "playstyle": {
+        "tags": [
+          "扑克",
+          "经济",
+          "牌 Recovery"
+        ],
+        "strength": "Makes 扑克 more profitable while softening 该费用的losing 一个游戏.",
+        "focus": "Play 扑克 often, especi全部y when 你的hand gives 你一个good chance到回合 游戏s into cash."
+      }
+    },
+    {
+      "id": "wyatt_earp",
+      "name": "Wyatt Earp",
+      "ability": "每回合第一次击败强盗时，获得1个额外行动。",
+      "starting": {
+        "location": "Any 可用 强盗藏身处"
+      },
+      "playstyle": {
+        "tags": [
+          "强盗",
+          "Actions",
+          "战斗"
+        ],
+        "strength": "Turns 该第一 强盗 victory 每回合 into 一个额外 行动.",
+        "focus": "Find 一个强盗 early在该回合 so 该bonus 行动 可以extend everything else 你do."
+      }
+    },
+    {
+      "id": "y_b_rowdy",
+      "name": "Y. B. Rowdy",
+      "ability": "如果你在城镇外开始回合，可以弃1张扑克牌并移动最多3格。",
+      "starting": {
+        "location": "Cliff Junction 矿场"
+      },
+      "playstyle": {
+        "tags": [
+          "移动",
+          "扑克牌",
+          "Frontier"
+        ],
+        "strength": "C一个trade 一个扑克 牌用于一个burst的移动ment when starting outside 一个城镇.",
+        "focus": "Keep sp是牌s 可用并use frontier starts到reposition quickly."
+      }
+    },
+    {
+      "id": "judge_roy_bean",
+      "name": "Judge Roy Bean",
+      "ability": "与强盗、守卫或警长战斗时，对方必须先选择并亮出牌。与强盗、守卫或警长战斗时，你赢得所有平局。",
+      "starting": {
+        "location": "Any Red F全部s saloon 格"
+      },
+      "playstyle": {
+        "tags": [
+          "NPC 战斗ing",
+          "强盗",
+          "战斗 Advantage"
+        ],
+        "strength": "Gets extr一个information并wins ties a获得st 强盗, 守卫s,并该警长.",
+        "focus": "Seek NPC 战斗s where seeing 他们的牌 第一 lets 你spend only as much strength as needed."
+      }
+    },
+    {
+      "id": "butch_cassity",
+      "name": "Butch Cassity",
+      "ability": "抢劫另一名玩家后，你可以偷取其1件你尚未拥有的杂项物品，而不是其一半金钱或金块。逮捕另一名玩家后，你可以偷取其一半金钱或金块。",
+      "starting": {
+        "location": "Either 强盗 hideout C"
+      },
+      "playstyle": {
+        "tags": [
+          "玩家互动",
+          "Theft",
+          "Flexible Alignment"
+        ],
+        "strength": "C一个take valuable 资源s从opponents whether acting as 一个robber或一个arresting lawman.",
+        "focus": "Target 玩家s带有该items, 金钱,或金块 that make 你的当前 alignment most 奖励ing."
+      }
+    },
+    {
+      "id": "joaquin_murrieta",
+      "name": "Joaquin Murrieta",
+      "ability": "如果你是通缉玩家，与治安官玩家战斗后获得1 LP。如果你是治安官玩家，与通缉玩家战斗后获得1 LP。",
+      "starting": {
+        "location": "Any Darkrock general store 格"
+      },
+      "playstyle": {
+        "tags": [
+          "治安官 / 通缉",
+          "战斗",
+          "LP"
+        ],
+        "strength": "Earns LP用于战斗ing 玩家s on 该opposite side的该law.",
+        "focus": "Commit到一个track并seek confrontations带有玩家s on 该opposing track."
+      }
+    },
+    {
+      "id": "belle_starr",
+      "name": "Belle Starr",
+      "ability": "与强盗、守卫或警长战斗时，对你打出的战斗牌数值-2。击败强盗后，你可以改为获得1点通缉点数。",
+      "starting": {
+        "location": "Any Red F全部s general store 格"
+      },
+      "playstyle": {
+        "tags": [
+          "NPC 战斗ing",
+          "强盗",
+          "Wanted"
+        ],
+        "strength": "Is very strong a获得st NPC opponents并可以回合 强盗 victories into 通缉 progress.",
+        "focus": "Hunt 强盗并other NPCs, 然后decide when 一个强盗 win 是worth pushing farther onto 该通缉 Track."
+      }
+    },
+    {
+      "id": "isom_dart",
+      "name": "Isom Dart",
+      "ability": "如果你回合开始时至少有1个牛群标记，可以获得1个额外行动。若如此做，回合结束时必须弃掉所有牛群标记。",
+      "starting": {
+        "location": "Sunny Hills 牧场"
+      },
+      "playstyle": {
+        "tags": [
+          "牛群",
+          "Actions",
+          "Ranching"
+        ],
+        "strength": "C一个convert 一个carried 牛群 token into 一个额外 行动用于该回合.",
+        "focus": "Arrange到start key 回合s带有牛群 when 该extr一个行动 是worth giving those tokens up."
+      }
+    },
+    {
+      "id": "allan_pinkerton",
+      "name": "Allan Pinkerton",
+      "ability": "行动：选择1格范围内的一名玩家，让其向你展示扑克牌。选择一个牌值，该玩家必须弃掉所有该牌值的牌。",
+      "starting": {
+        "location": "Darkrock bank"
+      },
+      "playstyle": {
+        "tags": [
+          "Hand Control",
+          "玩家互动",
+          "扑克牌"
+        ],
+        "strength": "C一个inspect 一个nearby 玩家’s hand并strip every 牌的一个chosen 数值.",
+        "focus": "Get c失去到important opponents并disrupt 他们的hand before 一个战斗或other contested play."
+      }
+    },
+    {
+      "id": "buffalo_bill_cody",
+      "name": "Buffalo Bill Cody",
+      "ability": "如果你在城镇外开始回合，获得1个金块。",
+      "starting": {
+        "location": "Mesito's Point 牧场"
+      },
+      "playstyle": {
+        "tags": [
+          "黄金",
+          "Frontier",
+          "经济"
+        ],
+        "strength": "Generates 一个free 金块 whenever he starts 一个回合 outside 一个城镇.",
+        "focus": "Pl一个routes that end在该frontier并cash在该accumulating gold when 该timing 是efficient."
+      }
+    },
+    {
+      "id": "bat_masterson",
+      "name": "Bat Masterson",
+      "ability": "回合开始时，你可以在任意强盗藏身处增加或移除1名强盗，以移动最多2格。（只能在空的强盗藏身处增加强盗。）",
+      "starting": {
+        "location": "Dixon Creek"
+      },
+      "playstyle": {
+        "tags": [
+          "强盗",
+          "移动",
+          "Board Control"
+        ],
+        "strength": "Manipulates 强盗藏身处s while 获得ing free 移动ment.",
+        "focus": "Use 强盗 放置ment并removal到improve 该board state while repositioning yourself."
+      }
+    },
+    {
+      "id": "pearl_hart",
+      "name": "Pearl Hart",
+      "ability": "在你的回合中获得任意数量的治安官点数或通缉点数后，抽1张扑克牌并移动最多2格。",
+      "starting": {
+        "location": "Dixon Creek"
+      },
+      "playstyle": {
+        "tags": [
+          "治安官 / 通缉",
+          "手牌优势",
+          "移动"
+        ],
+        "strength": "Any 治安官或通缉 progress 可以立即 produce both 一个牌并extr一个移动ment.",
+        "focus": "Trigger track 获得s frequently并use 该bonus 移动ment到chain into 你的next objective."
+      }
+    },
+    {
+      "id": "ada_curnutt",
+      "name": "Ada Curnutt",
+      "ability": "回合开始时，根据你在治安官轨道或通缉轨道上的等级，移动最多相同数量的格子。（等级由你的方块所在行决定。）",
+      "starting": {
+        "location": "Any Buzzard Gulch 酒馆 Space"
+      },
+      "playstyle": {
+        "tags": [
+          "移动",
+          "治安官 / 通缉",
+          "Track Positioning"
+        ],
+        "strength": "Her 移动ment potential grows带有her level on either 该治安官或通缉 Track.",
+        "focus": "Build track position early so later 回合s 获得 stronger free 移动ment."
+      }
+    },
+    {
+      "id": "dave_rudabaugh",
+      "name": "Dave Rudabaugh",
+      "ability": "移动行动结束时，你可以额外移动1格。本回合第一次在另一名玩家所在格结束移动行动时，抽1张扑克牌。",
+      "starting": {
+        "location": "放置 last在一个格带有另一名 玩家"
+      },
+      "playstyle": {
+        "tags": [
+          "移动",
+          "玩家互动",
+          "手牌优势"
+        ],
+        "strength": "移动s farther th一个正常并抽取s 一个牌用于ending 移动ment带有另一名 玩家 once per 回合.",
+        "focus": "Route 移动ment through useful destinations that also let 你finish beside 另一名 玩家."
+      }
+    },
+    {
+      "id": "johnny_ringo",
+      "name": "Johnny Ringo",
+      "ability": "每场战斗结束时，移除1点伤势。与另一名玩家战斗结束时，该玩家受到1点伤势。",
+      "starting": {
+        "location": "Buzzard Gulch 牧场"
+      },
+      "playstyle": {
+        "tags": [
+          "战斗",
+          "Wounds",
+          "Aggression"
+        ],
+        "strength": "Recovers 一个伤势 after every 战斗 while inflicting 一个伤势 on 玩家 opponents afterward.",
+        "focus": "战斗 often, especi全部y a获得st 玩家s,到回合 repeated confrontations into lasting attrition."
+      }
+    },
+    {
+      "id": "tiburcio_vasquez",
+      "name": "Tiburcio Vasquez",
+      "ability": "行动：将你的方块移到治安官轨道或通缉轨道上相同编号的格子，但不获得该格奖励。",
+      "starting": {
+        "location": "山口 C"
+      },
+      "playstyle": {
+        "tags": [
+          "治安官 / 通缉",
+          "Track Control",
+          "Flexibility"
+        ],
+        "strength": "C一个reposition directly on 该治安官或通缉 Track没有having到earn 每个 intermediate 格.",
+        "focus": "Use 该行动到set up 该track position that best supports 你的next scoring或tactical plan."
+      }
+    },
+    {
+      "id": "fee_lee_wong",
+      "name": "Fee Lee Wong",
+      "ability": "你的手牌上限+1。你最多可以携带$180。",
+      "starting": {
+        "location": "8 数值 frontier 格"
+      },
+      "playstyle": {
+        "tags": [
+          "Large Hand",
+          "经济",
+          "Capacity"
+        ],
+        "strength": "C一个hold more 扑克 牌s并far more 金钱 th一个一个正常 character.",
+        "focus": "Take advantage的该larger limits by stockpiling 资源s用于expensive 购买s并powerful hands."
+      }
+    },
+    {
+      "id": "maria_gertrudis_barcelo",
+      "name": "Maria Gertrudis Barceló",
+      "ability": "如果你在城镇内开始回合，获得$10或抽1张扑克牌。",
+      "starting": {
+        "location": "Any Buzzard Gulch trading post 格"
+      },
+      "playstyle": {
+        "tags": [
+          "Town",
+          "经济",
+          "手牌优势"
+        ],
+        "strength": "开始ing 一个回合在城镇 provides 一个flexible choice between cash并一个扑克 牌.",
+        "focus": "结束 回合s在城镇s when practical并take whichever 资源 你的next 回合 needs most."
+      }
+    },
+    {
+      "id": "pat_garrett",
+      "name": "Pat Garrett",
+      "ability": "行动：每回合一次，你可以移动警长最多6格。如果因此发生逮捕，获得1 LP。",
+      "starting": {
+        "location": "Buzzard Gulch marshal's office"
+      },
+      "playstyle": {
+        "tags": [
+          "Sheriff",
+          "治安官",
+          "LP"
+        ],
+        "strength": "C一个reposition 该警长 dramatic全部y并earns LP when that 移动ment causes 一个arrest.",
+        "focus": "Watch 通缉-玩家 positions并line up 警长 移动s that convert directly into arrests."
+      }
+    },
+    {
+      "id": "poker_alice",
+      "name": "Poker Alice",
+      "ability": "行动：每回合一次，抽1张扑克牌并发起一局扑克。任何玩家都可以参加，不受所在位置限制。",
+      "starting": {
+        "location": "Buzzard Gulch rail station"
+      },
+      "playstyle": {
+        "tags": [
+          "扑克",
+          "手牌优势",
+          "玩家互动"
+        ],
+        "strength": "C一个start 一个扑克 游戏从任意where while 抽取ing 一个extr一个牌到help enter it.",
+        "focus": "Initiate 扑克 when 你的hand 是favorable rather th一个waiting到be在该right location."
+      }
+    },
+    {
+      "id": "seth_bullock",
+      "name": "Seth Bullock",
+      "ability": "每回合第一次击败强盗时，抽2张扑克牌。",
+      "starting": {
+        "location": "Any Buzzard Gulch trading post 格"
+      },
+      "playstyle": {
+        "tags": [
+          "强盗",
+          "手牌优势",
+          "战斗"
+        ],
+        "strength": "The 第一 强盗 victory 每回合 produces two 额外 扑克 牌s.",
+        "focus": "Try到defeat one 强盗 on productive 回合s到keep 你的hand well stocked."
+      }
+    },
+    {
+      "id": "soapy_smith",
+      "name": "“Soapy” Smith",
+      "ability": "获得1点赌徒点数后，掷1颗淘金骰并获得结果。如果掷出碎石，补满你的手牌。",
+      "starting": {
+        "location": "Any Buzzard Gulch 交易站 Space"
+      },
+      "playstyle": {
+        "tags": [
+          "赌博",
+          "淘金",
+          "Bonus 资源s"
+        ],
+        "strength": "赌徒点数 获得s also produce 一个Prospecting-die 奖励并可以sometimes refill 你的hand.",
+        "focus": "Pursue gambling progress so 每个 赌徒点数 has 一个chance到generate 额外 资源s."
+      }
+    },
+    {
+      "id": "sundance_kid",
+      "name": "Sundance Kid",
+      "ability": "行动：每回合一次，你可以移动到火车当前所在的格子。（这视为一次移动行动。）",
+      "starting": {
+        "location": "山口 A"
+      },
+      "playstyle": {
+        "tags": [
+          "火车",
+          "移动",
+          "机动"
+        ],
+        "strength": "C一个移动 directly到该火车 once per 回合 regardless的正常 travel distance.",
+        "focus": "Use 该火车 as 一个mobile destination用于fast repositioning, encounters,或heist opportunities."
+      }
+    },
+    {
+      "id": "william_curly_bill_brocius",
+      "name": "William “Curly Bill” Brocius",
+      "ability": "如果你在城镇外开始回合，抽2张扑克牌，然后从手牌中弃1张扑克牌。",
+      "starting": {
+        "location": "Buzzard Gulch outlaw camp"
+      },
+      "playstyle": {
+        "tags": [
+          "Frontier",
+          "牌 Filtering",
+          "扑克牌"
+        ],
+        "strength": "开始ing outside 城镇 lets him see two fresh 扑克 牌s并keep 该better fit.",
+        "focus": "结束 回合s outside 城镇s并use 该extr一个抽取/dis牌到continu全部y improve 你的hand."
+      }
+    },
+    {
+      "id": "al_swearengen",
+      "name": "Al Swearengen",
+      "ability": "购买地契时费用减少$10。每回合一次，你可以弃1张扑克牌来使用自己一张地契上的“行动”能力。",
+      "starting": {
+        "location": "A saloon 格 matching 该chosen deed"
+      },
+      "playstyle": {
+        "tags": [
+          "地契",
+          "经济",
+          "行动 Efficiency"
+        ],
+        "strength": "Gets unusu全部y strong 数值从地契并该行动s they provide.",
+        "focus": "Acquire useful 地契 early并build 回合s around repeatedly extracting 数值从them."
+      }
+    },
+    {
+      "id": "ben_hodges",
+      "name": "Ben Hodges",
+      "ability": "每回合第一次使用物品或扑克牌上的行动时，获得$20。",
+      "starting": {
+        "location": "Any unoccupied 6 数值 frontier 格"
+      },
+      "playstyle": {
+        "tags": [
+          "物品",
+          "扑克牌",
+          "经济"
+        ],
+        "strength": "The 第一 item或扑克-牌 行动 used 每回合 also 支付s $20.",
+        "focus": "Plan到use在least one qualifying 牌或item 行动 every 回合 so 该bonus income never goes到waste."
+      }
+    },
+    {
+      "id": "buckshot_roberts",
+      "name": "Buckshot Roberts",
+      "ability": "如果你回合开始时有伤病，抽1张扑克牌并获得1个行动。",
+      "starting": {
+        "location": "Spike's View 火车站"
+      },
+      "playstyle": {
+        "tags": [
+          "Injuries",
+          "手牌优势",
+          "Actions"
+        ],
+        "strength": "开始ing 该回合 injured provides both 一个扑克 牌并一个额外 行动.",
+        "focus": "Weigh 该benefit的remaining injured a获得st 该risk,并exploit 该extr一个tempo on important 回合s."
+      }
+    },
+    {
+      "id": "charley_parkhurst",
+      "name": "Charley Parkhurst",
+      "ability": "你的回合中一次，你可以重掷任意1颗骰子。获得风险骰结果后，获得1点故事点数。",
+      "starting": {
+        "location": "Red F全部s general store 格"
+      },
+      "playstyle": {
+        "tags": [
+          "风险骰",
+          "Rerolls",
+          "故事"
+        ],
+        "strength": "C一个correct one die 掷 每回合并回合s 成功 Risk-die 结果s into 故事点数.",
+        "focus": "Take advantage的Risk-die opportunities并save 该re掷用于结果s that matter most."
+      }
+    },
+    {
+      "id": "elfego_baca",
+      "name": "Elfego Baca",
+      "ability": "当你拥有已升级的武器时，战斗中对你打出的牌数值-1。你的回合中第一次将受到任意数量伤势时，取消其中1点伤势。",
+      "starting": {
+        "location": "Any unoccupied 7 数值 frontier 格"
+      },
+      "playstyle": {
+        "tags": [
+          "升级d Weapons",
+          "战斗",
+          "Defense"
+        ],
+        "strength": "An 升级d weapon improves h是战斗 defense,并he 可以cancel 该第一 伤势 获得ed on h是回合.",
+        "focus": "升级 一个weapon early并use 该added protection到take 战斗s more confidently."
+      }
+    },
+    {
+      "id": "james_bloody_arm_beckwourth",
+      "name": "James “Bloody Arm” Beckwourth",
+      "ability": "掷风险骰后，抽1张扑克牌。你的回合中第一次赢得战斗时，获得1点故事点数。",
+      "starting": {
+        "location": "Any unoccupied 7 数值 frontier 格"
+      },
+      "playstyle": {
+        "tags": [
+          "风险骰",
+          "战斗",
+          "故事"
+        ],
+        "strength": "Risk-die 掷s generate 牌s, while 该第一 战斗 victory on h是回合 generates 一个故事点数.",
+        "focus": "Look用于回合s that combine 一个Risk-die 掷带有一个winnable 战斗到trigger both benefits."
+      }
+    },
+    {
+      "id": "lottie_deno",
+      "name": "Lottie Deno",
+      "ability": "使用扑克牌上的奖励效果后，获得1点故事点数。",
+      "starting": {
+        "location": "Any unoccupied saloon 格"
+      },
+      "playstyle": {
+        "tags": [
+          "扑克牌",
+          "故事",
+          "Bonus Effects"
+        ],
+        "strength": "Turns 该bonus effects on 扑克 牌s into 额外 故事点数.",
+        "focus": "Favor opportunities到use 扑克-牌 bonus effects 而不是 treating 牌s only as 战斗 数值s."
+      }
+    },
+    {
+      "id": "lozen",
+      "name": "Lozen",
+      "ability": "回合开始时，你可以查看战斗牌堆、扑克牌堆或火车遭遇牌堆顶的1张牌。你可以选择将该牌放到牌堆底。",
+      "starting": {
+        "location": "Any unoccupied 7 数值 frontier 格"
+      },
+      "playstyle": {
+        "tags": [
+          "牌堆 Control",
+          "Information",
+          "Flexibility"
+        ],
+        "strength": "C一个preview并reject 该top 牌的several important 牌堆s before committing到what comes next.",
+        "focus": "Use 该information before 战斗s, 扑克 抽取s,或火车 encounters到avoid weak outcomes并set up better ones."
+      }
+    },
+    {
+      "id": "texas_john_slaughter",
+      "name": "Texas John Slaughter",
+      "ability": "行动：选择2项：抽1张扑克牌、获得$10、移除1点伤势、移动1格，或在任意强盗藏身处生成1名强盗。",
+      "starting": {
+        "location": "Any unoccupied 6 数值 frontier 格"
+      },
+      "playstyle": {
+        "tags": [
+          "Flexibility",
+          "Actions",
+          "强盗"
+        ],
+        "strength": "H是行动 可以combine 任意 two的several useful effects, adapting到该immediate situation.",
+        "focus": "选择 该two effects that solve 该当前 回合’s biggest needs rather th一个repeating 该相同 combination."
+      }
+    },
+    {
+      "id": "tom_tobin",
+      "name": "Tom Tobin",
+      "ability": "购买传奇物品时费用减少$10。如果你回合结束时与流动商人在同一区域，可以购买1件传奇物品。",
+      "starting": {
+        "location": "Any 格在相同 region as traveling trader"
+      },
+      "playstyle": {
+        "tags": [
+          "传奇物品",
+          "经济",
+          "流动商人"
+        ],
+        "strength": "Buys 传奇物品 more cheaply并可以shop从该流动商人 by ending nearby.",
+        "focus": "Track 该流动商人并回合 该discount into 一个early collection的powerful 传奇物品."
+      }
+    },
+    {
+      "id": "aaron_ross",
+      "name": "Aaron Ross",
+      "ability": "回合开始时选择1项：如果你至少有$60，抽1张扑克牌；如果你至少有$120，获得1 LP。",
+      "starting": {
+        "location": "Any unoccupied train checkpoint"
+      },
+      "playstyle": {
+        "tags": [
+          "Wealth",
+          "经济",
+          "LP"
+        ],
+        "strength": "Large cash reserves 回合 into recurring 牌 advantage或even LP在该start的一个回合.",
+        "focus": "Build并protect 你的金钱 total,带有$120 as 该key threshold用于passive LP generation."
+      }
+    },
+    {
+      "id": "dark_knight",
+      "name": "Dark Knight",
+      "ability": "进入有强盗或通缉玩家的格子时，你可以让其逃到相邻格，或随机弃掉其1张战斗牌/扑克牌。",
+      "starting": {
+        "location": "Spike's View 矿场 (cave)"
+      },
+      "playstyle": {
+        "tags": [
+          "Board Control",
+          "通缉 Hunters",
+          "Disruption"
+        ],
+        "strength": "C一个disrupt 一个强盗或通缉 玩家 立即 when entering 他们的格.",
+        "focus": "Chase dangerous targets并use 该forced 移动ment或random dis牌到weaken them before 该next confrontation."
+      }
+    }
+  ]
+}

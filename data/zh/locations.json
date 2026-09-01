@@ -1,0 +1,62 @@
+{
+  "towns": [
+    "Darkrock",
+    "Red Falls",
+    "Buzzard Gulch"
+  ],
+  "regions": [
+    "Mesito’s Point",
+    "Sunny Hills",
+    "Spike’s View",
+    "Cliff Junction",
+    "Dixon Creek",
+    "Buzzard Gulch Frontier"
+  ],
+  "locations": {
+    "Darkrock": [
+      "警长办公室",
+      "杂货店",
+      "酒馆",
+      "银行"
+    ],
+    "Red Falls": [
+      "医生诊所",
+      "酒馆",
+      "杂货店",
+      "歌舞厅"
+    ],
+    "Buzzard Gulch": [
+      "治安官办公室",
+      "交易站",
+      "酒馆"
+    ],
+    "Mesito’s Point": [
+      "强盗藏身处A",
+      "绿色牧场"
+    ],
+    "Sunny Hills": [
+      "强盗藏身处A",
+      "矿场",
+      "蓝色牧场"
+    ],
+    "Spike’s View": [
+      "强盗藏身处C",
+      "矿场",
+      "火车站"
+    ],
+    "Cliff Junction": [
+      "强盗藏身处C",
+      "矿场"
+    ],
+    "Dixon Creek": [
+      "强盗藏身处B"
+    ],
+    "Buzzard Gulch Frontier": [
+      "橙色牧场",
+      "歹徒营地",
+      "火车站",
+      "山口A",
+      "山口C"
+    ]
+  }
+}

@@ -1,0 +1,1315 @@
+{
+  "sections": [
+    {
+      "id": "play_area",
+      "title": "Prep是Play Area",
+      "summary": "放置 版图s, overlays,并stands.",
+      "steps": [
+        {
+          "id": "place_the_main_game_board_in_the_center_of_the_table",
+          "text": "放置 该main 游戏 版图在该center的该table.",
+          "images": [
+            {
+              "alt": "Main 版图",
+              "caption": "Main 版图"
+            }
+          ],
+          "visual": {
+            "revealBoards": [
+              "main"
+            ]
+          }
+        },
+        {
+          "id": "place_the_buzzard_gulch_frontier_board_next_to_the_main_",
+          "text": "放置 该Buzzard Gulch 边疆 版图 next到该main 版图.",
+          "requiredModules": [
+            "ante_up_sideboard"
+          ],
+          "images": [
+            {
+              "alt": "Buzzard Gulch & Gambler 轨道",
+              "caption": "Buzzard Gulch & Gambler 轨道"
+            }
+          ],
+          "visual": {
+            "focusTargets": [
+              {}
+            ],
+            "revealBoards": [
+              "ante-up-frontier"
+            ]
+          }
+        },
+        {
+          "id": "place_the_gambler_track_above_the_main_board",
+          "text": "放置 该Gambler 轨道 above 该main 版图.",
+          "requiredModules": [
+            "ante_up_gambler"
+          ],
+          "visual": {
+            "focusTargets": [
+              {}
+            ],
+            "revealBoards": [
+              "ante-up-gambler"
+            ]
+          }
+        },
+        {
+          "id": "place_the_legendary_story_board_overlay_over_the_core_st",
+          "text": "放置 该传奇故事 版图 overlay over 该core 故事牌 area.",
+          "requiredModules": [
+            "blood_money_stories"
+          ],
+          "images": [
+            {
+              "alt": "传奇故事 版图 overlay",
+              "caption": "传奇故事 版图"
+            }
+          ],
+          "visual": {
+            "focus": "故事-area",
+            "placements": [
+              {}
+            ]
+          }
+        },
+        {
+          "id": "assemble_the_general_store_stand_if_needed",
+          "text": "放置 该杂货店 stand在该top的该版图.",
+          "visual": {
+            "focus": "top-版图-stand",
+            "placements": [
+              {}
+            ]
+          }
+        },
+        {
+          "id": "assemble_the_trading_post_stand",
+          "text": "Assemble 该交易站 stand.",
+          "requiredModules": [
+            "ante_up_sideboard"
+          ],
+          "visual": {
+            "focus": "trading-post-stand",
+            "placements": [
+              {
+                "label": "交易站"
+              }
+            ]
+          }
+        },
+        {
+          "id": "assemble_the_traveling_trader_stand",
+          "text": "Assemble 该流动商人 stand.",
+          "requiredModules": [
+            "blood_money_traveling_trader"
+          ],
+          "visual": {
+            "focus": "traveling-商人-stand",
+            "placements": [
+              {
+                "label": "流动商人"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "stores",
+      "title": "Prep是Stores",
+      "summary": "Set up item markets并商人 inventory.",
+      "steps": [
+        {
+          "id": "auto_fill_stores_with_the_helper_or_skip_it_and_follow_t",
+          "text": "Auto-Fill Stores带有该helper,或skip it并follow 该manual 商店 setup below.",
+          "actionButtons": [
+            {
+              "label": "Auto-Fill Stores"
+            }
+          ],
+          "visual": {
+            "focus": "top-版图-stand",
+            "instruction": "Fill 该杂货店 stand带有12 item 牌s."
+          }
+        },
+        {
+          "id": "manually_fill_stores",
+          "text": "Manu全部y Fill Stores",
+          "summary": "仅在未使用“自动填充商店”时执行这些步骤。",
+          "substeps": [
+            {
+              "id": "remove_store_randomizer_cards_for_items_not_being_used",
+              "text": "Re移动 商店 随机izer 牌s用于items not being used.",
+              "visual": {
+                "focus": "general-商店-stand",
+                "placements": [
+                  {
+                    "label": "Item"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "set_aside_the_standard_setup_card_as_a_quick_store_refer",
+              "text": "放到一旁 该standard setup 牌 as 一个quick 商店 reference.",
+              "visual": {
+                "focus": "general-商店-stand",
+                "placements": [
+                  {
+                    "label": "Item"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "shuffle_the_remaining_store_randomizer_cards_facedown",
+              "text": "洗混 该剩余 商店 随机izer 牌s 面朝下.",
+              "visual": {
+                "focus": "general-商店-stand",
+                "placements": [
+                  {
+                    "label": "Item"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "deal_1_randomizer_card_to_each_general_store_slot",
+              "text": "发 1 随机izer 牌到每个 杂货店 slot.",
+              "visual": {
+                "focus": "general-商店-stand",
+                "placements": [
+                  {
+                    "label": "Item"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "deal_1_randomizer_card_to_each_trading_post_slot",
+              "text": "发 1 随机izer 牌到每个 交易站 slot.",
+              "requiredModules": [
+                "ante_up_sideboard"
+              ],
+              "visual": {
+                "focus": "trading-post-stand",
+                "placements": [
+                  {
+                    "label": "Item"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "place_the_first_revealed_weapon_and_first_revealed_mount",
+              "text": "放置 该第一 翻开ed Weapon并第一 翻开ed Mount在该杂货店.",
+              "visual": {
+                "focus": "general-商店-stand",
+                "placements": [
+                  {
+                    "label": "Item"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "place_the_second_revealed_weapon_and_second_revealed_mou",
+              "text": "放置 该second 翻开ed Weapon并second 翻开ed Mount在该交易站.",
+              "requiredModules": [
+                "ante_up_sideboard"
+              ],
+              "visual": {
+                "focus": "trading-post-stand",
+                "placements": [
+                  {
+                    "label": "Item"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "if_using_standard_setup_make_sure_each_store_has_at_leas",
+              "text": "如果using standard setup, make sure 每个 商店 has在least 1 Weapon并1 Mount. Re放置 items 随机ly if needed.",
+              "requiredModules": [
+                "ante_up_sideboard"
+              ],
+              "visual": {
+                "focus": "general-商店-stand",
+                "placements": [
+                  {
+                    "label": "Item"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "place_each_item_deck_in_the_space_matching_its_randomize",
+              "text": "放置 每个 item 牌堆在该格 matching its 随机izer 牌.",
+              "visual": {
+                "focus": "general-商店-stand",
+                "placements": [
+                  {
+                    "label": "Item"
+                  }
+                ]
+              }
+            }
+          ],
+          "visual": {
+            "focus": "top-版图-stand",
+            "instruction": "Fill 该杂货店 stand带有12 item 牌s."
+          }
+        },
+        {
+          "id": "shuffle_together_the_legendary_items_from_the_selected_e",
+          "text": "洗混 together 该传奇物品从该selected 扩展s并放置 该blocker 牌 on 该bottom.",
+          "requiredModules": [
+            "blood_money_traveling_trader"
+          ],
+          "visual": {
+            "focus": "traveling-商人-stand",
+            "placements": [
+              {
+                "label": "Items"
+              }
+            ]
+          }
+        },
+        {
+          "id": "place_the_legendary_item_deck_facedown_in_the_top_left_t",
+          "text": "放置 该传奇物品 牌堆 面朝下在该top-left 流动商人 slot.",
+          "requiredModules": [
+            "blood_money_traveling_trader"
+          ],
+          "visual": {
+            "focus": "traveling-商人-stand",
+            "placements": [
+              {
+                "label": "Items"
+              }
+            ]
+          }
+        },
+        {
+          "id": "reveal_3_legendary_items_to_the_bottom_row_of_the_travel",
+          "text": "翻开 3 传奇物品到该bottom row的该流动商人 stand.",
+          "requiredModules": [
+            "blood_money_traveling_trader"
+          ],
+          "visual": {
+            "focus": "traveling-商人-stand",
+            "placements": [
+              {
+                "label": "Items"
+              }
+            ]
+          }
+        },
+        {
+          "id": "place_all_remaining_item_decks_in_the_2_empty_traveling_",
+          "text": "放置 全部 剩余 item 牌堆s在该2 empty 流动商人 格s. Keep 他们的随机izer 牌s nearby.",
+          "requiredModules": [
+            "blood_money_traveling_trader"
+          ],
+          "visual": {
+            "focus": "traveling-商人-stand",
+            "placements": [
+              {
+                "label": "Items"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "decks",
+      "title": "Prep是牌堆s",
+      "summary": "洗混 only 该牌堆s used在th是游戏.",
+      "steps": [
+        {
+          "id": "separate_money_into_10_and_20_decks",
+          "text": "Separate 金钱 into $10并$20 牌堆s.",
+          "images": [
+            {
+              "alt": "$10 Bills",
+              "caption": "$10"
+            },
+            {
+              "alt": "$20 Bills",
+              "caption": "$20"
+            }
+          ],
+          "visual": {
+            "focusTargets": [
+              {},
+              {}
+            ],
+            "placements": [
+              {},
+              {}
+            ]
+          }
+        },
+        {
+          "id": "prepare_the_poker_deck_if_using_expansion_poker_cards_sw",
+          "text": "Prep是该扑克 牌堆. 如果using 扩展 扑克牌, swap them用于matching base 牌s by suit并数值.",
+          "images": [
+            {
+              "alt": "扑克 牌堆",
+              "caption": "扑克 牌堆"
+            }
+          ],
+          "visual": {
+            "focusTargets": [
+              {}
+            ],
+            "placements": [
+              {}
+            ]
+          }
+        },
+        {
+          "id": "shuffle_the_joker_cards_into_the_poker_deck",
+          "text": "洗混 该小丑牌 牌s into 该扑克 牌堆.",
+          "requiredModules": [
+            "fistful_jokers"
+          ],
+          "visual": {
+            "focusTargets": [
+              {}
+            ],
+            "placements": [
+              {}
+            ]
+          }
+        },
+        {
+          "id": "shuffle_and_place_the_core_small_decks_beside_the_board",
+          "text": "洗混并放置 该core sm全部 牌堆s 放在旁边 该版图.",
+          "images": [
+            {
+              "alt": "战斗 牌堆",
+              "caption": "Fight"
+            },
+            {
+              "alt": "事件 牌堆",
+              "caption": "事件s",
+              "requiredModules": [
+                "ante_up_events"
+              ]
+            },
+            {
+              "alt": "火车 牌堆",
+              "caption": "Train",
+              "requiredModules": [
+                "ante_up_train"
+              ]
+            },
+            {
+              "alt": "伤病 牌堆",
+              "caption": "Injuries",
+              "requiredModules": [
+                "blood_money_injuries"
+              ]
+            },
+            {
+              "alt": "流动商人 牌堆",
+              "caption": "Trader",
+              "requiredModules": [
+                "blood_money_traveling_trader"
+              ]
+            },
+            {
+              "alt": "Treasure Hunt 牌堆",
+              "caption": "Treasure Hunt",
+              "requiredModules": [
+                "treasure_hunting_rumors"
+              ]
+            },
+            {
+              "alt": "Hunting 牌堆",
+              "caption": "Hunting",
+              "requiredModules": [
+                "hunting_animals"
+              ]
+            },
+            {
+              "alt": "Fishing 牌堆",
+              "caption": "Fishing",
+              "requiredModules": [
+                "fishing_fish_deck"
+              ]
+            },
+            {
+              "alt": "Foraging 牌堆",
+              "caption": "Foraging",
+              "requiredModules": [
+                "foraging_resources"
+              ]
+            },
+            {
+              "alt": "Prospecting 牌堆 (proxy back)",
+              "caption": "Prospecting",
+              "requiredModules": [
+                "prospecting_cards"
+              ]
+            }
+          ],
+          "visual": {
+            "focusTargets": [
+              {}
+            ],
+            "placements": [
+              {},
+              {
+                "requiredModules": [
+                  "ante_up_events"
+                ]
+              },
+              {
+                "requiredModules": [
+                  "ante_up_train"
+                ]
+              },
+              {
+                "requiredModules": [
+                  "blood_money_injuries"
+                ]
+              },
+              {
+                "requiredModules": [
+                  "blood_money_traveling_trader"
+                ]
+              },
+              {
+                "requiredModules": [
+                  "treasure_hunting_rumors"
+                ]
+              },
+              {
+                "requiredModules": [
+                  "hunting_animals"
+                ]
+              },
+              {
+                "requiredModules": [
+                  "fishing_fish_deck"
+                ]
+              },
+              {
+                "requiredModules": [
+                  "foraging_resources"
+                ]
+              },
+              {
+                "requiredModules": [
+                  "prospecting_cards"
+                ],
+                "label": "Prospecting"
+              }
+            ]
+          }
+        },
+        {
+          "id": "shuffle_the_core_story_cards_place_the_deck_on_its_desig",
+          "text": "洗混 该Core 故事牌, 放置 该牌堆 on its designated 版图 格, 翻开 1 Core 故事牌,并放置 it on 该designated spot.",
+          "blockedModules": [
+            "blood_money_stories"
+          ],
+          "visual": {
+            "focusTargets": [
+              {}
+            ],
+            "placements": [
+              {}
+            ]
+          }
+        },
+        {
+          "id": "shuffle_the_legendary_story_cards_place_the_deck_on_the_",
+          "text": "洗混 该传奇故事 牌s, 放置 该牌堆 on 该传奇故事 版图, 然后翻开 1 随机 传奇故事 牌 onto 该版图.",
+          "requiredModules": [
+            "blood_money_stories"
+          ],
+          "visual": {
+            "focus": "故事-area",
+            "placements": [
+              {}
+            ]
+          }
+        },
+        {
+          "id": "add_the_unique_event_cards_to_the_event_deck",
+          "text": "Add 该独特 事件 牌s到该事件 牌堆.",
+          "requiredModules": [
+            "ante_up_events",
+            "wild_bunch_unique_events"
+          ],
+          "visual": {
+            "focus": "left-decks",
+            "placements": [
+              {}
+            ]
+          }
+        },
+        {
+          "id": "shuffle_the_event_deck_and_place_it_near_the_board",
+          "text": "洗混 该事件 牌堆并放置 it near 该版图.",
+          "requiredModules": [
+            "ante_up_events"
+          ],
+          "visual": {
+            "focus": "left-decks",
+            "placements": [
+              {}
+            ]
+          }
+        },
+        {
+          "id": "shuffle_the_title_cards_and_randomly_reveal_1_title_for_",
+          "text": "洗混 该称号 牌s并随机ly 翻开 1 称号用于th是游戏.",
+          "requiredModules": [
+            "wild_bunch_titles"
+          ],
+          "visual": {
+            "focus": "left-decks",
+            "placements": [
+              {
+                "label": "称号"
+              }
+            ]
+          }
+        },
+        {
+          "id": "shuffle_the_sheriff_cards_and_reveal_the_top_sheriff_car",
+          "text": "洗混 该警长 牌s并翻开 该top 警长 牌. Re放置 it whenever 该警长 失去s 一个战斗.",
+          "requiredModules": [
+            "wild_bunch_sheriff"
+          ],
+          "visual": {
+            "focus": "left-decks",
+            "placements": [
+              {
+                "label": "Sheriff"
+              }
+            ]
+          }
+        },
+        {
+          "id": "shuffle_the_bandit_cards_and_place_the_deck_facedown_nea",
+          "text": "洗混 该强盗 牌s并放置 该牌堆 面朝下 near 该战斗 牌堆.",
+          "requiredModules": [
+            "wild_bunch_bandit_variant"
+          ],
+          "visual": {
+            "focus": "left-decks",
+            "placements": [
+              {
+                "label": "Bandit"
+              }
+            ]
+          }
+        },
+        {
+          "id": "shuffle_all_man_in_black_cards_together_to_form_the_deck",
+          "text": "洗混 全部 黑衣人 牌s together到form 该牌堆并放置 it near 该版图.",
+          "requiredModules": [
+            "wild_bunch_man_in_black"
+          ],
+          "images": [
+            {
+              "alt": "黑衣人 牌堆",
+              "caption": "黑衣人"
+            }
+          ],
+          "visual": {
+            "focus": "left-decks",
+            "placements": [
+              {
+                "label": "黑衣人"
+              }
+            ]
+          }
+        },
+        {
+          "id": "shuffle_the_man_in_black_cards_together_excluding_p_01_p",
+          "text": "洗混 该黑衣人 牌s together, excluding P-01, P-04, P-05, P-08, P-09, P-10,并P-15. 放置 该牌堆 near 该版图.",
+          "requiredModules": [
+            "wild_bunch_man_in_black"
+          ],
+          "images": [
+            {
+              "alt": "黑衣人 牌堆",
+              "caption": "黑衣人"
+            }
+          ],
+          "visual": {
+            "focus": "left-decks",
+            "placements": [
+              {
+                "label": "黑衣人"
+              }
+            ]
+          }
+        },
+        {
+          "id": "shuffle_the_rumor_cards_and_place_the_deck_near_the_boar",
+          "text": "洗混 该Rumor 牌s并放置 该牌堆 near 该版图.",
+          "requiredModules": [
+            "treasure_hunting_rumors"
+          ],
+          "visual": {
+            "focus": "left-decks",
+            "placements": [
+              {
+                "label": "Rumor"
+              }
+            ]
+          }
+        },
+        {
+          "id": "shuffle_the_animal_deck_and_place_it_beside_the_game_boa",
+          "text": "洗混 该Animal 牌堆并放置 it 放在旁边 该游戏 版图.",
+          "requiredModules": [
+            "hunting"
+          ],
+          "visual": {
+            "focus": "left-decks",
+            "placements": [
+              {
+                "label": "Animal"
+              }
+            ]
+          }
+        },
+        {
+          "id": "shuffle_the_fish_deck_and_place_it_beside_the_game_board",
+          "text": "洗混 该Fish 牌堆并放置 it 放在旁边 该游戏 版图.",
+          "requiredModules": [
+            "fishing"
+          ],
+          "visual": {
+            "focus": "left-decks",
+            "placements": [
+              {
+                "label": "Fish"
+              }
+            ]
+          }
+        },
+        {
+          "id": "shuffle_the_theatre_deck_place_it_near_the_board_and_rev",
+          "text": "洗混 该Theatre 牌堆, 放置 it near 该版图,并翻开 3 Theatre 牌s 面朝上.",
+          "requiredModules": [
+            "theatre"
+          ],
+          "visual": {
+            "focus": "left-decks",
+            "placements": [
+              {
+                "label": "Theatre"
+              }
+            ]
+          }
+        },
+        {
+          "id": "shuffle_the_prospecting_deck_with_2_random_events",
+          "text": "洗混 该Prospecting 牌堆带有2 随机 事件s.",
+          "requiredModules": [
+            "prospecting_cards"
+          ],
+          "visual": {
+            "focus": "left-decks",
+            "placements": [
+              {
+                "label": "Prospecting"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tokens",
+      "title": "Prep是标记s",
+      "summary": "Separate, 洗混,并放置 标记 supplies.",
+      "steps": [
+        {
+          "id": "shuffle_cattle_tokens_facedown_and_place_them_at_their_r",
+          "text": "洗混 牛群 标记s 面朝下并放置 them在他们的ranches.",
+          "images": [
+            {
+              "alt": "Blue cattle 标记",
+              "caption": "Blue"
+            },
+            {
+              "alt": "Green cattle 标记",
+              "caption": "Green"
+            },
+            {
+              "alt": "Orange cattle 标记",
+              "caption": "Orange",
+              "requiredModules": [
+                "ante_up_sideboard"
+              ]
+            }
+          ],
+          "visual": {
+            "focusTargets": [
+              "sunny-hills-ranch",
+              "mesitos-point-ranch",
+              "buzzard-gulch-ranch"
+            ],
+            "placements": [
+              {},
+              {},
+              {
+                "requiredModules": [
+                  "ante_up_sideboard"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "shuffle_longhorn_outlaw_high_roller_and_claim_jumper_tok",
+          "text": "洗混 Longhorn, 歹徒, 豪赌客,并抢矿者 标记s 面朝下.",
+          "requiredModules": [
+            "ante_up_events"
+          ],
+          "images": [
+            {
+              "alt": "Longhorn 标记",
+              "caption": "Longhorn"
+            },
+            {
+              "alt": "歹徒 标记",
+              "caption": "Outlaw"
+            },
+            {
+              "alt": "豪赌客 标记",
+              "caption": "豪赌客"
+            },
+            {
+              "alt": "抢矿者 标记",
+              "caption": "抢矿者"
+            }
+          ],
+          "visual": {
+            "focus": "bottom-供应区",
+            "placements": [
+              {},
+              {},
+              {},
+              {}
+            ]
+          }
+        },
+        {
+          "id": "shuffle_legendary_tokens_facedown_or_place_them_in_a_tok",
+          "text": "洗混 Legendary 标记s 面朝下或放置 them在一个标记 bag.",
+          "requiredModules": [
+            "base_legendary_tokens"
+          ],
+          "images": [
+            {
+              "alt": "Legendary 标记",
+              "caption": "Legendary"
+            }
+          ],
+          "visual": {
+            "focus": "bottom-供应区",
+            "placements": [
+              {}
+            ]
+          }
+        },
+        {
+          "id": "separate_deeds_by_type_and_place_a_deed_token_on_each_de",
+          "text": "Separate 地契 by type并放置 一个地契 标记 on 每个 地契 地点.",
+          "requiredModules": [
+            "blood_money_deeds"
+          ],
+          "images": [
+            {
+              "alt": "地契 标记",
+              "caption": "Deed"
+            }
+          ],
+          "visual": {
+            "focus": "bottom-供应区",
+            "placements": [
+              {}
+            ]
+          }
+        },
+        {
+          "id": "keep_unique_event_tokens_in_a_supply_near_the_board",
+          "text": "Keep 独特 事件 标记s在一个供应区 near 该版图.",
+          "requiredModules": [
+            "wild_bunch_unique_events"
+          ],
+          "visual": {
+            "focus": "bottom-供应区",
+            "placements": [
+              {}
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "board_setup",
+      "title": "Prep是版图 Effects",
+      "summary": "放置 markers并resolve setup effects.",
+      "steps": [
+        {
+          "id": "place_the_end_game_marker_on_targetlp_lp",
+          "text": "放置 该end-游戏 marker on {targetLP} LP.",
+          "images": [
+            {
+              "alt": "结束-游戏 marker pocket watch 标记",
+              "caption": "结束-游戏 Marker"
+            }
+          ],
+          "visual": {
+            "placements": [
+              {}
+            ]
+          }
+        },
+        {
+          "id": "place_event_markers_on_the_5th_space_of_the_gambler_mars",
+          "text": "放置 事件 markers on 该5th 格的该Gambler, 治安官,并通缉 轨道s,并on every 5th LP 格 before 该end-游戏 marker.",
+          "requiredModules": [
+            "ante_up_events"
+          ],
+          "images": [
+            {
+              "alt": "事件 marker 标记",
+              "caption": "事件 Marker"
+            }
+          ],
+          "visual": {
+            "placements": [
+              {},
+              {},
+              {}
+            ]
+          }
+        },
+        {
+          "id": "resolve_1_event_card_per_2_players_rounded_up_ignore_she",
+          "text": "结算 1 事件 牌 per 2 玩家s, rounded up. Ignore 警长 移动ment because 该警长 是not 放置d yet.",
+          "requiredModules": [
+            "ante_up_events"
+          ],
+          "visual": {
+            "focus": "left-decks",
+            "placements": [
+              {}
+            ]
+          }
+        },
+        {
+          "id": "randomly_place_1_faceup_frontier_token_on_each_frontier_",
+          "text": "随机ly 放置 1 面朝上 边疆 标记 on 每个 边疆 格. Keep unused 边疆 标记s nearby.",
+          "requiredModules": [
+            "ante_up_sideboard"
+          ],
+          "images": [
+            {
+              "alt": "边疆 标记",
+              "caption": "边疆 标记"
+            }
+          ],
+          "visual": {
+            "focusTargets": [
+              "frontier-value-6"
+            ],
+            "placements": [
+              {},
+              {},
+              {},
+              {}
+            ]
+          }
+        },
+        {
+          "id": "reveal_the_top_trader_movement_card_and_place_the_travel",
+          "text": "翻开 该top Trader 移动ment 牌并放置 该流动商人 模型 on 任意 empty 格在that 区域.",
+          "requiredModules": [
+            "blood_money_traveling_trader"
+          ],
+          "images": [
+            {
+              "alt": "Trader 移动ment 牌 back",
+              "caption": "Trader 移动ment 牌"
+            },
+            {
+              "alt": "流动商人 标记",
+              "caption": "流动商人"
+            }
+          ],
+          "visual": {
+            "focus": "dixon-creek",
+            "placements": [
+              {}
+            ]
+          }
+        },
+        {
+          "id": "place_2_gold_nuggets_at_each_mining_location_place_1_gol",
+          "text": "放置 2 金块在每个 mining 地点. 放置 1 金块 on 该LP 轨道 格s indicated by 该Prospecting rules用于{玩家Count} 玩家s并一个{targetLP}-LP 游戏.",
+          "requiredModules": [
+            "prospecting_cards"
+          ],
+          "visual": {
+            "focusTargets": [
+              "sunny-hills-mine",
+              "spikes-view-mine",
+              "cliff-junction-mine"
+            ],
+            "placements": [
+              {},
+              {},
+              {}
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "players",
+      "title": "Prep是玩家s",
+      "summary": "Give 每个 玩家 他们的starting pieces.",
+      "steps": [
+        {
+          "id": "each_player_takes_a_player_mat_scoring_cubes_color_ring_",
+          "text": "Each 玩家 takes 一个玩家 mat, scoring cubes, color ring,并伤势 标记.",
+          "visual": {
+            "focus": "player-mat-area",
+            "placements": [
+              {
+                "label": "玩家 Mat"
+              }
+            ]
+          }
+        },
+        {
+          "id": "use_the_player_mat_side_with_legendary_token_spaces",
+          "text": "Use 该玩家 mat side带有传奇标记 格s.",
+          "requiredModules": [
+            "base_legendary_tokens"
+          ],
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {
+                "label": "Player"
+              }
+            ]
+          }
+        },
+        {
+          "id": "each_player_takes_their_faro_chips",
+          "text": "Each 玩家 takes 他们的法罗牌 chips.",
+          "requiredModules": [
+            "ante_up_faro"
+          ],
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {
+                "label": "Player"
+              }
+            ]
+          }
+        },
+        {
+          "id": "each_player_takes_their_story_disks",
+          "text": "Each 玩家 takes 他们的Story disks.",
+          "requiredModules": [
+            "blood_money_stories"
+          ],
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {
+                "label": "Player"
+              }
+            ]
+          }
+        },
+        {
+          "id": "place_1_scoring_cube_for_each_player_left_of_the_1_space",
+          "text": "放置 1 scoring cube用于每个 玩家 left的该1 格 on 该LP 轨道.",
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {
+                "label": "Player"
+              }
+            ]
+          }
+        },
+        {
+          "id": "place_1_scoring_cube_for_each_player_on_the_starting_spa",
+          "text": "放置 1 scoring cube用于每个 玩家 on 该starting 格的该故事轨道.",
+          "requiredModules": [
+            "blood_money_stories"
+          ],
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {
+                "label": "Player"
+              }
+            ]
+          }
+        },
+        {
+          "id": "place_each_players_remaining_scoring_cubes_and_story_dis",
+          "text": "放置 每个 玩家’s 剩余 scoring cubes并Story disks 放在旁边 该版图.",
+          "requiredModules": [
+            "blood_money_stories"
+          ],
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {
+                "label": "Player"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "characters",
+      "title": "Prep是Characters",
+      "summary": "Get 每个 玩家's selected character ready用于play.",
+      "steps": [
+        {
+          "id": "each_player_chooses_a_character_from_the_characters_avai",
+          "text": "Each 玩家 选择s 一个character从该characters 可用在该selected 扩展s.",
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {
+                "label": "Player"
+              }
+            ]
+          }
+        },
+        {
+          "id": "for_each_chosen_character_take_that_characters_4_goal_ca",
+          "text": "For 每个 chosen character, take that character’s 4 目标 牌s.",
+          "requiredModules": [
+            "base_goals"
+          ],
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {
+                "label": "Player"
+              }
+            ]
+          }
+        },
+        {
+          "id": "each_player_gains_starting_items_money_poker_cards_wound",
+          "text": "Each 玩家 获得s starting items, 金钱, 扑克牌, 伤势,并points listed on 他们的character.",
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {
+                "label": "Player"
+              }
+            ]
+          }
+        },
+        {
+          "id": "if_a_character_starts_with_gambler_legendary_marshal_sto",
+          "text": "如果一个character starts带有Gambler, Legendary, 治安官, Story,或通缉点数, 放置 一个cube on 该matching 轨道.",
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {
+                "label": "Player"
+              }
+            ]
+          }
+        },
+        {
+          "id": "resolve_any_starting_item_abilities_such_as_gazette_prov",
+          "text": "结算 任意 starting item abilities, such as Gazette, Provisions,或similar effects.",
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {
+                "label": "Player"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "miniatures",
+      "title": "放置 Miniatures",
+      "summary": "放置 玩家s, 警长,并强盗.",
+      "steps": [
+        {
+          "id": "highest_wanted_player_takes_the_first_player_token_if_ti",
+          "text": "Highest 通缉 玩家 takes 该First 玩家 标记. 如果tied或no one 是通缉, 选择 另一名 method.",
+          "actionButtons": [
+            {
+              "label": "Pick First 玩家"
+            }
+          ],
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {}
+            ]
+          }
+        },
+        {
+          "id": "starting_with_the_first_player_each_player_chooses_a_min",
+          "text": "开始ing带有该第一 玩家, 每个 玩家 选择s 一个模型并attaches 他们的color ring.",
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {
+                "label": "Players"
+              }
+            ]
+          }
+        },
+        {
+          "id": "each_player_places_their_miniature_at_the_starting_locat",
+          "text": "Each 玩家 放置s 他们的模型在该开始ing Location on 他们的character 牌."
+        },
+        {
+          "id": "if_a_starting_location_is_a_general_store_trading_post_o",
+          "text": "如果一个开始ing Location 是一个杂货店, 交易站,或酒馆, 放置 该模型 on 任意 adjacent 格."
+        },
+        {
+          "id": "remove_any_event_claim_jumper_high_roller_longhorn_outla",
+          "text": "Re移动 任意 事件, 抢矿者, 豪赌客, Longhorn, 歹徒,或独特 事件 标记从一个格 where 一个玩家 starts.",
+          "anyModules": [
+            "ante_up_events",
+            "wild_bunch_unique_events"
+          ]
+        },
+        {
+          "id": "attach_the_brown_ring_to_the_sheriff_miniature_and_place",
+          "text": "Attach 该brown ring到该警长 模型并放置 该警长在该警长/治安官办公室在Darkrock.",
+          "visual": {
+            "focus": "darkrock-sheriff",
+            "placements": [
+              {}
+            ]
+          }
+        },
+        {
+          "id": "apply_the_numbered_bandit_stickers_to_the_bottoms_of_the",
+          "text": "Apply 该numbered 强盗 stickers到该bottoms的该grey 强盗 rings.",
+          "requiredModules": [
+            "wild_bunch_bandit_variant"
+          ],
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {
+                "label": "Bandits"
+              }
+            ]
+          }
+        },
+        {
+          "id": "attach_grey_rings_to_6_bandit_miniatures_place_1_bandit_",
+          "text": "Attach grey rings到6 强盗 模型s. 放置 1 强盗在每个 强盗藏身处 that does not contain 一个玩家.",
+          "visual": {
+            "focusTargets": [
+              "bandit-hideout-any"
+            ],
+            "placements": [
+              {},
+              {},
+              {},
+              {},
+              {},
+              {}
+            ]
+          }
+        },
+        {
+          "id": "choose_a_miniature_to_represent_the_man_in_black_place_i",
+          "text": "选择 一个模型到represent 该黑衣人. 放置 it在该火车站或一个地点 chosen by 该第一 玩家,并放置 该scoring cube matching its base ring color到该left的该LP 轨道带有该玩家 scoring cubes.",
+          "requiredModules": [
+            "wild_bunch_man_in_black"
+          ],
+          "visual": {
+            "focus": "spikes-view-rail",
+            "placements": [
+              {
+                "label": "MiB"
+              }
+            ]
+          }
+        },
+        {
+          "id": "after_all_player_miniatures_are_placed_the_player_last_i",
+          "text": "在全部 玩家 模型s 是放置d, 该玩家 last在回合 order 放置s 该3 Hunt 行动 markers on 3 different unoccupied 格s.",
+          "requiredModules": [
+            "hunting"
+          ],
+          "visual": {
+            "placements": [
+              {
+                "label": "Hunt"
+              }
+            ]
+          }
+        },
+        {
+          "id": "give_each_player_a_player_aid",
+          "text": "Give 每个 玩家 一个玩家 aid.",
+          "visual": {
+            "focus": "player-area",
+            "placements": [
+              {
+                "label": "玩家 Aid"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ready",
+      "title": "准备开玩",
+      "summary": "Final check before starting.",
+      "steps": [
+        {
+          "id": "confirm_all_selected_modules_have_been_set_up",
+          "text": "Confirm 全部 selected 模块s have been set up."
+        },
+        {
+          "id": "confirm_the_end_game_marker_is_on_targetlp_lp",
+          "text": "Confirm 该end-游戏 marker 是on {targetLP} LP."
+        },
+        {
+          "id": "press_start_game_when_everyone_is_ready",
+          "text": "Press 开始 游戏 when everyone 是ready."
+        }
+      ]
+    }
+  ]
+}

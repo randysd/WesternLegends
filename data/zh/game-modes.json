@@ -1,0 +1,220 @@
+{
+  "modes": [
+    {
+      "id": "standard",
+      "name": "标准 Western Legends",
+      "tagline": "打造你自己的边疆",
+      "description": "使用你拥有的内容、变体、角色和设置选项，自由组合自己的游戏。"
+    },
+    {
+      "id": "serenade_six_guns",
+      "name": "六枪小夜曲",
+      "tagline": "枪战与玩家冲突",
+      "description": "以战斗为核心的模式，围绕角色、物品、故事牌和伤病展开，鼓励玩家之间的正面冲突。",
+      "setupConstraints": {
+        "events": {
+          "instruction": "从事件牌堆中移除所有豪赌客和独特事件牌。"
+        },
+        "twoPlayer": {
+          "instruction": "只使用黑衣人卡牌1–9、11–15和19。"
+        }
+      },
+      "setupInstructions": [
+        {
+          "id": "starting",
+          "title": "起始调整",
+          "summary": "准备一手更危险的开局牌。",
+          "steps": [
+            {
+              "id": "give_every_player_2_additional_poker_cards_after_their_n",
+              "text": "在正常起始手牌之后，给每位玩家额外2张扑克牌。",
+              "visual": {
+                "placements": [
+                  {
+                    "_index": 0,
+                    "label": "+2张牌"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "playRules": [
+        {
+          "id": "extra_starting_poker_cards",
+          "title": "起始扑克牌",
+          "text": "所有玩家开局时手中额外拥有2张扑克牌。"
+        }
+      ]
+    },
+    {
+      "id": "golden_rule",
+      "name": "黄金法则",
+      "tagline": "财富与经济竞争",
+      "description": "围绕淘金、牧场、赌博、地契与财富积累展开的经济竞赛。",
+      "setupConstraints": {
+        "events": {
+          "instruction": "从事件牌堆中移除独特事件“Orphan”“Grizzly Bear”“Wounded Deputy”和“Bathcat”。"
+        }
+      },
+      "playRules": [
+        {
+          "id": "money_scoring",
+          "title": "金钱计分",
+          "text": "游戏结束计分时，每拥有$40获得1 LP，而不是每$60获得1 LP。"
+        },
+        {
+          "id": "richest_player",
+          "title": "最大财富",
+          "text": "游戏结束计分时，物品、金钱和地契总价值最高的玩家获得1 LP。升级后的坐骑和武器按基础价格计算，传奇物品按$40计算。"
+        }
+      ]
+    },
+    {
+      "id": "law_and_disorder",
+      "name": "法律与混乱",
+      "tagline": "治安官对抗通缉犯",
+      "description": "法律与混乱的正面对抗，强调以通缉或治安官身份开局的角色，以及激进的治安官/通缉路线。",
+      "setupConstraints": {
+        "events": {
+          "instruction": "从事件牌堆中移除所有豪赌客和独特事件牌。"
+        }
+      },
+      "playRules": [
+        {
+          "id": "infamous",
+          "title": "恶名昭彰",
+          "text": "通缉玩家被玩家或警长逮捕时，可以弃掉全部扑克牌，以免失去所有通缉点数；改为将方块移到通缉轨道第1格。此效果在因战斗失败抽取扑克牌、且警长和玩家模型被放到警长/治安官办公室后结算。警长本回合不会再次尝试逮捕该玩家；其他逮捕规则照常。"
+        }
+      ]
+    },
+    {
+      "id": "risky_business",
+      "name": "风险生意",
+      "tagline": "故事牌与冒险",
+      "description": "高风险模式，围绕与故事牌和风险骰有强互动的角色展开。",
+      "setupConstraints": {
+        "events": {
+          "instruction": "使用所有事件牌。"
+        }
+      },
+      "playRules": [
+        {
+          "id": "story_space_four_bonus",
+          "title": "故事轨道奖励",
+          "text": "每当玩家到达故事轨道第4格时，除所选格子奖励外，再获得1 LP。"
+        }
+      ]
+    },
+    {
+      "id": "border_town",
+      "name": "谁主边境镇？",
+      "tagline": "Buzzard Gulch 与拓荒",
+      "description": "只在 Buzzard Gulch 进行的高互动模式，加入家园、可花费的金块、缩短的火车路线，以及不使用黑衣人的双人游戏。",
+      "setupConstraints": {
+        "events": {
+          "instruction": "从事件牌堆中移除所有独特事件，以及所有会在 Darkrock 银行或 Red Falls 歌舞厅生成内容的事件。"
+        },
+        "twoPlayer": {
+          "instruction": "不要使用黑衣人变体。除此之外，双人游戏与其他人数完全相同。"
+        }
+      },
+      "setupInstructions": [
+        {
+          "id": "board_setup",
+          "title": "Buzzard Gulch 版图设置",
+          "summary": "搭建紧凑的边境镇游戏区域。",
+          "steps": [
+            {
+              "id": "place_the_buzzard_gulch_board_on_top_of_the_western_lege",
+              "text": "将 Buzzard Gulch 版图横向放在 Western Legends 主版图上，使火车站一侧刚好位于传奇点数轨道上方，左边缘刚好位于故事牌堆区域右侧。"
+            },
+            {
+              "id": "fold_under_the_rightmost_section_of_the_train_board_exte",
+              "text": "将火车版图延伸部分最右侧折到下面，并放在 Buzzard Gulch 版图正上方，使其左边缘刚好位于通缉轨道右侧。"
+            },
+            {
+              "id": "place_the_train_miniature_at_the_buzzard_gulch_rail_stat",
+              "text": "将火车模型放在 Buzzard Gulch 火车站。"
+            },
+            {
+              "id": "place_the_bandit_hideout_tokens_buildings_in_the_spaces_",
+              "text": "将强盗藏身处标记/建筑放在带红色强盗藏身处图标的格子。"
+            },
+            {
+              "id": "place_the_mine_tokens_buildings_in_the_spaces_marked_wit",
+              "text": "将矿场标记/建筑放在带黄色矿场图标的格子。"
+            },
+            {
+              "id": "each_player_sets_aside_1_cube_near_their_player_mat_as_a",
+              "text": "每位玩家在自己的玩家板旁放置1个方块，作为家园标记。",
+              "visual": {
+                "placements": [
+                  {
+                    "_index": 0,
+                    "label": "家园"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ignore_character_starting_locations_after_determining_tu",
+              "text": "忽略角色的起始地点。正常决定回合顺序后，每位玩家选择版图上任意一个未被占据的格子作为起始格。",
+              "visual": {
+                "placements": [
+                  {
+                    "_index": 0,
+                    "label": "选择起点"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "playRules": [
+        {
+          "id": "new_locations",
+          "title": "新地点",
+          "text": "使用 Blood Money 标记或3D建筑升级件，将主版图上的强盗藏身处和矿场地点加入 Buzzard Gulch。"
+        },
+        {
+          "id": "settler_action",
+          "title": "拓荒者行动",
+          "text": "在边疆格花费1个行动和$40，将你的家园标记放在那里。每位玩家只能建立1个家园，且该格不能有边疆标记或其他家园。"
+        },
+        {
+          "id": "homestead",
+          "title": "家园",
+          "text": "在你的家园中，“改善”允许你每花费$30获得1 LP（金块每个可按$20花费）。“休养”移除所有伤势，并为每个以此方式移除的伤势抽1张扑克牌。"
+        },
+        {
+          "id": "game_text",
+          "title": "规则文字",
+          "text": "正常结算规则文字，但任何对 Western Legends 主版图地点/区域的引用，都使用 Buzzard Gulch 中对应地点。若有多个地点符合，由主动玩家选择。"
+        },
+        {
+          "id": "town",
+          "title": "Buzzard Gulch 城镇",
+          "text": "不使用银行、歌舞厅和医生诊所。Buzzard Gulch 的治安官办公室也视为警长办公室，用于卡牌、逮捕和警长。"
+        },
+        {
+          "id": "gold_nuggets",
+          "title": "金块",
+          "text": "金块不能存入银行。每个金块可按$20花费，不计入$120金钱上限；游戏结束时每个剩余金块值1 LP。"
+        },
+        {
+          "id": "train",
+          "title": "火车",
+          "text": "火车从 Buzzard Gulch 火车站开始，并沿 Buzzard Gulch 火车站 → 山口A → 山口C → Buzzard Gulch 火车站的路线移动。其他火车规则照常。"
+        },
+        {
+          "id": "two_player",
+          "title": "双人游戏",
+          "text": "不要使用黑衣人变体。除此之外，双人游戏与其他人数完全相同。"
+        }
+      ]
+    }
+  ]
+}

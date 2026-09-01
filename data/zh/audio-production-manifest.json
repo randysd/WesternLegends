@@ -1,0 +1,1082 @@
+[
+  {
+    "type": "one-off",
+    "id": "bandit_reinforcements",
+    "title": "岩石后的援兵",
+    "trigger": "trig_defeat_bandit",
+    "audioFile": "audio/oneoffs/bandit_reinforcements.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “岩石后的援兵。在当前格再放置1名强盗。同时与两名强盗战斗；每张战斗牌分别使用1张扑克牌对抗。”"
+  },
+  {
+    "type": "one-off",
+    "id": "twin_pistol_rogue",
+    "title": "双枪恶徒",
+    "trigger": "trig_start_bandit_fight",
+    "audioFile": "audio/oneoffs/twin_pistol_rogue.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “双枪恶徒。抽2张战斗牌。玩家必须用2张扑克牌分别击败两张战斗牌，否则战斗失败。”"
+  },
+  {
+    "type": "one-off",
+    "id": "drunken_bandit",
+    "title": "醉醺醺的强盗",
+    "trigger": "trig_start_bandit_fight",
+    "audioFile": "audio/oneoffs/drunken_bandit.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “醉醺醺的强盗。抽2张战斗牌，并使用数值较低的一张。”"
+  },
+  {
+    "type": "one-off",
+    "id": "veteran_bandit",
+    "title": "老练的强盗",
+    "trigger": "trig_start_bandit_fight",
+    "audioFile": "audio/oneoffs/veteran_bandit.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “老练的强盗。抽3张战斗牌，并使用数值最高的一张。”"
+  },
+  {
+    "type": "one-off",
+    "id": "bandit_last_words",
+    "title": "强盗的遗言",
+    "trigger": "trig_defeat_bandit",
+    "audioFile": "audio/oneoffs/bandit_last_words.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “强盗的遗言。获得$10并抽1张扑克牌。”"
+  },
+  {
+    "type": "one-off",
+    "id": "hidden_sniper",
+    "title": "隐藏的狙击手",
+    "trigger": "trig_defeat_bandit",
+    "audioFile": "audio/oneoffs/hidden_sniper.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “隐藏的狙击手。战斗结束后，受到1点伤势；你可以弃1张扑克牌来避免。”"
+  },
+  {
+    "type": "one-off",
+    "id": "posse_cheers",
+    "title": "队伍喝彩",
+    "trigger": "trig_gain_mp",
+    "audioFile": "audio/oneoffs/posse_cheers.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “队伍喝彩。获得$20或抽2张扑克牌。”"
+  },
+  {
+    "type": "one-off",
+    "id": "false_badge",
+    "title": "假徽章",
+    "trigger": "trig_arrest_player",
+    "audioFile": "audio/oneoffs/false_badge.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “假徽章。执行逮捕的玩家受到1点伤势，然后抽1张扑克牌。”"
+  },
+  {
+    "type": "one-off",
+    "id": "sheriffs_notice",
+    "title": "警长的通告",
+    "trigger": "trig_gain_wp",
+    "audioFile": "audio/oneoffs/sheriffs_notice.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “警长的通告。将警长向触发此事件的玩家方向移动最多3格。”"
+  },
+  {
+    "type": "one-off",
+    "id": "inside_man",
+    "title": "内应",
+    "trigger": "trig_bank_heist",
+    "audioFile": "audio/oneoffs/inside_man.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “内应。如果抢劫成功，额外获得$20。如果失败，行动暴露：将警长向你移动最多3格。”"
+  },
+  {
+    "type": "one-off",
+    "id": "locked_vault",
+    "title": "上锁的金库",
+    "trigger": "trig_bank_heist",
+    "audioFile": "audio/oneoffs/locked_vault.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “上锁的金库。银行守卫额外抽1张战斗牌。”"
+  },
+  {
+    "type": "one-off",
+    "id": "dusty_getaway",
+    "title": "尘土中的逃脱",
+    "trigger": "trig_bank_heist",
+    "audioFile": "audio/oneoffs/dusty_getaway.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “尘土中的逃脱。结算抢劫后，移动最多2格。”"
+  },
+  {
+    "type": "one-off",
+    "id": "train_payroll",
+    "title": "薪金车厢",
+    "trigger": "trig_train_heist",
+    "audioFile": "audio/oneoffs/train_payroll.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “薪金车厢。如果火车抢劫成功，额外获得$30；如果失败，受到1点伤势。”"
+  },
+  {
+    "type": "one-off",
+    "id": "railroad_guard",
+    "title": "铁路守卫",
+    "trigger": "trig_train_heist",
+    "audioFile": "audio/oneoffs/railroad_guard.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “铁路守卫。一名治安官玩家可以取消抢劫并获得1 MP。否则照常结算抢劫。”"
+  },
+  {
+    "type": "one-off",
+    "id": "rich_vein",
+    "title": "富矿脉",
+    "trigger": "trig_begin_prospect",
+    "audioFile": "audio/oneoffs/rich_vein.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “富矿脉。本次淘金行动额外掷1颗淘金骰。”"
+  },
+  {
+    "type": "one-off",
+    "id": "cave_in",
+    "title": "矿洞塌方",
+    "trigger": "trig_begin_prospect",
+    "audioFile": "audio/oneoffs/cave_in.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “矿洞塌方。先结算淘金，然后受到1点伤势。”"
+  },
+  {
+    "type": "one-off",
+    "id": "claim_jumper_shadow",
+    "title": "抢矿者的影子",
+    "trigger": "trig_gain_gold_prospect",
+    "audioFile": "audio/oneoffs/claim_jumper_shadow.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “抢矿者的影子。如果有可用的抢矿者标记，将1个放到该矿场；否则获得$10。”"
+  },
+  {
+    "type": "one-off",
+    "id": "lost_map_tube",
+    "title": "地图筒",
+    "trigger": "trig_gain_gold_prospect",
+    "audioFile": "audio/oneoffs/lost_map_tube.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “地图筒。抽1个传奇标记，照常面朝下保留。”"
+  },
+  {
+    "type": "one-off",
+    "id": "fools_gold",
+    "title": "愚人金",
+    "trigger": "trig_gain_gold_prospect",
+    "audioFile": "audio/oneoffs/fools_gold.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “愚人金。失去刚获得的1个金块，然后抽2张扑克牌。”"
+  },
+  {
+    "type": "one-off",
+    "id": "bankers_smile",
+    "title": "银行家的微笑",
+    "trigger": "trig_deposit_gold",
+    "audioFile": "audio/oneoffs/bankers_smile.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “银行家的微笑。本次行动每存入1个金块，额外获得$10。”"
+  },
+  {
+    "type": "one-off",
+    "id": "assayer_dispute",
+    "title": "验金师争执",
+    "trigger": "trig_deposit_gold",
+    "audioFile": "audio/oneoffs/assayer_dispute.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “验金师争执。存入金块前，弃1张扑克牌，否则本次总收益减少$10。”"
+  },
+  {
+    "type": "one-off",
+    "id": "free_spurs",
+    "title": "免费马刺",
+    "trigger": "trig_purchase_item",
+    "audioFile": "audio/oneoffs/free_spurs.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “免费马刺。购买后移动最多1格。这不算移动行动。”"
+  },
+  {
+    "type": "one-off",
+    "id": "gunsmith_discount",
+    "title": "枪匠的照顾",
+    "trigger": "trig_purchase_item",
+    "audioFile": "audio/oneoffs/gunsmith_discount.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “枪匠的照顾。立即返还本次购买或升级费用中的$10。”"
+  },
+  {
+    "type": "one-off",
+    "id": "counterfeit_goods",
+    "title": "假冒货",
+    "trigger": "trig_purchase_item",
+    "audioFile": "audio/oneoffs/counterfeit_goods.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “假冒货。抽1张扑克牌。如果数值为6或更低，因为劣质货物受到1点伤势。”"
+  },
+  {
+    "type": "one-off",
+    "id": "rare_shipment",
+    "title": "稀有货运",
+    "trigger": "trig_purchase_item",
+    "audioFile": "audio/oneoffs/rare_shipment.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “稀有货运。展示1件传奇物品。触发事件的玩家可以用$30购买。”"
+  },
+  {
+    "type": "one-off",
+    "id": "doctor_secret",
+    "title": "医生的秘制药剂",
+    "trigger": "trig_heal_doctor",
+    "audioFile": "audio/oneoffs/doctor_secret.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “医生的秘制药剂。照常治疗，然后额外抽1张扑克牌。”"
+  },
+  {
+    "type": "one-off",
+    "id": "bad_medicine",
+    "title": "劣药",
+    "trigger": "trig_heal_doctor",
+    "audioFile": "audio/oneoffs/bad_medicine.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “劣药。照常治疗，但你的下一次移动行动少移动1格。”"
+  },
+  {
+    "type": "one-off",
+    "id": "cabaret_ovation",
+    "title": "全场喝彩",
+    "trigger": "trig_revel_cabaret",
+    "audioFile": "audio/oneoffs/cabaret_ovation.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “全场喝彩。狂欢后，本次行动每获得1 LP就抽1张扑克牌。”"
+  },
+  {
+    "type": "one-off",
+    "id": "cabaret_scandal",
+    "title": "歌舞厅丑闻",
+    "trigger": "trig_revel_cabaret",
+    "audioFile": "audio/oneoffs/cabaret_scandal.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “歌舞厅丑闻。狂欢后选择：获得1 WP，或弃1张扑克牌。”"
+  },
+  {
+    "type": "one-off",
+    "id": "card_shark",
+    "title": "牌桌老千",
+    "trigger": "trig_begin_poker",
+    "audioFile": "audio/oneoffs/card_shark.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “牌桌老千。开局前，主动玩家可以抽1张扑克牌，然后必须弃1张扑克牌。”"
+  },
+  {
+    "type": "one-off",
+    "id": "lucky_table",
+    "title": "幸运牌桌",
+    "trigger": "trig_win_poker",
+    "audioFile": "audio/oneoffs/lucky_table.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “幸运牌桌。赢家从供应区额外获得$20。”"
+  },
+  {
+    "type": "one-off",
+    "id": "saloon_brawl",
+    "title": "酒馆斗殴",
+    "trigger": "trig_begin_poker",
+    "audioFile": "audio/oneoffs/saloon_brawl.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “酒馆斗殴。扑克结算前，主动玩家与1名强盗战斗。若获胜，继续扑克并获得1 LP。”"
+  },
+  {
+    "type": "one-off",
+    "id": "work_honest_pay",
+    "title": "诚实的工钱",
+    "trigger": "trig_work_action",
+    "audioFile": "audio/oneoffs/work_honest_pay.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “诚实的工钱。本次工作行动获得$20，而不是$10。”"
+  },
+  {
+    "type": "one-off",
+    "id": "work_splintered_hand",
+    "title": "木刺扎手",
+    "trigger": "trig_work_action",
+    "audioFile": "audio/oneoffs/work_splintered_hand.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “木刺扎手。照常获得$10，然后受到1点伤势；你可以弃1张扑克牌来避免。”"
+  },
+  {
+    "type": "one-off",
+    "id": "stampede",
+    "title": "牛群狂奔",
+    "trigger": "trig_acquire_cattle",
+    "audioFile": "audio/oneoffs/stampede.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “牛群狂奔。获得牛群后，立即从牧场向外移动1格。”"
+  },
+  {
+    "type": "one-off",
+    "id": "prize_steer",
+    "title": "优质公牛",
+    "trigger": "trig_acquire_cattle",
+    "audioFile": "audio/oneoffs/prize_steer.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “优质公牛。查看该牧场的2个牛群标记。保留1个，另1个面朝下放回。”"
+  },
+  {
+    "type": "one-off",
+    "id": "rustler_brand",
+    "title": "偷牛贼的烙印",
+    "trigger": "trig_rustle_cattle",
+    "audioFile": "audio/oneoffs/rustler_brand.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “偷牛贼的烙印。偷牛时额外获得$20。你的大胆行径引来注意：将警长向你移动最多3格。”"
+  },
+  {
+    "type": "one-off",
+    "id": "clean_drive",
+    "title": "顺利赶牛",
+    "trigger": "trig_wrangle_cattle",
+    "audioFile": "audio/oneoffs/clean_drive.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “顺利赶牛。赶牛时额外获得$10。”"
+  },
+  {
+    "type": "one-off",
+    "id": "broken_bridge",
+    "title": "断桥",
+    "trigger": "trig_move_3_plus",
+    "audioFile": "audio/oneoffs/broken_bridge.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “断桥。立即结束移动行动。抽1张扑克牌。”"
+  },
+  {
+    "type": "one-off",
+    "id": "runaway_stage",
+    "title": "失控的驿马车",
+    "trigger": "trig_move_3_plus",
+    "audioFile": "audio/oneoffs/runaway_stage.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “失控的驿马车。额外移动最多2格。然后受到1点伤势；你可以弃1张扑克牌来避免。”"
+  },
+  {
+    "type": "one-off",
+    "id": "snakebite",
+    "title": "蛇咬",
+    "trigger": "trig_end_outside_town",
+    "audioFile": "audio/oneoffs/snakebite.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “蛇咬。受到1点伤势，然后抽1张扑克牌。”"
+  },
+  {
+    "type": "one-off",
+    "id": "desert_shortcut",
+    "title": "沙漠捷径",
+    "trigger": "trig_enter_dixon_creek",
+    "audioFile": "audio/oneoffs/desert_shortcut.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “沙漠捷径。立即移动最多2格。如果所有玩家同意路线，本次移动可以忽略台地阻挡。”"
+  },
+  {
+    "type": "one-off",
+    "id": "dixon_ambush",
+    "title": "迪克森溪伏击",
+    "trigger": "trig_enter_dixon_creek",
+    "audioFile": "audio/oneoffs/dixon_ambush.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “迪克森溪伏击。立即与1名强盗战斗。若获胜，额外获得$10。”"
+  },
+  {
+    "type": "one-off",
+    "id": "mesitos_greenhorn",
+    "title": "绿牧场新手",
+    "trigger": "trig_enter_mesitos_point",
+    "audioFile": "audio/oneoffs/mesitos_greenhorn.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “绿牧场新手。如果你在绿牧场，获得$20；否则抽1张扑克牌。”"
+  },
+  {
+    "type": "one-off",
+    "id": "sunny_hills_luck",
+    "title": "阳光山丘的好运",
+    "trigger": "trig_enter_sunny_hills",
+    "audioFile": "audio/oneoffs/sunny_hills_luck.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “阳光山丘的好运。如果你在阳光山丘矿场，无需花费行动即可掷1颗淘金骰。”"
+  },
+  {
+    "type": "one-off",
+    "id": "spikes_view_signal",
+    "title": "信号火",
+    "trigger": "trig_enter_spikes_view",
+    "audioFile": "audio/oneoffs/spikes_view_signal.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “信号火。如果启用了 Ante Up，将火车移动到 Spike’s View 火车站；否则抽1张扑克牌。”"
+  },
+  {
+    "type": "one-off",
+    "id": "cliff_junction_echo",
+    "title": "峡谷回声",
+    "trigger": "trig_enter_cliff_junction",
+    "audioFile": "audio/oneoffs/cliff_junction_echo.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “峡谷回声。抽1张战斗牌。数值7或以上：获得$20；6或以下：受到1点伤势。”"
+  },
+  {
+    "type": "one-off",
+    "id": "legendary_whisper",
+    "title": "传奇低语",
+    "trigger": "trig_gain_legendary_item",
+    "audioFile": "audio/oneoffs/legendary_whisper.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “传奇低语。抽1张扑克牌。如果是人头牌或A，获得1 LP。”"
+  },
+  {
+    "type": "one-off",
+    "id": "famous_deed",
+    "title": "赫赫有名的地契",
+    "trigger": "trig_gain_lp_2_plus",
+    "audioFile": "audio/oneoffs/famous_deed.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “赫赫有名的地契。获得$10，并在报纸摘要中加入“赫赫有名的地契”。”"
+  },
+  {
+    "type": "one-off",
+    "id": "risk_pays",
+    "title": "风险有回报",
+    "trigger": "trig_roll_risk_die",
+    "audioFile": "audio/oneoffs/risk_pays.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “风险有回报。结算风险骰后，抽1张扑克牌。”"
+  },
+  {
+    "type": "one-off",
+    "id": "risk_bites",
+    "title": "风险反噬",
+    "trigger": "trig_roll_risk_die",
+    "audioFile": "audio/oneoffs/risk_bites.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “风险反噬。结算风险骰后，弃1张扑克牌，否则受到1点伤势。”"
+  },
+  {
+    "type": "one-off",
+    "id": "gang_loyalty",
+    "title": "忠诚的伙伴",
+    "trigger": "trig_recruit_gang_posse",
+    "audioFile": "audio/oneoffs/gang_loyalty.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “忠诚的伙伴。招募费用减少$10。”"
+  },
+  {
+    "type": "one-off",
+    "id": "frontier_cache",
+    "title": "边疆藏物",
+    "trigger": "trig_frontier_action",
+    "audioFile": "audio/oneoffs/frontier_cache.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “边疆藏物。结算边疆标记后，获得$10或抽1张扑克牌。”"
+  },
+  {
+    "type": "one-off",
+    "id": "frontier_deadfall",
+    "title": "边疆陷阱",
+    "trigger": "trig_frontier_action",
+    "audioFile": "audio/oneoffs/frontier_deadfall.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “边疆陷阱。结算边疆标记后，受到1点伤势。”"
+  },
+  {
+    "type": "one-off",
+    "id": "hunters_mark",
+    "title": "猎人的标记",
+    "trigger": "trig_hunt_success",
+    "audioFile": "audio/oneoffs/hunters_mark.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “猎人的标记。忽略所有后果。”"
+  },
+  {
+    "type": "one-off",
+    "id": "wounded_predator",
+    "title": "受伤的猛兽",
+    "trigger": "trig_hunt_success",
+    "audioFile": "audio/oneoffs/wounded_predator.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “受伤的猛兽。狩猎后受到1点伤势，然后获得1 LP。”"
+  },
+  {
+    "type": "one-off",
+    "id": "forager_cache",
+    "title": "采集者的藏货",
+    "trigger": "trig_forage_resource",
+    "audioFile": "audio/oneoffs/forager_cache.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “采集者的藏货。额外抽1张采集牌，然后弃1张采集牌。”"
+  },
+  {
+    "type": "one-off",
+    "id": "spoiled_bundle",
+    "title": "变质的一捆",
+    "trigger": "trig_forage_resource",
+    "audioFile": "audio/oneoffs/spoiled_bundle.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “变质的一捆。弃1个资源，否则受到1点伤势。”"
+  },
+  {
+    "type": "one-off",
+    "id": "fine_craft",
+    "title": "精工细作",
+    "trigger": "trig_craft_item",
+    "audioFile": "audio/oneoffs/fine_craft.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “精工细作。制作后获得$10或1 LP。”"
+  },
+  {
+    "type": "one-off",
+    "id": "broken_tool",
+    "title": "损坏的工具",
+    "trigger": "trig_craft_item",
+    "audioFile": "audio/oneoffs/broken_tool.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “损坏的工具。照常制作，然后额外弃1个资源或弃1张扑克牌。”"
+  },
+  {
+    "type": "one-off",
+    "id": "wood_for_station",
+    "title": "车站木料",
+    "trigger": "trig_deliver_resource_location",
+    "audioFile": "audio/oneoffs/wood_for_station.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “车站木料。如果在任意火车站交付的资源是木材，获得$20，并使铁路进度+1。”"
+  },
+  {
+    "type": "one-off",
+    "id": "metal_for_tracks",
+    "title": "铁路用铁",
+    "trigger": "trig_deliver_resource_location",
+    "audioFile": "audio/oneoffs/metal_for_tracks.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “铁路用铁。如果在任意火车站交付的资源是金属，获得$20，并使铁路进度+1。”"
+  },
+  {
+    "type": "one-off",
+    "id": "robbery_hidden_witness",
+    "title": "窗后的目击者",
+    "trigger": "trig_rob_player",
+    "audioFile": "audio/oneoffs/robbery_hidden_witness.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “窗后的目击者。有人目睹了抢劫。支付$20封口，或将警长向你移动最多3格。”"
+  },
+  {
+    "type": "one-off",
+    "id": "robbery_dropped_purse",
+    "title": "额外收获",
+    "trigger": "trig_rob_player",
+    "audioFile": "audio/oneoffs/robbery_dropped_purse.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “额外收获。赃物里还有$10。获得$10。”"
+  },
+  {
+    "type": "one-off",
+    "id": "player_fight_crowd",
+    "title": "围观人群",
+    "trigger": "trig_start_player_fight",
+    "audioFile": "audio/oneoffs/player_fight_crowd.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “围观人群。这场战斗的赢家从佩服的围观者那里获得$10。”"
+  },
+  {
+    "type": "one-off",
+    "id": "player_fight_dust",
+    "title": "扬尘迷眼",
+    "trigger": "trig_start_player_fight",
+    "audioFile": "audio/oneoffs/player_fight_dust.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “扬尘迷眼。两名战斗者各自从对方手牌中随机抽取1张牌。”"
+  },
+  {
+    "type": "one-off",
+    "id": "sheriff_arrest_public_example",
+    "title": "杀一儆百",
+    "trigger": "trig_sheriff_arrests",
+    "audioFile": "audio/oneoffs/sheriff_arrest_public_example.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “杀一儆百。造成逮捕的玩家抽1张扑克牌。”"
+  },
+  {
+    "type": "one-off",
+    "id": "sheriff_arrest_loose_cuffs",
+    "title": "松开的手铐",
+    "trigger": "trig_sheriff_arrests",
+    "audioFile": "audio/oneoffs/sheriff_arrest_loose_cuffs.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “松开的手铐。被逮捕的玩家可以弃1张扑克牌，以保留原本会在逮捕中失去的$10。”"
+  },
+  {
+    "type": "one-off",
+    "id": "rail_friendly_conductor",
+    "title": "友善的列车员",
+    "trigger": "trig_travel_rail",
+    "audioFile": "audio/oneoffs/rail_friendly_conductor.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “友善的列车员。抽1张扑克牌。”"
+  },
+  {
+    "type": "one-off",
+    "id": "rail_late_freight",
+    "title": "晚点货运",
+    "trigger": "trig_travel_rail",
+    "audioFile": "audio/oneoffs/rail_late_freight.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “晚点货运。帮助卸下一节晚到的货车，获得$10。”"
+  },
+  {
+    "type": "one-off",
+    "id": "mountain_pass_rockslide",
+    "title": "落石",
+    "trigger": "trig_use_mountain_pass",
+    "audioFile": "audio/oneoffs/mountain_pass_rockslide.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “落石。弃1张扑克牌，否则受到1点伤势。”"
+  },
+  {
+    "type": "one-off",
+    "id": "mountain_pass_abandoned_cache",
+    "title": "废弃的藏物",
+    "trigger": "trig_use_mountain_pass",
+    "audioFile": "audio/oneoffs/mountain_pass_abandoned_cache.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “废弃的藏物。你在石堆下发现补给。获得$10或抽1张扑克牌。”"
+  },
+  {
+    "type": "character-arc",
+    "id": "prospector_intro",
+    "title": "濒死之人",
+    "trigger": "trig_begin_prospect",
+    "audioFile": "audio/arcs/prospector_intro.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “濒死之人。在任意酒馆结束回合，获得$20。”"
+  },
+  {
+    "type": "character-arc",
+    "id": "prospector_debt_repaid",
+    "title": "偿还恩情",
+    "trigger": "trig_purchase_item",
+    "audioFile": "audio/arcs/prospector_debt_repaid.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “偿还恩情。淘金客把救命之恩传递下去。购买或升级物品后，获得$20。”"
+  },
+  {
+    "type": "character-arc",
+    "id": "prospector_bandit_reveal",
+    "title": "被你丢下的人",
+    "trigger": "trig_defeat_bandit",
+    "audioFile": "audio/arcs/prospector_bandit_reveal.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “被你丢下的人。饥饿的淘金客已经与歹徒为伍。他如何对待你，取决于当初抛下他的人是不是你。”"
+  },
+  {
+    "type": "character-arc",
+    "id": "widow_fence_down",
+    "title": "围栏倒了",
+    "trigger": "trig_acquire_cattle",
+    "audioFile": "audio/arcs/widow_fence_down.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “围栏倒了。在绿色牧场或蓝色牧场结束回合。获得$20并抽1张扑克牌。”"
+  },
+  {
+    "type": "character-arc",
+    "id": "widow_cattle_drive",
+    "title": "安全赶牛",
+    "trigger": "trig_wrangle_cattle",
+    "audioFile": "audio/arcs/widow_cattle_drive.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “安全赶牛。替麦考尔寡妇赶牛，额外获得$20。”"
+  },
+  {
+    "type": "character-arc",
+    "id": "widow_black_veil",
+    "title": "黑纱强盗",
+    "trigger": "trig_rustle_cattle",
+    "audioFile": "audio/arcs/widow_black_veil.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “黑纱强盗。麦考尔寡妇成了歹徒。偷牛后额外获得$30和1 WP，然后将警长向你移动最多2格。”"
+  },
+  {
+    "type": "character-arc",
+    "id": "reeves_deputy_call",
+    "title": "一日副手",
+    "trigger": "trig_gain_mp",
+    "audioFile": "audio/arcs/reeves_deputy_call.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “一日副手。在 Darkrock 警长办公室或 Buzzard Gulch 治安官办公室结束回合，获得$20和1 MP。”"
+  },
+  {
+    "type": "character-arc",
+    "id": "reeves_crackdown",
+    "title": "严打通缉令",
+    "trigger": "trig_defeat_bandit",
+    "audioFile": "audio/arcs/reeves_crackdown.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “严打通缉令。执行里夫斯的通缉令并击败强盗后，额外获得$20。”"
+  },
+  {
+    "type": "character-arc",
+    "id": "reeves_hunted",
+    "title": "治安官追踪你",
+    "trigger": "trig_gain_wp",
+    "audioFile": "audio/arcs/reeves_hunted.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “治安官追踪你。里夫斯治安官正在严厉打击日益严重的歹徒问题。将警长向触发玩家移动最多2格；若警长到达该玩家所在格，该玩家弃1张扑克牌。”"
+  },
+  {
+    "type": "character-arc",
+    "id": "showman_arrives",
+    "title": "彩绘马车",
+    "trigger": "trig_revel_cabaret",
+    "audioFile": "audio/arcs/showman_arrives.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “彩绘马车。在 Red Falls 歌舞厅结束回合，抽2张扑克牌。”"
+  },
+  {
+    "type": "character-arc",
+    "id": "showman_grand_show",
+    "title": "边疆大秀",
+    "trigger": "trig_win_poker",
+    "audioFile": "audio/arcs/showman_grand_show.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “边疆大秀。塞拉斯把你的扑克胜利变成边疆大秀的压轴节目。额外获得1 LP和$20。”"
+  },
+  {
+    "type": "character-arc",
+    "id": "showman_swindle",
+    "title": "大骗局",
+    "trigger": "trig_purchase_item",
+    "audioFile": "audio/arcs/showman_swindle.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “大骗局。塞拉斯开始做不那么光彩的生意。购买后支付$10或弃1张扑克牌。”"
+  },
+  {
+    "type": "character-arc",
+    "id": "pike_tracks",
+    "title": "老派克的踪迹",
+    "trigger": "trig_hunt_success",
+    "audioFile": "audio/arcs/pike_tracks.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “老派克的踪迹。成功狩猎后，如可以则额外获得1个动物资源；否则获得$10。”"
+  },
+  {
+    "type": "character-arc",
+    "id": "pike_white_bear",
+    "title": "白熊踪迹",
+    "trigger": "trig_hunt_success",
+    "audioFile": "audio/arcs/pike_white_bear.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “白熊踪迹。派克带你追踪白熊。抽2只动物并选择1只进行遭遇。若成功，额外获得1 LP。”"
+  },
+  {
+    "type": "character-arc",
+    "id": "pike_trap_line",
+    "title": "触发的陷阱",
+    "trigger": "trig_end_outside_town",
+    "audioFile": "audio/arcs/pike_trap_line.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “触发的陷阱。派克被无视后开始布置报复性的陷阱。”"
+  },
+  {
+    "type": "character-arc",
+    "id": "cardshark_first_hand",
+    "title": "牌桌上的陌生人",
+    "trigger": "trig_begin_poker",
+    "audioFile": "audio/arcs/cardshark_first_hand.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “牌桌上的陌生人。本局扑克中，主动玩家额外抽1张扑克牌，然后弃1张。”"
+  },
+  {
+    "type": "character-arc",
+    "id": "cardshark_beaten",
+    "title": "击败老千",
+    "trigger": "trig_win_poker",
+    "audioFile": "audio/arcs/cardshark_beaten.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “击败老千。在扑克中击败 Red Falls 牌桌老千后，额外获得$30和1 GP。”"
+  },
+  {
+    "type": "character-arc",
+    "id": "cardshark_debt",
+    "title": "讨债人",
+    "trigger": "trig_start_player_fight",
+    "audioFile": "audio/arcs/cardshark_debt.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “讨债人。牌桌老千未了的旧账卷入了你的战斗。”"
+  },
+  {
+    "type": "major-storyline",
+    "id": "rail_surveyors",
+    "title": "测量队到来",
+    "trigger": "trig_travel_rail",
+    "audioFile": "audio/arcs/rail_surveyors.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “测量队到来。在任意火车站结束回合，获得$20并使铁路进度+1。”"
+  },
+  {
+    "type": "major-storyline",
+    "id": "rail_lumber",
+    "title": "车站木料",
+    "trigger": "trig_deliver_resource_location",
+    "audioFile": "audio/arcs/rail_lumber.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “车站木料。将木材交付到火车站。获得$20并使铁路进度+1。”"
+  },
+  {
+    "type": "major-storyline",
+    "id": "rail_iron",
+    "title": "铁路用铁",
+    "trigger": "trig_deliver_resource_location",
+    "audioFile": "audio/arcs/rail_iron.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “铁路用铁。将金属交付到火车站。获得$20并使铁路进度+1。”"
+  },
+  {
+    "type": "major-storyline",
+    "id": "rail_grand_opening",
+    "title": "盛大开通",
+    "trigger": "",
+    "audioFile": "audio/storylines/rail_grand_opening.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “盛大开通。乘火车旅行费用为$0。”"
+  },
+  {
+    "type": "major-storyline",
+    "id": "spanish_journal",
+    "title": "撕破的日记",
+    "trigger": "trig_gain_gold_prospect",
+    "audioFile": "audio/arcs/spanish_journal.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “撕破的日记。在 Cliff Junction 矿场结束回合，获得1个传奇标记。”"
+  },
+  {
+    "type": "major-storyline",
+    "id": "spanish_marker",
+    "title": "石制标记",
+    "trigger": "trig_enter_cliff_junction",
+    "audioFile": "audio/arcs/spanish_marker.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “石制标记。抽1张战斗牌。若数值8或以上，获得2个金块；否则受到1点伤势。”"
+  },
+  {
+    "type": "major-storyline",
+    "id": "spanish_cache",
+    "title": "埋藏的宝藏",
+    "trigger": "trig_deposit_gold",
+    "audioFile": "audio/arcs/spanish_cache.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “埋藏的宝藏。获得$40和2 LP，并把“失落的西班牙黄金”加入报纸。”"
+  },
+  {
+    "type": "major-storyline",
+    "id": "buffalo_tracks",
+    "title": "奇怪的足迹",
+    "trigger": "trig_hunt_success",
+    "audioFile": "audio/arcs/buffalo_tracks.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “奇怪的足迹。狩猎后获得1个白水牛线索。”"
+  },
+  {
+    "type": "major-storyline",
+    "id": "buffalo_warning",
+    "title": "警告",
+    "trigger": "trig_enter_sunny_hills",
+    "audioFile": "audio/arcs/buffalo_warning.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “警告。在 Sunny Hills 结束回合，获得1 LP或抽2张扑克牌。”"
+  },
+  {
+    "type": "major-storyline",
+    "id": "buffalo_appears",
+    "title": "白水牛现身",
+    "trigger": "trig_hunt_success",
+    "audioFile": "audio/storylines/buffalo_appears.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “白水牛现身。特殊狩猎：抽1张战斗牌。弃掉总数值不低于该牌的扑克牌。若成功，选择“保护”或“猎杀”。”"
+  },
+  {
+    "type": "world-event",
+    "id": "world_drought",
+    "title": "旱灾",
+    "trigger": "",
+    "audioFile": "audio/world/world_drought.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “旱灾席卷了边疆。第一个在城镇外结束移动的玩家受到1点伤势。”"
+  },
+  {
+    "type": "world-event",
+    "id": "world_gold_rush",
+    "title": "淘金热",
+    "trigger": "",
+    "audioFile": "audio/world/world_gold_rush.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “淘金热席卷了边疆。淘金行动额外获得$10。”"
+  },
+  {
+    "type": "world-event",
+    "id": "world_sheriff_crackdown",
+    "title": "警长严打",
+    "trigger": "",
+    "audioFile": "audio/world/world_sheriff_crackdown.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “警长严打席卷了边疆。每当玩家获得WP时，将警长向该玩家移动3格。”"
+  },
+  {
+    "type": "world-event",
+    "id": "world_bandit_uprising",
+    "title": "强盗暴动",
+    "trigger": "",
+    "audioFile": "audio/world/world_bandit_uprising.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “强盗暴动席卷了边疆。强盗额外抽1张战斗牌。”"
+  },
+  {
+    "type": "world-event",
+    "id": "world_frontier_festival",
+    "title": "边疆庆典",
+    "trigger": "",
+    "audioFile": "audio/world/world_frontier_festival.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “边疆庆典席卷了边疆。第一次城镇行动额外获得$10。”"
+  },
+  {
+    "type": "world-event",
+    "id": "world_bad_weather",
+    "title": "恶劣天气",
+    "trigger": "",
+    "audioFile": "audio/world/world_bad_weather.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “恶劣天气席卷了边疆。移动行动少移动1格。”"
+  },
+  {
+    "type": "world-event",
+    "id": "world_clear_skies",
+    "title": "晴空万里",
+    "trigger": "",
+    "audioFile": "audio/world/world_clear_skies.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “晴空万里席卷了边疆。移动行动多移动1格。”"
+  },
+  {
+    "type": "world-event",
+    "id": "world_high_stakes",
+    "title": "豪赌之夜",
+    "trigger": "",
+    "audioFile": "audio/world/world_high_stakes.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “豪赌之夜席卷了边疆。扑克赢家额外获得$20。”"
+  },
+  {
+    "type": "world-event",
+    "id": "world_cattle_market",
+    "title": "牛市",
+    "trigger": "",
+    "audioFile": "audio/world/world_cattle_market.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “牛市席卷了边疆。赶牛/偷牛奖励额外增加$10。”"
+  },
+  {
+    "type": "world-event",
+    "id": "world_doctor_shortage",
+    "title": "医生短缺",
+    "trigger": "",
+    "audioFile": "audio/world/world_doctor_shortage.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “医生短缺席卷了边疆。治疗费用增加$10。”"
+  },
+  {
+    "type": "world-event",
+    "id": "world_free_rail",
+    "title": "铁路庆典",
+    "trigger": "",
+    "audioFile": "audio/world/world_free_rail.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “铁路庆典席卷了边疆。乘火车旅行费用为$0。”"
+  },
+  {
+    "type": "world-event",
+    "id": "world_train_security",
+    "title": "武装列车守卫",
+    "trigger": "",
+    "audioFile": "audio/world/world_train_security.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “武装列车守卫席卷了边疆。列车守卫额外抽1张战斗牌。”"
+  },
+  {
+    "type": "world-event",
+    "id": "world_mine_collapse",
+    "title": "不稳定的矿井",
+    "trigger": "",
+    "audioFile": "audio/world/world_mine_collapse.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “不稳定的矿井席卷了边疆。淘金玩家掷出碎石时受到1点伤势。”"
+  },
+  {
+    "type": "world-event",
+    "id": "world_trader_boom",
+    "title": "商旅繁荣",
+    "trigger": "",
+    "audioFile": "audio/world/world_trader_boom.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “商旅繁荣席卷了边疆。传奇物品价格降低$10。”"
+  },
+  {
+    "type": "world-event",
+    "id": "world_saloons_dry",
+    "title": "禁酒酒馆",
+    "trigger": "",
+    "audioFile": "audio/world/world_saloons_dry.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “禁酒酒馆席卷了边疆。扑克不能触发一次性事件。”"
+  },
+  {
+    "type": "world-event",
+    "id": "world_ranch_fire",
+    "title": "牧场火灾",
+    "trigger": "",
+    "audioFile": "audio/world/world_ranch_fire.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “牧场火灾席卷了边疆。获得牛群需要弃1张扑克牌。”"
+  },
+  {
+    "type": "world-event",
+    "id": "world_resource_boom",
+    "title": "有用的边角料",
+    "trigger": "",
+    "audioFile": "audio/world/world_resource_boom.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “有用的边角料席卷了边疆。采集时多抽1张，然后弃1张。”"
+  },
+  {
+    "type": "world-event",
+    "id": "world_predator_migration",
+    "title": "猛兽迁徙",
+    "trigger": "",
+    "audioFile": "audio/world/world_predator_migration.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “猛兽迁徙席卷了边疆。成功狩猎额外获得1 LP，但也受到1点伤势。”"
+  },
+  {
+    "type": "world-event",
+    "id": "world_craft_fair",
+    "title": "手工艺集市",
+    "trigger": "",
+    "audioFile": "audio/world/world_craft_fair.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “手工艺集市席卷了边疆。制作行动额外获得$10。”"
+  },
+  {
+    "type": "world-event",
+    "id": "world_legendary_weather",
+    "title": "血红夕阳",
+    "trigger": "",
+    "audioFile": "audio/world/world_legendary_weather.mp3",
+    "status": "missing",
+    "narrationScript": "[西部说书人][老牛仔][沙哑] “血红夕阳席卷了边疆。第一个获得LP的玩家额外获得1 LP。”"
+  }
+]

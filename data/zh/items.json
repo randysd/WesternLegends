@@ -1,0 +1,238 @@
+{
+  "items": [
+    {
+      "id": "bedroll",
+      "name": "铺盖卷"
+    },
+    {
+      "id": "boot_knife",
+      "name": "靴刀"
+    },
+    {
+      "id": "bullwhip",
+      "name": "牛皮鞭"
+    },
+    {
+      "id": "burro",
+      "name": "小毛驴"
+    },
+    {
+      "id": "carbine",
+      "name": "卡宾枪"
+    },
+    {
+      "id": "derringer",
+      "name": "德林杰手枪"
+    },
+    {
+      "id": "gazette",
+      "name": "公报"
+    },
+    {
+      "id": "holster",
+      "name": "枪套"
+    },
+    {
+      "id": "medicine_pouch",
+      "name": "药包"
+    },
+    {
+      "id": "miners_map",
+      "name": "矿工地图"
+    },
+    {
+      "id": "mule",
+      "name": "骡子"
+    },
+    {
+      "id": "mustang",
+      "name": "野马"
+    },
+    {
+      "id": "peacekeeper",
+      "name": "维和者"
+    },
+    {
+      "id": "pocket_watch",
+      "name": "怀表"
+    },
+    {
+      "id": "provisions",
+      "name": "补给"
+    },
+    {
+      "id": "quarter_horse",
+      "name": "夸特马"
+    },
+    {
+      "id": "repeating_shotgun",
+      "name": "连发霰弹枪"
+    },
+    {
+      "id": "revolver",
+      "name": "左轮手枪"
+    },
+    {
+      "id": "rifle",
+      "name": "步枪"
+    },
+    {
+      "id": "saddle_bags",
+      "name": "鞍袋"
+    },
+    {
+      "id": "shotgun",
+      "name": "霰弹枪"
+    },
+    {
+      "id": "snake_oil",
+      "name": "蛇油"
+    },
+    {
+      "id": "ten_gallon",
+      "name": "十加仑帽"
+    },
+    {
+      "id": "whiskey",
+      "name": "威士忌"
+    },
+    {
+      "id": "work_horse",
+      "name": "役马"
+    }
+  ],
+  "legendary_items": [
+    {
+      "id": "bandolier",
+      "name": "弹带"
+    },
+    {
+      "id": "black_coat",
+      "name": "黑色外套"
+    },
+    {
+      "id": "bowie_knife",
+      "name": "鲍伊刀"
+    },
+    {
+      "id": "canteen",
+      "name": "水壶"
+    },
+    {
+      "id": "cattle_brand",
+      "name": "牛烙印"
+    },
+    {
+      "id": "companion",
+      "name": "伙伴"
+    },
+    {
+      "id": "dime_western",
+      "name": "廉价西部小说"
+    },
+    {
+      "id": "dragoons",
+      "name": "龙骑手枪"
+    },
+    {
+      "id": "dynamite",
+      "name": "炸药"
+    },
+    {
+      "id": "fiddle",
+      "name": "小提琴"
+    },
+    {
+      "id": "lasso",
+      "name": "套索"
+    },
+    {
+      "id": "lightning",
+      "name": "闪电"
+    },
+    {
+      "id": "lucky_coin",
+      "name": "幸运硬币"
+    },
+    {
+      "id": "marked_cards",
+      "name": "记号牌"
+    },
+    {
+      "id": "marshals_badge",
+      "name": "治安官徽章"
+    },
+    {
+      "id": "mesa_deed",
+      "name": "台地地契"
+    },
+    {
+      "id": "molasses",
+      "name": "糖蜜"
+    },
+    {
+      "id": "outlaws_mask",
+      "name": "歹徒面罩"
+    },
+    {
+      "id": "portrait",
+      "name": "肖像"
+    },
+    {
+      "id": "pump_trolley",
+      "name": "手压轨道车"
+    },
+    {
+      "id": "saber",
+      "name": "军刀"
+    },
+    {
+      "id": "serape",
+      "name": "披肩"
+    },
+    {
+      "id": "short_cut",
+      "name": "捷径"
+    },
+    {
+      "id": "shot_glass",
+      "name": "烈酒杯"
+    },
+    {
+      "id": "silver_flask",
+      "name": "银酒壶"
+    },
+    {
+      "id": "snakeskin_boots",
+      "name": "蛇皮靴"
+    },
+    {
+      "id": "spurs",
+      "name": "马刺"
+    },
+    {
+      "id": "spyglass",
+      "name": "望远镜"
+    },
+    {
+      "id": "strongbox",
+      "name": "保险箱"
+    },
+    {
+      "id": "telegram",
+      "name": "电报"
+    },
+    {
+      "id": "thunder",
+      "name": "雷霆"
+    },
+    {
+      "id": "tomahawk",
+      "name": "战斧"
+    },
+    {
+      "id": "treasure_map",
+      "name": "藏宝图"
+    }
+  ]
+}

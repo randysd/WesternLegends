@@ -1897,6 +1897,12 @@
         "nativeName": "Polski",
         "region": "Πολωνικά",
         "dir": "ltr"
+      },
+      {
+        "code": "zh",
+        "nativeName": "中文",
+        "region": "Κινεζικά",
+        "dir": "ltr"
       }
     ]
   },

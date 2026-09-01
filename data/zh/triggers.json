@@ -1,0 +1,658 @@
+[
+  {
+    "id": "trig_move_3_plus",
+    "label": "移动行动中移动4格以上",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "移动行动中移动4格以上"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：移动行动中移动4格以上。",
+      "边疆传来消息：移动行动中移动4格以上。",
+      "当天的记录中出现了这一事件：移动行动中移动4格以上。",
+      "目击者报告：移动行动中移动4格以上。"
+    ]
+  },
+  {
+    "id": "trig_end_outside_town",
+    "label": "在城镇外结束移动",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "在城镇外结束移动"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：在城镇外结束移动。",
+      "边疆传来消息：在城镇外结束移动。",
+      "当天的记录中出现了这一事件：在城镇外结束移动。",
+      "目击者报告：在城镇外结束移动。"
+    ]
+  },
+  {
+    "id": "trig_enter_dixon_creek",
+    "label": "进入 Dixon Creek",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "进入 Dixon Creek"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：进入 Dixon Creek。",
+      "边疆传来消息：进入 Dixon Creek。",
+      "当天的记录中出现了这一事件：进入 Dixon Creek。",
+      "目击者报告：进入 Dixon Creek。"
+    ]
+  },
+  {
+    "id": "trig_enter_mesitos_point",
+    "label": "进入 Mesito’s Point",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "进入 Mesito’s Point"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：进入 Mesito’s Point。",
+      "边疆传来消息：进入 Mesito’s Point。",
+      "当天的记录中出现了这一事件：进入 Mesito’s Point。",
+      "目击者报告：进入 Mesito’s Point。"
+    ]
+  },
+  {
+    "id": "trig_enter_sunny_hills",
+    "label": "进入 Sunny Hills",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "进入 Sunny Hills"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：进入 Sunny Hills。",
+      "边疆传来消息：进入 Sunny Hills。",
+      "当天的记录中出现了这一事件：进入 Sunny Hills。",
+      "目击者报告：进入 Sunny Hills。"
+    ]
+  },
+  {
+    "id": "trig_enter_spikes_view",
+    "label": "进入 Spike’s View",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "进入 Spike’s View"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：进入 Spike’s View。",
+      "边疆传来消息：进入 Spike’s View。",
+      "当天的记录中出现了这一事件：进入 Spike’s View。",
+      "目击者报告：进入 Spike’s View。"
+    ]
+  },
+  {
+    "id": "trig_enter_cliff_junction",
+    "label": "进入 Cliff Junction",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "进入 Cliff Junction"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：进入 Cliff Junction。",
+      "边疆传来消息：进入 Cliff Junction。",
+      "当天的记录中出现了这一事件：进入 Cliff Junction。",
+      "目击者报告：进入 Cliff Junction。"
+    ]
+  },
+  {
+    "id": "trig_bank_heist",
+    "label": "开始抢劫银行",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "开始抢劫银行"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：开始抢劫银行。",
+      "边疆传来消息：开始抢劫银行。",
+      "当天的记录中出现了这一事件：开始抢劫银行。",
+      "目击者报告：开始抢劫银行。"
+    ]
+  },
+  {
+    "id": "trig_gain_wp",
+    "label": "获得通缉点数",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "获得通缉点数"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：获得通缉点数。",
+      "边疆传来消息：获得通缉点数。",
+      "当天的记录中出现了这一事件：获得通缉点数。",
+      "目击者报告：获得通缉点数。"
+    ]
+  },
+  {
+    "id": "trig_rustle_cattle",
+    "label": "偷牛",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "偷牛"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：偷牛。",
+      "边疆传来消息：偷牛。",
+      "当天的记录中出现了这一事件：偷牛。",
+      "目击者报告：偷牛。"
+    ]
+  },
+  {
+    "id": "trig_rob_player",
+    "label": "抢劫另一名玩家",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "抢劫另一名玩家"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：抢劫另一名玩家。",
+      "边疆传来消息：抢劫另一名玩家。",
+      "当天的记录中出现了这一事件：抢劫另一名玩家。",
+      "目击者报告：抢劫另一名玩家。"
+    ]
+  },
+  {
+    "id": "trig_defeat_bandit",
+    "label": "击败强盗",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "击败强盗"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：击败强盗。",
+      "边疆传来消息：击败强盗。",
+      "当天的记录中出现了这一事件：击败强盗。",
+      "目击者报告：击败强盗。"
+    ]
+  },
+  {
+    "id": "trig_start_bandit_fight",
+    "label": "开始与强盗战斗",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "开始与强盗战斗"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：开始与强盗战斗。",
+      "边疆传来消息：开始与强盗战斗。",
+      "当天的记录中出现了这一事件：开始与强盗战斗。",
+      "目击者报告：开始与强盗战斗。"
+    ]
+  },
+  {
+    "id": "trig_start_player_fight",
+    "label": "开始与玩家战斗",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "开始与玩家战斗"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：开始与玩家战斗。",
+      "边疆传来消息：开始与玩家战斗。",
+      "当天的记录中出现了这一事件：开始与玩家战斗。",
+      "目击者报告：开始与玩家战斗。"
+    ]
+  },
+  {
+    "id": "trig_arrest_player",
+    "label": "逮捕通缉玩家",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "逮捕通缉玩家"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：逮捕通缉玩家。",
+      "边疆传来消息：逮捕通缉玩家。",
+      "当天的记录中出现了这一事件：逮捕通缉玩家。",
+      "目击者报告：逮捕通缉玩家。"
+    ]
+  },
+  {
+    "id": "trig_sheriff_arrests",
+    "label": "警长逮捕玩家",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "警长逮捕玩家"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：警长逮捕玩家。",
+      "边疆传来消息：警长逮捕玩家。",
+      "当天的记录中出现了这一事件：警长逮捕玩家。",
+      "目击者报告：警长逮捕玩家。"
+    ]
+  },
+  {
+    "id": "trig_gain_mp",
+    "label": "获得治安官点数",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "获得治安官点数"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：获得治安官点数。",
+      "边疆传来消息：获得治安官点数。",
+      "当天的记录中出现了这一事件：获得治安官点数。",
+      "目击者报告：获得治安官点数。"
+    ]
+  },
+  {
+    "id": "trig_begin_prospect",
+    "label": "开始淘金行动",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "开始淘金行动"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：开始淘金行动。",
+      "边疆传来消息：开始淘金行动。",
+      "当天的记录中出现了这一事件：开始淘金行动。",
+      "目击者报告：开始淘金行动。"
+    ]
+  },
+  {
+    "id": "trig_gain_gold_prospect",
+    "label": "淘金时获得金块",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "淘金时获得金块"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：淘金时获得金块。",
+      "边疆传来消息：淘金时获得金块。",
+      "当天的记录中出现了这一事件：淘金时获得金块。",
+      "目击者报告：淘金时获得金块。"
+    ]
+  },
+  {
+    "id": "trig_deposit_gold",
+    "label": "存入金块",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "存入金块"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：存入金块。",
+      "边疆传来消息：存入金块。",
+      "当天的记录中出现了这一事件：存入金块。",
+      "目击者报告：存入金块。"
+    ]
+  },
+  {
+    "id": "trig_acquire_cattle",
+    "label": "在牧场获得牛群",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "在牧场获得牛群"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：在牧场获得牛群。",
+      "边疆传来消息：在牧场获得牛群。",
+      "当天的记录中出现了这一事件：在牧场获得牛群。",
+      "目击者报告：在牧场获得牛群。"
+    ]
+  },
+  {
+    "id": "trig_wrangle_cattle",
+    "label": "赶牛",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "赶牛"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：赶牛。",
+      "边疆传来消息：赶牛。",
+      "当天的记录中出现了这一事件：赶牛。",
+      "目击者报告：赶牛。"
+    ]
+  },
+  {
+    "id": "trig_purchase_item",
+    "label": "购买物品",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "购买物品"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：购买物品。",
+      "边疆传来消息：购买物品。",
+      "当天的记录中出现了这一事件：购买物品。",
+      "目击者报告：购买物品。"
+    ]
+  },
+  {
+    "id": "trig_heal_doctor",
+    "label": "在医生诊所治疗",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "在医生诊所治疗"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：在医生诊所治疗。",
+      "边疆传来消息：在医生诊所治疗。",
+      "当天的记录中出现了这一事件：在医生诊所治疗。",
+      "目击者报告：在医生诊所治疗。"
+    ]
+  },
+  {
+    "id": "trig_revel_cabaret",
+    "label": "在歌舞厅狂欢",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "在歌舞厅狂欢"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：在歌舞厅狂欢。",
+      "边疆传来消息：在歌舞厅狂欢。",
+      "当天的记录中出现了这一事件：在歌舞厅狂欢。",
+      "目击者报告：在歌舞厅狂欢。"
+    ]
+  },
+  {
+    "id": "trig_begin_poker",
+    "label": "开始一局扑克",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "开始一局扑克"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：开始一局扑克。",
+      "边疆传来消息：开始一局扑克。",
+      "当天的记录中出现了这一事件：开始一局扑克。",
+      "目击者报告：开始一局扑克。"
+    ]
+  },
+  {
+    "id": "trig_win_poker",
+    "label": "赢得一局扑克",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "赢得一局扑克"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：赢得一局扑克。",
+      "边疆传来消息：赢得一局扑克。",
+      "当天的记录中出现了这一事件：赢得一局扑克。",
+      "目击者报告：赢得一局扑克。"
+    ]
+  },
+  {
+    "id": "trig_work_action",
+    "label": "执行工作行动",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "执行工作行动"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：执行工作行动。",
+      "边疆传来消息：执行工作行动。",
+      "当天的记录中出现了这一事件：执行工作行动。",
+      "目击者报告：执行工作行动。"
+    ]
+  },
+  {
+    "id": "trig_gain_legendary_item",
+    "label": "获得传奇物品",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "获得传奇物品"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：获得传奇物品。",
+      "边疆传来消息：获得传奇物品。",
+      "当天的记录中出现了这一事件：获得传奇物品。",
+      "目击者报告：获得传奇物品。"
+    ]
+  },
+  {
+    "id": "trig_buy_traveling_trader",
+    "label": "从流动商人购买",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "从流动商人购买"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：从流动商人购买。",
+      "边疆传来消息：从流动商人购买。",
+      "当天的记录中出现了这一事件：从流动商人购买。",
+      "目击者报告：从流动商人购买。"
+    ]
+  },
+  {
+    "id": "trig_gain_lp_2_plus",
+    "label": "单次行动获得2点以上LP",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "单次行动获得2点以上LP"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：单次行动获得2点以上LP。",
+      "边疆传来消息：单次行动获得2点以上LP。",
+      "当天的记录中出现了这一事件：单次行动获得2点以上LP。",
+      "目击者报告：单次行动获得2点以上LP。"
+    ]
+  },
+  {
+    "id": "trig_travel_rail",
+    "label": "乘火车旅行",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "乘火车旅行"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：乘火车旅行。",
+      "边疆传来消息：乘火车旅行。",
+      "当天的记录中出现了这一事件：乘火车旅行。",
+      "目击者报告：乘火车旅行。"
+    ]
+  },
+  {
+    "id": "trig_use_mountain_pass",
+    "label": "使用山口",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "使用山口"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：使用山口。",
+      "边疆传来消息：使用山口。",
+      "当天的记录中出现了这一事件：使用山口。",
+      "目击者报告：使用山口。"
+    ]
+  },
+  {
+    "id": "trig_train_heist",
+    "label": "开始抢劫火车",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "开始抢劫火车"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：开始抢劫火车。",
+      "边疆传来消息：开始抢劫火车。",
+      "当天的记录中出现了这一事件：开始抢劫火车。",
+      "目击者报告：开始抢劫火车。"
+    ]
+  },
+  {
+    "id": "trig_frontier_action",
+    "label": "结算边疆标记",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "结算边疆标记"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：结算边疆标记。",
+      "边疆传来消息：结算边疆标记。",
+      "当天的记录中出现了这一事件：结算边疆标记。",
+      "目击者报告：结算边疆标记。"
+    ]
+  },
+  {
+    "id": "trig_roll_risk_die",
+    "label": "掷风险骰",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "掷风险骰"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：掷风险骰。",
+      "边疆传来消息：掷风险骰。",
+      "当天的记录中出现了这一事件：掷风险骰。",
+      "目击者报告：掷风险骰。"
+    ]
+  },
+  {
+    "id": "trig_recruit_gang_posse",
+    "label": "招募帮派或队伍",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "招募帮派或队伍"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：招募帮派或队伍。",
+      "边疆传来消息：招募帮派或队伍。",
+      "当天的记录中出现了这一事件：招募帮派或队伍。",
+      "目击者报告：招募帮派或队伍。"
+    ]
+  },
+  {
+    "id": "trig_hunt_success",
+    "label": "狩猎成功",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "狩猎成功"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：狩猎成功。",
+      "边疆传来消息：狩猎成功。",
+      "当天的记录中出现了这一事件：狩猎成功。",
+      "目击者报告：狩猎成功。"
+    ]
+  },
+  {
+    "id": "trig_forage_resource",
+    "label": "获得采集资源",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "获得采集资源"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：获得采集资源。",
+      "边疆传来消息：获得采集资源。",
+      "当天的记录中出现了这一事件：获得采集资源。",
+      "目击者报告：获得采集资源。"
+    ]
+  },
+  {
+    "id": "trig_craft_item",
+    "label": "制作物品",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "制作物品"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：制作物品。",
+      "边疆传来消息：制作物品。",
+      "当天的记录中出现了这一事件：制作物品。",
+      "目击者报告：制作物品。"
+    ]
+  },
+  {
+    "id": "trig_deliver_resource_location",
+    "label": "交付资源",
+    "titleParts": [
+      {
+        "_index": 0,
+        "text": "交付资源"
+      }
+    ],
+    "newspaperText": [
+      "公报记录了一项值得注意的行动：交付资源。",
+      "边疆传来消息：交付资源。",
+      "当天的记录中出现了这一事件：交付资源。",
+      "目击者报告：交付资源。"
+    ]
+  }
+]

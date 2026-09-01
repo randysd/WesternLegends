@@ -1944,6 +1944,12 @@
         "nativeName": "Polski",
         "region": "Polski",
         "dir": "ltr"
+      },
+      {
+        "code": "zh",
+        "nativeName": "中文",
+        "region": "Chiński",
+        "dir": "ltr"
       }
     ]
   },
