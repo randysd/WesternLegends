@@ -1,0 +1,217 @@
+{
+  "modes": [
+    {
+      "id": "standard",
+      "name": "Standardowe Western Legends",
+      "tagline": "Stwórz własne pogranicze",
+      "description": "Zbuduj własną rozgrywkę z posiadanej zawartości, wariantów, postaci i opcji przygotowania."
+    },
+    {
+      "id": "serenade_six_guns",
+      "name": "Serenada sześciu rewolwerów",
+      "tagline": "Strzelaniny i konflikty między graczami",
+      "description": "Tryb skoncentrowany na walce, oparty na postaciach, przedmiotach, kartach fabuły i obrażeniach nagradzających konfrontacje między graczami.",
+      "setupConstraints": {
+        "events": {
+          "instruction": "Usuń z talii Wydarzeń wszystkie karty High Roller i wszystkie karty Unikalnych Wydarzeń."
+        },
+        "twoPlayer": {
+          "instruction": "Używaj wyłącznie kart Człowieka w Czerni 1–9, 11–15 i 19."
+        }
+      },
+      "setupInstructions": [
+        {
+          "id": "starting",
+          "title": "Zmiany początkowe",
+          "summary": "Przygotuj bardziej niebezpieczną rękę startową.",
+          "steps": [
+            {
+              "id": "give_every_player_2_additional_poker_cards_after_their_n",
+              "text": "Po rozdaniu normalnej ręki startowej daj każdemu graczowi 2 dodatkowe karty Pokera.",
+              "visual": {
+                "placements": [
+                  {
+                    "label": "+2 karty"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "playRules": [
+        {
+          "id": "extra_starting_poker_cards",
+          "title": "Początkowe karty Pokera",
+          "text": "Każdy gracz rozpoczyna grę z 2 dodatkowymi kartami Pokera na ręce."
+        }
+      ]
+    },
+    {
+      "id": "golden_rule",
+      "name": "Złota zasada",
+      "tagline": "Bogactwo i rywalizacja gospodarcza",
+      "description": "Ekonomiczny wyścig skupiony na wydobyciu złota, hodowli bydła, hazardzie, aktach własności i zgromadzeniu największej fortuny na Dzikim Zachodzie.",
+      "setupConstraints": {
+        "events": {
+          "instruction": "Usuń z talii Wydarzeń Unikalne Wydarzenia Orphan, Grizzly Bear, Wounded Deputy i Bathcat."
+        }
+      },
+      "playRules": [
+        {
+          "id": "money_scoring",
+          "title": "Punkty za pieniądze",
+          "text": "Podczas końcowego podliczania gracze otrzymują 1 PL za każde posiadane $40 zamiast za każde $60."
+        },
+        {
+          "id": "richest_player",
+          "title": "Największa fortuna",
+          "text": "Podczas końcowego podliczania gracz o największej łącznej wartości przedmiotów, pieniędzy i aktów własności otrzymuje 1 PL. Ulepszone wierzchowce i bronie liczą się według kosztu podstawowego, a Legendarne Przedmioty są warte $40."
+        }
+      ]
+    },
+    {
+      "id": "law_and_disorder",
+      "name": "Prawo i bezprawie",
+      "tagline": "Szeryfowie kontra Poszukiwani",
+      "description": "Bezpośrednia walka prawa z bezprawiem, podkreślająca postacie rozpoczynające jako Poszukiwane lub Stróże Prawa oraz agresywne strategie zdobywania punktów Marshal/Wanted.",
+      "setupConstraints": {
+        "events": {
+          "instruction": "Usuń z talii Wydarzeń wszystkie karty High Roller i wszystkie karty Unikalnych Wydarzeń."
+        }
+      },
+      "playRules": [
+        {
+          "id": "infamous",
+          "title": "Niesławny",
+          "text": "Poszukiwany gracz aresztowany przez innego gracza lub Szeryfa może odrzucić całą rękę kart Pokera, aby nie stracić wszystkich punktów Wanted; zamiast tego przesuwa swój znacznik na pierwsze pole toru Wanted. Dzieje się to po otrzymaniu karty Pokera za przegraną walkę oraz po umieszczeniu Szeryfa i figurki w Biurze Szeryfa lub Marshala. Szeryf nie próbuje ponownie aresztować tego gracza w tej turze; wszystkie pozostałe zasady aresztowania nadal obowiązują."
+        }
+      ]
+    },
+    {
+      "id": "risky_business",
+      "name": "Ryzykowny interes",
+      "tagline": "Karty fabuły i podejmowanie ryzyka",
+      "description": "Tryb wysokiego ryzyka oparty na postaciach silnie współdziałających z kartami fabuły i Kością Ryzyka.",
+      "setupConstraints": {
+        "events": {
+          "instruction": "Użyj wszystkich kart Wydarzeń."
+        }
+      },
+      "playRules": [
+        {
+          "id": "story_space_four_bonus",
+          "title": "Premia toru fabuły",
+          "text": "Za każdym razem, gdy gracz dociera na pole 4 toru Fabuły, otrzymuje 1 PL dodatkowo do wybranej nagrody z tego pola."
+        }
+      ]
+    },
+    {
+      "id": "border_town",
+      "name": "Kto rządzi Border Town?",
+      "tagline": "Buzzard Gulch i osadnictwo",
+      "description": "Bardzo interaktywny tryb rozgrywany wyłącznie w Buzzard Gulch, z gospodarstwami, wydawanymi samorodkami złota, skróconą trasą pociągu oraz wariantem dwuosobowym bez Człowieka w Czerni.",
+      "setupConstraints": {
+        "events": {
+          "instruction": "Usuń z talii Wydarzeń wszystkie Unikalne Wydarzenia oraz wszystkie wydarzenia pojawiające się w Banku Darkrock lub Kabarecie Red Falls."
+        },
+        "twoPlayer": {
+          "instruction": "Nie używaj wariantu Człowieka w Czerni. Poza tym rozgrywka dwuosobowa przebiega dokładnie tak samo jak przy pozostałej liczbie graczy."
+        }
+      },
+      "setupInstructions": [
+        {
+          "id": "board_setup",
+          "title": "Przygotowanie planszy Buzzard Gulch",
+          "summary": "Zbuduj zwartą przestrzeń rozgrywki Border Town.",
+          "steps": [
+            {
+              "id": "place_the_buzzard_gulch_board_on_top_of_the_western_lege",
+              "text": "Połóż planszę Buzzard Gulch bokiem na planszy Western Legends tak, aby krawędź ze Stacją Kolejową znajdowała się tuż nad torem Punktów Legendy, a lewa krawędź tuż na prawo od pól talii Fabuły."
+            },
+            {
+              "id": "fold_under_the_rightmost_section_of_the_train_board_exte",
+              "text": "Zawiń pod spód najbardziej prawą część rozszerzenia planszy pociągu i połóż ją tuż nad planszą Buzzard Gulch, z lewą krawędzią tuż na prawo od toru Wanted."
+            },
+            {
+              "id": "place_the_train_miniature_at_the_buzzard_gulch_rail_stat",
+              "text": "Umieść figurkę pociągu na Stacji Kolejowej Buzzard Gulch."
+            },
+            {
+              "id": "place_the_bandit_hideout_tokens_buildings_in_the_spaces_",
+              "text": "Umieść żetony lub budynki Kryjówek Bandyty na polach oznaczonych czerwonym symbolem Kryjówki Bandyty."
+            },
+            {
+              "id": "place_the_mine_tokens_buildings_in_the_spaces_marked_wit",
+              "text": "Umieść żetony lub budynki Kopalni na polach oznaczonych żółtym symbolem Kopalni."
+            },
+            {
+              "id": "each_player_sets_aside_1_cube_near_their_player_mat_as_a",
+              "text": "Każdy gracz odkłada 1 kostkę obok swojej planszetki jako znacznik Gospodarstwa.",
+              "visual": {
+                "placements": [
+                  {
+                    "label": "Gospodarstwo"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ignore_character_starting_locations_after_determining_tu",
+              "text": "Zignoruj początkowe lokalizacje postaci. Po ustaleniu kolejności graczy w zwykły sposób każdy wybiera dowolne niezajęte pole jako swoje pole startowe.",
+              "visual": {
+                "placements": [
+                  {
+                    "label": "Wybierz start"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "playRules": [
+        {
+          "id": "new_locations",
+          "title": "Nowe lokalizacje",
+          "text": "Lokalizacje Kryjówki Bandyty i Kopalni z głównej planszy są dodawane do Buzzard Gulch przy użyciu żetonów z Blood Money lub elementów 3D Building Upgrade."
+        },
+        {
+          "id": "settler_action",
+          "title": "Akcja osadnika",
+          "text": "Na polu Frontier wydaj akcję i $40, aby umieścić tam swój znacznik Gospodarstwa. Każdy gracz może założyć tylko jedno Gospodarstwo, a pole nie może zawierać żetonu Frontier ani innego Gospodarstwa."
+        },
+        {
+          "id": "homestead",
+          "title": "Gospodarstwo",
+          "text": "W swoim Gospodarstwie akcja Improvement pozwala zdobyć 1 PL za każde wydane $30 (samorodki złota można wydawać jako $20 każdy). Recuperate usuwa wszystkie rany i pozwala dobrać 1 kartę Pokera za każdą ranę usuniętą w ten sposób."
+        },
+        {
+          "id": "game_text",
+          "title": "Tekst gry",
+          "text": "Rozpatruj tekst gry normalnie, z tym że odniesienia do pól lub regionów głównej planszy Western Legends dotyczą odpowiadających im miejsc w Buzzard Gulch. Jeśli pasuje kilka lokalizacji, wybiera aktywny gracz."
+        },
+        {
+          "id": "town",
+          "title": "Miasteczko Buzzard Gulch",
+          "text": "Bank, Kabaret i Gabinet Lekarza nie są używane. Biuro Marshala w Buzzard Gulch liczy się także jako Biuro Szeryfa na potrzeby kart, aresztowań i Szeryfa."
+        },
+        {
+          "id": "gold_nuggets",
+          "title": "Samorodki złota",
+          "text": "Samorodków złota nie można deponować. Można je wydawać jako $20 każdy, nie liczą się do limitu $120 gotówki, a każdy samorodek pozostały na koniec gry jest wart 1 PL."
+        },
+        {
+          "id": "train",
+          "title": "Pociąg",
+          "text": "Pociąg rozpoczyna na Stacji Kolejowej Buzzard Gulch i porusza się trasą: Stacja Kolejowa Buzzard Gulch → Przełęcz A → Przełęcz C → Stacja Kolejowa Buzzard Gulch. Wszystkie pozostałe zasady Pociągu pozostają bez zmian."
+        },
+        {
+          "id": "two_player",
+          "title": "Gra 2-osobowa",
+          "text": "Nie używaj wariantu Człowieka w Czerni. Poza tym rozgrywka dwuosobowa przebiega dokładnie tak samo jak przy pozostałej liczbie graczy."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,660 @@
+[
+  {
+    "id": "trig_move_3_plus",
+    "label": "Przesuń się o 4+ pola w Akcji Ruchu",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że jeździec przebył co najmniej cztery pola w ramach jednej Akcji Ruchu.",
+      "Doniesienia z pogranicza mówią, że jeździec przebył co najmniej cztery pola w ramach jednej Akcji Ruchu.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że jeździec przebył co najmniej cztery pola w ramach jednej Akcji Ruchu.",
+      "Świadkowie z całego terytorium donosili, że jeździec przebył co najmniej cztery pola w ramach jednej Akcji Ruchu."
+    ],
+    "titleParts": [
+      {
+        "text": "Przesuń się o 4+ pola w AKCJI RUCHU",
+        "style": "brown"
+      }
+    ]
+  },
+  {
+    "id": "trig_end_outside_town",
+    "label": "Zakończ Ruch poza miastem",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że jeździec zakończył podróż na otwartym pograniczu zamiast bezpiecznie w mieście.",
+      "Doniesienia z pogranicza mówią, że jeździec zakończył podróż na otwartym pograniczu zamiast bezpiecznie w mieście.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że jeździec zakończył podróż na otwartym pograniczu zamiast bezpiecznie w mieście.",
+      "Świadkowie z całego terytorium donosili, że jeździec zakończył podróż na otwartym pograniczu zamiast bezpiecznie w mieście."
+    ],
+    "titleParts": [
+      {
+        "text": "Zakończ RUCH poza miastem",
+        "style": "brown"
+      }
+    ]
+  },
+  {
+    "id": "trig_enter_dixon_creek",
+    "label": "Wejdź do Dixon Creek",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że jeździec wkroczył na surowe tereny wokół Dixon Creek.",
+      "Doniesienia z pogranicza mówią, że jeździec wkroczył na surowe tereny wokół Dixon Creek.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że jeździec wkroczył na surowe tereny wokół Dixon Creek.",
+      "Świadkowie z całego terytorium donosili, że jeździec wkroczył na surowe tereny wokół Dixon Creek."
+    ],
+    "titleParts": [
+      {
+        "text": "Wejdź do Dixon Creek",
+        "style": "brown"
+      }
+    ]
+  },
+  {
+    "id": "trig_enter_mesitos_point",
+    "label": "Wejdź do Mesito’s Point",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że jeździec przejechał przez Mesito’s Point.",
+      "Doniesienia z pogranicza mówią, że jeździec przejechał przez Mesito’s Point.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że jeździec przejechał przez Mesito’s Point.",
+      "Świadkowie z całego terytorium donosili, że jeździec przejechał przez Mesito’s Point."
+    ],
+    "titleParts": [
+      {
+        "text": "Wejdź do Mesito’s Point",
+        "style": "brown"
+      }
+    ]
+  },
+  {
+    "id": "trig_enter_sunny_hills",
+    "label": "Wejdź do Sunny Hills",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że jeździec wkroczył na tereny Sunny Hills.",
+      "Doniesienia z pogranicza mówią, że jeździec wkroczył na tereny Sunny Hills.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że jeździec wkroczył na tereny Sunny Hills.",
+      "Świadkowie z całego terytorium donosili, że jeździec wkroczył na tereny Sunny Hills."
+    ],
+    "titleParts": [
+      {
+        "text": "Wejdź do Sunny Hills",
+        "style": "brown"
+      }
+    ]
+  },
+  {
+    "id": "trig_enter_spikes_view",
+    "label": "Wejdź do Spike’s View",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że jeździec dotarł do Spike’s View.",
+      "Doniesienia z pogranicza mówią, że jeździec dotarł do Spike’s View.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że jeździec dotarł do Spike’s View.",
+      "Świadkowie z całego terytorium donosili, że jeździec dotarł do Spike’s View."
+    ],
+    "titleParts": [
+      {
+        "text": "Wejdź do Spike’s View",
+        "style": "brown"
+      }
+    ]
+  },
+  {
+    "id": "trig_enter_cliff_junction",
+    "label": "Wejdź do Cliff Junction",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że jeździec wkroczył do Cliff Junction.",
+      "Doniesienia z pogranicza mówią, że jeździec wkroczył do Cliff Junction.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że jeździec wkroczył do Cliff Junction.",
+      "Świadkowie z całego terytorium donosili, że jeździec wkroczył do Cliff Junction."
+    ],
+    "titleParts": [
+      {
+        "text": "Wejdź do Cliff Junction",
+        "style": "brown"
+      }
+    ]
+  },
+  {
+    "id": "trig_bank_heist",
+    "label": "Rozpocznij napad na bank",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że przestępca rozpoczął napad na bank.",
+      "Doniesienia z pogranicza mówią, że przestępca rozpoczął napad na bank.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że przestępca rozpoczął napad na bank.",
+      "Świadkowie z całego terytorium donosili, że przestępca rozpoczął napad na bank."
+    ],
+    "titleParts": [
+      {
+        "text": "Rozpocznij NAPAD NA BANK",
+        "style": "red"
+      }
+    ]
+  },
+  {
+    "id": "trig_gain_wp",
+    "label": "Zdobądź Punkt Przestępstw",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że jeździec dodał kolejny Punkt Przestępstw do swojej rosnącej złej sławy.",
+      "Doniesienia z pogranicza mówią, że jeździec dodał kolejny Punkt Przestępstw do swojej rosnącej złej sławy.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że jeździec dodał kolejny Punkt Przestępstw do swojej rosnącej złej sławy.",
+      "Świadkowie z całego terytorium donosili, że jeździec dodał kolejny Punkt Przestępstw do swojej rosnącej złej sławy."
+    ],
+    "titleParts": [
+      {
+        "text": "Zdobądź PUNKT PRZESTĘPSTW",
+        "style": "red"
+      }
+    ]
+  },
+  {
+    "id": "trig_rustle_cattle",
+    "label": "Ukradnij bydło",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że bydło zostało skradzione z rancza na pograniczu.",
+      "Doniesienia z pogranicza mówią, że bydło zostało skradzione z rancza na pograniczu.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że bydło zostało skradzione z rancza na pograniczu.",
+      "Świadkowie z całego terytorium donosili, że bydło zostało skradzione z rancza na pograniczu."
+    ],
+    "titleParts": [
+      {
+        "text": "Ukradnij BYDŁO",
+        "style": "red"
+      }
+    ]
+  },
+  {
+    "id": "trig_rob_player",
+    "label": "Obrabuj innego gracza",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że jeden jeździec obrabował drugiego na pograniczu.",
+      "Doniesienia z pogranicza mówią, że jeden jeździec obrabował drugiego na pograniczu.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że jeden jeździec obrabował drugiego na pograniczu.",
+      "Świadkowie z całego terytorium donosili, że jeden jeździec obrabował drugiego na pograniczu."
+    ],
+    "titleParts": [
+      {
+        "text": "Obrabuj INNEGO GRACZA",
+        "style": "red"
+      }
+    ]
+  },
+  {
+    "id": "trig_defeat_bandit",
+    "label": "Pokonaj Bandytę",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że Bandyta został pokonany w walce.",
+      "Doniesienia z pogranicza mówią, że Bandyta został pokonany w walce.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że Bandyta został pokonany w walce.",
+      "Świadkowie z całego terytorium donosili, że Bandyta został pokonany w walce."
+    ],
+    "titleParts": [
+      {
+        "text": "Pokonaj BANDYTĘ",
+        "style": "blue"
+      }
+    ]
+  },
+  {
+    "id": "trig_start_bandit_fight",
+    "label": "Rozpocznij walkę z Bandytą",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że jeździec rozpoczął walkę z Bandytą.",
+      "Doniesienia z pogranicza mówią, że jeździec rozpoczął walkę z Bandytą.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że jeździec rozpoczął walkę z Bandytą.",
+      "Świadkowie z całego terytorium donosili, że jeździec rozpoczął walkę z Bandytą."
+    ],
+    "titleParts": [
+      {
+        "text": "Rozpocznij walkę z BANDYTĄ",
+        "style": "blue"
+      }
+    ]
+  },
+  {
+    "id": "trig_start_player_fight",
+    "label": "Rozpocznij walkę z graczem",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że dwóch jeźdźców starło się ze sobą na pograniczu.",
+      "Doniesienia z pogranicza mówią, że dwóch jeźdźców starło się ze sobą na pograniczu.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że dwóch jeźdźców starło się ze sobą na pograniczu.",
+      "Świadkowie z całego terytorium donosili, że dwóch jeźdźców starło się ze sobą na pograniczu."
+    ],
+    "titleParts": [
+      {
+        "text": "Rozpocznij walkę z GRACZEM",
+        "style": "black"
+      }
+    ]
+  },
+  {
+    "id": "trig_arrest_player",
+    "label": "Aresztuj Przestępcę",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że poszukiwany jeździec stanął w obliczu próby aresztowania.",
+      "Doniesienia z pogranicza mówią, że poszukiwany jeździec stanął w obliczu próby aresztowania.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że poszukiwany jeździec stanął w obliczu próby aresztowania.",
+      "Świadkowie z całego terytorium donosili, że poszukiwany jeździec stanął w obliczu próby aresztowania."
+    ],
+    "titleParts": [
+      {
+        "text": "Aresztuj PRZESTĘPCĘ",
+        "style": "blue"
+      }
+    ],
+    "soundFile": "audio/sfx/arrest.mp3"
+  },
+  {
+    "id": "trig_sheriff_arrests",
+    "label": "Szeryf aresztuje gracza",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że Szeryf aresztował poszukiwanego jeźdźca.",
+      "Doniesienia z pogranicza mówią, że Szeryf aresztował poszukiwanego jeźdźca.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że Szeryf aresztował poszukiwanego jeźdźca.",
+      "Świadkowie z całego terytorium donosili, że Szeryf aresztował poszukiwanego jeźdźca."
+    ],
+    "titleParts": [
+      {
+        "text": "SZERYF aresztuje gracza",
+        "style": "blue"
+      }
+    ],
+    "soundFile": "audio/sfx/arrest.mp3"
+  },
+  {
+    "id": "trig_gain_mp",
+    "label": "Zdobądź Punkt Stróża Prawa",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że jeździec zdobył kolejny Punkt Stróża Prawa dzięki praworządnym czynom.",
+      "Doniesienia z pogranicza mówią, że jeździec zdobył kolejny Punkt Stróża Prawa dzięki praworządnym czynom.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że jeździec zdobył kolejny Punkt Stróża Prawa dzięki praworządnym czynom.",
+      "Świadkowie z całego terytorium donosili, że jeździec zdobył kolejny Punkt Stróża Prawa dzięki praworządnym czynom."
+    ],
+    "titleParts": [
+      {
+        "text": "Zdobądź PUNKT STRÓŻA PRAWA",
+        "style": "blue"
+      }
+    ]
+  },
+  {
+    "id": "trig_begin_prospect",
+    "label": "Rozpocznij Poszukiwanie Złota",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że poszukiwacz ruszył do pracy w poszukiwaniu złota.",
+      "Doniesienia z pogranicza mówią, że poszukiwacz ruszył do pracy w poszukiwaniu złota.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że poszukiwacz ruszył do pracy w poszukiwaniu złota.",
+      "Świadkowie z całego terytorium donosili, że poszukiwacz ruszył do pracy w poszukiwaniu złota."
+    ],
+    "titleParts": [
+      {
+        "text": "Rozpocznij POSZUKIWANIE ZŁOTA",
+        "style": "gold"
+      }
+    ]
+  },
+  {
+    "id": "trig_gain_gold_prospect",
+    "label": "Zdobądź złoto podczas Poszukiwania Złota",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że poszukiwacz wydobył złoto z ziemi.",
+      "Doniesienia z pogranicza mówią, że poszukiwacz wydobył złoto z ziemi.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że poszukiwacz wydobył złoto z ziemi.",
+      "Świadkowie z całego terytorium donosili, że poszukiwacz wydobył złoto z ziemi."
+    ],
+    "titleParts": [
+      {
+        "text": "Zdobądź ZŁOTO podczas Poszukiwania",
+        "style": "gold"
+      }
+    ]
+  },
+  {
+    "id": "trig_deposit_gold",
+    "label": "Zdeponuj złoto",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że świeżo wydobyte złoto zostało zdeponowane w Banku.",
+      "Doniesienia z pogranicza mówią, że świeżo wydobyte złoto zostało zdeponowane w Banku.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że świeżo wydobyte złoto zostało zdeponowane w Banku.",
+      "Świadkowie z całego terytorium donosili, że świeżo wydobyte złoto zostało zdeponowane w Banku."
+    ],
+    "titleParts": [
+      {
+        "text": "Zdeponuj ZŁOTO",
+        "style": "gold"
+      }
+    ]
+  },
+  {
+    "id": "trig_acquire_cattle",
+    "label": "Zdobądź bydło na Ranczu",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że jeździec zdobył bydło na Ranczu.",
+      "Doniesienia z pogranicza mówią, że jeździec zdobył bydło na Ranczu.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że jeździec zdobył bydło na Ranczu.",
+      "Świadkowie z całego terytorium donosili, że jeździec zdobył bydło na Ranczu."
+    ],
+    "titleParts": [
+      {
+        "text": "Zdobądź BYDŁO na Ranczu",
+        "style": "orange"
+      }
+    ]
+  },
+  {
+    "id": "trig_wrangle_cattle",
+    "label": "Pędź bydło",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że jeździec z powodzeniem przepędził bydło.",
+      "Doniesienia z pogranicza mówią, że jeździec z powodzeniem przepędził bydło.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że jeździec z powodzeniem przepędził bydło.",
+      "Świadkowie z całego terytorium donosili, że jeździec z powodzeniem przepędził bydło."
+    ],
+    "titleParts": [
+      {
+        "text": "Pędź BYDŁO",
+        "style": "orange"
+      }
+    ]
+  },
+  {
+    "id": "trig_purchase_item",
+    "label": "Kup Przedmiot",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że jeździec dokonał nowego zakupu w mieście.",
+      "Doniesienia z pogranicza mówią, że jeździec dokonał nowego zakupu w mieście.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że jeździec dokonał nowego zakupu w mieście.",
+      "Świadkowie z całego terytorium donosili, że jeździec dokonał nowego zakupu w mieście."
+    ],
+    "titleParts": [
+      {
+        "text": "Kup PRZEDMIOT",
+        "style": "green"
+      }
+    ]
+  },
+  {
+    "id": "trig_heal_doctor",
+    "label": "Wylecz się u Lekarza",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że ranny jeździec udał się do Lekarza po pomoc.",
+      "Doniesienia z pogranicza mówią, że ranny jeździec udał się do Lekarza po pomoc.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że ranny jeździec udał się do Lekarza po pomoc.",
+      "Świadkowie z całego terytorium donosili, że ranny jeździec udał się do Lekarza po pomoc."
+    ],
+    "titleParts": [
+      {
+        "text": "Wylecz się u LEKARZA",
+        "style": "green"
+      }
+    ]
+  },
+  {
+    "id": "trig_revel_cabaret",
+    "label": "Baw się w Kabarecie",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że jeździec hucznie bawił się w Kabarecie.",
+      "Doniesienia z pogranicza mówią, że jeździec hucznie bawił się w Kabarecie.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że jeździec hucznie bawił się w Kabarecie.",
+      "Świadkowie z całego terytorium donosili, że jeździec hucznie bawił się w Kabarecie."
+    ],
+    "titleParts": [
+      {
+        "text": "BAW SIĘ w Kabarecie",
+        "style": "purple"
+      }
+    ]
+  },
+  {
+    "id": "trig_begin_poker",
+    "label": "Rozpocznij partię Pokera",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że w Saloonie rozpoczęła się nowa partia Pokera.",
+      "Doniesienia z pogranicza mówią, że w Saloonie rozpoczęła się nowa partia Pokera.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że w Saloonie rozpoczęła się nowa partia Pokera.",
+      "Świadkowie z całego terytorium donosili, że w Saloonie rozpoczęła się nowa partia Pokera."
+    ],
+    "titleParts": [
+      {
+        "text": "Rozpocznij PARTIĘ POKERA",
+        "style": "purple"
+      }
+    ]
+  },
+  {
+    "id": "trig_win_poker",
+    "label": "Wygraj partię Pokera",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że jeździec odszedł od stołu jako zwycięzca partii Pokera.",
+      "Doniesienia z pogranicza mówią, że jeździec odszedł od stołu jako zwycięzca partii Pokera.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że jeździec odszedł od stołu jako zwycięzca partii Pokera.",
+      "Świadkowie z całego terytorium donosili, że jeździec odszedł od stołu jako zwycięzca partii Pokera."
+    ],
+    "titleParts": [
+      {
+        "text": "Wygraj PARTIĘ POKERA",
+        "style": "purple"
+      }
+    ]
+  },
+  {
+    "id": "trig_work_action",
+    "label": "Wykonaj Akcję Pracy",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że jeździec wykonał uczciwą pracę na pograniczu.",
+      "Doniesienia z pogranicza mówią, że jeździec wykonał uczciwą pracę na pograniczu.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że jeździec wykonał uczciwą pracę na pograniczu.",
+      "Świadkowie z całego terytorium donosili, że jeździec wykonał uczciwą pracę na pograniczu."
+    ],
+    "titleParts": [
+      {
+        "text": "Wykonaj AKCJĘ PRACY",
+        "style": "black"
+      }
+    ]
+  },
+  {
+    "id": "trig_gain_legendary_item",
+    "label": "Zdobądź Przedmiot Legendarny",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że jeździec wszedł w posiadanie Przedmiotu Legendarnego.",
+      "Doniesienia z pogranicza mówią, że jeździec wszedł w posiadanie Przedmiotu Legendarnego.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że jeździec wszedł w posiadanie Przedmiotu Legendarnego.",
+      "Świadkowie z całego terytorium donosili, że jeździec wszedł w posiadanie Przedmiotu Legendarnego."
+    ],
+    "titleParts": [
+      {
+        "text": "Zdobądź PRZEDMIOT LEGENDARNY",
+        "style": "green"
+      }
+    ]
+  },
+  {
+    "id": "trig_buy_traveling_trader",
+    "label": "Kup u Wędrownego Handlarza",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że jeździec dobił targu z Wędrownym Handlarzem.",
+      "Doniesienia z pogranicza mówią, że jeździec dobił targu z Wędrownym Handlarzem.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że jeździec dobił targu z Wędrownym Handlarzem.",
+      "Świadkowie z całego terytorium donosili, że jeździec dobił targu z Wędrownym Handlarzem."
+    ],
+    "titleParts": [
+      {
+        "text": "Kup u WĘDROWNEGO HANDLARZA",
+        "style": "green"
+      }
+    ]
+  },
+  {
+    "id": "trig_gain_lp_2_plus",
+    "label": "Zdobądź 2+ PL w jednej Akcji",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że jeden czyn przyniósł co najmniej dwa Punkty Legendy.",
+      "Doniesienia z pogranicza mówią, że jeden czyn przyniósł co najmniej dwa Punkty Legendy.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że jeden czyn przyniósł co najmniej dwa Punkty Legendy.",
+      "Świadkowie z całego terytorium donosili, że jeden czyn przyniósł co najmniej dwa Punkty Legendy."
+    ],
+    "titleParts": [
+      {
+        "text": "Zdobądź 2+ PL w JEDNEJ AKCJI",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "id": "trig_travel_rail",
+    "label": "Podróżuj koleją",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że jeździec przemierzył część terytorium koleją.",
+      "Doniesienia z pogranicza mówią, że jeździec przemierzył część terytorium koleją.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że jeździec przemierzył część terytorium koleją.",
+      "Świadkowie z całego terytorium donosili, że jeździec przemierzył część terytorium koleją."
+    ],
+    "titleParts": [
+      {
+        "text": "Podróżuj KOLEJĄ",
+        "style": "brown"
+      }
+    ]
+  },
+  {
+    "id": "trig_use_mountain_pass",
+    "label": "Skorzystaj z Przełęczy Górskiej",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że jeździec wybrał niebezpieczną Przełęcz Górską.",
+      "Doniesienia z pogranicza mówią, że jeździec wybrał niebezpieczną Przełęcz Górską.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że jeździec wybrał niebezpieczną Przełęcz Górską.",
+      "Świadkowie z całego terytorium donosili, że jeździec wybrał niebezpieczną Przełęcz Górską."
+    ],
+    "titleParts": [
+      {
+        "text": "Skorzystaj z PRZEŁĘCZY GÓRSKIEJ",
+        "style": "brown"
+      }
+    ]
+  },
+  {
+    "id": "trig_train_heist",
+    "label": "Rozpocznij napad na pociąg",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że przestępcy rozpoczęli napad na pociąg.",
+      "Doniesienia z pogranicza mówią, że przestępcy rozpoczęli napad na pociąg.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że przestępcy rozpoczęli napad na pociąg.",
+      "Świadkowie z całego terytorium donosili, że przestępcy rozpoczęli napad na pociąg."
+    ],
+    "titleParts": [
+      {
+        "text": "Rozpocznij NAPAD NA POCIĄG",
+        "style": "red"
+      }
+    ]
+  },
+  {
+    "id": "trig_frontier_action",
+    "label": "Rozpatrz Żeton Pogranicza",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że Żeton Pogranicza wywołał nowe wydarzenia w Buzzard Gulch.",
+      "Doniesienia z pogranicza mówią, że Żeton Pogranicza wywołał nowe wydarzenia w Buzzard Gulch.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że Żeton Pogranicza wywołał nowe wydarzenia w Buzzard Gulch.",
+      "Świadkowie z całego terytorium donosili, że Żeton Pogranicza wywołał nowe wydarzenia w Buzzard Gulch."
+    ],
+    "titleParts": [
+      {
+        "text": "ROZPATRZ ŻETON POGRANICZA",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "id": "trig_roll_risk_die",
+    "label": "Rzuć Kością Ryzyka",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że jeździec powierzył swój los rzutowi Kością Ryzyka.",
+      "Doniesienia z pogranicza mówią, że jeździec powierzył swój los rzutowi Kością Ryzyka.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że jeździec powierzył swój los rzutowi Kością Ryzyka.",
+      "Świadkowie z całego terytorium donosili, że jeździec powierzył swój los rzutowi Kością Ryzyka."
+    ],
+    "titleParts": [
+      {
+        "text": "RZUĆ KOŚCIĄ RYZYKA",
+        "style": "red"
+      }
+    ]
+  },
+  {
+    "id": "trig_recruit_gang_posse",
+    "label": "Zwerbuj Gang lub Posse",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że jeździec zwerbował nowych ludzi do Gangu lub Posse.",
+      "Doniesienia z pogranicza mówią, że jeździec zwerbował nowych ludzi do Gangu lub Posse.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że jeździec zwerbował nowych ludzi do Gangu lub Posse.",
+      "Świadkowie z całego terytorium donosili, że jeździec zwerbował nowych ludzi do Gangu lub Posse."
+    ],
+    "titleParts": [
+      {
+        "text": "ZWERBUJ GANG LUB POSSE",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "id": "trig_hunt_success",
+    "label": "Udane Polowanie",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że myśliwy powrócił z udanego Polowania.",
+      "Doniesienia z pogranicza mówią, że myśliwy powrócił z udanego Polowania.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że myśliwy powrócił z udanego Polowania.",
+      "Świadkowie z całego terytorium donosili, że myśliwy powrócił z udanego Polowania."
+    ],
+    "titleParts": [
+      {
+        "text": "UDANE POLOWANIE",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "id": "trig_forage_resource",
+    "label": "Zdobądź Zasób ze Zbieractwa",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że zbieracz znalazł na pustkowiu użyteczny Zasób.",
+      "Doniesienia z pogranicza mówią, że zbieracz znalazł na pustkowiu użyteczny Zasób.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że zbieracz znalazł na pustkowiu użyteczny Zasób.",
+      "Świadkowie z całego terytorium donosili, że zbieracz znalazł na pustkowiu użyteczny Zasób."
+    ],
+    "titleParts": [
+      {
+        "text": "ZDOBĄDŹ ZASÓB ZE ZBIERACTWA",
+        "style": "normal"
+      }
+    ]
+  },
+  {
+    "id": "trig_craft_item",
+    "label": "Wytwórz Przedmiot",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że materiały z pogranicza zostały wykorzystane do wytworzenia Przedmiotu.",
+      "Doniesienia z pogranicza mówią, że materiały z pogranicza zostały wykorzystane do wytworzenia Przedmiotu.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że materiały z pogranicza zostały wykorzystane do wytworzenia Przedmiotu.",
+      "Świadkowie z całego terytorium donosili, że materiały z pogranicza zostały wykorzystane do wytworzenia Przedmiotu."
+    ],
+    "titleParts": [
+      {
+        "text": "Wytwórz PRZEDMIOT",
+        "style": "green"
+      }
+    ]
+  },
+  {
+    "id": "trig_deliver_resource_location",
+    "label": "Dostarcz Zasób",
+    "newspaperText": [
+      "Rejestr podróży Gazette odnotował, że użyteczny Zasób został dostarczony tam, gdzie był potrzebny.",
+      "Doniesienia z pogranicza mówią, że użyteczny Zasób został dostarczony tam, gdzie był potrzebny.",
+      "Wśród godnych uwagi wydarzeń dnia odnotowano, że użyteczny Zasób został dostarczony tam, gdzie był potrzebny.",
+      "Świadkowie z całego terytorium donosili, że użyteczny Zasób został dostarczony tam, gdzie był potrzebny."
+    ],
+    "titleParts": [
+      {
+        "text": "DOSTARCZ ZASÓB",
+        "style": "normal"
+      }
+    ]
+  }
+]

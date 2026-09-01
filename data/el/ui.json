@@ -1891,6 +1891,12 @@
         "nativeName": "Ελληνικά",
         "region": "Ελληνικά",
         "dir": "ltr"
+      },
+      {
+        "code": "pl",
+        "nativeName": "Polski",
+        "region": "Πολωνικά",
+        "dir": "ltr"
       }
     ]
   },

@@ -1,0 +1,222 @@
+[
+  {
+    "id": "world_drought",
+    "title": "Susza",
+    "screenText": "Pierwszy gracz, który zakończy ruch poza miastem, otrzymuje 1 ranę.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Studnie kaszlą błotem, a słońce wisi złowrogo na niebie.\"",
+    "newspaperText": [
+      "Dotkliwa susza ogarnęła terytorium, obniżając poziom wody w studniach i zmuszając podróżnych do oszczędzania każdej kropli.",
+      "Tygodnie bezlitosnego słońca wysuszyły pogranicze na wiór, a woda stała się niemal tak cenna jak złoto.",
+      "Susza coraz mocniej ściskała okolicę, a jeźdźcy przebywający poza miastem odczuwali jej skutki najbardziej."
+    ]
+  },
+  {
+    "id": "world_gold_rush",
+    "title": "Gorączka złota",
+    "screenText": "Akcje Poszukiwania złota zapewniają +$10.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Gorączka złota szerzy się szybciej niż zdrowy rozsądek.\"",
+    "newspaperText": [
+      "Nowe pogłoski o złocie przetoczyły się przez obozy, ponownie pędząc poszukiwaczy ku wyrobiskom.",
+      "Gorączka złota znów ogarnęła terytorium, gdy obiecujące znaleziska kazały górnikom chwytać za misy i kilofy.",
+      "Plotki o bogatych złożach rozchodziły się od działki do działki, czyniąc każdą wyprawę po złoto jeszcze bardziej kuszącą."
+    ]
+  },
+  {
+    "id": "world_sheriff_crackdown",
+    "title": "Obława Szeryfa",
+    "screenText": "Za każdym razem, gdy gracz zdobywa punkt Przestępstwa, przesuń Szeryfa o 3 pola w jego stronę.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Prawo pokazuje zęby.\"",
+    "newspaperText": [
+      "Szeryf rozpoczął bezwzględną walkę z bezprawiem, ruszając w pościg natychmiast po pojawieniu się nowych listów gończych.",
+      "Przestępcy przekonali się, że terytorium nagle stało się mniej gościnne, gdy Szeryf zaczął niezwykle szybko reagować na nowe zbrodnie.",
+      "Prawo zacisnęło pętlę na pograniczu, a Szeryf zbliżał się do każdego, kto pogłębiał swoją przestępczą reputację."
+    ]
+  },
+  {
+    "id": "world_bandit_uprising",
+    "title": "Powstanie bandytów",
+    "screenText": "Bandyci dobierają +1 Kartę Walki.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Wzgórza zaczynają wypluwać twardzieli z nabitą bronią.\"",
+    "newspaperText": [
+      "Aktywność bandytów gwałtownie wzrosła na całym terytorium, a podróżni donosili o twardszych i lepiej uzbrojonych bandach na drogach.",
+      "Fala bandyckiej przemocy uczyniła szlaki bardziej niebezpiecznymi, a uzbrojone gangi wykazywały w walce niespodziewaną siłę.",
+      "Bandyci stawali się coraz zuchwalsi na całym pograniczu, zmieniając zwykłe spotkania w znacznie groźniejsze starcia."
+    ]
+  },
+  {
+    "id": "world_frontier_festival",
+    "title": "Festyn na pograniczu",
+    "screenText": "Pierwsza akcja w mieście zapewnia +$10.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Muzyka płynie z miasta niczym światło latarni.\"",
+    "newspaperText": [
+      "Festyn na pograniczu wypełnił miasto muzyką, handlem i brzękiem monet, nagradzając pierwszy interes zawarty pośród zabawy.",
+      "Ulice ożyły podczas rzadkiego święta, przynosząc tłumy, okazje i trochę dodatkowej gotówki miejscowym interesom.",
+      "Miasto ogarnęła świąteczna atmosfera, gdy festyn przyciągnął osadników z wielu mil i puścił w obieg świeżą gotówkę."
+    ]
+  },
+  {
+    "id": "world_bad_weather",
+    "title": "Zła pogoda",
+    "screenText": "Akcje Ruchu mają -1 pole.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Deszcz zamienia każdą drogę w brązową zupę.\"",
+    "newspaperText": [
+      "Ulewy zamieniły drogi w błoto i sprawiły, że każda podróż przez terytorium trwała dłużej niż zwykle.",
+      "Deszcz i fatalne warunki na szlakach spowiły pogranicze, skracając drogę, jaką mogli pokonać nawet najtwardsi jeźdźcy.",
+      "Zła pogoda utrudniła podróż przez otwarty teren, a rozmyte drogi i głębokie błoto spowalniały wszystkich."
+    ]
+  },
+  {
+    "id": "world_clear_skies",
+    "title": "Pogodne niebo",
+    "screenText": "Akcje Ruchu mają +1 pole.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Niebo się przejaśnia i każdy szlak wydaje się krótszy.\"",
+    "newspaperText": [
+      "Pogodne niebo i twarde szlaki otworzyły terytorium, pozwalając jeźdźcom pokonywać większe odległości niż zwykle.",
+      "Okres pięknej pogody uczynił drogi wyjątkowo łaskawymi i skrócił podróże przez pogranicze.",
+      "Jasne niebo i suche trakty sprzyjały podróżnym, pomagając jeźdźcom posuwać się dalej z każdym ruchem."
+    ]
+  },
+  {
+    "id": "world_high_stakes",
+    "title": "Noc wysokich stawek",
+    "screenText": "Zwycięzcy pokera otrzymują +$20.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Każdy głupiec z monetą w kieszeni chce miejsce przy stole.\"",
+    "newspaperText": [
+      "Poker na wysokie stawki opanował saloony, a większe pule czekały na tych, którzy potrafili je wygrać.",
+      "Przy stołach karcianych zrobiło się gorąco, gdy zasobni hazardziści wynieśli wygrane pokerowe daleko ponad zwykły poziom.",
+      "Podczas serii gier o wysokie stawki pieniądze przechodziły z rąk do rąk, przyciągając do stołów ambitnych graczy."
+    ]
+  },
+  {
+    "id": "world_cattle_market",
+    "title": "Targ bydła",
+    "screenText": "Nagrody za Pędzenie/Kradzież bydła mają +$10.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ceny wołowiny pną się w górę jak dym.\"",
+    "newspaperText": [
+      "Silny popyt na bydło podbił ceny wołowiny i uczynił udaną pracę na ranczu wyjątkowo dochodową.",
+      "Zapotrzebowanie na bydło rosło na całym terytorium, dając dodatkowy zarobek zarówno uczciwym poganiaczom, jak i zuchwałym złodziejom.",
+      "Ceny bydła gwałtownie wzrosły, czyniąc każdy udany spęd jeszcze bardziej opłacalnym interesem."
+    ]
+  },
+  {
+    "id": "world_doctor_shortage",
+    "title": "Brak lekarzy",
+    "screenText": "Leczenie kosztuje +$10.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Lekarzowi kończą się laudanum i cierpliwość.\"",
+    "newspaperText": [
+      "Brak lekarzy i lekarstw podniósł koszty leczenia na całym pograniczu.",
+      "Opieka medyczna stała się rzadkością, zmuszając rannych jeźdźców do słonego płacenia za uwagę lekarza.",
+      "Gdy lekarstw zaczęło brakować, koszt poskładania człowieka do kupy wzrósł wszędzie, skąd Gazette otrzymywała doniesienia."
+    ]
+  },
+  {
+    "id": "world_free_rail",
+    "title": "Święto kolei",
+    "screenText": "Podróż koleją kosztuje $0.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Lokomotywa gwiżdże, a każda stacja świętuje.\"",
+    "newspaperText": [
+      "Święto kolei otworzyło tory dla darmowych przejazdów, wożąc pasażerów od stacji do stacji bez opłat.",
+      "Kolej świętowała z rozmachem, znosząc opłaty i wypełniając wagony podróżnymi z całego pogranicza.",
+      "Gwizdy rozbrzmiewały na każdej stacji, gdy kolejowe święto uczyniło podróże po terytorium bezpłatnymi."
+    ]
+  },
+  {
+    "id": "world_train_security",
+    "title": "Uzbrojeni strażnicy pociągu",
+    "screenText": "Strażnicy pociągu dobierają +1 Kartę Walki.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Kolejarze najmują uzbrojonych ludzi całymi tuzinami.\"",
+    "newspaperText": [
+      "Towarzystwa kolejowe odpowiedziały na narastające kłopoty, umieszczając w pociągach ciężko uzbrojonych strażników.",
+      "Ochrona pociągów wyraźnie wzrosła, gdy kolej najęła dodatkowych rewolwerowców do pilnowania cennych wagonów.",
+      "Niedoszli rabusie napotykali znacznie silniejszy opór, odkąd uzbrojeni strażnicy zaczęli liczniej jeździć koleją."
+    ]
+  },
+  {
+    "id": "world_mine_collapse",
+    "title": "Niestabilne kopalnie",
+    "screenText": "Podczas Poszukiwania złota wynik Żwir powoduje 1 ranę.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ziemia jęczy pod każdym uderzeniem kilofa.\"",
+    "newspaperText": [
+      "Niestabilny grunt uczynił kopalnie zdradliwymi, przez co nawet zwykłe poszukiwanie złota niosło większe ryzyko obrażeń.",
+      "Wieści o osuwającej się ziemi i niepewnych szybach rozeszły się po obozach górniczych, czyniąc każdy wykop bardziej niebezpiecznym.",
+      "Kopalnie stały się groźne, gdy niestabilny grunt zaczął zagrażać poszukiwaczom pracującym w żwirze."
+    ]
+  },
+  {
+    "id": "world_trader_boom",
+    "title": "Boom handlowy",
+    "screenText": "Legendarne Przedmioty kosztują o $10 mniej.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Wóz doktora Herve'a ugina się pod ciężarem cudów.\"",
+    "newspaperText": [
+      "Rozkwit handlu obwoźnego ułatwił dostęp do rzadkich towarów i obniżył ceny legendarnych przedmiotów.",
+      "Rzadkie towary zalały rynek pogranicza, dając jeźdźcom niezwykłą okazję do tańszego zakupu Legendarnych Przedmiotów.",
+      "Przybycie dobrze zaopatrzonych handlarzy poruszyło terytorium i na krótko obniżyło ceny najbardziej pożądanych dóbr."
+    ]
+  },
+  {
+    "id": "world_saloons_dry",
+    "title": "Suche saloony",
+    "screenText": "Poker nie może wywoływać jednorazowych wydarzeń.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Whiskey się kończy, a stoły cichną.\"",
+    "newspaperText": [
+      "W saloonach na całym terytorium zabrakło alkoholu, przyciszając stoły i kończąc zwykłe pokerowe niespodzianki.",
+      "Niedobór whiskey sprawił, że saloony ucichły, a rozgrywki pokera stały się na całym pograniczu wyjątkowo spokojne.",
+      "Suche krany zmieniły nastrój w saloonach, gdzie gry karciane toczyły się bez zwyczajowych nieprzewidzianych komplikacji."
+    ]
+  },
+  {
+    "id": "world_ranch_fire",
+    "title": "Pożar rancza",
+    "screenText": "Zdobycie bydła kosztuje 1 Kartę Pokera.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Dym unosi się znad północnego pastwiska.\"",
+    "newspaperText": [
+      "Pożar rancza zasnuł krainę bydła dymem i uczynił uzupełnianie stad droższym niż zwykle.",
+      "Płomienie przetoczyły się przez rancza, utrudniając zakup bydła i zmuszając kupców do poniesienia dodatkowego kosztu.",
+      "Dym nad równiną zdradzał niszczycielski pożar, który wyjątkowo utrudnił zdobywanie nowego bydła."
+    ]
+  },
+  {
+    "id": "world_resource_boom",
+    "title": "Przydatne resztki",
+    "screenText": "Podczas Zbieractwa dobierz +1, a następnie odrzuć 1.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Pogranicze jest zasłane rzeczami przydatnymi w zręcznych rękach.\"",
+    "newspaperText": [
+      "Przydatne resztki i złom stały się powszechne na pograniczu, dając zaradnym zbieraczom większy wybór materiałów.",
+      "Nagła obfitość użytecznych materiałów nagradzała pomysłowych ludzi gotowych przeszukiwać terytorium w poszukiwaniu zapasów.",
+      "Porzucone dobra okazały się wyjątkowo wartościowe, gdy obfitość zasobów dała zbieraczom lepszy wybór tego, co zabrać."
+    ]
+  },
+  {
+    "id": "world_predator_migration",
+    "title": "Migracja drapieżników",
+    "screenText": "Udane Polowania zapewniają +1 PL, ale także +1 ranę.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Głodne oczy błyszczą w zaroślach.\"",
+    "newspaperText": [
+      "Wędrówka głodnych drapieżników uczyniła udane polowania bardziej opłacalnymi, lecz także znacznie niebezpieczniejszymi.",
+      "Drapieżniki pojawiły się na terytorium w niezwykłej liczbie, zwiększając zarówno chwałę, jak i cenę udanego polowania.",
+      "Łowcy znaleźli na szlakach większe możliwości i ostrzejsze kły, gdy drapieżniki tłumnie wkroczyły do regionu."
+    ]
+  },
+  {
+    "id": "world_craft_fair",
+    "title": "Jarmark rzemieślniczy",
+    "screenText": "Akcja Wytwarzania zapewnia +$10.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Na każdy przydatny drobiazg znajdzie się kupiec.\"",
+    "newspaperText": [
+      "Jarmark na pograniczu przyciągnął kupców chętnych na ręcznie wykonane towary i dał dodatkowy zarobek zdolnym rzemieślnikom.",
+      "Użyteczne rękodzieło osiągało wysokie ceny, gdy jarmark ściągnął nabywców z całego terytorium.",
+      "Wytworzone przedmioty łatwo znajdowały kupców podczas gwarnego jarmarku, nagradzając tych, którzy potrafili zrobić użytek z materiałów pogranicza."
+    ]
+  },
+  {
+    "id": "world_legendary_weather",
+    "title": "Czerwony zachód słońca",
+    "screenText": "Pierwszy gracz, który zdobędzie PL, otrzymuje +1 PL.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Zachód płonie czerwienią, a nawet zwykłe czyny wydają się legendarne.\"",
+    "newspaperText": [
+      "Jaskrawoczerwony zachód skąpał pogranicze w legendarnym blasku, nadając pierwszemu godnemu uwagi czynowi wieczoru szczególną chwałę.",
+      "Niebo płonęło czerwienią nad terytorium, dodając szczególnego znaczenia pierwszej legendzie, która narodziła się pod jego blaskiem.",
+      "Niezwykły zachód słońca zatrzymał jeźdźców w pół kroku i sprawił, że pierwszy legendarny czyn, który po nim nastąpił, wydawał się jeszcze większy."
+    ]
+  }
+]

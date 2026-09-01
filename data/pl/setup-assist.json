@@ -1,0 +1,156 @@
+{
+  "sections": [
+    {
+      "id": "play_area",
+      "title": "Przygotuj obszar gry",
+      "summary": "Rozłóż plansze, nakładki i stojaki.",
+      "steps": [
+        {"_index":0,"text":"Umieść główną planszę gry na środku stołu.","images":[{"_index":0,"alt":"Główna plansza","caption":"Główna plansza"}]},
+        {"_index":1,"text":"Umieść Planszę Pogranicza Buzzard Gulch obok głównej planszy.","images":[{"_index":0,"alt":"Buzzard Gulch i tor Hazardzisty","caption":"Buzzard Gulch i tor Hazardzisty"}]},
+        {"_index":2,"text":"Umieść tor Hazardzisty nad główną planszą."},
+        {"_index":3,"text":"Umieść nakładkę Planszy Legendarnych Opowieści na obszarze podstawowych Kart Opowieści.","images":[{"_index":0,"alt":"Nakładka Planszy Legendarnych Opowieści","caption":"Plansza Legendarnych Opowieści"}]},
+        {"_index":4,"text":"W razie potrzeby złóż stojak Sklepu wielobranżowego."},
+        {"_index":5,"text":"Złóż stojak Punktu handlowego."},
+        {"_index":6,"text":"Złóż stojak Wędrownego Handlarza."}
+      ]
+    },
+    {
+      "id":"stores",
+      "title":"Przygotuj sklepy",
+      "summary":"Przygotuj rynki Przedmiotów i asortyment handlarza.",
+      "steps":[
+        {"_index":0,"text":"Automatycznie wypełnij sklepy za pomocą asystenta albo pomiń tę opcję i wykonaj poniższe kroki ręcznego przygotowania sklepów.","actionButtons":[{"_index":0,"label":"Automatycznie wypełnij sklepy"}]},
+        {"_index":1,"text":"Ręcznie wypełnij sklepy","summary":"Wykonaj te kroki tylko wtedy, gdy nie korzystasz z automatycznego wypełniania sklepów.","substeps":[
+          {"_index":0,"text":"Usuń karty losowania sklepu dla Przedmiotów, które nie są używane."},
+          {"_index":1,"text":"Odłóż standardową kartę przygotowania jako podręczną pomoc dotyczącą sklepów."},
+          {"_index":2,"text":"Potasuj zakryte pozostałe karty losowania sklepu."},
+          {"_index":3,"text":"Rozdaj po 1 karcie losowania na każde miejsce w Sklepie wielobranżowym."},
+          {"_index":4,"text":"Rozdaj po 1 karcie losowania na każde miejsce w Punkcie handlowym."},
+          {"_index":5,"text":"Umieść pierwszą odkrytą Broń i pierwszego odkrytego Wierzchowca w Sklepie wielobranżowym."},
+          {"_index":6,"text":"Umieść drugą odkrytą Broń i drugiego odkrytego Wierzchowca w Punkcie handlowym."},
+          {"_index":7,"text":"Przy standardowym przygotowaniu upewnij się, że każdy sklep ma co najmniej 1 Broń i 1 Wierzchowca. W razie potrzeby losowo wymień Przedmioty."},
+          {"_index":8,"text":"Umieść każdą talię Przedmiotów w miejscu odpowiadającym jej karcie losowania."}
+        ]},
+        {"_index":2,"text":"Potasuj razem Przedmioty Legendarne z wybranych rozszerzeń i umieść kartę blokującą na spodzie talii."},
+        {"_index":3,"text":"Umieść zakrytą talię Przedmiotów Legendarnych w lewym górnym miejscu stojaka Wędrownego Handlarza."},
+        {"_index":4,"text":"Odkryj 3 Przedmioty Legendarne w dolnym rzędzie stojaka Wędrownego Handlarza."},
+        {"_index":5,"text":"Umieść wszystkie pozostałe talie Przedmiotów w 2 pustych miejscach Wędrownego Handlarza. Odpowiadające im karty losowania trzymaj w pobliżu."}
+      ]
+    },
+    {
+      "id":"decks",
+      "title":"Przygotuj talie",
+      "summary":"Potasuj tylko talie używane w tej rozgrywce.",
+      "steps":[
+        {"_index":0,"text":"Podziel pieniądze na talie banknotów $10 i $20.","images":[{"_index":0,"alt":"Banknoty $10","caption":"$10"},{"_index":1,"alt":"Banknoty $20","caption":"$20"}]},
+        {"_index":1,"text":"Przygotuj talię Pokerową. Jeśli używasz Kart Pokerowych z rozszerzeń, zamień je na odpowiadające im karty podstawowe o tym samym kolorze i wartości.","images":[{"_index":0,"alt":"Talia Pokerowa","caption":"Talia Pokerowa"}]},
+        {"_index":2,"text":"Wtasuj karty Jokerów do talii Pokerowej."},
+        {"_index":3,"text":"Potasuj podstawowe małe talie i umieść je obok planszy.","images":[
+          {"_index":0,"alt":"Talia Walki","caption":"Walka"},
+          {"_index":1,"alt":"Talia Wydarzeń","caption":"Wydarzenia"},
+          {"_index":2,"alt":"Talia Pociągu","caption":"Pociąg"},
+          {"_index":3,"alt":"Talia Obrażeń","caption":"Obrażenia"},
+          {"_index":4,"alt":"Talia Wędrownego Handlarza","caption":"Handlarz"},
+          {"_index":5,"alt":"Talia Poszukiwania Skarbów","caption":"Poszukiwanie Skarbów"},
+          {"_index":6,"alt":"Talia Polowania","caption":"Polowanie"},
+          {"_index":7,"alt":"Talia Łowienia Ryb","caption":"Łowienie Ryb"},
+          {"_index":8,"alt":"Talia Zbieractwa","caption":"Zbieractwo"},
+          {"_index":9,"alt":"Talia Poszukiwania Złota","caption":"Poszukiwanie Złota"}
+        ]},
+        {"_index":4,"text":"Potasuj podstawowe Karty Opowieści, umieść talię na wyznaczonym miejscu planszy, odkryj 1 podstawową Kartę Opowieści i połóż ją na wyznaczonym miejscu."},
+        {"_index":5,"text":"Potasuj Karty Legendarnych Opowieści, umieść talię na Planszy Legendarnych Opowieści, a następnie odkryj na planszy 1 losową Kartę Legendarnej Opowieści."},
+        {"_index":6,"text":"Dodaj karty Unikalnych Wydarzeń do talii Wydarzeń."},
+        {"_index":7,"text":"Potasuj talię Wydarzeń i umieść ją w pobliżu planszy."},
+        {"_index":8,"text":"Potasuj Karty Tytułów i losowo odkryj 1 Tytuł na tę rozgrywkę."},
+        {"_index":9,"text":"Potasuj Karty Szeryfa i odkryj wierzchnią Kartę Szeryfa. Zastąp ją za każdym razem, gdy Szeryf przegra walkę."},
+        {"_index":10,"text":"Potasuj Karty Bandytów i umieść zakrytą talię obok talii Walki."},
+        {"_index":11,"text":"Potasuj razem wszystkie karty Mężczyzny w Czerni, tworząc talię, i umieść ją w pobliżu planszy.","images":[{"_index":0,"alt":"Talia Mężczyzny w Czerni","caption":"Mężczyzna w Czerni"}]},
+        {"_index":12,"text":"Potasuj karty Mężczyzny w Czerni z wyjątkiem P-01, P-04, P-05, P-08, P-09, P-10 i P-15. Umieść talię w pobliżu planszy.","images":[{"_index":0,"alt":"Talia Mężczyzny w Czerni","caption":"Mężczyzna w Czerni"}]},
+        {"_index":13,"text":"Potasuj Karty Plotek i umieść talię w pobliżu planszy."},
+        {"_index":14,"text":"Potasuj talię Zwierząt i umieść ją obok planszy."},
+        {"_index":15,"text":"Potasuj talię Ryb i umieść ją obok planszy."},
+        {"_index":16,"text":"Potasuj talię Teatru, umieść ją w pobliżu planszy i odkryj 3 Karty Teatru."},
+        {"_index":17,"text":"Potasuj talię Poszukiwania Złota z 2 losowymi Wydarzeniami."}
+      ]
+    },
+    {
+      "id":"tokens",
+      "title":"Przygotuj żetony",
+      "summary":"Rozdziel, potasuj i rozłóż zasoby żetonów.",
+      "steps":[
+        {"_index":0,"text":"Potasuj zakryte Żetony Bydła i umieść je przy odpowiednich ranczach.","images":[{"_index":0,"alt":"Niebieski Żeton Bydła","caption":"Niebieski"},{"_index":1,"alt":"Zielony Żeton Bydła","caption":"Zielony"},{"_index":2,"alt":"Pomarańczowy Żeton Bydła","caption":"Pomarańczowy"}]},
+        {"_index":1,"text":"Potasuj zakryte żetony Longhorn, Przestępcy, High Roller i Claim Jumper.","images":[{"_index":0,"alt":"Żeton Longhorn","caption":"Longhorn"},{"_index":1,"alt":"Żeton Przestępcy","caption":"Przestępca"},{"_index":2,"alt":"Żeton High Roller","caption":"High Roller"},{"_index":3,"alt":"Żeton Claim Jumper","caption":"Claim Jumper"}]},
+        {"_index":2,"text":"Potasuj zakryte Żetony Legendy albo umieść je w woreczku na żetony.","images":[{"_index":0,"alt":"Żeton Legendy","caption":"Legenda"}]},
+        {"_index":3,"text":"Rozdziel Akty Własności według typu i umieść Żeton Aktu Własności na każdej odpowiadającej mu lokacji.","images":[{"_index":0,"alt":"Żeton Aktu Własności","caption":"Akt Własności"}]},
+        {"_index":4,"text":"Trzymaj Żetony Unikalnych Wydarzeń w puli obok planszy."}
+      ]
+    },
+    {
+      "id":"board_setup",
+      "title":"Przygotuj efekty planszy",
+      "summary":"Umieść znaczniki i rozpatrz efekty przygotowania.",
+      "steps":[
+        {"_index":0,"text":"Umieść znacznik końca gry na polu {targetLP} PL.","images":[{"_index":0,"alt":"Znacznik końca gry w kształcie zegarka kieszonkowego","caption":"Znacznik końca gry"}]},
+        {"_index":1,"text":"Umieść Znaczniki Wydarzeń na 5. polu toru Hazardzisty, Stróżów Prawa i Przestępstw oraz na każdym 5. polu PL przed znacznikiem końca gry.","images":[{"_index":0,"alt":"Żeton Znacznika Wydarzenia","caption":"Znacznik Wydarzenia"}]},
+        {"_index":2,"text":"Rozpatrz 1 Kartę Wydarzenia na każdych 2 graczy, zaokrąglając w górę. Zignoruj ruch Szeryfa, ponieważ Szeryf nie został jeszcze umieszczony."},
+        {"_index":3,"text":"Losowo umieść po 1 odkrytym Żetonie Pogranicza na każdym polu Pogranicza. Nieużywane Żetony Pogranicza trzymaj w pobliżu.","images":[{"_index":0,"alt":"Żeton Pogranicza","caption":"Żeton Pogranicza"}]},
+        {"_index":4,"text":"Odkryj wierzchnią Kartę Ruchu Handlarza i umieść figurkę Wędrownego Handlarza na dowolnym niezajętym polu w tym regionie.","images":[{"_index":0,"alt":"Rewers Karty Ruchu Handlarza","caption":"Karta Ruchu Handlarza"},{"_index":1,"alt":"Znacznik Wędrownego Handlarza","caption":"Wędrowny Handlarz"}]},
+        {"_index":5,"text":"Umieść po 2 bryłki złota w każdej Kopalni. Umieść 1 bryłkę złota na polach PL wskazanych przez zasady Poszukiwania Złota dla {playerCount} graczy i gry do {targetLP} PL."}
+      ]
+    },
+    {
+      "id":"players",
+      "title":"Przygotuj graczy",
+      "summary":"Daj każdemu graczowi jego elementy startowe.",
+      "steps":[
+        {"_index":0,"text":"Każdy gracz bierze planszetkę gracza, kostki punktacji, pierścień w swoim kolorze i znacznik ran."},
+        {"_index":1,"text":"Użyj strony planszetki gracza z miejscami na Żetony Legendy."},
+        {"_index":2,"text":"Każdy gracz bierze swoje żetony Faro."},
+        {"_index":3,"text":"Każdy gracz bierze swoje Dyski Opowieści."},
+        {"_index":4,"text":"Dla każdego gracza umieść 1 kostkę punktacji po lewej stronie pola 1 toru PL."},
+        {"_index":5,"text":"Dla każdego gracza umieść 1 kostkę punktacji na polu startowym toru Opowieści."},
+        {"_index":6,"text":"Pozostałe kostki punktacji i Dyski Opowieści każdego gracza umieść obok planszy."}
+      ]
+    },
+    {
+      "id":"characters",
+      "title":"Przygotuj postacie",
+      "summary":"Przygotuj do gry wybrane postacie wszystkich graczy.",
+      "steps":[
+        {"_index":0,"text":"Każdy gracz wybiera Postać spośród Postaci dostępnych w wybranych rozszerzeniach.","autoComplete":"all_players_have_characters"},
+        {"_index":1,"text":"Dla każdej wybranej Postaci weź jej 4 Karty Celów.","requiredModules":["base_goals"]},
+        {"_index":2,"text":"Każdy gracz otrzymuje Przedmioty startowe, pieniądze, Karty Pokerowe, rany i punkty wskazane na jego Postaci."},
+        {"_index":3,"text":"Jeśli Postać rozpoczyna grę z Punktami Hazardzisty, Legendy, Stróżów Prawa, Opowieści lub Przestępstw, umieść kostkę na odpowiednim torze."},
+        {"_index":4,"text":"Rozpatrz wszystkie zdolności Przedmiotów startowych, takich jak Gazeta, Prowiant lub podobne efekty."}
+      ]
+    },
+    {
+      "id":"miniatures",
+      "title":"Umieść figurki",
+      "summary":"Umieść graczy, Szeryfa i Bandytów.",
+      "steps":[
+        {"_index":0,"text":"Gracz z największą liczbą Punktów Przestępstw bierze żeton pierwszego gracza. W przypadku remisu lub jeśli nikt nie jest Przestępcą, wybierzcie inną metodę.","actionButtons":[{"_index":0,"label":"Wybierz pierwszego gracza"}]},
+        {"_index":1,"text":"Zaczynając od pierwszego gracza, każdy wybiera figurkę i zakłada na nią pierścień w swoim kolorze."},
+        {"_index":2,"text":"Każdy gracz umieszcza swoją figurkę w lokacji startowej wskazanej na Karcie Postaci."},
+        {"_index":3,"text":"Jeśli lokacją startową jest Sklep wielobranżowy, Punkt handlowy lub Saloon, umieść figurkę na dowolnym sąsiednim polu."},
+        {"_index":4,"text":"Usuń z pola, na którym rozpoczyna gracz, wszystkie znaczniki Wydarzeń oraz żetony Claim Jumper, High Roller, Longhorn, Przestępcy lub Unikalnego Wydarzenia."},
+        {"_index":5,"text":"Załóż brązowy pierścień na figurkę Szeryfa i umieść Szeryfa w Biurze Szeryfa/Marshala w Darkrock."},
+        {"_index":6,"text":"Naklej ponumerowane naklejki Bandytów na spody szarych pierścieni Bandytów."},
+        {"_index":7,"text":"Załóż szare pierścienie na 6 figurek Bandytów. Umieść po 1 Bandycie w każdej Kryjówce Bandytów, w której nie znajduje się gracz."},
+        {"_index":8,"text":"Wybierz figurkę dla Mężczyzny w Czerni. Umieść ją na Stacji kolejowej lub w miejscu wybranym przez pierwszego gracza, a kostkę punktacji odpowiadającą kolorowi pierścienia na podstawce figurki połóż po lewej stronie toru PL, obok kostek punktacji graczy."},
+        {"_index":9,"text":"Po umieszczeniu wszystkich figurek graczy ostatni gracz w kolejności tury umieszcza 3 znaczniki Akcji Polowania na 3 różnych, niezajętych polach."},
+        {"_index":10,"text":"Daj każdemu graczowi pomoc gracza."}
+      ]
+    },
+    {
+      "id":"ready",
+      "title":"Gotowi do gry",
+      "summary":"Ostatnia kontrola przed rozpoczęciem.",
+      "steps":[
+        {"_index":0,"text":"Potwierdź, że wszystkie wybrane moduły zostały przygotowane."},
+        {"_index":1,"text":"Potwierdź, że znacznik końca gry znajduje się na polu {targetLP} PL."},
+        {"_index":2,"text":"Naciśnij „Rozpocznij grę”, gdy wszyscy będą gotowi."}
+      ]
+    }
+  ]
+}

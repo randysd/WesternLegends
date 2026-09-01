@@ -1,0 +1,499 @@
+{
+  "characters": [
+    {
+      "id": "annie_oakley",
+      "name": "Annie Oakley",
+      "starting": {"location": "Dowolne pole Sklepu wielobranżowego w Darkrock"},
+      "ability": "Na początku walki z innym graczem ten gracz musi odrzucić 1 Kartę Pokera albo otrzymać 1 ranę.",
+      "playstyle": {
+        "tags": ["Walka", "Pojedynki", "Presja na rękę"],
+        "strength": "Wywiera natychmiastową presję na drugiego gracza jeszcze przed rozpoczęciem walki.",
+        "focus": "Szukaj walk, gdy przeciwnicy mają mało Kart Pokera albo nie mogą sobie pozwolić na kolejną ranę."
+      }
+    },
+    {
+      "id": "bass_reeves",
+      "name": "Bass Reeves",
+      "starting": {"location": "Biuro Szeryfa w Darkrock"},
+      "ability": "Na początku swojej tury dobierz 1 Kartę Pokera.",
+      "playstyle": {
+        "tags": ["Przewaga kart", "Poker", "Wszechstronność"],
+        "strength": "Niezawodnie zapewnia dodatkową Kartę Pokera na początku każdej tury.",
+        "focus": "Wykorzystuj większą rękę, aby być przygotowanym do walk, pokera i akcji wymagających kart."
+      }
+    },
+    {
+      "id": "billy_the_kid",
+      "name": "Billy the Kid",
+      "starting": {"location": "Dowolna Kryjówka bandytów A"},
+      "ability": "Po zakończeniu akcji Ruchu na polu z co najmniej jednym graczem wybrany przez ciebie gracz na tym polu musi dać ci $10 albo 1 Kartę Pokera.",
+      "playstyle": {
+        "tags": ["Interakcja z graczami", "Ruch", "Ekonomia"],
+        "strength": "Wymusza pieniądze lub karty po prostu kończąc ruch na polu innych graczy.",
+        "focus": "Szukaj zajętych pól i naciskaj na graczy, którzy są bogaci albo mają mało Kart Pokera."
+      }
+    },
+    {
+      "id": "bloody_knife",
+      "name": "Bloody Knife",
+      "starting": {"location": "Kopalnia w Spike's View"},
+      "ability": "Możesz poruszać się przez mesę tak, jakby była pojedynczym polem. Nie możesz zakończyć akcji Ruchu na mesie. Po przejściu przez mesę usuń 1 ranę.",
+      "playstyle": {
+        "tags": ["Ruch", "Pogranicze", "Skróty"],
+        "strength": "Może przechodzić przez mesy jak przez pojedyncze pola, korzystając z tras niedostępnych dla innych postaci.",
+        "focus": "Korzystaj ze skrótów przez mesy, aby oszczędzać ruch, i uwzględniaj przy tym koszt związany z ranami."
+      }
+    },
+    {
+      "id": "calamity_jane",
+      "name": "Calamity Jane",
+      "starting": {"location": "Dowolne pole Sklepu wielobranżowego w Red Falls"},
+      "ability": "Twój limit kart na ręce jest zwiększony o 1. Po dołożeniu wkładu do Karty Opowieści dobierz 1 Kartę Pokera.",
+      "playstyle": {
+        "tags": ["Przewaga kart", "Opowieści", "Duża ręka"],
+        "strength": "Może trzymać dodatkową kartę i zdobywa kolejne dzięki udziałowi w Kartach Opowieści.",
+        "focus": "Szukaj okazji do udziału w Kartach Opowieści i wykorzystuj większą rękę, aby zachować elastyczność."
+      }
+    },
+    {
+      "id": "doc_holliday",
+      "name": "Doc Holliday",
+      "starting": {"location": "Gabinet lekarza w Red Falls"},
+      "ability": "Po otrzymaniu dowolnej liczby ran dobierz 1 Kartę Pokera. Rany nie zmniejszają twojego limitu kart na ręce.",
+      "playstyle": {
+        "tags": ["Rany", "Przewaga kart", "Wytrzymałość"],
+        "strength": "Zamienia otrzymywane rany na Karty Pokera i ignoruje zwykłe zmniejszenie limitu ręki spowodowane ranami.",
+        "focus": "Nie unikaj każdej rany, jeśli dodatkowe karty pozwolą ci wykonać silniejszą turę."
+      }
+    },
+    {
+      "id": "jesse_james",
+      "name": "Jesse James",
+      "starting": {"location": "Dowolna Kryjówka bandytów B"},
+      "ability": "Podczas walki poza miastem zmniejsz o 1 wartość karty zagranej przeciwko tobie. W walce z innym graczem wygrywasz wszystkie remisy.",
+      "playstyle": {
+        "tags": ["Walka", "Pogranicze", "Pojedynki"],
+        "strength": "Jest wyjątkowo trudny do pokonania w walkach poza miastami i wygrywa remisy przeciwko graczom.",
+        "focus": "Starannie wybieraj miejsce walki, preferując starcia na pograniczu."
+      }
+    },
+    {
+      "id": "kit_carson",
+      "name": "Kit Carson",
+      "starting": {"location": "Kopalnia w Sunny Hills"},
+      "ability": "Na końcu akcji Ruchu możesz poruszyć się o 1 dodatkowe pole. Podczas walki poza miastem zmniejsz o 1 wartość karty zagranej przeciwko tobie.",
+      "playstyle": {
+        "tags": ["Ruch", "Pogranicze", "Walka"],
+        "strength": "Łączy dodatkowy ruch z lepszą obroną w walkach poza miastami.",
+        "focus": "Pozostawaj mobilny na pograniczu i używaj dodatkowego pola, by docierać do opłacalnych lub taktycznych pozycji."
+      }
+    },
+    {
+      "id": "stagecoach_mary_fields",
+      "name": "Stagecoach Mary Fields",
+      "starting": {"location": "Dowolne pole Saloonu w Darkrock"},
+      "ability": "Na początku swojej tury otrzymaj $10. Po dołożeniu wkładu do Karty Opowieści otrzymaj $10.",
+      "playstyle": {
+        "tags": ["Ekonomia", "Opowieści", "Dochód"],
+        "strength": "Zapewnia stały dochód w każdej turze i dodatkowo zarabia dzięki udziałowi w Kartach Opowieści.",
+        "focus": "Korzystaj ze stałego dochodu i szukaj wkładów do Opowieści, które zapewnią ci dodatkowe pieniądze."
+      }
+    },
+    {
+      "id": "wild_bill_hickok",
+      "name": "Wild Bill Hickok",
+      "starting": {"location": "Kabaret w Red Falls"},
+      "ability": "Po wygraniu rozdania pokera otrzymaj $20. Po przegraniu rozdania pokera możesz zachować 1 losową Kartę Pokera, którą zagrałeś.",
+      "playstyle": {
+        "tags": ["Poker", "Ekonomia", "Odzyskiwanie kart"],
+        "strength": "Czyni poker bardziej dochodowym, a jednocześnie łagodzi koszt przegranej.",
+        "focus": "Graj często w pokera, szczególnie gdy twoja ręka daje dobrą szansę zamienić rozdanie w gotówkę."
+      }
+    },
+    {
+      "id": "wyatt_earp",
+      "name": "Wyatt Earp",
+      "starting": {"location": "Dowolna dostępna Kryjówka bandytów"},
+      "ability": "Gdy po raz pierwszy w swojej turze wygrasz walkę z bandytą, otrzymujesz 1 dodatkową akcję.",
+      "playstyle": {
+        "tags": ["Bandyci", "Akcje", "Walka"],
+        "strength": "Zamienia pierwsze zwycięstwo nad bandytą w każdej turze w dodatkową akcję.",
+        "focus": "Znajdź bandytę wcześnie w turze, aby dodatkowa akcja wydłużyła resztę twojej tury."
+      }
+    },
+    {
+      "id": "y_b_rowdy",
+      "name": "Y. B. Rowdy",
+      "starting": {"location": "Kopalnia w Cliff Junction"},
+      "ability": "Jeśli rozpoczynasz turę poza miastem, możesz odrzucić 1 Kartę Pokera, aby poruszyć się o maksymalnie 3 pola.",
+      "playstyle": {
+        "tags": ["Ruch", "Karty Pokera", "Pogranicze"],
+        "strength": "Może zamienić Kartę Pokera na dodatkowy ruch, gdy rozpoczyna turę poza miastem.",
+        "focus": "Trzymaj zapasowe karty i wykorzystuj rozpoczęcie tury na pograniczu do szybkiej zmiany pozycji."
+      }
+    },
+    {
+      "id": "judge_roy_bean",
+      "name": "Judge Roy Bean",
+      "starting": {"location": "Dowolne pole Saloonu w Red Falls"},
+      "ability": "Podczas walki z bandytą, strażnikiem lub Szeryfem przeciwnik musi jako pierwszy wybrać i odkryć swoją kartę. W walce z bandytą, strażnikiem lub Szeryfem wygrywasz wszystkie remisy.",
+      "playstyle": {
+        "tags": ["Walka z BN", "Bandyci", "Przewaga w walce"],
+        "strength": "Zdobywa dodatkową informację i wygrywa remisy przeciwko bandytom, strażnikom oraz Szeryfowi.",
+        "focus": "Szukaj walk z BN, w których wcześniejsze odkrycie ich karty pozwala użyć tylko tyle siły, ile potrzeba."
+      }
+    },
+    {
+      "id": "butch_cassity",
+      "name": "Butch Cassity",
+      "starting": {"location": "Dowolna Kryjówka bandytów C"},
+      "ability": "Po obrabowaniu innego gracza możesz, zamiast połowy jego pieniędzy lub bryłek złota, ukraść 1 inny Przedmiot, którego jeszcze nie posiadasz. Po aresztowaniu innego gracza możesz ukraść połowę jego pieniędzy lub bryłek złota.",
+      "playstyle": {
+        "tags": ["Interakcja z graczami", "Kradzież", "Elastyczne podejście"],
+        "strength": "Może zabierać przeciwnikom cenne zasoby zarówno jako rabujący Przestępca, jak i aresztujący Stróż Prawa.",
+        "focus": "Celuj w graczy z Przedmiotami, pieniędzmi lub złotem, które najlepiej wspierają twoją obecną ścieżkę."
+      }
+    },
+    {
+      "id": "joaquin_murrieta",
+      "name": "Joaquin Murrieta",
+      "starting": {"location": "Dowolne pole Sklepu wielobranżowego w Darkrock"},
+      "ability": "Jeśli jesteś Przestępcą, otrzymaj 1 PL po walce ze Stróżem Prawa. Jeśli jesteś Stróżem Prawa, otrzymaj 1 PL po walce z Przestępcą.",
+      "playstyle": {
+        "tags": ["Stróż Prawa / Przestępca", "Walka", "PL"],
+        "strength": "Zdobywa PL za walki z graczami znajdującymi się po przeciwnej stronie prawa.",
+        "focus": "Rozwijaj jeden z torów i szukaj starć z graczami rozwijającymi przeciwny tor."
+      }
+    },
+    {
+      "id": "belle_starr",
+      "name": "Belle Starr",
+      "starting": {"location": "Dowolne pole Sklepu wielobranżowego w Red Falls"},
+      "ability": "Podczas walki z bandytą, strażnikiem lub Szeryfem zmniejsz o 2 wartość Karty Walki zagranej przeciwko tobie. Po wygraniu walki z bandytą możesz zamiast tego otrzymać 1 punkt Przestępstwa.",
+      "playstyle": {
+        "tags": ["Walka z BN", "Bandyci", "Przestępstwa"],
+        "strength": "Jest bardzo silna przeciwko przeciwnikom BN i może zamieniać zwycięstwa nad bandytami na postęp na torze Przestępstwa.",
+        "focus": "Poluj na bandytów i innych BN, a następnie decyduj, kiedy zwycięstwo jest warte dalszego postępu na torze Przestępstwa."
+      }
+    },
+    {
+      "id": "isom_dart",
+      "name": "Isom Dart",
+      "starting": {"location": "Ranczo w Sunny Hills"},
+      "ability": "Jeśli rozpoczynasz turę z co najmniej 1 żetonem Bydła, możesz otrzymać 1 dodatkową akcję. Jeśli to zrobisz, na końcu tury musisz odrzucić wszystkie żetony Bydła.",
+      "playstyle": {
+        "tags": ["Bydło", "Akcje", "Rancza"],
+        "strength": "Może zamienić niesiony żeton Bydła na dodatkową akcję w tej turze.",
+        "focus": "Planuj ważne tury tak, aby zaczynać je z Bydłem, gdy dodatkowa akcja jest warta utraty żetonów."
+      }
+    },
+    {
+      "id": "allan_pinkerton",
+      "name": "Allan Pinkerton",
+      "starting": {"location": "Bank w Darkrock"},
+      "ability": "Akcja: wybierz gracza w odległości 1 pola, który pokazuje ci swoje Karty Pokera. Ten gracz musi odrzucić wszystkie karty o wybranej przez ciebie wartości.",
+      "playstyle": {
+        "tags": ["Kontrola ręki", "Interakcja z graczami", "Karty Pokera"],
+        "strength": "Może podejrzeć rękę pobliskiego gracza i usunąć wszystkie karty o wybranej wartości.",
+        "focus": "Zbliżaj się do ważnych przeciwników i osłabiaj ich rękę przed walką lub inną rywalizacją."
+      }
+    },
+    {
+      "id": "buffalo_bill_cody",
+      "name": "Buffalo Bill Cody",
+      "starting": {"location": "Ranczo w Mesito's Point"},
+      "ability": "Jeśli rozpoczynasz turę poza miastem, otrzymaj 1 bryłkę złota.",
+      "playstyle": {
+        "tags": ["Złoto", "Pogranicze", "Ekonomia"],
+        "strength": "Otrzymuje darmową bryłkę złota, gdy rozpoczyna turę poza miastem.",
+        "focus": "Planuj trasy kończące się na pograniczu i spieniężaj zgromadzone złoto we właściwym momencie."
+      }
+    },
+    {
+      "id": "bat_masterson",
+      "name": "Bat Masterson",
+      "starting": {"location": "Dixon Creek"},
+      "ability": "Na początku swojej tury możesz dodać lub usunąć 1 bandytę w dowolnej Kryjówce bandytów, aby poruszyć się o maksymalnie 2 pola. (Bandytę można dodać tylko do niezajętej Kryjówki bandytów.)",
+      "playstyle": {
+        "tags": ["Bandyci", "Ruch", "Kontrola planszy"],
+        "strength": "Manipuluje Kryjówkami bandytów, jednocześnie zyskując darmowy ruch.",
+        "focus": "Dodawaj i usuwaj bandytów tak, by poprawiać sytuację na planszy i jednocześnie zmieniać własną pozycję."
+      }
+    },
+    {
+      "id": "pearl_hart",
+      "name": "Pearl Hart",
+      "starting": {"location": "Dixon Creek"},
+      "ability": "Po zdobyciu w swojej turze dowolnej liczby punktów Stróża Prawa lub Przestępstwa dobierz 1 Kartę Pokera i porusz się o maksymalnie 2 pola.",
+      "playstyle": {
+        "tags": ["Stróż Prawa / Przestępca", "Przewaga kart", "Ruch"],
+        "strength": "Każdy postęp na torze Stróżów Prawa lub Przestępstwa może natychmiast zapewnić kartę i dodatkowy ruch.",
+        "focus": "Często zdobywaj punkty na tych torach i wykorzystuj dodatkowy ruch, by od razu ruszyć do kolejnego celu."
+      }
+    },
+    {
+      "id": "ada_curnutt",
+      "name": "Ada Curnutt",
+      "starting": {"location": "Dowolne pole Saloonu w Buzzard Gulch"},
+      "ability": "Na początku swojej tury porusz się o maksymalnie tyle pól, ile wynosi twój poziom na torze Stróżów Prawa lub Przestępstwa. (Poziom określa rząd, w którym znajduje się twoja kostka.)",
+      "playstyle": {
+        "tags": ["Ruch", "Stróż Prawa / Przestępca", "Pozycja na torze"],
+        "strength": "Jej potencjał ruchu rośnie wraz z poziomem na torze Stróżów Prawa lub Przestępstwa.",
+        "focus": "Wcześnie rozwijaj pozycję na jednym z torów, aby późniejsze tury zapewniały silniejszy darmowy ruch."
+      }
+    },
+    {
+      "id": "dave_rudabaugh",
+      "name": "Dave Rudabaugh",
+      "starting": {"location": "Ustaw jako ostatniego na polu z innym graczem"},
+      "ability": "Na końcu akcji Ruchu możesz poruszyć się o 1 dodatkowe pole. Gdy po raz pierwszy w tej turze zakończysz akcję Ruchu na tym samym polu co inny gracz, dobierz 1 Kartę Pokera.",
+      "playstyle": {
+        "tags": ["Ruch", "Interakcja z graczami", "Przewaga kart"],
+        "strength": "Porusza się dalej niż zwykle i raz na turę dobiera kartę, gdy kończy ruch przy innym graczu.",
+        "focus": "Planuj trasę przez użyteczne cele, która jednocześnie pozwoli zakończyć ruch obok innego gracza."
+      }
+    },
+    {
+      "id": "johnny_ringo",
+      "name": "Johnny Ringo",
+      "starting": {"location": "Ranczo w Buzzard Gulch"},
+      "ability": "Na końcu walki usuń 1 ranę. Na końcu walki z innym graczem ten gracz otrzymuje 1 ranę.",
+      "playstyle": {
+        "tags": ["Walka", "Rany", "Agresja"],
+        "strength": "Po każdej walce usuwa 1 ranę, a przeciwnikom-graczom dodatkowo zadaje 1 ranę.",
+        "focus": "Walcz często, szczególnie z graczami, aby kolejne starcia zamieniać w trwałe wyniszczenie przeciwników."
+      }
+    },
+    {
+      "id": "tiburcio_vasquez",
+      "name": "Tiburcio Vasquez",
+      "starting": {"location": "Przełęcz górska C"},
+      "ability": "Akcja: przesuń swoją kostkę na pole o odpowiednim numerze toru Stróżów Prawa lub Przestępstwa, nie otrzymując nagród.",
+      "playstyle": {
+        "tags": ["Stróż Prawa / Przestępca", "Kontrola toru", "Elastyczność"],
+        "strength": "Może bezpośrednio zmienić pozycję na torze Stróżów Prawa lub Przestępstwa bez zdobywania każdego pola po kolei.",
+        "focus": "Używaj tej akcji, aby ustawić się na torze w pozycji najlepiej wspierającej twój kolejny plan punktowy lub taktyczny."
+      }
+    },
+    {
+      "id": "fee_lee_wong",
+      "name": "Fee Lee Wong",
+      "starting": {"location": "Pole Pogranicza o wartości 8"},
+      "ability": "Twój limit kart na ręce jest zwiększony o 1. Możesz posiadać maksymalnie $180.",
+      "playstyle": {
+        "tags": ["Duża ręka", "Ekonomia", "Pojemność"],
+        "strength": "Może posiadać więcej Kart Pokera i znacznie więcej pieniędzy niż zwykła postać.",
+        "focus": "Wykorzystuj wyższe limity, gromadząc zasoby na drogie zakupy i silne ręce."
+      }
+    },
+    {
+      "id": "maria_gertrudis_barcelo",
+      "name": "Maria Gertrudis Barceló",
+      "starting": {"location": "Dowolne pole Punktu handlowego w Buzzard Gulch"},
+      "ability": "Jeśli rozpoczynasz turę w mieście, otrzymaj $10 albo dobierz 1 Kartę Pokera.",
+      "playstyle": {
+        "tags": ["Miasto", "Ekonomia", "Przewaga kart"],
+        "strength": "Rozpoczęcie tury w mieście daje elastyczny wybór między pieniędzmi a Kartą Pokera.",
+        "focus": "Kończ tury w miastach, gdy to możliwe, i wybieraj zasób najbardziej potrzebny w następnej turze."
+      }
+    },
+    {
+      "id": "pat_garrett",
+      "name": "Pat Garrett",
+      "starting": {"location": "Biuro Marshala w Buzzard Gulch"},
+      "ability": "Akcja: raz na turę możesz poruszyć Szeryfa o maksymalnie 6 pól. Otrzymaj 1 PL, jeśli doprowadzi to do aresztowania.",
+      "playstyle": {
+        "tags": ["Szeryf", "Stróż Prawa", "PL"],
+        "strength": "Może znacznie zmienić pozycję Szeryfa i zdobyć PL, jeśli ruch doprowadzi do aresztowania.",
+        "focus": "Obserwuj pozycje Przestępców i planuj ruch Szeryfa tak, aby bezpośrednio prowadził do aresztowania."
+      }
+    },
+    {
+      "id": "poker_alice",
+      "name": "Poker Alice",
+      "starting": {"location": "Stacja kolejowa w Buzzard Gulch"},
+      "ability": "Akcja: raz na turę dobierz 1 Kartę Pokera i rozpocznij rozdanie pokera. Każdy gracz może wziąć udział niezależnie od swojego położenia.",
+      "playstyle": {
+        "tags": ["Poker", "Przewaga kart", "Interakcja z graczami"],
+        "strength": "Może rozpocząć rozdanie pokera z dowolnego miejsca i dobiera przy tym dodatkową kartę.",
+        "focus": "Rozpoczynaj pokera, gdy masz korzystną rękę, zamiast czekać na odpowiednią lokalizację."
+      }
+    },
+    {
+      "id": "seth_bullock",
+      "name": "Seth Bullock",
+      "starting": {"location": "Dowolne pole Punktu handlowego w Buzzard Gulch"},
+      "ability": "Gdy po raz pierwszy w swojej turze wygrasz walkę z bandytą, dobierz 2 Karty Pokera.",
+      "playstyle": {
+        "tags": ["Bandyci", "Przewaga kart", "Walka"],
+        "strength": "Pierwsze zwycięstwo nad bandytą w każdej turze zapewnia dwie dodatkowe Karty Pokera.",
+        "focus": "Staraj się pokonać bandytę podczas produktywnych tur, aby utrzymywać dobrze zaopatrzoną rękę."
+      }
+    },
+    {
+      "id": "soapy_smith",
+      "name": "“Soapy” Smith",
+      "starting": {"location": "Dowolne pole Punktu handlowego w Buzzard Gulch"},
+      "ability": "Po zdobyciu punktu Hazardzisty rzuć 1 Kością Poszukiwania złota i otrzymaj wynik. Jeśli wyrzucisz Żwir, uzupełnij rękę.",
+      "playstyle": {
+        "tags": ["Hazard", "Poszukiwanie złota", "Dodatkowe zasoby"],
+        "strength": "Punkty Hazardzisty zapewniają dodatkową nagrodę z Kości Poszukiwania złota i czasem pozwalają uzupełnić rękę.",
+        "focus": "Rozwijaj tor Hazardzisty, aby każdy zdobyty punkt mógł przynosić dodatkowe zasoby."
+      }
+    },
+    {
+      "id": "sundance_kid",
+      "name": "Sundance Kid",
+      "starting": {"location": "Przełęcz górska A"},
+      "ability": "Akcja: raz na turę możesz przenieść się na pole, na którym aktualnie znajduje się pociąg. (Liczy się to jako akcja Ruchu.)",
+      "playstyle": {
+        "tags": ["Pociąg", "Ruch", "Mobilność"],
+        "strength": "Raz na turę może przenieść się bezpośrednio do pociągu niezależnie od normalnej odległości.",
+        "focus": "Traktuj pociąg jak ruchomy cel do szybkiego przemieszczania się, spotkań lub napadów."
+      }
+    },
+    {
+      "id": "william_curly_bill_brocius",
+      "name": "William “Curly Bill” Brocius",
+      "starting": {"location": "Obóz przestępców w Buzzard Gulch"},
+      "ability": "Jeśli rozpoczynasz turę poza miastem, dobierz 2 Karty Pokera, a następnie odrzuć 1 Kartę Pokera z ręki.",
+      "playstyle": {
+        "tags": ["Pogranicze", "Wybór kart", "Karty Pokera"],
+        "strength": "Rozpoczęcie tury poza miastem pozwala zobaczyć dwie nowe Karty Pokera i zachować lepszą z nich.",
+        "focus": "Kończ tury poza miastami i używaj dobierania oraz odrzucania, by stale poprawiać swoją rękę."
+      }
+    },
+    {
+      "id": "al_swearengen",
+      "name": "Al Swearengen",
+      "starting": {"location": "Pole Saloonu odpowiadające wybranemu Aktowi własności"},
+      "ability": "Akty własności kosztują cię przy zakupie o $10 mniej. Raz na turę możesz odrzucić Kartę Pokera, aby użyć zdolności akcji 1 ze swoich Aktów własności.",
+      "playstyle": {
+        "tags": ["Akty własności", "Ekonomia", "Efektywność akcji"],
+        "strength": "Czerpie wyjątkowo dużą korzyść z Aktów własności i zapewnianych przez nie akcji.",
+        "focus": "Zdobądź wcześnie użyteczne Akty własności i buduj tury wokół wielokrotnego wykorzystywania ich wartości."
+      }
+    },
+    {
+      "id": "ben_hodges",
+      "name": "Ben Hodges",
+      "starting": {"location": "Dowolne niezajęte pole Pogranicza o wartości 6"},
+      "ability": "Gdy po raz pierwszy w swojej turze użyjesz akcji na Przedmiocie lub Karcie Pokera, otrzymaj $20.",
+      "playstyle": {
+        "tags": ["Przedmioty", "Karty Pokera", "Ekonomia"],
+        "strength": "Pierwsza akcja z Przedmiotu lub Karty Pokera w każdej turze zapewnia dodatkowe $20.",
+        "focus": "W każdej turze planuj co najmniej jedną odpowiednią akcję z karty lub Przedmiotu, aby nie tracić dodatkowych pieniędzy."
+      }
+    },
+    {
+      "id": "buckshot_roberts",
+      "name": "Buckshot Roberts",
+      "starting": {"location": "Stacja kolejowa w Spike's View"},
+      "ability": "Jeśli rozpoczynasz turę z Kontuzją, dobierz 1 Kartę Pokera i otrzymaj 1 akcję.",
+      "playstyle": {
+        "tags": ["Kontuzje", "Przewaga kart", "Akcje"],
+        "strength": "Rozpoczęcie tury z Kontuzją zapewnia zarówno Kartę Pokera, jak i dodatkową akcję.",
+        "focus": "Rozważ korzyść z pozostawienia Kontuzji wobec jej ryzyka i wykorzystuj dodatkowe tempo w ważnych turach."
+      }
+    },
+    {
+      "id": "charley_parkhurst",
+      "name": "Charley Parkhurst",
+      "starting": {"location": "Pole Sklepu wielobranżowego w Red Falls"},
+      "ability": "Raz w swojej turze możesz przerzucić 1 dowolną kość. Po otrzymaniu wyniku Kości Ryzyka otrzymaj 1 Punkt Opowieści.",
+      "playstyle": {
+        "tags": ["Kość Ryzyka", "Przerzuty", "Opowieści"],
+        "strength": "Może poprawić jeden rzut kością na turę i zamienia wyniki Kości Ryzyka w Punkty Opowieści.",
+        "focus": "Szukaj okazji do rzutu Kością Ryzyka i zachowuj przerzut na wyniki, które mają największe znaczenie."
+      }
+    },
+    {
+      "id": "elfego_baca",
+      "name": "Elfego Baca",
+      "starting": {"location": "Dowolne niezajęte pole Pogranicza o wartości 7"},
+      "ability": "Dopóki posiadasz ulepszoną Broń, zmniejsz o 1 wartość karty zagranej przeciwko tobie w walce. Gdy po raz pierwszy w swojej turze miałbyś otrzymać dowolną liczbę ran, zapobiegnij 1 z nich.",
+      "playstyle": {
+        "tags": ["Ulepszona Broń", "Walka", "Obrona"],
+        "strength": "Ulepszona Broń poprawia jego obronę w walce, a pierwszej ranie w swojej turze może zapobiec.",
+        "focus": "Ulepsz Broń wcześnie i wykorzystuj dodatkową ochronę, aby pewniej podejmować walki."
+      }
+    },
+    {
+      "id": "james_bloody_arm_beckwourth",
+      "name": "James “Bloody Arm” Beckwourth",
+      "starting": {"location": "Dowolne niezajęte pole Pogranicza o wartości 7"},
+      "ability": "Po rzucie Kością Ryzyka dobierz 1 Kartę Pokera. Gdy po raz pierwszy w swojej turze wygrasz walkę, otrzymaj 1 Punkt Opowieści.",
+      "playstyle": {
+        "tags": ["Kość Ryzyka", "Walka", "Opowieści"],
+        "strength": "Rzuty Kością Ryzyka zapewniają karty, a pierwsze zwycięstwo w walce w jego turze zapewnia Punkt Opowieści.",
+        "focus": "Szukaj tur łączących rzut Kością Ryzyka z walką, którą możesz wygrać, aby uruchomić obie korzyści."
+      }
+    },
+    {
+      "id": "lottie_deno",
+      "name": "Lottie Deno",
+      "starting": {"location": "Dowolne niezajęte pole Saloonu"},
+      "ability": "Po użyciu efektu dodatkowego na Karcie Pokera otrzymaj 1 Punkt Opowieści.",
+      "playstyle": {
+        "tags": ["Karty Pokera", "Opowieści", "Efekty dodatkowe"],
+        "strength": "Zamienia efekty dodatkowe Kart Pokera na dodatkowe Punkty Opowieści.",
+        "focus": "Szukaj okazji do używania efektów dodatkowych Kart Pokera zamiast traktować te karty wyłącznie jako wartości walki."
+      }
+    },
+    {
+      "id": "lozen",
+      "name": "Lozen",
+      "starting": {"location": "Dowolne niezajęte pole Pogranicza o wartości 7"},
+      "ability": "Na początku swojej tury możesz podejrzeć wierzchnią kartę talii Walki, talii Pokera albo talii Spotkań w pociągu. Możesz umieścić tę kartę na spodzie talii.",
+      "playstyle": {
+        "tags": ["Kontrola talii", "Informacja", "Elastyczność"],
+        "strength": "Może podejrzeć i odrzucić na spód wierzchnią kartę kilku ważnych talii, zanim stanie się istotna.",
+        "focus": "Wykorzystuj tę informację przed walkami, pokerem lub spotkaniami w pociągu, aby unikać słabych wyników i przygotowywać lepsze."
+      }
+    },
+    {
+      "id": "texas_john_slaughter",
+      "name": "Texas John Slaughter",
+      "starting": {"location": "Dowolne niezajęte pole Pogranicza o wartości 6"},
+      "ability": "Akcja: wybierz 2: dobierz 1 Kartę Pokera, otrzymaj $10, usuń 1 ranę, porusz się o 1 pole albo umieść 1 bandytę w dowolnej Kryjówce bandytów.",
+      "playstyle": {
+        "tags": ["Elastyczność", "Akcje", "Bandyci"],
+        "strength": "Jego akcja może połączyć dwa z kilku użytecznych efektów, dostosowując się do aktualnej sytuacji.",
+        "focus": "Wybieraj dwa efekty najlepiej rozwiązujące potrzeby bieżącej tury, zamiast zawsze korzystać z tej samej kombinacji."
+      }
+    },
+    {
+      "id": "tom_tobin",
+      "name": "Tom Tobin",
+      "starting": {"location": "Dowolne pole w tym samym regionie co Wędrowny Handlarz"},
+      "ability": "Legendarne Przedmioty kosztują cię przy zakupie o $10 mniej. Jeśli zakończysz turę w tym samym regionie co Wędrowny Handlarz, możesz kupić Legendarny Przedmiot.",
+      "playstyle": {
+        "tags": ["Legendarne Przedmioty", "Ekonomia", "Wędrowny Handlarz"],
+        "strength": "Kupuje Legendarne Przedmioty taniej i może robić zakupy u Wędrownego Handlarza, kończąc turę w jego regionie.",
+        "focus": "Śledź Wędrownego Handlarza i wykorzystuj zniżkę, aby wcześnie zbudować kolekcję potężnych Legendarnych Przedmiotów."
+      }
+    },
+    {
+      "id": "aaron_ross",
+      "name": "Aaron Ross",
+      "starting": {"location": "Dowolny niezajęty punkt kontrolny pociągu"},
+      "ability": "Na początku swojej tury wybierz 1: jeśli posiadasz co najmniej $60, dobierz 1 Kartę Pokera; jeśli posiadasz co najmniej $120, otrzymaj 1 PL.",
+      "playstyle": {
+        "tags": ["Bogactwo", "Ekonomia", "PL"],
+        "strength": "Duże rezerwy gotówki zamieniają się na stałą przewagę kart albo nawet PL na początku tury.",
+        "focus": "Gromadź i chroń pieniądze; $120 to kluczowy próg pozwalający zdobywać pasywne PL."
+      }
+    },
+    {
+      "id": "dark_knight",
+      "name": "Dark Knight",
+      "starting": {"location": "Kopalnia w Spike's View (Jaskinia)"},
+      "ability": "Gdy wejdziesz na pole z bandytą lub Przestępcą, możesz zmusić go do ucieczki na sąsiednie pole albo do losowego odrzucenia 1 Karty Walki/Pokera.",
+      "playstyle": {
+        "tags": ["Kontrola planszy", "Łowca Przestępców", "Zakłócanie"],
+        "strength": "Może natychmiast zakłócić działania bandyty lub Przestępcy po wejściu na jego pole.",
+        "focus": "Ścigaj groźne cele i używaj wymuszonego ruchu lub losowego odrzucania kart, aby osłabić je przed następnym starciem."
+      }
+    }
+  ]
+}

@@ -1,0 +1,734 @@
+[
+  {
+    "type": "one-off",
+    "id": "bandit_reinforcements",
+    "title": "Posiłki bandytów",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Kolejny bandyta wyskakuje zza skał.\""
+  },
+  {
+    "type": "one-off",
+    "id": "twin_pistol_rogue",
+    "title": "Łotr z dwoma pistoletami",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Drugi strzał rozlega się z grzbietu wzgórza.\""
+  },
+  {
+    "type": "one-off",
+    "id": "drunken_bandit",
+    "title": "Pijany bandyta",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Wytacza się na ulicę z większą ilością whiskey niż rozsądku w brzuchu.\""
+  },
+  {
+    "type": "one-off",
+    "id": "veteran_bandit",
+    "title": "Bandyta-weteran",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ten tutaj przeżył zbyt wiele strzelanin, by można to było zrzucić na szczęście.\""
+  },
+  {
+    "type": "one-off",
+    "id": "bandit_last_words",
+    "title": "Ostatnie słowa bandyty",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ostatnim tchem bandyta zdradza skrytkę pod rozszczepionym cedrem.\""
+  },
+  {
+    "type": "one-off",
+    "id": "hidden_sniper",
+    "title": "Ukryty strzelec",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Drugi strzał rozlega się z grzbietu wzgórza.\""
+  },
+  {
+    "type": "one-off",
+    "id": "posse_cheers",
+    "title": "Oklaski Posse",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ludzie w mieście uchylają kapeluszy. Prawo nadal coś tutaj znaczy.\""
+  },
+  {
+    "type": "one-off",
+    "id": "false_badge",
+    "title": "Fałszywa odznaka",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Z daleka odznaka wygląda prawdziwie, ale z bliska pachnie kłopotami.\""
+  },
+  {
+    "type": "one-off",
+    "id": "sheriffs_notice",
+    "title": "Obwieszczenie Szeryfa",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"List gończy zwija się na ścianie, a Szeryf już siodła konia.\""
+  },
+  {
+    "type": "one-off",
+    "id": "inside_man",
+    "title": "Człowiek wewnątrz",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Nerwowy pracownik banku pozostawia rygiel skarbca niedomknięty.\""
+  },
+  {
+    "type": "one-off",
+    "id": "locked_vault",
+    "title": "Zaryglowany skarbiec",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Drzwi skarbca z jękiem zatrzaskują się na zamek. Ten skok właśnie zrobił się znacznie głośniejszy.\""
+  },
+  {
+    "type": "one-off",
+    "id": "dusty_getaway",
+    "title": "Ucieczka w kurzu",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Nadciąga burza pyłowa, wystarczająco paskudna, by ukryć desperacką ucieczkę.\""
+  },
+  {
+    "type": "one-off",
+    "id": "train_payroll",
+    "title": "Wagon z wypłatami",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Dzisiejszej nocy wypłaty jadą pociągiem i każdy Przestępca potrafi je wywęszyć.\""
+  },
+  {
+    "type": "one-off",
+    "id": "railroad_guard",
+    "title": "Strażnik kolei",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Umundurowany strażnik rozpoznaje praworządną twarz i prosi o pomoc.\""
+  },
+  {
+    "type": "one-off",
+    "id": "rich_vein",
+    "title": "Bogata żyła",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Złoty pył sypie się jak zamknięte w butelce słońce.\""
+  },
+  {
+    "type": "one-off",
+    "id": "cave_in",
+    "title": "Zawał",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Belki podtrzymujące trzaskają nad głową. Dziś kopalnia chce zapłaty krwią.\""
+  },
+  {
+    "type": "one-off",
+    "id": "claim_jumper_shadow",
+    "title": "Cień skoczka na działkę",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ktoś widział, jak znalazłeś złoto, a nie lubi się dzielić.\""
+  },
+  {
+    "type": "one-off",
+    "id": "lost_map_tube",
+    "title": "Mapa w tubie",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"W owiniętej w woskowane płótno tubie czeka mapa starsza niż samo miasto.\""
+  },
+  {
+    "type": "one-off",
+    "id": "fools_gold",
+    "title": "Złoto głupców",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"To, co błyszczy w twojej misie, jest ładne, ale ładne nie zawsze jest coś warte.\""
+  },
+  {
+    "type": "one-off",
+    "id": "bankers_smile",
+    "title": "Uśmiech bankiera",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Bankier szczerzy się tak szeroko, że widać każdy ząb w jego ustach.\""
+  },
+  {
+    "type": "one-off",
+    "id": "assayer_dispute",
+    "title": "Spór z rzeczoznawcą",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Rzeczoznawca mruży oczy nad twoim złotem i twierdzi, że jest za lekkie.\""
+  },
+  {
+    "type": "one-off",
+    "id": "free_spurs",
+    "title": "Darmowe ostrogi",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Sklepikarz dorzuca ostrogi, które kiedyś należały do szybkiego człowieka.\""
+  },
+  {
+    "type": "one-off",
+    "id": "gunsmith_discount",
+    "title": "Przysługa rusznikarza",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Rusznikarz ogląda twoją broń i obniża cenę o dziesięć dolarów.\""
+  },
+  {
+    "type": "one-off",
+    "id": "counterfeit_goods",
+    "title": "Podrobiony towar",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"W świetle sklepu okazja wyglądała dobrze. Potem zaczyna dymić.\""
+  },
+  {
+    "type": "one-off",
+    "id": "rare_shipment",
+    "title": "Rzadka dostawa",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Skrzynia ze Wschodu ląduje na ladzie, zapieczętowana wielkimi obietnicami.\""
+  },
+  {
+    "type": "one-off",
+    "id": "doctor_secret",
+    "title": "Sekretny tonik lekarza",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Lekarz nalewa coś ciemnego i mówi, że lepiej nie pytać, co jest w środku.\""
+  },
+  {
+    "type": "one-off",
+    "id": "bad_medicine",
+    "title": "Kiepskie lekarstwo",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Lekarstwo działa, ale pokój nadal stoi krzywo.\""
+  },
+  {
+    "type": "one-off",
+    "id": "cabaret_ovation",
+    "title": "Owacja na stojąco",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Tłum wali w stoły, aż drżą krokwie.\""
+  },
+  {
+    "type": "one-off",
+    "id": "cabaret_scandal",
+    "title": "Skandal w Kabarecie",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"O świcie połowa Red Falls już o tym wie, a druga połowa wymyśliła coś jeszcze gorszego.\""
+  },
+  {
+    "type": "one-off",
+    "id": "card_shark",
+    "title": "Karciany rekin",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Karciany rekin siada przy stole w czystych mankietach i z brudnym spojrzeniem.\""
+  },
+  {
+    "type": "one-off",
+    "id": "lucky_table",
+    "title": "Szczęśliwy stół",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ten stół przynosi szczęście, odkąd dziurę po kuli załatano srebrem.\""
+  },
+  {
+    "type": "one-off",
+    "id": "saloon_brawl",
+    "title": "Bójka w saloonie",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Krzesło pęka, butelka leci w powietrzu, a karty nie są już jedynym problemem.\""
+  },
+  {
+    "type": "one-off",
+    "id": "work_honest_pay",
+    "title": "Uczciwa zapłata",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Uczciwie zarobione pieniądze wydaje się najlepiej.\""
+  },
+  {
+    "type": "one-off",
+    "id": "work_splintered_hand",
+    "title": "Drzazga w dłoni",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Trzonek pęka i wbija drzazgę wystarczająco głęboko, żebyś długo o niej pamiętał.\""
+  },
+  {
+    "type": "one-off",
+    "id": "stampede",
+    "title": "Panika stada",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Stado zrywa się do biegu, a kopyta grzmią jak dzień sądu.\""
+  },
+  {
+    "type": "one-off",
+    "id": "prize_steer",
+    "title": "Nagrodzony byk",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Pomocnik z rancza wskazuje najdorodniejszego byka w zagrodzie.\""
+  },
+  {
+    "type": "one-off",
+    "id": "rustler_brand",
+    "title": "Piętno złodzieja bydła",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Piętno jest świeże i każdy Stróż Prawa je wywęszy.\""
+  },
+  {
+    "type": "one-off",
+    "id": "clean_drive",
+    "title": "Czysty spęd",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ani jedna sztuka się nie zabłąkała. Taka robota zasługuje na szacunek.\""
+  },
+  {
+    "type": "one-off",
+    "id": "broken_bridge",
+    "title": "Zawalony most",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Most przed tobą składa się bardziej ze wspomnień niż z drewna.\""
+  },
+  {
+    "type": "one-off",
+    "id": "runaway_stage",
+    "title": "Rozpędzony dyliżans",
+    "narrationScript": "[raspy][old cowboy][western][fast][low key][emotionless][quick]Dyliżans bez woźnicy pędzi drogą!"
+  },
+  {
+    "type": "one-off",
+    "id": "snakebite",
+    "title": "Ukąszenie grzechotnika",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Grzechotnik uderza z cienia niewiele większego od obcasa buta.\""
+  },
+  {
+    "type": "one-off",
+    "id": "desert_shortcut",
+    "title": "Skrót przez pustynię",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Stary szlak prowadzi przez ziemię, o której większość przysięga, że jest nie do przebycia.\""
+  },
+  {
+    "type": "one-off",
+    "id": "dixon_ambush",
+    "title": "Zasadzka w Dixon Creek",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Dixon Creek jest ciche. Zbyt ciche jak na uczciwą ziemię.\""
+  },
+  {
+    "type": "one-off",
+    "id": "mesitos_greenhorn",
+    "title": "Nowicjusz na Zielonym Ranczu",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Młody parobek z rancza przywołuje cię z paniką w oczach.\""
+  },
+  {
+    "type": "one-off",
+    "id": "sunny_hills_luck",
+    "title": "Szczęście w Sunny Hills",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Sunny Hills zasługuje na swoją nazwę, gdy nawet kamień zaczyna błyszczeć.\""
+  },
+  {
+    "type": "one-off",
+    "id": "spikes_view_signal",
+    "title": "Ogień sygnałowy",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Na grzbiecie ponad Spike’s View płonie ogień sygnałowy.\""
+  },
+  {
+    "type": "one-off",
+    "id": "cliff_junction_echo",
+    "title": "Echo w klifach",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Coś głęboko w skale odpowiada na twoje kroki.\""
+  },
+  {
+    "type": "one-off",
+    "id": "legendary_whisper",
+    "title": "Legendarny szept",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Niektóre przedmioty noszą w sobie historie, zanim jeszcze dotkną twojej dłoni.\""
+  },
+  {
+    "type": "one-off",
+    "id": "trader_sweetens_deal",
+    "title": "Dodatek od Herve’a",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Herve uśmiecha się i stuka w ukrytą szufladę. Dobrzy klienci zasługują na mały dodatek.\""
+  },
+  {
+    "type": "one-off",
+    "id": "trader_no_questions_asked",
+    "title": "Bez pytań",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Herve przesuwa część pieniędzy z powrotem po ladzie, a potem wyciąga mętną butelkę. Lepiej nie pytaj, skąd wzięło się jedno ani drugie. Zdecyduj tylko, czy dziś dopisuje ci szczęście.\""
+  },
+  {
+    "type": "one-off",
+    "id": "famous_deed",
+    "title": "Sławny czyn",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Do zachodu słońca ktoś już opowiada tę historię źle.\""
+  },
+  {
+    "type": "one-off",
+    "id": "risk_pays",
+    "title": "Ryzyko się opłaca",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Szczęście sprzyja głupcowi, który wie, kiedy uciekać.\""
+  },
+  {
+    "type": "one-off",
+    "id": "risk_bites",
+    "title": "Ryzyko gryzie",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ryzyko ma zęby i dzisiaj znalazło mięso.\""
+  },
+  {
+    "type": "one-off",
+    "id": "gang_loyalty",
+    "title": "Lojalna ekipa",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Kilka twardych twarzy zna twoje nazwisko i pojedzie za niewielkie pieniądze.\""
+  },
+  {
+    "type": "one-off",
+    "id": "frontier_cache",
+    "title": "Skrytka na pograniczu",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Pod płaskim kamieniem czeka skrytka pozostawiona przez kogoś, kto nigdy nie wrócił.\""
+  },
+  {
+    "type": "one-off",
+    "id": "frontier_deadfall",
+    "title": "Pułapka z pnia",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Pogranicze jedną ręką daje, a drugą spuszcza ci pień na głowę.\""
+  },
+  {
+    "type": "one-off",
+    "id": "hunters_mark",
+    "title": "Znak łowcy",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Czysta robota. Nawet starzy traperzy skinęliby z uznaniem po takim strzale.\""
+  },
+  {
+    "type": "one-off",
+    "id": "wounded_predator",
+    "title": "Ranny drapieżnik",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Zwierzę pada, ale nie zanim zostawi po sobie ślad.\""
+  },
+  {
+    "type": "one-off",
+    "id": "forager_cache",
+    "title": "Skrytka zbieracza",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Suche koryto strumienia skrywa więcej niż tylko kurz.\""
+  },
+  {
+    "type": "one-off",
+    "id": "spoiled_bundle",
+    "title": "Zepsuty pakunek",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"To, co w cieniu wyglądało na użyteczne, w słońcu pachnie paskudnie.\""
+  },
+  {
+    "type": "one-off",
+    "id": "fine_craft",
+    "title": "Dobra robota",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"To nie jest tylko użyteczne. To robota, którą się pamięta.\""
+  },
+  {
+    "type": "one-off",
+    "id": "broken_tool",
+    "title": "Złamane narzędzie",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Narzędzie trzyma się w całości dokładnie tak długo, by dokończyć pracę.\""
+  },
+  {
+    "type": "one-off",
+    "id": "wood_for_station",
+    "title": "Drewno na stację",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Świeżo ścięte belki lądują przy torach niczym kości nowego miasta.\""
+  },
+  {
+    "type": "one-off",
+    "id": "metal_for_tracks",
+    "title": "Żelazo na tory",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Brygadzista przesuwa kciukiem po żelazie i uśmiecha się jak człowiek, który widzi przyszłość.\""
+  },
+  {
+    "type": "one-off",
+    "id": "robbery_hidden_witness",
+    "title": "Oczy w oknie",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Po drugiej stronie ulicy porusza się zasłona. Ktoś widział wszystko, a świadkowie jakimś sposobem zawsze znajdują Szeryfa.\""
+  },
+  {
+    "type": "one-off",
+    "id": "robbery_dropped_purse",
+    "title": "Mały bonus",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"W całym zamieszaniu coś jeszcze wpada w kurz: mała sakiewka, której dotąd nikt nie zauważył.\""
+  },
+  {
+    "type": "one-off",
+    "id": "player_fight_crowd",
+    "title": "Zbiera się tłum",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Buty szurają po werandach, drzwi saloonów otwierają się szeroko. Ludzie wyczuli walkę i zakłady już przechodzą z rąk do rąk.\""
+  },
+  {
+    "type": "one-off",
+    "id": "player_fight_dust",
+    "title": "Kurz w oczach",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Silny podmuch rzuca piasek między walczących. Przez pół uderzenia serca żaden nie widzi wyraźnie.\""
+  },
+  {
+    "type": "one-off",
+    "id": "sheriff_arrest_public_example",
+    "title": "Publiczny przykład",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Szeryf prowadzi więźnia przez środek miasta, żeby każdy zobaczył, jak skończył się dzień.\""
+  },
+  {
+    "type": "one-off",
+    "id": "sheriff_arrest_loose_cuffs",
+    "title": "Luźne kajdanki",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Kajdanki Szeryfa widziały lepsze czasy, podobnie jak zastępca pilnujący kieszeni więźnia.\""
+  },
+  {
+    "type": "one-off",
+    "id": "rail_friendly_conductor",
+    "title": "Przyjazny konduktor",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Konduktor rozpoznaje znajomą twarz i przed gwizdkiem przekazuje użyteczną informację.\""
+  },
+  {
+    "type": "one-off",
+    "id": "rail_late_freight",
+    "title": "Spóźniony fracht",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Wagon towarowy wtacza się z opóźnieniem, a do rozładunku brakuje rąk.\""
+  },
+  {
+    "type": "one-off",
+    "id": "mountain_pass_rockslide",
+    "title": "Osuwisko skalne",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Nad szlakiem odrywa się skała i przez chwilę wygląda, jakby cały górski stok runął w dół.\""
+  },
+  {
+    "type": "one-off",
+    "id": "mountain_pass_abandoned_cache",
+    "title": "Porzucona skrytka",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Pod stertą kamieni przy szlaku leży zwietrzała skrytka zostawiona przez kogoś, kto nigdy po nią nie wrócił.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "arc_starving_prospector:prospector_intro",
+    "title": "Człowiek bliski śmierci",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Na wpół zagłodzony poszukiwacz złota zatacza się z zarośli szałwii, ściskając skórzaną sakwę. Za drinka i podwiezienie do miasta oferuje dwadzieścia dolarów.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "arc_starving_prospector:prospector_debt_repaid",
+    "title": "Dług spłacony",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Stary poszukiwacz wychodzi z kąta i kładzie monety na ladzie. Mówiłem, że dobroć trzeba odpłacać.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "arc_starving_prospector:prospector_bandit_reveal",
+    "title": "Człowiek, którego zostawiono",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Przestępca pada i zdejmuje kapelusz. Pod warstwą brudu rozpoznajesz poszukiwacza, którego zostawiono w kurzu. Gwiżdże, a spośród skał wychodzi jeszcze dwóch bandytów.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "arc_widow_mccall:widow_fence_down",
+    "title": "Zerwane ogrodzenie",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Wdowa w czerni prosi o pomoc w naprawieniu ogrodzenia, zanim złodzieje bydła odkryją wyrwę.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "arc_widow_mccall:widow_cattle_drive",
+    "title": "Bezpieczny spęd bydła",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Znak wdowy jedzie razem ze stadem, a każda uczciwie przebyta mila pomaga ocalić jej ziemię.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "arc_widow_mccall:widow_black_veil",
+    "title": "Przestępczyni w czarnym welonie",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Zawoalowana jeźdźczyni dołącza do złodziei bydła. Żałoba zahartowała ją w coś niebezpiecznego.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "arc_marshal_reeves:reeves_deputy_call",
+    "title": "Zastępca na jeden dzień",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Marshal Reeves potrzebuje spokojnej ręki i jeszcze spokojniejszego sumienia.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "arc_marshal_reeves:reeves_crackdown",
+    "title": "Nakaz aresztowania",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Nakazy aresztowania piętrzą się u Reevesa jak drewno na opał, a sznura starczy mu na każde nazwisko z listy.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "arc_marshal_reeves:reeves_hunted",
+    "title": "Marshal na twoim tropie",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Reeves przypina twoje nazwisko pod latarnią i rusza w ciemność.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "arc_silas_bell_showman:showman_arrives",
+    "title": "Malowany wóz",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Malowany wóz wtacza się do Red Falls, obiecując w równych częściach cuda, muzykę i kłamstwa.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "arc_silas_bell_showman:showman_grand_show",
+    "title": "Wielkie widowisko pogranicza",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Silas Bell nazywa twoją rękę cudem i sprzedaje bilety, zanim karty zdążą ostygnąć.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "arc_silas_bell_showman:showman_swindle",
+    "title": "Wielki przekręt",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Etykieta mówi „oryginalne”. Uśmiech showmana mówi coś innego.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "arc_jeremiah_pike:pike_tracks",
+    "title": "Ślady starego Pike’a",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Stary Jeremiah Pike bada ślady i chrząka, jakby zwierzę było mu winne pieniądze.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "arc_jeremiah_pike:pike_white_bear",
+    "title": "Trop białego niedźwiedzia",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Pike wskazuje drżącym palcem. Ten ślad należy do czegoś zbyt wielkiego na zwykły strach.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "arc_jeremiah_pike:pike_trap_line",
+    "title": "Uruchomiona pułapka",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ukryta pułapka zatrzaskuje się. Pike nie wybacza, gdy się go ignoruje.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "arc_card_shark:cardshark_first_hand",
+    "title": "Nieznajomy przy stole",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Nieznajomy w jasnych rękawiczkach dosiada się bez pytania i uśmiecha bez cienia ciepła.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "arc_card_shark:cardshark_beaten",
+    "title": "Pokonać rekina",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Po raz pierwszy tej nocy uśmiech nieznajomego pęka.\""
+  },
+  {
+    "type": "character-arc",
+    "id": "arc_card_shark:cardshark_debt",
+    "title": "Windykator",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Windykator wychodzi z zaułka i wymienia liczby, których żaden uczciwy człowiek nie pamięta.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "story_railroad_rising:rail_surveyors",
+    "title": "Przybywają geodeci",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Geodeci przybywają z łańcuchami, palikami i niebezpiecznym przekonaniem, że przyszłość da się wymierzyć.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "story_railroad_rising:rail_lumber",
+    "title": "Belki na stację",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Świeże belki lądują przy torach niczym kości nowego miasta.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "story_railroad_rising:rail_iron",
+    "title": "Żelazo na tory",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Brygadzista przesuwa kciukiem po żelazie i widzi przyszłość.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "story_railroad_rising:rail_grand_opening",
+    "title": "Wielkie otwarcie",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Gdy wbito ostatni gwóźdź, lokomotywa zagwizdała, jakby samo pogranicze właśnie się obudziło.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "story_lost_spanish_gold:spanish_journal",
+    "title": "Podarty dziennik",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Podarty dziennik opowiada o hiszpańskim złocie ukrytym tam, gdzie klify rzucają cień w samo południe.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "story_lost_spanish_gold:spanish_marker",
+    "title": "Kamienny znak",
+    "narrationScript": "[raspy][old cowboy][western][fast][low key][emotionless][quick]Kamienny krzyż sterczy krzywo z kurzu, starszy niż każde miasto na tej mapie."
+  },
+  {
+    "type": "major-storyline",
+    "id": "story_lost_spanish_gold:spanish_cache",
+    "title": "Zakopany skarb",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Pod czerwonym kamieniem czeka skrytka pełna monet wybitych dla króla, który nigdy nie widział tej ziemi.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "story_white_buffalo:buffalo_tracks",
+    "title": "Dziwne ślady",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ślady szerokie jak talerze ciągną się przez prerię, a wszystkie ptaki umilkły.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "story_white_buffalo:buffalo_warning",
+    "title": "Ostrzeżenie",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Stary zwiadowca ostrzega, że niektóre zwierzęta nie są trofeami. Są próbami.\""
+  },
+  {
+    "type": "major-storyline",
+    "id": "story_white_buffalo:buffalo_appears",
+    "title": "Pojawia się Biały bizon",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Biały bizon wychodzi z porannej mgły, jasny jak duch i cięższy od legendy.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_drought",
+    "title": "Susza",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Studnie kaszlą błotem, a słońce wisi złowrogo na niebie.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_gold_rush",
+    "title": "Gorączka złota",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Gorączka złota szerzy się szybciej niż zdrowy rozsądek.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_sheriff_crackdown",
+    "title": "Obława Szeryfa",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Prawo pokazuje zęby.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_bandit_uprising",
+    "title": "Powstanie bandytów",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Wzgórza zaczynają wypluwać twardzieli z nabitą bronią.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_frontier_festival",
+    "title": "Festyn na pograniczu",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Muzyka płynie z miasta niczym światło latarni.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_bad_weather",
+    "title": "Zła pogoda",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Deszcz zamienia każdą drogę w brązową zupę.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_clear_skies",
+    "title": "Pogodne niebo",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Niebo się przejaśnia i każdy szlak wydaje się krótszy.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_high_stakes",
+    "title": "Noc wysokich stawek",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Każdy głupiec z monetą w kieszeni chce miejsce przy stole.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_cattle_market",
+    "title": "Targ bydła",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ceny wołowiny pną się w górę jak dym.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_doctor_shortage",
+    "title": "Brak lekarzy",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Lekarzowi kończą się laudanum i cierpliwość.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_free_rail",
+    "title": "Święto kolei",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Lokomotywa gwiżdże, a każda stacja świętuje.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_train_security",
+    "title": "Uzbrojeni strażnicy pociągu",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Kolejarze najmują uzbrojonych ludzi całymi tuzinami.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_mine_collapse",
+    "title": "Niestabilne kopalnie",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ziemia jęczy pod każdym uderzeniem kilofa.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_trader_boom",
+    "title": "Boom handlowy",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Wóz doktora Herve'a ugina się pod ciężarem cudów.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_saloons_dry",
+    "title": "Suche saloony",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Whiskey się kończy, a stoły cichną.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_ranch_fire",
+    "title": "Pożar rancza",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Dym unosi się znad północnego pastwiska.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_resource_boom",
+    "title": "Przydatne resztki",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Pogranicze jest zasłane rzeczami przydatnymi w zręcznych rękach.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_predator_migration",
+    "title": "Migracja drapieżników",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Głodne oczy błyszczą w zaroślach.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_craft_fair",
+    "title": "Jarmark rzemieślniczy",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Na każdy przydatny drobiazg znajdzie się kupiec.\""
+  },
+  {
+    "type": "world-event",
+    "id": "world_legendary_weather",
+    "title": "Czerwony zachód słońca",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Zachód płonie czerwienią, a nawet zwykłe czyny wydają się legendarne.\""
+  }
+]

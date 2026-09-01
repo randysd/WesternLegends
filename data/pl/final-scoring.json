@@ -1,0 +1,23 @@
+{
+  "scoringSteps": [
+    {"id":"mounts_weapons","text":"Zdobądź PL za każdego posiadanego ulepszonego Wierzchowca i każdą ulepszoną Broń (wartość znajduje się w lewym górnym rogu karty)."},
+    {"id":"legendary_items","text":"Zdobądź PL z posiadanych Przedmiotów Legendarnych, które je zapewniają (wartość znajduje się w lewym górnym rogu karty)."},
+    {"id":"money","text":"Zdobądź 1 PL za każde posiadane $60 (zaokrąglając w dół)."},
+    {"id":"wounds","text":"Strać 1 PL za każdą ranę."},
+    {"id":"injuries","text":"Strać PL za wszystkie Karty Obrażeń, które powodują utratę punktów na koniec gry (wartość znajduje się na dole karty)."},
+    {"id":"wanted","text":"Gracz z największą liczbą Punktów Przestępstw zdobywa 3 PL, a każdy inny Przestępca zdobywa 1 PL. Jeśli kilku graczy remisuje pod względem największej liczby Punktów Przestępstw, wszyscy Przestępcy zdobywają zamiast tego po 1 PL."},
+    {"id":"marshal","text":"Stróże Prawa zdobywają PL zgodnie z rzędem, w którym znajduje się ich znacznik punktacji na torze Stróżów Prawa."},
+    {"id":"gambler","text":"Gracz znajdujący się najdalej na torze Hazardzisty zdobywa 1 PL. W przypadku remisu wszyscy remisujący gracze zdobywają po 1 PL."},
+    {"id":"legendary_tokens","text":"Zdobądź PL równe łącznej wartości wszystkich zdobytych Żetonów Legendy."},
+    {"id":"deeds","text":"Zdobądź PL z Aktów Własności zgodnie z instrukcją po stronie punktacji każdego posiadanego Aktu. Zniszczone lokacje (z żetonem ruin) nigdy nie liczą się do punktacji."},
+    {"id":"titles","text":"Zastosuj wszystkie efekty i punktację końcową z odkrytej Karty Tytułu."},
+    {"id":"man_in_black","text":"Uwzględnij Mężczyznę w Czerni w końcowym podliczeniu. Jeśli remisuje on pod względem największej liczby PL, Mężczyzna w Czerni wygrywa remis."}
+  ],
+  "tiebreakers": [
+    {"id":"most_lp","text":"Wygrywa gracz z największą liczbą PL."},
+    {"id":"marshal_wanted","text":"Nadal remis? Wygrywa remisujący gracz z największą liczbą Punktów Stróżów Prawa lub Punktów Przestępstw."},
+    {"id":"gold","text":"Nadal remis? Wygrywa remisujący gracz z największą liczbą bryłek złota."},
+    {"id":"wounds","text":"Nadal remis? Wygrywa remisujący gracz z najmniejszą liczbą ran."},
+    {"id":"share","text":"Nadal remis? Remisujący gracze dzielą zwycięstwo."}
+  ]
+}

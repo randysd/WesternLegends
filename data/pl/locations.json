@@ -1,0 +1,15 @@
+{
+  "towns": ["Darkrock", "Red Falls", "Buzzard Gulch"],
+  "regions": ["Mesito’s Point", "Sunny Hills", "Spike’s View", "Cliff Junction", "Dixon Creek", "Buzzard Gulch Frontier"],
+  "locations": {
+    "Darkrock": ["Biuro Szeryfa", "Sklep wielobranżowy", "Saloon", "Bank"],
+    "Red Falls": ["Gabinet lekarza", "Saloon", "Sklep wielobranżowy", "Kabaret"],
+    "Buzzard Gulch": ["Biuro Marshala", "Punkt handlowy", "Saloon"],
+    "Mesito’s Point": ["Kryjówka bandytów A", "Zielone ranczo"],
+    "Sunny Hills": ["Kryjówka bandytów A", "Kopalnia", "Niebieskie ranczo"],
+    "Spike’s View": ["Kryjówka bandytów C", "Kopalnia", "Stacja kolejowa"],
+    "Cliff Junction": ["Kryjówka bandytów C", "Kopalnia"],
+    "Dixon Creek": ["Kryjówka bandytów B"],
+    "Buzzard Gulch Frontier": ["Pomarańczowe ranczo", "Obóz przestępców", "Dworzec kolejowy", "Przełęcz górska A", "Przełęcz górska C"]
+  }
+}

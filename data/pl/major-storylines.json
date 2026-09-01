@@ -1,0 +1,178 @@
+[
+  {
+    "id": "story_railroad_rising",
+    "title": "Żelazny szlak",
+    "newspaperText": [
+      "Historia obejmująca całe terytorium, Żelazny szlak, rozwijała się poprzez serię wydarzeń odczuwalnych na całym pograniczu.",
+      "Kilka wydarzeń połączyło się w większą opowieść pogranicza zatytułowaną Żelazny szlak.",
+      "Rozwijająca się historia Żelaznego szlaku wykroczyła poza los jednego jeźdźca i zaczęła kształtować całe terytorium.",
+      "Gdy Gazette trafiała do druku, Żelazny szlak stał się jedną z najważniejszych rozwijających się historii pogranicza."
+    ],
+    "chapters": [
+      {
+        "id": "rail_surveyors",
+        "title": "Przybywają geodeci",
+        "screenText": "Zakończ ruch na dowolnej stacji kolejowej, aby otrzymać $20 i zwiększyć Postęp kolei o +1.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Geodeci przybywają z łańcuchami, palikami i niebezpiecznym przekonaniem, że przyszłość da się wymierzyć.\"",
+        "newspaperText": [
+          "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: geodeci przybywają z łańcuchami, palikami i niebezpiecznym przekonaniem, że przyszłość da się wymierzyć.",
+          "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: geodeci przybywają z łańcuchami, palikami i niebezpiecznym przekonaniem, że przyszłość da się wymierzyć.",
+          "Trop większej historii doprowadził do nowego wydarzenia: geodeci przybywają z łańcuchami, palikami i niebezpiecznym przekonaniem, że przyszłość da się wymierzyć.",
+          "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: geodeci przybywają z łańcuchami, palikami i niebezpiecznym przekonaniem, że przyszłość da się wymierzyć."
+        ],
+        "onResolved": [{"_index": 2, "text": "Przybywają geodeci zostało rozpatrzone."}],
+        "onExpired": [{"_index": 1, "text": "Przybywają geodeci zostało zignorowane."}]
+      },
+      {
+        "id": "rail_lumber",
+        "title": "Belki na stację",
+        "screenText": "Dostarcz Drewno na stację kolejową. Otrzymaj $20 i zwiększ Postęp kolei o +1.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Świeże belki lądują przy torach niczym kości nowego miasta.\"",
+        "newspaperText": [
+          "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: świeże belki lądują przy torach niczym kości nowego miasta.",
+          "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: świeże belki lądują przy torach niczym kości nowego miasta.",
+          "Trop większej historii doprowadził do nowego wydarzenia: świeże belki lądują przy torach niczym kości nowego miasta.",
+          "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: świeże belki lądują przy torach niczym kości nowego miasta."
+        ],
+        "onResolved": [{"_index": 2, "text": "Belki na stację zostało rozpatrzone."}],
+        "onExpired": [{"_index": 1, "text": "Belki na stację zostało zignorowane."}]
+      },
+      {
+        "id": "rail_iron",
+        "title": "Żelazo na tory",
+        "screenText": "Dostarcz Metal na stację kolejową. Otrzymaj $20 i zwiększ Postęp kolei o +1.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Brygadzista przesuwa kciukiem po żelazie i widzi przyszłość.\"",
+        "newspaperText": [
+          "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: brygadzista przesuwa kciukiem po żelazie i widzi przyszłość.",
+          "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: brygadzista przesuwa kciukiem po żelazie i widzi przyszłość.",
+          "Trop większej historii doprowadził do nowego wydarzenia: brygadzista przesuwa kciukiem po żelazie i widzi przyszłość.",
+          "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: brygadzista przesuwa kciukiem po żelazie i widzi przyszłość."
+        ],
+        "onResolved": [{"_index": 2, "text": "Żelazo na tory zostało rozpatrzone."}],
+        "onExpired": [{"_index": 1, "text": "Żelazo na tory zostało zignorowane."}]
+      },
+      {
+        "id": "rail_grand_opening",
+        "title": "Wielkie otwarcie",
+        "screenText": "Podróż koleją kosztuje $0.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Gdy wbito ostatni gwóźdź, lokomotywa zagwizdała, jakby samo pogranicze właśnie się obudziło.\"",
+        "newspaperText": [
+          "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: gdy wbito ostatni gwóźdź, lokomotywa zagwizdała, jakby samo pogranicze właśnie się obudziło.",
+          "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: gdy wbito ostatni gwóźdź, lokomotywa zagwizdała, jakby samo pogranicze właśnie się obudziło.",
+          "Trop większej historii doprowadził do nowego wydarzenia: gdy wbito ostatni gwóźdź, lokomotywa zagwizdała, jakby samo pogranicze właśnie się obudziło.",
+          "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: gdy wbito ostatni gwóźdź, lokomotywa zagwizdała, jakby samo pogranicze właśnie się obudziło."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "story_lost_spanish_gold",
+    "title": "Zaginione hiszpańskie złoto",
+    "newspaperText": [
+      "Historia obejmująca całe terytorium, Zaginione hiszpańskie złoto, rozwijała się poprzez serię wydarzeń odczuwalnych na całym pograniczu.",
+      "Kilka wydarzeń połączyło się w większą opowieść pogranicza zatytułowaną Zaginione hiszpańskie złoto.",
+      "Rozwijająca się historia Zaginionego hiszpańskiego złota wykroczyła poza los jednego jeźdźca i zaczęła kształtować całe terytorium.",
+      "Gdy Gazette trafiała do druku, Zaginione hiszpańskie złoto stało się jedną z najważniejszych rozwijających się historii pogranicza."
+    ],
+    "chapters": [
+      {
+        "id": "spanish_journal",
+        "title": "Podarty dziennik",
+        "screenText": "Zakończ ruch w kopalni w Cliff Junction, aby otrzymać 1 Żeton Legendy.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Podarty dziennik opowiada o hiszpańskim złocie ukrytym tam, gdzie klify rzucają cień w samo południe.\"",
+        "newspaperText": [
+          "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: podarty dziennik opowiada o hiszpańskim złocie ukrytym tam, gdzie klify rzucają cień w samo południe.",
+          "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: podarty dziennik opowiada o hiszpańskim złocie ukrytym tam, gdzie klify rzucają cień w samo południe.",
+          "Trop większej historii doprowadził do nowego wydarzenia: podarty dziennik opowiada o hiszpańskim złocie ukrytym tam, gdzie klify rzucają cień w samo południe.",
+          "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: podarty dziennik opowiada o hiszpańskim złocie ukrytym tam, gdzie klify rzucają cień w samo południe."
+        ],
+        "onResolved": [{"_index": 1, "text": "Podarty dziennik został rozpatrzony."}],
+        "onExpired": [{"_index": 1, "text": "Podarty dziennik został zignorowany."}]
+      },
+      {
+        "id": "spanish_marker",
+        "title": "Kamienny znak",
+        "screenText": "Dobierz 1 Kartę Walki. Przy wyniku 8+ otrzymujesz 2 bryłki złota; w przeciwnym razie otrzymujesz 1 ranę.",
+        "narrationScript": "[raspy][old cowboy][western][fast][low key][emotionless][quick]Kamienny krzyż sterczy krzywo z kurzu, starszy niż każde miasto na tej mapie.",
+        "newspaperText": [
+          "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: kamienny krzyż sterczy krzywo z kurzu, starszy niż każde miasto na tej mapie.",
+          "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: kamienny krzyż sterczy krzywo z kurzu, starszy niż każde miasto na tej mapie.",
+          "Trop większej historii doprowadził do nowego wydarzenia: kamienny krzyż sterczy krzywo z kurzu, starszy niż każde miasto na tej mapie.",
+          "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: kamienny krzyż sterczy krzywo z kurzu, starszy niż każde miasto na tej mapie."
+        ],
+        "onResolved": [{"_index": 1, "text": "Kamienny znak został rozpatrzony."}],
+        "onExpired": [{"_index": 1, "text": "Kamienny znak został zignorowany."}]
+      },
+      {
+        "id": "spanish_cache",
+        "title": "Zakopany skarb",
+        "screenText": "Otrzymaj $40 i 2 PL. Dodaj „Zaginione hiszpańskie złoto” do gazety.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Pod czerwonym kamieniem czeka skrytka pełna monet wybitych dla króla, który nigdy nie widział tej ziemi.\"",
+        "newspaperText": [
+          "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: pod czerwonym kamieniem czeka skrytka pełna monet wybitych dla króla, który nigdy nie widział tej ziemi.",
+          "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: pod czerwonym kamieniem czeka skrytka pełna monet wybitych dla króla, który nigdy nie widział tej ziemi.",
+          "Trop większej historii doprowadził do nowego wydarzenia: pod czerwonym kamieniem czeka skrytka pełna monet wybitych dla króla, który nigdy nie widział tej ziemi.",
+          "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: pod czerwonym kamieniem czeka skrytka pełna monet wybitych dla króla, który nigdy nie widział tej ziemi."
+        ],
+        "onResolved": [{"_index": 1, "text": "Zakopany skarb został rozpatrzony."}],
+        "onExpired": [{"_index": 1, "text": "Zakopany skarb został zignorowany."}]
+      }
+    ]
+  },
+  {
+    "id": "story_white_buffalo",
+    "title": "Biały bizon",
+    "newspaperText": [
+      "Historia obejmująca całe terytorium, Biały bizon, rozwijała się poprzez serię wydarzeń odczuwalnych na całym pograniczu.",
+      "Kilka wydarzeń połączyło się w większą opowieść pogranicza zatytułowaną Biały bizon.",
+      "Rozwijająca się historia Białego bizona wykroczyła poza los jednego jeźdźca i zaczęła kształtować całe terytorium.",
+      "Gdy Gazette trafiała do druku, Biały bizon stał się jedną z najważniejszych rozwijających się historii pogranicza."
+    ],
+    "chapters": [
+      {
+        "id": "buffalo_tracks",
+        "title": "Dziwne ślady",
+        "screenText": "Po Polowaniu otrzymaj 1 wskazówkę dotyczącą Białego bizona.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Ślady szerokie jak talerze ciągną się przez prerię, a wszystkie ptaki umilkły.\"",
+        "newspaperText": [
+          "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: ślady szerokie jak talerze ciągną się przez prerię, a wszystkie ptaki umilkły.",
+          "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: ślady szerokie jak talerze ciągną się przez prerię, a wszystkie ptaki umilkły.",
+          "Trop większej historii doprowadził do nowego wydarzenia: ślady szerokie jak talerze ciągną się przez prerię, a wszystkie ptaki umilkły.",
+          "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: ślady szerokie jak talerze ciągną się przez prerię, a wszystkie ptaki umilkły."
+        ],
+        "onResolved": [{"_index": 1, "text": "Dziwne ślady zostały rozpatrzone."}],
+        "onExpired": [{"_index": 1, "text": "Dziwne ślady zostały zignorowane."}]
+      },
+      {
+        "id": "buffalo_warning",
+        "title": "Ostrzeżenie",
+        "screenText": "Zakończ ruch w Sunny Hills, aby otrzymać 1 PL albo dobrać 2 Karty Pokera.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Stary zwiadowca ostrzega, że niektóre zwierzęta nie są trofeami. Są próbami.\"",
+        "newspaperText": [
+          "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: stary zwiadowca ostrzega, że niektóre zwierzęta nie są trofeami. Są próbami.",
+          "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: stary zwiadowca ostrzega, że niektóre zwierzęta nie są trofeami. Są próbami.",
+          "Trop większej historii doprowadził do nowego wydarzenia: stary zwiadowca ostrzega, że niektóre zwierzęta nie są trofeami. Są próbami.",
+          "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: stary zwiadowca ostrzega, że niektóre zwierzęta nie są trofeami. Są próbami."
+        ],
+        "onResolved": [{"_index": 1, "text": "Ostrzeżenie zostało rozpatrzone."}],
+        "onExpired": [{"_index": 1, "text": "Ostrzeżenie zostało zignorowane."}]
+      },
+      {
+        "id": "buffalo_appears",
+        "title": "Pojawia się Biały bizon",
+        "screenText": "Specjalne Polowanie: dobierz 1 Kartę Walki. Odrzuć Karty Pokera o łącznej wartości co najmniej równej jej wartości. Jeśli ci się uda, wybierz „Chroń” albo „Poluj”.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Biały bizon wychodzi z porannej mgły, jasny jak duch i cięższy od legendy.\"",
+        "newspaperText": [
+          "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: Biały bizon wychodzi z porannej mgły, jasny jak duch i cięższy od legendy.",
+          "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: Biały bizon wychodzi z porannej mgły, jasny jak duch i cięższy od legendy.",
+          "Trop większej historii doprowadził do nowego wydarzenia: Biały bizon wychodzi z porannej mgły, jasny jak duch i cięższy od legendy.",
+          "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: Biały bizon wychodzi z porannej mgły, jasny jak duch i cięższy od legendy."
+        ],
+        "resultButtons": [
+          {"_index": 0, "label": "Chroń"},
+          {"_index": 1, "label": "Poluj"}
+        ]
+      }
+    ]
+  }
+]

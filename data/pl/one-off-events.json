@@ -1,0 +1,1360 @@
+[
+  {
+    "id": "bandit_reinforcements",
+    "title": "Posiłki bandytów",
+    "screenText": "Umieść kolejnego bandytę na obecnym polu. Walcz z oboma jednocześnie; zagraj 1 Kartę Pokera przeciwko każdej Karcie Walki.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Kolejny bandyta wyskakuje zza skał.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: kolejny bandyta wyskakuje zza skał.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: kolejny bandyta wyskakuje zza skał.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: kolejny bandyta wyskakuje zza skał.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: kolejny bandyta wyskakuje zza skał."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "twin_pistol_rogue",
+    "title": "Łotr z dwoma pistoletami",
+    "screenText": "Dobierz 2 Karty Walki. Gracz musi pokonać obie za pomocą 2 Kart Pokera albo przegrywa walkę.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Drugi strzał rozlega się z grzbietu wzgórza.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: drugi strzał rozlega się z grzbietu wzgórza.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: drugi strzał rozlega się z grzbietu wzgórza.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: drugi strzał rozlega się z grzbietu wzgórza.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: drugi strzał rozlega się z grzbietu wzgórza."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "drunken_bandit",
+    "title": "Pijany bandyta",
+    "screenText": "Dobierz 2 Karty Walki i użyj niższej wartości.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Wytacza się na ulicę z większą ilością whiskey niż rozsądku w brzuchu.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: wytacza się na ulicę z większą ilością whiskey niż rozsądku w brzuchu.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: wytacza się na ulicę z większą ilością whiskey niż rozsądku w brzuchu.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: wytacza się na ulicę z większą ilością whiskey niż rozsądku w brzuchu.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: wytacza się na ulicę z większą ilością whiskey niż rozsądku w brzuchu."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "veteran_bandit",
+    "title": "Bandyta-weteran",
+    "screenText": "Dobierz 3 Karty Walki i użyj najwyższej wartości.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ten tutaj przeżył zbyt wiele strzelanin, by można to było zrzucić na szczęście.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: ten tutaj przeżył zbyt wiele strzelanin, by można to było zrzucić na szczęście.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: ten tutaj przeżył zbyt wiele strzelanin, by można to było zrzucić na szczęście.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: ten tutaj przeżył zbyt wiele strzelanin, by można to było zrzucić na szczęście.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: ten tutaj przeżył zbyt wiele strzelanin, by można to było zrzucić na szczęście."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "bandit_last_words",
+    "title": "Ostatnie słowa bandyty",
+    "screenText": "Otrzymaj $10 i dobierz 1 Kartę Pokera.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ostatnim tchem bandyta zdradza skrytkę pod rozszczepionym cedrem.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: ostatnim tchem bandyta zdradza skrytkę pod rozszczepionym cedrem.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: ostatnim tchem bandyta zdradza skrytkę pod rozszczepionym cedrem.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: ostatnim tchem bandyta zdradza skrytkę pod rozszczepionym cedrem.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: ostatnim tchem bandyta zdradza skrytkę pod rozszczepionym cedrem."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "hidden_sniper",
+    "title": "Ukryty strzelec",
+    "screenText": "Po walce otrzymaj 1 ranę, chyba że odrzucisz 1 Kartę Pokera.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Drugi strzał rozlega się z grzbietu wzgórza.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: drugi strzał rozlega się z grzbietu wzgórza.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: drugi strzał rozlega się z grzbietu wzgórza.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: drugi strzał rozlega się z grzbietu wzgórza.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: drugi strzał rozlega się z grzbietu wzgórza."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "posse_cheers",
+    "title": "Oklaski Posse",
+    "screenText": "Otrzymaj $20 albo dobierz 2 Karty Pokera.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ludzie w mieście uchylają kapeluszy. Prawo nadal coś tutaj znaczy.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: ludzie w mieście uchylają kapeluszy. Prawo nadal coś tutaj znaczy.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: ludzie w mieście uchylają kapeluszy. Prawo nadal coś tutaj znaczy.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: ludzie w mieście uchylają kapeluszy. Prawo nadal coś tutaj znaczy.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: ludzie w mieście uchylają kapeluszy. Prawo nadal coś tutaj znaczy."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "false_badge",
+    "title": "Fałszywa odznaka",
+    "screenText": "Aresztujący gracz otrzymuje 1 ranę, a następnie dobiera 1 Kartę Pokera.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Z daleka odznaka wygląda prawdziwie, ale z bliska pachnie kłopotami.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: z daleka odznaka wygląda prawdziwie, ale z bliska pachnie kłopotami.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: z daleka odznaka wygląda prawdziwie, ale z bliska pachnie kłopotami.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: z daleka odznaka wygląda prawdziwie, ale z bliska pachnie kłopotami.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: z daleka odznaka wygląda prawdziwie, ale z bliska pachnie kłopotami."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "sheriffs_notice",
+    "title": "Obwieszczenie Szeryfa",
+    "screenText": "Przesuń Szeryfa o maksymalnie 3 pola w stronę gracza, który wywołał to wydarzenie.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"List gończy zwija się na ścianie, a Szeryf już siodła konia.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: list gończy zwija się na ścianie, a Szeryf już siodła konia.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: list gończy zwija się na ścianie, a Szeryf już siodła konia.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: list gończy zwija się na ścianie, a Szeryf już siodła konia.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: list gończy zwija się na ścianie, a Szeryf już siodła konia."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "inside_man",
+    "title": "Człowiek wewnątrz",
+    "screenText": "Jeśli napad się powiedzie, otrzymaj +$20. Jeśli się nie powiedzie, spartaczony skok przyciąga prawo: przesuń Szeryfa o maksymalnie 3 pola w swoją stronę.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Nerwowy pracownik banku pozostawia rygiel skarbca niedomknięty.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: nerwowy pracownik banku pozostawia rygiel skarbca niedomknięty.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: nerwowy pracownik banku pozostawia rygiel skarbca niedomknięty.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: nerwowy pracownik banku pozostawia rygiel skarbca niedomknięty.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: nerwowy pracownik banku pozostawia rygiel skarbca niedomknięty."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "locked_vault",
+    "title": "Zaryglowany skarbiec",
+    "screenText": "Strażnik banku dobiera 1 dodatkową Kartę Walki.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Drzwi skarbca z jękiem zatrzaskują się na zamek. Ten skok właśnie zrobił się znacznie głośniejszy.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: drzwi skarbca z jękiem zatrzaskują się na zamek. Ten skok właśnie zrobił się znacznie głośniejszy.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: drzwi skarbca z jękiem zatrzaskują się na zamek. Ten skok właśnie zrobił się znacznie głośniejszy.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: drzwi skarbca z jękiem zatrzaskują się na zamek. Ten skok właśnie zrobił się znacznie głośniejszy.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: drzwi skarbca z jękiem zatrzaskują się na zamek. Ten skok właśnie zrobił się znacznie głośniejszy."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "dusty_getaway",
+    "title": "Ucieczka w kurzu",
+    "screenText": "Po rozpatrzeniu napadu porusz się o maksymalnie 2 pola.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Nadciąga burza pyłowa, wystarczająco paskudna, by ukryć desperacką ucieczkę.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: nadciąga burza pyłowa, wystarczająco paskudna, by ukryć desperacką ucieczkę.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: nadciąga burza pyłowa, wystarczająco paskudna, by ukryć desperacką ucieczkę.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: nadciąga burza pyłowa, wystarczająco paskudna, by ukryć desperacką ucieczkę.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: nadciąga burza pyłowa, wystarczająco paskudna, by ukryć desperacką ucieczkę."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "train_payroll",
+    "title": "Wagon z wypłatami",
+    "screenText": "Jeśli Napad na pociąg się powiedzie, otrzymaj +$30. Jeśli się nie powiedzie, otrzymaj 1 ranę.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Dzisiejszej nocy wypłaty jadą pociągiem i każdy Przestępca potrafi je wywęszyć.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: dzisiejszej nocy wypłaty jadą pociągiem i każdy Przestępca potrafi je wywęszyć.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: dzisiejszej nocy wypłaty jadą pociągiem i każdy Przestępca potrafi je wywęszyć.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: dzisiejszej nocy wypłaty jadą pociągiem i każdy Przestępca potrafi je wywęszyć.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: dzisiejszej nocy wypłaty jadą pociągiem i każdy Przestępca potrafi je wywęszyć."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "railroad_guard",
+    "title": "Strażnik kolei",
+    "screenText": "Stróż Prawa może przerwać napad, aby otrzymać 1 punkt Stróża Prawa. W przeciwnym razie rozpatrz napad normalnie.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Umundurowany strażnik rozpoznaje praworządną twarz i prosi o pomoc.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: umundurowany strażnik rozpoznaje praworządną twarz i prosi o pomoc.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: umundurowany strażnik rozpoznaje praworządną twarz i prosi o pomoc.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: umundurowany strażnik rozpoznaje praworządną twarz i prosi o pomoc.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: umundurowany strażnik rozpoznaje praworządną twarz i prosi o pomoc."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "rich_vein",
+    "title": "Bogata żyła",
+    "screenText": "Podczas tej akcji Poszukiwania złota rzuć 1 dodatkową Kością Poszukiwania złota.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Złoty pył sypie się jak zamknięte w butelce słońce.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: złoty pył sypie się jak zamknięte w butelce słońce.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: złoty pył sypie się jak zamknięte w butelce słońce.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: złoty pył sypie się jak zamknięte w butelce słońce.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: złoty pył sypie się jak zamknięte w butelce słońce."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "cave_in",
+    "title": "Zawał",
+    "screenText": "Rozpatrz Poszukiwanie złota, a następnie otrzymaj 1 ranę.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Belki podtrzymujące trzaskają nad głową. Dziś kopalnia chce zapłaty krwią.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: belki podtrzymujące trzaskają nad głową. Dziś kopalnia chce zapłaty krwią.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: belki podtrzymujące trzaskają nad głową. Dziś kopalnia chce zapłaty krwią.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: belki podtrzymujące trzaskają nad głową. Dziś kopalnia chce zapłaty krwią.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: belki podtrzymujące trzaskają nad głową. Dziś kopalnia chce zapłaty krwią."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "claim_jumper_shadow",
+    "title": "Cień skoczka na działkę",
+    "screenText": "Jeśli jest dostępny, umieść żeton Claim Jumpera na tej kopalni; w przeciwnym razie otrzymaj $10.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ktoś widział, jak znalazłeś złoto, a nie lubi się dzielić.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: ktoś widział, jak znalazłeś złoto, a nie lubi się dzielić.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: ktoś widział, jak znalazłeś złoto, a nie lubi się dzielić.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: ktoś widział, jak znalazłeś złoto, a nie lubi się dzielić.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: ktoś widział, jak znalazłeś złoto, a nie lubi się dzielić."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "lost_map_tube",
+    "title": "Mapa w tubie",
+    "screenText": "Dobierz 1 Żeton Legendy. Zachowaj go zakrytego jak zwykle.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"W owiniętej w woskowane płótno tubie czeka mapa starsza niż samo miasto.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: w owiniętej w woskowane płótno tubie czeka mapa starsza niż samo miasto.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: w owiniętej w woskowane płótno tubie czeka mapa starsza niż samo miasto.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: w owiniętej w woskowane płótno tubie czeka mapa starsza niż samo miasto.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: w owiniętej w woskowane płótno tubie czeka mapa starsza niż samo miasto."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "fools_gold",
+    "title": "Złoto głupców",
+    "screenText": "Strać 1 właśnie otrzymaną bryłkę złota, a następnie dobierz 2 Karty Pokera.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"To, co błyszczy w twojej misie, jest ładne, ale ładne nie zawsze jest coś warte.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: to, co błyszczy w twojej misie, jest ładne, ale ładne nie zawsze jest coś warte.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: to, co błyszczy w twojej misie, jest ładne, ale ładne nie zawsze jest coś warte.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: to, co błyszczy w twojej misie, jest ładne, ale ładne nie zawsze jest coś warte.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: to, co błyszczy w twojej misie, jest ładne, ale ładne nie zawsze jest coś warte."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "bankers_smile",
+    "title": "Uśmiech bankiera",
+    "screenText": "Otrzymaj +$10 za każdą bryłkę złota zdeponowaną podczas tej akcji.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Bankier szczerzy się tak szeroko, że widać każdy ząb w jego ustach.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: bankier szczerzy się tak szeroko, że widać każdy ząb w jego ustach.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: bankier szczerzy się tak szeroko, że widać każdy ząb w jego ustach.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: bankier szczerzy się tak szeroko, że widać każdy ząb w jego ustach.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: bankier szczerzy się tak szeroko, że widać każdy ząb w jego ustach."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "assayer_dispute",
+    "title": "Spór z rzeczoznawcą",
+    "screenText": "Przed zdeponowaniem odrzuć 1 Kartę Pokera albo otrzymaj łącznie o $10 mniej.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Rzeczoznawca mruży oczy nad twoim złotem i twierdzi, że jest za lekkie.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: rzeczoznawca mruży oczy nad twoim złotem i twierdzi, że jest za lekkie.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: rzeczoznawca mruży oczy nad twoim złotem i twierdzi, że jest za lekkie.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: rzeczoznawca mruży oczy nad twoim złotem i twierdzi, że jest za lekkie.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: rzeczoznawca mruży oczy nad twoim złotem i twierdzi, że jest za lekkie."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "free_spurs",
+    "title": "Darmowe ostrogi",
+    "screenText": "Po zakupie porusz się o maksymalnie 1 pole. Nie jest to akcja Ruchu.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Sklepikarz dorzuca ostrogi, które kiedyś należały do szybkiego człowieka.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: sklepikarz dorzuca ostrogi, które kiedyś należały do szybkiego człowieka.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: sklepikarz dorzuca ostrogi, które kiedyś należały do szybkiego człowieka.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: sklepikarz dorzuca ostrogi, które kiedyś należały do szybkiego człowieka.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: sklepikarz dorzuca ostrogi, które kiedyś należały do szybkiego człowieka."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "gunsmith_discount",
+    "title": "Przysługa rusznikarza",
+    "screenText": "Natychmiast odzyskaj $10 z kosztu zakupu lub ulepszenia.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Rusznikarz ogląda twoją broń i obniża cenę o dziesięć dolarów.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: rusznikarz ogląda twoją broń i obniża cenę o dziesięć dolarów.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: rusznikarz ogląda twoją broń i obniża cenę o dziesięć dolarów.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: rusznikarz ogląda twoją broń i obniża cenę o dziesięć dolarów.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: rusznikarz ogląda twoją broń i obniża cenę o dziesięć dolarów."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "counterfeit_goods",
+    "title": "Podrobiony towar",
+    "screenText": "Dobierz 1 Kartę Pokera. Jeśli ma wartość 6 lub mniej, otrzymaj 1 ranę z powodu wadliwego towaru.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"W świetle sklepu okazja wyglądała dobrze. Potem zaczyna dymić.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: w świetle sklepu okazja wyglądała dobrze. Potem zaczyna dymić.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: w świetle sklepu okazja wyglądała dobrze. Potem zaczyna dymić.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: w świetle sklepu okazja wyglądała dobrze. Potem zaczyna dymić.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: w świetle sklepu okazja wyglądała dobrze. Potem zaczyna dymić."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "rare_shipment",
+    "title": "Rzadka dostawa",
+    "screenText": "Odkryj 1 Legendarny Przedmiot. Gracz, który wywołał wydarzenie, może go kupić za $30.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Skrzynia ze Wschodu ląduje na ladzie, zapieczętowana wielkimi obietnicami.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: skrzynia ze Wschodu ląduje na ladzie, zapieczętowana wielkimi obietnicami.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: skrzynia ze Wschodu ląduje na ladzie, zapieczętowana wielkimi obietnicami.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: skrzynia ze Wschodu ląduje na ladzie, zapieczętowana wielkimi obietnicami.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: skrzynia ze Wschodu ląduje na ladzie, zapieczętowana wielkimi obietnicami."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "doctor_secret",
+    "title": "Sekretny tonik lekarza",
+    "screenText": "Wylecz się jak zwykle. Następnie dobierz 1 dodatkową Kartę Pokera.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Lekarz nalewa coś ciemnego i mówi, że lepiej nie pytać, co jest w środku.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: lekarz nalewa coś ciemnego i mówi, że lepiej nie pytać, co jest w środku.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: lekarz nalewa coś ciemnego i mówi, że lepiej nie pytać, co jest w środku.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: lekarz nalewa coś ciemnego i mówi, że lepiej nie pytać, co jest w środku.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: lekarz nalewa coś ciemnego i mówi, że lepiej nie pytać, co jest w środku."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "bad_medicine",
+    "title": "Kiepskie lekarstwo",
+    "screenText": "Wylecz się jak zwykle, ale twoja następna akcja Ruchu ma -1 pole.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Lekarstwo działa, ale pokój nadal stoi krzywo.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: lekarstwo działa, ale pokój nadal stoi krzywo.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: lekarstwo działa, ale pokój nadal stoi krzywo.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: lekarstwo działa, ale pokój nadal stoi krzywo.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: lekarstwo działa, ale pokój nadal stoi krzywo."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "cabaret_ovation",
+    "title": "Owacja na stojąco",
+    "screenText": "Po Hulance dobierz 1 Kartę Pokera za każdy PL otrzymany podczas tej akcji.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Tłum wali w stoły, aż drżą krokwie.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: tłum wali w stoły, aż drżą krokwie.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: tłum wali w stoły, aż drżą krokwie.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: tłum wali w stoły, aż drżą krokwie.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: tłum wali w stoły, aż drżą krokwie."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "cabaret_scandal",
+    "title": "Skandal w Kabarecie",
+    "screenText": "Po Hulance wybierz: otrzymaj 1 punkt Przestępstwa albo odrzuć 1 Kartę Pokera.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"O świcie połowa Red Falls już o tym wie, a druga połowa wymyśliła coś jeszcze gorszego.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: o świcie połowa Red Falls już o tym wie, a druga połowa wymyśliła coś jeszcze gorszego.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: o świcie połowa Red Falls już o tym wie, a druga połowa wymyśliła coś jeszcze gorszego.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: o świcie połowa Red Falls już o tym wie, a druga połowa wymyśliła coś jeszcze gorszego.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: o świcie połowa Red Falls już o tym wie, a druga połowa wymyśliła coś jeszcze gorszego."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "card_shark",
+    "title": "Karciany rekin",
+    "screenText": "Przed rozdaniem aktywny gracz może dobrać 1 Kartę Pokera, a następnie musi odrzucić 1 Kartę Pokera.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Karciany rekin siada przy stole w czystych mankietach i z brudnym spojrzeniem.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: karciany rekin siada przy stole w czystych mankietach i z brudnym spojrzeniem.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: karciany rekin siada przy stole w czystych mankietach i z brudnym spojrzeniem.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: karciany rekin siada przy stole w czystych mankietach i z brudnym spojrzeniem.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: karciany rekin siada przy stole w czystych mankietach i z brudnym spojrzeniem."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "lucky_table",
+    "title": "Szczęśliwy stół",
+    "screenText": "Zwycięzca otrzymuje +$20 z zasobów.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ten stół przynosi szczęście, odkąd dziurę po kuli załatano srebrem.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: ten stół przynosi szczęście, odkąd dziurę po kuli załatano srebrem.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: ten stół przynosi szczęście, odkąd dziurę po kuli załatano srebrem.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: ten stół przynosi szczęście, odkąd dziurę po kuli załatano srebrem.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: ten stół przynosi szczęście, odkąd dziurę po kuli załatano srebrem."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "saloon_brawl",
+    "title": "Bójka w saloonie",
+    "screenText": "Zanim rozpatrzycie pokera, aktywny gracz walczy z bandytą. Jeśli wygra, poker toczy się dalej i otrzymuje 1 PL.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Krzesło pęka, butelka leci w powietrzu, a karty nie są już jedynym problemem.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: krzesło pęka, butelka leci w powietrzu, a karty nie są już jedynym problemem.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: krzesło pęka, butelka leci w powietrzu, a karty nie są już jedynym problemem.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: krzesło pęka, butelka leci w powietrzu, a karty nie są już jedynym problemem.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: krzesło pęka, butelka leci w powietrzu, a karty nie są już jedynym problemem."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "work_honest_pay",
+    "title": "Uczciwa zapłata",
+    "screenText": "Za tę akcję Pracy otrzymaj $20 zamiast $10.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Uczciwie zarobione pieniądze wydaje się najlepiej.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: uczciwie zarobione pieniądze wydaje się najlepiej.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: uczciwie zarobione pieniądze wydaje się najlepiej.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: uczciwie zarobione pieniądze wydaje się najlepiej.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: uczciwie zarobione pieniądze wydaje się najlepiej."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "work_splintered_hand",
+    "title": "Drzazga w dłoni",
+    "screenText": "Otrzymaj $10 jak zwykle, a następnie 1 ranę, chyba że odrzucisz 1 Kartę Pokera.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Trzonek pęka i wbija drzazgę wystarczająco głęboko, żebyś długo o niej pamiętał.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: trzonek pęka i wbija drzazgę wystarczająco głęboko, żebyś długo o niej pamiętał.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: trzonek pęka i wbija drzazgę wystarczająco głęboko, żebyś długo o niej pamiętał.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: trzonek pęka i wbija drzazgę wystarczająco głęboko, żebyś długo o niej pamiętał.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: trzonek pęka i wbija drzazgę wystarczająco głęboko, żebyś długo o niej pamiętał."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "stampede",
+    "title": "Panika stada",
+    "screenText": "Po zdobyciu Bydła natychmiast porusz się o 1 pole od Rancza.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Stado zrywa się do biegu, a kopyta grzmią jak dzień sądu.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: stado zrywa się do biegu, a kopyta grzmią jak dzień sądu.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: stado zrywa się do biegu, a kopyta grzmią jak dzień sądu.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: stado zrywa się do biegu, a kopyta grzmią jak dzień sądu.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: stado zrywa się do biegu, a kopyta grzmią jak dzień sądu."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "prize_steer",
+    "title": "Nagrodzony byk",
+    "screenText": "Podejrzyj 2 żetony Bydła z tego Rancza. Zachowaj 1, a drugi połóż z powrotem zakryty.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Pomocnik z rancza wskazuje najdorodniejszego byka w zagrodzie.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: pomocnik z rancza wskazuje najdorodniejszego byka w zagrodzie.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: pomocnik z rancza wskazuje najdorodniejszego byka w zagrodzie.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: pomocnik z rancza wskazuje najdorodniejszego byka w zagrodzie.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: pomocnik z rancza wskazuje najdorodniejszego byka w zagrodzie."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "rustler_brand",
+    "title": "Piętno złodzieja bydła",
+    "screenText": "Podczas Kradzieży bydła otrzymaj +$20. Twoje charakterystyczne piętno zwraca uwagę: przesuń Szeryfa o maksymalnie 3 pola w swoją stronę.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Piętno jest świeże i każdy Stróż Prawa je wywęszy.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: piętno jest świeże i każdy Stróż Prawa je wywęszy.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: piętno jest świeże i każdy Stróż Prawa je wywęszy.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: piętno jest świeże i każdy Stróż Prawa je wywęszy.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: piętno jest świeże i każdy Stróż Prawa je wywęszy."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "clean_drive",
+    "title": "Czysty spęd",
+    "screenText": "Podczas Pędzenia bydła otrzymaj +$10.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ani jedna sztuka się nie zabłąkała. Taka robota zasługuje na szacunek.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: ani jedna sztuka się nie zabłąkała. Taka robota zasługuje na szacunek.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: ani jedna sztuka się nie zabłąkała. Taka robota zasługuje na szacunek.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: ani jedna sztuka się nie zabłąkała. Taka robota zasługuje na szacunek.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: ani jedna sztuka się nie zabłąkała. Taka robota zasługuje na szacunek."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "broken_bridge",
+    "title": "Zawalony most",
+    "screenText": "Natychmiast zakończ akcję Ruchu. Dobierz 1 Kartę Pokera.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Most przed tobą składa się bardziej ze wspomnień niż z drewna.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: most przed tobą składa się bardziej ze wspomnień niż z drewna.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: most przed tobą składa się bardziej ze wspomnień niż z drewna.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: most przed tobą składa się bardziej ze wspomnień niż z drewna.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: most przed tobą składa się bardziej ze wspomnień niż z drewna."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "runaway_stage",
+    "title": "Rozpędzony dyliżans",
+    "screenText": "Porusz się o maksymalnie 2 dodatkowe pola. Następnie otrzymaj 1 ranę, chyba że odrzucisz 1 Kartę Pokera.",
+    "narrationScript": "[raspy][old cowboy][western][fast][low key][emotionless][quick]Dyliżans bez woźnicy pędzi drogą!",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: dyliżans bez woźnicy pędzi drogą!",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: dyliżans bez woźnicy pędzi drogą!",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: dyliżans bez woźnicy pędzi drogą!",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: dyliżans bez woźnicy pędzi drogą!"
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "snakebite",
+    "title": "Ukąszenie grzechotnika",
+    "screenText": "Otrzymaj 1 ranę. Następnie dobierz 1 Kartę Pokera.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Grzechotnik uderza z cienia niewiele większego od obcasa buta.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: grzechotnik uderza z cienia niewiele większego od obcasa buta.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: grzechotnik uderza z cienia niewiele większego od obcasa buta.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: grzechotnik uderza z cienia niewiele większego od obcasa buta.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: grzechotnik uderza z cienia niewiele większego od obcasa buta."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "desert_shortcut",
+    "title": "Skrót przez pustynię",
+    "screenText": "Natychmiast porusz się o maksymalnie 2 pola. Tylko podczas tego ruchu ignoruj mesy, jeśli wszyscy gracze zgodzą się na trasę.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Stary szlak prowadzi przez ziemię, o której większość przysięga, że jest nie do przebycia.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: stary szlak prowadzi przez ziemię, o której większość przysięga, że jest nie do przebycia.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: stary szlak prowadzi przez ziemię, o której większość przysięga, że jest nie do przebycia.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: stary szlak prowadzi przez ziemię, o której większość przysięga, że jest nie do przebycia.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: stary szlak prowadzi przez ziemię, o której większość przysięga, że jest nie do przebycia."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "dixon_ambush",
+    "title": "Zasadzka w Dixon Creek",
+    "screenText": "Natychmiast walcz z bandytą. Jeśli wygrasz, otrzymaj +$10.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Dixon Creek jest ciche. Zbyt ciche jak na uczciwą ziemię.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: dixon Creek jest ciche. Zbyt ciche jak na uczciwą ziemię.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: dixon Creek jest ciche. Zbyt ciche jak na uczciwą ziemię.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: dixon Creek jest ciche. Zbyt ciche jak na uczciwą ziemię.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: dixon Creek jest ciche. Zbyt ciche jak na uczciwą ziemię."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "mesitos_greenhorn",
+    "title": "Nowicjusz na Zielonym Ranczu",
+    "screenText": "Jeśli jesteś na Zielonym Ranczu, otrzymaj $20. W przeciwnym razie dobierz 1 Kartę Pokera.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Młody parobek z rancza przywołuje cię z paniką w oczach.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: młody parobek z rancza przywołuje cię z paniką w oczach.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: młody parobek z rancza przywołuje cię z paniką w oczach.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: młody parobek z rancza przywołuje cię z paniką w oczach.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: młody parobek z rancza przywołuje cię z paniką w oczach."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "sunny_hills_luck",
+    "title": "Szczęście w Sunny Hills",
+    "screenText": "Jeśli jesteś w kopalni w Sunny Hills, rzuć 1 Kością Poszukiwania złota bez wydawania akcji.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Sunny Hills zasługuje na swoją nazwę, gdy nawet kamień zaczyna błyszczeć.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: sunny Hills zasługuje na swoją nazwę, gdy nawet kamień zaczyna błyszczeć.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: sunny Hills zasługuje na swoją nazwę, gdy nawet kamień zaczyna błyszczeć.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: sunny Hills zasługuje na swoją nazwę, gdy nawet kamień zaczyna błyszczeć.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: sunny Hills zasługuje na swoją nazwę, gdy nawet kamień zaczyna błyszczeć."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "spikes_view_signal",
+    "title": "Ogień sygnałowy",
+    "screenText": "Jeśli Ante Up jest aktywne, przesuń pociąg na stację w Spike’s View; w przeciwnym razie dobierz 1 Kartę Pokera.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Na grzbiecie ponad Spike’s View płonie ogień sygnałowy.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: na grzbiecie ponad Spike’s View płonie ogień sygnałowy.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: na grzbiecie ponad Spike’s View płonie ogień sygnałowy.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: na grzbiecie ponad Spike’s View płonie ogień sygnałowy.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: na grzbiecie ponad Spike’s View płonie ogień sygnałowy."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "cliff_junction_echo",
+    "title": "Echo w klifach",
+    "screenText": "Dobierz 1 Kartę Walki. Przy 7+ otrzymaj $20. Przy 6 lub mniej otrzymaj 1 ranę.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Coś głęboko w skale odpowiada na twoje kroki.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: coś głęboko w skale odpowiada na twoje kroki.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: coś głęboko w skale odpowiada na twoje kroki.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: coś głęboko w skale odpowiada na twoje kroki.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: coś głęboko w skale odpowiada na twoje kroki."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "legendary_whisper",
+    "title": "Legendarny szept",
+    "screenText": "Dobierz 1 Kartę Pokera. Jeśli to figura albo as, otrzymaj 1 PL.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Niektóre przedmioty noszą w sobie historie, zanim jeszcze dotkną twojej dłoni.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: niektóre przedmioty noszą w sobie historie, zanim jeszcze dotkną twojej dłoni.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: niektóre przedmioty noszą w sobie historie, zanim jeszcze dotkną twojej dłoni.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: niektóre przedmioty noszą w sobie historie, zanim jeszcze dotkną twojej dłoni.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: niektóre przedmioty noszą w sobie historie, zanim jeszcze dotkną twojej dłoni."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "trader_sweetens_deal",
+    "title": "Dodatek od Herve’a",
+    "screenText": "Dr Herve dorzuca coś do interesu. Wybierz: odzyskaj $10 z ceny zakupu albo dobierz 2 Karty Pokera.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Herve uśmiecha się i stuka w ukrytą szufladę. Dobrzy klienci zasługują na mały dodatek.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: herve uśmiecha się i stuka w ukrytą szufladę. Dobrzy klienci zasługują na mały dodatek.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: herve uśmiecha się i stuka w ukrytą szufladę. Dobrzy klienci zasługują na mały dodatek.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: herve uśmiecha się i stuka w ukrytą szufladę. Dobrzy klienci zasługują na mały dodatek.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: herve uśmiecha się i stuka w ukrytą szufladę. Dobrzy klienci zasługują na mały dodatek."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "trader_no_questions_asked",
+    "title": "Bez pytań",
+    "screenText": "Dr Herve przesuwa $10 z powrotem po ladzie i oferuje ci na drogę mętny trunek. Przyjmij interes bez pytań, aby otrzymać $10 i 1 punkt Przestępstwa. Następnie rzuć 2 Kośćmi Poszukiwania złota i za każdą wyrzuconą bryłkę złota otrzymaj 1 ranę. Albo odmów bez dalszego efektu.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Herve przesuwa część pieniędzy z powrotem po ladzie, a potem wyciąga mętną butelkę. Lepiej nie pytaj, skąd wzięło się jedno ani drugie. Zdecyduj tylko, czy dziś dopisuje ci szczęście.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: herve przesuwa część pieniędzy z powrotem po ladzie, a potem wyciąga mętną butelkę. Lepiej nie pytaj, skąd wzięło się jedno ani drugie. Zdecyduj tylko, czy dziś dopisuje ci szczęście.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: herve przesuwa część pieniędzy z powrotem po ladzie, a potem wyciąga mętną butelkę. Lepiej nie pytaj, skąd wzięło się jedno ani drugie. Zdecyduj tylko, czy dziś dopisuje ci szczęście.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: herve przesuwa część pieniędzy z powrotem po ladzie, a potem wyciąga mętną butelkę. Lepiej nie pytaj, skąd wzięło się jedno ani drugie. Zdecyduj tylko, czy dziś dopisuje ci szczęście.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: herve przesuwa część pieniędzy z powrotem po ladzie, a potem wyciąga mętną butelkę. Lepiej nie pytaj, skąd wzięło się jedno ani drugie. Zdecyduj tylko, czy dziś dopisuje ci szczęście."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Weź $10 + 1 punkt Przestępstwa"
+      },
+      {
+        "_index": 1,
+        "label": "Odmów"
+      }
+    ],
+    "moduleVariants": [
+      {
+        "id": "gambler_track",
+        "screenText": "Dr Herve przesuwa $10 z powrotem po ladzie i oferuje ci na drogę mętny trunek. Jeśli czujesz szczęście, przyjmij interes bez pytań, aby otrzymać $10 i 1 punkt Hazardzisty. Następnie rzuć 2 Kośćmi Poszukiwania złota i za każdą wyrzuconą bryłkę złota otrzymaj 1 ranę. Albo odmów bez dalszego efektu.",
+        "newspaperText": [
+          "Dr Herve po cichu osłodził zakup podróżnemu odrobiną gotówki i zakładem godnym saloonu.",
+          "Interes bez pytań przy wozie Dr. Herve’a połączył handel, łatwe pieniądze i dodatkową pokusę hazardu.",
+          "Rozeszła się wieść, że Dr Herve składa wybranym klientom podejrzanie hojną ofertę związaną z hazardowym życiem pogranicza.",
+          "Podróżny odszedł od wozu Dr. Herve’a z większą ilością gotówki i jeszcze głębiej wciągnięty w hazard, który rozgrzewa stoły saloonów."
+        ],
+        "resultButtons": [
+          {
+            "_index": 0,
+            "label": "Weź $10 + 1 punkt Hazardzisty"
+          },
+          {
+            "_index": 1,
+            "label": "Odmów"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "famous_deed",
+    "title": "Sławny czyn",
+    "screenText": "Otrzymaj $10 i dodaj „Sławny czyn” do podsumowania gazety.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Do zachodu słońca ktoś już opowiada tę historię źle.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: do zachodu słońca ktoś już opowiada tę historię źle.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: do zachodu słońca ktoś już opowiada tę historię źle.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: do zachodu słońca ktoś już opowiada tę historię źle.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: do zachodu słońca ktoś już opowiada tę historię źle."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "risk_pays",
+    "title": "Ryzyko się opłaca",
+    "screenText": "Po rozpatrzeniu Kości Ryzyka dobierz 1 Kartę Pokera.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Szczęście sprzyja głupcowi, który wie, kiedy uciekać.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: szczęście sprzyja głupcowi, który wie, kiedy uciekać.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: szczęście sprzyja głupcowi, który wie, kiedy uciekać.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: szczęście sprzyja głupcowi, który wie, kiedy uciekać.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: szczęście sprzyja głupcowi, który wie, kiedy uciekać."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "risk_bites",
+    "title": "Ryzyko gryzie",
+    "screenText": "Po rozpatrzeniu Kości Ryzyka odrzuć 1 Kartę Pokera albo otrzymaj 1 ranę.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Ryzyko ma zęby i dzisiaj znalazło mięso.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: ryzyko ma zęby i dzisiaj znalazło mięso.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: ryzyko ma zęby i dzisiaj znalazło mięso.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: ryzyko ma zęby i dzisiaj znalazło mięso.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: ryzyko ma zęby i dzisiaj znalazło mięso."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "gang_loyalty",
+    "title": "Lojalna ekipa",
+    "screenText": "Koszt rekrutacji jest zmniejszony o $10.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Kilka twardych twarzy zna twoje nazwisko i pojedzie za niewielkie pieniądze.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: kilka twardych twarzy zna twoje nazwisko i pojedzie za niewielkie pieniądze.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: kilka twardych twarzy zna twoje nazwisko i pojedzie za niewielkie pieniądze.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: kilka twardych twarzy zna twoje nazwisko i pojedzie za niewielkie pieniądze.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: kilka twardych twarzy zna twoje nazwisko i pojedzie za niewielkie pieniądze."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "frontier_cache",
+    "title": "Skrytka na pograniczu",
+    "screenText": "Po rozpatrzeniu żetonu Pogranicza otrzymaj $10 albo dobierz 1 Kartę Pokera.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Pod płaskim kamieniem czeka skrytka pozostawiona przez kogoś, kto nigdy nie wrócił.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: pod płaskim kamieniem czeka skrytka pozostawiona przez kogoś, kto nigdy nie wrócił.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: pod płaskim kamieniem czeka skrytka pozostawiona przez kogoś, kto nigdy nie wrócił.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: pod płaskim kamieniem czeka skrytka pozostawiona przez kogoś, kto nigdy nie wrócił.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: pod płaskim kamieniem czeka skrytka pozostawiona przez kogoś, kto nigdy nie wrócił."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "frontier_deadfall",
+    "title": "Pułapka z pnia",
+    "screenText": "Po rozpatrzeniu żetonu Pogranicza otrzymaj 1 ranę.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Pogranicze jedną ręką daje, a drugą spuszcza ci pień na głowę.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: pogranicze jedną ręką daje, a drugą spuszcza ci pień na głowę.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: pogranicze jedną ręką daje, a drugą spuszcza ci pień na głowę.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: pogranicze jedną ręką daje, a drugą spuszcza ci pień na głowę.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: pogranicze jedną ręką daje, a drugą spuszcza ci pień na głowę."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "hunters_mark",
+    "title": "Znak łowcy",
+    "screenText": "Zignoruj wszystkie konsekwencje.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Czysta robota. Nawet starzy traperzy skinęliby z uznaniem po takim strzale.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: czysta robota. Nawet starzy traperzy skinęliby z uznaniem po takim strzale.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: czysta robota. Nawet starzy traperzy skinęliby z uznaniem po takim strzale.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: czysta robota. Nawet starzy traperzy skinęliby z uznaniem po takim strzale.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: czysta robota. Nawet starzy traperzy skinęliby z uznaniem po takim strzale."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "wounded_predator",
+    "title": "Ranny drapieżnik",
+    "screenText": "Po Polowaniu otrzymaj 1 ranę, a następnie 1 PL.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Zwierzę pada, ale nie zanim zostawi po sobie ślad.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: zwierzę pada, ale nie zanim zostawi po sobie ślad.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: zwierzę pada, ale nie zanim zostawi po sobie ślad.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: zwierzę pada, ale nie zanim zostawi po sobie ślad.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: zwierzę pada, ale nie zanim zostawi po sobie ślad."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "forager_cache",
+    "title": "Skrytka zbieracza",
+    "screenText": "Dobierz 1 dodatkową Kartę Zbieractwa, a następnie odrzuć 1 Kartę Zbieractwa.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Suche koryto strumienia skrywa więcej niż tylko kurz.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: suche koryto strumienia skrywa więcej niż tylko kurz.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: suche koryto strumienia skrywa więcej niż tylko kurz.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: suche koryto strumienia skrywa więcej niż tylko kurz.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: suche koryto strumienia skrywa więcej niż tylko kurz."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "spoiled_bundle",
+    "title": "Zepsuty pakunek",
+    "screenText": "Odrzuć 1 zasób albo otrzymaj 1 ranę.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"To, co w cieniu wyglądało na użyteczne, w słońcu pachnie paskudnie.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: to, co w cieniu wyglądało na użyteczne, w słońcu pachnie paskudnie.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: to, co w cieniu wyglądało na użyteczne, w słońcu pachnie paskudnie.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: to, co w cieniu wyglądało na użyteczne, w słońcu pachnie paskudnie.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: to, co w cieniu wyglądało na użyteczne, w słońcu pachnie paskudnie."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "fine_craft",
+    "title": "Dobra robota",
+    "screenText": "Po Wytwarzaniu otrzymaj $10 albo 1 PL.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"To nie jest tylko użyteczne. To robota, którą się pamięta.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: to nie jest tylko użyteczne. To robota, którą się pamięta.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: to nie jest tylko użyteczne. To robota, którą się pamięta.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: to nie jest tylko użyteczne. To robota, którą się pamięta.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: to nie jest tylko użyteczne. To robota, którą się pamięta."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "broken_tool",
+    "title": "Złamane narzędzie",
+    "screenText": "Wytwórz jak zwykle, a następnie odrzuć 1 dodatkowy zasób albo 1 Kartę Pokera.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Narzędzie trzyma się w całości dokładnie tak długo, by dokończyć pracę.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: narzędzie trzyma się w całości dokładnie tak długo, by dokończyć pracę.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: narzędzie trzyma się w całości dokładnie tak długo, by dokończyć pracę.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: narzędzie trzyma się w całości dokładnie tak długo, by dokończyć pracę.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: narzędzie trzyma się w całości dokładnie tak długo, by dokończyć pracę."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "wood_for_station",
+    "title": "Drewno na stację",
+    "screenText": "Jeśli dostarczonym zasobem jest Drewno na dowolnej stacji kolejowej, otrzymaj $20 i zwiększ Postęp kolei o +1.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Świeżo ścięte belki lądują przy torach niczym kości nowego miasta.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: świeżo ścięte belki lądują przy torach niczym kości nowego miasta.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: świeżo ścięte belki lądują przy torach niczym kości nowego miasta.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: świeżo ścięte belki lądują przy torach niczym kości nowego miasta.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: świeżo ścięte belki lądują przy torach niczym kości nowego miasta."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "metal_for_tracks",
+    "title": "Żelazo na tory",
+    "screenText": "Jeśli dostarczonym zasobem jest Metal na dowolnej stacji kolejowej, otrzymaj $20 i zwiększ Postęp kolei o +1.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Brygadzista przesuwa kciukiem po żelazie i uśmiecha się jak człowiek, który widzi przyszłość.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: brygadzista przesuwa kciukiem po żelazie i uśmiecha się jak człowiek, który widzi przyszłość.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: brygadzista przesuwa kciukiem po żelazie i uśmiecha się jak człowiek, który widzi przyszłość.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: brygadzista przesuwa kciukiem po żelazie i uśmiecha się jak człowiek, który widzi przyszłość.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: brygadzista przesuwa kciukiem po żelazie i uśmiecha się jak człowiek, który widzi przyszłość."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "robbery_hidden_witness",
+    "title": "Oczy w oknie",
+    "screenText": "Świadek widział rabunek. Zapłać $20 za jego milczenie albo przesuń Szeryfa o maksymalnie 3 pola w swoją stronę.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Po drugiej stronie ulicy porusza się zasłona. Ktoś widział wszystko, a świadkowie jakimś sposobem zawsze znajdują Szeryfa.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: po drugiej stronie ulicy porusza się zasłona. Ktoś widział wszystko, a świadkowie jakimś sposobem zawsze znajdują Szeryfa.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: po drugiej stronie ulicy porusza się zasłona. Ktoś widział wszystko, a świadkowie jakimś sposobem zawsze znajdują Szeryfa.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: po drugiej stronie ulicy porusza się zasłona. Ktoś widział wszystko, a świadkowie jakimś sposobem zawsze znajdują Szeryfa.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: po drugiej stronie ulicy porusza się zasłona. Ktoś widział wszystko, a świadkowie jakimś sposobem zawsze znajdują Szeryfa."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "robbery_dropped_purse",
+    "title": "Mały bonus",
+    "screenText": "Wśród łupu znalazło się dodatkowe $10. Otrzymaj $10.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"W całym zamieszaniu coś jeszcze wpada w kurz: mała sakiewka, której dotąd nikt nie zauważył.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: w całym zamieszaniu coś jeszcze wpada w kurz: mała sakiewka, której dotąd nikt nie zauważył.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: w całym zamieszaniu coś jeszcze wpada w kurz: mała sakiewka, której dotąd nikt nie zauważył.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: w całym zamieszaniu coś jeszcze wpada w kurz: mała sakiewka, której dotąd nikt nie zauważył.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: w całym zamieszaniu coś jeszcze wpada w kurz: mała sakiewka, której dotąd nikt nie zauważył."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "player_fight_crowd",
+    "title": "Zbiera się tłum",
+    "screenText": "Zwycięzca tej walki otrzymuje $10 od zachwyconych widzów.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Buty szurają po werandach, drzwi saloonów otwierają się szeroko. Ludzie wyczuli walkę i zakłady już przechodzą z rąk do rąk.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: buty szurają po werandach, drzwi saloonów otwierają się szeroko. Ludzie wyczuli walkę i zakłady już przechodzą z rąk do rąk.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: buty szurają po werandach, drzwi saloonów otwierają się szeroko. Ludzie wyczuli walkę i zakłady już przechodzą z rąk do rąk.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: buty szurają po werandach, drzwi saloonów otwierają się szeroko. Ludzie wyczuli walkę i zakłady już przechodzą z rąk do rąk.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: buty szurają po werandach, drzwi saloonów otwierają się szeroko. Ludzie wyczuli walkę i zakłady już przechodzą z rąk do rąk."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "player_fight_dust",
+    "title": "Kurz w oczach",
+    "screenText": "Obaj walczący losowo dobierają po 1 karcie z ręki drugiego gracza.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Silny podmuch rzuca piasek między walczących. Przez pół uderzenia serca żaden nie widzi wyraźnie.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: silny podmuch rzuca piasek między walczących. Przez pół uderzenia serca żaden nie widzi wyraźnie.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: silny podmuch rzuca piasek między walczących. Przez pół uderzenia serca żaden nie widzi wyraźnie.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: silny podmuch rzuca piasek między walczących. Przez pół uderzenia serca żaden nie widzi wyraźnie.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: silny podmuch rzuca piasek między walczących. Przez pół uderzenia serca żaden nie widzi wyraźnie."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "sheriff_arrest_public_example",
+    "title": "Publiczny przykład",
+    "screenText": "Gracz, który doprowadził do aresztowania, dobiera 1 Kartę Pokera.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Szeryf prowadzi więźnia przez środek miasta, żeby każdy zobaczył, jak skończył się dzień.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: szeryf prowadzi więźnia przez środek miasta, żeby każdy zobaczył, jak skończył się dzień.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: szeryf prowadzi więźnia przez środek miasta, żeby każdy zobaczył, jak skończył się dzień.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: szeryf prowadzi więźnia przez środek miasta, żeby każdy zobaczył, jak skończył się dzień.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: szeryf prowadzi więźnia przez środek miasta, żeby każdy zobaczył, jak skończył się dzień."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "sheriff_arrest_loose_cuffs",
+    "title": "Luźne kajdanki",
+    "screenText": "Aresztowany gracz może odrzucić 1 Kartę Pokera, aby zachować $10, które normalnie straciłby podczas aresztowania.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Kajdanki Szeryfa widziały lepsze czasy, podobnie jak zastępca pilnujący kieszeni więźnia.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: kajdanki Szeryfa widziały lepsze czasy, podobnie jak zastępca pilnujący kieszeni więźnia.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: kajdanki Szeryfa widziały lepsze czasy, podobnie jak zastępca pilnujący kieszeni więźnia.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: kajdanki Szeryfa widziały lepsze czasy, podobnie jak zastępca pilnujący kieszeni więźnia.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: kajdanki Szeryfa widziały lepsze czasy, podobnie jak zastępca pilnujący kieszeni więźnia."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "rail_friendly_conductor",
+    "title": "Przyjazny konduktor",
+    "screenText": "Dobierz 1 Kartę Pokera.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Konduktor rozpoznaje znajomą twarz i przed gwizdkiem przekazuje użyteczną informację.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: konduktor rozpoznaje znajomą twarz i przed gwizdkiem przekazuje użyteczną informację.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: konduktor rozpoznaje znajomą twarz i przed gwizdkiem przekazuje użyteczną informację.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: konduktor rozpoznaje znajomą twarz i przed gwizdkiem przekazuje użyteczną informację.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: konduktor rozpoznaje znajomą twarz i przed gwizdkiem przekazuje użyteczną informację."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "rail_late_freight",
+    "title": "Spóźniony fracht",
+    "screenText": "Otrzymaj $10 za pomoc w rozładunku spóźnionego wagonu towarowego.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Wagon towarowy wtacza się z opóźnieniem, a do rozładunku brakuje rąk.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: wagon towarowy wtacza się z opóźnieniem, a do rozładunku brakuje rąk.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: wagon towarowy wtacza się z opóźnieniem, a do rozładunku brakuje rąk.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: wagon towarowy wtacza się z opóźnieniem, a do rozładunku brakuje rąk.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: wagon towarowy wtacza się z opóźnieniem, a do rozładunku brakuje rąk."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "mountain_pass_rockslide",
+    "title": "Osuwisko skalne",
+    "screenText": "Odrzuć 1 Kartę Pokera albo otrzymaj 1 ranę.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Nad szlakiem odrywa się skała i przez chwilę wygląda, jakby cały górski stok runął w dół.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: nad szlakiem odrywa się skała i przez chwilę wygląda, jakby cały górski stok runął w dół.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: nad szlakiem odrywa się skała i przez chwilę wygląda, jakby cały górski stok runął w dół.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: nad szlakiem odrywa się skała i przez chwilę wygląda, jakby cały górski stok runął w dół.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: nad szlakiem odrywa się skała i przez chwilę wygląda, jakby cały górski stok runął w dół."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  },
+  {
+    "id": "mountain_pass_abandoned_cache",
+    "title": "Porzucona skrytka",
+    "screenText": "Pod kopcem kamieni znajdujesz zapasy. Otrzymaj $10 albo dobierz 1 Kartę Pokera.",
+    "narrationScript": "[western storyteller][old cowboy][raspy] \"Pod stertą kamieni przy szlaku leży zwietrzała skrytka zostawiona przez kogoś, kto nigdy po nią nie wrócił.\"",
+    "newspaperText": [
+      "Doniesienia, które dotarły do Gazette, jasno opisywały scenę: pod stertą kamieni przy szlaku leży zwietrzała skrytka zostawiona przez kogoś, kto nigdy po nią nie wrócił.",
+      "Wieść szybko rozeszła się po całym terytorium, gdy świadkowie przynieśli taki opis: pod stertą kamieni przy szlaku leży zwietrzała skrytka zostawiona przez kogoś, kto nigdy po nią nie wrócił.",
+      "Do zachodu słońca podróżni na szlakach powtarzali tę samą historię: pod stertą kamieni przy szlaku leży zwietrzała skrytka zostawiona przez kogoś, kto nigdy po nią nie wrócił.",
+      "Sprawa szybko stała się tematem rozmów na pograniczu, a świadkowie szczególnie zapamiętali jedno: pod stertą kamieni przy szlaku leży zwietrzała skrytka zostawiona przez kogoś, kto nigdy po nią nie wrócił."
+    ],
+    "resultButtons": [
+      {
+        "_index": 0,
+        "label": "Gotowe"
+      }
+    ]
+  }
+]

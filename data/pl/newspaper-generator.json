@@ -1,0 +1,15 @@
+{
+  "title": "The Darkrock Gazette",
+  "edition": "",
+  "sections": [
+    {"id":"lead_story","description":"Główny artykuł zależny od nastroju pogranicza oraz zwięzłe podsumowanie dominujących rodzajów aktywności podczas gry."},
+    {"id":"final_tally","description":"Kompaktowe zestawienie końcowe ze zwycięzcą i wynikiem PL każdego gracza."},
+    {"id":"gazette_ledger","description":"Czytelne zestawienie liczby kategorii akcji, które najczęściej pojawiały się w zapisanej historii wyzwalaczy."},
+    {"id":"player_recaps","description":"Krótkie podsumowania dla każdego gracza oparte wyłącznie na akcjach, wynikach opowieści i jednorazowych spotkaniach rzeczywiście zapisanych dla tego gracza."},
+    {"id":"world_events","description":"Narracyjne podsumowanie wydarzeń obejmujących całe terytorium, które wystąpiły podczas gry, z wykorzystaniem przygotowanych wariantów newspaperText, jeśli są dostępne."},
+    {"id":"one_off_dispatches","description":"Narracyjne podsumowanie nietypowych jednorazowych zdarzeń, pogrupowane według jeźdźców, którzy ich doświadczyli, z wykorzystaniem przygotowanych wariantów newspaperText, jeśli są dostępne."},
+    {"id":"character_arcs","description":"Krótki artykuł dla każdego rozpoczętego Wątku Postaci, obejmujący rozdziały ukończone, pominięte i nadal niedokończone, z wykorzystaniem przygotowanych wariantów newspaperText, jeśli są dostępne."},
+    {"id":"global_storylines","description":"Zwięzłe podsumowanie wszystkich głównych wątków obejmujących całe terytorium, które rozwinęły się podczas gry, z wykorzystaniem przygotowanych wariantów newspaperText, jeśli są dostępne."},
+    {"id":"final_word","description":"Dynamiczny akapit końcowy kształtowany przez nastrój pogranicza, dominującą aktywność, opowieści, Wydarzenia Świata, wydarzenia jednorazowe oraz ostatecznego zwycięzcę."}
+  ]
+}

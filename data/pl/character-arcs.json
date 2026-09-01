@@ -1,0 +1,814 @@
+[
+  {
+    "id": "arc_starving_prospector",
+    "title": "Głodujący poszukiwacz złota",
+    "newspaperText": [
+      "Osobista historia pogranicza „Głodujący poszukiwacz złota” towarzyszyła jednemu z jeźdźców przez serię powiązanych spotkań.",
+      "Rozwijająca się historia „Głodujący poszukiwacz złota” przewijała się przez wydarzenia dnia i pozostawiła trwały ślad na uczestniczącym w niej jeźdźcu.",
+      "Kilka powiązanych incydentów ułożyło się w historię „Głodujący poszukiwacz złota”, dając jednemu jeźdźcowi własną opowieść.",
+      "To, co zaczęło się jako pojedyncze spotkanie, rozrosło się w rozwijającą się historię pogranicza „Głodujący poszukiwacz złota”."
+    ],
+    "nodes": [
+      {
+        "id": "prospector_intro",
+        "title": "Człowiek bliski śmierci",
+        "screenText": "Zakończ ruch w dowolnym Saloonie, aby otrzymać $20.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Na wpół zagłodzony poszukiwacz złota zatacza się z zarośli szałwii, ściskając skórzaną sakwę. Za drinka i podwiezienie do miasta oferuje dwadzieścia dolarów.\"",
+        "newspaperText": [
+          "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: na wpół zagłodzony poszukiwacz złota zatacza się z zarośli szałwii, ściskając skórzaną sakwę. Za drinka i podwiezienie do miasta oferuje dwadzieścia dolarów.",
+          "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: na wpół zagłodzony poszukiwacz złota zatacza się z zarośli szałwii, ściskając skórzaną sakwę. Za drinka i podwiezienie do miasta oferuje dwadzieścia dolarów.",
+          "Trop większej historii doprowadził do nowego wydarzenia: na wpół zagłodzony poszukiwacz złota zatacza się z zarośli szałwii, ściskając skórzaną sakwę. Za drinka i podwiezienie do miasta oferuje dwadzieścia dolarów.",
+          "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: na wpół zagłodzony poszukiwacz złota zatacza się z zarośli szałwii, ściskając skórzaną sakwę. Za drinka i podwiezienie do miasta oferuje dwadzieścia dolarów."
+        ],
+        "onResolved": [
+          {
+            "_index": 1,
+            "text": "Człowiek bliski śmierci został rozpatrzony."
+          }
+        ],
+        "onExpired": [
+          {
+            "_index": 1,
+            "text": "Człowiek bliski śmierci został zignorowany."
+          }
+        ]
+      },
+      {
+        "id": "prospector_debt_repaid",
+        "title": "Dług spłacony",
+        "screenText": "Poszukiwacz przekazuje dalej dobroć, która uratowała mu życie. Otrzymaj $20 po zakupie lub ulepszeniu Przedmiotu.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Stary poszukiwacz wychodzi z kąta i kładzie monety na ladzie. Mówiłem, że dobroć trzeba odpłacać.\"",
+        "newspaperText": [
+          "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: stary poszukiwacz wychodzi z kąta i kładzie monety na ladzie. Mówiłem, że dobroć trzeba odpłacać.",
+          "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: stary poszukiwacz wychodzi z kąta i kładzie monety na ladzie. Mówiłem, że dobroć trzeba odpłacać.",
+          "Trop większej historii doprowadził do nowego wydarzenia: stary poszukiwacz wychodzi z kąta i kładzie monety na ladzie. Mówiłem, że dobroć trzeba odpłacać.",
+          "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: stary poszukiwacz wychodzi z kąta i kładzie monety na ladzie. Mówiłem, że dobroć trzeba odpłacać."
+        ],
+        "onResolved": [
+          {
+            "_index": 1,
+            "text": "Dług spłacony został rozpatrzony."
+          }
+        ],
+        "onExpired": [
+          {
+            "_index": 1,
+            "text": "Dług spłacony został zignorowany."
+          }
+        ],
+        "playerAwareText": {
+          "samePlayer": {
+            "title": "Dług spłacony",
+            "screenText": "Poszukiwacz natychmiast cię rozpoznaje i wreszcie może odwdzięczyć się za twoją dobroć. Otrzymaj $30 po zakupie lub ulepszeniu Przedmiotu.",
+            "narrationScript": "[western storyteller][old cowboy][raspy] \"Stary poszukiwacz uśmiecha się, gdy cię widzi. Nie zapomniałem, co dla mnie zrobiłeś. Pozwól mi porządnie spłacić dług.\"",
+            "newspaperText": [
+              "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: stary poszukiwacz uśmiecha się, gdy cię widzi. Nie zapomniałem, co dla mnie zrobiłeś. Pozwól mi porządnie spłacić dług.",
+              "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: stary poszukiwacz uśmiecha się, gdy cię widzi. Nie zapomniałem, co dla mnie zrobiłeś. Pozwól mi porządnie spłacić dług.",
+              "Trop większej historii doprowadził do nowego wydarzenia: stary poszukiwacz uśmiecha się, gdy cię widzi. Nie zapomniałem, co dla mnie zrobiłeś. Pozwól mi porządnie spłacić dług.",
+              "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: stary poszukiwacz uśmiecha się, gdy cię widzi. Nie zapomniałem, co dla mnie zrobiłeś. Pozwól mi porządnie spłacić dług."
+            ]
+          },
+          "differentPlayer": {
+            "title": "Dobroć przekazana dalej",
+            "screenText": "Poszukiwacz opowiada, że pewien nieznajomy uratował mu kiedyś życie, gdy nie miał nic. Postanawia przekazać tę dobroć dalej. Otrzymaj $20 po zakupie lub ulepszeniu Przedmiotu.",
+            "narrationScript": "[western storyteller][old cowboy][raspy] \"Stary poszukiwacz opowiada, że pewien nieznajomy uratował mu kiedyś skórę. Taka dobroć, mówi, nie powinna kończyć się na jednym człowieku.\"",
+            "newspaperText": [
+              "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: stary poszukiwacz opowiada, że pewien nieznajomy uratował mu kiedyś skórę. Taka dobroć, mówi, nie powinna kończyć się na jednym człowieku.",
+              "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: stary poszukiwacz opowiada, że pewien nieznajomy uratował mu kiedyś skórę. Taka dobroć, mówi, nie powinna kończyć się na jednym człowieku.",
+              "Trop większej historii doprowadził do nowego wydarzenia: stary poszukiwacz opowiada, że pewien nieznajomy uratował mu kiedyś skórę. Taka dobroć, mówi, nie powinna kończyć się na jednym człowieku.",
+              "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: stary poszukiwacz opowiada, że pewien nieznajomy uratował mu kiedyś skórę. Taka dobroć, mówi, nie powinna kończyć się na jednym człowieku."
+            ]
+          },
+          "default": {
+            "screenText": "Otrzymaj $20 po zakupie lub ulepszeniu Przedmiotu."
+          }
+        }
+      },
+      {
+        "id": "prospector_bandit_reveal",
+        "title": "Człowiek, którego zostawiono",
+        "screenText": "Głodujący poszukiwacz złota trafił do Przestępców. Jego reakcja zależy od tego, czy to ty byłeś jeźdźcem, który go zostawił.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Przestępca pada i zdejmuje kapelusz. Pod warstwą brudu rozpoznajesz poszukiwacza, którego zostawiono w kurzu. Gwiżdże, a spośród skał wychodzi jeszcze dwóch bandytów.\"",
+        "newspaperText": [
+          "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: przestępca pada i zdejmuje kapelusz. Pod warstwą brudu rozpoznajesz poszukiwacza, którego zostawiono w kurzu. Gwiżdże, a spośród skał wychodzi jeszcze dwóch bandytów.",
+          "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: przestępca pada i zdejmuje kapelusz. Pod warstwą brudu rozpoznajesz poszukiwacza, którego zostawiono w kurzu. Gwiżdże, a spośród skał wychodzi jeszcze dwóch bandytów.",
+          "Trop większej historii doprowadził do nowego wydarzenia: przestępca pada i zdejmuje kapelusz. Pod warstwą brudu rozpoznajesz poszukiwacza, którego zostawiono w kurzu. Gwiżdże, a spośród skał wychodzi jeszcze dwóch bandytów.",
+          "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: przestępca pada i zdejmuje kapelusz. Pod warstwą brudu rozpoznajesz poszukiwacza, którego zostawiono w kurzu. Gwiżdże, a spośród skał wychodzi jeszcze dwóch bandytów."
+        ],
+        "resultButtons": [
+          {
+            "_index": 0,
+            "label": "Dalej"
+          }
+        ],
+        "playerAwareText": {
+          "samePlayer": {
+            "title": "Człowiek, którego zostawiłeś",
+            "screenText": "Przestępca zrywa kapelusz: to poszukiwacz, którego zostawiłeś własnemu losowi. Za życie, które omal go nie kosztowałeś, żąda $20. Zapłać $20, aby zakończyć spór, albo odmów i umieść 2 bandytów na swoim polu; walcz z oboma jednocześnie. Jeśli przegrasz, otrzymaj 1 ranę.",
+            "newspaperText": [
+              "Wydarzenia związane z „Człowiek, którego zostawiłeś” stały się tematem rozmów na całym terytorium.",
+              "Doniesienia o „Człowiek, którego zostawiłeś” dotarły do Gazette, zanim ruszyły prasy drukarskie.",
+              "Świadkowie z pogranicza nieśli wieści o „Człowiek, którego zostawiłeś” od jednej osady do następnej.",
+              "Do końca dnia „Człowiek, którego zostawiłeś” znalazło miejsce wśród godnych uwagi wydarzeń na terytorium."
+            ],
+            "resultButtons": [
+              {
+                "_index": 0,
+                "label": "Zapłacono mu $20"
+              },
+              {
+                "_index": 1,
+                "label": "Stawiono czoła zasadzce"
+              }
+            ]
+          },
+          "differentPlayer": {
+            "title": "Człowiek, którego ktoś zostawił",
+            "screenText": "Głodujący poszukiwacz opowiada, że inny jeździec zostawił go w górach. Trafił do Przestępców i oferuje ci udział, jeśli pomożesz mu uciec. Pomóż mu, aby otrzymać $20, a następnie przesuń Szeryfa o maksymalnie 2 pola w swoją stronę; albo odmów i pozwól mu odjechać bez nagrody.",
+            "newspaperText": [
+              "Wydarzenia związane z „Człowiek, którego zostawiłeś” stały się tematem rozmów na całym terytorium.",
+              "Doniesienia o „Człowiek, którego zostawiłeś” dotarły do Gazette, zanim ruszyły prasy drukarskie.",
+              "Świadkowie z pogranicza nieśli wieści o „Człowiek, którego zostawiłeś” od jednej osady do następnej.",
+              "Do końca dnia „Człowiek, którego zostawiłeś” znalazło miejsce wśród godnych uwagi wydarzeń na terytorium."
+            ],
+            "resultButtons": [
+              {
+                "_index": 0,
+                "label": "Pomoc w ucieczce"
+              },
+              {
+                "_index": 1,
+                "label": "Odmowa"
+              }
+            ]
+          },
+          "default": {
+            "screenText": "Głodujący poszukiwacz złota trafił do Przestępców. Rozpatrz spotkanie zgodnie z instrukcją."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "arc_widow_mccall",
+    "title": "Ranczo wdowy McCall",
+    "newspaperText": [
+      "Osobista historia pogranicza „Ranczo wdowy McCall” towarzyszyła jednemu z jeźdźców przez serię powiązanych spotkań.",
+      "Rozwijająca się historia „Ranczo wdowy McCall” przewijała się przez wydarzenia dnia i pozostawiła trwały ślad na uczestniczącym w niej jeźdźcu.",
+      "Kilka powiązanych incydentów ułożyło się w historię „Ranczo wdowy McCall”, dając jednemu jeźdźcowi własną opowieść.",
+      "To, co zaczęło się jako pojedyncze spotkanie, rozrosło się w rozwijającą się historię pogranicza „Ranczo wdowy McCall”."
+    ],
+    "nodes": [
+      {
+        "id": "widow_fence_down",
+        "title": "Zerwane ogrodzenie",
+        "screenText": "Zakończ ruch na Zielonym lub Niebieskim Ranczu. Otrzymaj $20 i 1 Kartę Pokera.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Wdowa w czerni prosi o pomoc w naprawieniu ogrodzenia, zanim złodzieje bydła odkryją wyrwę.\"",
+        "newspaperText": [
+          "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: wdowa w czerni prosi o pomoc w naprawieniu ogrodzenia, zanim złodzieje bydła odkryją wyrwę.",
+          "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: wdowa w czerni prosi o pomoc w naprawieniu ogrodzenia, zanim złodzieje bydła odkryją wyrwę.",
+          "Trop większej historii doprowadził do nowego wydarzenia: wdowa w czerni prosi o pomoc w naprawieniu ogrodzenia, zanim złodzieje bydła odkryją wyrwę.",
+          "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: wdowa w czerni prosi o pomoc w naprawieniu ogrodzenia, zanim złodzieje bydła odkryją wyrwę."
+        ],
+        "onResolved": [
+          {
+            "_index": 1,
+            "text": "Zerwane ogrodzenie zostało rozpatrzone."
+          }
+        ],
+        "onExpired": [
+          {
+            "_index": 1,
+            "text": "Zerwane ogrodzenie zostało zignorowane."
+          }
+        ]
+      },
+      {
+        "id": "widow_cattle_drive",
+        "title": "Bezpieczny spęd bydła",
+        "screenText": "Pędź bydło dla wdowy McCall, aby otrzymać +$20.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Znak wdowy jedzie razem ze stadem, a każda uczciwie przebyta mila pomaga ocalić jej ziemię.\"",
+        "newspaperText": [
+          "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: znak wdowy jedzie razem ze stadem, a każda uczciwie przebyta mila pomaga ocalić jej ziemię.",
+          "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: znak wdowy jedzie razem ze stadem, a każda uczciwie przebyta mila pomaga ocalić jej ziemię.",
+          "Trop większej historii doprowadził do nowego wydarzenia: znak wdowy jedzie razem ze stadem, a każda uczciwie przebyta mila pomaga ocalić jej ziemię.",
+          "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: znak wdowy jedzie razem ze stadem, a każda uczciwie przebyta mila pomaga ocalić jej ziemię."
+        ],
+        "onResolved": [
+          {
+            "_index": 1,
+            "text": "Bezpieczny spęd bydła został rozpatrzony."
+          }
+        ],
+        "onExpired": [
+          {
+            "_index": 1,
+            "text": "Bezpieczny spęd bydła został zignorowany."
+          }
+        ],
+        "playerAwareText": {
+          "samePlayer": {
+            "screenText": "Wdowa McCall pamięta, że pomogłeś ocalić jej ranczo, gdy ogrodzenie było zerwane. Powierza ci swój najlepszy spęd. Pędź bydło, aby otrzymać +$30.",
+            "newspaperText": [
+              "Wydarzenia związane z „Bezpieczny spęd bydła” stały się tematem rozmów na całym terytorium.",
+              "Doniesienia o „Bezpieczny spęd bydła” dotarły do Gazette, zanim ruszyły prasy drukarskie.",
+              "Świadkowie z pogranicza nieśli wieści o „Bezpieczny spęd bydła” od jednej osady do następnej.",
+              "Do końca dnia „Bezpieczny spęd bydła” znalazło miejsce wśród godnych uwagi wydarzeń na terytorium."
+            ]
+          },
+          "differentPlayer": {
+            "screenText": "Wdowa McCall opowiada, że inny jeździec uratował jej ranczo, gdy najbardziej potrzebowała pomocy. Oferuje ci uczciwą pracę przy następnym spędzie. Pędź bydło, aby otrzymać +$20.",
+            "newspaperText": [
+              "Wydarzenia związane z „Bezpieczny spęd bydła” stały się tematem rozmów na całym terytorium.",
+              "Doniesienia o „Bezpieczny spęd bydła” dotarły do Gazette, zanim ruszyły prasy drukarskie.",
+              "Świadkowie z pogranicza nieśli wieści o „Bezpieczny spęd bydła” od jednej osady do następnej.",
+              "Do końca dnia „Bezpieczny spęd bydła” znalazło miejsce wśród godnych uwagi wydarzeń na terytorium."
+            ]
+          },
+          "default": {
+            "screenText": "Pędź bydło dla wdowy McCall, aby otrzymać +$20."
+          }
+        }
+      },
+      {
+        "id": "widow_black_veil",
+        "title": "Przestępczyni w czarnym welonie",
+        "screenText": "Wdowa McCall została Przestępczynią. Po Kradzieży bydła otrzymaj +$30 i +1 punkt Przestępstwa, a następnie przesuń Szeryfa o maksymalnie 2 pola w swoją stronę.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Zawoalowana jeźdźczyni dołącza do złodziei bydła. Żałoba zahartowała ją w coś niebezpiecznego.\"",
+        "newspaperText": [
+          "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: zawoalowana jeźdźczyni dołącza do złodziei bydła. Żałoba zahartowała ją w coś niebezpiecznego.",
+          "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: zawoalowana jeźdźczyni dołącza do złodziei bydła. Żałoba zahartowała ją w coś niebezpiecznego.",
+          "Trop większej historii doprowadził do nowego wydarzenia: zawoalowana jeźdźczyni dołącza do złodziei bydła. Żałoba zahartowała ją w coś niebezpiecznego.",
+          "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: zawoalowana jeźdźczyni dołącza do złodziei bydła. Żałoba zahartowała ją w coś niebezpiecznego."
+        ],
+        "onResolved": [
+          {
+            "_index": 1,
+            "text": "Przestępczyni w czarnym welonie została rozpatrzona."
+          }
+        ],
+        "onExpired": [
+          {
+            "_index": 1,
+            "text": "Przestępczyni w czarnym welonie została zignorowana."
+          }
+        ],
+        "playerAwareText": {
+          "samePlayer": {
+            "title": "Rozrachunek pod czarnym welonem",
+            "screenText": "Zawoalowaną złodziejką bydła jest wdowa McCall i rozpoznaje jeźdźca, który pozwolił jej ranczu upaść. Chce zapłaty, nie współpracy. Zapłać jej $20, aby uregulować dług, albo odmów i dobierz 1 Kartę Walki: przy 8+ przepędzasz jej ludzi; przy 7 lub mniej otrzymujesz 1 ranę. Nie otrzymujesz premii Czarnego Welonu za Kradzież bydła.",
+            "narrationScript": "[western storyteller][old cowboy][raspy] \"Wdowa unosi welon i wbija w ciebie wzrok. Dziwnie cię teraz widzieć, mówi. Przydałbyś mi się, zanim musiałam się tym stać.\"",
+            "newspaperText": [
+              "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: wdowa unosi welon i wbija w ciebie wzrok. Dziwnie cię teraz widzieć, mówi. Przydałbyś mi się, zanim musiałam się tym stać.",
+              "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: wdowa unosi welon i wbija w ciebie wzrok. Dziwnie cię teraz widzieć, mówi. Przydałbyś mi się, zanim musiałam się tym stać.",
+              "Trop większej historii doprowadził do nowego wydarzenia: wdowa unosi welon i wbija w ciebie wzrok. Dziwnie cię teraz widzieć, mówi. Przydałbyś mi się, zanim musiałam się tym stać.",
+              "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: wdowa unosi welon i wbija w ciebie wzrok. Dziwnie cię teraz widzieć, mówi. Przydałbyś mi się, zanim musiałam się tym stać."
+            ]
+          },
+          "differentPlayer": {
+            "title": "Przestępczyni w czarnym welonie",
+            "screenText": "Wdowa McCall mówi, że inny jeździec pozwolił jej ranczu umrzeć, a ciężkie czasy sprowadziły ją na drogę Przestępcy. Oferuje wspólną jazdę. Po Kradzieży bydła otrzymaj +$30 i +1 punkt Przestępstwa, a następnie przesuń Szeryfa o maksymalnie 2 pola w swoją stronę.",
+            "narrationScript": "[western storyteller][old cowboy][raspy] \"Zawoalowana jeźdźczyni przedstawia się jako McCall. Nikt nie przybył, gdy ranczo umierało, więc nauczyła się brać to, czego pogranicze nie chciało jej dać.\"",
+            "newspaperText": [
+              "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: zawoalowana jeźdźczyni przedstawia się jako McCall. Nikt nie przybył, gdy ranczo umierało, więc nauczyła się brać to, czego pogranicze nie chciało jej dać.",
+              "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: zawoalowana jeźdźczyni przedstawia się jako McCall. Nikt nie przybył, gdy ranczo umierało, więc nauczyła się brać to, czego pogranicze nie chciało jej dać.",
+              "Trop większej historii doprowadził do nowego wydarzenia: zawoalowana jeźdźczyni przedstawia się jako McCall. Nikt nie przybył, gdy ranczo umierało, więc nauczyła się brać to, czego pogranicze nie chciało jej dać.",
+              "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: zawoalowana jeźdźczyni przedstawia się jako McCall. Nikt nie przybył, gdy ranczo umierało, więc nauczyła się brać to, czego pogranicze nie chciało jej dać."
+            ]
+          },
+          "default": {
+            "screenText": "Po Kradzieży bydła otrzymaj +$30 i +1 punkt Przestępstwa, a następnie przesuń Szeryfa o maksymalnie 2 pola w swoją stronę."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "arc_marshal_reeves",
+    "title": "Marshal Gideon Reeves",
+    "newspaperText": [
+      "Osobista historia pogranicza „Marshal Gideon Reeves” towarzyszyła jednemu z jeźdźców przez serię powiązanych spotkań.",
+      "Rozwijająca się historia „Marshal Gideon Reeves” przewijała się przez wydarzenia dnia i pozostawiła trwały ślad na uczestniczącym w niej jeźdźcu.",
+      "Kilka powiązanych incydentów ułożyło się w historię „Marshal Gideon Reeves”, dając jednemu jeźdźcowi własną opowieść.",
+      "To, co zaczęło się jako pojedyncze spotkanie, rozrosło się w rozwijającą się historię pogranicza „Marshal Gideon Reeves”."
+    ],
+    "nodes": [
+      {
+        "id": "reeves_deputy_call",
+        "title": "Zastępca na jeden dzień",
+        "screenText": "Zakończ ruch w Biurze Szeryfa w Darkrock albo Biurze Marshala w Buzzard Gulch, aby otrzymać $20 i 1 punkt Stróża Prawa.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Marshal Reeves potrzebuje spokojnej ręki i jeszcze spokojniejszego sumienia.\"",
+        "newspaperText": [
+          "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: marshal Reeves potrzebuje spokojnej ręki i jeszcze spokojniejszego sumienia.",
+          "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: marshal Reeves potrzebuje spokojnej ręki i jeszcze spokojniejszego sumienia.",
+          "Trop większej historii doprowadził do nowego wydarzenia: marshal Reeves potrzebuje spokojnej ręki i jeszcze spokojniejszego sumienia.",
+          "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: marshal Reeves potrzebuje spokojnej ręki i jeszcze spokojniejszego sumienia."
+        ],
+        "onResolved": [
+          {
+            "_index": 1,
+            "text": "Zastępca na jeden dzień został rozpatrzony."
+          }
+        ],
+        "onExpired": [
+          {
+            "_index": 1,
+            "text": "Zastępca na jeden dzień został zignorowany."
+          }
+        ]
+      },
+      {
+        "id": "reeves_crackdown",
+        "title": "Nakaz aresztowania",
+        "screenText": "Otrzymaj +$20 po pokonaniu bandyty podczas wykonywania nakazu Reevesa.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Nakazy aresztowania piętrzą się u Reevesa jak drewno na opał, a sznura starczy mu na każde nazwisko z listy.\"",
+        "newspaperText": [
+          "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: nakazy aresztowania piętrzą się u Reevesa jak drewno na opał, a sznura starczy mu na każde nazwisko z listy.",
+          "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: nakazy aresztowania piętrzą się u Reevesa jak drewno na opał, a sznura starczy mu na każde nazwisko z listy.",
+          "Trop większej historii doprowadził do nowego wydarzenia: nakazy aresztowania piętrzą się u Reevesa jak drewno na opał, a sznura starczy mu na każde nazwisko z listy.",
+          "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: nakazy aresztowania piętrzą się u Reevesa jak drewno na opał, a sznura starczy mu na każde nazwisko z listy."
+        ],
+        "onResolved": [
+          {
+            "_index": 1,
+            "text": "Nakaz aresztowania został rozpatrzony."
+          }
+        ],
+        "onExpired": [
+          {
+            "_index": 1,
+            "text": "Nakaz aresztowania został zignorowany."
+          }
+        ],
+        "playerAwareText": {
+          "samePlayer": {
+            "screenText": "Marshal Reeves pamięta, że odpowiedziałeś na jego wezwanie, gdy potrzebował zastępcy. Daje ci jeden z najważniejszych nakazów. Po pokonaniu bandyty otrzymaj +$20 i +1 punkt Stróża Prawa.",
+            "newspaperText": [
+              "Wydarzenia związane z „Nakaz aresztowania” stały się tematem rozmów na całym terytorium.",
+              "Doniesienia o „Nakaz aresztowania” dotarły do Gazette, zanim ruszyły prasy drukarskie.",
+              "Świadkowie z pogranicza nieśli wieści o „Nakaz aresztowania” od jednej osady do następnej.",
+              "Do końca dnia „Nakaz aresztowania” znalazło miejsce wśród godnych uwagi wydarzeń na terytorium."
+            ]
+          },
+          "differentPlayer": {
+            "screenText": "Marshal Reeves mówi, że inny jeździec stanął u jego boku, gdy zaczęły się kłopoty. Obława działa i daje ci własny nakaz. Po pokonaniu bandyty otrzymaj +$20.",
+            "newspaperText": [
+              "Wydarzenia związane z „Nakaz aresztowania” stały się tematem rozmów na całym terytorium.",
+              "Doniesienia o „Nakaz aresztowania” dotarły do Gazette, zanim ruszyły prasy drukarskie.",
+              "Świadkowie z pogranicza nieśli wieści o „Nakaz aresztowania” od jednej osady do następnej.",
+              "Do końca dnia „Nakaz aresztowania” znalazło miejsce wśród godnych uwagi wydarzeń na terytorium."
+            ]
+          },
+          "default": {
+            "screenText": "Po pokonaniu bandyty otrzymaj +$20."
+          }
+        }
+      },
+      {
+        "id": "reeves_hunted",
+        "title": "Marshal na twoim tropie",
+        "screenText": "Marshal Reeves ostro zwalcza rosnący problem Przestępców. Przesuń Szeryfa o maksymalnie 2 pola w stronę gracza, który wywołał wydarzenie; jeśli Szeryf do niego dotrze, odrzuć 1 Kartę Pokera.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Reeves przypina twoje nazwisko pod latarnią i rusza w ciemność.\"",
+        "newspaperText": [
+          "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: reeves przypina twoje nazwisko pod latarnią i rusza w ciemność.",
+          "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: reeves przypina twoje nazwisko pod latarnią i rusza w ciemność.",
+          "Trop większej historii doprowadził do nowego wydarzenia: reeves przypina twoje nazwisko pod latarnią i rusza w ciemność.",
+          "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: reeves przypina twoje nazwisko pod latarnią i rusza w ciemność."
+        ],
+        "onResolved": [
+          {
+            "_index": 1,
+            "text": "Marshal na twoim tropie został rozpatrzony."
+          }
+        ],
+        "onExpired": [
+          {
+            "_index": 1,
+            "text": "Marshal na twoim tropie został zignorowany."
+          }
+        ],
+        "playerAwareText": {
+          "samePlayer": {
+            "title": "Reeves ma twoje nazwisko",
+            "screenText": "Marshal Reeves pamięta, że odrzuciłeś jego wcześniejsze wezwanie o pomoc. Twoja przestępcza reputacja wyniosła teraz twoje nazwisko na samą górę listy. Przesuń Szeryfa o maksymalnie 3 pola bezpośrednio w swoją stronę. Jeśli dotrze na twoje pole, odrzuć 2 Karty Pokera.",
+            "newspaperText": [
+              "Wydarzenia związane z „Marshal na twoim tropie” stały się tematem rozmów na całym terytorium.",
+              "Doniesienia o „Marshal na twoim tropie” dotarły do Gazette, zanim ruszyły prasy drukarskie.",
+              "Świadkowie z pogranicza nieśli wieści o „Marshal na twoim tropie” od jednej osady do następnej.",
+              "Do końca dnia „Marshal na twoim tropie” znalazło miejsce wśród godnych uwagi wydarzeń na terytorium."
+            ]
+          },
+          "differentPlayer": {
+            "title": "Marshal na twoim tropie",
+            "screenText": "Reeves mówi, że ktoś odrzucił jego wezwanie, gdy zaczęły się kłopoty, i teraz pogranicze płaci cenę. Twoja nowa przestępcza reputacja zwraca jego uwagę. Przesuń Szeryfa o maksymalnie 2 pola w swoją stronę; jeśli dotrze na twoje pole, odrzuć 1 Kartę Pokera.",
+            "newspaperText": [
+              "Wydarzenia związane z „Marshal na twoim tropie” stały się tematem rozmów na całym terytorium.",
+              "Doniesienia o „Marshal na twoim tropie” dotarły do Gazette, zanim ruszyły prasy drukarskie.",
+              "Świadkowie z pogranicza nieśli wieści o „Marshal na twoim tropie” od jednej osady do następnej.",
+              "Do końca dnia „Marshal na twoim tropie” znalazło miejsce wśród godnych uwagi wydarzeń na terytorium."
+            ]
+          },
+          "default": {
+            "screenText": "Przesuń Szeryfa o maksymalnie 2 pola w stronę gracza, który wywołał wydarzenie; jeśli Szeryf do niego dotrze, odrzuć 1 Kartę Pokera."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "arc_silas_bell_showman",
+    "title": "Objazdowe widowisko Silasa Bella",
+    "newspaperText": [
+      "Osobista historia pogranicza „Objazdowe widowisko Silasa Bella” towarzyszyła jednemu z jeźdźców przez serię powiązanych spotkań.",
+      "Rozwijająca się historia „Objazdowe widowisko Silasa Bella” przewijała się przez wydarzenia dnia i pozostawiła trwały ślad na uczestniczącym w niej jeźdźcu.",
+      "Kilka powiązanych incydentów ułożyło się w historię „Objazdowe widowisko Silasa Bella”, dając jednemu jeźdźcowi własną opowieść.",
+      "To, co zaczęło się jako pojedyncze spotkanie, rozrosło się w rozwijającą się historię pogranicza „Objazdowe widowisko Silasa Bella”."
+    ],
+    "nodes": [
+      {
+        "id": "showman_arrives",
+        "title": "Malowany wóz",
+        "screenText": "Zakończ ruch w Kabarecie w Red Falls, aby dobrać 2 Karty Pokera.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Malowany wóz wtacza się do Red Falls, obiecując w równych częściach cuda, muzykę i kłamstwa.\"",
+        "newspaperText": [
+          "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: malowany wóz wtacza się do Red Falls, obiecując w równych częściach cuda, muzykę i kłamstwa.",
+          "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: malowany wóz wtacza się do Red Falls, obiecując w równych częściach cuda, muzykę i kłamstwa.",
+          "Trop większej historii doprowadził do nowego wydarzenia: malowany wóz wtacza się do Red Falls, obiecując w równych częściach cuda, muzykę i kłamstwa.",
+          "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: malowany wóz wtacza się do Red Falls, obiecując w równych częściach cuda, muzykę i kłamstwa."
+        ],
+        "onResolved": [
+          {
+            "_index": 1,
+            "text": "Malowany wóz został rozpatrzony."
+          }
+        ],
+        "onExpired": [
+          {
+            "_index": 1,
+            "text": "Malowany wóz został zignorowany."
+          }
+        ]
+      },
+      {
+        "id": "showman_grand_show",
+        "title": "Wielkie widowisko pogranicza",
+        "screenText": "Silas czyni twoje zwycięstwo w pokerze główną atrakcją swojego Wielkiego widowiska pogranicza. Otrzymaj +1 PL i +$20.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Silas Bell nazywa twoją rękę cudem i sprzedaje bilety, zanim karty zdążą ostygnąć.\"",
+        "newspaperText": [
+          "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: silas Bell nazywa twoją rękę cudem i sprzedaje bilety, zanim karty zdążą ostygnąć.",
+          "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: silas Bell nazywa twoją rękę cudem i sprzedaje bilety, zanim karty zdążą ostygnąć.",
+          "Trop większej historii doprowadził do nowego wydarzenia: silas Bell nazywa twoją rękę cudem i sprzedaje bilety, zanim karty zdążą ostygnąć.",
+          "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: silas Bell nazywa twoją rękę cudem i sprzedaje bilety, zanim karty zdążą ostygnąć."
+        ],
+        "onResolved": [
+          {
+            "_index": 1,
+            "text": "Wielkie widowisko pogranicza zostało rozpatrzone."
+          }
+        ],
+        "onExpired": [
+          {
+            "_index": 1,
+            "text": "Wielkie widowisko pogranicza zostało zignorowane."
+          }
+        ],
+        "playerAwareText": {
+          "samePlayer": {
+            "screenText": "Silas Bell rozpoznaje osobę, która wcześniej pomogła postawić jego malowane widowisko na nogi. Czyni twoje zwycięstwo w pokerze główną atrakcją. Otrzymaj +1 PL i +$30.",
+            "newspaperText": [
+              "Wydarzenia związane z „Wielkie widowisko pogranicza” stały się tematem rozmów na całym terytorium.",
+              "Doniesienia o „Wielkie widowisko pogranicza” dotarły do Gazette, zanim ruszyły prasy drukarskie.",
+              "Świadkowie z pogranicza nieśli wieści o „Wielkie widowisko pogranicza” od jednej osady do następnej.",
+              "Do końca dnia „Wielkie widowisko pogranicza” znalazło miejsce wśród godnych uwagi wydarzeń na terytorium."
+            ]
+          },
+          "differentPlayer": {
+            "screenText": "Silas przechwala się, że inny jeździec rozkręcił jego show, a potem czyni twoje zwycięstwo w pokerze głównym numerem wieczoru. Otrzymaj +1 PL i +$20.",
+            "newspaperText": [
+              "Wydarzenia związane z „Wielkie widowisko pogranicza” stały się tematem rozmów na całym terytorium.",
+              "Doniesienia o „Wielkie widowisko pogranicza” dotarły do Gazette, zanim ruszyły prasy drukarskie.",
+              "Świadkowie z pogranicza nieśli wieści o „Wielkie widowisko pogranicza” od jednej osady do następnej.",
+              "Do końca dnia „Wielkie widowisko pogranicza” znalazło miejsce wśród godnych uwagi wydarzeń na terytorium."
+            ]
+          },
+          "default": {
+            "screenText": "Silas czyni twoje zwycięstwo w pokerze główną atrakcją swojego Wielkiego widowiska pogranicza. Otrzymaj +1 PL i +$20."
+          }
+        }
+      },
+      {
+        "id": "showman_swindle",
+        "title": "Wielki przekręt",
+        "screenText": "Silas zajął się mniej uczciwymi interesami. Po zakupie odrzuć $10 albo 1 Kartę Pokera.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Etykieta mówi „oryginalne”. Uśmiech showmana mówi coś innego.\"",
+        "newspaperText": [
+          "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: etykieta mówi „oryginalne”. Uśmiech showmana mówi coś innego.",
+          "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: etykieta mówi „oryginalne”. Uśmiech showmana mówi coś innego.",
+          "Trop większej historii doprowadził do nowego wydarzenia: etykieta mówi „oryginalne”. Uśmiech showmana mówi coś innego.",
+          "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: etykieta mówi „oryginalne”. Uśmiech showmana mówi coś innego."
+        ],
+        "onResolved": [
+          {
+            "_index": 1,
+            "text": "Wielki przekręt został rozpatrzony."
+          }
+        ],
+        "onExpired": [
+          {
+            "_index": 1,
+            "text": "Wielki przekręt został zignorowany."
+          }
+        ],
+        "playerAwareText": {
+          "samePlayer": {
+            "title": "Przekręt z twoim nazwiskiem",
+            "screenText": "Silas Bell pamięta, że zostawiłeś go, gdy jego widowisko potrzebowało pomocy, i ta „okazja” została przygotowana specjalnie dla ciebie. Po zakupie zapłać dodatkowe $20 albo odrzuć 2 Karty Pokera.",
+            "newspaperText": [
+              "Wydarzenia związane z „Wielki przekręt” stały się tematem rozmów na całym terytorium.",
+              "Doniesienia o „Wielki przekręt” dotarły do Gazette, zanim ruszyły prasy drukarskie.",
+              "Świadkowie z pogranicza nieśli wieści o „Wielki przekręt” od jednej osady do następnej.",
+              "Do końca dnia „Wielki przekręt” znalazło miejsce wśród godnych uwagi wydarzeń na terytorium."
+            ]
+          },
+          "differentPlayer": {
+            "title": "Wielki przekręt",
+            "screenText": "Silas narzeka, że inny jeździec zostawił jego show w kurzu. Od tamtej pory nauczył się mniej uczciwych sposobów wiązania końca z końcem, ale do ciebie nie żywi szczególnej urazy. Po zakupie odrzuć $10 albo 1 Kartę Pokera.",
+            "newspaperText": [
+              "Wydarzenia związane z „Wielki przekręt” stały się tematem rozmów na całym terytorium.",
+              "Doniesienia o „Wielki przekręt” dotarły do Gazette, zanim ruszyły prasy drukarskie.",
+              "Świadkowie z pogranicza nieśli wieści o „Wielki przekręt” od jednej osady do następnej.",
+              "Do końca dnia „Wielki przekręt” znalazło miejsce wśród godnych uwagi wydarzeń na terytorium."
+            ]
+          },
+          "default": {
+            "screenText": "Po zakupie odrzuć $10 albo 1 Kartę Pokera."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "arc_jeremiah_pike",
+    "title": "Jeremiah Pike, legendarny traper",
+    "newspaperText": [
+      "Osobista historia pogranicza „Jeremiah Pike, legendarny traper” towarzyszyła jednemu z jeźdźców przez serię powiązanych spotkań.",
+      "Rozwijająca się historia „Jeremiah Pike, legendarny traper” przewijała się przez wydarzenia dnia i pozostawiła trwały ślad na uczestniczącym w niej jeźdźcu.",
+      "Kilka powiązanych incydentów ułożyło się w historię „Jeremiah Pike, legendarny traper”, dając jednemu jeźdźcowi własną opowieść.",
+      "To, co zaczęło się jako pojedyncze spotkanie, rozrosło się w rozwijającą się historię pogranicza „Jeremiah Pike, legendarny traper”."
+    ],
+    "nodes": [
+      {
+        "id": "pike_tracks",
+        "title": "Ślady starego Pike’a",
+        "screenText": "Po udanym Polowaniu otrzymaj, jeśli to możliwe, 1 dodatkowy zasób ze zwierzęcia; w przeciwnym razie otrzymaj $10.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Stary Jeremiah Pike bada ślady i chrząka, jakby zwierzę było mu winne pieniądze.\"",
+        "newspaperText": [
+          "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: stary Jeremiah Pike bada ślady i chrząka, jakby zwierzę było mu winne pieniądze.",
+          "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: stary Jeremiah Pike bada ślady i chrząka, jakby zwierzę było mu winne pieniądze.",
+          "Trop większej historii doprowadził do nowego wydarzenia: stary Jeremiah Pike bada ślady i chrząka, jakby zwierzę było mu winne pieniądze.",
+          "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: stary Jeremiah Pike bada ślady i chrząka, jakby zwierzę było mu winne pieniądze."
+        ],
+        "onResolved": [
+          {
+            "_index": 1,
+            "text": "Ślady starego Pike’a zostały rozpatrzone."
+          }
+        ],
+        "onExpired": [
+          {
+            "_index": 1,
+            "text": "Ślady starego Pike’a zostały zignorowane."
+          }
+        ]
+      },
+      {
+        "id": "pike_white_bear",
+        "title": "Trop białego niedźwiedzia",
+        "screenText": "Pike oferuje ci trop białego niedźwiedzia. Dobierz dwa Zwierzęta i wybierz jedno do spotkania. Jeśli odniesiesz sukces, otrzymaj +1 PL.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Pike wskazuje drżącym palcem. Ten ślad należy do czegoś zbyt wielkiego na zwykły strach.\"",
+        "newspaperText": [
+          "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: pike wskazuje drżącym palcem. Ten ślad należy do czegoś zbyt wielkiego na zwykły strach.",
+          "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: pike wskazuje drżącym palcem. Ten ślad należy do czegoś zbyt wielkiego na zwykły strach.",
+          "Trop większej historii doprowadził do nowego wydarzenia: pike wskazuje drżącym palcem. Ten ślad należy do czegoś zbyt wielkiego na zwykły strach.",
+          "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: pike wskazuje drżącym palcem. Ten ślad należy do czegoś zbyt wielkiego na zwykły strach."
+        ],
+        "onResolved": [
+          {
+            "_index": 1,
+            "text": "Trop białego niedźwiedzia został rozpatrzony."
+          }
+        ],
+        "onExpired": [
+          {
+            "_index": 1,
+            "text": "Trop białego niedźwiedzia został zignorowany."
+          }
+        ],
+        "playerAwareText": {
+          "samePlayer": {
+            "screenText": "Stary Pike rozpoznaje łowcę, który wcześniej zdobył jego zaufanie. Daje ci najlepszą ocenę tropu białego niedźwiedzia. Dobierz dwa Zwierzęta i wybierz jedno do spotkania. Jeśli odniesiesz sukces, otrzymaj +1 PL i $10.",
+            "newspaperText": [
+              "Wydarzenia związane z „Trop białego niedźwiedzia” stały się tematem rozmów na całym terytorium.",
+              "Doniesienia o „Trop białego niedźwiedzia” dotarły do Gazette, zanim ruszyły prasy drukarskie.",
+              "Świadkowie z pogranicza nieśli wieści o „Trop białego niedźwiedzia” od jednej osady do następnej.",
+              "Do końca dnia „Trop białego niedźwiedzia” znalazło miejsce wśród godnych uwagi wydarzeń na terytorium."
+            ]
+          },
+          "differentPlayer": {
+            "screenText": "Stary Pike mówi, że inny łowca zdobył jego zaufanie i pomógł podjąć trop białego niedźwiedzia. Teraz pozwala ci nim podążyć. Dobierz dwa Zwierzęta i wybierz jedno do spotkania. Jeśli odniesiesz sukces, otrzymaj +1 PL.",
+            "newspaperText": [
+              "Wydarzenia związane z „Trop białego niedźwiedzia” stały się tematem rozmów na całym terytorium.",
+              "Doniesienia o „Trop białego niedźwiedzia” dotarły do Gazette, zanim ruszyły prasy drukarskie.",
+              "Świadkowie z pogranicza nieśli wieści o „Trop białego niedźwiedzia” od jednej osady do następnej.",
+              "Do końca dnia „Trop białego niedźwiedzia” znalazło miejsce wśród godnych uwagi wydarzeń na terytorium."
+            ]
+          },
+          "default": {
+            "screenText": "Dobierz dwa Zwierzęta i wybierz jedno do spotkania. Jeśli odniesiesz sukces, otrzymaj +1 PL."
+          }
+        }
+      },
+      {
+        "id": "pike_trap_line",
+        "title": "Uruchomiona pułapka",
+        "screenText": "Po tym, jak go zignorowano, Pike zaczął złośliwie zastawiać pułapki.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Ukryta pułapka zatrzaskuje się. Pike nie wybacza, gdy się go ignoruje.\"",
+        "newspaperText": [
+          "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: ukryta pułapka zatrzaskuje się. Pike nie wybacza, gdy się go ignoruje.",
+          "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: ukryta pułapka zatrzaskuje się. Pike nie wybacza, gdy się go ignoruje.",
+          "Trop większej historii doprowadził do nowego wydarzenia: ukryta pułapka zatrzaskuje się. Pike nie wybacza, gdy się go ignoruje.",
+          "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: ukryta pułapka zatrzaskuje się. Pike nie wybacza, gdy się go ignoruje."
+        ],
+        "onResolved": [
+          {
+            "_index": 1,
+            "text": "Uruchomiona pułapka została rozpatrzona."
+          }
+        ],
+        "onExpired": [
+          {
+            "_index": 1,
+            "text": "Uruchomiona pułapka została zignorowana."
+          }
+        ],
+        "playerAwareText": {
+          "samePlayer": {
+            "title": "Pułapka tylko dla ciebie",
+            "screenText": "Rozpoznajesz znak Pike’a przy pułapce — została zastawiona na jeźdźca, który go zignorował. Otrzymaj 1 ranę, chyba że odrzucisz 1 Kartę Pokera.",
+            "newspaperText": [
+              "Wydarzenia związane z „Uruchomiona pułapka” stały się tematem rozmów na całym terytorium.",
+              "Doniesienia o „Uruchomiona pułapka” dotarły do Gazette, zanim ruszyły prasy drukarskie.",
+              "Świadkowie z pogranicza nieśli wieści o „Uruchomiona pułapka” od jednej osady do następnej.",
+              "Do końca dnia „Uruchomiona pułapka” znalazło miejsce wśród godnych uwagi wydarzeń na terytorium."
+            ]
+          },
+          "differentPlayer": {
+            "title": "Pułapka na kogoś innego",
+            "screenText": "Dostrzegasz pułapkę Pike’a, zanim w nią wejdziesz. Mruczy, że była przeznaczona dla jeźdźca, który wcześniej go zignorował. Rozbrój ją i uratuj, co się da: otrzymaj $10 albo dobierz 1 Kartę Pokera.",
+            "newspaperText": [
+              "Wydarzenia związane z „Uruchomiona pułapka” stały się tematem rozmów na całym terytorium.",
+              "Doniesienia o „Uruchomiona pułapka” dotarły do Gazette, zanim ruszyły prasy drukarskie.",
+              "Świadkowie z pogranicza nieśli wieści o „Uruchomiona pułapka” od jednej osady do następnej.",
+              "Do końca dnia „Uruchomiona pułapka” znalazło miejsce wśród godnych uwagi wydarzeń na terytorium."
+            ]
+          },
+          "default": {
+            "screenText": "Otrzymaj 1 ranę, chyba że odrzucisz 1 Kartę Pokera."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "arc_card_shark",
+    "title": "Karciany rekin z Red Falls",
+    "newspaperText": [
+      "Osobista historia pogranicza „Karciany rekin z Red Falls” towarzyszyła jednemu z jeźdźców przez serię powiązanych spotkań.",
+      "Rozwijająca się historia „Karciany rekin z Red Falls” przewijała się przez wydarzenia dnia i pozostawiła trwały ślad na uczestniczącym w niej jeźdźcu.",
+      "Kilka powiązanych incydentów ułożyło się w historię „Karciany rekin z Red Falls”, dając jednemu jeźdźcowi własną opowieść.",
+      "To, co zaczęło się jako pojedyncze spotkanie, rozrosło się w rozwijającą się historię pogranicza „Karciany rekin z Red Falls”."
+    ],
+    "nodes": [
+      {
+        "id": "cardshark_first_hand",
+        "title": "Nieznajomy przy stole",
+        "screenText": "Podczas tego rozdania pokera aktywny gracz dobiera 1 dodatkową Kartę Pokera, a następnie odrzuca 1.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Nieznajomy w jasnych rękawiczkach dosiada się bez pytania i uśmiecha bez cienia ciepła.\"",
+        "newspaperText": [
+          "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: nieznajomy w jasnych rękawiczkach dosiada się bez pytania i uśmiecha bez cienia ciepła.",
+          "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: nieznajomy w jasnych rękawiczkach dosiada się bez pytania i uśmiecha bez cienia ciepła.",
+          "Trop większej historii doprowadził do nowego wydarzenia: nieznajomy w jasnych rękawiczkach dosiada się bez pytania i uśmiecha bez cienia ciepła.",
+          "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: nieznajomy w jasnych rękawiczkach dosiada się bez pytania i uśmiecha bez cienia ciepła."
+        ],
+        "onResolved": [
+          {
+            "_index": 1,
+            "text": "Nieznajomy przy stole został rozpatrzony."
+          }
+        ],
+        "onExpired": [
+          {
+            "_index": 1,
+            "text": "Nieznajomy przy stole został zignorowany."
+          }
+        ]
+      },
+      {
+        "id": "cardshark_beaten",
+        "title": "Pokonać rekina",
+        "screenText": "Po zwycięstwie w pokerze nad Karcianym rekinem z Red Falls otrzymaj +$30 i 1 punkt Hazardzisty.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Po raz pierwszy tej nocy uśmiech nieznajomego pęka.\"",
+        "newspaperText": [
+          "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: po raz pierwszy tej nocy uśmiech nieznajomego pęka.",
+          "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: po raz pierwszy tej nocy uśmiech nieznajomego pęka.",
+          "Trop większej historii doprowadził do nowego wydarzenia: po raz pierwszy tej nocy uśmiech nieznajomego pęka.",
+          "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: po raz pierwszy tej nocy uśmiech nieznajomego pęka."
+        ],
+        "onResolved": [
+          {
+            "_index": 1,
+            "text": "Pokonać rekina zostało rozpatrzone."
+          }
+        ],
+        "onExpired": [
+          {
+            "_index": 1,
+            "text": "Pokonać rekina zostało zignorowane."
+          }
+        ],
+        "playerAwareText": {
+          "samePlayer": {
+            "screenText": "Karciany rekin rozpoznaje cię z wcześniejszego stołu i podnosi stawkę rewanżu. Twoje zwycięstwo wreszcie łamie jego uśmiech. Otrzymaj +$40 i 1 punkt Hazardzisty.",
+            "newspaperText": [
+              "Wydarzenia związane z „Pokonać rekina” stały się tematem rozmów na całym terytorium.",
+              "Doniesienia o „Pokonać rekina” dotarły do Gazette, zanim ruszyły prasy drukarskie.",
+              "Świadkowie z pogranicza nieśli wieści o „Pokonać rekina” od jednej osady do następnej.",
+              "Do końca dnia „Pokonać rekina” znalazło miejsce wśród godnych uwagi wydarzeń na terytorium."
+            ]
+          },
+          "differentPlayer": {
+            "screenText": "Karciany rekin mówi, że wcześniej mierzył się przy kartach z innym graczem. Teraz to ty jesteś nowym rywalem, który wreszcie go pokonuje. Otrzymaj +$30 i 1 punkt Hazardzisty.",
+            "newspaperText": [
+              "Wydarzenia związane z „Pokonać rekina” stały się tematem rozmów na całym terytorium.",
+              "Doniesienia o „Pokonać rekina” dotarły do Gazette, zanim ruszyły prasy drukarskie.",
+              "Świadkowie z pogranicza nieśli wieści o „Pokonać rekina” od jednej osady do następnej.",
+              "Do końca dnia „Pokonać rekina” znalazło miejsce wśród godnych uwagi wydarzeń na terytorium."
+            ]
+          },
+          "default": {
+            "screenText": "Po zwycięstwie w pokerze otrzymaj +$30 i 1 punkt Hazardzisty."
+          }
+        }
+      },
+      {
+        "id": "cardshark_debt",
+        "title": "Windykator",
+        "screenText": "Niedokończone interesy Karcianego rekina wkraczają do twojej walki.",
+        "narrationScript": "[western storyteller][old cowboy][raspy] \"Windykator wychodzi z zaułka i wymienia liczby, których żaden uczciwy człowiek nie pamięta.\"",
+        "newspaperText": [
+          "Rozwijająca się historia przybrała kolejny obrót, a doniesienia opisywały scenę tak: windykator wychodzi z zaułka i wymienia liczby, których żaden uczciwy człowiek nie pamięta.",
+          "Kolejny rozdział rozwijającej się opowieści dotarł do Gazette z pamiętnym szczegółem: windykator wychodzi z zaułka i wymienia liczby, których żaden uczciwy człowiek nie pamięta.",
+          "Trop większej historii doprowadził do nowego wydarzenia: windykator wychodzi z zaułka i wymienia liczby, których żaden uczciwy człowiek nie pamięta.",
+          "Świadkowie łączyli najnowszy zwrot historii z wyjątkowo zapadającą w pamięć sceną: windykator wychodzi z zaułka i wymienia liczby, których żaden uczciwy człowiek nie pamięta."
+        ],
+        "onResolved": [
+          {
+            "_index": 1,
+            "text": "Windykator został rozpatrzony."
+          }
+        ],
+        "onExpired": [
+          {
+            "_index": 1,
+            "text": "Windykator został zignorowany."
+          }
+        ],
+        "playerAwareText": {
+          "samePlayer": {
+            "title": "Twój dług staje się wymagalny",
+            "screenText": "Karciany rekin pamięta, że zostawiłeś jego wyzwanie niedokończone, a jego windykator zastępuje ci drogę przed walką. Zapłać $20, aby spłacić dług i walczyć normalnie, albo odmów: jeśli przegrasz tę walkę, otrzymaj 1 ranę i odrzuć 1 Kartę Pokera.",
+            "newspaperText": [
+              "Wydarzenia związane z „Windykator” stały się tematem rozmów na całym terytorium.",
+              "Doniesienia o „Windykator” dotarły do Gazette, zanim ruszyły prasy drukarskie.",
+              "Świadkowie z pogranicza nieśli wieści o „Windykator” od jednej osady do następnej.",
+              "Do końca dnia „Windykator” znalazło miejsce wśród godnych uwagi wydarzeń na terytorium."
+            ]
+          },
+          "differentPlayer": {
+            "title": "Wynajęte mięśnie",
+            "screenText": "Windykator Karcianego rekina mówi, że inny gracz zostawił niedokończone interesy. Oferuje ci $20, jeśli zrobisz przykład z przeciwnika. Jeśli wygrasz tę walkę z graczem, otrzymaj +$20. Jeśli przegrasz, nie otrzymujesz nic dodatkowego.",
+            "newspaperText": [
+              "Wydarzenia związane z „Windykator” stały się tematem rozmów na całym terytorium.",
+              "Doniesienia o „Windykator” dotarły do Gazette, zanim ruszyły prasy drukarskie.",
+              "Świadkowie z pogranicza nieśli wieści o „Windykator” od jednej osady do następnej.",
+              "Do końca dnia „Windykator” znalazło miejsce wśród godnych uwagi wydarzeń na terytorium."
+            ]
+          },
+          "default": {
+            "screenText": "Jeśli wygrasz tę walkę z graczem, otrzymaj +$20."
+          }
+        }
+      }
+    ]
+  }
+]
